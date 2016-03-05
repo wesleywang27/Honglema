@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Picture extends Model
 {
-    protected $table = 't_picture';
+    protected $table = 'picture';
 
     public $timestamps = false;
 

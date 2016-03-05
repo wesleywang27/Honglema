@@ -47,5 +47,10 @@ class Celebrity extends Model
 
     protected $guarded = [];
 
+    public function pictures()
+    {
+        $hasMany = $this->hasMany('App\Models\Picture', 'uid');
+        return $hasMany;
+    }
         
 }

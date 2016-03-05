@@ -1,5 +1,3 @@
-<!-- resources/views/tasks.blade.php -->
-
 @extends('layouts.app')
 
 @section('content')
@@ -14,13 +12,12 @@
             <div class="panel-body">
                 <table class="table table-striped task-table">
 
-                    <!-- Table Headings -->
                     <thead>
                     <th>id</th>
                         <th>昵称</th>
+                        <th>图片</th>
                     </thead>
 
-                    <!-- Table Body -->
                     <tbody>
                         @foreach ($celebrities as $celebrity)
                             <tr>
@@ -30,6 +27,11 @@
                                 </td>
                                 <td class="table-text">
                                     <div>{{ $celebrity->nickname }}</div>
+                                </td>
+                                <td class="table-text">
+                                        @foreach ( $celebrity->pictures as $picture)
+                                            <div>{{ $picture->url }}</div>
+                                        @endforeach
                                 </td>
                             </tr>
                         @endforeach
