@@ -1,7 +1,6 @@
 <?php
 use App\Models\Celebrity;
 use App\Models\Picture;
-use DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +18,7 @@ Route::get('/celebrities/list', function () {
     return view('celebrities', ['celebrities' => $celebrities]);
 });
 
-Route::get('/celebrity/{celebrity}', function ($celebrity) {
+Route::get('/celebrity/{celebrity}', function (Celebrity $celebrity) {
     return view('celebrity', ['celebrity' => $celebrity]);
 });
 
