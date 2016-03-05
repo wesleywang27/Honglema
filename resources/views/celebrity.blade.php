@@ -55,7 +55,7 @@
 					<div class="single-page-artical">
 						<div class="artical-content">
 							<img src="{{URL::asset('images/single-post-pic.jpg')}}" title="banner1">
-							<h3><a style="margin-left:1em;color:black;" href="#">红了吗红人&nbsp;|&nbsp;小玩子&nbsp;&nbsp;<img src="{{URL::asset('iimages/girl.png')}}" style="width:0.8em;"></a></h3>
+							<h3><a style="margin-left:1em;color:black;" href="#">红了吗红人&nbsp;|&nbsp;小玩子&nbsp;&nbsp;<img src="{{URL::asset('images/girl.png')}}" style="width:0.8em;"></a></h3>
 							<p>
 								<ul>
 									<li>粉丝312</li>
