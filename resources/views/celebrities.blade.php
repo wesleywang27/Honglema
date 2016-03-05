@@ -98,7 +98,7 @@
             <ul id="tiles">
                 <!-- These are our grid blocks -->
                 <li onclick="location.href='single-page.html';">
-                    <img src="{{URL::asset('images/img4.jpg')}}" width="100%">
+                    <img src="{{URL::asset('images/img4.jpg')}}">
                     <div class="post-info">
                         <div class="post-basic-info">
                             <h3 style="color:black;">小玩子</h3>
@@ -107,7 +107,7 @@
                     </div>
                 </li>
                 <li onclick="location.href='single-page.html';">
-                    <img src="{{URL::asset('images/img3.jpg')}}" width="100%">
+                    <img src="{{URL::asset('images/img3.jpg')}}">
                     <div class="post-info">
                         <div class="post-basic-info">
                             <h3 style="color:black;">小玩子</h3>
@@ -116,7 +116,7 @@
                     </div>
                 </li>
                 <li onclick="location.href='single-page.html';">
-                    <img src="{{URL::asset('images/img1.jpg')}}" width="100%">
+                    <img src="{{URL::asset('images/img1.jpg')}}">
                     <div class="post-info">
                         <div class="post-basic-info">
                             <h3 style="color:black;">小玩子</h3>
@@ -125,7 +125,7 @@
                     </div>
                 </li>
                 <li onclick="location.href='single-page.html';">
-                    <img src="{{URL::asset('images/img2.jpg')}}" width="100%">
+                    <img src="{{URL::asset('images/img2.jpg')}}">
                     <div class="post-info">
                         <div class="post-basic-info">
                             <h3 style="color:black;">小玩子</h3>
@@ -151,7 +151,7 @@
             options = {
                 autoResize: true, // This will auto-update the layout when the browser window is resized.
                 container: $main, // Optional, used for some extra CSS styling
-                offset: 5, // Optional, the distance between grid items
+                offset: 4, // Optional, the distance between grid items
                 itemWidth:140 // Optional, the width of a grid item
             };
         /**
