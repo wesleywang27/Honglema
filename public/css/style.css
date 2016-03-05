@@ -56,7 +56,7 @@ body{
 	width:48px;
 	height:34px;
 	display:block;
-	background:url(../images/nav-icon.png) no-repeat 0px 0px;
+	background:url(../../../../hongleme/images/nav-icon.png) no-repeat 0px 0px;
 }
 .top-searchbar {
 	float: left;
@@ -91,7 +91,7 @@ body{
 }
 .top-searchbar input[type="submit"]{
 	position: absolute;
-	background: url(../images/search-icon.png) no-repeat 0px 0px;
+	background: url(../../../../hongleme/images/search-icon.png) no-repeat 0px 0px;
 	height: 26px;
 	width: 26px;
 	display: inline-block;
@@ -156,10 +156,10 @@ a.boxclose{
 	width:35px;
 	height:35px;
 	display:inline-block;
-	background:url(../images/close2.png) no-repeat 0px 0px;
+	background:url(../../../../hongleme/images/close2.png) no-repeat 0px 0px;
 }
 .boxclose span:hover{
-	background:url(../images/close2h.png) no-repeat 0px 0px;
+	background:url(../../../../hongleme/images/close2h.png) no-repeat 0px 0px;
 }
 /*--userinfo--*/
 .userinfo{
@@ -196,7 +196,7 @@ a.boxclose{
 /*--//userinfo--*/
 /*----start-post-grids----*/
 .post-share span{
-	background:url(../images/facebook.png) no-repeat 0px 0px;
+	background:url(../../../../hongleme/images/facebook.png) no-repeat 0px 0px;
 	height:26px;
 	width:26px;
 	display:inline-block;
@@ -206,19 +206,19 @@ a.boxclose{
 	-o-border-radius:30em;
 }
 .post-share span:hover{
-	background:url(../images/facebookh.png) no-repeat 0px 0px;
+	background:url(../../../../hongleme/images/facebookh.png) no-repeat 0px 0px;
 }
 .rateit span{
 	height:18px;
 	width:76px;
-	background:url(../images/start-rate.png) no-repeat 0px 0px; 
+	background:url(../../../../hongleme/images/start-rate.png) no-repeat 0px 0px;
 	display:inline-block;
 }
 .rateit span:hover{
-	background:url(../images/start-rateh.png) no-repeat 0px 0px; 
+	background:url(../../../../hongleme/images/start-rateh.png) no-repeat 0px 0px;
 }
 .post-basic-info{
-	padding: 7% 7% 5% 7%;
+	padding: 5%;
 }
 .post-basic-info h3 a{
 	color: #717171;
@@ -241,7 +241,7 @@ a.boxclose{
 	height:12px;
 	width:12px;
 	display:inline-block;
-	background:url(../images/map-pin.png) no-repeat 0px 0px;
+	background:url(../../../../hongleme/images/map-pin.png) no-repeat 0px 0px;
 	margin-right: 0.4em;
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
@@ -252,7 +252,7 @@ a.boxclose{
 	color:#B9CB41;
 }
 .post-basic-info p{
-	font-size: 0.875em;
+	font-size: 0.6em;
 	color: #B7B5B5;
 	margin: 0.6em 0;
 	line-height: 1.5em;
@@ -419,7 +419,7 @@ p.para {
 	font-weight: 400;
 }
 .btn1:before{
-	content:url('../images/reply.png');
+	content:url('../../../../hongleme/images/reply.png');
 	float:left;
 }
 .btn1:hover{
@@ -824,7 +824,7 @@ span.mail a:hover{
 /*--media Quries for 640px-monitors-*/
 @media only screen and (max-width:640px) and (min-width:480px) {
 	.wrap{
-		width:90%;
+		width:100%;
 	}
 	.footer {
 		bottom: 0px;
@@ -930,7 +930,7 @@ span.mail a:hover{
 		width:100%;
 	}
 	.single-page,.contact-info{
-		margin-top: 7em;
+		/*margin-top: 7em;*/
 		/*padding: 4% 4% 5% 4%;*/
 	}
 }
@@ -1065,7 +1065,7 @@ span.mail a:hover{
 /*--media Quries for 320px-monitors-*/
 @media only screen and (max-width:320px) and (min-width:240px) {
 	.wrap{
-		width: 90%;
+		width: 100%;
 	}
 	.footer {
 		bottom: 0px;
@@ -1188,8 +1188,8 @@ span.mail a:hover{
 		width:100%;
 	}
 	.single-page,.contact-info{
-		margin-top: 9em;
-		padding: 4% 4% 5% 4%;
+		/*margin-top: 9em;*/
+		/*padding: 4% 4% 5% 4%;*/
 	}
 	.span_1_of_first1 h5 {
 		font-size: 1em;

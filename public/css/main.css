@@ -2,7 +2,7 @@
  * Grid container
  */
 #main {
-	/*margin-top: 9em;*/
+  /*margin-top: 9em;*/
 }
 #tiles {
   list-style-type: none;
@@ -11,25 +11,25 @@
   padding: 0;
 }
 #tiles li:hover img{
-	opacity:0.8;
+  opacity:0.8;
 }
 /**
  * Grid items
  */
 #tiles li {
- 	width: 280px;
-	background-color: #ffffff;
-	border: 1px solid #dedede;
-	border-radius: 2px;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	display: none;
-	cursor: pointer;
-	border-radius: 0.2em;
+  width: 150px;
+  background-color: #ffffff;
+  border: 1px solid #dedede;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  display: none;
+  cursor: pointer;
+  border-radius: 0.2em;
 }
 #tiles li img{
-	border-top-left-radius:0.2em;
-	border-top-right-radius:0.2em;
+  border-top-left-radius:0.2em;
+  border-top-right-radius:0.2em;
 }
 #tiles li.inactive {
   visibility: hidden;
@@ -37,8 +37,8 @@
 }
 
 #tiles li img {
- 	display: block;
-	width: 100%;
+  display: block;
+  width: 100%;
 }
 
 /**
@@ -68,17 +68,17 @@ footer a {
   width: 0;
   box-shadow: 0 1px 3px rgba(11, 194, 11, 0.2);
   -webkit-transition: width 0.3s ease-out;
-     -moz-transition: width 0.3s ease-out;
-       -o-transition: width 0.3s ease-out;
-          transition: width 0.3s ease-out;
+  -moz-transition: width 0.3s ease-out;
+  -o-transition: width 0.3s ease-out;
+  transition: width 0.3s ease-out;
 }
 
 /**
  * Placerholder css
  */
 .wookmark-placeholder {
-          border-radius: 2px;
-     -moz-border-radius: 2px;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   background-color: #eee;
   border: 1px solid #dedede;
@@ -97,9 +97,9 @@ footer a {
   float: left;
   margin: 5px;
   -webkit-transition: all 0.3s ease-out;
-     -moz-transition: all 0.3s ease-out;
-       -o-transition: all 0.3s ease-out;
-          transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .example-tiles a,
@@ -125,23 +125,23 @@ footer a {
 }
 /*--media Quries for 640px-monitors-*/
 @media only screen and (max-width:640px) and (min-width:480px) {
-	#main {
-		/*margin-top: 7em;*/
-	}
+  #main {
+    /*margin-top: 7em;*/
+  }
 }
 /*--media Quries for 480px-monitors-*/
 @media only screen and (max-width:480px) and (min-width:320px) {
-	#main {
-		/*margin-top: 9.5em;*/
-	}
+  #main {
+    /*margin-top: 9.5em;*/
+  }
 }
 /*--media Quries for 320px-monitors-*/
 @media only screen and (max-width:320px) and (min-width:240px) {
-	#main {
-		/*margin-top: 9em;*/
-	}
-	#tiles li {
-		width: 266px;
-	}
+  #main {
+    /*margin-top: 9em;*/
+  }
+  #tiles li {
+    width: 266px;
+  }
 }
 
