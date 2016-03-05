@@ -49,14 +49,14 @@
 <head>
     <title>Home</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="{{ URL::asset('assets/css/style.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ URL::asset('/css/style.css') }}" rel="stylesheet" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="{{URL::asset('assets/images/fav-icon.png')}}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{URL::asset('images/fav-icon.png')}}" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     </script>
     <link href='http://fonts.useso.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'/>
-        <link rel="stylesheet" href="{{URL::asset('assets/css/main.css')}}"/>
-        <script src="{{URL::asset('assets/js/jquery.min.js')}}"></script>
+        <link rel="stylesheet" href="{{URL::asset('css/main.css')}}"/>
+        <script src="{{URL::asset('js/jquery.min.js')}}"></script>
     <script type="text/javascript">
         var $ = jQuery.noConflict();
         $(function() {
@@ -98,7 +98,7 @@
             <ul id="tiles">
                 <!-- These are our grid blocks -->
                 <li onclick="location.href='single-page.html';">
-                    <img src="{{URL::asset('assets/images/img1.jpg')}}" width="200" height="200">
+                    <img src="{{URL::asset('images/img1.jpg')}}" width="200" height="200">
                     <div class="post-info">
                         <div class="post-basic-info">
                             <h3><a href="#">Animation films</a></h3>
@@ -117,7 +117,7 @@
                     </div>
                 </li>
                 <li onclick="location.href='single-page.html';">
-                    <img src="{{URL::asset('assets/images/img2.jpg')}}" width="200" height="299">
+                    <img src="{{URL::asset('images/img2.jpg')}}" width="200" height="299">
                     <div class="post-info">
                         <div class="post-basic-info">
                             <h3><a href="#">Animation films</a></h3>
@@ -127,7 +127,7 @@
                     </div>
                 </li>
                 <li onclick="location.href='single-page.html';">
-                    <img src="{{URL::asset('assets/images/img3.jpg')}}" width="200" height="214">
+                    <img src="{{URL::asset('images/img3.jpg')}}" width="200" height="214">
                     <div class="post-info">
                         <div class="post-basic-info">
                             <h3><a href="#">Animation films</a></h3>
@@ -137,7 +137,7 @@
                     </div>
                 </li>
                 <li onclick="location.href='single-page.html';">
-                    <img src="{{URL::asset('assets/images/img4.jpg')}}" width="200" height="333">
+                    <img src="{{URL::asset('images/img4.jpg')}}" width="200" height="333">
                     <div class="post-info">
                         <div class="post-basic-info">
                             <h3><a href="#">Animation films</a></h3>
@@ -147,7 +147,7 @@
                     </div>
                 </li>
                 <li onclick="location.href='single-page.html';">
-                    <img src="{{URL::asset('assets/images/img4.jpg')}}" width="200" height="333">
+                    <img src="{{URL::asset('images/img4.jpg')}}" width="200" height="333">
                     <div class="post-info">
                         <div class="post-basic-info">
                             <h3><a href="#">Animation films</a></h3>
@@ -162,8 +162,8 @@
 </div>
 <!---//End-content---->
 <!----wookmark-scripts---->
-<script src="{{URL::asset('assets/js/jquery.imagesloaded.js')}}"></script>
-<script src="{{URL::asset('assets/js/jquery.wookmark.js')}}"></script>
+<script src="{{URL::asset('js/jquery.imagesloaded.js')}}"></script>
+<script src="{{URL::asset('js/jquery.wookmark.js')}}"></script>
 <script type="text/javascript">
     (function ($){
         var $tiles = $('#tiles'),
