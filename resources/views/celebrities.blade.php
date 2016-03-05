@@ -152,7 +152,7 @@
                 autoResize: true, // This will auto-update the layout when the browser window is resized.
                 container: $main, // Optional, used for some extra CSS styling
                 offset: 5, // Optional, the distance between grid items
-                itemWidth:150 // Optional, the width of a grid item
+                itemWidth:140 // Optional, the width of a grid item
             };
         /**
          * Reinitializes the wookmark handler after all images have loaded
