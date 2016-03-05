@@ -18,6 +18,11 @@ Route::get('/celebrities/list', function () {
     return view('celebrities', ['celebrities' => $celebrities]);
 });
 
+Route::get('/celebrities/list.json', function () {
+    $celebrities = Celebrity::paginate(20);
+    return $celebrities;
+});
+
 Route::get('/celebrity/{celebrity}', function (Celebrity $celebrity) {
     return view('celebrity', ['celebrity' => $celebrity]);
 });
