@@ -3098,5 +3098,50 @@
         ],
         "description": "Symfony DomCrawler Component",
         "homepage": "https://symfony.com"
+    },
+    {
+        "name": "ignasbernotas/laravel-model-generator",
+        "version": "1.1",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ignasbernotas/laravel-model-generator.git",
+            "reference": "9eb4d00fefef86228f836f189336c628a426fd9a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "http://packagist.phpcomposer.com/files/ignasbernotas/laravel-model-generator/9eb4d00fefef86228f836f189336c628a426fd9a.zip",
+            "reference": "9eb4d00fefef86228f836f189336c628a426fd9a",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "~5.0",
+            "php": ">=5.4.0"
+        },
+        "time": "2016-02-29 07:41:36",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Iber\\Generator\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ignas Bernotas",
+                "email": "ignas@iber.lt"
+            }
+        ],
+        "description": "Laravel 5 model generator from existing schema",
+        "keywords": [
+            "generator",
+            "laravel",
+            "model",
+            "schema"
+        ]
     }
 ]
