@@ -14,7 +14,7 @@ use App\Models\Picture;
 */
 
 Route::get('/celebrities/list', function () {
-    $celebrities = Celebrity::paginate(3);
+    $celebrities = Celebrity::paginate(20);
     return view('celebrities', ['celebrities' => $celebrities]);
 });
 
