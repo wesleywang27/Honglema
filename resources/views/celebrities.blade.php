@@ -98,7 +98,7 @@
             <ul id="tiles">
                 <!-- These are our grid blocks -->
                 <li onclick="location.href='single-page.html';">
-                    <img src="{{URL::asset('jimages/img4.jpg')}}" width="100%">
+                    <img src="{{URL::asset('images/img4.jpg')}}" width="100%">
                     <div class="post-info">
                         <div class="post-basic-info">
                             <h3 style="color:black;">小玩子</h3>
@@ -107,7 +107,7 @@
                     </div>
                 </li>
                 <li onclick="location.href='single-page.html';">
-                    <img src="{{URL::asset('jimages/img3.jpg')}}" width="100%">
+                    <img src="{{URL::asset('images/img3.jpg')}}" width="100%">
                     <div class="post-info">
                         <div class="post-basic-info">
                             <h3 style="color:black;">小玩子</h3>
@@ -116,7 +116,7 @@
                     </div>
                 </li>
                 <li onclick="location.href='single-page.html';">
-                    <img src="{{URL::asset('jimages/img1.jpg')}}" width="100%">
+                    <img src="{{URL::asset('images/img1.jpg')}}" width="100%">
                     <div class="post-info">
                         <div class="post-basic-info">
                             <h3 style="color:black;">小玩子</h3>
@@ -125,7 +125,7 @@
                     </div>
                 </li>
                 <li onclick="location.href='single-page.html';">
-                    <img src="{{URL::asset('jimages/img2.jpg')}}" width="100%">
+                    <img src="{{URL::asset('images/img2.jpg')}}" width="100%">
                     <div class="post-info">
                         <div class="post-basic-info">
                             <h3 style="color:black;">小玩子</h3>
