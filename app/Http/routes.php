@@ -1,5 +1,7 @@
 <?php
-use App\Task;
+use App\Models\Celebrity;
+use App\Models\Picture;
+use DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,28 +14,16 @@ use App\Task;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/celebrities/list', function () {
+    $celebrities = Celebrity::paginate(3);
+    return view('celebrities', ['celebrities' => $celebrities]);
 });
 
- Route::get('/list', function () {
-	$tasks = Task::all();
-	return view('tasks',['tasks' => $tasks]);
-    });
+Route::get('/celebrity/{celebrity}', function ($celebrity) {
+    return view('celebrity', ['celebrity' => $celebrity]);
+});
 
-    /**
-     * Add New Task
-     */
-    Route::post('/task', function (Request $request) {
-        //
-    });
 
-    /**
-     * Delete Task
-     */
-    Route::delete('/task/{task}', function (Task $task) {
-        //
-    });
 /*
 |--------------------------------------------------------------------------
 | Application Routes

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Laravel Quickstart - Basic</title>
+        <title>红了吗</title>
 
         <!-- CSS And JavaScript -->
     </head>

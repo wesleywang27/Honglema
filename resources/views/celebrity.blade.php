@@ -4,7 +4,6 @@
 
 @section('content')
 
-    <!-- Bootstrap Boilerplate... -->
 
 @if (count($tasks) > 0)
         <div class="panel panel-default">
