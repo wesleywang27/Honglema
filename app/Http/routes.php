@@ -19,7 +19,7 @@ Route::get('/celebrities/list', function () {
 });
 
 Route::get('/celebrities/list.json', function () {
-    $celebrities = Celebrity::paginate(20);
+    $celebrities = Celebrity::with('pictures')->paginate(20);
     return $celebrities;
 });
 
