@@ -97,7 +97,7 @@
         <div id="main" role="main">
             <ul id="tiles">
                 <!-- These are our grid blocks -->
-                <li onclick="location.href='single-page.html';">
+                <li id="#picture">
                     <img src="{{URL::asset('images/img4.jpg')}}">
                     <div class="post-info">
                         <div class="post-basic-info">
@@ -106,7 +106,7 @@
                         </div>
                     </div>
                 </li>
-                <li onclick="location.href='single-page.html';">
+                <li id="#picture">
                     <img src="{{URL::asset('images/img3.jpg')}}">
                     <div class="post-info">
                         <div class="post-basic-info">
@@ -115,7 +115,7 @@
                         </div>
                     </div>
                 </li>
-                <li onclick="location.href='single-page.html';">
+                <li id="#picture">
                     <img src="{{URL::asset('images/img1.jpg')}}">
                     <div class="post-info">
                         <div class="post-basic-info">
@@ -124,7 +124,7 @@
                         </div>
                     </div>
                 </li>
-                <li onclick="location.href='single-page.html';">
+                <li id="#picture">
                     <img src="{{URL::asset('images/img2.jpg')}}">
                     <div class="post-info">
                         <div class="post-basic-info">
@@ -142,6 +142,18 @@
 <script src="{{URL::asset('js/jquery.imagesloaded.js')}}"></script>
 <script src="{{URL::asset('js/jquery.wookmark.js')}}"></script>
 <script type="text/javascript">
+    $(document).ready(function(){
+        $('#picture').click(function(){
+            $.ajax({
+                url: 'celebrity',
+                type: "get",
+                data: {'celebrity':10},
+                success: function(data){
+
+                }
+            });
+        });
+    });
     (function ($){
         var $tiles = $('#tiles'),
             $handler = $('li', $tiles),
