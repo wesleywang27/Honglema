@@ -86,6 +86,15 @@
 <script type="text/javascript">
     var curruntPage = 1;
     var flag = 0;
+    var v_offset = 5;
+    var v_itemWidth = 144;
+    if(window.innerWidth == 320){
+        v_offset = 5;
+        v_itemWidth = 144;
+    }else if(window.innerWidth == 375){
+        v_offset = 10;
+        v_itemWidth = 150;
+    }
     (function ($){
         var $tiles = $('#tiles'),
             $handler = $('li', $tiles),
@@ -95,8 +104,8 @@
             options = {
                 autoResize: true, // This will auto-update the layout when the browser window is resized.
                 container: $main, // Optional, used for some extra CSS styling
-                offset: 4, // Optional, the distance between grid items
-                itemWidth:140 // Optional, the width of a grid item
+                offset: v_offset, // Optional, the distance between grid items
+                itemWidth: v_itemWidth // Optional, the width of a grid item
             };
         /**
          * Reinitializes the wookmark handler after all images have loaded
