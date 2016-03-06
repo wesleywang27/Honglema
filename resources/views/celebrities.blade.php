@@ -52,7 +52,7 @@
 <!---start-content---->
 <div class="content">
     <div class="wrap">
-        <div id="main" role="main">
+        <div id="main" role="main" style="margin-top:0.9em;">
             <ul id="tiles">
                 @if (count($celebrities) > 0)
                 @foreach ($celebrities as $celebrity)
