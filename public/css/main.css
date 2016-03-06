@@ -128,6 +128,9 @@ footer a {
   #main {
     /*margin-top: 7em;*/
   }
+  #tiles li {
+    width: 200px;
+  }
 }
 /*--media Quries for 480px-monitors-*/
 @media only screen and (max-width:480px) and (min-width:320px) {
@@ -135,7 +138,7 @@ footer a {
     /*margin-top: 9.5em;*/
   }
   #tiles li {
-    width: 160px;
+    width: 158px;
   }
 }
 /*--media Quries for 320px-monitors-*/
@@ -144,7 +147,7 @@ footer a {
     /*margin-top: 9em;*/
   }
   #tiles li {
-    width: 143px;
+    width: 144px;
   }
 }
 
