@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <!-- TODO: Current Tasks -->
 <!DOCTYPE HTML>
 <html  lang="zh-CN">
@@ -56,25 +55,25 @@
         <div id="main" role="main">
             <ul id="tiles">
                 @if (count($celebrities) > 0)
-                    @foreach ($celebrities as $celebrity)
-                    <!-- These are our grid blocks -->
-                    <a href="{{ url('/celebrity/'.$celebrity->id) }}">
+                @foreach ($celebrities as $celebrity)
+                <!-- These are our grid blocks -->
+                <a href="{{ url('/celebrity/'.$celebrity->id) }}">
                     <li id="#picture">
                         @foreach ( $celebrity->pictures as $picture)
-                            @if (str_contains($picture, 'jpg') || str_contains($picture, 'jpeg'))
-                                <img src='{{ $picture->url }}'>
-                                @break;
-                            @endif
+                        @if (str_contains($picture, 'jpg') || str_contains($picture, 'jpeg'))
+                        <img src='{{ $picture->url }}'>
+                        @break;
+                        @endif
                         @endforeach
                         <div class="post-info">
                             <div class="post-basic-info">
                                 <h3 style="color:black;">{{ $celebrity->nickname }}</h3>
-                                <p>粉丝&nbsp;{{ $celebrity->total_fans_num }}</p>
+                                <p>粉丝&nbsp;{{ $celebrity->total_fans_num }}
                             </div>
                         </div>
                     </li>
-                    </a>
-                    @endforeach
+                </a>
+                @endforeach
                 @endif
             </ul>
         </div>
@@ -85,6 +84,8 @@
 <script src="{{URL::asset('js/jquery.imagesloaded.js')}}"></script>
 <script src="{{URL::asset('js/jquery.wookmark.js')}}"></script>
 <script type="text/javascript">
+    var curruntPage = 1;
+    var flag = 0;
     (function ($){
         var $tiles = $('#tiles'),
             $handler = $('li', $tiles),
@@ -120,14 +121,30 @@
             var winHeight = window.innerHeight ? window.innerHeight : $window.height(), // iphone fix
                 closeToBottom = ($window.scrollTop() + winHeight > $document.height() - 100);
 
-            if (closeToBottom) {
-                // Get the first then items from the grid, clone them, and add them to the bottom of the grid
+            var htmls = '';
+            if (closeToBottom && flag != curruntPage) {
+                flag = curruntPage;
+                // Get the first items from the grid, clone them, and add them to the bottom of the grid
                 // send ajax request
-                var $items = $('li', $tiles),
-                    $firstTen = $items.slice(0, 10);
-                $tiles.append($firstTen.clone());
-
-                applyLayout();
+                $.ajax({
+                    url: '/celebrities/list.json',
+                    type: 'GET',
+                    data:{'page': curruntPage + 1 },
+                    success: function(data) {
+//                        alert(JSON.stringify(data));
+                        var items = data.data;
+                        for (var i=0;i<items.length;i++){
+                            htmls = htmls + "<a href='http://m.honglema.com/celebrity/" + items[i].id + "'><li id='#picture'><img src='" + (items[i].pictures)[0].url
+                            + "'><div class='post-info'><div class='post-basic-info'><h3 style='color:black;'>"
+                            + items[i].nickname + "</h3><p>I]&nbsp;" + items[i].total_fans_num + "</p></div></div></li></a>";
+                        }
+                        $tiles.append(htmls);
+                        applyLayout();
+                        curruntPage = data.current_page;
+                        if(JSON.stringify(data.data)=='[]')
+                            curruntPage = 0;
+                    }
+                });
             }
         };
 
@@ -136,9 +153,6 @@
         $window.bind('scroll.wookmark', onScroll);
     })(jQuery);
 </script>
-<!-- <div class="footer">
-    <p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
-</div> -->
 </body>
 </html>
 @endsection
