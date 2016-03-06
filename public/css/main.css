@@ -124,7 +124,7 @@ footer a {
   background-color: #ddd;
 }
 /*--media Quries for 640px-monitors-*/
-@media only screen and (max-width:640px) and (min-width:480px) {
+@media only screen and (max-width:640px) and (min-width:470px) {
   #main {
     /*margin-top: 7em;*/
   }
@@ -133,7 +133,7 @@ footer a {
   }
 }
 /*--media Quries for 480px-monitors-*/
-@media only screen and (max-width:480px) and (min-width:320px) {
+@media only screen and (max-width:470px) and (min-width:320px) {
   #main {
     /*margin-top: 9.5em;*/
   }

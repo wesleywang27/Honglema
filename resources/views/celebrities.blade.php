@@ -94,6 +94,9 @@
     }else if(window.innerWidth == 375){
         v_offset = 10;
         v_itemWidth = 150;
+    }else if(window.innerWidth > 375 ){
+        v_offset = 15;
+        v_itemWidth = 200;
     }
     (function ($){
         var $tiles = $('#tiles'),
