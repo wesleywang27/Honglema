@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- <div>{{ $celebrity->nickname }}</div> -->
-    <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html lang="zh-CN">
 	<head>
 		<title>single-page</title>
@@ -54,12 +53,24 @@
 				<div class="single-page">
 					<div class="single-page-artical">
 						<div class="artical-content">
-							<img src="{{URL::asset('images/single-post-pic.jpg')}}" title="banner1">
-							<h3><a style="margin-left:1em;color:black;" href="#">红了吗红人&nbsp;|&nbsp;小玩子&nbsp;&nbsp;<img src="{{URL::asset('images/girl.png')}}" style="width:0.8em;"></a></h3>
+							@foreach ( $celebrity->pictures as $picture)
+								@if (str_contains($picture, 'jpg') || str_contains($picture, 'jpeg'))
+									<img src="{{ $picture->url }}" title="banner1">
+									@break;
+								@endif
+							@endforeach
+							<h3><a style="margin-left:1em;color:black;" href="#">红了吗&nbsp;|&nbsp;{{$celebrity->nickname}}&nbsp;&nbsp;
+									@if( $celebrity->sex == 1)
+									<img src="{{URL::asset('images/girl.png')}}" style="width:0.8em;"></a></h3>
+									@else
+									<img src="{{URL::asset('images/boy.png')}}" style="width:0.8em;"></a></h3>
+									@endif
 							<p>
 								<ul>
-									<li>粉丝312</li>
-									<li>浏览量1446</li>
+									<li>粉丝&nbsp;{{ $celebrity->total_fans_num }}</li>
+								</ul>
+								<ul>
+									<li>标签&nbsp;{{ $celebrity->tags }}</li>
 								</ul>
 							</p> 
 						</div>
@@ -72,16 +83,16 @@
 							<div class="info">
 								<table>
 									<tr>
-										<td>三围&nbsp;59.5/64/91</td>
-										<td>身高&nbsp;175cm</td>
+										<td>三围&nbsp;{{ $celebrity->bust }}/{{ $celebrity->waist }}/{{ $celebrity->hop }}</td>
+										<td>身高&nbsp;{{ $celebrity->height }}</td>
 									</tr>
 									<tr>
-										<td>体重&nbsp;42kg</td>
-										<td>年龄&nbsp;20岁</td>
+										<td>体重&nbsp;{{ $celebrity->weight }}</td>
+										<td>年龄&nbsp;{{ 2016 - floor($celebrity->birthday / 10000) }}</td>
 									</tr>
 									<tr>
-										<td>籍贯&nbsp;北京</td>
-										<td>民族&nbsp;汉族</td>
+										<td>城市&nbsp;{{ $celebrity->city }}</td>
+										<td>职业&nbsp;{{ $celebrity->occupation }}</td>
 									</tr>
 								</table>
 							</div>
@@ -94,9 +105,13 @@
 						<div class="artical-content">
 							<div>
 								<table class="jianjie">
-									<tr>
+									<tr style="padding-bottom: 0;">
+										<td style="width:15%;">经历</td>
+										<td style="width:85%;padding-right: 6%;padding-top: 15px;">{{ $celebrity->experience }}</td>
+									</tr>
+									<tr style="padding-top: 0;">
 										<td style="width:15%;">简介</td>
-										<td style="width:85%;padding-right: 6%;">性格活泼开朗，工作积极主动。曾在《天亮，请睁眼》电视剧中出演女秘书，网络剧，一个明星的女朋友。2009年中国海南汽车模特大赛十佳选手。2010年环球小姐，中国赛区十佳佳丽。</td>
+										<td style="width:85%;padding-right: 6%;padding-bottom: 15px;">{{ $celebrity->personality }}</td>
 									</tr>
 								</table>
 							<div>

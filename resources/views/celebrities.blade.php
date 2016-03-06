@@ -2,48 +2,7 @@
 
 @section('content')
 
-
-<!--@if (count($celebrities) > 0)-->
-<!--        <div class="panel panel-default">-->
-<!--            <div class="panel-heading">-->
-<!--                红人列表-->
-<!--            </div>-->
-<!---->
-<!--            <div class="panel-body">-->
-<!--                <table class="table table-striped task-table">-->
-<!---->
-<!--                    <thead>-->
-<!--                    <th>id</th>-->
-<!--                        <th>昵称</th>-->
-<!--                        <th>图片</th>-->
-<!--                    </thead>-->
-<!---->
-<!--                    <tbody>-->
-<!--                        @foreach ($celebrities as $celebrity)-->
-<!--                            <tr>-->
-<!---->
-<!--                                <td>-->
-<!--                                    <div>{{ $celebrity->id }}</div>-->
-<!--                                </td>-->
-<!--                                <td class="table-text">-->
-<!--                                    <div>{{ $celebrity->nickname }}</div>-->
-<!--                                </td>-->
-<!--                                <td class="table-text">-->
-<!--                                        @foreach ( $celebrity->pictures as $picture)-->
-<!--                                            <div>{{ $picture->url }}</div>-->
-<!--                                        @endforeach-->
-<!--                                </td>-->
-<!--                            </tr>-->
-<!--                        @endforeach-->
-<!--                    </tbody>-->
-<!--                </table>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--        {!! $celebrities->links() !!}-->
-<!--    @endif-->
-
-    <!-- TODO: Current Tasks -->
+<!-- TODO: Current Tasks -->
 <!DOCTYPE HTML>
 <html  lang="zh-CN">
 <head>
@@ -96,43 +55,27 @@
     <div class="wrap">
         <div id="main" role="main">
             <ul id="tiles">
-                <!-- These are our grid blocks -->
-                <li id="#picture">
-                    <img src="{{URL::asset('images/img4.jpg')}}">
-                    <div class="post-info">
-                        <div class="post-basic-info">
-                            <h3 style="color:black;">小玩子</h3>
-                            <p>粉丝312w&nbsp;浏览量146W</p>
+                @if (count($celebrities) > 0)
+                    @foreach ($celebrities as $celebrity)
+                    <!-- These are our grid blocks -->
+                    <a href="{{ url('/celebrity/'.$celebrity->id) }}">
+                    <li id="#picture">
+                        @foreach ( $celebrity->pictures as $picture)
+                            @if (str_contains($picture, 'jpg') || str_contains($picture, 'jpeg'))
+                                <img src='{{ $picture->url }}'>
+                                @break;
+                            @endif
+                        @endforeach
+                        <div class="post-info">
+                            <div class="post-basic-info">
+                                <h3 style="color:black;">{{ $celebrity->nickname }}</h3>
+                                <p>粉丝&nbsp;{{ $celebrity->total_fans_num }}</p>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li id="#picture">
-                    <img src="{{URL::asset('images/img3.jpg')}}">
-                    <div class="post-info">
-                        <div class="post-basic-info">
-                            <h3 style="color:black;">小玩子</h3>
-                            <p>粉丝312w&nbsp;&nbsp;浏览量1446</p>
-                        </div>
-                    </div>
-                </li>
-                <li id="#picture">
-                    <img src="{{URL::asset('images/img1.jpg')}}">
-                    <div class="post-info">
-                        <div class="post-basic-info">
-                            <h3 style="color:black;">小玩子</h3>
-                            <p>粉丝312w&nbsp;&nbsp;浏览量1446</p>
-                        </div>
-                    </div>
-                </li>
-                <li id="#picture">
-                    <img src="{{URL::asset('images/img2.jpg')}}">
-                    <div class="post-info">
-                        <div class="post-basic-info">
-                            <h3 style="color:black;">小玩子</h3>
-                            <p>粉丝312w&nbsp;&nbsp;浏览量1446</p>
-                        </div>
-                    </div>
-                </li>
+                    </li>
+                    </a>
+                    @endforeach
+                @endif
             </ul>
         </div>
     </div>
@@ -142,18 +85,6 @@
 <script src="{{URL::asset('js/jquery.imagesloaded.js')}}"></script>
 <script src="{{URL::asset('js/jquery.wookmark.js')}}"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('#picture').click(function(){
-            $.ajax({
-                url: 'celebrity',
-                type: "get",
-                data: {'celebrity':10},
-                success: function(data){
-
-                }
-            });
-        });
-    });
     (function ($){
         var $tiles = $('#tiles'),
             $handler = $('li', $tiles),
@@ -191,6 +122,7 @@
 
             if (closeToBottom) {
                 // Get the first then items from the grid, clone them, and add them to the bottom of the grid
+                // send ajax request
                 var $items = $('li', $tiles),
                     $firstTen = $items.slice(0, 10);
                 $tiles.append($firstTen.clone());
