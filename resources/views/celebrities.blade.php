@@ -134,9 +134,9 @@
 //                        alert(JSON.stringify(data));
                         var items = data.data;
                         for (var i=0;i<items.length;i++){
-                            htmls = htmls + "<a href='http://m.honglema.com/celebrity/" + items[i].id + "'><li id='#picture'><img src='" + (items[i].pictures)[0].url
-                            + "'><div class='post-info'><div class='post-basic-info'><h3 style='color:black;'>"
-                            + items[i].nickname + "</h3><p>I]&nbsp;" + items[i].total_fans_num + "</p></div></div></li></a>";
+                            htmls = htmls + "<a href='http://m.honglema.com/celebrity/" + items[i].id + "'><li id='#picture'><img src='" + (items[i].pictures)[1].url
+                                + "'><div class='post-info'><div class='post-basic-info'><h3 style='color:black;'>"
+                            + items[i].nickname + "</h3><p>粉丝&nbsp;" + items[i].total_fans_num + "</p></div></div></li></a>";
                         }
                         $tiles.append(htmls);
                         applyLayout();
