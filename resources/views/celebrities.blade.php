@@ -42,9 +42,6 @@
 //                    var column=Math.floor(tmpWid/320);
 //                    tmpWid=column*320;
 //                }
-//                if(tmpWid > 380){
-//                    tmpWid = 400;
-//                }
                 $('.waterfull').width(tmpWid);
             }
             tores();
@@ -101,9 +98,11 @@
                             var html="";
                             for(var i in sqlJson){
                                 html+="<li class='item'><a href='http://m.honglema.com/celebrity/" + sqlJson[i].id +"' class='a-img'><img src='"+(sqlJson[i].pictures)[1].url+"'></a>";
+                                html+="<div style='padding: 8px;'>";
                                 html+="<h2 class='li-title'>"+sqlJson[i].nickname+"</h2>";
 //                                html+="<p class='description'>"+sqlJson[i].intro+"</p><div class='qianm clearfloat'>";
                                 html+="<div class='qianm clearfloat'><span class='sp1'>粉丝<b>"+sqlJson[i].total_fans_num+"</b></span></div>";
+                                html+="</div>";
 //                                html+="<span class='sp2'>"+sqlJson[i].writer+"</span><span class='sp3'>"+sqlJson[i].date+"&nbsp;By</span></div></li>";
                             }
                             /*模拟ajax请求数据时延时800毫秒*/
@@ -166,11 +165,8 @@
                 </a>
                 <div style="padding: 8px;">
                     <h2 class="li-title" title="{{ $celebrity->nickname }}">{{ $celebrity->nickname }}</h2>
-    <!--                <p class="description">HTML 5以前的标准由于考虑到浏览器安全问题并不允许直接跨域通信并不允许直接跨域通信并不允许直接跨域通信，于...</p>-->
                     <div class="qianm clearfloat">
                         <span class="sp1">粉丝<b>{{ $celebrity->total_fans_num }}</b></span>
-    <!--                    <span class="sp2">志强不息</span>-->
-    <!--                    <span class="sp3">2小时前&nbsp;By</span>-->
                     </div>
                 </div>
             </li>
