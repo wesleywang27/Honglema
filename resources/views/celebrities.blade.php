@@ -92,8 +92,8 @@
         v_offset = 5;
         v_itemWidth = 144;
     }else if(window.innerWidth == 375){
-        v_offset = 10;
-        v_itemWidth = 170;
+        v_offset = 7;
+        v_itemWidth = 176;
     }else if(window.innerWidth > 375 ){
         v_offset = 15;
         v_itemWidth = 190;
