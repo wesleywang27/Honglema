@@ -7,6 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
     <title>index</title>
     <link rel="stylesheet" type="text/css" href="{{URL::asset('css/base.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::asset('css/index.css')}}">
@@ -35,12 +36,12 @@
             /*判断瀑布流最大布局宽度，最大为1280*/
             function tores(){
                 var tmpWid=$(window).width();
-                if(tmpWid>1280){
-                    tmpWid=1280;
-                }else{
-                    var column=Math.floor(tmpWid/320);
-                    tmpWid=column*320;
-                }
+//                if(tmpWid>1280){
+//                    tmpWid=1280;
+//                }else{
+//                    var column=Math.floor(tmpWid/320);
+//                    tmpWid=column*320;
+//                }
                 $('.waterfull').width(tmpWid);
             }
             tores();
@@ -49,7 +50,7 @@
             });
             container.imagesLoaded(function(){
                 container.masonry({
-                    columnWidth: 2,
+                    columnWidth: 1,
                     itemSelector : '.item',
                     isFitWidth: true,//是否根据浏览器窗口大小自动适应默认false
                     isAnimated: true,//是否采用jquery动画进行重拍版
@@ -148,7 +149,7 @@
 <div class="content">
     <!-- 瀑布流样式开始 -->
     <div class="waterfull clearfloat" id="waterfull">
-        <ul>
+        <ul style="margin: 10px auto;">
             @if (count($celebrities) > 0)
             @foreach ($celebrities as $celebrity)
             <li class="item">
@@ -160,12 +161,14 @@
                     @endif
                     @endforeach
                 </a>
-                <h2 class="li-title" title="{{ $celebrity->nickname }}">{{ $celebrity->nickname }}</h2>
-<!--                <p class="description">HTML 5以前的标准由于考虑到浏览器安全问题并不允许直接跨域通信并不允许直接跨域通信并不允许直接跨域通信，于...</p>-->
-                <div class="qianm clearfloat">
-                    <span class="sp1">粉丝<b>{{ $celebrity->total_fans_num }}</b></span>
-<!--                    <span class="sp2">志强不息</span>-->
-<!--                    <span class="sp3">2小时前&nbsp;By</span>-->
+                <div style="padding: 8px;">
+                    <h2 class="li-title" title="{{ $celebrity->nickname }}">{{ $celebrity->nickname }}</h2>
+    <!--                <p class="description">HTML 5以前的标准由于考虑到浏览器安全问题并不允许直接跨域通信并不允许直接跨域通信并不允许直接跨域通信，于...</p>-->
+                    <div class="qianm clearfloat">
+                        <span class="sp1">粉丝<b>{{ $celebrity->total_fans_num }}</b></span>
+    <!--                    <span class="sp2">志强不息</span>-->
+    <!--                    <span class="sp3">2小时前&nbsp;By</span>-->
+                    </div>
                 </div>
             </li>
             @endforeach
