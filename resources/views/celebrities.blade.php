@@ -2,169 +2,157 @@
 
 @section('content')
 <!-- TODO: Current Tasks -->
-<!DOCTYPE HTML>
-<html  lang="zh-CN">
+<!doctype html>
+<html>
 <head>
-    <title>Home</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="{{ URL::asset('/css/style.css') }}" rel="stylesheet" type="text/css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="{{URL::asset('images/fav-icon.png')}}" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    </script>
-    <link href='http://fonts.useso.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'/>
-        <link rel="stylesheet" href="{{URL::asset('css/main.css')}}"/>
-        <script src="{{URL::asset('js/jquery.min.js')}}"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title>index</title>
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('css/base.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('css/index.css')}}">
+    <!--[if lt IE 9]>
+    <script src="./js/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="{{URL::asset('js/jquery-1.8.3.min.js')}}"></script>
+    <script type="text/javascript" src="{{URL::asset('js/jQueryColor.js')}}"></script>
+    <!--这个插件是瀑布流主插件函数必须-->
+    <script type="text/javascript" src="{{URL::asset('js/jquery.masonry.min.js')}}"></script>
+    <!--这个插件只是为了扩展jquery的animate函数动态效果可有可无-->
+    <script type="text/javascript" src="{{URL::asset('js/jQeasing.js')}}"></script>
     <script type="text/javascript">
-        var $ = jQuery.noConflict();
-        $(function() {
-            $('#activator').click(function(){
-                $('#box').animate({'top':'0px'},500);
+        /*
+         抛开瀑布流布局各种乱七八糟的算法，基于masonry的瀑布流，很是简单的，而且通过扩展animate,能实现瀑布流布局的晃动、弹球等效果。
+         masonry还有很多参数我这里注解了常用的参数
+         */
+        $(function(){
+            /*瀑布流开始*/
+            var container = $('.waterfull ul');
+            var loading=$('#imloading');
+            // 初始化loading状态
+            loading.data("on",true);
+            /*判断瀑布流最大布局宽度，最大为1280*/
+            function tores(){
+                var tmpWid=$(window).width();
+                if(tmpWid>1280){
+                    tmpWid=1280;
+                }else{
+                    var column=Math.floor(tmpWid/320);
+                    tmpWid=column*320;
+                }
+                $('.waterfull').width(tmpWid);
+            }
+            tores();
+            $(window).resize(function(){
+                tores();
             });
-            $('#boxclose').click(function(){
-                $('#box').animate({'top':'-700px'},500);
+            container.imagesLoaded(function(){
+                container.masonry({
+                    columnWidth: 10,
+                    itemSelector : '.item',
+                    isFitWidth: true,//是否根据浏览器窗口大小自动适应默认false
+                    isAnimated: true,//是否采用jquery动画进行重拍版
+                    isRTL:false,//设置布局的排列方式，即：定位砖块时，是从左向右排列还是从右向左排列。默认值为false，即从左向右
+                    isResizable: true,//是否自动布局默认true
+                    animationOptions: {
+                        duration: 800,
+                        easing: 'easeInOutBack',//如果你引用了jQeasing这里就可以添加对应的动态动画效果，如果没引用删除这行，默认是匀速变化
+                        queue: false//是否队列，从一点填充瀑布流
+                    }
+                });
             });
-        });
-        $(document).ready(function(){
-            //Hide (Collapse) the toggle containers on load
-            $(".toggle_container").hide();
-            //Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
-            $(".trigger").click(function(){
-                $(this).toggleClass("active").next().slideToggle("slow");
-                return false; //Prevent the browser jump to the link anchor
+            /*模拟从后台获取到的数据*/
+            var sqlJson=[{'title':'瀑布流其实就是几个函数的事！','intro':'爆料，苏亚雷斯又咬人啦，C罗哪有内马尔帅，梅西今年要不夺冠，你就去泰国吧，老子买了阿根廷赢得彩票，输了就去不成了。','src':'http://aliv.weipai.cn/honglema/56d7c2460cf29739e653ce3c.jpeg','writer':'志强不息','date':'2小时前','looked':321},{'title':'瀑布流其实就是几个函数的事！','intro':'爆料了，苏亚雷斯又咬人啦，C罗哪有内马尔帅，梅西今年要不夺冠，你就去泰国吧，老子买了阿根廷赢得彩票，输了就去不成了。','src':'http://aliv.weipai.cn/honglema/56d7c2460cf29739e653ce3c.jpeg','writer':'志强不息','date':'2小时前','looked':321},{'title':'瀑布流其实就是几个函数的事！','intro':'爆料了，苏亚雷斯又咬人啦，C罗哪有内马尔帅，梅西今年要不夺冠，你就去泰国吧，老子买了阿根廷赢得彩票，输了就去不成了。','src':'http://aliv.weipai.cn/honglema/56d7c2460cf29739e653ce3c.jpeg','writer':'志强不息','date':'2小时前','looked':321},{'title':'瀑布流其实就是几个函数的事！','intro':'爆料了，苏亚雷斯又咬人啦，C罗哪有内马尔帅，梅西今年要不夺冠，你就去泰国吧，老子买了阿根廷赢得彩票，输了就去不成了。','src':'http://aliv.weipai.cn/honglema/56d7c2460cf29739e653ce3c.jpeg','writer':'志强不息','date':'2小时前','looked':321}];
+            /*本应该通过ajax从后台请求过来类似sqljson的数据然后，便利，进行填充，这里我们用sqlJson来模拟一下数据*/
+            $(window).scroll(function(){
+                if(!loading.data("on")) return;
+                // 计算所有瀑布流块中距离顶部最大，进而在滚动条滚动时，来进行ajax请求，方法很多这里只列举最简单一种，最易理解一种
+                var itemNum=$('#waterfull').find('.item').length;
+                var itemArr=[];
+                itemArr[0]=$('#waterfull').find('.item').eq(itemNum-1).offset().top+$('#waterfull').find('.item').eq(itemNum-1)[0].offsetHeight;
+                itemArr[1]=$('#waterfull').find('.item').eq(itemNum-2).offset().top+$('#waterfull').find('.item').eq(itemNum-1)[0].offsetHeight;
+                itemArr[2]=$('#waterfull').find('.item').eq(itemNum-3).offset().top+$('#waterfull').find('.item').eq(itemNum-1)[0].offsetHeight;
+                var maxTop=Math.max.apply(null,itemArr);
+                if(maxTop<$(window).height()+$(document).scrollTop()){
+                    //加载更多数据
+                    loading.data("on",false).fadeIn(800);
+                    (function(sqlJson){
+                        /*这里会根据后台返回的数据来判断是否你进行分页或者数据加载完毕这里假设大于30就不在加载数据*/
+                        if(itemNum>30){
+                            loading.text('就有这么多了！');
+                        }else{
+                            var html="";
+                            for(var i in sqlJson){
+                                html+="<li class='item'><a href='####' class='a-img'><img src='"+sqlJson[i].src+"'></a>";
+                                html+="<h2 class='li-title'>"+sqlJson[i].title+"</h2>";
+                                html+="<p class='description'>"+sqlJson[i].intro+"</p><div class='qianm clearfloat'>";
+                                html+="<span class='sp1'><b>"+sqlJson[i].looked+"</b>浏览</span>";
+                                html+="<span class='sp2'>"+sqlJson[i].writer+"</span><span class='sp3'>"+sqlJson[i].date+"&nbsp;By</span></div></li>";
+                            }
+                            /*模拟ajax请求数据时延时800毫秒*/
+                            var time=setTimeout(function(){
+                                $(html).find('img').each(function(index){
+                                    loadImage($(this).attr('src'));
+                                })
+                                var $newElems = $(html).css({ opacity: 0}).appendTo(container);
+                                $newElems.imagesLoaded(function(){
+                                    $newElems.animate({ opacity: 1},800);
+                                    container.masonry( 'appended', $newElems,true);
+                                    loading.data("on",true).fadeOut();
+                                    clearTimeout(time);
+                                });
+                            },800)
+                        }
+                    })(sqlJson);
+                }
             });
-
-        });
+            function loadImage(url) {
+                var img = new Image();
+                //创建一个Image对象，实现图片的预下载
+                img.src = url;
+                if (img.complete) {
+                    return img.src;
+                }
+                img.onload = function () {
+                    return img.src;
+                };
+            };
+            loadImage('./images/one.jpeg',test());
+            /*item hover效果*/
+            // var rbgB=['#71D3F5','#F0C179','#F28386','#8BD38B'];
+            // $('#waterfull').on('mouseover','.item',function(){
+            // 	var random=Math.floor(Math.random() * 4);
+            // 	$(this).stop(true).animate({'backgroundColor':rbgB[random]},1000);
+            // });
+            // $('#waterfull').on('mouseout','.item',function(){
+            // 	$(this).stop(true).animate({'backgroundColor':'#fff'},1000);
+            // });
+        })
     </script>
 </head>
 <body>
-<!---start-wrap---->
-<!---start-header---->
-<!-- <div class="header">
-    <div class="wrap">
-    <div class="logo">
-        <a href="index.html"><img src="images/logo.png" title="pinbal" /></a>
-    </div>
-    <div class="clear"> </div>
-    </div>
-</div> -->
-<!---//End-header---->
-<!---start-content---->
 <div class="content">
-    <div class="wrap">
-        <div id="main" role="main" style="margin-top:0.9em;">
-            <ul id="tiles">
-                @if (count($celebrities) > 0)
-                @foreach ($celebrities as $celebrity)
-                <!-- These are our grid blocks -->
-                <a href="{{ url('/celebrity/'.$celebrity->id) }}">
-                    <li id="#picture">
-                        @foreach ( $celebrity->pictures as $picture)
-                        @if (str_contains($picture, 'jpg') || str_contains($picture, 'jpeg'))
-                        <img src='{{ $picture->url }}'>
-                        @break;
-                        @endif
-                        @endforeach
-                        <div class="post-info">
-                            <div class="post-basic-info">
-                                <h3 style="color:black;">{{ $celebrity->nickname }}</h3>
-                                <p>粉丝&nbsp;{{ $celebrity->total_fans_num }}
-                            </div>
-                        </div>
-                    </li>
+    <!-- 瀑布流样式开始 -->
+    <div class="waterfull clearfloat" id="waterfull">
+        <ul>
+            <li class="item">
+                <a href="####" class="a-img">
+                    <img src="http://aliv.weipai.cn/honglema/56d7c2460cf29739e653ce3c.jpeg" alt="">
                 </a>
-                @endforeach
-                @endif
-            </ul>
-        </div>
+                <h2 class="li-title" title="手把手教你用css3来创建loading动画(二)">手把手教你用css3来创建loading动画(二)</h2>
+                <p class="description">HTML 5以前的标准由于考虑到浏览器安全问题并不允许直接跨域通信并不允许直接跨域通信并不允许直接跨域通信，于...</p>
+                <div class="qianm clearfloat">
+                    <span class="sp1"><b>688</b>浏览</span>
+                    <span class="sp2">志强不息</span>
+                    <span class="sp3">2小时前&nbsp;By</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- loading按钮自己通过样式调整 -->
+    <div id="imloading" style="width:150px;height:30px;line-height:30px;font-size:16px;text-align:center;border-radius:3px;opacity:0.7;background:#000;margin:10px auto 30px;color:#fff;display:none">
+        I'm Loading.....
     </div>
 </div>
-<!---//End-content---->
-<!----wookmark-scripts---->
-<script src="{{URL::asset('js/jquery.imagesloaded.js')}}"></script>
-<script src="{{URL::asset('js/jquery.wookmark.js')}}"></script>
-<script type="text/javascript">
-    var curruntPage = 1;
-    var flag = 0;
-    var v_offset = 5;
-    var v_itemWidth = 144;
-    if(window.innerWidth == 320){
-        v_offset = 5;
-        v_itemWidth = 144;
-    }else if(window.innerWidth == 375){
-        v_offset = 10;
-        v_itemWidth = 160;
-    }else if(window.innerWidth > 375 ){
-        v_offset = 15;
-        v_itemWidth = 190;
-    }
-    (function ($){
-        var $tiles = $('#tiles'),
-            $handler = $('li', $tiles),
-            $main = $('#main'),
-            $window = $(window),
-            $document = $(document),
-            options = {
-                autoResize: true, // This will auto-update the layout when the browser window is resized.
-                container: $main, // Optional, used for some extra CSS styling
-                offset: v_offset, // Optional, the distance between grid items
-                itemWidth: v_itemWidth // Optional, the width of a grid item
-            };
-        /**
-         * Reinitializes the wookmark handler after all images have loaded
-         */
-        function applyLayout() {
-            $tiles.imagesLoaded(function() {
-                // Destroy the old handler
-                if ($handler.wookmarkInstance) {
-                    $handler.wookmarkInstance.clear();
-                }
-
-                // Create a new layout handler.
-                $handler = $('li', $tiles);
-                $handler.wookmark(options);
-            });
-        }
-        /**
-         * When scrolled all the way to the bottom, add more tiles
-         */
-        function onScroll() {
-            // Check if we're within 100 pixels of the bottom edge of the broser window.
-            var winHeight = window.innerHeight ? window.innerHeight : $window.height(), // iphone fix
-                closeToBottom = ($window.scrollTop() + winHeight > $document.height() - 1000);
-
-            var htmls = '';
-            if (closeToBottom && flag != curruntPage) {
-                flag = curruntPage;
-                // Get the first items from the grid, clone them, and add them to the bottom of the grid
-                // send ajax request
-                $.ajax({
-                    url: '/celebrities/list.json',
-                    type: 'GET',
-                    data:{'page': curruntPage + 1 },
-                    success: function(data) {
-//                        alert(JSON.stringify(data));
-                        var items = data.data;
-                        for (var i=0;i<items.length;i++){
-                            htmls = htmls + "<a href='http://m.honglema.com/celebrity/" + items[i].id + "'><li id='#picture'><img src='" + (items[i].pictures)[1].url
-                                + "'><div class='post-info'><div class='post-basic-info'><h3 style='color:black;'>"
-                            + items[i].nickname + "</h3><p>粉丝&nbsp;" + items[i].total_fans_num + "</p></div></div></li></a>";
-                        }
-                        $tiles.append(htmls);
-                        applyLayout();
-                        curruntPage = data.current_page;
-                        if(JSON.stringify(data.data)=='[]')
-                            curruntPage = 0;
-                    }
-                });
-            }
-        };
-
-        applyLayout();
-
-        $window.bind('scroll.wookmark', onScroll);
-    })(jQuery);
-</script>
 </body>
 </html>
 @endsection
