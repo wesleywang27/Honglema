@@ -42,7 +42,8 @@ class Celebrity extends Model
         'tags',
         'skills',
         'profile_img',
-        'update_time'
+        'update_time',
+        'sort_manually',
     ];
 
     protected $guarded = [];

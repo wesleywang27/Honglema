@@ -1,6 +1,5 @@
 <?php
 use App\Models\Celebrity;
-use App\Models\Picture;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +13,11 @@ use App\Models\Picture;
 */
 
 Route::get('/celebrities/list{format?}', function ($format = null) {
-    $celebrities = Celebrity::with('pictures')->orderBy('total_fans_num', 'DESC')->paginate(10);
+    $celebrities = Celebrity::with('pictures')->orderBy('sort_manually', 'DESC')->paginate(10);
     foreach ($celebrities as &$celebrity) {
+        if ($celebrity->profile_img)
+            $celebrity->profile_img = dirname($celebrity->profile_img) . "/comp-" . basename($$celebrity->profile_img);
+
         foreach ($celebrity->pictures as &$picture) {
             $picture->url = dirname($picture->url) . "/comp-" . basename($picture->url);
         }
@@ -30,7 +32,7 @@ Route::get('/celebrity/{celebrity}', function (Celebrity $celebrity) {
 });
 
 Route::get('/test/celebrities/list{format?}', function ($format = null) {
-    $celebrities = Celebrity::with('pictures')->orderBy('total_fans_num', 'DESC')->paginate(10);
+    $celebrities = Celebrity::with('pictures')->orderBy('sort_manually', 'DESC')->paginate(10);
     foreach ($celebrities as &$celebrity) {
         $celebrity->setVisible(['id', 'pictures']);
         foreach ($celebrity->pictures as &$picture) {
