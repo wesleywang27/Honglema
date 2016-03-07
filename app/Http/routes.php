@@ -46,6 +46,18 @@ Route::get('/test/celebrities/list{format?}', function ($format = null) {
     return view('celebrities', ['celebrities' => $celebrities]);
 });
 
+Route::get('/test/list{format?}', function ($format = null) {
+    $celebrities = Celebrity::with('pictures')->orderBy('total_fans_num', 'DESC')->paginate(10);
+    foreach ($celebrities as &$celebrity) {
+        foreach ($celebrity->pictures as &$picture) {
+            $picture->url = dirname($picture->url) . "/comp-" . basename($picture->url);
+        }
+    }
+    if ($format === '.json')
+        return $celebrities;
+    return view('test', ['celebrities' => $celebrities]);
+});
+
 Route::get('/test/{celebrity}', function (Celebrity $celebrity) {
     return view('test', ['celebrity' => $celebrity]);
 });
