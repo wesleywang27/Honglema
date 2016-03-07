@@ -60,7 +60,7 @@
 .content .rec_con ul li .a-index h2{
 	position: absolute;
 	z-index: 20;
-	top: 0; 
+	top: 0;
 	left: 0;
 	font-size: 2.0em;
 	line-height: 28px;
@@ -221,7 +221,7 @@
 		line-height: 20px;
 	}
 	.content .rec_con ul li .a-index h2{
-		top: 0; 
+		top: 0;
 		left: 0;
 		font-size: 1.7em;
 		line-height: 24px;
@@ -252,7 +252,7 @@
 		line-height: 20px;
 	}
 	.content .rec_con ul li .a-index h2{
-		top: 0; 
+		top: 0;
 		left: 0;
 		font-size: 1.6em;
 		line-height: 24px;
@@ -262,7 +262,7 @@
 }
 @media screen and (max-width: 720px){
 	.content{
-		width: 94%;
+		width: 100%;
 		margin: 0 auto;
 	}
 	.content .rec_con ul li{
@@ -280,12 +280,32 @@
 		line-height: 20px;
 	}
 	.content .rec_con ul li .a-index h2{
-		top: 0; 
+		top: 0;
 		left: 0;
 		font-size: 1.8em;
 		line-height: 28px;
 		width: 98%;
 		height: 180px;
+	}
+	.waterfull ul li{
+		float: left;
+		width: 190px;
+		/*padding: 8px;*/
+		margin: 0 6px 10px;
+		background: #fff;
+		border-radius: 3px;
+		position: relative;
+		overflow: hidden;
+	}
+	.waterfull ul li .a-img{
+		width: 190px;
+		display: block;
+		position: relative;
+	}
+	.waterfull ul li .a-img img{
+		width: 190px;
+		display: block;
+		/*min-height: 250px;*/
 	}
 }
 @media only screen and (max-width: 720px) and (-webkit-min-device-pixel-ratio : 1.0) and (orientation:landscape){
@@ -304,15 +324,35 @@
 		line-height: 20px;
 	}
 	.content .rec_con ul li .a-index h2{
-		top: 0; 
+		top: 0;
 		left: 0;
 		font-size: 1.8em;
 		line-height: 28px;
 		width: 98%;
 		height: 180px;
 	}
+	.waterfull ul li{
+		float: left;
+		width: 180px;
+		/*padding: 8px;*/
+		margin: 0 6px 10px;
+		background: #fff;
+		border-radius: 3px;
+		position: relative;
+		overflow: hidden;
+	}
+	.waterfull ul li .a-img{
+		width: 180px;
+		display: block;
+		position: relative;
+	}
+	.waterfull ul li .a-img img{
+		width: 180px;
+		display: block;
+		/*min-height: 250px;*/
+	}
 }
-@media screen and (max-width: 480px){
+@media screen and (max-width: 400px){
 	.content{
 		width: 100%;
 	}
@@ -334,7 +374,7 @@
 		line-height: 20px;
 	}
 	.content .rec_con ul li .a-index h2{
-		top: 0; 
+		top: 0;
 		left: 0;
 		font-size: 1.8em;
 		line-height: 28px;
@@ -384,7 +424,7 @@
 		left: 1.5%;
 	}
 	.content .rec_con ul li .a-index h2{
-		top: 0; 
+		top: 0;
 		left: 0;
 		font-size: 1.8em;
 		line-height: 28px;

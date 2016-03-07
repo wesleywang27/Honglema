@@ -42,6 +42,9 @@
 //                    var column=Math.floor(tmpWid/320);
 //                    tmpWid=column*320;
 //                }
+//                if(tmpWid > 380){
+//                    tmpWid = 400;
+//                }
                 $('.waterfull').width(tmpWid);
             }
             tores();
