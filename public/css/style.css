@@ -1111,7 +1111,8 @@ span.mail a:hover{
 		float: right;
 	}
 	.artical-content h3 a {
-		font: 400 16px/23px 'Open Sans', sans-serif;
+		/*font: 400 16px/23px 'Open Sans', sans-serif;*/
+
 		padding: 0.5em 0 0;
 	}
 	.artical-links ul li {
@@ -1127,7 +1128,7 @@ span.mail a:hover{
 		display:none;
 	}
 	.artical-content p {
-		font: normal 14px/22px 'Open Sans', sans-serif,Helvetica,sans-serif;
+		/*font: normal 14px/22px 'Open Sans', sans-serif,Helvetica,sans-serif;*/
 		padding: 8px 0px;
 	}
 	.artical-links {
@@ -1211,7 +1212,7 @@ span.mail a:hover{
 	border: 1px solid #f0efed;
 	width: 50%;
 	height: 40px;
-	padding-left: 10px;
+	padding-left: 20px;
 	color: gray;
 	vertical-align: middle;
 }
@@ -1220,5 +1221,5 @@ span.mail a:hover{
 	color: gray;
 }
 .jianjie td{
-	padding:0 0 0 10px;
+	padding:0 0 0 20px;
 }
