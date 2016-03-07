@@ -60,7 +60,7 @@
 									@break;
 								@endif
 							@endforeach
-							<h3><a style="margin-left:1em;color:black;" href="#">红了吗&nbsp;|&nbsp;{{$celebrity->nickname}}&nbsp;&nbsp;
+							<h3><a style="margin-left:1em;color:black;" href="#">红了吗红人&nbsp;|&nbsp;{{$celebrity->nickname}}&nbsp;&nbsp;
 									@if( $celebrity->sex == 1)
 									<img src="{{URL::asset('images/girl.png')}}" style="width:0.8em;"></a></h3>
 									@else
@@ -68,10 +68,15 @@
 									@endif
 							<p>
 								<ul>
-									<li>粉丝：&nbsp;{{ $celebrity->total_fans_num }}</li>
+									<li style="10px;">总粉丝{{ $celebrity->total_fans_num }}</li>
 								</ul>
 								<ul>
-									<li>标签：&nbsp;{{ $celebrity->tags }}</li>
+									<li style="10px;">微博{{ floor($celebrity->weibo_fans_num/10000) }}w</li>
+									<li style="10px;">微拍{{ floor($celebrity->weipai_fans_num/10000) }}w</li>
+									<li style="10px;">秒拍{{ floor($celebrity->miaopai_fans_num/10000) }}w</li>
+								</ul>
+								<ul>
+									<li style="10px;">标签：&nbsp;{{ $celebrity->tags }}</li>
 								</ul>
 							</p> 
 						</div>
