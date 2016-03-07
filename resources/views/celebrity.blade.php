@@ -83,16 +83,16 @@
 							<div class="info">
 								<table>
 									<tr>
-										<td>三围&nbsp;{{ $celebrity->bust }}/{{ $celebrity->waist }}/{{ $celebrity->hop }}</td>
-										<td>身高&nbsp;{{ $celebrity->height }}</td>
+										<td>三围：&nbsp;{{ $celebrity->bust }}/{{ $celebrity->waist }}/{{ $celebrity->hop }}</td>
+										<td>身高：&nbsp;{{ $celebrity->height }}</td>
 									</tr>
 									<tr>
-										<td>体重&nbsp;{{ $celebrity->weight }}</td>
-										<td>年龄&nbsp;{{ 2016 - floor($celebrity->birthday / 10000) }}</td>
+										<td>体重：&nbsp;{{ $celebrity->weight }}</td>
+										<td>年龄：&nbsp;{{ 2016 - floor($celebrity->birthday / 10000) }}</td>
 									</tr>
 									<tr>
-										<td>城市&nbsp;{{ $celebrity->city }}</td>
-										<td>职业&nbsp;{{ $celebrity->occupation }}</td>
+										<td>城市：&nbsp;{{ $celebrity->city }}</td>
+										<td>职业：&nbsp;{{ $celebrity->occupation }}</td>
 									</tr>
 								</table>
 							</div>
