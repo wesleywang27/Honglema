@@ -14,12 +14,12 @@ use App\Models\Picture;
 */
 
 Route::get('/celebrities/list', function () {
-    $celebrities = Celebrity::paginate(20);
+    $celebrities = Celebrity::with('pictures')->paginate(6);
     return view('celebrities', ['celebrities' => $celebrities]);
 });
 
 Route::get('/celebrities/list.json', function () {
-    $celebrities = Celebrity::with('pictures')->paginate(20);
+    $celebrities = Celebrity::with('pictures')->paginate(6);
     return $celebrities;
 });
 
