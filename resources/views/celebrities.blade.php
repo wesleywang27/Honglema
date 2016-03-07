@@ -163,7 +163,7 @@
             <li class="item">
                 <a href="{{ url('/celebrity/'.$celebrity->id) }}" class="a-img">
                     @if( $celebrity->profile_img != null )
-                        <img src="{{ $picture->profile_img }}" alt="">
+                        <img src="{{ $celebrity->profile_img }}" alt="">
                     @else
                         @foreach ( $celebrity->pictures as $picture)
                             @if (str_contains($picture, 'jpg') || str_contains($picture, 'jpeg'))
