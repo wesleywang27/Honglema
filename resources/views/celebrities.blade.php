@@ -97,7 +97,13 @@
                         }else{
                             var html="";
                             for(var i in sqlJson){
-                                html+="<li class='item'><a href='http://m.honglema.com/celebrity/" + sqlJson[i].id +"' class='a-img'><img src='"+(sqlJson[i].pictures)[1].url+"'></a>";
+                                var myurl="#";
+                                if( sqlJson[i].profile_img != null ) {
+                                    myurl = sqlJson[i].profile_img;
+                                }else{
+                                    myurl=(sqlJson[i].pictures)[1].url;
+                                }
+                                html+="<li class='item'><a href='http://m.honglema.com/celebrity/" + sqlJson[i].id +"' class='a-img'><img src='"+myurl+"'></a>";
                                 html+="<div style='padding: 8px;'>";
                                 html+="<h2 class='li-title'>"+sqlJson[i].nickname+"</h2>";
 //                                html+="<p class='description'>"+sqlJson[i].intro+"</p><div class='qianm clearfloat'>";
@@ -156,12 +162,16 @@
             @foreach ($celebrities as $celebrity)
             <li class="item">
                 <a href="{{ url('/celebrity/'.$celebrity->id) }}" class="a-img">
-                    @foreach ( $celebrity->pictures as $picture)
-                    @if (str_contains($picture, 'jpg') || str_contains($picture, 'jpeg'))
-                    <img src="{{ $picture->url }}" alt="">
-                    @break;
+                    @if( $celebrity->profile_img != null )
+                        <img src="{{ $picture->profile_img }}" alt="">
+                    @else
+                        @foreach ( $celebrity->pictures as $picture)
+                            @if (str_contains($picture, 'jpg') || str_contains($picture, 'jpeg'))
+                                <img src="{{ $picture->url }}" alt="">
+                                @break;
+                            @endif
+                        @endforeach
                     @endif
-                    @endforeach
                 </a>
                 <div style="padding: 8px;">
                     <h2 class="li-title" title="{{ $celebrity->nickname }}">{{ $celebrity->nickname }}</h2>
