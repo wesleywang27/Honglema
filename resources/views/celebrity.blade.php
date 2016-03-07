@@ -67,10 +67,10 @@
 									@endif
 							<p>
 								<ul>
-									<li>粉丝&nbsp;{{ $celebrity->total_fans_num }}</li>
+									<li>粉丝：&nbsp;{{ $celebrity->total_fans_num }}</li>
 								</ul>
 								<ul>
-									<li>标签&nbsp;{{ $celebrity->tags }}</li>
+									<li>标签：&nbsp;{{ $celebrity->tags }}</li>
 								</ul>
 							</p> 
 						</div>
