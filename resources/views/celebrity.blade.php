@@ -107,12 +107,12 @@
 							<div>
 								<table class="jianjie">
 									<tr style="padding-bottom: 0;">
-										<td style="width:15%;">经历</td>
-										<td style="width:85%;padding-right: 6%;padding-top: 15px;">{{ $celebrity->experience }}</td>
+										<td style="width:17%;">经历</td>
+										<td style="width:83%;padding-right: 6%;padding-top: 15px;">{{ $celebrity->experience }}</td>
 									</tr>
 									<tr style="padding-top: 0;">
-										<td style="width:15%;">简介</td>
-										<td style="width:85%;padding-right: 6%;padding-bottom: 15px;">{{ $celebrity->personality }}</td>
+										<td style="width:17%;">简介</td>
+										<td style="width:83%;padding-right: 6%;padding-bottom: 15px;">{{ $celebrity->personality }}</td>
 									</tr>
 								</table>
 							<div>
