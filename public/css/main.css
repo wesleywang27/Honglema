@@ -17,7 +17,7 @@
  * Grid items
  */
 #tiles li {
-  width: 140px;
+  width: 144px;
   background-color: #ffffff;
   border: 1px solid #dedede;
   border-radius: 2px;
@@ -124,15 +124,21 @@ footer a {
   background-color: #ddd;
 }
 /*--media Quries for 640px-monitors-*/
-@media only screen and (max-width:640px) and (min-width:480px) {
+@media only screen and (max-width:640px) and (min-width:430px) {
   #main {
     /*margin-top: 7em;*/
   }
+  #tiles li {
+    width: 190px;
+  }
 }
 /*--media Quries for 480px-monitors-*/
-@media only screen and (max-width:480px) and (min-width:320px) {
+@media only screen and (max-width:430px) and (min-width:320px) {
   #main {
     /*margin-top: 9.5em;*/
+  }
+  #tiles li {
+    width: 160px;
   }
 }
 /*--media Quries for 320px-monitors-*/
@@ -141,7 +147,7 @@ footer a {
     /*margin-top: 9em;*/
   }
   #tiles li {
-    width: 140px;
+    width: 144px;
   }
 }
 

@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <!-- TODO: Current Tasks -->
 <!DOCTYPE HTML>
 <html  lang="zh-CN">
@@ -53,28 +52,28 @@
 <!---start-content---->
 <div class="content">
     <div class="wrap">
-        <div id="main" role="main">
+        <div id="main" role="main" style="margin-top:0.9em;">
             <ul id="tiles">
                 @if (count($celebrities) > 0)
-                    @foreach ($celebrities as $celebrity)
-                    <!-- These are our grid blocks -->
-                    <a href="{{ url('/celebrity/'.$celebrity->id) }}">
+                @foreach ($celebrities as $celebrity)
+                <!-- These are our grid blocks -->
+                <a href="{{ url('/celebrity/'.$celebrity->id) }}">
                     <li id="#picture">
                         @foreach ( $celebrity->pictures as $picture)
-                            @if (str_contains($picture, 'jpg') || str_contains($picture, 'jpeg'))
-                                <img src='{{ $picture->url }}'>
-                                @break;
-                            @endif
+                        @if (str_contains($picture, 'jpg') || str_contains($picture, 'jpeg'))
+                        <img src='{{ $picture->url }}'>
+                        @break;
+                        @endif
                         @endforeach
                         <div class="post-info">
                             <div class="post-basic-info">
                                 <h3 style="color:black;">{{ $celebrity->nickname }}</h3>
-                                <p>粉丝&nbsp;{{ $celebrity->total_fans_num }}</p>
+                                <p>粉丝&nbsp;{{ $celebrity->total_fans_num }}
                             </div>
                         </div>
                     </li>
-                    </a>
-                    @endforeach
+                </a>
+                @endforeach
                 @endif
             </ul>
         </div>
@@ -85,6 +84,20 @@
 <script src="{{URL::asset('js/jquery.imagesloaded.js')}}"></script>
 <script src="{{URL::asset('js/jquery.wookmark.js')}}"></script>
 <script type="text/javascript">
+    var curruntPage = 1;
+    var flag = 0;
+    var v_offset = 5;
+    var v_itemWidth = 144;
+    if(window.innerWidth == 320){
+        v_offset = 5;
+        v_itemWidth = 144;
+    }else if(window.innerWidth == 375){
+        v_offset = 10;
+        v_itemWidth = 160;
+    }else if(window.innerWidth > 375 ){
+        v_offset = 15;
+        v_itemWidth = 190;
+    }
     (function ($){
         var $tiles = $('#tiles'),
             $handler = $('li', $tiles),
@@ -94,8 +107,8 @@
             options = {
                 autoResize: true, // This will auto-update the layout when the browser window is resized.
                 container: $main, // Optional, used for some extra CSS styling
-                offset: 4, // Optional, the distance between grid items
-                itemWidth:140 // Optional, the width of a grid item
+                offset: v_offset, // Optional, the distance between grid items
+                itemWidth: v_itemWidth // Optional, the width of a grid item
             };
         /**
          * Reinitializes the wookmark handler after all images have loaded
@@ -118,16 +131,32 @@
         function onScroll() {
             // Check if we're within 100 pixels of the bottom edge of the broser window.
             var winHeight = window.innerHeight ? window.innerHeight : $window.height(), // iphone fix
-                closeToBottom = ($window.scrollTop() + winHeight > $document.height() - 100);
+                closeToBottom = ($window.scrollTop() + winHeight > $document.height() - 1000);
 
-            if (closeToBottom) {
-                // Get the first then items from the grid, clone them, and add them to the bottom of the grid
+            var htmls = '';
+            if (closeToBottom && flag != curruntPage) {
+                flag = curruntPage;
+                // Get the first items from the grid, clone them, and add them to the bottom of the grid
                 // send ajax request
-                var $items = $('li', $tiles),
-                    $firstTen = $items.slice(0, 10);
-                $tiles.append($firstTen.clone());
-
-                applyLayout();
+                $.ajax({
+                    url: '/celebrities/list.json',
+                    type: 'GET',
+                    data:{'page': curruntPage + 1 },
+                    success: function(data) {
+//                        alert(JSON.stringify(data));
+                        var items = data.data;
+                        for (var i=0;i<items.length;i++){
+                            htmls = htmls + "<a href='http://m.honglema.com/celebrity/" + items[i].id + "'><li id='#picture'><img src='" + (items[i].pictures)[1].url
+                                + "'><div class='post-info'><div class='post-basic-info'><h3 style='color:black;'>"
+                            + items[i].nickname + "</h3><p>粉丝&nbsp;" + items[i].total_fans_num + "</p></div></div></li></a>";
+                        }
+                        $tiles.append(htmls);
+                        applyLayout();
+                        curruntPage = data.current_page;
+                        if(JSON.stringify(data.data)=='[]')
+                            curruntPage = 0;
+                    }
+                });
             }
         };
 
@@ -136,9 +165,6 @@
         $window.bind('scroll.wookmark', onScroll);
     })(jQuery);
 </script>
-<!-- <div class="footer">
-    <p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
-</div> -->
 </body>
 </html>
 @endsection
