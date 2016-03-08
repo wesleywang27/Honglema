@@ -10,6 +10,7 @@
 	<link href="{{URL::asset('css/style.css')}}" rel='stylesheet' type='text/css' />
 	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
 	<link rel="shortcut icon" type="image/x-icon" href="{{URL::asset('images/fav-icon.png')}}" />
+	<link rel="stylesheet" href="{{URL::asset('css/swiper.min.css')}}">
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	</script>
 	<link href='http://fonts.useso.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -35,6 +36,46 @@
 
 		});
 	</script>
+	<style>
+		html, body {
+			position: relative;
+			height: 100%;
+		}
+		body {
+			background: #eee;
+			font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+			font-size: 14px;
+			color:#000;
+			margin: 0;
+			padding: 0;
+		}
+		.swiper-container {
+			width: 100%;
+			height: 420px;
+		}
+		.swiper-slide {
+			text-align: center;
+			font-size: 18px;
+			background: #f6f6f6;
+
+			/* Center slide text vertically */
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+			background-size: 100% auto;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+	</style>
 </head>
 <body>
 <!---start-wrap---->
@@ -54,12 +95,15 @@
 		<div class="single-page">
 			<div class="single-page-artical">
 				<div class="artical-content">
-					@foreach ( $celebrity->pictures as $picture)
-					@if (str_contains($picture, 'jpg') || str_contains($picture, 'jpeg'))
-					<img src="{{ $picture->url }}" title="banner1">
-					@break;
-					@endif
-					@endforeach
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							@foreach ( $celebrity->pictures as $picture)
+							<div class="swiper-slide" style="background-image: url('{{ $picture->url }}')"></div>
+							@endforeach
+						</div>
+						<!-- Add Pagination -->
+						<div class="swiper-pagination"></div>
+					</div>
 					<h3><a style="margin-left:1em;color:black;" href="#">红了吗红人&nbsp;|&nbsp;{{$celebrity->nickname}}&nbsp;&nbsp;
 							@if( $celebrity->sex == 1)
 							<img src="{{URL::asset('images/girl.png')}}" style="width:0.8em;"></a></h3>
@@ -128,5 +172,14 @@
 			</div>
 		</div>
 </body>
+<!-- Swiper JS -->
+<script src="{{URL::asset('js/swiper.min.js')}}"></script>
+<!-- Initialize Swiper -->
+<script>
+	var swiper = new Swiper('.swiper-container', {
+		pagination: '.swiper-pagination',
+		paginationClickable: true
+	});
+</script>
 </html>
 @endsection
