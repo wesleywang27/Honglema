@@ -51,7 +51,7 @@
 		}
 		.swiper-container {
 			width: 100%;
-			height: 420px;
+			height: 500px;
 		}
 		.swiper-slide {
 			text-align: center;
@@ -71,9 +71,27 @@
 			-ms-flex-align: center;
 			-webkit-align-items: center;
 			align-items: center;
-			background-size: 100% auto;
+			background-size: auto 100%;
 			background-position: center;
 			background-repeat: no-repeat;
+		}
+		@media screen and (max-width: 720px){
+			.swiper-container {
+				width: 100%;
+				height: 600px;
+			}
+		}
+		@media screen and (max-width: 400px){
+			.swiper-container {
+				width: 100%;
+				height: 500px;
+			}
+		}
+		@media screen and (max-width: 330px){
+			.swiper-container {
+				width: 100%;
+				height: 430px;
+			}
 		}
 	</style>
 </head>
@@ -112,15 +130,15 @@
 					@endif
 					<p>
 					<ul>
-						<li style="10px;">总粉丝{{ $celebrity->total_fans_num }}</li>
+						<li style="font-size: 12px;">标签：&nbsp;{{ $celebrity->tags }}</li>
 					</ul>
 					<ul>
-						<li style="10px;">微博{{ floor($celebrity->weibo_fans_num/10000) }}w</li>
-						<li style="10px;">微拍{{ floor($celebrity->weipai_fans_num/10000) }}w</li>
-						<li style="10px;">秒拍{{ floor($celebrity->miaopai_fans_num/10000) }}w</li>
+						<li style="font-size: 12px;">总粉丝{{ $celebrity->total_fans_num }}</li>
 					</ul>
-					<ul>
-						<li style="10px;">标签：&nbsp;{{ $celebrity->tags }}</li>
+					<ul style="margin-top: 5px;">
+						<li style="font-size: 11px;border: 1px solid gray;border-radius: 8px;padding: 4px;">微博{{ floor($celebrity->weibo_fans_num/10000) }}w</li>
+						<li style="font-size: 11px;border: 1px solid gray;border-radius: 8px;padding: 4px;">微拍{{ floor($celebrity->weipai_fans_num/10000) }}w</li>
+						<li style="font-size: 11px;border: 1px solid gray;border-radius: 8px;padding: 4px;">秒拍{{ floor($celebrity->miaopai_fans_num/10000) }}w</li>
 					</ul>
 					</p>
 				</div>
