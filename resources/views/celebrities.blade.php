@@ -152,12 +152,37 @@
             // });
         })
     </script>
+    <style>
+        .v_header{
+            z-index: 999;
+            width: 100%;
+            height: 50px;
+            background-color: #fff;
+            margin: 0px auto;
+        }
+        .v_header img{
+            position: absolute;
+            margin: 10px;
+            width: 30px;
+        }
+        .headin{
+            width: 100%;
+            text-align: center;
+            color: deeppink;
+            font-size: 20px;
+            padding: 15px 0 0 0;
+        }
+    </style>
 </head>
 <body>
-<div class="content">
+<div class="v_header">
+    <img src="{{URL::asset('images/fav-icon.png')}}"/>
+    <div class="headin">红了吗</div>
+</div>
+<div class="content" style="margin-top: 10px;">
     <!-- 瀑布流样式开始 -->
     <div class="waterfull clearfloat" id="waterfull">
-        <ul style="margin: 10px auto;">
+        <ul style="margin: 0 auto;">
             @if (count($celebrities) > 0)
             @foreach ($celebrities as $celebrity)
             <li class="item">
