@@ -48,6 +48,11 @@ class Celebrity extends Model
 
     protected $guarded = [];
 
+    protected $hidden = [
+        'cellphone',
+        'address',
+    ];
+
     public function pictures()
     {
         $hasMany = $this->hasMany('App\Models\Picture', 'uid');
