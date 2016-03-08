@@ -26,6 +26,15 @@
          masonry还有很多参数我这里注解了常用的参数
          */
         var curruntPage = 1;
+        var is_succeed = 1;
+//        function sleep(milliseconds) {
+//            var start = new Date().getTime();
+//            for (var i = 0; i < 1e7; i++) {
+//                if ((new Date().getTime() - start) > milliseconds){
+//                    break;
+//                }
+//            }
+//        }
         $(function(){
             /*瀑布流开始*/
             var container = $('.waterfull ul');
@@ -70,56 +79,62 @@
                 itemArr[2]=$('#waterfull').find('.item').eq(itemNum-3).offset().top+$('#waterfull').find('.item').eq(itemNum-1)[0].offsetHeight;
                 var maxTop=Math.max.apply(null,itemArr);
 
-                if(maxTop<=$(window).height()+$(document).scrollTop()){
-                    $.ajax({
-                        url: '/celebrities/list.json',
-                        type: 'GET',
-                        data:{'page': curruntPage + 1 },
-                        success: function(data){
-                            sqlJson = data.data;
-                            curruntPage = data.current_page;
+                if(maxTop < $(window).height()+$(document).scrollTop()){
+                    if(is_succeed) {
+                        is_succeed = 0;
 
-                            //加载更多数据
-                            loading.data("on",true).fadeOut(800);
-                            (function(sqlJson){
-                                var html="";
-                                /*这里会根据后台返回的数据来判断是否你进行分页或者数据加载完毕这里假设大于30就不在加载数据*/
-                                if(JSON.stringify(sqlJson)=='[]'){
-                                    loading.text('就有这么多了！');
-                                }else{
-                                    for(var i in sqlJson){
-                                        var myurl="#";
-                                        if( sqlJson[i].profile_img != null ) {
-                                            myurl = sqlJson[i].profile_img;
-                                        }else{
-                                            myurl=(sqlJson[i].pictures)[0].url;
+                        loading.data("on", true).fadeIn(200);
+                        loading.data("on", false).fadeOut(2000);
+
+                        $.ajax({
+                            url: '/celebrities/list.json',
+                            type: 'GET',
+                            data: {'page': curruntPage + 1},
+                            success: function (data) {
+                                sqlJson = data.data;
+                                curruntPage = data.current_page;
+
+                                //加载更多数据
+                                (function (sqlJson) {
+                                    var html = "";
+                                    /*这里会根据后台返回的数据来判断是否你进行分页或者数据加载完毕这里假设大于30就不在加载数据*/
+                                    if (JSON.stringify(sqlJson) == '[]') {
+                                        loading.text('就有这么多了！');
+                                    } else {
+                                        for (var i in sqlJson) {
+                                            var myurl = "#";
+                                            if (sqlJson[i].profile_img != null) {
+                                                myurl = sqlJson[i].profile_img;
+                                            } else {
+                                                myurl = (sqlJson[i].pictures)[0].url;
+                                            }
+                                            html += "<li class='item'><a href='http://m.honglema.com/celebrity/" + sqlJson[i].id + "' class='a-img'><img src='" + myurl + "'></a>";
+                                            html += "<div style='padding: 8px;'>";
+                                            html += "<h2 class='li-title'>" + sqlJson[i].nickname + "</h2>";
+                                            //                                html+="<p class='description'>"+sqlJson[i].intro+"</p><div class='qianm clearfloat'>";
+                                            html += "<div class='qianm clearfloat'><span class='sp1'>粉丝<b>" + sqlJson[i].total_fans_num + "</b></span></div>";
+                                            html += "</div>";
+                                            //                                html+="<span class='sp2'>"+sqlJson[i].writer+"</span><span class='sp3'>"+sqlJson[i].date+"&nbsp;By</span></div></li>";
                                         }
-                                        html+="<li class='item'><a href='http://m.honglema.com/celebrity/" + sqlJson[i].id +"' class='a-img'><img src='"+myurl+"'></a>";
-                                        html+="<div style='padding: 8px;'>";
-                                        html+="<h2 class='li-title'>"+sqlJson[i].nickname+"</h2>";
-        //                                html+="<p class='description'>"+sqlJson[i].intro+"</p><div class='qianm clearfloat'>";
-                                        html+="<div class='qianm clearfloat'><span class='sp1'>粉丝<b>"+sqlJson[i].total_fans_num+"</b></span></div>";
-                                        html+="</div>";
-        //                                html+="<span class='sp2'>"+sqlJson[i].writer+"</span><span class='sp3'>"+sqlJson[i].date+"&nbsp;By</span></div></li>";
+                                        /*模拟ajax请求数据时延时800毫秒*/
+                                        var time = setTimeout(function () {
+                                            $(html).find('img').each(function (index) {
+                                                loadImage($(this).attr('src'));
+                                            });
+                                            var $newElems = $(html).css({opacity: 0}).appendTo(container);
+                                            $newElems.imagesLoaded(function () {
+                                                $newElems.animate({opacity: 1}, 800);
+                                                container.masonry('appended', $newElems, true);
+                                                clearTimeout(time);
+//                                                $(document.body).animate({scrollTop: $(window).height() + $(document).scrollTop() + 50}, 'slow');
+                                            });
+                                        }, 800);
                                     }
-                                    /*模拟ajax请求数据时延时800毫秒*/
-                                    var time=setTimeout(function(){
-                                        $(html).find('img').each(function(index){
-                                            loadImage($(this).attr('src'));
-                                        });
-                                    var $newElems = $(html).css({ opacity: 0}).appendTo(container);
-                                    $newElems.imagesLoaded(function(){
-                                        $newElems.animate({ opacity: 1},800);
-                                        container.masonry( 'appended', $newElems,true);
-                                        loading.data("on",false).fadeIn();
-                                        clearTimeout(time);
-                                        $(document.body).animate({ scrollTop : $(window).height()+$(document).scrollTop() }, "slow");
-                                    });
-                                    },800);
-                                }
-                            })(sqlJson);
-                        }
-                    });
+                                })(sqlJson);
+                                is_succeed = 1;
+                            }
+                        });
+                    }
                 }
             });
             function loadImage(url) {
@@ -203,7 +218,7 @@
         </ul>
     </div>
     <!-- loading按钮自己通过样式调整 -->
-    <div id='imloading' style='width:150px;height:30px;line-height:30px;font-size:16px;text-align:center;border-radius:3px;opacity:0.7;background:#000;margin:10px auto 30px;color:#fff;'>
+    <div id='imloading' style='width:150px;height:30px;line-height:30px;font-size:16px;text-align:center;border-radius:3px;opacity:0.7;background:#000;margin:10px auto 30px;color:rgba(255,255,255,0.5);display: none;'>
         正在加载...
     </div>
 </div>
