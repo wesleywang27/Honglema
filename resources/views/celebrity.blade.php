@@ -113,10 +113,12 @@
 					</div>
 					<h3><a style="margin-left:1em;color:black;" href="#">红了吗红人&nbsp;|&nbsp;{{$celebrity->nickname}}&nbsp;&nbsp;
 							@if( $celebrity->sex == 1)
-							<img src="{{URL::asset('images/girl.png')}}" style="width:0.8em;"></a></h3>
-					@else
-					<img src="{{URL::asset('images/boy.png')}}" style="width:0.8em;"></a></h3>
-					@endif
+							<img src="{{URL::asset('images/girl.png')}}" style="width:0.8em;">
+							@else
+							<img src="{{URL::asset('images/boy.png')}}" style="width:0.8em;">
+							@endif
+							<img src="{{URL::asset('images/vdaren.png')}}" style="width:3em;"></a>
+					</h3>
 					<p>
 					<ul>
 						<li style="font-size: 12px;">标签：&nbsp;{{ $celebrity->tags }}</li>
