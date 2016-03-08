@@ -1,6 +1,5 @@
 <?php
 use App\Models\Celebrity;
-
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -57,6 +56,8 @@ Route::get('/test/list{format?}', function ($format = null) {
         return $celebrities;
     return view('test', ['celebrities' => $celebrities]);
 });
+
+Route::get('/test', 'TestController@celebrityList');
 
 Route::get('/test/{celebrity}', function (Celebrity $celebrity) {
     return view('test', ['celebrity' => $celebrity]);
