@@ -93,21 +93,10 @@
 				height: 430px;
 			}
 		}
+
 	</style>
 </head>
 <body>
-<!---start-wrap---->
-<!---start-header---->
-<!-- <div class="header">
-    <div class="wrap">
-    <div class="logo">
-        <a href="index.html"><img src="images/logo.png" title="pinbal" /></a>
-    </div>
-    <div class="clear"> </div>
-    </div>
-</div> -->
-<!---//End-header---->
-<!---start-content---->
 <div class="content">
 	<div class="wrap">
 		<div class="single-page">
@@ -173,13 +162,26 @@
 				<div class="artical-content">
 					<div>
 						<table class="jianjie">
-							<tr style="padding-bottom: 0;">
+							<tr>
 								<td style="width:17%;">经历</td>
-								<td style="width:83%;padding-right: 6%;padding-top: 15px;">{{ $celebrity->experience }}</td>
+								<td style="width:83%;padding-right: 6%;padding-top: 15px;padding-bottom: 15px;">{{ $celebrity->experience }}</td>
 							</tr>
-							<tr style="padding-top: 0;">
+						</table>
+						<div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="single-page" style="margin-top:1em;">
+			<div class="single-page-artical">
+				<div class="artical-content">
+					<div>
+						<table class="jianjie">
+							<tr>
 								<td style="width:17%;">简介</td>
-								<td style="width:83%;padding-right: 6%;padding-bottom: 15px;">{{ $celebrity->personality }}</td>
+								<td style="width:83%;padding-right: 6%;padding-top: 15px;padding-bottom: 15px;">{{ $celebrity->personality }}</td>
 							</tr>
 						</table>
 						<div>
