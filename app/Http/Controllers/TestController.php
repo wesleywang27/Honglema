@@ -25,7 +25,7 @@ class TestController extends Controller
         }
         if ($format === '.json')
             return $celebrities;
-        return view('celebrities2', ['celebrities' => $celebrities]);
+        return view('test.celebrities', ['celebrities' => $celebrities]);
     }
 
     public function index($format = null)
@@ -41,7 +41,7 @@ class TestController extends Controller
 
         if ($format === '.json')
             return $celebrities;
-        return view('celebrities', ['celebrities' => $celebrities]);
+        return view('test.celebrities', ['celebrities' => $celebrities]);
     }
 
     public function show (Celebrity $celebrity) {

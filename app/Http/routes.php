@@ -18,7 +18,7 @@ Route::get('/test/celebrities/list{format?}', 'TestController@index');
 
 Route::get('/test/list{format?}', 'TestController@show2');
 
-Route::get('/test', 'TestController@celebrityList');
+Route::get('/test/celebrities', 'TestController@celebrityList');
 
 Route::get('/test/{celebrity}','TestController@show');
 
