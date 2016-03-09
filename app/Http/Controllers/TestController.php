@@ -25,6 +25,38 @@ class TestController extends Controller
         }
         if ($format === '.json')
             return $celebrities;
-        return view('celebrities2', ['celebrities' => $celebrities]);
+        return view('test.celebrities', ['celebrities' => $celebrities]);
+    }
+
+    public function index($format = null)
+    {
+        $celebrities = Celebrity::with('pictures')->orderBy('sort_manually', 'DESC')->paginate(10);
+        foreach ($celebrities as &$celebrity) {
+            $celebrity->setVisible(['id', 'pictures']);
+            foreach ($celebrity->pictures as &$picture) {
+                $picture->setVisible(['url']);
+                $picture->url = dirname($picture->url) . "/comp-" . basename($picture->url);
+            }
+        }
+
+        if ($format === '.json')
+            return $celebrities;
+        return view('test.celebrities', ['celebrities' => $celebrities]);
+    }
+
+    public function show (Celebrity $celebrity) {
+        return view('test', ['celebrity' => $celebrity]);
+    }
+
+    public function show2($format = null) {
+        $celebrities = Celebrity::with('pictures')->orderBy('total_fans_num', 'DESC')->paginate(10);
+        foreach ($celebrities as &$celebrity) {
+            foreach ($celebrity->pictures as &$picture) {
+                $picture->url = dirname($picture->url) . "/comp-" . basename($picture->url);
+            }
+        }
+        if ($format === '.json')
+            return $celebrities;
+        return view('test', ['celebrities' => $celebrities]);
     }
 }

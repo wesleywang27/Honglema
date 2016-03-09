@@ -11,6 +11,7 @@
     <title>index</title>
     <link rel="stylesheet" type="text/css" href="{{URL::asset('css/base.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::asset('css/index.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('css/style.css')}}">
     <!--[if lt IE 9]>
     <script src="./js/css3-mediaqueries.js"></script>
     <![endif]-->
@@ -21,6 +22,18 @@
     <!--这个插件只是为了扩展jquery的animate函数动态效果可有可无-->
     <script type="text/javascript" src="{{URL::asset('js/jQeasing.js')}}"></script>
     <script type="text/javascript">
+        /* get query param */
+        function getQueryVariable(variable)
+        {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i=0;i<vars.length;i++) {
+                var pair = vars[i].split("=");
+                if(pair[0] == variable){return pair[1];}
+            }
+            return(false);
+        }
+
         /*
          抛开瀑布流布局各种乱七八糟的算法，基于masonry的瀑布流，很是简单的，而且通过扩展animate,能实现瀑布流布局的晃动、弹球等效果。
          masonry还有很多参数我这里注解了常用的参数
@@ -85,11 +98,14 @@
 
                         loading.data("on", true).fadeIn(200);
                         loading.data("on", false).fadeOut(2000);
-
+                        var data = {'page': curruntPage + 1};
+                        var sort = getQueryVariable('sort');
+                        if (sort != false)
+                            data['sort'] = sort;
                         $.ajax({
                             url: '/celebrities/list.json',
                             type: 'GET',
-                            data: {'page': curruntPage + 1},
+                            data: data,
                             success: function (data) {
                                 sqlJson = data.data;
                                 curruntPage = data.current_page;
@@ -158,6 +174,18 @@
             // $('#waterfull').on('mouseout','.item',function(){
             // 	$(this).stop(true).animate({'backgroundColor':'#fff'},1000);
             // });
+
+            // 排序button
+            $('div.hlm-sort-btn').click(function() {
+                $('div.hlm-list').fadeIn();
+            });
+
+            $('div.hlm-collapse-btn').click(function() {
+                $('div.hlm-list').fadeOut();
+            });
+            $('#sort td').click(function() {
+                window.location = window.location.pathname + '?sort=' + this.dataset.key;
+            });
         })
     </script>
     <style>
@@ -220,6 +248,43 @@
     <!-- loading按钮自己通过样式调整 -->
     <div id='imloading' style='width:150px;height:30px;line-height:30px;font-size:16px;text-align:center;border-radius:3px;opacity:0.7;background:#000;margin:10px auto 30px;color:rgba(255,255,255,0.5);display: none;'>
         正在加载...
+    </div>
+
+    <div class="hlm-sort-btn">&#10606;排序</div>
+    <div class="hlm-list">
+        <div class="hlm-collapse-btn">收起</div>
+        <div class="clear"></div>
+        <div class="single-page">
+            <div class="single-page-artical">
+                <div class="artical-content">
+                    <div class="info">
+                        <table id="sort">
+                            <tr>
+                                <td data-key="comprehensive">综合排序(默认)</td>
+                            </tr>
+                            <tr>
+                                <td data-key="total_fans_num">总粉丝量</td>
+                            </tr>
+                            <tr>
+                                <td data-key="weibo_fans_num">微博粉丝量</td>
+                            </tr>
+                            <tr>
+                                <td data-key="weipai_fans_num">微拍粉丝量</td>
+                            </tr>
+                            <tr>
+                                <td data-key="kuaishou_fans_num">快手粉丝量</td>
+                            </tr>
+                            <tr>
+                                <td data-key="miaopai_fans_num">秒拍粉丝量</td>
+                            </tr>
+                            <tr>
+                                <td data-key="meipai_fans_num">美拍粉丝量</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>
