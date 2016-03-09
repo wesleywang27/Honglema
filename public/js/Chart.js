@@ -2284,7 +2284,7 @@
 		barStrokeWidth : 2,
 
 		//Number - Spacing between each of the X value sets
-		barValueSpacing : 20,
+		barValueSpacing : 5,
 
 		//Number - Spacing between data sets within X values
 		barDatasetSpacing : 1,
