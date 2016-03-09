@@ -11,7 +11,7 @@ use App\Models\Celebrity;
 |
 */
 
-Route::get('/celebrities/list{format?}', 'CelebrityController@list');
+Route::get('/celebrities/list{format?}', 'CelebrityController@index');
 
 Route::get('/celebrity/{celebrity}', function (Celebrity $celebrity) {
     return view('celebrity', ['celebrity' => $celebrity]);
