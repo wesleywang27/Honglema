@@ -85,11 +85,11 @@
                 if(loading.data("on")) return;
 
                 // 计算所有瀑布流块中距离顶部最大，进而在滚动条滚动时，来进行ajax请求，方法很多这里只列举最简单一种，最易理解一种
-                var itemNum=$('#waterfull').find('.item').length;
+                var itemNum=$('#waterfull').find('.item').length - 7;
                 var itemArr=[];
                 itemArr[0]=$('#waterfull').find('.item').eq(itemNum-1).offset().top+$('#waterfull').find('.item').eq(itemNum-1)[0].offsetHeight;
-                itemArr[1]=$('#waterfull').find('.item').eq(itemNum-2).offset().top+$('#waterfull').find('.item').eq(itemNum-1)[0].offsetHeight;
-                itemArr[2]=$('#waterfull').find('.item').eq(itemNum-3).offset().top+$('#waterfull').find('.item').eq(itemNum-1)[0].offsetHeight;
+                itemArr[1]=$('#waterfull').find('.item').eq(itemNum-2).offset().top+$('#waterfull').find('.item').eq(itemNum-2)[0].offsetHeight;
+                itemArr[2]=$('#waterfull').find('.item').eq(itemNum-3).offset().top+$('#waterfull').find('.item').eq(itemNum-3)[0].offsetHeight;
                 var maxTop=Math.max.apply(null,itemArr);
 
                 if(maxTop < $(window).height()+$(document).scrollTop()){
@@ -133,7 +133,6 @@
                                             //                                html+="<span class='sp2'>"+sqlJson[i].writer+"</span><span class='sp3'>"+sqlJson[i].date+"&nbsp;By</span></div></li>";
                                         }
                                         /*模拟ajax请求数据时延时800毫秒*/
-                                        var time = setTimeout(function () {
                                             $(html).find('img').each(function (index) {
                                                 loadImage($(this).attr('src'));
                                             });
@@ -141,10 +140,7 @@
                                             $newElems.imagesLoaded(function () {
                                                 $newElems.animate({opacity: 1}, 800);
                                                 container.masonry('appended', $newElems, true);
-                                                clearTimeout(time);
-//                                                $(document.body).animate({scrollTop: $(window).height() + $(document).scrollTop() + 50}, 'slow');
                                             });
-                                        }, 800);
                                     }
                                 })(sqlJson);
                                 is_succeed = 1;
