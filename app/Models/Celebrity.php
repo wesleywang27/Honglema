@@ -44,6 +44,8 @@ class Celebrity extends Model
         'profile_img',
         'update_time',
         'sort_manually',
+        'weibo_link',
+        'meipai_link',
     ];
 
     protected $guarded = [];
