@@ -108,7 +108,7 @@
                                             } else {
                                                 myurl = (sqlJson[i].pictures)[0].url;
                                             }
-                                            html += "<li class='item'><a href='http://m.honglema.com/celebrity/" + sqlJson[i].id + "' class='a-img'><img src='" + myurl + "'></a>";
+                                            html += "<li class='item'><a href='/celebrity/" + sqlJson[i].id + "' class='a-img'><img src='" + myurl + "'></a>";
                                             html += "<div style='padding: 8px;'>";
                                             html += "<h2 class='li-title'>" + sqlJson[i].nickname + "</h2>";
                                             //                                html+="<p class='description'>"+sqlJson[i].intro+"</p><div class='qianm clearfloat'>";
