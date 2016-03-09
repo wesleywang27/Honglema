@@ -158,6 +158,8 @@ a.a_t_line:hover{
 
 
 div.hlm-sort-btn {
+	display: none;
+
 	position: fixed;
 	z-index: 1000;
 
