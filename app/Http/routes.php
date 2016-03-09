@@ -11,20 +11,7 @@ use App\Models\Celebrity;
 |
 */
 
-Route::get('/celebrities/list{format?}', function ($format = null) {
-    $celebrities = Celebrity::with('pictures')->orderBy('sort_manually', 'DESC')->paginate(10);
-    foreach ($celebrities as &$celebrity) {
-        if ($celebrity->profile_img)
-            $celebrity->profile_img = dirname($celebrity->profile_img) . "/comp-" . basename($celebrity->profile_img);
-
-        foreach ($celebrity->pictures as &$picture) {
-            $picture->url = dirname($picture->url) . "/comp-" . basename($picture->url);
-        }
-    }
-    if ($format === '.json')
-        return $celebrities;
-    return view('celebrities', ['celebrities' => $celebrities]);
-});
+Route::get('/celebrities/list{format?}', 'CelebrityController@list');
 
 Route::get('/celebrity/{celebrity}', function (Celebrity $celebrity) {
     return view('celebrity', ['celebrity' => $celebrity]);
