@@ -27,4 +27,8 @@ class CelebrityController extends Controller
             return $celebrities;
         return view('celebrities', ['celebrities' => $celebrities]);
     }
+
+    public function show(Celebrity $celebrity) {
+        return view('celebrity', ['celebrity' => $celebrity]);
+    }
 }
