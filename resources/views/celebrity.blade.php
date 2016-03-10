@@ -75,10 +75,48 @@
 			background-position: center;
 			background-repeat: no-repeat;
 		}
+		.chart{
+			width: 100%;
+			margin: 10px auto;
+			margin-bottom: 0;
+		}
+		.titlelabel{
+			display: inline-block;
+			margin-top: 3px;
+			margin-left: 0;
+			float:left;
+			padding-left: 8px;
+			width: 50%;
+			line-height: 20px;
+			font-size: 10px;
+			background-color: darkgray;
+		}
+		.tail{
+			display: inline-block;
+			margin-top: 3px;
+			float:left;
+			border-color: darkgray #FFFFFF darkgray darkgray;
+			border-style: solid;
+			border-width: 10px 5px 10px 5px;
+			width:0;
+			height:0;
+		}
 		@media screen and (max-width: 720px){
 			.swiper-container {
 				width: 100%;
 				height: 600px;
+			}
+			.girls {
+				position:absolute;
+				margin-left: 8px;
+				margin-top: 30px;
+				color: #f3bac9;
+			}
+			.boys {
+				position:absolute;
+				margin-left: 35%;
+				margin-top: 170px;
+				color: #ccdc83;
 			}
 		}
 		@media screen and (max-width: 400px){
@@ -86,14 +124,37 @@
 				width: 100%;
 				height: 500px;
 			}
+			.girls {
+				position:absolute;
+				margin-left: 5%;
+				margin-top: 30px;
+				color: #f3bac9;
+			}
+			.boys {
+				position:absolute;
+				margin-left: 35%;
+				margin-top: 155px;
+				color: #ccdc83;
+			}
 		}
 		@media screen and (max-width: 330px){
 			.swiper-container {
 				width: 100%;
 				height: 430px;
 			}
+			.girls {
+				position:absolute;
+				margin-left: 5px;
+				margin-top: 30px;
+				color: #f3bac9;
+			}
+			.boys {
+				position:absolute;
+				margin-left: 34%;
+				margin-top: 133px;
+				color: #ccdc83;
+			}
 		}
-
 	</style>
 </head>
 <body>
@@ -127,13 +188,38 @@
 						<li style="font-size: 12px;">总粉丝{{ $celebrity->total_fans_num }}</li>
 					</ul>
 					<ul style="margin-top: 5px;">
-						<li style="font-size: 11px;border: 1px solid gray;border-radius: 8px;padding: 4px;">微博{{ floor($celebrity->weibo_fans_num/10000) }}w</li>
-						<li style="font-size: 11px;border: 1px solid gray;border-radius: 8px;padding: 4px;">微拍{{ floor($celebrity->weipai_fans_num/10000) }}w</li>
-						<li style="font-size: 11px;border: 1px solid gray;border-radius: 8px;padding: 4px;">秒拍{{ floor($celebrity->miaopai_fans_num/10000) }}w</li>
+						<li style="font-size: 11px;border: 1px solid gray;border-radius: 8px;padding: 4px;">
+							<a style="color:gray;" href="{{$celebrity->weibo_link}}">微博{{ floor($celebrity->weibo_fans_num/10000) }}w</a>
+						</li>
+<!--						<li style="font-size: 11px;border: 1px solid gray;border-radius: 8px;padding: 4px;"><a href="#">微拍{{ floor($celebrity->weipai_fans_num/10000) }}w</a></li>-->
+						<li style="font-size: 11px;border: 1px solid gray;border-radius: 8px;padding: 4px;">
+							<a style="color:gray;" href="{{$celebrity->meipai_link}}">美拍{{ floor($celebrity->miaopai_fans_num/10000) }}w</a>
+						</li>
 					</ul>
 					</p>
 				</div>
 				<div class="clear"></div>
+				<div class="chart">
+					<div style="position: absolute;background: rgba(0,0,0,0);width: 100%;height: 400px;"></div>
+					<div style="width: 49%;display: inline-block;border-right: 1px dashed lightgray;">
+						<div class="titlelabel">粉丝男女比例</div><div class="tail"></div>
+						<div class="girls">女:15%</div>
+						<div class="boys">男:15%</div>
+						<div style="width: 70%;display: inline-block;margin-left: 19%;padding-bottom: 10px;margin-top: 10px;">
+							<canvas id="chart-area" width="200" height="200"/>
+						</div>
+					</div>
+					<div style="width: 49%;display: inline-block;">
+						<div class="titlelabel" style="margin-left: -5px;">粉丝年龄比例</div><div class="tail"></div>
+						<div style="width: 70%;display: inline-block;margin-left: 10%;padding-bottom: 10px;margin-top: 10px;">
+							<canvas id="chart-area2" width="200" height="200"/>
+						</div>
+					</div>
+				</div>
+				<div style="width: 100%; border-top: 1px dashed lightgray;">
+					<div class="titlelabel" style="width: 25%;">粉丝地区排名</div><div class="tail"></div>
+					<canvas id="canvas" width="200" height="100"></canvas>
+				</div>
 			</div>
 		</div>
 		<div class="single-page" style="margin-top:1em;">
@@ -203,5 +289,73 @@
 		paginationClickable: true
 	});
 </script>
+<script src="{{URL::asset('js/Chart.Core.js')}}"></script>
+<script src="{{URL::asset('js/Chart.Doughnut.js')}}"></script>
+<script src="{{URL::asset('js/Chart.js')}}"></script>
+<script>
+
+	var doughnutData = [
+		{
+			value: 75,
+			label: "男",
+			color: "#ccdc83"
+		},
+		{
+			value: 25,
+			label: "女",
+			color: "#f3bac9"
+		}
+	];
+	var doughnutData2 = [
+		{
+			value: 1,
+			color: "#4390c8",
+			label: "16~25"
+		},
+		{
+			value: 2,
+			color: "#9acff7",
+			label: "26~35"
+		},
+		{
+			value: 3,
+			color: "#74c1f9",
+			label: "36~45"
+		},
+		{
+			value: 4,
+			color: "#45aaf2",
+			label: "46~55"
+		}
+	];
+
+	var barChartData = {
+		labels : ["北京","上海","广州","深圳","天津","杭州"],
+		datasets : [
+			{
+				fillColor : "rgba(245,162,58,0.8)",
+				strokeColor : "rgba(245,162,58,0.8)",
+				data : [6,5,4,3,2,1]
+			}
+		]
+
+	}
+
+
+	window.onload = function(){
+//	$(function(  ){
+		var ctx = document.getElementById("chart-area").getContext("2d");
+		window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
+
+		var ctx2 = document.getElementById("chart-area2").getContext("2d");
+		window.myDoughnut = new Chart(ctx2).Doughnut(doughnutData2, {responsive : true});
+
+		var ctx3 = document.getElementById("canvas").getContext("2d");
+		window.myBar = new Chart(ctx3).Bar(barChartData, {
+			responsive : true
+		});
+	};
+</script>
+
 </html>
 @endsection

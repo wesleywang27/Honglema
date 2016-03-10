@@ -186,11 +186,11 @@
     </script>
     <style>
         .v_header{
-            z-index: 999;
             width: 100%;
             height: 50px;
             background-color: #fff;
             margin: 0px auto;
+            border-bottom: 1px solid #f6f6f6;
         }
         .v_header img{
             position: absolute;
@@ -210,6 +210,9 @@
 <div class="v_header">
     <img src="{{URL::asset('images/fav-icon.png')}}"/>
     <div class="headin">红了吗</div>
+</div>
+<div style="width:100%;margin: 0 auto;">
+    <img style="width: 100%;" src="{{URL::asset('images/banner.png')}}" />
 </div>
 <div class="content" style="margin-top: 10px;">
     <!-- 瀑布流样式开始 -->
