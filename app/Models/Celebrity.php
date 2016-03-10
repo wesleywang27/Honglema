@@ -57,8 +57,12 @@ class Celebrity extends Model
 
     public function pictures()
     {
-        $hasMany = $this->hasMany('App\Models\Picture', 'uid');
-        return $hasMany;
+        return $this->hasMany('App\Models\Picture', 'uid');
+    }
+
+    public function fans_profile()
+    {
+        return $this->hasOne('App\Models\FansProfile', 'id');
     }
         
 }
