@@ -103,7 +103,7 @@
 <script type="text/javascript">
     setTimeout(function () {
         $("#container").css('opacity', 1);
-    }, 1000);
+    }, 800);
     (function ($) {
         var intemwidth;
         var off_set = 10;
@@ -170,9 +170,9 @@
                             }
                             //var $items = $('li', $container);
                             //var $firstTen = $items.slice(0, 10).clone().css('opacity', 0);
-                            $(html).find('img').each(function (index) {
-                                loadImage($(this).attr('src'));
-                            });
+//                            $(html).find('img').each(function (index) {
+//                                loadImage($(this).attr('src'));
+//                            });
                             var $firstTen = $(html).css({opacity: 0});
                             $container.append($firstTen);
                             wookmark.initItems();
