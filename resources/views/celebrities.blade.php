@@ -178,12 +178,11 @@
                             wookmark.initItems();
                             wookmark.layout(true, function () {
                                 // Fade in items after layout
-
                                 setTimeout(function () {
                                     $firstTen.css('opacity', 1);
                                 }, 1200);
-                                flag = 1;
                             });
+                            flag = 1;
                         }
                     }
                 });
