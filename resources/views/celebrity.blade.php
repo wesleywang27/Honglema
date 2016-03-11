@@ -77,7 +77,7 @@
 		}
 		.chart{
 			width: 100%;
-			margin: 10px auto;
+			margin: 0 auto;
 			margin-bottom: 0;
 		}
 		.titlelabel{
@@ -244,7 +244,7 @@
 						<!-- Add Pagination -->
 						<div class="swiper-pagination"></div>
 					</div>
-					<h3><a style="margin-left:1em;color:black;" href="#">红了吗红人&nbsp;|&nbsp;{{$celebrity->nickname}}&nbsp;&nbsp;
+					<h3><a style="margin-left:1em;color:black;padding-bottom: 10px;" href="#">红了吗红人&nbsp;|&nbsp;{{$celebrity->nickname}}&nbsp;&nbsp;
 							@if( $celebrity->sex == 1)
 							<img src="{{URL::asset('images/girl.png')}}" style="width:0.8em;">
 							@else
@@ -252,25 +252,30 @@
 							@endif
 							<img src="{{URL::asset('images/vdaren.png')}}" style="width:3em;"></a>
 					</h3>
-					<p>
-					<ul>
-						<li style="font-size: 12px;">标签：&nbsp;
-							{{ $celebrity->tags }}
-						</li>
-					</ul>
-					<ul>
-						<li style="font-size: 12px;">总粉丝:{{ $celebrity->total_fans_num }}</li>
-					</ul>
-					<ul style="margin-top: 5px;">
-						<li style="font-size: 11px;border: 1px solid gray;border-radius: 8px;padding: 4px;">
-							<a style="color:gray;" href="{{$celebrity->weibo_link}}">微博{{ floor($celebrity->weibo_fans_num/10000) }}w</a>
-						</li>
-<!--						<li style="font-size: 11px;border: 1px solid gray;border-radius: 8px;padding: 4px;"><a href="#">微拍{{ floor($celebrity->weipai_fans_num/10000) }}w</a></li>-->
-						<li style="font-size: 11px;border: 1px solid gray;border-radius: 8px;padding: 4px;">
-							<a style="color:gray;" href="{{$celebrity->meipai_link}}">美拍{{ floor($celebrity->miaopai_fans_num/10000) }}w</a>
-						</li>
-					</ul>
-					</p>
+					<div style="background-color: #f6f6f6;padding-top:10px;padding-bottom: 15px;">
+						<ul>
+							<li style="font-size: 12px;">标签：&nbsp;
+								<?php
+									$tmp = explode("、",$celebrity->tags);
+									foreach($tmp as $t){
+										echo "#".$t."  ";
+									}
+								?>
+							</li>
+						</ul>
+						<ul>
+							<li style="font-size: 12px;">总粉丝:{{ $celebrity->total_fans_num }}</li>
+						</ul>
+						<ul style="margin-top: 5px;">
+							<li style="font-size: 11px;border: 1px solid gray;border-radius: 8px;padding: 4px;">
+								<a style="color:gray;" href="{{$celebrity->weibo_link}}">微博{{ floor($celebrity->weibo_fans_num/10000) }}w</a>
+							</li>
+	<!--						<li style="font-size: 11px;border: 1px solid gray;border-radius: 8px;padding: 4px;"><a href="#">微拍{{ floor($celebrity->weipai_fans_num/10000) }}w</a></li>-->
+							<li style="font-size: 11px;border: 1px solid gray;border-radius: 8px;padding: 4px;">
+								<a style="color:gray;" href="{{$celebrity->meipai_link}}">美拍{{ floor($celebrity->miaopai_fans_num/10000) }}w</a>
+							</li>
+						</ul>
+					</div>
 				</div>
 				<div class="clear"></div>
 				@if( $celebrity->fans_profile->total_fans != 0 )
