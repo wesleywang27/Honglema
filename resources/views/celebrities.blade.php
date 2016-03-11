@@ -181,7 +181,7 @@
 
                                 setTimeout(function () {
                                     $firstTen.css('opacity', 1);
-                                }, 1100);
+                                }, 1200);
                                 flag = 1;
                             });
                         }
