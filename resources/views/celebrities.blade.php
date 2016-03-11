@@ -170,17 +170,17 @@
                             }
                             //var $items = $('li', $container);
                             //var $firstTen = $items.slice(0, 10).clone().css('opacity', 0);
-//                            $(html).find('img').each(function (index) {
-//                                loadImage($(this).attr('src'));
-//                            });
-                            var $firstTen = $(html).css({opacity: 0});
+                            $(html).find('img').each(function (index) {
+                                loadImage($(this).attr('src'));
+                            });
+                            var $firstTen = $(html).css({opacity: 1});
                             $container.append($firstTen);
                             wookmark.initItems();
                             wookmark.layout(true, function () {
                                 // Fade in items after layout
                                 setTimeout(function () {
                                     $firstTen.css('opacity', 1);
-                                }, 1200);
+                                }, 3000);
                             });
                             flag = 1;
                         }
