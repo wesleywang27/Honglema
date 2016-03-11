@@ -6,7 +6,7 @@ return [
      *
      * 当值为 false 时，所有的日志都不会记录
      */
-    'debug'  => true,
+    'debug'  => false,
 
     /**
      * 使用 Laravel 的缓存系统
