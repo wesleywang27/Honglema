@@ -180,7 +180,7 @@
 			}
 			.n49{
 				position:absolute;
-				margin-left: 28%;
+				margin-left: 30%;
 				margin-top: 30px;
 				color: #45aaf2;
 			}
