@@ -138,7 +138,7 @@
 			}
 			.n49{
 				position:absolute;
-				margin-left: 34%;
+				margin-left: 32%;
 				margin-top: 30px;
 				color: #45aaf2;
 			}
@@ -180,7 +180,7 @@
 			}
 			.n49{
 				position:absolute;
-				margin-left: 34%;
+				margin-left: 28%;
 				margin-top: 30px;
 				color: #45aaf2;
 			}
@@ -192,7 +192,7 @@
 			}
 			.girls {
 				position:absolute;
-				margin-left: 20px;
+				margin-left: 15px;
 				margin-top: 30px;
 				color: #f3bac9;
 			}
@@ -204,7 +204,7 @@
 			}
 			.n19{
 				 position:absolute;
-				 margin-left: 8px;
+				 margin-left: 2px;
 				 margin-top: 30px;
 				 color: #9acff7;
 			 }
@@ -222,7 +222,7 @@
 			}
 			.n49{
 				position:absolute;
-				margin-left: 31%;
+				margin-left: 28%;
 				margin-top: 30px;
 				color: #45aaf2;
 			}
@@ -281,17 +281,17 @@
 						<div class="girls">女:&nbsp;{{ floor(($celebrity->fans_profile->female_fans / $celebrity->fans_profile->total_fans) * 100) }}%</div>
 						<div class="boys">男:&nbsp;{{ 100 - floor(($celebrity->fans_profile->female_fans / $celebrity->fans_profile->total_fans) * 100) }}%</div>
 						<div style="width: 70%;display: inline-block;margin-left: 17%;padding-bottom: 10px;margin-top: 18px;">
-							<canvas id="chart-area" width="200" height="200"/>
+							<canvas id="chart-area" width="180" height="180"/>
 						</div>
 					</div>
 					<div style="width: 49%;display: inline-block;">
-						<div class="n19">≤19:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group1 / $celebrity->fans_profile->fans_with_age * 100) }}%</div>
+						<div class="n19">≤19岁:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group1 / $celebrity->fans_profile->fans_with_age * 100) }}%</div>
 						<div class="n29">20~29:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group2 / $celebrity->fans_profile->fans_with_age * 100) }}%</div>
 						<div class="n39">30~39:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group3 / $celebrity->fans_profile->fans_with_age * 100) }}%</div>
-						<div class="n49">≥40:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group4 / $celebrity->fans_profile->fans_with_age * 100) }}%</div>
+						<div class="n49">≥40岁:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group4 / $celebrity->fans_profile->fans_with_age * 100) }}%</div>
 						<div class="titlelabel" style="margin-left: -5px;">粉丝年龄比例</div><div class="tail"></div>
 						<div style="width: 70%;display: inline-block;margin-left: 15%;padding-bottom: 10px;margin-top: 18px;">
-							<canvas id="chart-area2" width="200" height="200"/>
+							<canvas id="chart-area2" width="180" height="180"/>
 						</div>
 					</div>
 				</div>
