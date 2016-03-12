@@ -49,10 +49,11 @@
 </head>
 <body>
 <div class="htmleaf-container">
-    <div class="v_header">
-        <img src="{{URL::asset('images/fav-icon.png')}}"/>
-        <div class="headin">红了吗</div>
-    </div>
+<!--    <div class="v_header">-->
+<!--        <img src="{{URL::asset('images/fav-icon.png')}}"/>-->
+<!--        <div class="headin">红了吗</div>-->
+<!--    </div>-->
+    <div style="width:100%;height: 1px;background-color: #fff;margin: 0px auto;"></div>
     <div style="width:100%;margin: 0 auto;">
         <img style="width: 100%;" src="{{URL::asset('images/banner.png')}}" />
     </div>
@@ -137,7 +138,7 @@
         function onScroll() {
             // Check if we're within 100 pixels of the bottom edge of the broser window.
             var winHeight = window.innerHeight ? window.innerHeight : $window.height(), // iphone fix
-                closeToBottom = ($window.scrollTop() + winHeight > $document.height() - 600);
+                closeToBottom = ($window.scrollTop() + winHeight > $document.height() - 300);
 
             if (closeToBottom && flag) {
                 // Get the first then items from the grid, clone them, and add them to the bottom of the grid
@@ -173,15 +174,17 @@
                             $(html).find('img').each(function (index) {
                                 loadImage($(this).attr('src'));
                             });
-                            var $firstTen = $(html).css({opacity: 1});
+                            var $firstTen = $(html).css({opacity: 0});
                             $container.append($firstTen);
-                            wookmark.initItems();
-                            wookmark.layout(true, function () {
-                                // Fade in items after layout
-                                setTimeout(function () {
-                                    $firstTen.css('opacity', 1);
-                                }, 3000);
-                            });
+                            setTimeout(function () {
+                                wookmark.initItems();
+                                wookmark.layout(true, function () {
+                                    // Fade in items after layout
+                                    setTimeout(function () {
+                                        $firstTen.css('opacity', 1);
+                                    }, 950);
+                                });
+                            },650);
                             flag = 1;
                         }
                     }
