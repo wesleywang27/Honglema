@@ -49,10 +49,11 @@
 </head>
 <body>
 <div class="htmleaf-container">
-    <div class="v_header">
-        <img src="{{URL::asset('images/fav-icon.png')}}"/>
-        <div class="headin">红了吗</div>
-    </div>
+<!--    <div class="v_header">-->
+<!--        <img src="{{URL::asset('images/fav-icon.png')}}"/>-->
+<!--        <div class="headin">红了吗</div>-->
+<!--    </div>-->
+    <div style="width:100%;height: 1px;background-color: #fff;margin: 0px auto;"></div>
     <div style="width:100%;margin: 0 auto;">
         <img style="width: 100%;" src="{{URL::asset('images/banner.png')}}" />
     </div>
@@ -97,13 +98,15 @@
 <script src="{{URL::asset('js/imagesloaded.pkgd.min.js')}}"></script>
 
 <!-- Include the plug-in -->
-<script src="{{URL::asset('js/wookmark.js')}}"></script>
+<script src="{{URL::asset('js/wookmark.min.js')}}"></script>
 
 <!-- Once the page is loaded, initalize the plug-in. -->
 <script type="text/javascript">
-    setTimeout(function () {
-        $("#container").css('opacity', 1);
-    }, 1000);
+    $(".container").imagesLoaded(function () {
+        setTimeout(function(){
+            $("#container").css('opacity', 1);
+        },800);
+    });
     (function ($) {
         var intemwidth;
         var off_set = 10;
@@ -137,7 +140,7 @@
         function onScroll() {
             // Check if we're within 100 pixels of the bottom edge of the broser window.
             var winHeight = window.innerHeight ? window.innerHeight : $window.height(), // iphone fix
-                closeToBottom = ($window.scrollTop() + winHeight > $document.height() - 600);
+                closeToBottom = ($window.scrollTop() + winHeight > $document.height() - 500);
 
             if (closeToBottom && flag) {
                 // Get the first then items from the grid, clone them, and add them to the bottom of the grid
@@ -174,16 +177,17 @@
                                 loadImage($(this).attr('src'));
                             });
                             var $firstTen = $(html).css({opacity: 0});
-                            $container.append($firstTen);
-                            wookmark.initItems();
-                            wookmark.layout(true, function () {
-                                // Fade in items after layout
-
-                                setTimeout(function () {
-                                    $firstTen.css('opacity', 1);
-                                }, 1100);
-                                flag = 1;
+                            $firstTen.imagesLoaded(function () {
+                                $container.append($firstTen);
+                                wookmark.initItems();
+                                wookmark.layout(true, function () {
+                                    // Fade in items after layout
+                                    setTimeout(function () {
+                                        $firstTen.css('opacity', 1);
+                                    }, 1000);
+                                });
                             });
+                            flag = 1;
                         }
                     }
                 });

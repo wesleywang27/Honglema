@@ -29,6 +29,7 @@ body{
 .wrap{
 	width:80%;
 	margin:0 auto;
+	padding-bottom: 20px;
 }
 /*---start-header----*/
 .header{
@@ -675,6 +676,7 @@ span.mail a:hover{
 @media only screen and (max-width:1440px) and (min-width:1366px) {
 	.wrap{
 		width:85%;
+		padding-bottom: 20px;
 	}
 }
 /*--//End-media Quries for 1440px-monitors-*/
@@ -682,6 +684,7 @@ span.mail a:hover{
 @media only screen and (max-width:1366px) and (min-width:1280px) {
 	.wrap{
 		width:90%;
+		padding-bottom: 20px;
 	}
 	.footer {
 		bottom: 0px;
@@ -695,6 +698,7 @@ span.mail a:hover{
 @media only screen and (max-width:1280px) and (min-width:1024px) {
 	.wrap{
 		width:80%;
+		padding-bottom: 20px;
 	}
 	.footer {
 		bottom: 0px;
@@ -711,6 +715,7 @@ span.mail a:hover{
 @media only screen and (max-width:1024px) and (min-width:768px) {
 	.wrap{
 		width:90%;
+		padding-bottom: 20px;
 	}
 	.footer {
 		bottom: 0px;
@@ -737,6 +742,7 @@ span.mail a:hover{
 @media only screen and (max-width:768px) and (min-width:640px) {
 	.wrap{
 		width:90%;
+		padding-bottom: 20px;
 	}
 	.footer {
 		bottom: 0px;
@@ -825,6 +831,7 @@ span.mail a:hover{
 @media only screen and (max-width:640px) and (min-width:480px) {
 	.wrap{
 		width:100%;
+		padding-bottom: 20px;
 	}
 	.footer {
 		bottom: 0px;
@@ -939,6 +946,7 @@ span.mail a:hover{
 @media only screen and (max-width:480px) and (min-width:320px) {
 	.wrap{
 		width:100%;
+		padding-bottom: 20px;
 	}
 	.footer {
 		bottom: 0px;
@@ -1066,6 +1074,7 @@ span.mail a:hover{
 @media only screen and (max-width:320px) and (min-width:240px) {
 	.wrap{
 		width: 100%;
+		padding-bottom: 20px;
 	}
 	.footer {
 		bottom: 0px;
