@@ -186,7 +186,7 @@
 						<ul style="margin-top: 5px;padding-left: 15px;">
 							@foreach(array("weibo"=>"微博","weipai"=>"微拍","meipai"=>"美拍","miaopai"=>"秒拍","kuaishou"=>"快手") as $plt => $name)
 							@if(floor($celebrity->{$plt.'_fans_num'}/10000) != 0)
-							<li style="border: 1px solid gray;border-radius: 8px;padding: 2px;margin-left:5px;">
+							<li style="border: 1px solid gray;border-radius: 8px;padding-left:5px;padding-bottom:5px;padding-right:3px;margin-left:5px;">
 								<a style="color:gray;font-size: 10px;" href="{{ $celebrity->{$plt.'_link'} }}">{{$name}}{{ floor($celebrity->{$plt.'_fans_num'}/10000) }}w</a>
 							</li>
 							@endif
