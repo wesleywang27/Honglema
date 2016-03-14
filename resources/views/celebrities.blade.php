@@ -102,9 +102,11 @@
 
 <!-- Once the page is loaded, initalize the plug-in. -->
 <script type="text/javascript">
-    setTimeout(function () {
-        $("#container").css('opacity', 1);
-    }, 800);
+    $(".container").imagesLoaded(function () {
+        setTimeout(function(){
+            $("#container").css('opacity', 1);
+        },800);
+    });
     (function ($) {
         var intemwidth;
         var off_set = 10;
