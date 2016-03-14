@@ -278,7 +278,7 @@
 					</div>
 				</div>
 				<div class="clear"></div>
-				@if( $celebrity->fans_profile->total_fans != 0 )
+				@if( $celebrity->fans_profile && $celebrity->fans_profile->total_fans != 0 )
 				<div class="chart">
 					<div style="position: absolute;background: rgba(0,0,0,0);width: 100%;height: 400px;"></div>
 					<div style="width: 49%;display: inline-block;border-right: 1px dashed lightgray;">
@@ -377,6 +377,7 @@
 <script src="{{URL::asset('js/Chart.Core.js')}}"></script>
 <script src="{{URL::asset('js/Chart.Doughnut.js')}}"></script>
 <script src="{{URL::asset('js/Chart.js')}}"></script>
+@if( $celebrity->fans_profile)
 <script>
 
 	var doughnutData = [
@@ -441,6 +442,6 @@
 		});
 	};
 </script>
-
+@endif
 </html>
 @endsection
