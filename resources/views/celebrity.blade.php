@@ -112,6 +112,7 @@
 		.boysandgirls{
 			width:100%;
 			margin-top: 8px;
+			padding-bottom: 5px;
 		}
 		.girls {
 			color: #f3bac9;
@@ -133,6 +134,7 @@
 		}
 		.n29n39{
 			width:100%;
+			padding-top: 5px;
 		}
 		.n29{
 			color: #4390c8;
