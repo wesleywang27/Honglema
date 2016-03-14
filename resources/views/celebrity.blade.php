@@ -142,6 +142,7 @@
 		.n39{
 			float:right;
 			color: #74c1f9;
+			padding-right: 4px;
 		}
 	</style>
 </head>
