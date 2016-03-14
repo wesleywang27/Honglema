@@ -98,7 +98,7 @@
 <script src="{{URL::asset('js/imagesloaded.pkgd.min.js')}}"></script>
 
 <!-- Include the plug-in -->
-<script src="{{URL::asset('js/wookmark.js')}}"></script>
+<script src="{{URL::asset('js/wookmark.min.js')}}"></script>
 
 <!-- Once the page is loaded, initalize the plug-in. -->
 <script type="text/javascript">
@@ -138,7 +138,7 @@
         function onScroll() {
             // Check if we're within 100 pixels of the bottom edge of the broser window.
             var winHeight = window.innerHeight ? window.innerHeight : $window.height(), // iphone fix
-                closeToBottom = ($window.scrollTop() + winHeight > $document.height() - 300);
+                closeToBottom = ($window.scrollTop() + winHeight > $document.height() - 500);
 
             if (closeToBottom && flag) {
                 // Get the first then items from the grid, clone them, and add them to the bottom of the grid
@@ -175,16 +175,16 @@
                                 loadImage($(this).attr('src'));
                             });
                             var $firstTen = $(html).css({opacity: 0});
-                            $container.append($firstTen);
-                            setTimeout(function () {
+                            $firstTen.imagesLoaded(function () {
+                                $container.append($firstTen);
                                 wookmark.initItems();
                                 wookmark.layout(true, function () {
                                     // Fade in items after layout
                                     setTimeout(function () {
                                         $firstTen.css('opacity', 1);
-                                    }, 950);
+                                    }, 1000);
                                 });
-                            },650);
+                            });
                             flag = 1;
                         }
                     }
