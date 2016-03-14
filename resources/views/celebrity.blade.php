@@ -219,8 +219,8 @@
 								<canvas id="chart-area2" width="180" height="180"/>
 							</div>
 							<div class="n29n39">
-								<span class="n29">20~29:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group2 / $celebrity->fans_profile->fans_with_age * 100) }}%</span>
-								<span class="n39">30~39:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group3 / $celebrity->fans_profile->fans_with_age * 100) }}%</span>
+								<span class="n29">20~29:{{ floor($celebrity->fans_profile->fans_age_group2 / $celebrity->fans_profile->fans_with_age * 100) }}%</span>
+								<span class="n39">30~39:{{ floor($celebrity->fans_profile->fans_age_group3 / $celebrity->fans_profile->fans_with_age * 100) }}%</span>
 							</div>
 						</div>
 					</div>
