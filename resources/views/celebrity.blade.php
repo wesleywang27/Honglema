@@ -391,37 +391,37 @@
 	var doughnutData = [
 		{
 			value: {{ $celebrity->fans_profile->total_fans - $celebrity->fans_profile->female_fans }},
-	label: "男",
+			label: "男",
 			color: "#ccdc83"
-	},
-	{
-		value: {{ $celebrity->fans_profile->female_fans }},
-		label: "女",
-				color: "#f3bac9"
-	}
-	];
+		},
+		{
+			value: {{ $celebrity->fans_profile->female_fans }},
+			label: "女",
+			color: "#f3bac9"
+		}
+		];
 	var doughnutData2 = [
 		{
 			value: {{ $celebrity->fans_profile->fans_age_group4 }},
-	color: "#45aaf2",
+			color: "#45aaf2",
 			label: "≥49"
-	},
-	{
-		value: {{ $celebrity->fans_profile->fans_age_group3 }},
-		color: "#74c1f9",
-				label: "30~39"
-	},
-	{
-		value: {{ $celebrity->fans_profile->fans_age_group2 }},
-		color: "#4390c8",
-				label: "20~29"
-	},
-	{
-		value: {{ $celebrity->fans_profile->fans_age_group1 }},
-		color: "#9acff7",
-				label: "≤19"
-	}
-	];
+		},
+		{
+			value: {{ $celebrity->fans_profile->fans_age_group3 }},
+			color: "#74c1f9",
+			label: "30~39"
+		},
+		{
+			value: {{ $celebrity->fans_profile->fans_age_group2 }},
+			color: "#4390c8",
+			label: "20~29"
+		},
+		{
+			value: {{ $celebrity->fans_profile->fans_age_group1 }},
+			color: "#9acff7",
+			label: "≤19"
+		}
+		];
 
 	var barChartData = {
 		labels : ["{{$celebrity->fans_profile->fans_city1}}","{{$celebrity->fans_profile->fans_city2}}","{{$celebrity->fans_profile->fans_city3}}","{{$celebrity->fans_profile->fans_city4}}","{{$celebrity->fans_profile->fans_city5}}","{{$celebrity->fans_profile->fans_city6}}"],
@@ -429,15 +429,19 @@
 			{
 				fillColor : "rgba(245,162,58,0.8)",
 				strokeColor : "rgba(245,162,58,0.8)",
-				data : [{{$celebrity->fans_profile->fans_num_city1}},{{$celebrity->fans_profile->fans_num_city2}},{{$celebrity->fans_profile->fans_num_city3}},{{$celebrity->fans_profile->fans_num_city4}},{{$celebrity->fans_profile->fans_num_city5}},{{$celebrity->fans_profile->fans_num_city6}}]
-	}
-	]
-
-	}
+				data : [
+					{{$celebrity->fans_profile->fans_num_city1}},
+					{{$celebrity->fans_profile->fans_num_city2}},
+					{{$celebrity->fans_profile->fans_num_city3}},
+					{{$celebrity->fans_profile->fans_num_city4}},
+					{{$celebrity->fans_profile->fans_num_city5}},
+					{{$celebrity->fans_profile->fans_num_city6}}
+				]
+			}
+		]}
 
 
 	window.onload = function(){
-//	$(function(  ){
 		var ctx = document.getElementById("chart-area").getContext("2d");
 		window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
 
