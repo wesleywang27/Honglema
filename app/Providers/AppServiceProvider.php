@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->share('wechat', \Wechat::js());
+        //view()->share('wechat', \Wechat::js());
     }
 
     /**
