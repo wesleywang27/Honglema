@@ -201,7 +201,7 @@
 			<div class="single-page-artical">
 				<div class="artical-content">
 					<div class="chart" style="margin-top:1em;">
-<!--						<div style="position: absolute;background: rgba(0,0,0,0);width: 100%;height: 400px;"></div>-->
+						<div style="position: absolute;background: rgba(0,0,0,0);width: 100%;height: 400px;"></div>
 						<div style="width: 48%;display: inline-block;float: left;">
 							<div class="titlelabel">粉丝男女比例</div>
 							<div class="boysandgirls">
