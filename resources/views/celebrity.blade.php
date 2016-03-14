@@ -83,65 +83,18 @@
 		}
 		.titlelabel{
 			display: inline-block;
-			margin-top: 3px;
-			margin-left: 0;
-			float:left;
-			padding-left: 8px;
-			width: 50%;
-			line-height: 20px;
-			font-size: 10px;
-			background-color: darkgray;
-		}
-		.tail{
-			display: inline-block;
-			margin-top: 3px;
-			float:left;
+			margin-top: 10px;
 			border-color: darkgray #FFFFFF darkgray darkgray;
 			border-style: solid;
 			border-width: 10px 5px 10px 5px;
-			width:0;
+			width:60%;
 			height:0;
+			line-height: 0px;
 		}
 		@media screen and (max-width: 720px){
 			.swiper-container {
 				width: 100%;
 				height: 600px;
-			}
-			.girls {
-				position:absolute;
-				margin-left: 20px;
-				margin-top: 30px;
-				color: #f3bac9;
-			}
-			.boys {
-				position:absolute;
-				margin-left: 35%;
-				margin-top: 30px;
-				color: #ccdc83;
-			}
-			.n19{
-				position:absolute;
-				margin-left: 8px;
-				margin-top: 30px;
-				color: #9acff7;
-			}
-			.n29{
-				position:absolute;
-				margin-left: 8px;
-				margin-top: 44%;
-				color: #4390c8;
-			}
-			.n39{
-				position:absolute;
-				margin-left: 30%;
-				margin-top: 44%;
-				color: #74c1f9;
-			}
-			.n49{
-				position:absolute;
-				margin-left: 32%;
-				margin-top: 30px;
-				color: #45aaf2;
 			}
 		}
 		@media screen and (max-width: 400px){
@@ -149,84 +102,44 @@
 				width: 100%;
 				height: 500px;
 			}
-			.girls {
-				position:absolute;
-				margin-left: 20px;
-				margin-top: 30px;
-				color: #f3bac9;
-			}
-			.boys {
-				position:absolute;
-				margin-left: 33%;
-				margin-top: 30px;
-				color: #ccdc83;
-			}
-			.n19{
-				position:absolute;
-				margin-left: 5px;
-				margin-top: 30px;
-				color: #9acff7;
-			}
-			.n29{
-				position:absolute;
-				margin-left: 5px;
-				margin-top: 44%;
-				color: #4390c8;
-			}
-			.n39{
-				position:absolute;
-				margin-left: 27%;
-				margin-top: 44%;
-				color: #74c1f9;
-			}
-			.n49{
-				position:absolute;
-				margin-left: 30%;
-				margin-top: 30px;
-				color: #45aaf2;
-			}
 		}
 		@media screen and (max-width: 330px){
 			.swiper-container {
 				width: 100%;
 				height: 430px;
 			}
-			.girls {
-				position:absolute;
-				margin-left: 15px;
-				margin-top: 30px;
-				color: #f3bac9;
-			}
-			.boys {
-				position:absolute;
-				margin-left: 31%;
-				margin-top: 30px;
-				color: #ccdc83;
-			}
-			.n19{
-				position:absolute;
-				margin-left: 2px;
-				margin-top: 30px;
-				color: #9acff7;
-			}
-			.n29{
-				position:absolute;
-				margin-left: 1px;
-				margin-top: 46%;
-				color: #4390c8;
-			}
-			.n39{
-				position:absolute;
-				margin-left: 25%;
-				margin-top: 46%;
-				color: #74c1f9;
-			}
-			.n49{
-				position:absolute;
-				margin-left: 28%;
-				margin-top: 30px;
-				color: #45aaf2;
-			}
+		}
+		.boysandgirls{
+			width:100%;
+			margin-top: 8px;
+		}
+		.girls {
+			color: #f3bac9;
+			padding-left: 10px;
+		}
+		.boys {
+			float:right;
+			color: #ccdc83;
+			padding-right: 10px;
+		}
+		.n19{
+			color: #9acff7;
+			padding-left: 5px;
+		}
+		.n49{
+			float:right;
+			color: #45aaf2;
+			padding-right: 10px;
+		}
+		.n29n39{
+			width:100%;
+		}
+		.n29{
+			color: #4390c8;
+		}
+		.n39{
+			float:right;
+			color: #74c1f9;
 		}
 	</style>
 </head>
@@ -285,28 +198,34 @@
 			<div class="single-page-artical">
 				<div class="artical-content">
 					<div class="chart" style="margin-top:1em;">
-						<div style="position: absolute;background: rgba(0,0,0,0);width: 100%;height: 400px;"></div>
-						<div style="width: 49%;display: inline-block;border-right: 1px dashed lightgray;">
-							<div class="titlelabel">粉丝男女比例</div><div class="tail"></div>
-							<div class="girls">女:&nbsp;{{ floor(($celebrity->fans_profile->female_fans / $celebrity->fans_profile->total_fans) * 100) }}%</div>
-							<div class="boys">男:&nbsp;{{ 100 - floor(($celebrity->fans_profile->female_fans / $celebrity->fans_profile->total_fans) * 100) }}%</div>
-							<div style="width: 70%;display: inline-block;margin-left: 17%;padding-bottom: 10px;margin-top: 18px;">
+<!--						<div style="position: absolute;background: rgba(0,0,0,0);width: 100%;height: 400px;"></div>-->
+						<div style="width: 48%;display: inline-block;float: left;">
+							<div class="titlelabel">粉丝男女比例</div>
+							<div class="boysandgirls">
+								<span class="girls">女:&nbsp;{{ floor(($celebrity->fans_profile->female_fans / $celebrity->fans_profile->total_fans) * 100) }}%</span>
+								<span class="boys">男:&nbsp;{{ 100 - floor(($celebrity->fans_profile->female_fans / $celebrity->fans_profile->total_fans) * 100) }}%</span>
+							</div>
+							<div style="width: 56%;display: inline-block;margin-left: 23%;">
 								<canvas id="chart-area" width="180" height="180"/>
 							</div>
 						</div>
-						<div style="width: 49%;display: inline-block;">
-							<div class="n19">≤19岁:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group1 / $celebrity->fans_profile->fans_with_age * 100) }}%</div>
-							<div class="n29">20~29:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group2 / $celebrity->fans_profile->fans_with_age * 100) }}%</div>
-							<div class="n39">30~39:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group3 / $celebrity->fans_profile->fans_with_age * 100) }}%</div>
-							<div class="n49">≥40岁:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group4 / $celebrity->fans_profile->fans_with_age * 100) }}%</div>
-							<div class="titlelabel" style="margin-left: -5px;">粉丝年龄比例</div><div class="tail"></div>
-							<div style="width: 70%;display: inline-block;margin-left: 15%;padding-bottom: 10px;margin-top: 18px;">
+						<div style="width: 48%;display: inline-block;float: right;padding-left:10px;border-left: 1px dashed lightgray;">
+							<div class="titlelabel" style="margin-left: -10px;">粉丝年龄比例</div>
+							<div class="boysandgirls">
+								<span class="n19">≤19岁:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group1 / $celebrity->fans_profile->fans_with_age * 100) }}%</span>
+								<span class="n49">≥40岁:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group4 / $celebrity->fans_profile->fans_with_age * 100) }}%</span>
+							</div>
+							<div style="width: 56%;display: inline-block;margin-left: 20%;">
 								<canvas id="chart-area2" width="180" height="180"/>
+							</div>
+							<div class="n29n39">
+								<span class="n29">20~29:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group2 / $celebrity->fans_profile->fans_with_age * 100) }}%</span>
+								<span class="n39">30~39:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group3 / $celebrity->fans_profile->fans_with_age * 100) }}%</span>
 							</div>
 						</div>
 					</div>
-					<div style="width: 100%; border-top: 1px dashed lightgray;">
-						<div class="titlelabel" style="width: 25%;">粉丝地区排名</div><div class="tail"></div>
+					<div style="width: 100%; border-top: 1px dashed lightgray; float:left;">
+						<div class="titlelabel" style="width: 30%;">粉丝地区排名</div>
 						<canvas id="canvas" width="200" height="100"></canvas>
 					</div>
 				</div>
