@@ -52,6 +52,7 @@
 		.swiper-container {
 			width: 100%;
 			height: 500px;
+			background-color: #f0f0f0;
 		}
 		.swiper-slide {
 			text-align: center;
@@ -82,65 +83,18 @@
 		}
 		.titlelabel{
 			display: inline-block;
-			margin-top: 3px;
-			margin-left: 0;
-			float:left;
-			padding-left: 8px;
-			width: 50%;
-			line-height: 20px;
-			font-size: 10px;
-			background-color: darkgray;
-		}
-		.tail{
-			display: inline-block;
-			margin-top: 3px;
-			float:left;
+			margin-top: 10px;
 			border-color: darkgray #FFFFFF darkgray darkgray;
 			border-style: solid;
 			border-width: 10px 5px 10px 5px;
-			width:0;
+			width:60%;
 			height:0;
+			line-height: 0px;
 		}
 		@media screen and (max-width: 720px){
 			.swiper-container {
 				width: 100%;
 				height: 600px;
-			}
-			.girls {
-				position:absolute;
-				margin-left: 20px;
-				margin-top: 30px;
-				color: #f3bac9;
-			}
-			.boys {
-				position:absolute;
-				margin-left: 35%;
-				margin-top: 30px;
-				color: #ccdc83;
-			}
-			.n19{
-				position:absolute;
-				margin-left: 8px;
-				margin-top: 30px;
-				color: #9acff7;
-			}
-			.n29{
-				position:absolute;
-				margin-left: 8px;
-				margin-top: 44%;
-				color: #4390c8;
-			}
-			.n39{
-				position:absolute;
-				margin-left: 30%;
-				margin-top: 44%;
-				color: #74c1f9;
-			}
-			.n49{
-				position:absolute;
-				margin-left: 32%;
-				margin-top: 30px;
-				color: #45aaf2;
 			}
 		}
 		@media screen and (max-width: 400px){
@@ -148,84 +102,47 @@
 				width: 100%;
 				height: 500px;
 			}
-			.girls {
-				position:absolute;
-				margin-left: 20px;
-				margin-top: 30px;
-				color: #f3bac9;
-			}
-			.boys {
-				position:absolute;
-				margin-left: 33%;
-				margin-top: 30px;
-				color: #ccdc83;
-			}
-			.n19{
-				position:absolute;
-				margin-left: 5px;
-				margin-top: 30px;
-				color: #9acff7;
-			}
-			.n29{
-				position:absolute;
-				margin-left: 5px;
-				margin-top: 44%;
-				color: #4390c8;
-			}
-			.n39{
-				position:absolute;
-				margin-left: 27%;
-				margin-top: 44%;
-				color: #74c1f9;
-			}
-			.n49{
-				position:absolute;
-				margin-left: 30%;
-				margin-top: 30px;
-				color: #45aaf2;
-			}
 		}
 		@media screen and (max-width: 330px){
 			.swiper-container {
 				width: 100%;
 				height: 430px;
 			}
-			.girls {
-				position:absolute;
-				margin-left: 15px;
-				margin-top: 30px;
-				color: #f3bac9;
-			}
-			.boys {
-				position:absolute;
-				margin-left: 31%;
-				margin-top: 30px;
-				color: #ccdc83;
-			}
-			.n19{
-				 position:absolute;
-				 margin-left: 2px;
-				 margin-top: 30px;
-				 color: #9acff7;
-			 }
-			.n29{
-				position:absolute;
-				margin-left: 1px;
-				margin-top: 46%;
-				color: #4390c8;
-			}
-			.n39{
-				position:absolute;
-				margin-left: 25%;
-				margin-top: 46%;
-				color: #74c1f9;
-			}
-			.n49{
-				position:absolute;
-				margin-left: 28%;
-				margin-top: 30px;
-				color: #45aaf2;
-			}
+		}
+		.boysandgirls{
+			width:100%;
+			margin-top: 8px;
+			padding-bottom: 5px;
+		}
+		.girls {
+			color: #f3bac9;
+			padding-left: 10px;
+		}
+		.boys {
+			float:right;
+			color: #ccdc83;
+			padding-right: 10px;
+		}
+		.n19{
+			color: #9acff7;
+			padding-left: 5px;
+		}
+		.n49{
+			float:right;
+			color: #45aaf2;
+			padding-right: 10px;
+		}
+		.n29n39{
+			width:100%;
+			padding-top: 5px;
+		}
+		.n29{
+			color: #4390c8;
+		}
+		.n39{
+			float:right;
+			color: #74c1f9;
+			padding-right: 4px;
 		}
 	</style>
 </head>
@@ -252,61 +169,72 @@
 							@endif
 							<img src="{{URL::asset('images/vdaren.png')}}" style="width:3em;"></a>
 					</h3>
-					<div style="background-color: #f6f6f6;padding-top:10px;padding-bottom: 15px;">
+					<div style="padding-top:10px;padding-bottom: 15px;">
 						<ul>
 							<li style="font-size: 12px;">标签：&nbsp;
 								<?php
-									$tmp = explode("、",$celebrity->tags);
-									foreach($tmp as $t){
-										echo "#".$t."  ";
-									}
+								$tmp = explode("、",$celebrity->tags);
+								foreach($tmp as $t){
+									echo "#".$t."  ";
+								}
 								?>
 							</li>
 						</ul>
 						<ul>
 							<li style="font-size: 12px;">总粉丝:{{ $celebrity->total_fans_num }}</li>
 						</ul>
-						<ul style="margin-top: 5px;">
-							<li style="font-size: 11px;border: 1px solid gray;border-radius: 8px;padding: 4px;">
-								<a style="color:gray;" href="{{$celebrity->weibo_link}}">微博{{ floor($celebrity->weibo_fans_num/10000) }}w</a>
+						<ul style="margin-top: 5px;padding-left: 15px;">
+							@foreach(array("weibo"=>"微博","weipai"=>"微拍","meipai"=>"美拍","miaopai"=>"秒拍","kuaishou"=>"快手") as $plt => $name)
+							@if(floor($celebrity->{$plt.'_fans_num'}/10000) != 0)
+							<li style="border: 1px solid gray;border-radius: 8px;padding-left:5px;padding-bottom:5px;padding-right:3px;margin-left:5px;">
+								<a style="color:gray;font-size: 10px;" href="{{ $celebrity->{$plt.'_link'} }}">{{$name}}{{ floor($celebrity->{$plt.'_fans_num'}/10000) }}w</a>
 							</li>
-	<!--						<li style="font-size: 11px;border: 1px solid gray;border-radius: 8px;padding: 4px;"><a href="#">微拍{{ floor($celebrity->weipai_fans_num/10000) }}w</a></li>-->
-							<li style="font-size: 11px;border: 1px solid gray;border-radius: 8px;padding: 4px;">
-								<a style="color:gray;" href="{{$celebrity->meipai_link}}">美拍{{ floor($celebrity->miaopai_fans_num/10000) }}w</a>
-							</li>
+							@endif
+							@endforeach
 						</ul>
 					</div>
 				</div>
-				<div class="clear"></div>
-				@if( $celebrity->fans_profile && $celebrity->fans_profile->total_fans > 1000 )
-				<div class="chart">
-					<div style="position: absolute;background: rgba(0,0,0,0);width: 100%;height: 400px;"></div>
-					<div style="width: 49%;display: inline-block;border-right: 1px dashed lightgray;">
-						<div class="titlelabel">粉丝男女比例</div><div class="tail"></div>
-						<div class="girls">女:&nbsp;{{ floor(($celebrity->fans_profile->female_fans / $celebrity->fans_profile->total_fans) * 100) }}%</div>
-						<div class="boys">男:&nbsp;{{ 100 - floor(($celebrity->fans_profile->female_fans / $celebrity->fans_profile->total_fans) * 100) }}%</div>
-						<div style="width: 70%;display: inline-block;margin-left: 17%;padding-bottom: 10px;margin-top: 18px;">
-							<canvas id="chart-area" width="180" height="180"/>
-						</div>
-					</div>
-					<div style="width: 49%;display: inline-block;">
-						<div class="n19">≤19岁:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group1 / $celebrity->fans_profile->fans_with_age * 100) }}%</div>
-						<div class="n29">20~29:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group2 / $celebrity->fans_profile->fans_with_age * 100) }}%</div>
-						<div class="n39">30~39:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group3 / $celebrity->fans_profile->fans_with_age * 100) }}%</div>
-						<div class="n49">≥40岁:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group4 / $celebrity->fans_profile->fans_with_age * 100) }}%</div>
-						<div class="titlelabel" style="margin-left: -5px;">粉丝年龄比例</div><div class="tail"></div>
-						<div style="width: 70%;display: inline-block;margin-left: 15%;padding-bottom: 10px;margin-top: 18px;">
-							<canvas id="chart-area2" width="180" height="180"/>
-						</div>
-					</div>
-				</div>
-				<div style="width: 100%; border-top: 1px dashed lightgray;">
-					<div class="titlelabel" style="width: 25%;">粉丝地区排名</div><div class="tail"></div>
-					<canvas id="canvas" width="200" height="100"></canvas>
-				</div>
-				@endif
 			</div>
 		</div>
+		@if( $celebrity->fans_profile && $celebrity->fans_profile->total_fans > 1000 )
+		<div class="single-page" style="margin-top:1em;">
+			<div class="single-page-artical">
+				<div class="artical-content">
+					<div class="chart" style="margin-top:1em;">
+						<div style="position: absolute;background: rgba(0,0,0,0);width: 100%;height: 400px;"></div>
+						<div style="width: 48%;display: inline-block;float: left;">
+							<div class="titlelabel">粉丝男女比例</div>
+							<div class="boysandgirls">
+								<span class="girls">女:&nbsp;{{ floor(($celebrity->fans_profile->female_fans / $celebrity->fans_profile->total_fans) * 100) }}%</span>
+								<span class="boys">男:&nbsp;{{ 100 - floor(($celebrity->fans_profile->female_fans / $celebrity->fans_profile->total_fans) * 100) }}%</span>
+							</div>
+							<div style="width: 56%;display: inline-block;margin-left: 23%;">
+								<canvas id="chart-area" width="180" height="180"/>
+							</div>
+						</div>
+						<div style="width: 48%;display: inline-block;float: right;padding-left:10px;border-left: 1px dashed lightgray;">
+							<div class="titlelabel" style="margin-left: -10px;">粉丝年龄比例</div>
+							<div class="boysandgirls">
+								<span class="n19">≤19岁:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group1 / $celebrity->fans_profile->fans_with_age * 100) }}%</span>
+								<span class="n49">≥40岁:&nbsp;{{ floor($celebrity->fans_profile->fans_age_group4 / $celebrity->fans_profile->fans_with_age * 100) }}%</span>
+							</div>
+							<div style="width: 56%;display: inline-block;margin-left: 20%;">
+								<canvas id="chart-area2" width="180" height="180"/>
+							</div>
+							<div class="n29n39">
+								<span class="n29">20~29:{{ floor($celebrity->fans_profile->fans_age_group2 / $celebrity->fans_profile->fans_with_age * 100) }}%</span>
+								<span class="n39">30~39:{{ floor($celebrity->fans_profile->fans_age_group3 / $celebrity->fans_profile->fans_with_age * 100) }}%</span>
+							</div>
+						</div>
+					</div>
+					<div style="width: 100%; border-top: 1px dashed lightgray; float:left;">
+						<div class="titlelabel" style="width: 30%;">粉丝地区排名</div>
+						<canvas id="canvas" width="200" height="100"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+		@endif
 		<div class="single-page" style="margin-top:1em;">
 			<div class="single-page-artical">
 				<div class="artical-content">
@@ -364,6 +292,8 @@
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
 </body>
 <!-- Swiper JS -->
 <script src="{{URL::asset('js/swiper.min.js')}}"></script>
@@ -371,15 +301,15 @@
 <script>
 	var swiper = new Swiper('.swiper-container', {
 		pagination: '.swiper-pagination',
-		paginationClickable: true
+		paginationClickable: true,
+		loop: true,
 	});
 </script>
 <script src="{{URL::asset('js/Chart.Core.js')}}"></script>
 <script src="{{URL::asset('js/Chart.Doughnut.js')}}"></script>
 <script src="{{URL::asset('js/Chart.js')}}"></script>
-@if( $celebrity->fans_profile)
+@if( $celebrity->fans_profile && $celebrity->fans_profile->total_fans != 0 )
 <script>
-
 	var doughnutData = [
 		{
 			value: {{ $celebrity->fans_profile->total_fans - $celebrity->fans_profile->female_fans }},
@@ -391,7 +321,7 @@
 			label: "女",
 			color: "#f3bac9"
 		}
-	];
+		];
 	var doughnutData2 = [
 		{
 			value: {{ $celebrity->fans_profile->fans_age_group4 }},
@@ -413,7 +343,7 @@
 			color: "#9acff7",
 			label: "≤19"
 		}
-	];
+		];
 
 	var barChartData = {
 		labels : ["{{$celebrity->fans_profile->fans_city1}}","{{$celebrity->fans_profile->fans_city2}}","{{$celebrity->fans_profile->fans_city3}}","{{$celebrity->fans_profile->fans_city4}}","{{$celebrity->fans_profile->fans_city5}}","{{$celebrity->fans_profile->fans_city6}}"],
@@ -421,15 +351,19 @@
 			{
 				fillColor : "rgba(245,162,58,0.8)",
 				strokeColor : "rgba(245,162,58,0.8)",
-				data : [{{$celebrity->fans_profile->fans_num_city1}},{{$celebrity->fans_profile->fans_num_city2}},{{$celebrity->fans_profile->fans_num_city3}},{{$celebrity->fans_profile->fans_num_city4}},{{$celebrity->fans_profile->fans_num_city5}},{{$celebrity->fans_profile->fans_num_city6}}]
+				data : [
+					{{$celebrity->fans_profile->fans_num_city1}},
+					{{$celebrity->fans_profile->fans_num_city2}},
+					{{$celebrity->fans_profile->fans_num_city3}},
+					{{$celebrity->fans_profile->fans_num_city4}},
+					{{$celebrity->fans_profile->fans_num_city5}},
+					{{$celebrity->fans_profile->fans_num_city6}}
+				]
 			}
-		]
-
-	}
+		]}
 
 
 	window.onload = function(){
-//	$(function(  ){
 		var ctx = document.getElementById("chart-area").getContext("2d");
 		window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
 
