@@ -35,6 +35,10 @@ class CelebrityController extends Controller
         return view('celebrity', ['celebrity' => $celebrity]);
     }
 
+    public function edit(Celebrity $celebrity) {
+        return view('celebrity.edit', ['celebrity' => $celebrity]);
+    }
+
     public function create() {
         return view('celebrity.create');
     }
