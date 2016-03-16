@@ -34,4 +34,14 @@ class CelebrityController extends Controller
     public function show(Celebrity $celebrity) {
         return view('celebrity', ['celebrity' => $celebrity]);
     }
+
+    public function create() {
+        return view('celebrity.create');
+    }
+
+    public function update(Request $request, $id) {
+        $where = Celebrity::where('id', $id);
+        $ret = $where->update($request->all());
+        return $ret;
+    }
 }
