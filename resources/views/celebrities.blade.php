@@ -30,11 +30,27 @@
         li{
             background-color: pink;
         }
+        #scrollUp {
+            bottom: 27px;
+            right: 10px;
+            background: #555;
+            color: #fff;
+            font-size: 12px;
+            text-decoration: none;
+            opacity: .9;
+            padding: 10px 10px;
+            -webkit-border-radius: 16px;
+            -moz-border-radius: 16px;
+            border-radius: 16px;
+            -webkit-transition: background 200ms linear;
+            -moz-transition: background 200ms linear;
+            transition: background 200ms linear;
+        }
     </style>
 </head>
 <body>
 <div>
-    <div style="width:100%;height: 1px;background-color: #fff;margin: 0px auto;"></div>
+    <div id="top" style="width:100%;height: 1px;background-color: #fff;margin: 0px auto;"></div>
     <div style="width:100%;margin: 0 auto;">
         <img style="width: 100%;" src="{{URL::asset('images/banner.png')}}" />
     </div>
@@ -190,6 +206,49 @@
         // Capture scroll event.
         $window.bind('scroll.wookmark', onScroll);
     })(jQuery);
+
+    //向上滚动
+    (function($){
+        $.scrollUp=function(options){
+            var settings={
+                scrollName:"scrollUp",
+                topDistance:"300",
+                topSpeed:300,
+                animation:"fade",
+                animationInSpeed:200,
+                animationOutSpeed:200,
+                scrollText:"回到顶部",
+                activeOverlay:false
+            };
+            if(options)
+                var settings=$.extend(settings,options);
+            var sn="#"+settings.scrollName,an=settings.animation,os=settings.animationOutSpeed,is=settings.animationInSpeed,td=settings.topDistance,st=settings.scrollText,ts=settings.topSpeed,ao=settings.activeOverlay;
+            $("<a/>",{
+                id:settings.scrollName,
+                href:"#top",title:st,text:st
+            }).appendTo("body");
+            $(sn).css({"display":"none","position":"fixed","z-index":"2147483647"});
+            if(ao){
+                $("body").append("<div id='"+settings.scrollName+"-active'></div>");
+                $(sn+"-active").css({"position":"absolute","top":td+"px","width":"100%","border-top":"1px dotted "+ao,"z-index":"2147483647"})
+            }
+            $(window).scroll(function(){
+                if(an==="fade")
+                    $($(window).scrollTop()>td?$(sn).fadeIn(is):$(sn).fadeOut(os));
+                else if(an==="slide")
+                    $($(window).scrollTop()>td?$(sn).slideDown(is):$(sn).slideUp(os));
+                else
+                    $($(window).scrollTop()>td?$(sn).show(0):$(sn).hide(0))
+            });
+            $(sn).click(function(event){
+                $("html, body").animate({scrollTop:0},ts);return false
+            })
+        }
+    })(jQuery);
+    /* 默认 */
+    $(function () {
+        $.scrollUp();
+    });
 </script>
 </body>
 </html>
