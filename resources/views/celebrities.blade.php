@@ -9,28 +9,13 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <meta name="format-detection" content="telephone=no" />
     <title>index</title>
-    <link rel="stylesheet" type="text/css" href="{{URL::asset('css/default.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::asset('css/normalize.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::asset('css/main.css')}}">
     <style>
-        .v_header{
-            width: 100%;
-            height: 50px;
-            background-color: #fff;
-            margin: 0px auto;
-            border-bottom: 1px solid #f6f6f6;
-        }
         .v_header img{
             position: absolute;
             margin: 10px;
             width: 30px;
-        }
-        .headin{
-            width: 100%;
-            text-align: center;
-            color: deeppink;
-            font-size: 20px;
-            padding: 15px 0 0 0;
         }
         .name{
             font-size: 16px;
@@ -48,11 +33,7 @@
     </style>
 </head>
 <body>
-<div class="htmleaf-container">
-<!--    <div class="v_header">-->
-<!--        <img src="{{URL::asset('images/fav-icon.png')}}"/>-->
-<!--        <div class="headin">红了吗</div>-->
-<!--    </div>-->
+<div>
     <div style="width:100%;height: 1px;background-color: #fff;margin: 0px auto;"></div>
     <div style="width:100%;margin: 0 auto;">
         <img style="width: 100%;" src="{{URL::asset('images/banner.png')}}" />
