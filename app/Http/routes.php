@@ -22,6 +22,8 @@ Route::get('/test/celebrities', 'TestController@celebrityList');
 
 Route::get('/test/{celebrity}','TestController@show');
 
+Route::get('/playground/celebrity','PlaygroundController@index');
+
 
 /*
 |--------------------------------------------------------------------------
