@@ -13,8 +13,7 @@
 	<link rel="stylesheet" href="{{URL::asset('css/swiper.min.css')}}">
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	</script>
-	<link href='http://fonts.useso.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-			<script src="{{URL::asset('js/jquery.min.js')}}"></script>
+	<script src="{{URL::asset('js/jquery-1.8.3.min.js')}}"></script>
 	<script type="text/javascript">
 		var $ = jQuery.noConflict();
 		$(function() {
