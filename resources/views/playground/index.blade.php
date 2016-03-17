@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{{URL::asset('css/default.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::asset('css/normalize.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::asset('css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('css/style.css')}}">
     <style>
         .v_header{
             width: 100%;
@@ -45,10 +46,31 @@
         li{
             background-color: pink;
         }
+        .selected{
+            color: #E6581B;
+        }
     </style>
 </head>
 <body>
 <div class="htmleaf-container">
+    <div id="sort-menu" class="single-page" style=" padding-bottom: 5px; padding-top: 5px; ">
+        <div class="single-page-artical">
+            <div class="artical-content">
+                <div>
+                    <table style=" width: 100%; text-align: center; font-size: 16px; ">
+                        <tr>
+                            <td {!! $sort === 'comprehensive'  ?  'class="selected"': '' !!} style="width:33%;" data-key="comprehensive">综合排序</td>
+                            <td {!! $sort === 'fans'  ?  'class="selected"': '' !!} style="width:33%;" data-key="fans">粉丝量排序</td>
+                            {{--<td style="width:33%;" data-key="view">浏览量排序</td>--}}
+                        </tr>
+                    </table>
+                    <div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 <!--    <div class="v_header">-->
 <!--        <img src="{{URL::asset('images/fav-icon.png')}}"/>-->
 <!--        <div class="headin">红了吗</div>-->
@@ -208,7 +230,26 @@
 
         // Capture scroll event.
         $window.bind('scroll.wookmark', onScroll);
+
+        $("#sort-menu td").click(function($e) {
+            window.location = updateUrlParameter(window.location.href, 'sort', this.dataset.key);
+        });
     })(jQuery);
+
+    function updateUrlParameter(uri, key, value) {
+        var i = uri.indexOf('#');
+        var hash = i === -1 ? ''  : uri.substr(i);
+        uri = i === -1 ? uri : uri.substr(0, i);
+
+        var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+        var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+        if (uri.match(re)) {
+            uri = uri.replace(re, '$1' + key + "=" + value + '$2');
+        } else {
+            uri = uri + separator + key + "=" + value;
+        }
+        return uri + hash;
+    }
 </script>
 </body>
 </html>
