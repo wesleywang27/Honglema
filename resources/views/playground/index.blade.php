@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <meta name="format-detection" content="telephone=no" />
     <title>index</title>
-    <link rel="stylesheet" type="text/css" href="{{URL::asset('css/default.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::asset('css/normalize.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::asset('css/main.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::asset('css/style.css')}}">
@@ -47,20 +46,32 @@
             background-color: pink;
         }
         .selected{
-            color: #E6581B;
+            color: #ff5000;
+            border-bottom-width: 1px;
+            border-bottom-color: #ff5000;
+            border-bottom-style: solid;
+        }
+        .unselected{
+            color: #777777;
         }
     </style>
 </head>
 <body>
 <div class="htmleaf-container">
-    <div id="sort-menu" class="single-page" style=" padding-bottom: 5px; padding-top: 5px; ">
+
+    <div style="width:100%;height: 1px;background-color: #fff;margin: 0px auto;"></div>
+    <div style="width:100%;margin: 0 auto;">
+        <img style="width: 100%;vertical-align: middle;" src="http://image.weipai.cn/honglema/banner/banner20160318.jpg" />
+    </div>
+
+    <div id="sort-menu" class="single-page">
         <div class="single-page-artical">
             <div class="artical-content">
                 <div>
                     <table style=" width: 100%; text-align: center; font-size: 16px; ">
                         <tr>
-                            <td {!! $sort === 'comprehensive'  ?  'class="selected"': '' !!} style="width:33%;" data-key="comprehensive">综合排序</td>
-                            <td {!! $sort === 'fans'  ?  'class="selected"': '' !!} style="width:33%;" data-key="fans">粉丝量排序</td>
+                            <td class="{!! $sort === 'comprehensive'  ?  'selected': 'unselected' !!}" style="width:33%;padding-bottom: 12px; padding-top: 12px;" data-key="comprehensive">综合排序</td>
+                            <td class="{!! $sort === 'fans'  ?  'selected': 'unselected' !!}" style="width:33%;padding-bottom: 12px; padding-top: 12px;" data-key="fans">粉丝量排序</td>
                             {{--<td style="width:33%;" data-key="view">浏览量排序</td>--}}
                         </tr>
                     </table>
@@ -71,14 +82,7 @@
             </div>
         </div>
     </div>
-<!--    <div class="v_header">-->
-<!--        <img src="{{URL::asset('images/fav-icon.png')}}"/>-->
-<!--        <div class="headin">红了吗</div>-->
-<!--    </div>-->
-    <div style="width:100%;height: 1px;background-color: #fff;margin: 0px auto;"></div>
-    <div style="width:100%;margin: 0 auto;">
-        <img style="width: 100%;" src="{{URL::asset('images/banner.png')}}" />
-    </div>
+
     <div role="main">
         <ul id="container" class="tiles-wrap animated" style="opacity: 0;">
             <!-- These are our grid blocks -->
