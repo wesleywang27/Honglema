@@ -14,6 +14,9 @@ Route::get('/celebrities/list{format?}', 'CelebrityController@index');
 
 Route::get('/celebrity/{celebrity}', 'CelebrityController@show');
 
+Route::get('/wechat/open/login', 'WechatOpenController@login');
+Route::get('/wechat/open/oauth_callback', 'WechatOpenController@oauthCallback');
+
 Route::get('/test/celebrities/list{format?}', 'TestController@index');
 
 Route::get('/test/list{format?}', 'TestController@show2');
