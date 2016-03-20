@@ -28,6 +28,47 @@
         //        });
         //    });
 
+        //验证码页面,倒计时按钮,点击确认事件
+        var waittime = 60;
+        var countdown = waittime;
+        function settime(me) {
+            var obj=$(me);
+            if (countdown <= 0) {
+                obj.css('color','#0894ec');
+                obj.text("获取验证码");
+                countdown = waittime;
+                return ;
+            } else {
+                obj.css('color','gray');
+                obj.text("重新发送(" + countdown + ")");
+                countdown--;
+            }
+            setTimeout(function() {
+                settime(obj);
+            },1000);
+        }
+        $('#sendcode').click(function(){
+            if(countdown == waittime) {
+                $.toast("发送成功",1000);
+                settime(this);
+            }
+        });
+        $("#confirmcode").click(function(){
+            if(true){
+                $.showPreloader('正在验证中...')
+                setTimeout(function () {
+                    $.hidePreloader();
+                    $.toast("验证成功",1000);
+                }, 2000);
+                setTimeout(function(){
+                    document.getElementById("codecfm").click();
+                },3000);
+            }else{
+                $.toast("验证失败,请重新输入!");
+            }
+        });
+
+        //地区选择器
         $(function () {
             $("#city-picker").cityPicker({
                 toolbarTemplate: '<header class="bar bar-nav">\
@@ -36,6 +77,8 @@
             </header>'
             });
         });
+
+        //头像修改页面编辑按钮
         $(document).on('click','.create-actions', function () {
             var buttons1 = [
                 {
