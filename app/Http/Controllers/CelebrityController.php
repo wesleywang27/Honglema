@@ -10,6 +10,8 @@ use App\Models\Celebrity;
 class CelebrityController extends Controller
 {
     public function index(Request $request, $format = null) {
+        $user = session('wechat.oauth_user'); // 拿到授权用户资料
+
         $this->validate($request, [
             'sort' => 'in:comprehensive,total_fans_num,weibo_fans_num,weipai_fans_num,kuaishou_fans_num, ' .
                 'miaopai_fans_num, meipai_fans_num']);
