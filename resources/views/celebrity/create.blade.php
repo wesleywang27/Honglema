@@ -15,7 +15,7 @@
                         <div class="item-inner">
                             <div class="item-title">头像</div>
                             <div class="item-after">
-                                <img src="{{URL::asset('images/fav-icon.png')}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
+                                <img src="{{$user->avatar}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
                             </div>
                         </div>
                     </a>
@@ -24,7 +24,7 @@
                     <a href="#name" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">昵称</div>
-                            <div class="item-after">小丸子</div>
+                            <div class="item-after">{{$user->nickname}}</div>
                         </div>
                     </a>
                 </li>
@@ -32,7 +32,7 @@
                     <a href="#sex" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">性别</div>
-                            <div class="item-after">女</div>
+                            <div class="item-after">{{$user->sex === Config::get("constants.SEX.MALE") ? '男':'女'}}</div>
                         </div>
                     </a>
                 </li>
@@ -40,7 +40,7 @@
                     <a href="#city" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">地区</div>
-                            <div class="item-after" id="area"></div>
+                            <div class="item-after" id="area">{{$user->province}} {{$user->city}}</div>
                         </div>
                     </a>
                 </li>
@@ -51,7 +51,7 @@
                 <li>
                     <a href="#sanwei" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">三维</div>
+                            <div class="item-title">三围</div>
                             <div class="item-after">未编辑</div>
                         </div>
                     </a>
@@ -116,7 +116,7 @@
     </header>
     <div class="content" style="top: 1.2rem;background-color: black;text-align: center;">
         <div class="list-block" style="margin:6rem auto;">
-            <img style="width: 100%;" src="{{URL::asset('images/fav-icon.png')}}">
+            <img style="width: 100%;" src="{{$user->avatar}}">
         </div>
     </div>
     @overwrite
@@ -139,7 +139,7 @@
                         <div class="item-inner">
                             <div class="item-title label">姓名</div>
                             <div class="item-input">
-                                <input type="text" placeholder="名字">
+                                <input type="text" placeholder="名字" value="{{$user->nickname}}"/>
                             </div>
                         </div>
                     </div>
@@ -163,7 +163,7 @@
             <ul>
                 <li>
                     <label class="label-checkbox item-content">
-                        <input type="radio" name="my-radio">
+                        <input type="radio" name="my-radio" {{$user->sex === Config::get("constants.SEX.MALE") ? 'checked="checked"':''}}>
                         <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
                         <div class="item-inner">
                             <div class="item-title-row">
@@ -174,7 +174,7 @@
                 </li>
                 <li>
                     <label class="label-checkbox item-content">
-                        <input type="radio" name="my-radio">
+                        <input type="radio" name="my-radio" {{$user->sex === Config::get("constants.SEX.FEMALE") ? 'checked="checked"':''}}>
                         <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
                         <div class="item-inner">
                             <div class="item-title-row">

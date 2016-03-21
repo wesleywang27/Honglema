@@ -42,7 +42,16 @@ class CelebrityController extends Controller
     }
 
     public function create() {
-        return view('celebrity.create');
+        $user = session('wechat.oauth_user'); // 拿到授权用户资料
+
+        return view('celebrity.create', ["user" => $user]);
+    }
+
+    public function store() {
+        $user = session('wechat.oauth_user'); // 拿到授权用户资料
+        $celebrity = new Celebrity();
+        $celebrity->oauth_user_id = $user->id;
+        $celebrity->save();
     }
 
     public function update(Request $request, $id) {
