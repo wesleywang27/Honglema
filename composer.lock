@@ -4,9 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c35337cf9227abea2c5bbf94ff684a98",
-    "content-hash": "3e969e8657c67fa05b98a0aa33456961",
+    "hash": "48fca3da7a090c02b8aade40417f34e0",
+    "content-hash": "a2301d5c04e102b4837063cbf7f8764d",
     "packages": [
+        {
+            "name": "aliyuncs/oss-sdk-php",
+            "version": "v2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aliyun/aliyun-oss-php-sdk.git",
+                "reference": "57b3b1c3d1ea50a6b18f14aebeb432438e5158f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/aliyun/aliyun-oss-php-sdk/57b3b1c3d1ea50a6b18f14aebeb432438e5158f1.zip",
+                "reference": "57b3b1c3d1ea50a6b18f14aebeb432438e5158f1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "2.*",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "OSS\\": "src/OSS"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aliyuncs",
+                    "homepage": "http://www.aliyun.com"
+                }
+            ],
+            "description": "Aliyun OSS SDK for PHP",
+            "homepage": "http://www.aliyun.com/product/oss/",
+            "time": "2016-01-26 02:32:59"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "3.0.0",
