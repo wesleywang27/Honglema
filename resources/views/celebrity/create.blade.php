@@ -463,4 +463,321 @@
     @overwrite
     @include('partial/jquery_mobile_page', ["page_id" => "register2"])
 
+    @section('page-main')
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-left back" href="#register2">
+            <span class="icon icon-left"></span>
+            返回
+        </a>
+        <h1 class="title">经历</h1>
+    </header>
+    <div class="content" style="top: 1.2rem;">
+        <div class="list-block">
+            <ul>
+                <li class="align-top">
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">经历描述</div>
+                            <div class="item-input">
+                                <textarea style="height: 10rem;" placeholder="写一段自己的经历吧~"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    @overwrite
+    @include('partial/jquery_mobile_page', ["page_id" => "experience"])
+
+@section('page-main')
+<header class="bar bar-nav">
+    <a id="codecfm" class="button button-link button-nav pull-left back" href="#register2">
+        <span class="icon icon-left"></span>
+        返回
+    </a>
+    <h1 class="title">手机认证</h1>
+</header>
+<div class="content" style="top: 1.2rem;">
+    <div class="list-block">
+        <ul>
+            <li>
+                <div class="item-content">
+                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                    <div class="item-inner">
+                        <div style="width: 65%;display:inline;" class="item-input">
+                            <input type="text" placeholder="输入手机号">
+                        </div>
+                        <div style="width: 50%;display: inline;">
+                            <a href="#" id="sendcode" class="item-link list-button" style="border-left: 1px solid gray;line-height: 1.8rem;">获取验证码</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="item-content">
+                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                    <div class="item-inner">
+                        <div class="item-input">
+                            <input type="text" placeholder="输入验证码">
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="content-block" style="margin-top: -1rem;">
+        <div class="row">
+            <div class="col-100"><a id="confirmcode" href="#" class="button button-big button-fill button-success">确  认</a></div>
+        </div>
+    </div>
+</div>
+@overwrite
+@include('partial/jquery_mobile_page', ["page_id" => "phoneconfirm"])
+
+    @section('page-main')
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-left back" href="#register2">
+            <span class="icon icon-left"></span>
+            返回
+        </a>
+        <h1 class="title">身份认证</h1>
+    </header>
+    <div class="content" style="top: 1.2rem;">
+        <div class="list-block">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">真实姓名</div>
+                            <div class="item-input">
+                                <input type="text" placeholder="名字">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">身份证号</div>
+                            <div class="item-input">
+                                <input type="text" placeholder="身份证">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">身份证照片</div>
+                            <div class="item-input">
+                                <input type="text" placeholder="照片">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    @overwrite
+    @include('partial/jquery_mobile_page', ["page_id" => "idconfirm"])
+
+    @section('page-main')
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-left back" href="#register2">
+            <span class="icon icon-left"></span>
+            返回
+        </a>
+        <h1 class="title">微博信息</h1>
+    </header>
+    <div class="content" style="top: 1.2rem;">
+        <div class="list-block">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">ID</div>
+                            <div class="item-input">
+                                <input type="text" placeholder="填写ID">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">粉丝数</div>
+                            <div class="item-input">
+                                <input style="width: 70%;display:inline;" type="text" placeholder="填写粉丝数">万(w)
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    @overwrite
+    @include('partial/jquery_mobile_page', ["page_id" => "weibo"])
+
+    @section('page-main')
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-left back" href="#register2">
+            <span class="icon icon-left"></span>
+            返回
+        </a>
+        <h1 class="title">微拍信息</h1>
+    </header>
+    <div class="content" style="top: 1.2rem;">
+        <div class="list-block">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">昵称</div>
+                            <div class="item-input">
+                                <input type="text" placeholder="填写昵称">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">粉丝数</div>
+                            <div class="item-input">
+                                <input style="width: 70%;display:inline;" type="text" placeholder="填写粉丝数">万(w)
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    @overwrite
+    @include('partial/jquery_mobile_page', ["page_id" => "weipai"])
+
+    @section('page-main')
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-left back" href="#register2">
+            <span class="icon icon-left"></span>
+            返回
+        </a>
+        <h1 class="title">秒拍信息</h1>
+    </header>
+    <div class="content" style="top: 1.2rem;">
+        <div class="list-block">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">ID</div>
+                            <div class="item-input">
+                                <input type="text" placeholder="填写ID">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">粉丝数</div>
+                            <div class="item-input">
+                                <input style="width: 70%;display:inline;" type="text" placeholder="填写粉丝数">万(w)
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    @overwrite
+    @include('partial/jquery_mobile_page', ["page_id" => "miaopai"])
+
+    @section('page-main')
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-left back" href="#register2">
+            <span class="icon icon-left"></span>
+            返回
+        </a>
+        <h1 class="title">美拍信息</h1>
+    </header>
+    <div class="content" style="top: 1.2rem;">
+        <div class="list-block">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">ID</div>
+                            <div class="item-input">
+                                <input type="text" placeholder="填写ID">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">粉丝数</div>
+                            <div class="item-input">
+                                <input style="width: 70%;display:inline;" type="text" placeholder="填写粉丝数">万(w)
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    @overwrite
+    @include('partial/jquery_mobile_page', ["page_id" => "meipai"])
+
+    @section('page-main')
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-left back" href="#register2">
+            <span class="icon icon-left"></span>
+            返回
+        </a>
+        <h1 class="title">快手信息</h1>
+    </header>
+    <div class="content" style="top: 1.2rem;">
+        <div class="list-block">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">昵称</div>
+                            <div class="item-input">
+                                <input type="text" placeholder="填写昵称">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">粉丝数</div>
+                            <div class="item-input">
+                                <input style="width: 70%;display:inline;" type="text" placeholder="填写粉丝数">万(w)
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    @overwrite
+    @include('partial/jquery_mobile_page', ["page_id" => "kuaishou"])
+
 @endsection
