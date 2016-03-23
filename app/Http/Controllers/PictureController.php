@@ -15,21 +15,26 @@ class PictureController extends Controller
     public function store(Request $request) {
         $images = $request->file('imgs');
         $urls = [];
+        $oss = new OssClient(config('oss.accessKeyId'), config('oss.accessKeySecret'), config('oss.endpoint'));
+        $baseDir = "honglame/avatar";
+        // todo 每张图片异步处理, 最后同步等待
         foreach ($images as $image) {
-            $oss = new OssClient(config('oss.accessKeyId'), config('oss.accessKeySecret'), config('oss.endpoint'));
-            $path = 'honglema/avatar/filename.jpg';
-            $oss->uploadFile(config('oss.bucket'), $path, $image->getPathname());
-            $urls[] = "http://image.weipai.cn/"  . $path;
+            $originName = $image->getBasename() . '.' . $image->getClientOriginalExtension();
+            $image->move('/var/local/honglema/pics/orig/', $originName);
+            $process = new Process("/var/local/honglema/scripts/pic_process.sh $originName");
+            $process->run();
+
+            if (!$process->isSuccessful()) {
+                throw new ProcessFailedException($process);
+            }
+
+            $newName = trim($process->getOutput());
+            $oss->uploadFile(config('oss.bucket'), "$baseDir/$newName", "/var/local/honglema/pics/orig/$newName");
+            $oss->uploadFile(config('oss.bucket'), "$baseDir/comp-$newName", "/var/local/honglema/pics/comp/comp-$newName");
+
+            $urls[] = "http://image.weipai.cn/$baseDir/comp-$newName";
         }
 
-//        $process = new Process('ls -lsa');
-//        $process->run();
-//
-//        if (!$process->isSuccessful()) {
-//            throw new ProcessFailedException($process);
-//        }
-//
-//        echo $process->getOutput();
 
 
         return response()->json(['urls' => $urls], 201);
