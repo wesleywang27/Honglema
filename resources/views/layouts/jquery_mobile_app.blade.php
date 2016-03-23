@@ -148,19 +148,19 @@
             secureuri:false,
             fileElementId:"imgupload",//文件选择框的id属性
             dataType: 'json',   //json
-            success: function (data) {
-                if(data) {
-                    $.hidePreloader();
-                    $('#imgfiles').append('<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url(http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png)">\
-                    <input type="hidden" id="manyimg" value="http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png">\
-                    </li>');
-                    $('#imgfiles').append('<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url(http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png)">\
-                    <input type="hidden" id="manyimg" value="http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png">\
-                    </li>');
-                    $.toast("添加成功", 1000);
+            success: function (data, status) {
+                var urls = data.urls;
+                var $htmls = '';
+                for(var i=0; i<urls.length; i++){
+                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
+                    <input type="hidden" id="manyimg" value="'+urls[i]+'"></li>';
                 }
-            },error:function(XMLHttpRequest, textStatus, errorThrown){
-                alert('上传失败！');
+                $('#imgfiles').append($htmls);
+                $.hidePreloader();
+                $.toast("添加成功", 1000);
+            },error:function(data, status, e){
+                $.hidePreloader();
+                $.toast("添加失败", 1000);
             }
         });
     });
