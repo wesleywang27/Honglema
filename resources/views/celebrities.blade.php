@@ -56,7 +56,24 @@
             bottom: 0;
             height: 50px;
             width: 100%;
-            background-color: black;
+            border-top: 1px solid #e5e5e5;
+            text-align: center;
+            line-height: 50px;
+        }
+        .tail_left{
+            display: inline;
+            float: left;
+            width: 40%;
+            height: inherit;
+            background-color: white;
+        }
+        .tail_right{
+            display: inline;
+            float: left;
+            width: 100%;
+            height: inherit;
+            background-color: #fd3eb7;
+            color: #fff;
         }
     </style>
 </head>
@@ -99,7 +116,12 @@
     <div id='imloading' style='width:150px;height:30px;line-height:30px;font-size:16px;text-align:center;border-radius:3px;opacity:0.7;background:#000;margin:10px auto 30px;color:rgba(255,255,255,0.5);'>
         正在加载...
     </div>
-    <div class="tail"></div>
+    <div class="tail">
+<!--        <div class="tail_left">我是商家</div>-->
+        <a href="/celebrity/create">
+            <div class="tail_right">我要成为网红</div>
+        </a>
+    </div>
 </div>
 
 <!-- include jQuery -->

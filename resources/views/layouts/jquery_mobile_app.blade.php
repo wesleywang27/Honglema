@@ -294,8 +294,11 @@
                 "kuaishou_fans": $('#kuaishoufans').val(),
                 "images"       : imgdata
             },
-            success: function($data) {
+            success: function(data) {
                 $.toast("注册成功!",1000);
+                setTimeout(function(){
+                    location.href="/celebrities/list";
+                },1000);
             }
         });
     });
