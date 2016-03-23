@@ -142,23 +142,23 @@
 
     //上传多图
     $('#imgupload').change(function(){
-//        $.showPreloader('正在上传...');
+        $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
             url:"/picture",//需要链接到服务器地址
             secureuri:false,
             fileElementId:"imgupload",//文件选择框的id属性
             dataType: 'json',   //json
             success: function (data) {
-//                if(data) {
-//                    $.hidePreloader();
-//                    $('#imgfiles').append('<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url(http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png)">\
-//                    <input type="hidden" id="manyimg" value="http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png">\
-//                    </li>');
-//                    $('#imgfiles').append('<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url(http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png)">\
-//                    <input type="hidden" id="manyimg" value="http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png">\
-//                    </li>');
-//                    $.toast("添加成功", 1000);
-//                }
+                if(data) {
+                    $.hidePreloader();
+                    $('#imgfiles').append('<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url(http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png)">\
+                    <input type="hidden" id="manyimg" value="http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png">\
+                    </li>');
+                    $('#imgfiles').append('<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url(http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png)">\
+                    <input type="hidden" id="manyimg" value="http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png">\
+                    </li>');
+                    $.toast("添加成功", 1000);
+                }
             },error:function(XMLHttpRequest, textStatus, errorThrown){
                 alert('上传失败！');
             }
@@ -255,9 +255,17 @@
 
     //完成注册
     $('#finish').click(function(){
+        var imgdata = [];
+        var i = 0;
+        $('[id=manyimg]').each(function(){
+            imgdata[i] = $(this).val();
+            i++;
+        });
         $.ajax({
             url: "/celebrity",
             method: "POST",
+            traditional: true,
+            dataType: "JSON",
             data: {
                 "headimg"      : $('#f_wx_headimg').attr('src'),
                 "nickname"     : $('#f_nickname').text(),
@@ -284,6 +292,7 @@
                 "meipai_fans"  : $('#meipaifans').val(),
                 "kuaishou_id"  : $('#kuaishouid').val(),
                 "kuaishou_fans": $('#kuaishoufans').val(),
+                "images"       : imgdata
             },
             success: function($data) {
                 $.toast("注册成功!",1000);
