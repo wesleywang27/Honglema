@@ -35,6 +35,8 @@ class WechatAuth
                 $oauthUser->city     = $original['city'];
                 $oauthUser->province = $original['province'];
                 $oauthUser->country  = $original['country'];
+                
+                // todo 需要上传自己服务器,防止用户更换头像后失效
                 $oauthUser->avatar   = $original['headimgurl'];
 
                 // todo duplicate判断不应依赖于具体数据库实现

@@ -51,10 +51,16 @@ class CelebrityController extends Controller
         $user = session('wechat.oauth_user'); // 拿到授权用户资料
         $celebrity = new Celebrity();
         $celebrity->oauth_user_id = $user->id;
+
+        //todo  其它属性填充
+
         $celebrity->save();
+
+        return response(['id' => $celebrity->id ], 201);
     }
 
     public function update(Request $request, $id) {
+        // todo 需要检查权限
         $where = Celebrity::where('id', $id);
         $ret = $where->update($request->all());
         return $ret;

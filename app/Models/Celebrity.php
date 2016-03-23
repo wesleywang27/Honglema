@@ -48,7 +48,9 @@ class Celebrity extends Model
         'meipai_link',
     ];
 
-    protected $guarded = [];
+    protected $guarded = [
+        'oauth_user_id'
+    ];
 
     protected $hidden = [
         'cellphone',

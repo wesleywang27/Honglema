@@ -14,7 +14,7 @@ class AddForeignKeysToTFansProfileTable extends Migration {
 	{
 		Schema::table('fans_profile', function(Blueprint $table)
 		{
-			$table->foreign('id', 't_fans_profile_ibfk_1')->references('id')->on('t_celebrity')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('id', 'fans_profile_ibfk_1')->references('id')->on('celebrity')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});
 	}
 
@@ -28,7 +28,7 @@ class AddForeignKeysToTFansProfileTable extends Migration {
 	{
 		Schema::table('fans_profile', function(Blueprint $table)
 		{
-			$table->dropForeign('t_fans_profile_ibfk_1');
+			$table->dropForeign('fans_profile_ibfk_1');
 		});
 	}
 
