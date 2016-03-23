@@ -31,7 +31,7 @@
             background-color: pink;
         }
         #scrollUp {
-            bottom: 27px;
+            bottom: 60px;
             right: 10px;
             background: #555;
             color: #fff;
@@ -41,15 +41,27 @@
             padding: 10px 10px;
             -webkit-border-radius: 16px;
             -moz-border-radius: 16px;
-            border-radius: 16px;
+            border-radius: 100%;
             -webkit-transition: background 200ms linear;
             -moz-transition: background 200ms linear;
             transition: background 200ms linear;
+            background-image: url("{{URL::asset('images/up.png')}}");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            width: 15px;
+            height: 15px;
+        }
+        .tail{
+            position: fixed;
+            bottom: 0;
+            height: 50px;
+            width: 100%;
+            background-color: black;
         }
     </style>
 </head>
 <body>
-<div>
+<div style="padding-bottom: 33px;">
     <div id="top" style="width:100%;height: 1px;background-color: #fff;margin: 0px auto;"></div>
     <div style="width:100%;margin: 0 auto;">
         <img style="width: 100%;" src="{{URL::asset('images/banner.png')}}" />
@@ -87,6 +99,7 @@
     <div id='imloading' style='width:150px;height:30px;line-height:30px;font-size:16px;text-align:center;border-radius:3px;opacity:0.7;background:#000;margin:10px auto 30px;color:rgba(255,255,255,0.5);'>
         正在加载...
     </div>
+    <div class="tail"></div>
 </div>
 
 <!-- include jQuery -->
@@ -217,7 +230,7 @@
                 animation:"fade",
                 animationInSpeed:200,
                 animationOutSpeed:200,
-                scrollText:"回到顶部",
+                scrollText:"",
                 activeOverlay:false
             };
             if(options)
