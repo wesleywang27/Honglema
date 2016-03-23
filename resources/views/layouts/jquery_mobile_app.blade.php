@@ -133,10 +133,8 @@
 
     //上传身份证
     $('#fileupload').change(function(){
-//            alert($(this)[0].files);
-
         $('#idfile').append('<li class="weui_uploader_file images" style="background-image:url(http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png)">\
-                <input type="hidden" id="itemImage" name="itemImage" value="http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png">\
+                <input type="hidden" id="id_image" name="id_image" value="http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png">\
                 </li>');
         $(this).parent('div').hide();
         $.toast("添加成功",1000);
@@ -144,29 +142,27 @@
 
     //上传多图
     $('#imgupload').change(function(){
+//        $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
             url:"/picture",//需要链接到服务器地址
             secureuri:false,
             fileElementId:"imgupload",//文件选择框的id属性
             dataType: 'json',   //json
             success: function (data) {
-                alert(123);
+//                if(data) {
+//                    $.hidePreloader();
+//                    $('#imgfiles').append('<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url(http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png)">\
+//                    <input type="hidden" id="manyimg" value="http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png">\
+//                    </li>');
+//                    $('#imgfiles').append('<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url(http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png)">\
+//                    <input type="hidden" id="manyimg" value="http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png">\
+//                    </li>');
+//                    $.toast("添加成功", 1000);
+//                }
             },error:function(XMLHttpRequest, textStatus, errorThrown){
                 alert('上传失败！');
             }
         });
-
-        $.showPreloader('正在上传...');
-        setTimeout(function () {
-            $.hidePreloader();
-            $('#imgfiles').append('<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url(http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png)">\
-                <input type="hidden" id="itemImage" name="itemImage" value="http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png">\
-                </li>');
-            $('#imgfiles').append('<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url(http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png)">\
-                <input type="hidden" id="itemImage" name="itemImage" value="http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png">\
-                </li>');
-            $.toast("添加成功",1000);
-        }, 2000);
     });
 
     //验证码页面,倒计时按钮,点击确认事件
@@ -260,12 +256,34 @@
     //完成注册
     $('#finish').click(function(){
         $.ajax({
-            url: "",
+            url: "/celebrity",
             method: "POST",
             data: {
-                "headimg" : "",
-                "nickname": "",
-                "sex"     : "",
+                "headimg"      : $('#f_wx_headimg').attr('src'),
+                "nickname"     : $('#f_nickname').text(),
+                "sex"          : $('#f_sex').text() == '男' ? 'M' : 'F',
+                "city"         : $('#f_city-picker').text(),
+                "bust"         : $('#f_sanwei').text() ? $('#bust').val() : '',
+                "waist"        : $('#f_sanwei').text() ? $('#waist').val() : '',
+                "hip"          : $('#f_sanwei').text() ? $('#hip').val() : '',
+                "weight"       : $('#f_tizhong').text(),
+                "height"       : $('#f_shengao').text(),
+                "age"          : $('#f_nianling').text(),
+                "experience"   : $('#jingli').val(),
+                "id_name"      : $('#id_name').val(),
+                "id_code"      : $('#id_code').val(),
+                "id_image"     : $('#id_image').val(),
+                "phonenum"     : $('#phonenum').val(),
+                "weibo_id"     : $('#weiboid').val(),
+                "weibo_fans"   : $('#weibofans').val(),
+                "weipai_id"    : $('#weipaiid').val(),
+                "weipai_fans"  : $('#weipaifans').val(),
+                "miaopai_id"   : $('#miaopaiid').val(),
+                "miaopai_fans" : $('#miaopaifans').val(),
+                "meipai_id"    : $('#meipaiid').val(),
+                "meipai_fans"  : $('#meipaifans').val(),
+                "kuaishou_id"  : $('#kuaishouid').val(),
+                "kuaishou_fans": $('#kuaishoufans').val(),
             },
             success: function($data) {
                 $.toast("注册成功!",1000);

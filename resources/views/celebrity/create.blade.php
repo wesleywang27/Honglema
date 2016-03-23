@@ -15,7 +15,7 @@
                     <div class="item-inner">
                         <div class="item-title">头像</div>
                         <div class="item-after">
-                            <img src="{{$user->avatar}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
+                            <img id="f_wx_headimg" src="{{$user->avatar}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
                         </div>
                     </div>
                 </a>
@@ -110,13 +110,13 @@
         返回
     </a>
     <h1 class="title">头像</h1>
-    <a href="#" class="create-actions button button-link button-nav pull-right">
-        <span class="icon icon-edit"></span>
-    </a>
+    <!--    <a href="#" class="create-actions button button-link button-nav pull-right">-->
+    <!--        <span class="icon icon-edit"></span>-->
+    <!--    </a>-->
 </header>
 <div class="content" style="top: 1.2rem;background-color: black;text-align: center;">
-    <div class="list-block" style="margin:6rem auto;">
-        <img style="width: 100%;" src="{{$user->avatar}}">
+    <div class="list-block" style="margin:4rem auto;">
+        <img id="wx_headimg" style="width: 100%;" src="{{$user->avatar}}">
     </div>
 </div>
 @overwrite
@@ -509,6 +509,10 @@
         返回
     </a>
     <h1 class="title">经历</h1>
+    <a class="button button-link button-nav pull-right back" href="#main">
+        保存
+        <span class="save"></span>
+    </a>
 </header>
 <div class="content" style="top: 1.2rem;">
     <div class="list-block">
@@ -545,7 +549,7 @@
                     <div class="item-media"><i class="icon icon-form-name"></i></div>
                     <div class="item-inner">
                         <div style="width: 58%;display:inline;" class="item-input">
-                            <input type="text" placeholder="输入手机号">
+                            <input id="phonenum" type="text" placeholder="输入手机号">
                         </div>
                         <div style="width: 50%;display: inline;">
                             <a href="#" id="sendcode" class="item-link list-button" style="border-left: 1px solid gray;line-height: 1.8rem;">获取验证码</a>
@@ -614,9 +618,7 @@
                             <div class="weui_cell_bd weui_cell_primary">身份证照片</div>
                         </div>
                         <div class="weui_uploader_bd">
-                            <ul class="weui_uploader_files" id="idfile" style="padding-left: 0;">
-
-                            </ul>
+                            <ul class="weui_uploader_files" id="idfile" style="padding-left: 0;"></ul>
                             <div class="weui_uploader_input_wrp">
                                 <input class="weui_uploader_input" id="fileupload" name="imgFiles" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                             </div>
