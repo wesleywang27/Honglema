@@ -47,12 +47,43 @@ class CelebrityController extends Controller
         return view('celebrity.create', ["user" => $user]);
     }
 
-    public function store() {
+    public function store(Request $request) {
         $user = session('wechat.oauth_user'); // 拿到授权用户资料
         $celebrity = new Celebrity();
         $celebrity->oauth_user_id = $user->id;
 
+        $celebrity->nickname = $request->input('nickname');
+        $celebrity->sex = $request->input('sex') === config('constants.SEX.MALE')? 0 : 1;
+        $celebrity->city = $request->input('city');
+        $celebrity->bust = $request->input('bust');
+        $celebrity->waist = $request->input('waist');
+        $celebrity->hip = $request->input('hip');
+        $celebrity->weight = $request->input('weight');
+        $celebrity->height = $request->input('height');
+        $celebrity->experience = $request->input('experience');
+        
+        $celebrity->cellphone = $request->input('phonenum');
+        $celebrity->weibo_fans_num = $request->input('weibo_fans');
+        $celebrity->weipai_fans_num = $request->input('weipai_fans');
+        $celebrity->misopai_fans_num = $request->input('miaopai_fans');
+        $celebrity->meipai_fans_num = $request->input('meipai_fans');
+        $celebrity->kuaishou_fans_num = $request->input('kuaishou_fans');
+
+        $celebrity->avatar      = $request->input('headimg');
+        $celebrity->id_name     = $request->input('id_name');
+        $celebrity->id_code     = $request->input('id_code');
+        $celebrity->id_image    = $request->input('id_image');
+        $celebrity->weibo_id    = $request->input('weibo_id');
+        $celebrity->weipai_id   = $request->input('weipai_id');
+        $celebrity->miaopai_id  = $request->input('miaopai_id');
+        $celebrity->meipai_id   = $request->input('meipai_id');
+        $celebrity->kuaishou_id = $request->input('kuaishou_id');
+
+        // todo 不应存储age字段
+        $celebrity->age         = $request->input('age');
+
         //todo  其它属性填充
+
 
         $celebrity->save();
 

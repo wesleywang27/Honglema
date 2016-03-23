@@ -46,6 +46,17 @@ class Celebrity extends Model
         'sort_manually',
         'weibo_link',
         'meipai_link',
+        'avatar',
+        //'age',
+        'id_name',
+        'id_code',
+        'id_image',
+        'weibo_id',
+        'weipai_id',
+        'miaopai_id',
+        'meipai_id',
+        'kuaishou_id',
+
     ];
 
     protected $guarded = [
