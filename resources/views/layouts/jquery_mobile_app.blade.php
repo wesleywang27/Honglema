@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <meta name="format-detection" content="telephone=no" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield("title")</title>
     <link rel="stylesheet" href="{{URL::asset('css/sm.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/sm-extend.min.css')}}">
@@ -301,7 +302,11 @@
 //                setTimeout(function(){
 //                    location.href="/celebrities/list";
 //                },1000);
-        })
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
     });
 </script>
 </body>

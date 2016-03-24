@@ -61,6 +61,7 @@ class CelebrityController extends Controller
         $celebrity->weight = $request->input('weight');
         $celebrity->height = $request->input('height');
         $celebrity->experience = $request->input('experience');
+        $celebrity->birthday = $request->input('birthday');
         
         $celebrity->cellphone = $request->input('phonenum');
         $celebrity->weibo_fans_num = $request->input('weibo_fans');
@@ -79,8 +80,6 @@ class CelebrityController extends Controller
         $celebrity->meipai_id   = $request->input('meipai_id');
         $celebrity->kuaishou_id = $request->input('kuaishou_id');
 
-        // todo 不应存储age字段
-        $celebrity->age         = $request->input('age');
 
         //todo  其它属性填充
 

@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/honglema.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CelebrityController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CelebrityController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Celebrity.php" afterPath="$PROJECT_DIR$/app/Models/Celebrity.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/jquery_mobile_app.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/jquery_mobile_app.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,29 +38,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery_mobile_app.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="jquery_mobile_app.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/jquery_mobile_app.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.083333">
-              <caret line="204" column="9" selection-start-line="204" selection-start-column="9" selection-end-line="204" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.9034749">
+              <caret line="308" column="14" selection-start-line="308" selection-start-column="14" selection-end-line="308" selection-end-column="14" />
               <folding>
-                <marker date="1458794386000" expanded="true" signature="4400:4493" placeholder="..." />
-                <marker date="1458794386000" expanded="true" signature="4494:4666" placeholder="..." />
-                <marker date="1458794386000" expanded="true" signature="5265:5309" placeholder="..." />
-                <marker date="1458794386000" expanded="true" signature="5265:5321" placeholder="..." />
-                <marker date="1458794386000" expanded="true" signature="5322:5403" placeholder="..." />
-                <marker date="1458794386000" expanded="true" signature="6902:7048" placeholder="..." />
+                <marker date="1458795608000" expanded="true" signature="4458:4551" placeholder="..." />
+                <marker date="1458795608000" expanded="true" signature="4552:4724" placeholder="..." />
+                <marker date="1458795608000" expanded="true" signature="5323:5379" placeholder="..." />
+                <marker date="1458795608000" expanded="true" signature="5380:5461" placeholder="..." />
+                <marker date="1458795608000" expanded="true" signature="6960:7106" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23952095">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -69,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CelebrityController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.625">
-              <caret line="53" column="0" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="26" />
+              <caret line="51" column="0" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -91,8 +80,8 @@
         <option value="$PROJECT_DIR$/resources/views/celebrities.blade.php" />
         <option value="$PROJECT_DIR$/public/js/ajaxfileupload.js" />
         <option value="$PROJECT_DIR$/resources/views/celebrity/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/jquery_mobile_app.blade.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/jquery_mobile_app.blade.php" />
       </list>
     </option>
   </component>
@@ -866,7 +855,7 @@
       <updated>1458719136551</updated>
       <workItem from="1458719144933" duration="12378000" />
       <workItem from="1458747319571" duration="1169000" />
-      <workItem from="1458793347881" duration="1626000" />
+      <workItem from="1458793347881" duration="2181000" />
     </task>
     <task id="LOCAL-00001" summary="上传">
       <created>1458720856342</created>
@@ -914,11 +903,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15173000" />
+    <option name="totallyTimeSpent" value="15728000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="947" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -926,8 +915,8 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972324" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293124" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293124" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293124" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24969475" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -983,12 +972,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1458794386000" expanded="true" signature="4400:4493" placeholder="..." />
-            <marker date="1458794386000" expanded="true" signature="4494:4666" placeholder="..." />
-            <marker date="1458794386000" expanded="true" signature="5265:5309" placeholder="..." />
-            <marker date="1458794386000" expanded="true" signature="5265:5321" placeholder="..." />
-            <marker date="1458794386000" expanded="true" signature="5322:5403" placeholder="..." />
-            <marker date="1458794386000" expanded="true" signature="6902:7048" placeholder="..." />
+            <marker date="1458795608000" expanded="true" signature="4458:4551" placeholder="..." />
+            <marker date="1458795608000" expanded="true" signature="4552:4724" placeholder="..." />
+            <marker date="1458795608000" expanded="true" signature="5323:5379" placeholder="..." />
+            <marker date="1458795608000" expanded="true" signature="5380:5461" placeholder="..." />
+            <marker date="1458795608000" expanded="true" signature="6960:7106" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1014,12 +1002,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="156" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="306" selection-end-column="7" />
           <folding>
-            <marker date="1458794386000" expanded="true" signature="4400:4493" placeholder="..." />
-            <marker date="1458794386000" expanded="true" signature="4494:4666" placeholder="..." />
-            <marker date="1458794386000" expanded="true" signature="5265:5309" placeholder="..." />
-            <marker date="1458794386000" expanded="true" signature="5265:5321" placeholder="..." />
-            <marker date="1458794386000" expanded="true" signature="5322:5403" placeholder="..." />
-            <marker date="1458794386000" expanded="true" signature="6902:7048" placeholder="..." />
+            <marker date="1458795608000" expanded="true" signature="4458:4551" placeholder="..." />
+            <marker date="1458795608000" expanded="true" signature="4552:4724" placeholder="..." />
+            <marker date="1458795608000" expanded="true" signature="5323:5379" placeholder="..." />
+            <marker date="1458795608000" expanded="true" signature="5380:5461" placeholder="..." />
+            <marker date="1458795608000" expanded="true" signature="6960:7106" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1066,14 +1053,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CelebrityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
-          <caret line="53" column="0" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/sm.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1100,26 +1079,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/jquery_mobile_app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.083333">
-          <caret line="204" column="9" selection-start-line="204" selection-start-column="9" selection-end-line="204" selection-end-column="9" />
-          <folding>
-            <marker date="1458794386000" expanded="true" signature="4400:4493" placeholder="..." />
-            <marker date="1458794386000" expanded="true" signature="4494:4666" placeholder="..." />
-            <marker date="1458794386000" expanded="true" signature="5265:5309" placeholder="..." />
-            <marker date="1458794386000" expanded="true" signature="5265:5321" placeholder="..." />
-            <marker date="1458794386000" expanded="true" signature="5322:5403" placeholder="..." />
-            <marker date="1458794386000" expanded="true" signature="6902:7048" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23952095">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CelebrityController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.625">
+          <caret line="51" column="0" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/jquery_mobile_app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9034749">
+          <caret line="308" column="14" selection-start-line="308" selection-start-column="14" selection-end-line="308" selection-end-column="14" />
+          <folding>
+            <marker date="1458795608000" expanded="true" signature="4458:4551" placeholder="..." />
+            <marker date="1458795608000" expanded="true" signature="4552:4724" placeholder="..." />
+            <marker date="1458795608000" expanded="true" signature="5323:5379" placeholder="..." />
+            <marker date="1458795608000" expanded="true" signature="5380:5461" placeholder="..." />
+            <marker date="1458795608000" expanded="true" signature="6960:7106" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
