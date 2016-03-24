@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <meta name="format-detection" content="telephone=no" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield("title")</title>
     <link rel="stylesheet" href="{{URL::asset('css/sm.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/sm-extend.min.css')}}">
@@ -261,41 +262,47 @@
             imgdata[i] = $(this).val();
             i++;
         });
-        $.post('/celebrity',
-            {
-                "headimg"      : $('#f_wx_headimg').attr('src'),
-                "nickname"     : $('#f_nickname').text(),
-                "sex"          : $('#f_sex').text() == '男' ? 'M' : 'F',
-                "city"         : $('#f_city-picker').text(),
-                "bust"         : $('#f_sanwei').text() ? $('#bust').val() : '',
-                "waist"        : $('#f_sanwei').text() ? $('#waist').val() : '',
-                "hip"          : $('#f_sanwei').text() ? $('#hip').val() : '',
-                "weight"       : $('#f_tizhong').text(),
-                "height"       : $('#f_shengao').text(),
-                "age"          : $('#f_nianling').text(),
-                "experience"   : $('#jingli').val(),
-                "id_name"      : $('#id_name').val(),
-                "id_code"      : $('#id_code').val(),
-                "id_image"     : $('#id_image').val(),
-                "phonenum"     : $('#phonenum').val(),
-                "weibo_id"     : $('#weiboid').val(),
-                "weibo_fans"   : $('#weibofans').val(),
-                "weipai_id"    : $('#weipaiid').val(),
-                "weipai_fans"  : $('#weipaifans').val(),
-                "miaopai_id"   : $('#miaopaiid').val(),
-                "miaopai_fans" : $('#miaopaifans').val(),
-                "meipai_id"    : $('#meipaiid').val(),
-                "meipai_fans"  : $('#meipaifans').val(),
-                "kuaishou_id"  : $('#kuaishouid').val(),
-                "kuaishou_fans": $('#kuaishoufans').val(),
-                "images"       : imgdata
-            },
-            function (response) {
-                $.toast("注册成功!",1000);
+        $.ajax({
+                    url: '/celebrity',
+                    type: 'POST',
+                    data: {
+                        "headimg": $('#f_wx_headimg').attr('src'),
+                        "nickname": $('#f_nickname').text(),
+                        "sex": $('#f_sex').text() == '男' ? 'M' : 'F',
+                        "city": $('#f_city-picker').text(),
+                        "bust": $('#f_sanwei').text() ? $('#bust').val() : '',
+                        "waist": $('#f_sanwei').text() ? $('#waist').val() : '',
+                        "hip": $('#f_sanwei').text() ? $('#hip').val() : '',
+                        "weight": $('#f_tizhong').text(),
+                        "height": $('#f_shengao').text(),
+                        "age": $('#f_nianling').text(),
+                        "experience": $('#jingli').val(),
+                        "id_name": $('#id_name').val(),
+                        "id_code": $('#id_code').val(),
+                        "id_image": $('#id_image').val(),
+                        "phonenum": $('#phonenum').val(),
+                        "weibo_id": $('#weiboid').val(),
+                        "weibo_fans": $('#weibofans').val(),
+                        "weipai_id": $('#weipaiid').val(),
+                        "weipai_fans": $('#weipaifans').val(),
+                        "miaopai_id": $('#miaopaiid').val(),
+                        "miaopai_fans": $('#miaopaifans').val(),
+                        "meipai_id": $('#meipaiid').val(),
+                        "meipai_fans": $('#meipaifans').val(),
+                        "kuaishou_id": $('#kuaishouid').val(),
+                        "kuaishou_fans": $('#kuaishoufans').val(),
+                        "images": imgdata
+                    },
+                    success: function (response) {
+                        $.toast("注册成功!", 1000);
 //                setTimeout(function(){
 //                    location.href="/celebrities/list";
 //                },1000);
-        })
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
     });
 </script>
 </body>
