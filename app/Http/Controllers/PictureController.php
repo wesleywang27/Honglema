@@ -32,7 +32,7 @@ class PictureController extends Controller
             $oss->uploadFile(config('oss.bucket'), "$baseDir/$newName", "/var/local/honglema/pics/orig/$newName");
             $oss->uploadFile(config('oss.bucket'), "$baseDir/comp-$newName", "/var/local/honglema/pics/comp/comp-$newName");
 
-            $urls[] = "http://image.weipai.cn/$baseDir/comp-$newName";
+            $urls[] = "http://image.weipai.cn/$baseDir/$newName";
         }
 
 

@@ -279,7 +279,7 @@
                 "city"         : $('#f_city-picker').text(),
                 "bust"         : $('#f_sanwei').text() ? $('#bust').val() : '',
                 "waist"        : $('#f_sanwei').text() ? $('#waist').val() : '',
-                "hip"          : $('#f_sanwei').text() ? $('#hip').val() : '',
+                "hop"          : $('#f_sanwei').text() ? $('#hip').val() : '',
                 "weight"       : $('#f_tizhong').text(),
                 "height"       : $('#f_shengao').text(),
                 "birthday"     : $('#f_datetime-picker').text(),
@@ -299,7 +299,7 @@
                 "meipai_fans"  : $('#meipaifans').val(),
                 "kuaishou_id"  : $('#kuaishouid').val(),
                 "kuaishou_fans": $('#kuaishoufans').val(),
-                "images"       : imgdata
+                "images[]"       : imgdata
             },
             success: function(data) {
                 $.toast("注册成功!",1000);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Picture;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -57,16 +58,16 @@ class CelebrityController extends Controller
         $celebrity->city = $request->input('city');
         $celebrity->bust = $request->input('bust');
         $celebrity->waist = $request->input('waist');
-        $celebrity->hip = $request->input('hip');
+        $celebrity->hop = $request->input('hop');
         $celebrity->weight = $request->input('weight');
         $celebrity->height = $request->input('height');
         $celebrity->experience = $request->input('experience');
-        $celebrity->birthday = $request->input('birthday');
+        $celebrity->birthday = str_replace("-", "", $request->input('birthday'));
         
         $celebrity->cellphone = $request->input('phonenum');
         $celebrity->weibo_fans_num = $request->input('weibo_fans');
         $celebrity->weipai_fans_num = $request->input('weipai_fans');
-        $celebrity->misopai_fans_num = $request->input('miaopai_fans');
+        $celebrity->miaopai_fans_num = $request->input('miaopai_fans');
         $celebrity->meipai_fans_num = $request->input('meipai_fans');
         $celebrity->kuaishou_fans_num = $request->input('kuaishou_fans');
 
@@ -80,11 +81,18 @@ class CelebrityController extends Controller
         $celebrity->meipai_id   = $request->input('meipai_id');
         $celebrity->kuaishou_id = $request->input('kuaishou_id');
 
+        $pictures = [];
+        foreach ($request->input('images') as $img) {
+            $picture = new Picture();
+            $picture->url = $img;
+            $picture->file_id = pathinfo($img)['filename'];
+            $picture->upload_time = time();
+            $pictures[] = $picture;
+        }
 
-        //todo  其它属性填充
-
-
+        // todo transaction
         $celebrity->save();
+        $celebrity->pictures()->saveMany($pictures);
 
         return response(['id' => $celebrity->id ], 201);
     }
