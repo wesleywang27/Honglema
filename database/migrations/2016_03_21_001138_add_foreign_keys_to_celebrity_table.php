@@ -17,10 +17,10 @@ class AddForeignKeysToCelebrityTable extends Migration
             $table->integer('oauth_user_id')->unsigned()->nullable();
             $table->foreign('oauth_user_id')->references('id')->on('oauth_user')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 
-            $table->string('avatar',2083)->nullable();
+            $table->string('avatar')->nullable();
             $table->string('id_name',100)->nullable();
             $table->string('id_code',50)->nullable();
-            $table->string('id_image',2083)->nullable();
+            $table->string('id_image')->nullable();
             $table->string('weibo_id',50)->nullable();
             $table->string('weipai_id',50)->nullable();
             $table->string('miaopai_id',50)->nullable();
@@ -49,7 +49,6 @@ class AddForeignKeysToCelebrityTable extends Migration
             $table->dropColumn('miaopai_id');
             $table->dropColumn('meipai_id');
             $table->dropColumn('kuaishou_id');
-            //$table->dropColumn('age');
         });
     }
 }
