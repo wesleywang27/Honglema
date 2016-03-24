@@ -215,6 +215,11 @@
         });
     });
 
+    //日期选择器
+    $("#datetime-picker").calendar({
+        value: ['1993-01-01']
+    });
+
     //头像修改页面编辑按钮
     $(document).on('click','.create-actions', function () {
         var buttons1 = [
@@ -272,7 +277,8 @@
                 "hip"          : $('#f_sanwei').text() ? $('#hip').val() : '',
                 "weight"       : $('#f_tizhong').text(),
                 "height"       : $('#f_shengao').text(),
-                "age"          : $('#f_nianling').text(),
+                "birthday"     : $('#f_datetime-picker').text(),
+                "profession"   : $('#f_zhiye').text(),
                 "experience"   : $('#jingli').val(),
                 "id_name"      : $('#id_name').val(),
                 "id_code"      : $('#id_code').val(),

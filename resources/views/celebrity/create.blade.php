@@ -77,10 +77,10 @@
     <div class="list-block" style="margin-top: -1rem;">
         <ul>
             <li>
-                <a href="#age" class="item-link item-content">
+                <a href="#birth" class="item-link item-content">
                     <div class="item-inner">
-                        <div class="item-title">年龄</div>
-                        <div id="f_nianling" class="item-after">未编辑</div>
+                        <div class="item-title">生日</div>
+                        <div id="f_datetime-picker" class="item-after">未编辑</div>
                     </div>
                 </a>
             </li>
@@ -344,8 +344,8 @@
         <span class="icon icon-left"></span>
         返回
     </a>
-    <h1 class="title">年龄</h1>
-    <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('nianling');">
+    <h1 class="title">生日</h1>
+    <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('datetime-picker');">
         保存
         <span class="save"></span>
     </a>
@@ -357,9 +357,8 @@
                 <div class="item-content">
                     <div class="item-media"><i class="icon icon-form-name"></i></div>
                     <div class="item-inner">
-                        <div class="item-title label">年龄</div>
                         <div class="item-input">
-                            <input id="nianling" type="text" placeholder="年龄">
+                            <input id="datetime-picker" type="text" placeholder="生日">
                         </div>
                     </div>
                 </div>
@@ -368,7 +367,7 @@
     </div>
 </div>
 @overwrite
-@include('partial/jquery_mobile_page', ["page_id" => "age"])
+@include('partial/jquery_mobile_page', ["page_id" => "birth"])
 
 @section('page-main')
 <header class="bar bar-nav">
