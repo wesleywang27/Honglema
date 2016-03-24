@@ -267,8 +267,12 @@
             imgdata[i] = $(this).val();
             i++;
         });
-        $.post('/celebrity',
-            {
+        $.ajax({
+            url: "/celebrity",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data: {
                 "headimg"      : $('#f_wx_headimg').attr('src'),
                 "nickname"     : $('#f_nickname').text(),
                 "sex"          : $('#f_sex').text() == '男' ? 'M' : 'F',
@@ -297,16 +301,16 @@
                 "kuaishou_fans": $('#kuaishoufans').val(),
                 "images"       : imgdata
             },
-            function (response) {
+            success: function(data) {
                 $.toast("注册成功!",1000);
-//                setTimeout(function(){
-//                    location.href="/celebrities/list";
-//                },1000);
-                    },
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
+                setTimeout(function(){
+                    location.href="/celebrities/list";
+                },1000);
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     });
 </script>
 </body>
