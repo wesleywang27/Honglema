@@ -39,3 +39,18 @@ Route::get('/playground/celebrity','PlaygroundController@index');
 Route::group(['middleware' => ['web']], function () {
     //
 });
+
+Route::get('/', function () {
+    return view('index');
+});
+Route::get('/factory.php', 'FactoryController@index');
+
+Route::post('/factory', 'FactoryController@createFactory');
+
+Route::get('/brand.php', 'BrandController@index');
+
+Route::post('/brand', 'BrandController@createBrand');
+
+Route::get('/designer.php', 'DesignerController@index');
+
+Route::post('/designer', 'DesignerController@createDesigner');
