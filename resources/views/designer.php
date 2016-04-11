@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>网红合作商家报名</title>
+    <title>红了吗合作意向报名</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="stylesheet" href="http://y.wcc.cn/statics/amazeui/css/amazeui.min.css">
@@ -24,7 +24,7 @@
         </a>
     </div>
     <h1 class="am-header-title" style="margin: 0px">
-        网红合作商家报名
+        红了吗合作意向报名
     </h1>
 </header>
 
@@ -213,7 +213,7 @@
 
     wx.ready(function () {
         wx.onMenuShareAppMessage({
-            title : "网红合作商家报名",
+            title : "红了吗合作意向报名",
             desc : "我们目前正在运营一个由薛蛮子和徐小平投资了2千万的国内最大的网红项目，旗下有5万多优质网红...",
             link : "http://y.wcc.cn/apply/index.htm",
             imgUrl : "http://y.wcc.cn/statics/img/fdcode.jpg",
@@ -226,7 +226,7 @@
         });
 
         wx.onMenuShareTimeline({
-            title : "网红合作商家报名",
+            title : "红了吗合作意向报名",
             link : "http://y.wcc.cn/apply/index.htm",
             imgUrl : "http://y.wcc.cn/statics/img/fdcode.jpg",
             success : function(res) {
