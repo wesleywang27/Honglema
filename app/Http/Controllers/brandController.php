@@ -39,7 +39,10 @@ class BrandController extends Controller{
             $brand->factoryOut = Input::get('factoryOut');
             $brand->design = Input::get('design');
             $brand->zhangqi = Input::get('zhangqi');
-            $brand->location = Input::get('location');
+            $brand->country = Input::get('country');
+            $brand->province = Input::get('province');
+            $brand->city = Input::get('city');
+            $brand->region = Input::get('region');
             $brand->address = Input::get('address');
             $brand->product = Input::get('product');
             $brand->price = Input::get('price');

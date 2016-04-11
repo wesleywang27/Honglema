@@ -17,7 +17,6 @@
     <script src="http://y.wcc.cn/statics/amazeui/js/amazeui.widgets.helper.js"></script>
 
     <link rel="stylesheet" href="/css/jquery-weui.css">
-    <link rel="stylesheet" href="/css/demo.css">
 </head>
 <body>
 <header data-am-widget="header" class="am-header am-header-default" style="background-color: #DD514C">
@@ -202,10 +201,24 @@
         </div>
         <div class="weui_cells_title">公司地址<span class="am-text-danger">(必填)</span></div>
         <div class="weui_cells" id="global_location">
-            <div class="weui_cell">
-                <div class="weui_cell_hd"><label for="name" class="weui_label">地址</label></div>
+            <div class="weui_cell weui_cell_select">
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="location" id="location" value="" required>
+                    <select class="weui_select country" id="country" name="country"></select>
+                </div>
+            </div>
+            <div class="weui_cell weui_cell_select">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <select class="weui_select province" id="province" name="province"></select>
+                </div>
+            </div>
+            <div class="weui_cell weui_cell_select">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <select class="weui_select city" id="city" name="city"></select>
+                </div>
+            </div>
+            <div class="weui_cell weui_cell_select">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <select class="weui_select region" id="region" name="region"></select>
                 </div>
             </div>
             <div class="weui_cell">
@@ -299,7 +312,7 @@
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 
 <script>
-    jQuery.cxSelect.defaults.url = 'http://y.wcc.cn/statics/js/select/js/city.json';
+    jQuery.cxSelect.defaults.url = '/js/city.json';
     jQuery('#global_location').cxSelect({
         selects: ['country', 'province', 'city', 'region'],
         nodata: 'none'
@@ -376,16 +389,5 @@
 
 
 <script src="http://y.wcc.cn/statics/amazeui/js/amazeui.min.js"></script>
-
-<script src="/js/jquery-2.1.4.js"></script>
-<script src="/js/jquery-weui.js"></script>
-
-<script src="/js/city-picker.js"></script>
-
-<script>
-    $("#location").cityPicker({
-        title: "请选择省/市/区"
-    });
-</script>
 </body>
 </html>

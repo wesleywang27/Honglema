@@ -42,7 +42,10 @@ class FactoryController extends Controller{
             $factory->factoryOut = Input::get('factoryOut');
             $factory->design = Input::get('design');
             $factory->zhangqi = Input::get('zhangqi');
-            $factory->location = Input::get('location');
+            $factory->country = Input::get('country');
+            $factory->province = Input::get('province');
+            $factory->city = Input::get('city');
+            $factory->region = Input::get('region');
             $factory->address = Input::get('address');
             $factory->product = Input::get('product');
             $factory->productCount = Input::get('productCount');

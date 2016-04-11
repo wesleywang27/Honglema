@@ -32,7 +32,10 @@ class CreateFactoriesTable extends Migration
             $table->integer('factoryOut');
             $table->boolean('design');
             $table->string('zhangqi')->nullable();
-            $table->string('location');
+            $table->string('country');
+            $table->string('province');
+            $table->string('city');
+            $table->string('region');
             $table->string('address');
             $table->string('product');
             $table->integer('productCount');
