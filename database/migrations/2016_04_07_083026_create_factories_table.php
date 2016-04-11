@@ -44,7 +44,6 @@ class CreateFactoriesTable extends Migration
             $table->string('description');
         });
     }
-
     /**
      * Reverse the migrations.
      *

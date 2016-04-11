@@ -49,5 +49,5 @@ class Factory extends Model
         'address' => 'required',
         'description' => 'required'
     );
-    //
+    
 }

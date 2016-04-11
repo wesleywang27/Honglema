@@ -48,5 +48,5 @@ class Brand extends Model
         'address' => 'required',
         'description' => 'required'
     );
-    //
+    
 }

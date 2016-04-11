@@ -51,7 +51,6 @@ class BrandController extends Controller{
             $brand->customAge = Input::get('customAge');
             $brand->refund = Input::get('refund');
             $brand->description = Input::get('description');
-
             $brand->save();
             echo "<script> alert('注册成功!'); </script>";
 

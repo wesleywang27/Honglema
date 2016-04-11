@@ -52,7 +52,6 @@ class FactoryController extends Controller{
             $factory->orderCount = Input::get('orderCount');
             $factory->refund = Input::get('refund');
             $factory->description = Input::get('description');
-
             $factory->save();
             echo "<script> alert('注册成功!'); </script>";
 

@@ -43,7 +43,6 @@ class CreateBrandsTable extends Migration
             $table->string('description');
         });
     }
-
     /**
      * Reverse the migrations.
      *
