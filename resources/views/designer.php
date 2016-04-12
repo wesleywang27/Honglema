@@ -154,7 +154,7 @@
     <div class="qrcode am-g am-text-center am-padding-top">
         <div class="am-u-sm-12">
             <div class="am-thumbnail">
-                <img src="http://y.wcc.cn/statics/img/fdcode.jpg">
+                <img src="/images/fdcode.jpg">
 
                 <p>负责人飞电微信</p>
             </div>

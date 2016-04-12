@@ -15,8 +15,6 @@
     <script src="http://y.wcc.cn/statics/amazeui/js/jquery.min.js"></script>
     <script src="http://y.wcc.cn/statics/amazeui/js/handlebars.min.js"></script>
     <script src="http://y.wcc.cn/statics/amazeui/js/amazeui.widgets.helper.js"></script>
-
-    <link rel="stylesheet" href="/css/jquery-weui.css">
 </head>
 <body>
 <header data-am-widget="header" class="am-header am-header-default" style="background-color: #DD514C">
@@ -291,7 +289,7 @@
     <div class="qrcode am-g am-text-center am-padding-top">
         <div class="am-u-sm-12">
             <div class="am-thumbnail">
-                <img src="http://y.wcc.cn/statics/img/fdcode.jpg">
+                <img src="/images/fdcode.jpg">
 
                 <p>负责人飞电微信</p>
             </div>
