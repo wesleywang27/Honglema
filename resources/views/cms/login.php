@@ -10,6 +10,7 @@
         canvas{z-index:-1;position:absolute;}
     </style>
     <script src="/js/jquery.js"></script>
+    <script src="/js/verificationNumbers.js"></script>
     <script src="/js/Particleground.js"></script>
     <script>
         $(document).ready(function() {
@@ -17,6 +18,12 @@
             $('body').particleground({
                 dotColor: '#5cbdaa',
                 lineColor: '#5cbdaa'
+            });
+            //验证码
+            createCode();
+            //测试提交，对接程序删除即可
+            $(".submit_btn").click(function(){
+                location.href="index.html";
             });
         });
     </script>
@@ -34,7 +41,11 @@
         <input type="password" placeholder="密码" class="login_txtbx"/>
     </dd>
     <dd>
+        <input type="button" value="立即登陆" class="submit_btn"/>
+    </dd>
+    <dd>
         <p>© 2016 红了吗 版权所有</p>
+        <p></p>
     </dd>
 </dl>
 </body>

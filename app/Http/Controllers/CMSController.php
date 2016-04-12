@@ -12,10 +12,15 @@ use Auth;
 
 class CMSController extends Controller{
     public function index(){
-
+        if(Auth::check()){
+            return view('/cms/index');
+        }
+        else{
+            return view('/cms/login');
+        }
     }
 
     public function login(){
-        
+
     }
 }

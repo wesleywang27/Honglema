@@ -65,7 +65,7 @@ Route::post('/designer', 'DesignerController@createDesigner');
 Route::post('/cms/login','CMSController@login');
 
 Route::get('/cms/login.php',function () {
-    return view('cms/login');
+    return view('/cms/login');
 });
 
 Route::get('/cms/index.php','CMSController@index');
