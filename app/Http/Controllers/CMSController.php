@@ -12,6 +12,7 @@ use App\Models\User;
 use Auth;
 
 class CMSController extends Controller{
+    //验证用户是否登录
     public function index(){
         if(Auth::check()){
             return view('/cms/index');
@@ -22,8 +23,6 @@ class CMSController extends Controller{
     }
 
     public function login(){
-        echo Input::get('name');
-        echo Input::get('password');
         if (Auth::attempt(array('name'=>Input::get('name'), 'password'=>Input::get('password')))){
             return view('/cms/index');
         }
