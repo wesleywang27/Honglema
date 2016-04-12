@@ -4,7 +4,7 @@
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/login.php" afterPath="$PROJECT_DIR$/resources/views/cms/login.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/User.php" afterPath="$PROJECT_DIR$/app/Models/User.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,11 +50,10 @@
       <file leaf-file-name="CMSController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+            <state relative-caret-position="136">
+              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
               <folding>
                 <element signature="e#6#89#0#PHP" expanded="true" />
-                <element signature="e#123#160#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -260,6 +259,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="honglema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="honglema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Http" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -334,6 +351,7 @@
       <recent name="$PROJECT_DIR$/public/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\网站\红了吗\honglema\app\Models" />
       <recent name="F:\网站\红了吗\honglema\public\images" />
     </key>
   </component>
@@ -713,7 +731,7 @@
       <workItem from="1460431054415" duration="2472000" />
       <workItem from="1460435226772" duration="3000" />
       <workItem from="1460435360686" duration="2444000" />
-      <workItem from="1460449069480" duration="2437000" />
+      <workItem from="1460449069480" duration="2764000" />
     </task>
     <task id="LOCAL-00001" summary="上传">
       <created>1458720856342</created>
@@ -799,11 +817,18 @@
       <option name="project" value="LOCAL" />
       <updated>1460450434998</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="后台">
+      <created>1460451520989</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1460451520989</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23231000" />
+    <option name="totallyTimeSpent" value="23558000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1077,7 +1102,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
+    <entry file="file://$PROJECT_DIR$/app/Models/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1131,11 +1156,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        <state relative-caret-position="136">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
           <folding>
             <element signature="e#6#89#0#PHP" expanded="true" />
-            <element signature="e#123#160#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
