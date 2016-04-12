@@ -23,7 +23,7 @@ class CMSController extends Controller{
 
     public function login(){
         
-        if (Auth::attempt(array('name'=>Input::get('name'), 'password'=>Input::get('password')))){
+        if (Auth::attempt(array('name'=>Input::get('name'), 'password'=>Input::get('password')),true)){
             return view('/cms/index');
         }
         else{
