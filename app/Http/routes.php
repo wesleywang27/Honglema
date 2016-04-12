@@ -40,6 +40,10 @@ Route::group(['middleware' => ['web']], function () {
     //
 });
 
+/*
+ *红了吗商家注册入口
+ */
+
 Route::get('/', function () {
     return view('index');
 });
@@ -54,3 +58,16 @@ Route::post('/brand', 'BrandController@createBrand');
 Route::get('/designer.php', 'DesignerController@index');
 
 Route::post('/designer', 'DesignerController@createDesigner');
+
+/*
+ * 后台管理系统入口
+ */
+Route::post('/cms/login','CMSController@login');
+
+Route::get('/cms/login.php',function () {
+    return view('cms/login');
+});
+
+Route::get('/cms/index.php','CMSController@index');
+
+Route::get('/cms/','CMSController@index');
