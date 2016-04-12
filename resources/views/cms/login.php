@@ -30,10 +30,10 @@
     </dt>
     <form action="/cms/login" method="post" name="loginForm">
         <dd class="user_icon">
-            <input type="text" placeholder="账号" class="login_txtbx" name="name"/>
+            <input type="text" placeholder="账号" class="login_txtbx" name="name" required/>
         </dd>
         <dd class="pwd_icon">
-            <input type="password" placeholder="密码" class="login_txtbx" name="password"/>
+            <input type="password" placeholder="密码" class="login_txtbx" name="password" required/>
         </dd>
         <dd>
             <input type="submit" value="立即登陆" class="submit_btn"/>

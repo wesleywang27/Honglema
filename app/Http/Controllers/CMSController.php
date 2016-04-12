@@ -8,7 +8,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Input;
-use App\Models\User;
 use Auth;
 
 class CMSController extends Controller{
@@ -23,6 +22,7 @@ class CMSController extends Controller{
     }
 
     public function login(){
+        
         if (Auth::attempt(array('name'=>Input::get('name'), 'password'=>Input::get('password')))){
             return view('/cms/index');
         }
