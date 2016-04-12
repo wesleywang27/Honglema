@@ -21,6 +21,13 @@ class CMSController extends Controller{
     }
 
     public function login(){
-
+        echo Input::get('name');
+        echo Input::get('password');
+        if (Auth::attempt(array('name'=>Input::get('name'), 'password'=>Input::get('password')))){
+            return view('/cms/index');
+        }
+        else{
+            echo "<script>history.go(-1); alert('用户名密码错误!');</script>";
+        }
     }
 }

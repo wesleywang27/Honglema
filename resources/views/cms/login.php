@@ -28,18 +28,19 @@
         <strong>红了吗后台管理系统</strong>
         <em>Management System</em>
     </dt>
-    <dd class="user_icon">
-        <input type="text" placeholder="账号" class="login_txtbx"/>
-    </dd>
-    <dd class="pwd_icon">
-        <input type="password" placeholder="密码" class="login_txtbx"/>
-    </dd>
-    <dd>
-        <input type="button" value="立即登陆" class="submit_btn"/>
-    </dd>
+    <form action="/cms/login" method="post" name="loginForm">
+        <dd class="user_icon">
+            <input type="text" placeholder="账号" class="login_txtbx" name="name"/>
+        </dd>
+        <dd class="pwd_icon">
+            <input type="password" placeholder="密码" class="login_txtbx" name="password"/>
+        </dd>
+        <dd>
+            <input type="submit" value="立即登陆" class="submit_btn"/>
+        </dd>
+    </form>
     <dd>
         <p>© 2016 红了吗 版权所有</p>
-        <p></p>
     </dd>
 </dl>
 </body>
