@@ -38,10 +38,15 @@
 <header>
     <h1><img src="/images/admin_logo.png"/></h1>
     <ul class="rt_nav">
-        <li><a href="index.html" class="website_icon">站点首页</a></li>
-        <li><a href="#" class="admin_icon">DeathGhost</a></li>
+        <li><a href="/cms/index" class="website_icon">站点首页</a></li>
+        <li><a href="#" class="admin_icon">
+                <?php
+                    echo $_SESSION['username']; // 显示用户名
+                ?>
+            </a>
+        </li>
         <li><a href="#" class="set_icon">账号设置</a></li>
-        <li><a href="login.html" class="quit_icon">安全退出</a></li>
+        <li><a href="{{ url('/cms/logout') }}" class="quit_icon">安全退出</a></li>
     </ul>
 </header>
 
@@ -51,8 +56,16 @@
     <ul>
         <li>
             <dl>
+                <dt>商家信息管理</dt>
+                <dd><a href="#">工厂信息列表</a></dd>
+                <dd><a href="#">品牌商信息列表</a></dd>
+                <dd><a href="#">设计师信息列表</a></dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
                 <dt>红人信息管理</dt>
-                <dd><a href="#" class="active">红人信息列表</a></dd>
+                <dd><a href="#">红人信息列表</a></dd>
                 <dd><a href="#">添加红人信息</a></dd>
                 <dd><a href="#">查看红人信息</a></dd>
                 <dd><a href="#">修改红人信息</a></dd>

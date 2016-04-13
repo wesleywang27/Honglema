@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Input;
 use Auth;
 
 class CMSController extends Controller{
-    //验证用户是否登录
+    //在访问首页时验证用户是否登录
     public function index(){
         session_start();
         if(isset($_SESSION['username'])){
@@ -22,7 +22,7 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
-
+    //用户登录
     public function login(){
         if (Auth::attempt(array('name'=>Input::get('name'), 'password'=>Input::get('password')))){
             session_start();
@@ -32,5 +32,11 @@ class CMSController extends Controller{
         else{
             echo "<script>history.go(-1); alert('用户名密码错误!');</script>";
         }
+    }
+    //用户登出
+    public function logout(){
+        session_start();
+        unset($_SESSION['username']);
+        return Redirect::intended('/cms/login.php');
     }
 }
