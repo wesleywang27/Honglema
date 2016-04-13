@@ -72,7 +72,7 @@
             float: left;
             width: 60%;
             height: inherit;
-            background-color: #dd3300;
+            background-color: #ff6666;
             color: #fff;
         }
     </style>
