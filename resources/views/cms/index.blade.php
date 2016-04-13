@@ -36,7 +36,7 @@
 <body>
 <!--header-->
 <header>
-    <h1><img src="images/admin_logo.png"/></h1>
+    <h1><img src="/images/admin_logo.png"/></h1>
     <ul class="rt_nav">
         <li><a href="index.html" class="website_icon">站点首页</a></li>
         <li><a href="#" class="admin_icon">DeathGhost</a></li>
@@ -47,13 +47,13 @@
 
 <!--aside nav-->
 <aside class="lt_aside_nav content mCustomScrollbar">
-    <h2><a href="index.html">首页</a></h2>
+    <h2><a href="/cms/index">首页</a></h2>
     <ul>
         <li>
             <dl>
                 <dt>红人信息管理</dt>
-                <dd><a href="index.html" class="active">红人信息列表</a></dd>
-                <dd><a href="create_hr.html">添加红人信息</a></dd>
+                <dd><a href="#" class="active">红人信息列表</a></dd>
+                <dd><a href="#">添加红人信息</a></dd>
                 <dd><a href="#">查看红人信息</a></dd>
                 <dd><a href="#">修改红人信息</a></dd>
             </dl>

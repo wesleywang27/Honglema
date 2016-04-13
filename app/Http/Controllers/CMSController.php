@@ -14,8 +14,9 @@ use Auth;
 class CMSController extends Controller{
     //验证用户是否登录
     public function index(){
-        if(Auth::check()){
-            return view('/cms/index.php');
+        session_start();
+        if(isset($_SESSION['username'])){
+            return view('/cms/index');
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -23,9 +24,10 @@ class CMSController extends Controller{
     }
 
     public function login(){
-        
         if (Auth::attempt(array('name'=>Input::get('name'), 'password'=>Input::get('password')))){
-            return view('/cms/index');
+            session_start();
+            $_SESSION['username'] = Input::get('name');
+            return Redirect::intended('/cms/index');
         }
         else{
             echo "<script>history.go(-1); alert('用户名密码错误!');</script>";
