@@ -25,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
     {
         if ($this->app->environment() == 'local') {
             $this->app->register('Iber\Generator\ModelGeneratorProvider');
+            $this->app->register('Way\Generators\GeneratorsServiceProvider');
+            $this->app->register('Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider');
         }
     }
 }

@@ -31,7 +31,7 @@
             background-color: pink;
         }
         #scrollUp {
-            bottom: 27px;
+            bottom: 60px;
             right: 10px;
             background: #555;
             color: #fff;
@@ -41,15 +41,44 @@
             padding: 10px 10px;
             -webkit-border-radius: 16px;
             -moz-border-radius: 16px;
-            border-radius: 16px;
+            border-radius: 100%;
             -webkit-transition: background 200ms linear;
             -moz-transition: background 200ms linear;
             transition: background 200ms linear;
+            background-image: url("{{URL::asset('images/up.png')}}");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            width: 15px;
+            height: 15px;
+        }
+        .tail{
+            position: fixed;
+            bottom: 0;
+            height: 50px;
+            width: 100%;
+            border-top: 1px solid #e5e5e5;
+            text-align: center;
+            line-height: 50px;
+        }
+        .tail_left{
+            display: inline;
+            float: left;
+            width: 40%;
+            height: inherit;
+            background-color: white;
+        }
+        .tail_right{
+            display: inline;
+            float: left;
+            width: 100%;
+            height: inherit;
+            background-color: #fd3eb7;
+            color: #fff;
         }
     </style>
 </head>
 <body>
-<div>
+<div style="padding-bottom: 33px;">
     <div id="top" style="width:100%;height: 1px;background-color: #fff;margin: 0px auto;"></div>
     <div style="width:100%;margin: 0 auto;">
         <img style="width: 100%;" src="{{URL::asset('images/banner.png')}}" />
@@ -86,6 +115,12 @@
     </div>
     <div id='imloading' style='width:150px;height:30px;line-height:30px;font-size:16px;text-align:center;border-radius:3px;opacity:0.7;background:#000;margin:10px auto 30px;color:rgba(255,255,255,0.5);'>
         正在加载...
+    </div>
+    <div class="tail">
+<!--        <div class="tail_left">我是商家</div>-->
+        <a href="/celebrity/create">
+            <div class="tail_right">我要成为网红</div>
+        </a>
     </div>
 </div>
 
@@ -217,7 +252,7 @@
                 animation:"fade",
                 animationInSpeed:200,
                 animationOutSpeed:200,
-                scrollText:"回到顶部",
+                scrollText:"",
                 activeOverlay:false
             };
             if(options)
