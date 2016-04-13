@@ -8,6 +8,7 @@
 namespace App\Http\Controllers;
 
 use Validator;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use App\Models\Factory;
 use Illuminate\Contracts\Http\Request;
@@ -55,7 +56,7 @@ class FactoryController extends Controller{
             $factory->save();
             echo "<script> alert('注册成功!'); </script>";
 
-            return view('index');
+            return Redirect::to('index.php');
         } else {
             // 验证没通过就显示错误提示信息
             echo "<script>history.go(-1); alert('请按要求填写真实信息!');</script>";
