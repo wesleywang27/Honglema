@@ -14,7 +14,7 @@ class AddForeignKeysToTPictureTable extends Migration {
 	{
 		Schema::table('t_picture', function(Blueprint $table)
 		{
-			$table->foreign('uid', 't_picture_ibfk_1')->references('id')->on('t_celebrity')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('uid', 'picture_ibfk_1')->references('id')->on('t_celebrity')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});
 	}
 
@@ -28,7 +28,7 @@ class AddForeignKeysToTPictureTable extends Migration {
 	{
 		Schema::table('t_picture', function(Blueprint $table)
 		{
-			$table->dropForeign('t_picture_ibfk_1');
+			$table->dropForeign('picture_ibfk_1');
 		});
 	}
 
