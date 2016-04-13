@@ -9,7 +9,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
-use App\User;
 use Auth;
 
 class CMSController extends Controller{
