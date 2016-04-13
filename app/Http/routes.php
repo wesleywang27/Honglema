@@ -62,6 +62,10 @@ Route::post('/designer', 'DesignerController@createDesigner');
 /*
  * 后台管理系统入口
  */
+Route::get('/cms/test',function () {
+    return view('/cms/test');
+});
+
 Route::get('/cms/logout', 'CMSController@logout');
 
 Route::post('/cms/login.php','CMSController@login');
