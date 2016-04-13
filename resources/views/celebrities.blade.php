@@ -117,9 +117,11 @@
         正在加载...
     </div>
     <div class="tail">
-<!--        <div class="tail_left">我是商家</div>-->
+        <a href="/">
+            <div class="tail_left">我是商家</div>
+        </a>
         <a href="/celebrity/create">
-            <div class="tail_right">我要成为网红</div>
+            <div class="tail_right">我要做网红</div>
         </a>
     </div>
 </div>
