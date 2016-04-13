@@ -69,10 +69,10 @@
         }
         .tail_right{
             display: inline;
-            float: right;
-            width: 59%;
+            float: left;
+            width: 60%;
             height: inherit;
-            background-color: #ff3300;
+            background-color: #dd3300;
             color: #fff;
         }
     </style>
