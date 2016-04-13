@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
+use App\User;
 use Auth;
 
 class CMSController extends Controller{
@@ -18,14 +19,14 @@ class CMSController extends Controller{
             return view('/cms/index.php');
         }
         else{
-            return Redirect::to('/cms/login.php');
+            return Redirect::intended('/cms/login.php');
         }
     }
 
     public function login(){
         
         if (Auth::attempt(array('name'=>Input::get('name'), 'password'=>Input::get('password')))){
-            return Redirect::to('/cms/index.php');
+            return view('/cms/index');
         }
         else{
             echo "<script>history.go(-1); alert('用户名密码错误!');</script>";
