@@ -65,14 +65,14 @@
             float: left;
             width: 40%;
             height: inherit;
-            background-color: grey;
+            background-color: #dddddd;
         }
         .tail_right{
             display: inline;
-            float: left;
-            width: 60%;
+            float: right;
+            width: 59%;
             height: inherit;
-            background-color: #fd3eb7;
+            background-color: #ff3300;
             color: #fff;
         }
     </style>
