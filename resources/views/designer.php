@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>红了吗合作意向报名</title>
+    <title>红了吗网红供应链合作报名</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="stylesheet" href="http://y.wcc.cn/statics/amazeui/css/amazeui.min.css">
@@ -24,7 +24,7 @@
         </a>
     </div>
     <h1 class="am-header-title" style="margin: 0px">
-        红了吗合作意向报名
+        红了吗网红供应链合作报名
     </h1>
 </header>
 
@@ -183,6 +183,7 @@
                 </div>
             </div>
         </div>
+        <!--
         <div class="weui_cells weui_cells_form">
             <div class="weui_cell">
                 <div class="weui_cell_bd weui_cell_primary">
@@ -201,6 +202,7 @@
                 </div>
             </div>
         </div>
+        -->
         <div class="weui_cells_title">备注(选填)</div>
         <div class="weui_cells weui_cells_form">
             <div class="weui_cell">
