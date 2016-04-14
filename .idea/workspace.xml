@@ -4,8 +4,6 @@
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/designerController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/designerController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Designer.php" afterPath="$PROJECT_DIR$/app/Models/Designer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/designer.php" afterPath="$PROJECT_DIR$/resources/views/designer.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,7 +38,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="brandController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="brandController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/brandController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="107">
@@ -50,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="designerController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="designerController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/designerController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+            <state relative-caret-position="326">
+              <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -650,7 +648,7 @@
       <workItem from="1458719144933" duration="12378000" />
       <workItem from="1458747319571" duration="1169000" />
       <workItem from="1458793347881" duration="2181000" />
-      <workItem from="1460610162151" duration="4748000" />
+      <workItem from="1460610162151" duration="4790000" />
     </task>
     <task id="LOCAL-00001" summary="上传">
       <created>1458720856342</created>
@@ -757,11 +755,18 @@
       <option name="project" value="LOCAL" />
       <updated>1460614317984</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="designer 修改">
+      <created>1460614939729</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1460614939729</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20476000" />
+    <option name="totallyTimeSpent" value="20518000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -815,7 +820,8 @@
     <MESSAGE value="页面修改" />
     <MESSAGE value="修改" />
     <MESSAGE value="brand 修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="brand 修改" />
+    <MESSAGE value="designer 修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="designer 修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1060,14 +1066,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/designerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/designer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="485">
@@ -1082,6 +1080,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
           <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/designerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
           <folding />
         </state>
       </provider>
