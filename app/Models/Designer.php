@@ -34,8 +34,7 @@ class Designer extends Model
     public static $rules = array(
         'username' => 'min:2',
         'mobile' => 'between:11,11',
-        'designBrand' => 'required',
-        'description' => 'required'
+        'designBrand' => 'required'
     );
     //
 }
