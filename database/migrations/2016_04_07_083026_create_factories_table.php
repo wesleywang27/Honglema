@@ -20,6 +20,8 @@ class CreateFactoriesTable extends Migration
             $table->string('title');
             $table->string('company');
             $table->string('category');
+            $table->string('advantageSubcategory')->nullable();
+            $table->tinyInteger('shipmentOK');
             $table->boolean('tMall');
             $table->boolean('tie');
             $table->string('ext1');
@@ -33,15 +35,15 @@ class CreateFactoriesTable extends Migration
             $table->boolean('design');
             $table->string('zhangqi')->nullable();
             $table->string('country');
-            $table->string('province');
-            $table->string('city');
-            $table->string('region');
+            $table->string('province')->nullable();
+            $table->string('city')->nullable();
+            $table->string('region')->nullable();
             $table->string('address');
             $table->string('product');
             $table->integer('productCount');
             $table->integer('orderCount');
             $table->boolean('refund');
-            $table->string('description');
+            $table->string('description')->nullable();
         });
     }
     /**

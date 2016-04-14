@@ -18,6 +18,12 @@ class Designer extends Model
         'mobile',
         'weixinNo',
         'title',
+        'company',
+        'country',
+        'province',
+        'city',
+        'region',
+        'address',
         'designExperience',
         'designTeam',
         'brand',
@@ -28,8 +34,7 @@ class Designer extends Model
     public static $rules = array(
         'username' => 'min:2',
         'mobile' => 'between:11,11',
-        'designBrand' => 'required',
-        'description' => 'required'
+        'designBrand' => 'required'
     );
     //
 }

@@ -31,6 +31,15 @@ class DesignerController extends Controller{
             $designer->mobile = Input::get('mobile');
             $designer->weixinNo = Input::get('weixinNo');
             $designer->title = Input::get('title');
+            $designer->company = Input::get('company');
+            $designer->country = Input::get('country');
+            //后期完善此部分
+            if($designer->country == '100000'){
+                $designer->province = Input::get('province');
+                $designer->city = Input::get('city');
+                $designer->region = Input::get('region');
+            }
+            $designer->address = Input::get('address');
             $designer->designExperience = Input::get('designExperience');
             $designer->designTeam = Input::get('designTeam');
             $designer->brand = Input::get('brand');

@@ -40,7 +40,7 @@ class CreateBrandsTable extends Migration
             $table->string('customPosition');
             $table->string('customAge');
             $table->boolean('refund');
-            $table->string('description');
+            $table->string('description')->nullable();
         });
     }
     /**

@@ -45,8 +45,7 @@ class Brand extends Model
     public static $rules = array(
         'username' => 'min:2',
         'mobile' => 'between:11,11',
-        'address' => 'required',
-        'description' => 'required'
+        'address' => 'required'
     );
     
 }

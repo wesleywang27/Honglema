@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>红了吗合作意向报名</title>
+    <title>红了吗网红供应链合作报名</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="stylesheet" href="http://y.wcc.cn/statics/amazeui/css/amazeui.min.css">
@@ -24,7 +24,7 @@
         </a>
     </div>
     <h1 class="am-header-title" style="margin: 0px">
-        红了吗合作意向报名
+        红了吗网红供应链合作报名
     </h1>
 </header>
 
@@ -40,8 +40,9 @@
         <div class="weui_cells_title">个人信息<span class="am-text-danger">(必填)</span></div>
         <div class="weui_cells">
             <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd">
+                <div class="weui_cell_hd"><label class="">
                     设计师类型
+                        </label>
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="designType">
@@ -54,7 +55,7 @@
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd">姓名</div>
+                <div class="weui_cell_hd"><label class="">姓名</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="username" placeholder="请输入姓名"
                            value="" required>
@@ -80,10 +81,43 @@
                     <input class="weui_input" type="text" name="title" placeholder="请输入职位" required>
                 </div>
             </div>
+        </div>
+        <div class="weui_cells_title">公司信息<span class="am-text-danger">(必填)</span></div>
+        <div class="weui_cells">
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">设计经历</label></div>
+                <div class="weui_cell_hd"><label class="">公司名称</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="designExperience" placeholder="设计经历" required>
+                    <input class="weui_input" type="text" name="company" placeholder="请输入公司名称" required>
+                </div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><label class="">公司地址</label></div>
+            </div>
+            <div class="weui_cells" id="global_location">
+                <div class="weui_cell weui_cell_select">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <select class="weui_select country" id="country" name="country"></select>
+                    </div>
+                </div>
+                <div class="weui_cell weui_cell_select">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <select class="weui_select province" id="province" name="province"></select>
+                    </div>
+                </div>
+                <div class="weui_cell weui_cell_select">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <select class="weui_select city" id="city" name="city"></select>
+                    </div>
+                </div>
+                <div class="weui_cell weui_cell_select">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <select class="weui_select region" id="region" name="region"></select>
+                    </div>
+                </div>
+                <div class="weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <textarea class="weui_textarea" name="address" placeholder="请输入详细地址" rows="5"></textarea>
+                    </div>
                 </div>
             </div>
             <!--
@@ -106,6 +140,10 @@
                 </div>
             </div>
             -->
+        </div>
+
+        <div class="weui_cells_title">个人设计经历<span class="am-text-danger">(必填)</span></div>
+        <div class="weui_cells">
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd">
                     是否有设计团队
@@ -128,20 +166,48 @@
                     </select>
                 </div>
             </div>
-        </div>
-        <div class="weui_cells_title">设计品牌名称</div>
-        <div class="weui_cells weui_cells_form">
-            <div class="weui_cell">
-                <div class="weui_cell_bd weui_cell_primary">
-                    <textarea class="weui_textarea" name="designBrand" placeholder="设计的品牌" rows="5">无</textarea>
+            <div class="weui_cells_title">设计品牌名称</div>
+            <div class="weui_cells weui_cells_form">
+                <div class="weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <textarea class="weui_textarea" name="designBrand" placeholder="设计的品牌" rows="5">无</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="weui_cells_title">设计经历</div>
+            <div class="weui_cells weui_cells_form">
+                <div class="weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <textarea class="weui_textarea" name="designExperience" placeholder="设计经历" rows="5"></textarea>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="weui_cells_title">备注</div>
+        <!--
         <div class="weui_cells weui_cells_form">
             <div class="weui_cell">
                 <div class="weui_cell_bd weui_cell_primary">
-                    <textarea class="weui_textarea" name="description" placeholder="请输入备注" rows="5">无</textarea>
+                    <div class="weui_uploader">
+                        <div class="weui_uploader_hd weui_cell">
+                            <div class="weui_cell_bd weui_cell_primary">设计作品</div>
+                        </div>
+                        <div class="weui_uploader_bd">
+                            <ul class="weui_uploader_files" id="files">
+                            </ul>
+                            <div class="weui_uploader_input_wrp">
+                                <input class="weui_uploader_input" id="fileupload" name="imgFiles" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+        <div class="weui_cells_title">备注(选填)</div>
+        <div class="weui_cells weui_cells_form">
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <textarea class="weui_textarea" name="description" placeholder="请输入备注" rows="5"></textarea>
                 </div>
             </div>
         </div>
@@ -170,7 +236,7 @@
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 
 <script>
-    jQuery.cxSelect.defaults.url = 'http://y.wcc.cn/statics/js/select/js/city.json';
+    jQuery.cxSelect.defaults.url = '/js/city.json';
     jQuery('#global_location').cxSelect({
         selects: ['country', 'province', 'city', 'region'],
         nodata: 'none'
