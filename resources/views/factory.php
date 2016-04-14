@@ -75,7 +75,9 @@
                     <input class="weui_input" type="text" name="company" placeholder="请输入公司名称" required>
                 </div>
             </div>
-            <div class="weui_cells_title">公司地址<span class="am-text-danger">(必填)</span></div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><label class="">公司地址</label></div>
+            </div>
             <div class="weui_cells" id="global_location">
                 <div class="weui_cell weui_cell_select">
                     <div class="weui_cell_bd weui_cell_primary">
@@ -137,7 +139,8 @@
                     <input class="weui_input" type="text" name="advantageSubcategory" placeholder="请输入优势子类目" required>
                 </div>
             </div>
-            <div class="weui_cells_title">工厂信息<span class="am-text-danger">(必填)</span></div>
+        </div>
+        <div class="weui_cells_title">工厂信息<span class="am-text-danger">(必填)</span></div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">工厂面积(m2)</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
@@ -194,18 +197,18 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">最小起订量</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="number" name="orderCount" placeholder="最小起订量" required>
+                    <input class="weui_input" type="text" name="orderCount" placeholder="最小起订量" required>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">日生产量</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="number" name="productCount" placeholder="日生产量" required>
+                    <input class="weui_input" type="text" name="productCount" placeholder="日生产量" required>
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd">
-                    是否有设计师或设计团队
+                    是否有设计团队
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="design">
