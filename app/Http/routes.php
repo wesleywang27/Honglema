@@ -70,13 +70,4 @@ Route::get('/cms/login.php',function () {
     return view('/cms/login');
 });
 
-//验证访问用户是否登录
-Route::get('/cms/{url}',function ($url) {
-    session_start();
-    if(isset($_SESSION['username'])){
-        return view("/cms/$url");
-    }
-    else{
-        return Redirect::intended('/cms/login.php');
-    }
-});
+Route::get('/cms/{url}', "CMSController@index");

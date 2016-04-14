@@ -12,6 +12,15 @@ use Illuminate\Support\Facades\Input;
 use Auth;
 
 class CMSController extends Controller{
+    public function index($url){
+        session_start();
+        if(isset($_SESSION['username'])){
+            return view("/cms/$url");
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //用户登录
     public function login(){
         if (Auth::attempt(array('name'=>Input::get('name'), 'password'=>Input::get('password')))){
