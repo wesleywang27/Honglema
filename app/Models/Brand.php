@@ -47,5 +47,4 @@ class Brand extends Model
         'mobile' => 'between:11,11',
         'address' => 'required'
     );
-    
 }
