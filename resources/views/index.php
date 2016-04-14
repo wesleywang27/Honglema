@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>红了吗网红供应链合作报名</title>
+    <title>红了吗合作意向报名</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="stylesheet" href="http://y.wcc.cn/statics/amazeui/css/amazeui.min.css">
@@ -24,7 +24,7 @@
         </a>
     </div>
     <h1 class="am-header-title" style="margin: 0px">
-        红了吗网红供应链合作报名
+        红了吗合作意向报名
     </h1>
 </header>
 
@@ -40,13 +40,13 @@
 </div>
 <div class="am-g">
     <div class="am-u-sm-12 am-padding-top-lg">
-        <a href="factory_index" class="am-btn am-btn-primary am-btn-block am-round">我有工厂</a>
+        <a href="factory.php" class="am-btn am-btn-primary am-btn-block am-round">我有工厂</a>
     </div>
     <div class="am-u-sm-12 am-padding-top-lg">
-        <a href="brand_index" class="am-btn am-btn-success am-btn-block am-round">我是品牌商</a>
+        <a href="brand.php" class="am-btn am-btn-success am-btn-block am-round">我是品牌商</a>
     </div>
     <div class="am-u-sm-12 am-padding-top-lg">
-        <a href="designer_index" class="am-btn am-btn-danger am-btn-block am-round">我是设计师</a>
+        <a href="designer.php" class="am-btn am-btn-danger am-btn-block am-round">我是设计师</a>
     </div>
 </div>
 <div class="qrcode am-g am-text-center am-padding-top">
@@ -65,7 +65,7 @@
 
     wx.ready(function () {
         wx.onMenuShareAppMessage({
-            title : "红了吗网红供应链合作报名",
+            title : "红了吗合作意向报名",
             desc : "我们目前正在运营一个由薛蛮子和徐小平投资了2千万的国内最大的网红项目，旗下有5万多优质网红...",
             link : "http://m.honglema.com/",
             imgUrl : "/images/fdcode.jpg",
@@ -78,7 +78,7 @@
         });
 
         wx.onMenuShareTimeline({
-            title : "红了吗网红供应链合作报名",
+            title : "红了吗合作意向报名",
             link : "http://m.honglema.com/",
             imgUrl : "/images/fdcode.jpg",
             success : function(res) {
