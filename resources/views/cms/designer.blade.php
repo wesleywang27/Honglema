@@ -1,8 +1,9 @@
 @extends('cms.banner')
 
 @section('content')
+<h2><strong style="color:grey;">商家信息管理</strong></h2>
 <div class="page_title">
-    <h2 class="fl">红人信息列表</h2>
+    <h2 class="fl">设计师信息列表</h2>
     <a class="fr top_rt_btn" style="float:right">查找</a>
     <input type="text" class="textboxsearch" placeholder="红人搜索"/>
 </div>

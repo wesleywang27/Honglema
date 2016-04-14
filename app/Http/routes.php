@@ -62,10 +62,6 @@ Route::post('/designer', 'DesignerController@createDesigner');
 /*
  * 后台管理系统入口
  */
-Route::get('/cms/test',function () {
-    return view('/cms/test');
-});
-
 Route::get('/cms/logout', 'CMSController@logout');
 
 Route::post('/cms/login.php','CMSController@login');
@@ -74,6 +70,13 @@ Route::get('/cms/login.php',function () {
     return view('/cms/login');
 });
 
-Route::get('/cms/index','CMSController@index');
-
-Route::get('/cms/','CMSController@index');
+//验证访问用户是否登录
+Route::get('/cms/{url}',function ($url) {
+    session_start();
+    if(isset($_SESSION['username'])){
+        return view("/cms/$url");
+    }
+    else{
+        return Redirect::intended('/cms/login.php');
+    }
+});
