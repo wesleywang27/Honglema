@@ -40,7 +40,7 @@
         <div class="weui_cells_title">个人信息<span class="am-text-danger">(必填)</span></div>
         <div class="weui_cells">
             <div class="weui_cell">
-                <div class="weui_cell_hd">姓名</div>
+                <div class="weui_cell_hd"><label class="">姓名</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="username" placeholder="请输入姓名"
                            value="" required>
@@ -76,20 +76,51 @@
                 </div>
             </div>
             <div class="weui_cell">
+                <div class="weui_cell_hd"><label class="">公司地址</label></div>
+            </div>
+            <div class="weui_cells" id="global_location">
+            <div class="weui_cell weui_cell_select">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <select class="weui_select country" id="country" name="country"></select>
+                </div>
+            </div>
+            <div class="weui_cell weui_cell_select">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <select class="weui_select province" id="province" name="province"></select>
+                </div>
+            </div>
+            <div class="weui_cell weui_cell_select">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <select class="weui_select city" id="city" name="city"></select>
+                </div>
+            </div>
+            <div class="weui_cell weui_cell_select">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <select class="weui_select region" id="region" name="region"></select>
+                </div>
+            </div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <textarea class="weui_textarea" name="address" placeholder="请输入详细地址" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">品牌名称</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="brand" placeholder="品牌名称" required>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">2015年销售额</label></div>
+                <div class="weui_cell_hd"><label class="">2015年线上销售额</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="sales" placeholder="2015年销售额" required>
+                    <input class="weui_input" type="text" name="sales" placeholder="2015年线上销售额" required>
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd">
+                <div class="weui_cell_hd"><label class="">
                     类目
+                        </label>
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="category">
@@ -115,6 +146,7 @@
 
                 </div>
             </div>
+            <!--
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd">
                     是否有天猫店铺
@@ -137,9 +169,11 @@
                     </select>
                 </div>
             </div>
+            -->
             <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd">
+                <div class="weui_cell_hd"><label class="">
                     是否自有工厂
+                        </label>
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="factory">
@@ -150,21 +184,23 @@
             </div>
 
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">工厂规模</label></div>
+                <div class="weui_cell_hd"><label class="">厂房面积</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="factorySize" placeholder="工厂规模" required>
+                    <input class="weui_input" type="text" name="factorySize" placeholder="厂房面积">
                 </div>
             </div>
+            <!--
             <div class="weui_cell">
                 <div class="weui_cell_hd">外发工厂数量</div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="number" name="factoryOut" placeholder="外发工厂数量" required>
                 </div>
             </div>
-
+            -->
             <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd">
-                    是否有设计师或设计团队
+                <div class="weui_cell_hd"><label class="">
+                    是否有设计团队
+                        </label>
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="design">
@@ -173,41 +209,16 @@
                     </select>
                 </div>
             </div>
+            <!--
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">账期(可选)</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="zhangqi" placeholder="账期">
                 </div>
             </div>
+            -->
         </div>
-        <div class="weui_cells_title">公司地址<span class="am-text-danger">(必填)</span></div>
-        <div class="weui_cells" id="global_location">
-            <div class="weui_cell weui_cell_select">
-                <div class="weui_cell_bd weui_cell_primary">
-                    <select class="weui_select country" id="country" name="country"></select>
-                </div>
-            </div>
-            <div class="weui_cell weui_cell_select">
-                <div class="weui_cell_bd weui_cell_primary">
-                    <select class="weui_select province" id="province" name="province"></select>
-                </div>
-            </div>
-            <div class="weui_cell weui_cell_select">
-                <div class="weui_cell_bd weui_cell_primary">
-                    <select class="weui_select city" id="city" name="city"></select>
-                </div>
-            </div>
-            <div class="weui_cell weui_cell_select">
-                <div class="weui_cell_bd weui_cell_primary">
-                    <select class="weui_select region" id="region" name="region"></select>
-                </div>
-            </div>
-            <div class="weui_cell">
-                <div class="weui_cell_bd weui_cell_primary">
-                    <textarea class="weui_textarea" name="address" placeholder="请输入详细地址" rows="5"></textarea>
-                </div>
-            </div>
-        </div>
+
         <div class="weui_cells_title">产品信息<span class="am-text-danger">(必填)</span></div>
         <div class="weui_cells">
             <div class="weui_cell">
@@ -217,9 +228,9 @@
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">客单价(数字)</label></div>
+                <div class="weui_cell_hd"><label class="">客单价</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="number" name="price" placeholder="客单价(数字)" required>
+                    <input class="weui_input" type="text" name="price" placeholder="客单价" required>
                 </div>
             </div>
             <div class="weui_cell">
@@ -261,8 +272,9 @@
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd">
+                <div class="weui_cell_hd"><label class="">
                     是否支持退换
+                        </label>
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="refund">

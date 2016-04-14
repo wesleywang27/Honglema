@@ -35,9 +35,9 @@ class CreateFactoriesTable extends Migration
             $table->boolean('design');
             $table->string('zhangqi')->nullable();
             $table->string('country');
-            $table->string('province');
-            $table->string('city');
-            $table->string('region');
+            $table->string('province')->nullable();
+            $table->string('city')->nullable();
+            $table->string('region')->nullable();
             $table->string('address');
             $table->string('product');
             $table->integer('productCount');
