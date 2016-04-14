@@ -46,16 +46,21 @@ class FactoryController extends Controller{
             $factory->design = Input::get('design');
             $factory->zhangqi = Input::get('zhangqi');
             $factory->country = Input::get('country');
-            $factory->province = Input::get('province');
-            $factory->city = Input::get('city');
-            $factory->region = Input::get('region');
+            //选择非中国区域加以判断 后续改进
+            if($factory->country == '100000'){
+                $factory->province = Input::get('province');
+                $factory->city = Input::get('city');
+                $factory->region = Input::get('region');
+            }
             $factory->address = Input::get('address');
             $factory->product = Input::get('product');
             $factory->productCount = Input::get('productCount');
             $factory->orderCount = Input::get('orderCount');
             $factory->refund = Input::get('refund');
             $factory->description = Input::get('description');
+
             $factory->save();
+
             echo "<script> alert('注册成功!'); </script>";
 
             return view('index.php');
