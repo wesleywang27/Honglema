@@ -239,26 +239,6 @@
                     <input class="weui_input" type="text" name="style" placeholder="商品风格" required>
                 </div>
             </div>
-            <!--
-            <div class="weui_cells weui_cells_form">
-                <div class="weui_cell">
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <div class="weui_uploader">
-                            <div class="weui_uploader_hd weui_cell">
-                                <div class="weui_cell_bd weui_cell_primary">商品照片</div>
-                            </div>
-                            <div class="weui_uploader_bd">
-                                <ul class="weui_uploader_files" id="files">
-                                </ul>
-                                <div class="weui_uploader_input_wrp">
-                                    <input class="weui_uploader_input" id="fileupload" name="imgFiles" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            -->
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">客户人群定位</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
@@ -281,6 +261,24 @@
                         <option value="0">否</option>
                         <option value="1">是</option>
                     </select>
+                </div>
+            </div>
+        </div>
+        <div class="weui_cells weui_cells_form">
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <div class="weui_uploader">
+                        <div class="weui_uploader_hd weui_cell">
+                            <div class="weui_cell_bd weui_cell_primary">商品照片</div>
+                        </div>
+                        <div class="weui_uploader_bd">
+                            <ul class="weui_uploader_files" id="files">
+                            </ul>
+                            <div class="weui_uploader_input_wrp">
+                                <input class="weui_uploader_input" id="fileupload" name="imgFiles" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">公司地址</label></div>
+                <div class="weui_cell_hd"><label class="">公司</label></div>
             </div>
             <div class="weui_cells" id="global_location">
                 <div class="weui_cell weui_cell_select">
@@ -136,11 +136,10 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd">优势子类目(选填)</div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="advantageSubcategory" placeholder="请输入优势子类目">
+                    <input class="weui_input" type="text" name="advantageSubcategory" placeholder="请输入优势子类目" required>
                 </div>
             </div>
-        </div>
-        <div class="weui_cells_title">工厂信息<span class="am-text-danger">(必填)</span></div>
+            <div class="weui_cells_title">工厂信息<span class="am-text-danger">(必填)</span></div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">工厂面积(m2)</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
@@ -197,18 +196,18 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">最小起订量</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="orderCount" placeholder="最小起订量" required>
+                    <input class="weui_input" type="number" name="orderCount" placeholder="最小起订量" required>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">日生产量</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="productCount" placeholder="日生产量" required>
+                    <input class="weui_input" type="number" name="productCount" placeholder="日生产量" required>
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd">
-                    是否有设计团队
+                    是否有设计师或设计团队
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="design">
@@ -271,38 +270,26 @@
                 </div>
             </div>
         </div>
-        <!--
-                <div class="weui_cells_title">产品信息<span class="am-text-danger">(必填)</span></div>
-                <div class="weui_cells">
 
-                    <div class="weui_cell">
-                        <div class="weui_cell_hd"><label class="">主营产品</label></div>
-                        <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" name="product" placeholder="主营产品" required>
+        <div class="weui_cells weui_cells_form">
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <div class="weui_uploader">
+                        <div class="weui_uploader_hd weui_cell">
+                            <div class="weui_cell_bd weui_cell_primary">商品照片</div>
                         </div>
-                    </div>
-                    <div class="weui_cells weui_cells_form">
-                        <div class="weui_cell">
-                            <div class="weui_cell_bd weui_cell_primary">
-                                <div class="weui_uploader">
-                                    <div class="weui_uploader_hd weui_cell">
-                                        <div class="weui_cell_bd weui_cell_primary">商品照片</div>
-                                    </div>
-                                    <div class="weui_uploader_bd">
-                                        <ul class="weui_uploader_files" id="files">
-                                        </ul>
-                                        <div class="weui_uploader_input_wrp">
-                                            <input class="weui_uploader_input" id="fileupload" name="imgFiles" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="weui_uploader_bd">
+                            <ul class="weui_uploader_files" id="files">
+                            </ul>
+                            <div class="weui_uploader_input_wrp">
+                                <input class="weui_uploader_input" id="fileupload" name="imgFiles" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                             </div>
                         </div>
                     </div>
-
-
-
-                </div>-->
+                </div>
+            </div>
+        </div>
+        
         <div class="weui_cells_title">备注(选填)</div>
         <div class="weui_cells weui_cells_form">
             <div class="weui_cell">
