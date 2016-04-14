@@ -270,7 +270,7 @@
                 </div>
             </div>
         </div>
-        <!--
+
         <div class="weui_cells weui_cells_form">
             <div class="weui_cell">
                 <div class="weui_cell_bd weui_cell_primary">
@@ -289,7 +289,7 @@
                 </div>
             </div>
         </div>
-        -->
+
         <div class="weui_cells_title">备注(选填)</div>
         <div class="weui_cells weui_cells_form">
             <div class="weui_cell">
@@ -308,7 +308,6 @@
         <div class="am-u-sm-12">
             <div class="am-thumbnail">
                 <img src="/images/fdcode.jpg">
-
                 <p>负责人飞电微信</p>
             </div>
         </div>
