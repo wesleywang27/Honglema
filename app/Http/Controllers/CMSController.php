@@ -44,8 +44,8 @@ class CMSController extends Controller{
     public function designer(){
         session_start();
         if(isset($_SESSION['username'])){
-            $designer = DB::table('designers')->select('designer_id','username','mobile','designType','weixinNo','title')->get();
-            return view("/cms/designer")->with('designer',$designer);
+            $designer = DB::table('designers')->get();
+            return view('/cms/designer',['designer' => $designer]);
         }
         else{
             return Redirect::intended('/cms/login.php');

@@ -17,7 +17,7 @@
         <th>职位</th>
         <th>操作</th>
     </tr>
-    @foreach($designer as $designer)
+    @foreach ($designer as $designer)
     <tr>
         <td style="width:65px;">{{ $designer->designer_id}}</td>
         <td style="width:100px;">{{ $designer->username}}</td>
