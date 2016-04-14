@@ -55,10 +55,11 @@ class BrandController extends Controller{
             $brand->customAge = Input::get('customAge');
             //$brand->refund = Input::get('refund');
             $brand->description = Input::get('description');
+
             $brand->save();
             echo "<script> alert('注册成功!'); </script>";
 
-            return Redirect::to('index.php');
+            return veiw('index.php');
         } else {
             // 验证没通过就显示错误提示信息
             echo "<script>history.go(-1); alert('请按要求填写真实信息!');</script>";
