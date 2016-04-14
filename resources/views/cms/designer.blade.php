@@ -9,7 +9,7 @@
 </div>
 <table class="table">
     <tr>
-        <th>红人ID</th>
+        <th>设计师ID</th>
         <th>红人昵称</th>
         <th>项目3</th>
         <th>项目4</th>
@@ -19,7 +19,7 @@
     </tr>
     @foreach($designer as $designer)
     <tr>
-        <td style="width:265px;"><div class="cut_title ellipsis">265px宽·长标题字符串截取，仅适合单行截取，多行截取程序定义一下。</div></td>
+        <td>{{ $designer->designer_id}}</td>
         <td>{{ $designer->username}}</td>
         <td>{{ $designer->mobile}}</td>
         <td>内容四</td>
