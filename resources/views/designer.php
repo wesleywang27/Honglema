@@ -120,13 +120,6 @@
                     </div>
                 </div>
             </div>
-            </div>
-            <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">设计经历</label></div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="designExperience" placeholder="设计经历" required>
-                </div>
-            </div>
             <!--
             <div class="weui_cells weui_cells_form">
                 <div class="weui_cell">
@@ -147,6 +140,10 @@
                 </div>
             </div>
             -->
+        </div>
+
+        <div class="weui_cells_title">个人设计经历<span class="am-text-danger">(必填)</span></div>
+        <div class="weui_cells">
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd">
                     是否有设计团队
@@ -169,15 +166,22 @@
                     </select>
                 </div>
             </div>
-        </div>
-        <div class="weui_cells_title">设计品牌名称</div>
-        <div class="weui_cells weui_cells_form">
-            <div class="weui_cell">
-                <div class="weui_cell_bd weui_cell_primary">
-                    <textarea class="weui_textarea" name="designBrand" placeholder="设计的品牌" rows="5">无</textarea>
+            <div class="weui_cells_title">设计品牌名称</div>
+            <div class="weui_cells weui_cells_form">
+                <div class="weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <textarea class="weui_textarea" name="designBrand" placeholder="设计的品牌" rows="5">无</textarea>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="weui_cells_title">设计经历</div>
+            <div class="weui_cells weui_cells_form">
+                <div class="weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <textarea class="weui_textarea" name="designExperience" placeholder="设计经历" rows="5"></textarea>
+                    </div>
+                </div>
+            </div>
         <div class="weui_cells_title">备注(选填)</div>
         <div class="weui_cells weui_cells_form">
             <div class="weui_cell">
