@@ -10,10 +10,6 @@
 |
 */
 
-Route::get('/celebrities/list{format?}', 'CelebrityController@index');
-
-Route::get('/celebrity/{celebrity}', 'CelebrityController@show');
-
 Route::get('/test/celebrities/list{format?}', 'TestController@index');
 
 Route::get('/test/list{format?}', 'TestController@show2');
@@ -24,6 +20,17 @@ Route::get('/test/{celebrity}','TestController@show');
 
 Route::get('/playground/celebrity','PlaygroundController@index');
 
+Route::resource('/picture', 'PictureController');
+
+Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+
+    Route::resource('/celebrity', 'CelebrityController');
+
+    Route::get('/celebrities/list{format?}', 'CelebrityController@index');
+
+    Route::get('/celebrity/{celebrity}', 'CelebrityController@show');
+    
+});
 
 /*
 |--------------------------------------------------------------------------
