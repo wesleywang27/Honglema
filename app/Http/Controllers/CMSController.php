@@ -44,7 +44,7 @@ class CMSController extends Controller{
     public function designer(){
         session_start();
         if(isset($_SESSION['username'])){
-            $designer = DB::table('designers')->select('designer_id','username','mobile','designerType','weixinNo','title')->get();
+            $designer = DB::table('designers')->select('designer_id','username','mobile','designType','weixinNo','title')->get();
             return view("/cms/designer")->with('designer',$designer);
         }
         else{

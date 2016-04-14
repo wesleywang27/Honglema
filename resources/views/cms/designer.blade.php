@@ -10,59 +10,25 @@
 <table class="table">
     <tr>
         <th>设计师ID</th>
-        <th>红人昵称</th>
-        <th>项目3</th>
-        <th>项目4</th>
-        <th>项目5</th>
-        <th>项目6</th>
-        <th>项目7</th>
+        <th>姓名</th>
+        <th>联系方式</th>
+        <th>设计师类型</th>
+        <th>微信号</th>
+        <th>职位</th>
+        <th>操作</th>
     </tr>
     @foreach($designer as $designer)
     <tr>
-        <td>{{ $designer->designer_id}}</td>
-        <td>{{ $designer->username}}</td>
-        <td>{{ $designer->mobile}}</td>
-        <td>内容四</td>
-        <td>内容五</td>
-        <td>内容六</td>
+        <td style="width:65px;">{{ $designer->designer_id}}</td>
+        <td style="width:100px;">{{ $designer->username}}</td>
+        <td style="width:120px;">{{ $designer->mobile}}</td>
+        <td style="width:120px;">{{ $designer->designType}}</td>
+        <td style="width:155px;">{{ $designer->weixinNo}}</td>
+        <td style="width:120px;">{{ $designer->title}}</td>
         <td style="text-align:center">
-            <a href="view_hr.html"><input type="button" value="查看" class="link_btn" /></a>
-            <a href="modify_hr.html"><input type="button" value="修改" class="link_btn"/></a>
-            <button class="link_btn" id="showPopTxt">删除</button>
-            <!--提示框效果-->
-            <script>
-                $(document).ready(function(){
-                    //弹出文本性提示框
-                    $("#showPopTxt").click(function(){
-                        $(".pop_bg").fadeIn();
-                    });
-                    //弹出：确认按钮
-                    $(".trueBtn").click(function(){
-                        //alert("你点击了确认！");//测试
-                        $(".pop_bg").fadeOut();
-                    });
-                    //弹出：取消或关闭按钮
-                    $(".falseBtn").click(function(){
-                        //alert("你点击了取消！");//测试
-                        $(".pop_bg").fadeOut();
-                    });
-                });
-            </script>
-            <section class="pop_bg">
-                <div class="pop_cont">
-                    <!--title-->
-                    <h3>操作提示</h3>
-                    <div class="pop_cont_text" style="text-align:center">
-                        请确认删除操作
-                    </div>
-                    <!--bottom:operate->button-->
-                    <div class="btm_btn">
-                        <input type="button" value="确认" class="input_btn trueBtn"/>
-                        <input type="button" value="取消" class="input_btn falseBtn"/>
-                    </div>
-                </div>
-            </section>
-            <!--结束：提示框效果-->
+            <a href="#"><input type="button" value="查看" class="link_btn" /></a>
+            <a href="#"><input type="button" value="修改" class="link_btn"/></a>
+            <a href="#"><input type="button" value="删除" class="link_btn"/></a>
         </td>
     </tr>
     @endforeach
