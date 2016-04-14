@@ -31,6 +31,8 @@ class FactoryController extends Controller{
             $factory->title = Input::get('title');
             $factory->company = Input::get('company');
             $factory->category = Input::get('category');
+            $factory->advantageSubcategory = Input::get('advantageSubcategory');
+            $factory->shipmentOK = Input::get('shipmentOK');
             $factory->tMall = Input::get('tMall');
             $factory->tie = Input::get('tie');
             $factory->ext1 = Input::get('ext1');

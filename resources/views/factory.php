@@ -103,6 +103,23 @@
 
                 </div>
             </div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><label class="">优势子类目(选填)</label></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input class="weui_input" type="text" name="advantageSubcategory" placeholder="请输入优势子类目" required>
+                </div>
+            </div>
+            <div class="weui_cell weui_cell_select weui_select_after">
+                <div class="weui_cell_hd">
+                    是否支持一件代发
+                </div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <select class="weui_select" name="shipmentOK">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </div>
+            </div>
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd">
                     是否有天猫店铺
@@ -191,7 +208,7 @@
             </div>
 
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">账期(可选)</label></div>
+                <div class="weui_cell_hd"><label class="">账期(选填)</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="zhangqi" placeholder="账期">
                 </div>
@@ -277,11 +294,11 @@
                 </div>
             </div>
         </div>
-        <div class="weui_cells_title">备注</div>
+        <div class="weui_cells_title">备注(选填)</div>
         <div class="weui_cells weui_cells_form">
             <div class="weui_cell">
                 <div class="weui_cell_bd weui_cell_primary">
-                    <textarea class="weui_textarea" name="description" placeholder="请输入备注" rows="5">无</textarea>
+                    <textarea class="weui_textarea" name="description" placeholder="请输入备注" rows="5"></textarea>
                 </div>
             </div>
         </div>

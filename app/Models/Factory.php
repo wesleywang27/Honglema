@@ -19,6 +19,8 @@ class Factory extends Model
         'title',
         'company',
         'category',
+        'advantageSubcategory',
+        'shipmentOK',
         'tMall',
         'tie',
         'ext1',

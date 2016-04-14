@@ -272,11 +272,11 @@
                 </div>
             </div>
         </div>
-        <div class="weui_cells_title">备注</div>
+        <div class="weui_cells_title">备注(选填)</div>
         <div class="weui_cells weui_cells_form">
             <div class="weui_cell">
                 <div class="weui_cell_bd weui_cell_primary">
-                    <textarea class="weui_textarea" name="description" placeholder="请输入备注" rows="5">无</textarea>
+                    <textarea class="weui_textarea" name="description" placeholder="请输入备注" rows="5"></textarea>
                 </div>
             </div>
         </div>

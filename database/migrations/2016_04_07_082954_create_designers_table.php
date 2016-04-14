@@ -23,7 +23,7 @@ class CreateDesignersTable extends Migration
             $table->boolean('designTeam');
             $table->boolean('brand');
             $table->string('designBrand');
-            $table->string('description');
+            $table->string('description')->nullable();
         });
     }
 

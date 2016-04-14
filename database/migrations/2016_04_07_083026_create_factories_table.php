@@ -20,6 +20,8 @@ class CreateFactoriesTable extends Migration
             $table->string('title');
             $table->string('company');
             $table->string('category');
+            $table->string('advantageSubcategory')->nullable();
+            $table->tinyInteger('shipmentOK');
             $table->boolean('tMall');
             $table->boolean('tie');
             $table->string('ext1');
@@ -41,7 +43,7 @@ class CreateFactoriesTable extends Migration
             $table->integer('productCount');
             $table->integer('orderCount');
             $table->boolean('refund');
-            $table->string('description');
+            $table->string('description')->nullable();
         });
     }
     /**
