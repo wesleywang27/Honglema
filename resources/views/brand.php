@@ -269,13 +269,13 @@
                 <div class="weui_cell_bd weui_cell_primary">
                     <div class="weui_uploader">
                         <div class="weui_uploader_hd weui_cell">
-                            <div class="weui_cell_bd weui_cell_primary">商品照片</div>
+                            <div class="weui_cell_bd weui_cell_primary">商品照片(请选择6张照片)</div>
                         </div>
                         <div class="weui_uploader_bd">
-                            <ul class="weui_uploader_files" id="files">
+                            <ul class="weui_uploader_files" id="files" style="float:left;">
                             </ul>
                             <div class="weui_uploader_input_wrp">
-                                <input class="weui_uploader_input" id="fileupload" name="imgFiles" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                                <input class="weui_uploader_input" id="fileupload" name="imgFiles[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                             </div>
                         </div>
                     </div>
@@ -307,9 +307,10 @@
     </div>
 
 </div>
+<script type="text/javascript" src="/js/ajaxfileupload.js" charset="utf-8"></script>
 <script type="text/javascript" src="http://y.wcc.cn/statics/js/jQuery-File-Upload/js/vendor/jquery.ui.widget.js"></script>
 <script type="text/javascript" src="http://y.wcc.cn/statics/js/jQuery-File-Upload/js/jquery.iframe-transport.js"></script>
-<script type="text/javascript" src="http://y.wcc.cn/statics/js/jQuery-File-Upload/js/jquery.fileupload.js"></script>
+<!--<script type="text/javascript" src="http://y.wcc.cn/statics/js/jQuery-File-Upload/js/jquery.fileupload.js"></script>-->
 <script src="http://y.wcc.cn/statics/js/select/js/jquery.cxselect.min.js" type="text/javascript"></script>
 <script src="http://y.wcc.cn/statics/js/jquery.form.js" type="text/javascript"></script>
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
@@ -321,25 +322,45 @@
         nodata: 'none'
     });
 
-    jQuery('#fileupload').fileupload({
-        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
-        maxFileSize: 10000000, // 10MB
-        url: "http://y.wcc.cn/apply/do-upload-image.htm",
-        formData: {"x_token": "faeb184c573352a2406e4868a7cba81d"},
-        dataType: 'json',
-        done: function (e, data) {
-            if(jQuery('.images').length>5){
-                alert("商品图片最多6张哦!");
-                return;
-            }else{
-                if (data.result.status) {
-                    $('<li class="weui_uploader_file images" style="background-image:url('+data.result.url+')"><input type="hidden" id="itemImage" name="itemImage" value="'+data.result.url+'"/></li>').appendTo('#files');
-                } else {
-                    alert("上传失败!");
+
+    //上传多图
+    jQuery('#fileupload').change(function(){
+        jQuery.ajaxFileUpload({
+            url:"/picture",//需要链接到服务器地址
+            secureuri:false,
+            fileElementId:"fileupload",//文件选择框的id属性
+            dataType: 'json',   //json
+            success: function (data, status) {
+                var urls = data.urls;
+                var $htmls = '';
+                for(var i=0; i<urls.length; i++){
+                    $htmls += '<li class="weui_uploader_file images" style="background-image:url('+urls[i]+')"><input type="hidden" id="itemImage" name="itemImage[]" value="'+urls[i]+'"/></li>';
                 }
+                $('#files').append($htmls);
+                $('.weui_uploader_input_wrp').hide();
             }
-        }
+        });
     });
+
+//    jQuery('#fileupload').fileupload({
+//        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+//        maxFileSize: 10000000, // 10MB
+//        url: "http://y.wcc.cn/apply/do-upload-image.htm",
+//        formData: {"x_token": "faeb184c573352a2406e4868a7cba81d"},
+//        dataType: 'json',
+//        done: function (e, data) {
+//            if(jQuery('.images').length>5){
+//                alert("商品图片最多6张哦!");
+//                return;
+//            }else{
+//                if (data.result.status) {
+//                    $('<li class="weui_uploader_file images" style="background-image:url('+data.result.url+')"><input type="hidden" id="itemImage" name="itemImage" value="'+data.result.url+'"/></li>').appendTo('#files');
+//                } else {
+//                    alert("上传失败!");
+//                }
+//            }
+//        }
+//    });
 
     /*
     jQuery('#saveSubmit').click(function () {

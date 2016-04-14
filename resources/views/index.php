@@ -40,13 +40,13 @@
 </div>
 <div class="am-g">
     <div class="am-u-sm-12 am-padding-top-lg">
-        <a href="factory.php" class="am-btn am-btn-primary am-btn-block am-round">我有工厂</a>
+        <a href="factory_index" class="am-btn am-btn-primary am-btn-block am-round">我有工厂</a>
     </div>
     <div class="am-u-sm-12 am-padding-top-lg">
-        <a href="brand.php" class="am-btn am-btn-success am-btn-block am-round">我是品牌商</a>
+        <a href="brand_index" class="am-btn am-btn-success am-btn-block am-round">我是品牌商</a>
     </div>
     <div class="am-u-sm-12 am-padding-top-lg">
-        <a href="designer.php" class="am-btn am-btn-danger am-btn-block am-round">我是设计师</a>
+        <a href="designer_index" class="am-btn am-btn-danger am-btn-block am-round">我是设计师</a>
     </div>
 </div>
 <div class="qrcode am-g am-text-center am-padding-top">

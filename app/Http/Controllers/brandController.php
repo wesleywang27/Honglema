@@ -7,6 +7,7 @@
  */
 namespace App\Http\Controllers;
 
+use App\Models\ProductPicture;
 use Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
@@ -56,10 +57,22 @@ class BrandController extends Controller{
             //$brand->refund = Input::get('refund');
             $brand->description = Input::get('description');
 
+            $pictures = [];
+            foreach (Input::get('itemImage') as $img) {
+                $picture = new ProductPicture();
+                $picture->type = 1;//商家类型为1
+                $picture->url = $img;
+                $picture->file_id = pathinfo($img)['filename'];
+                $picture->upload_time = time();
+                $pictures[] = $picture;
+            }
+
             $brand->save();
+            $brand->pictures()->saveMany($pictures);
+
             echo "<script> alert('注册成功!'); </script>";
 
-            return veiw('index.php');
+            return view('index.php');
         } else {
             // 验证没通过就显示错误提示信息
             echo "<script>history.go(-1); alert('请按要求填写真实信息!');</script>";

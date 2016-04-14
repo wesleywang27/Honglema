@@ -7,6 +7,7 @@
  */
 namespace App\Http\Controllers;
 
+use App\Models\ProductPicture;
 use Validator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
@@ -59,7 +60,19 @@ class FactoryController extends Controller{
             $factory->refund = Input::get('refund');
             $factory->description = Input::get('description');
 
+            $pictures = [];
+            foreach ( Input::get('itemImage') as $img) {
+                $picture = new ProductPicture();
+                $picture->type = 0;//工厂类型为0
+                $picture->url = $img;
+                $picture->file_id = pathinfo($img)['filename'];
+                $picture->upload_time = time();
+                $pictures[] = $picture;
+            }
+
             $factory->save();
+            $factory->pictures()->saveMany($pictures);
+
 
             echo "<script> alert('注册成功!'); </script>";
 

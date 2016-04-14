@@ -46,7 +46,18 @@ class DesignerController extends Controller{
             $designer->designBrand = Input::get('designBrand');
             $designer->description = Input::get('description');
 
+            $pictures = [];
+            foreach (Input::get('itemImage') as $img) {
+                $picture = new ProductPicture();
+                $picture->type = 2;//设计类型为2
+                $picture->url = $img;
+                $picture->file_id = pathinfo($img)['filename'];
+                $picture->upload_time = time();
+                $pictures[] = $picture;
+            }
             $designer->save();
+            $designer->pictures()->saveMany($pictures);
+
             echo "<script> alert('注册成功!'); </script>";
 
             return view('index.php');
