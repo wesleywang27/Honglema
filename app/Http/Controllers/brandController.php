@@ -55,7 +55,7 @@ class BrandController extends Controller{
             $brand->save();
             echo "<script> alert('注册成功!'); </script>";
 
-            return Redirect::to('index.php');
+            return view('index.php');
         } else {
             // 验证没通过就显示错误提示信息
             echo "<script>history.go(-1); alert('请按要求填写真实信息!');</script>";
