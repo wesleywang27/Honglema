@@ -17,10 +17,11 @@
         <th>项目6</th>
         <th>项目7</th>
     </tr>
+    @foreach($designer as $designer)
     <tr>
         <td style="width:265px;"><div class="cut_title ellipsis">265px宽·长标题字符串截取，仅适合单行截取，多行截取程序定义一下。</div></td>
-        <td>内容二</td>
-        <td>内容三</td>
+        <td>{{ $designer->username}}</td>
+        <td>{{ $designer->mobile}}</td>
         <td>内容四</td>
         <td>内容五</td>
         <td>内容六</td>
@@ -64,32 +65,7 @@
             <!--结束：提示框效果-->
         </td>
     </tr>
-    <tr>
-        <td style="width:265px;"><div class="cut_title ellipsis">265px宽·长标题字符串截取，仅适合单行截取，多行截取程序定义一下。</div></td>
-        <td>内容二</td>
-        <td>内容三</td>
-        <td>内容四</td>
-        <td>内容五</td>
-        <td>内容六</td>
-        <td style="text-align:center">
-            <input type="button" value="查看" class="link_btn"/>
-            <input type="button" value="修改" class="link_btn"/>
-            <button class="link_btn" id="showPopTxt">删除</button>
-        </td>
-    </tr>
-    <tr>
-        <td style="width:265px;"><div class="cut_title ellipsis">265px宽·长标题字符串截取，仅适合单行截取，多行截取程序定义一下。</div></td>
-        <td>内容二</td>
-        <td>内容三</td>
-        <td>内容四</td>
-        <td>内容五</td>
-        <td>内容六</td>
-        <td style="text-align:center">
-            <input type="button" value="查看" class="link_btn"/>
-            <input type="button" value="修改" class="link_btn"/>
-            <button class="link_btn" id="showPopTxt">删除</button>
-        </td>
-    </tr>
+    @endforeach
 </table>
 <aside class="paging">
     <a>第一页</a>

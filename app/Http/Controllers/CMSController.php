@@ -9,13 +9,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
 use Auth;
 
 class CMSController extends Controller{
-    public function index($url){
+    //访问首页时验证是否登录
+    public function index(){
         session_start();
         if(isset($_SESSION['username'])){
-            return view("/cms/$url");
+            return view("/cms/index");
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -37,5 +39,16 @@ class CMSController extends Controller{
         session_start();
         unset($_SESSION['username']);
         return Redirect::intended('/cms/login.php');
+    }
+    //设计师列表页面
+    public function designer(){
+        session_start();
+        if(isset($_SESSION['username'])){
+            $designer = DB::table('designers')->select('username','mobile')->get();
+            return view("/cms/designer")->with('designer',$designer);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
     }
 }
