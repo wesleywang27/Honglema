@@ -30,12 +30,9 @@ class StallController extends Controller{
             $stall->title = Input::get('title');
             $stall->stallName = Input::get('stallName');
             $stall->stallNum = Input::get('stallNum');
-            $stall->country = Input::get('country');
-            if($stall->country == '中国'){
-                $stall->province = Input::get('province');
-                $stall->city = Input::get('city');
-                $stall->region = Input::get('region');
-            }
+            $stall->city = Input::get('city');
+            $stall->stall = Input::get('stall');
+            $stall->stallCity = Input::get('stallCity');
             $stall->address = Input::get('address');
             $stall->style = Input::get('style');
             $stall->category = Input::get('category');

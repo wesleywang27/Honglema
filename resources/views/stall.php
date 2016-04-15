@@ -87,28 +87,28 @@
             <div class="weui_cells" id="global_location">
                 <div class="weui_cell weui_cell_select">
                     <div class="weui_cell_bd weui_cell_primary">
-                        <select class="weui_select country" id="country" name="country"></select>
-                    </div>
-                </div>
-                <div class="weui_cell weui_cell_select">
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <select class="weui_select province" id="province" name="province"></select>
-                    </div>
-                </div>
-                <div class="weui_cell weui_cell_select">
-                    <div class="weui_cell_bd weui_cell_primary">
                         <select class="weui_select city" id="city" name="city"></select>
                     </div>
                 </div>
                 <div class="weui_cell weui_cell_select">
                     <div class="weui_cell_bd weui_cell_primary">
-                        <select class="weui_select region" id="region" name="region"></select>
+                        <select class="weui_select stall" id="stall" name="stall"></select>
                     </div>
                 </div>
-                <div class="weui_cell">
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <textarea class="weui_textarea" name="address" placeholder="请输入详细地址" rows="5"></textarea>
-                    </div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd">若档口地址选择其他请填写本部分</div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd">档口所在城市</div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input class="weui_input" type="text" name="stallCity" placeholder="请输入档口所在城市">
+                </div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd">档口详细地址</div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input class="weui_input" type="text" name="address" placeholder="请输入档口详细地址">
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
@@ -176,9 +176,9 @@
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 
 <script>
-    jQuery.cxSelect.defaults.url = '/js/city.json';
+    jQuery.cxSelect.defaults.url = '/js/stall.json';
     jQuery('#global_location').cxSelect({
-        selects: ['country', 'province', 'city', 'region'],
+        selects: ['city', 'stall'],
         nodata: 'none'
     });
 
