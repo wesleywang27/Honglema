@@ -51,4 +51,15 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //档口列表页面
+    public function stall(){
+        session_start();
+        if(isset($_SESSION['username'])){
+            $stall = DB::table('stalls')->get();
+            return view('/cms/stall',['stall' => $stall]);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
 }

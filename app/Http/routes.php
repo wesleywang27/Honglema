@@ -87,3 +87,5 @@ Route::get('/cms/index', "CMSController@index");
 Route::get('/cms/', "CMSController@index");
 
 Route::get('/cms/designer', "CMSController@designer");
+
+Route::get('/cms/stall', "CMSController@stall");

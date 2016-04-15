@@ -3,28 +3,28 @@
 @section('content')
 <h2><strong style="color:grey;">商家信息管理</strong></h2>
 <div class="page_title">
-    <h2 class="fl">设计师信息列表</h2>
+    <h2 class="fl">档口信息列表</h2>
     <a class="fr top_rt_btn" style="float:right">查找</a>
     <input type="text" class="textboxsearch" placeholder="搜索"/>
 </div>
 <table class="table">
     <tr>
-        <th>设计师ID</th>
+        <th>档口ID</th>
         <th>姓名</th>
         <th>联系方式</th>
-        <th>设计师类型</th>
         <th>微信账号</th>
-        <th>职位</th>
+        <th>档口名称</th>
+        <th>档口号</th>
         <th>操作</th>
     </tr>
-    @foreach ($designer as $designer)
+    @foreach ($stall as $stall)
     <tr>
-        <td style="width:65px;">{{ $designer->designer_id}}</td>
-        <td style="width:100px;">{{ $designer->username}}</td>
-        <td style="width:120px;">{{ $designer->mobile}}</td>
-        <td style="width:120px;">{{ $designer->designType}}</td>
-        <td style="width:155px;">{{ $designer->weixinNo}}</td>
-        <td style="width:120px;">{{ $designer->title}}</td>
+        <td style="width:65px;">{{ $stall->stall_id}}</td>
+        <td style="width:100px;">{{ $stall->username}}</td>
+        <td style="width:120px;">{{ $stall->mobile}}</td>
+        <td style="width:155px;">{{ $stall->weixinNo}}</td>
+        <td style="width:120px;">{{ $stall->stallName}}</td>
+        <td style="width:120px;">{{ $stall->stallNum}}</td>
         <td style="text-align:center">
             <a href="#"><input type="button" value="查看" class="link_btn" /></a>
             <a href="#"><input type="button" value="修改" class="link_btn"/></a>

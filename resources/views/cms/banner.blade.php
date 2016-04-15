@@ -60,15 +60,18 @@
                 <dd><a href="#">工厂信息列表</a></dd>
                 <dd><a href="#">品牌商信息列表</a></dd>
                 <dd><a href="/cms/designer">设计师信息列表</a></dd>
+                <dd><a href="/cms/stall">档口信息列表</a></dd>
             </dl>
         </li>
         <li>
             <dl>
                 <dt>红人信息管理</dt>
                 <dd><a href="#">红人信息列表</a></dd>
+                <!--
                 <dd><a href="#">添加红人信息</a></dd>
                 <dd><a href="#">查看红人信息</a></dd>
                 <dd><a href="#">修改红人信息</a></dd>
+                -->
             </dl>
         </li>
         <li>
