@@ -7,6 +7,7 @@
  */
 namespace App\Http\Controllers;
 
+use App\Models\Stall;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
@@ -55,8 +56,9 @@ class CMSController extends Controller{
     public function stall(){
         session_start();
         if(isset($_SESSION['username'])){
-            $stall = DB::table('stalls')->get();
-            return view('/cms/stall',['stall' => $stall]);
+            $stall = Stall::paginate(5);
+            //$stall = DB::table('stalls')->simplePaginate(3);
+            return view('/cms/stall',['stalls' => $stall]);
         }
         else{
             return Redirect::intended('/cms/login.php');

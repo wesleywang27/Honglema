@@ -17,7 +17,7 @@
         <th>档口号</th>
         <th>操作</th>
     </tr>
-    @foreach ($stall as $stall)
+    @foreach ($stalls as $stall)
     <tr>
         <td style="width:65px;">{{ $stall->stall_id}}</td>
         <td style="width:100px;">{{ $stall->username}}</td>
@@ -34,12 +34,6 @@
     @endforeach
 </table>
 <aside class="paging">
-    <a>第一页</a>
-    <a>1</a>
-    <a>2</a>
-    <a>3</a>
-    <a>…</a>
-    <a>100</a>
-    <a>最后一页</a>
+    <?php echo $stalls->links(); ?>
 </aside>
 @endsection
