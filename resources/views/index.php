@@ -43,10 +43,10 @@
         <a href="factory.php" class="am-btn am-btn-primary am-btn-block am-round">我有工厂</a>
     </div>
     <div class="am-u-sm-12 am-padding-top-lg">
-        <a href="stall.php" class="am-btn am-btn-warning am-btn-block am-round">我有档口</a>
+        <a href="stall.php" class="am-btn am-btn-success am-btn-block am-round">我有档口</a>
     </div>
     <div class="am-u-sm-12 am-padding-top-lg">
-        <a href="brand.php" class="am-btn am-btn-success am-btn-block am-round">我是品牌商</a>
+        <a href="brand.php" class="am-btn am-btn-warning am-btn-block am-round">我是品牌商</a>
     </div>
     <div class="am-u-sm-12 am-padding-top-lg">
         <a href="designer.php" class="am-btn am-btn-danger am-btn-block am-round">我是设计师</a>
