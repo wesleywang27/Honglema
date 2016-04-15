@@ -196,13 +196,13 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">最小起订量</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="number" name="orderCount" placeholder="最小起订量" required>
+                    <input class="weui_input" name="orderCount" placeholder="最小起订量" required>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">日生产量</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="number" name="productCount" placeholder="日生产量" required>
+                    <input class="weui_input" name="productCount" placeholder="日生产量" required>
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
