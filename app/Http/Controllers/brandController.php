@@ -7,8 +7,10 @@
  */
 namespace App\Http\Controllers;
 
+use App\Models\ProductPicture;
 use Validator;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 use App\Models\Brand;
 use Illuminate\Contracts\Http\Request;
 use App\Http\Requests;
@@ -32,11 +34,16 @@ class BrandController extends Controller{
             $brand->brand = Input::get('brand');
             $brand->sales = Input::get('sales');
             $brand->category = Input::get('category');
+            //$brand->tMall = Input::get('tMall');
+            //$brand->tie = Input::get('tie');
             $brand->factory = Input::get('factory');
             $brand->factorySize = Input::get('factorySize');
+            //$brand->factoryOut = Input::get('factoryOut');
             $brand->design = Input::get('design');
+            $brand->zhangqi = Input::get('zhangqi');
             $brand->country = Input::get('country');
-            if($brand->country == '中国'){
+            //后期完善此部分
+            if($brand->country == '100000'){
                 $brand->province = Input::get('province');
                 $brand->city = Input::get('city');
                 $brand->region = Input::get('region');
@@ -47,9 +54,22 @@ class BrandController extends Controller{
             $brand->style = Input::get('style');
             $brand->customPosition = Input::get('customPosition');
             $brand->customAge = Input::get('customAge');
-            $brand->refund = Input::get('refund');
+            //$brand->refund = Input::get('refund');
             $brand->description = Input::get('description');
+
+            $pictures = [];
+            foreach (Input::get('itemImage') as $img) {
+                $picture = new ProductPicture();
+                $picture->type = 1;//商家类型为1
+                $picture->url = $img;
+                $picture->file_id = pathinfo($img)['filename'];
+                $picture->upload_time = time();
+                $pictures[] = $picture;
+            }
+
             $brand->save();
+            $brand->pictures()->saveMany($pictures);
+
             echo "<script> alert('注册成功!'); </script>";
 
             return view('index');

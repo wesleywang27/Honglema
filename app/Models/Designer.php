@@ -36,5 +36,9 @@ class Designer extends Model
         'mobile' => 'between:11,11',
         'designBrand' => 'required'
     );
-    //
+
+    public function pictures()
+    {
+        return $this->hasMany('App\Models\ProductPicture', 'id');
+    }
 }

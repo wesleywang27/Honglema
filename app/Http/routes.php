@@ -21,6 +21,7 @@ Route::get('/test/{celebrity}','TestController@show');
 Route::get('/playground/celebrity','PlaygroundController@index');
 
 Route::resource('/picture', 'PictureController');
+Route::resource('/productpicture', 'ProductPictureController');
 
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
@@ -54,19 +55,15 @@ Route::group(['middleware' => ['web']], function () {
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/factory.php', 'FactoryController@index');
+Route::get('/factory_index', 'FactoryController@index');
 
 Route::post('/factory', 'FactoryController@createFactory');
 
-Route::get('/stall.php', 'StallController@index');
-
-Route::post('/stall', 'StallController@createStall');
-
-Route::get('/brand.php', 'BrandController@index');
+Route::get('/brand_index', 'BrandController@index');
 
 Route::post('/brand', 'BrandController@createBrand');
 
-Route::get('/designer.php', 'DesignerController@index');
+Route::get('/designer_index', 'DesignerController@index');
 
 Route::post('/designer', 'DesignerController@createDesigner');
 
@@ -81,8 +78,4 @@ Route::get('/cms/login.php',function () {
     return view('/cms/login');
 });
 
-Route::get('/cms/designer', "CMSController@designer");
-
-Route::get('/cms/index', "CMSController@index");
-
-Route::get('/cms/', "CMSController@index");
+Route::get('/cms/{url}', "CMSController@index");

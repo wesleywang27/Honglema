@@ -10,13 +10,13 @@ use OSS\Core\OssException;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
-class PictureController extends Controller
+class ProductPictureController extends Controller
 {
     public function store(Request $request) {
         $images = $request->file('imgs');
         $urls = [];
         $oss = new OssClient(config('oss.accessKeyId'), config('oss.accessKeySecret'), config('oss.endpoint'));
-        $baseDir = "honglema/avatar";
+        $baseDir = "honglema/product";
         // todo 每张图片异步处理, 最后同步等待
         foreach ($images as $image) {
             $originName = $image->getBasename() . '.' . $image->getClientOriginalExtension();
