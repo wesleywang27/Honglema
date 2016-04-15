@@ -48,6 +48,9 @@
     <div class="am-u-sm-12 am-padding-top-lg">
         <a href="designer_index" class="am-btn am-btn-danger am-btn-block am-round">我是设计师</a>
     </div>
+    <div class="am-u-sm-12 am-padding-top-lg">
+        <a href="stall_index" class="am-btn am-btn-warning am-btn-block am-round">我有档口</a>
+    </div>
 </div>
 <div class="qrcode am-g am-text-center am-padding-top">
     <div class="am-u-sm-12">

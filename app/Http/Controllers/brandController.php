@@ -43,7 +43,7 @@ class BrandController extends Controller{
             $brand->zhangqi = Input::get('zhangqi');
             $brand->country = Input::get('country');
             //后期完善此部分
-            if($brand->country == '100000'){
+            if($brand->country == '中国'){
                 $brand->province = Input::get('province');
                 $brand->city = Input::get('city');
                 $brand->region = Input::get('region');

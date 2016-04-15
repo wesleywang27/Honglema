@@ -67,6 +67,10 @@ Route::get('/designer_index', 'DesignerController@index');
 
 Route::post('/designer', 'DesignerController@createDesigner');
 
+Route::get('/stall_index', 'StallController@index');
+
+Route::post('/stall', 'StallController@createStall');
+
 /*
  * 后台管理系统入口
  */
