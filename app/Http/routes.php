@@ -21,6 +21,7 @@ Route::get('/test/{celebrity}','TestController@show');
 Route::get('/playground/celebrity','PlaygroundController@index');
 
 Route::resource('/picture', 'PictureController');
+Route::resource('/productpicture', 'ProductPictureController');
 
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
