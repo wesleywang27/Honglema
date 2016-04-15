@@ -32,7 +32,10 @@ class StallController extends Controller{
             $stall->stallNum = Input::get('stallNum');
             $stall->city = Input::get('city');
             $stall->stall = Input::get('stall');
+            $stall->country = Input::get('country');
+            $stall->province = Input::get('province');
             $stall->stallCity = Input::get('stallCity');
+            $stall->region = Input::get('region');
             $stall->address = Input::get('address');
             $stall->style = Input::get('style');
             $stall->category = Input::get('category');
