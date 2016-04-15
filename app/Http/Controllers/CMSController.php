@@ -7,12 +7,12 @@
  */
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Designer;
 use App\Models\Factory;
 use App\Models\Stall;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\DB;
 use Auth;
 
 class CMSController extends Controller{
@@ -49,6 +49,17 @@ class CMSController extends Controller{
         if(isset($_SESSION['username'])){
             $factory = Factory::paginate(6);
             return view('/cms/factory',['factories' => $factory]);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
+    //品牌商列表页面
+    public function brand(){
+        session_start();
+        if(isset($_SESSION['username'])){
+            $brand = Brand::paginate(6);
+            return view('/cms/brand',['brands' => $brand]);
         }
         else{
             return Redirect::intended('/cms/login.php');

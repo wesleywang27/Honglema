@@ -58,7 +58,7 @@
             <dl>
                 <dt>商家信息管理</dt>
                 <dd><a href="/cms/factory">工厂信息列表</a></dd>
-                <dd><a href="#">品牌商信息列表</a></dd>
+                <dd><a href="/cms/brand">品牌商信息列表</a></dd>
                 <dd><a href="/cms/designer">设计师信息列表</a></dd>
                 <dd><a href="/cms/stall">档口信息列表</a></dd>
             </dl>
