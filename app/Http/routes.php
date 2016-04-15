@@ -86,6 +86,10 @@ Route::get('/cms/index', "CMSController@index");
 
 Route::get('/cms/', "CMSController@index");
 
+Route::get('/cms/factory', "CMSController@factory");
+
+Route::get('/cms/brand', "CMSController@brand");
+
 Route::get('/cms/designer', "CMSController@designer");
 
 Route::get('/cms/stall', "CMSController@stall");

@@ -8,6 +8,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Designer;
+use App\Models\Factory;
 use App\Models\Stall;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
@@ -41,6 +42,17 @@ class CMSController extends Controller{
         session_start();
         unset($_SESSION['username']);
         return Redirect::intended('/cms/login.php');
+    }
+    //工厂列表页面
+    public function factory(){
+        session_start();
+        if(isset($_SESSION['username'])){
+            $factory = Factory::paginate(6);
+            return view('/cms/factory',['factories' => $factory]);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
     }
     //设计师列表页面
     public function designer(){
