@@ -82,4 +82,8 @@ Route::get('/cms/login.php',function () {
     return view('/cms/login');
 });
 
-Route::get('/cms/{url}', "CMSController@index");
+Route::get('/cms/index', "CMSController@index");
+
+Route::get('/cms/', "CMSController@index");
+
+Route::get('/cms/designer', "CMSController@designer");
