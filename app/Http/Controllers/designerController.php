@@ -8,7 +8,6 @@
 namespace App\Http\Controllers;
 
 use Validator;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use App\Models\Designer;
 use Illuminate\Contracts\Http\Request;

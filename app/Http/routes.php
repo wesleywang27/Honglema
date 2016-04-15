@@ -58,6 +58,10 @@ Route::get('/factory.php', 'FactoryController@index');
 
 Route::post('/factory', 'FactoryController@createFactory');
 
+Route::get('/stall.php', 'StallController@index');
+
+Route::post('/stall', 'StallController@createStall');
+
 Route::get('/brand.php', 'BrandController@index');
 
 Route::post('/brand', 'BrandController@createBrand');
