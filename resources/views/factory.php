@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">公司</label></div>
+                <div class="weui_cell_hd"><label class="">公司地址</label></div>
             </div>
             <div class="weui_cells" id="global_location">
                 <div class="weui_cell weui_cell_select">
@@ -136,7 +136,7 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd">优势子类目(选填)</div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="advantageSubcategory" placeholder="请输入优势子类目" required>
+                    <input class="weui_input" type="text" name="advantageSubcategory" placeholder="请输入优势子类目">
                 </div>
             </div>
             <div class="weui_cells_title">工厂信息<span class="am-text-danger">(必填)</span></div>
