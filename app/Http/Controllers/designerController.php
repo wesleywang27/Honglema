@@ -32,8 +32,7 @@ class DesignerController extends Controller{
             $designer->title = Input::get('title');
             $designer->company = Input::get('company');
             $designer->country = Input::get('country');
-            //后期完善此部分
-            if($designer->country == '100000'){
+            if($designer->country == '中国'){
                 $designer->province = Input::get('province');
                 $designer->city = Input::get('city');
                 $designer->region = Input::get('region');

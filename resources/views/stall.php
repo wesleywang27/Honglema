@@ -171,7 +171,7 @@
 <script type="text/javascript" src="http://y.wcc.cn/statics/js/jQuery-File-Upload/js/vendor/jquery.ui.widget.js"></script>
 <script type="text/javascript" src="http://y.wcc.cn/statics/js/jQuery-File-Upload/js/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="http://y.wcc.cn/statics/js/jQuery-File-Upload/js/jquery.fileupload.js"></script>
-<script src="http://y.wcc.cn/statics/js/select/js/jquery.cxselect.min.js" type="text/javascript"></script>
+<script src="/js/jquery.cxselect.min.js" type="text/javascript"></script>
 <script src="http://y.wcc.cn/statics/js/jquery.form.js" type="text/javascript"></script>
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 

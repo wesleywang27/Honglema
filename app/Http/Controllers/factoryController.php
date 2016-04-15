@@ -31,7 +31,7 @@ class FactoryController extends Controller{
             $factory->company = Input::get('company');
             $factory->country = Input::get('country');
             //选择非中国区域加以判断 后续改进
-            if($factory->country == '100000'){
+            if($factory->country == '中国'){
                 $factory->province = Input::get('province');
                 $factory->city = Input::get('city');
                 $factory->region = Input::get('region');
