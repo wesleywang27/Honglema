@@ -22,13 +22,9 @@ class CreateBrandsTable extends Migration
             $table->string('brand');
             $table->string('sales');
             $table->string('category');
-            $table->boolean('tMall');
-            $table->boolean('tie');
             $table->boolean('factory');
             $table->string('factorySize');
-            $table->integer('factoryOut');
             $table->boolean('design');
-            $table->string('zhangqi')->nullable();
             $table->string('country');
             $table->string('province');
             $table->string('city');

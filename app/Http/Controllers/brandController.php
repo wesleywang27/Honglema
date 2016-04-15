@@ -33,17 +33,15 @@ class BrandController extends Controller{
             $brand->brand = Input::get('brand');
             $brand->sales = Input::get('sales');
             $brand->category = Input::get('category');
-            $brand->tMall = Input::get('tMall');
-            $brand->tie = Input::get('tie');
             $brand->factory = Input::get('factory');
             $brand->factorySize = Input::get('factorySize');
-            $brand->factoryOut = Input::get('factoryOut');
             $brand->design = Input::get('design');
-            $brand->zhangqi = Input::get('zhangqi');
             $brand->country = Input::get('country');
-            $brand->province = Input::get('province');
-            $brand->city = Input::get('city');
-            $brand->region = Input::get('region');
+            if($brand->country == '100000'){
+                $brand->province = Input::get('province');
+                $brand->city = Input::get('city');
+                $brand->region = Input::get('region');
+            }
             $brand->address = Input::get('address');
             $brand->product = Input::get('product');
             $brand->price = Input::get('price');
@@ -55,7 +53,7 @@ class BrandController extends Controller{
             $brand->save();
             echo "<script> alert('注册成功!'); </script>";
 
-            return view('index.php');
+            return view('index');
         } else {
             // 验证没通过就显示错误提示信息
             echo "<script>history.go(-1); alert('请按要求填写真实信息!');</script>";
