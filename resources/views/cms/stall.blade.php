@@ -34,6 +34,20 @@
     @endforeach
 </table>
 <aside class="paging">
-    <?php echo $stalls->links(); ?>
+    @if ($stalls->currentPage() == 1)
+    <a class="{{ ($stalls->currentPage() == 1) ? ' disabled' : '' }}" href="#">前一页</a>
+    @else
+    <a class="{{ ($stalls->currentPage() == 1) ? ' disabled' : '' }}" href="{{ $stalls->url(1) }}">前一页</a>
+    @endif
+
+    @for ($i = 1; $i <= $stalls->lastPage(); $i++)
+    <a class="{{ ($stalls->currentPage() == $i) ? ' active' : '' }}" href="{{ $stalls->url($i) }}">{{ $i }}</a>
+    @endfor
+
+    @if ($stalls->currentPage() == $stalls->lastPage())
+    <a class="{{ ($stalls->currentPage() == $stalls->lastPage()) ? ' disabled' : '' }}" href="#" >后一页</a>
+    @else
+    <a class="{{ ($stalls->currentPage() == $stalls->lastPage()) ? ' disabled' : '' }}" href="{{ $stalls->url($stalls->currentPage()+1) }}" >后一页</a>
+    @endif
 </aside>
 @endsection

@@ -7,6 +7,7 @@
  */
 namespace App\Http\Controllers;
 
+use App\Models\Designer;
 use App\Models\Stall;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
@@ -45,8 +46,8 @@ class CMSController extends Controller{
     public function designer(){
         session_start();
         if(isset($_SESSION['username'])){
-            $designer = DB::table('designers')->get();
-            return view('/cms/designer',['designer' => $designer]);
+            $designer = Designer::paginate(6);
+            return view('/cms/designer',['designers' => $designer]);
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -56,8 +57,7 @@ class CMSController extends Controller{
     public function stall(){
         session_start();
         if(isset($_SESSION['username'])){
-            $stall = Stall::paginate(5);
-            //$stall = DB::table('stalls')->simplePaginate(3);
+            $stall = Stall::paginate(6);
             return view('/cms/stall',['stalls' => $stall]);
         }
         else{

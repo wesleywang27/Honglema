@@ -17,7 +17,7 @@
         <th>职位</th>
         <th>操作</th>
     </tr>
-    @foreach ($designer as $designer)
+    @foreach ($designers as $designer)
     <tr>
         <td style="width:65px;">{{ $designer->designer_id}}</td>
         <td style="width:100px;">{{ $designer->username}}</td>
@@ -34,12 +34,20 @@
     @endforeach
 </table>
 <aside class="paging">
-    <a>第一页</a>
-    <a>1</a>
-    <a>2</a>
-    <a>3</a>
-    <a>…</a>
-    <a>100</a>
-    <a>最后一页</a>
+    @if ($designers->currentPage() == 1)
+    <a class="{{ ($designers->currentPage() == 1) ? ' disabled' : '' }}" href="#">前一页</a>
+    @else
+    <a class="{{ ($designers->currentPage() == 1) ? ' disabled' : '' }}" href="{{ $designers->url(1) }}">前一页</a>
+    @endif
+
+    @for ($i = 1; $i <= $designers->lastPage(); $i++)
+    <a class="{{ ($designers->currentPage() == $i) ? ' active' : '' }}" href="{{ $designers->url($i) }}">{{ $i }}</a>
+    @endfor
+
+    @if ($designers->currentPage() == $designers->lastPage())
+    <a class="{{ ($designers->currentPage() == $designers->lastPage()) ? ' disabled' : '' }}" href="#" >后一页</a>
+    @else
+    <a class="{{ ($designers->currentPage() == $designers->lastPage()) ? ' disabled' : '' }}" href="{{ $designers->url($designers->currentPage()+1) }}" >后一页</a>
+    @endif
 </aside>
 @endsection
