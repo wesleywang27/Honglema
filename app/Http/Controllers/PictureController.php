@@ -29,10 +29,10 @@ class PictureController extends Controller
             }
 
             $newName = trim($process->getOutput());
-            $oss->uploadFile(config('oss.bucket'), "test/$baseDir/$newName", "/var/local/honglema/pics/orig/$newName");
-            $oss->uploadFile(config('oss.bucket'), "test/$baseDir/comp-$newName", "/var/local/honglema/pics/comp/comp-$newName");
+            $oss->uploadFile(config('oss.bucket'), "test", "/var/local/honglema/pics/orig/$newName");
+            $oss->uploadFile(config('oss.bucket'), "test", "/var/local/honglema/pics/comp/comp-$newName");
 
-            $urls[] = "http://image.weipai.cn/test/$baseDir/$newName";
+            $urls[] = "http://image.weipai.cn/test";
         }
 
 
