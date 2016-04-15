@@ -2,22 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/StallController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/Stall.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/stall.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_03_20_112458_create_t_celebrity_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_03_20_112458_create_t_fans_profile_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_03_20_112458_create_t_picture_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_03_20_112459_add_foreign_keys_to_t_fans_profile_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_03_20_112459_add_foreign_keys_to_t_picture_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_03_20_114604_create_t_oauth_user.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_03_21_001138_add_foreign_keys_to_celebrity_table.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/brandController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/brandController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/designerController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/designerController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/factoryController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/factoryController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/index.php" afterPath="$PROJECT_DIR$/resources/views/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/brand.php" afterPath="$PROJECT_DIR$/resources/views/brand.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/designer.php" afterPath="$PROJECT_DIR$/resources/views/designer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/factory.php" afterPath="$PROJECT_DIR$/resources/views/factory.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,12 +28,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
+            <state relative-caret-position="1045">
               <caret line="55" column="28" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="designer.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/designer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="224" column="0" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
+              <folding>
+                <marker date="1460695420064" expanded="true" signature="9998:10039" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="brand.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/brand.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="283" column="7" selection-start-line="283" selection-start-column="7" selection-end-line="283" selection-end-column="7" />
+              <folding>
+                <marker date="1460695450430" expanded="true" signature="13041:13082" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="factory.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/factory.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="915">
+              <caret line="284" column="0" selection-start-line="284" selection-start-column="0" selection-end-line="284" selection-end-column="0" />
+              <folding>
+                <marker date="1460695391950" expanded="true" signature="13035:13076" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,8 +95,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/resources/views/layouts/jquery_mobile_app.blade.php" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/resources/views/designer.php" />
-        <option value="$PROJECT_DIR$/resources/views/brand.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_04_12_161241_create_users_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/index.php" />
@@ -85,7 +107,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2016_04_07_082954_create_designers_table.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/designer.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
-        <option value="$PROJECT_DIR$/resources/views/factory.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_04_07_083026_create_factories_table.php" />
         <option value="$PROJECT_DIR$/app/Models/Factory.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_04_07_083043_create_brands_table.php" />
@@ -100,6 +121,9 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/StallController.php" />
         <option value="$PROJECT_DIR$/app/Models/Stall.php" />
         <option value="$PROJECT_DIR$/resources/views/index.php" />
+        <option value="$PROJECT_DIR$/resources/views/factory.php" />
+        <option value="$PROJECT_DIR$/resources/views/designer.php" />
+        <option value="$PROJECT_DIR$/resources/views/brand.php" />
       </list>
     </option>
   </component>
@@ -663,7 +687,7 @@
       <workItem from="1460602818883" duration="3019000" />
       <workItem from="1460616504018" duration="3715000" />
       <workItem from="1460621657666" duration="7460000" />
-      <workItem from="1460690067165" duration="5228000" />
+      <workItem from="1460690067165" duration="5363000" />
     </task>
     <task id="LOCAL-00001" summary="上传">
       <created>1458720856342</created>
@@ -896,11 +920,18 @@
       <option name="project" value="LOCAL" />
       <updated>1460691432313</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="商家注册 添加档口类目">
+      <created>1460695339456</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1460695339456</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64328000" />
+    <option name="totallyTimeSpent" value="64463000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -965,7 +996,8 @@
     <MESSAGE value="修改designer列表" />
     <MESSAGE value="修改factory表结构" />
     <MESSAGE value="修改brand表结构" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改brand表结构" />
+    <MESSAGE value="商家注册 添加档口类目" />
+    <option name="LAST_COMMIT_MESSAGE" value="商家注册 添加档口类目" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1094,13 +1126,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/designer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1672">
-          <caret line="47" column="57" selection-start-line="47" selection-start-column="57" selection-end-line="47" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Pagination/Paginator.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -1134,14 +1159,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
           <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/brand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3496">
-          <caret line="74" column="68" selection-start-line="74" selection-start-column="68" selection-end-line="74" selection-end-column="68" />
           <folding />
         </state>
       </provider>
@@ -1207,16 +1224,6 @@
         <state relative-caret-position="494">
           <caret line="26" column="19" selection-start-line="0" selection-start-column="0" selection-end-line="34" selection-end-column="1" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/factory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="37" column="42" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
-          <folding>
-            <marker date="1460628971227" expanded="true" signature="16121:16162" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1292,11 +1299,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/factory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="284" column="0" selection-start-line="284" selection-start-column="0" selection-end-line="284" selection-end-column="0" />
+          <folding>
+            <marker date="1460695391950" expanded="true" signature="13035:13076" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
+        <state relative-caret-position="1045">
           <caret line="55" column="28" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/designer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="224" column="0" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
+          <folding>
+            <marker date="1460695420064" expanded="true" signature="9998:10039" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/brand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="283" column="7" selection-start-line="283" selection-start-column="7" selection-end-line="283" selection-end-column="7" />
+          <folding>
+            <marker date="1460695450430" expanded="true" signature="13041:13082" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

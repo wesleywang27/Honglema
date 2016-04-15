@@ -120,26 +120,6 @@
                     </div>
                 </div>
             </div>
-            <!--
-            <div class="weui_cells weui_cells_form">
-                <div class="weui_cell">
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <div class="weui_uploader">
-                            <div class="weui_uploader_hd weui_cell">
-                                <div class="weui_cell_bd weui_cell_primary">设计作品</div>
-                            </div>
-                            <div class="weui_uploader_bd">
-                                <ul class="weui_uploader_files" id="files">
-                                </ul>
-                                <div class="weui_uploader_input_wrp">
-                                    <input class="weui_uploader_input" id="fileupload" name="imgFiles" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            -->
         </div>
 
         <div class="weui_cells_title">个人设计经历<span class="am-text-danger">(必填)</span></div>
@@ -183,26 +163,6 @@
                 </div>
             </div>
         </div>
-        <!--
-        <div class="weui_cells weui_cells_form">
-            <div class="weui_cell">
-                <div class="weui_cell_bd weui_cell_primary">
-                    <div class="weui_uploader">
-                        <div class="weui_uploader_hd weui_cell">
-                            <div class="weui_cell_bd weui_cell_primary">设计作品</div>
-                        </div>
-                        <div class="weui_uploader_bd">
-                            <ul class="weui_uploader_files" id="files">
-                            </ul>
-                            <div class="weui_uploader_input_wrp">
-                                <input class="weui_uploader_input" id="fileupload" name="imgFiles" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        -->
         <div class="weui_cells_title">备注(选填)</div>
         <div class="weui_cells weui_cells_form">
             <div class="weui_cell">
@@ -262,52 +222,6 @@
             }
         }
     });
-
-    /*
-    jQuery('#saveSubmit').click(function () {
-        jQuery('#baseInfoForm').ajaxSubmit(function (response) {
-            if (response.status == true) {
-                window.location.href = "http://y.wcc.cn/apply/success.htm";
-            } else {
-                alert(response.message);
-                return false;
-            }
-        });
-    });
-
-    wx.config({"debug":false,"appId":"wx024e9c8cc8941ef3","timestamp":"1460007264","nonceStr":"94647d6a-8414-45ba-890b-90a1b3cfc316","signature":"4568fcbfa7f2351a7b0328248ac48fd0a4a8ca6d","jsApiList":["onMenuShareTimeline","onMenuShareAppMessage"]});
-
-    wx.ready(function () {
-        wx.onMenuShareAppMessage({
-            title : "红了吗合作意向报名",
-            desc : "我们目前正在运营一个由薛蛮子和徐小平投资了2千万的国内最大的网红项目，旗下有5万多优质网红...",
-            link : "http://y.wcc.cn/apply/index.htm",
-            imgUrl : "http://y.wcc.cn/statics/img/fdcode.jpg",
-            success : function(res) {
-                // 分享成功
-            },
-            cancel : function(res) {
-                //分享取消
-            }
-        });
-
-        wx.onMenuShareTimeline({
-            title : "红了吗合作意向报名",
-            link : "http://y.wcc.cn/apply/index.htm",
-            imgUrl : "http://y.wcc.cn/statics/img/fdcode.jpg",
-            success : function(res) {
-                // 分享成功
-            },
-            cancel : function(res) {
-                //分享取消
-            }
-        });
-    })
-
-    wx.error(function (res) {
-        //alert(res.errMsg);
-    });
-     */
 
 </script>
 

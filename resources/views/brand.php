@@ -146,30 +146,6 @@
 
                 </div>
             </div>
-            <!--
-            <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd">
-                    是否有天猫店铺
-                </div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <select class="weui_select" name="tMall">
-                        <option value="0">否</option>
-                        <option value="1">是</option>
-                    </select>
-                </div>
-            </div>
-            <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd">
-                    是否接受贴牌
-                </div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <select class="weui_select" name="tie">
-                        <option value="0">否</option>
-                        <option value="1">是</option>
-                    </select>
-                </div>
-            </div>
-            -->
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd"><label class="">
                     是否自有工厂
@@ -189,14 +165,6 @@
                     <input class="weui_input" type="text" name="factorySize" placeholder="厂房面积">
                 </div>
             </div>
-            <!--
-            <div class="weui_cell">
-                <div class="weui_cell_hd">外发工厂数量</div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="number" name="factoryOut" placeholder="外发工厂数量" required>
-                </div>
-            </div>
-            -->
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd"><label class="">
                     是否有设计团队
@@ -209,14 +177,6 @@
                     </select>
                 </div>
             </div>
-            <!--
-            <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">账期(可选)</label></div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="zhangqi" placeholder="账期">
-                </div>
-            </div>
-            -->
         </div>
 
         <div class="weui_cells_title">产品信息<span class="am-text-danger">(必填)</span></div>
@@ -264,26 +224,6 @@
                 </div>
             </div>
         </div>
-        <!--
-        <div class="weui_cells weui_cells_form">
-            <div class="weui_cell">
-                <div class="weui_cell_bd weui_cell_primary">
-                    <div class="weui_uploader">
-                        <div class="weui_uploader_hd weui_cell">
-                            <div class="weui_cell_bd weui_cell_primary">商品照片</div>
-                        </div>
-                        <div class="weui_uploader_bd">
-                            <ul class="weui_uploader_files" id="files">
-                            </ul>
-                            <div class="weui_uploader_input_wrp">
-                                <input class="weui_uploader_input" id="fileupload" name="imgFiles" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        -->
         <div class="weui_cells_title">备注(选填)</div>
         <div class="weui_cells weui_cells_form">
             <div class="weui_cell">
@@ -342,52 +282,6 @@
             }
         }
     });
-
-    /*
-    jQuery('#saveSubmit').click(function () {
-        jQuery('#baseInfoForm').ajaxSubmit(function (response) {
-            if (response.status == true) {
-                window.location.href = "http://y.wcc.cn/apply/success.htm";
-            } else {
-                alert(response.message);
-                return false;
-            }
-        });
-    });
-
-    wx.config({"debug":false,"appId":"wx024e9c8cc8941ef3","timestamp":"1460007211","nonceStr":"fc861053-7043-4a3a-bccd-2f9c7bddf4e7","signature":"460d84e121808057c769349dbeb24a453a1337f2","jsApiList":["onMenuShareTimeline","onMenuShareAppMessage"]});
-
-    wx.ready(function () {
-        wx.onMenuShareAppMessage({
-            title : "网红合作商家报名",
-            desc : "我们目前正在运营一个由薛蛮子和徐小平投资了2千万的国内最大的网红项目，旗下有5万多优质网红...",
-            link : "http://y.wcc.cn/apply/index.htm",
-            imgUrl : "http://y.wcc.cn/statics/img/fdcode.jpg",
-            success : function(res) {
-                // 分享成功
-            },
-            cancel : function(res) {
-                //分享取消
-            }
-        });
-
-        wx.onMenuShareTimeline({
-            title : "网红合作商家报名",
-            link : "http://y.wcc.cn/apply/index.htm",
-            imgUrl : "http://y.wcc.cn/statics/img/fdcode.jpg",
-            success : function(res) {
-                // 分享成功
-            },
-            cancel : function(res) {
-                //分享取消
-            }
-        });
-    })
-
-    wx.error(function (res) {
-        //alert(res.errMsg);
-    });
-     */
 
 </script>
 
