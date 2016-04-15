@@ -48,5 +48,4 @@ class Factory extends Model
     {
         return $this->hasMany('App\Models\ProductPicture', 'id');
     }
-    
 }
