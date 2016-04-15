@@ -189,7 +189,7 @@
                 <div class="weui_cell_bd weui_cell_primary">
                     <div class="weui_uploader">
                         <div class="weui_uploader_hd weui_cell">
-                            <div class="weui_cell_bd weui_cell_primary">设计作品</div>
+                            <div class="weui_cell_bd weui_cell_primary">设计作品(一次上传最多选6张照片)</div>
                         </div>
                         <div class="weui_uploader_bd">
                             <ul class="weui_uploader_files" id="files">

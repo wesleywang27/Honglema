@@ -16,7 +16,7 @@ class PictureController extends Controller
         $images = $request->file('imgs');
         $urls = [];
         $oss = new OssClient(config('oss.accessKeyId'), config('oss.accessKeySecret'), config('oss.endpoint'));
-        $baseDir = "honglame/avatar";
+        $baseDir = "honglema/product";
         // todo 每张图片异步处理, 最后同步等待
         foreach ($images as $image) {
             $originName = $image->getBasename() . '.' . $image->getClientOriginalExtension();
@@ -29,10 +29,10 @@ class PictureController extends Controller
             }
 
             $newName = trim($process->getOutput());
-            $oss->uploadFile(config('oss.bucket'), "test", "/var/local/honglema/pics/orig/$newName");
-            $oss->uploadFile(config('oss.bucket'), "test", "/var/local/honglema/pics/comp/comp-$newName");
+            $oss->uploadFile(config('oss.bucket'), "$baseDir/$newName", "/var/local/honglema/pics/orig/$newName");
+            $oss->uploadFile(config('oss.bucket'), "$baseDir/comp-$newName", "/var/local/honglema/pics/comp/comp-$newName");
 
-            $urls[] = "http://image.weipai.cn/test";
+            $urls[] = "http://image.weipai.cn/$baseDir/$newName";
         }
 
 
