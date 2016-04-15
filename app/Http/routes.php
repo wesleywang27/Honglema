@@ -54,15 +54,15 @@ Route::group(['middleware' => ['web']], function () {
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/factory.php', 'FactoryController@index');
+Route::get('/factory_index', 'FactoryController@index');
 
 Route::post('/factory', 'FactoryController@createFactory');
 
-Route::get('/brand.php', 'BrandController@index');
+Route::get('/brand_index', 'BrandController@index');
 
 Route::post('/brand', 'BrandController@createBrand');
 
-Route::get('/designer.php', 'DesignerController@index');
+Route::get('/designer_index', 'DesignerController@index');
 
 Route::post('/designer', 'DesignerController@createDesigner');
 
