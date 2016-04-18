@@ -88,6 +88,18 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //删除品牌商信息
+    public function deleteBrand($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            DB::table('brands')->where('brand_id',$id)->delete();
+            $brand = Brand::paginate(6);
+            return view('/cms/brand',['brands' => $brand]);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //设计师列表页面
     public function designer(){
         session_start();
