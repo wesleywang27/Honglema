@@ -114,3 +114,12 @@ Route::get('/cms/brand/{id?}',"CMSController@deleteBrand");
 Route::get('/cms/designer/{id?}',"CMSController@deleteDesigner");
 
 Route::get('/cms/stall/{id?}',"CMSController@deleteStall");
+
+//信息查找入口
+Route::post('/cms/factory/',"CMSController@searchFactory");
+
+Route::post('/cms/brand/',"CMSController@searchBrand");
+
+Route::post('/cms/designer/',"CMSController@searchDesigner");
+
+Route::post('/cms/stall/',"CMSController@searchStall");

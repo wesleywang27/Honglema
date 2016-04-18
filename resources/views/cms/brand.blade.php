@@ -4,8 +4,11 @@
 <h2><strong style="color:grey;">商家信息管理</strong></h2>
 <div class="page_title">
     <h2 class="fl">品牌商信息列表</h2>
-    <a class="fr top_rt_btn" style="float:right">查找</a>
-    <input type="text" class="textboxsearch" placeholder="按姓名查找"/>
+    <form action="/cms/brand" id="baseInfoForm" method="post">
+        <?php echo csrf_field(); ?>
+        <input class="fr top_rt_btn" style="float:right" id="saveSubmit" name="commit" type="submit" value="查找"/>
+        <input type="text" name="name" class="textboxsearch" placeholder="按姓名查找"/>
+    </form>
 </div>
 <table class="table">
     <tr>

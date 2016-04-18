@@ -13,7 +13,6 @@ use App\Models\Factory;
 use App\Models\Stall;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
-use DB;
 use Auth;
 
 class CMSController extends Controller{
@@ -59,7 +58,7 @@ class CMSController extends Controller{
     public function factory_info($id){
         session_start();
         if(isset($_SESSION['username'])){
-            $factory = DB::table('factories')->where('factory_id',$id)->first();
+            $factory = Factory::where('factory_id',$id)->first();
             return view('cms/factory_info',['factory' => $factory]);
         }
         else{
@@ -70,8 +69,19 @@ class CMSController extends Controller{
     public function deleteFactory($id){
         session_start();
         if(isset($_SESSION['username'])){
-            DB::table('factories')->where('factory_id',$id)->delete();
+            Factory::where('factory_id',$id)->delete();
             $factory = Factory::paginate(6);
+            return view('/cms/factory',['factories' => $factory]);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
+    //查找工厂信息
+    public function searchFactory(){
+        session_start();
+        if(isset($_SESSION['username'])){
+            $factory = Factory::where('username','like','%'.Input::get('name').'%')->paginate(6);
             return view('/cms/factory',['factories' => $factory]);
         }
         else{
@@ -93,7 +103,7 @@ class CMSController extends Controller{
     public function brand_info($id){
         session_start();
         if(isset($_SESSION['username'])){
-            $brand = DB::table('brands')->where('brand_id',$id)->first();
+            $brand = Brand::where('brand_id',$id)->first();
             return view('cms/brand_info',['brand' => $brand]);
         }
         else{
@@ -104,8 +114,19 @@ class CMSController extends Controller{
     public function deleteBrand($id){
         session_start();
         if(isset($_SESSION['username'])){
-            DB::table('brands')->where('brand_id',$id)->delete();
+            Brand::where('brand_id',$id)->delete();
             $brand = Brand::paginate(6);
+            return view('/cms/brand',['brands' => $brand]);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
+    //查找品牌商信息
+    public function searchBrand(){
+        session_start();
+        if(isset($_SESSION['username'])){
+            $brand = Brand::where('username','like','%'.Input::get('name').'%')->paginate(6);
             return view('/cms/brand',['brands' => $brand]);
         }
         else{
@@ -127,7 +148,7 @@ class CMSController extends Controller{
     public function designer_info($id){
         session_start();
         if(isset($_SESSION['username'])){
-            $designer = DB::table('designers')->where('designer_id',$id)->first();
+            $designer = Designer::where('designer_id',$id)->first();
             return view('cms/designer_info',['designer' => $designer]);
         }
         else{
@@ -138,8 +159,19 @@ class CMSController extends Controller{
     public function deleteDesigner($id){
         session_start();
         if(isset($_SESSION['username'])){
-            DB::table('designers')->where('designer_id',$id)->delete();
+            Designer::where('designer_id',$id)->delete();
             $designer = Designer::paginate(6);
+            return view('/cms/designer',['designers' => $designer]);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
+    //查找设计师信息
+    public function searchDesigner(){
+        session_start();
+        if(isset($_SESSION['username'])){
+            $designer = Designer::where('username','like','%'.Input::get('name').'%')->paginate(6);
             return view('/cms/designer',['designers' => $designer]);
         }
         else{
@@ -160,8 +192,8 @@ class CMSController extends Controller{
     //档口详情页面
     public function stall_info($id){
         session_start();
-        if(isset($_SESSION['username'])){
-            $stall = DB::table('stalls')->where('stall_id',$id)->first();
+            if(isset($_SESSION['username'])){
+            $stall = Stall::where('stall_id',$id)->first();
             return view('cms/stall_info',['stall' => $stall]);
         }
         else{
@@ -172,8 +204,19 @@ class CMSController extends Controller{
     public function deleteStall($id){
         session_start();
         if(isset($_SESSION['username'])){
-            DB::table('stalls')->where('stall_id',$id)->delete();
+            Stall::where('stall_id',$id)->delete();
             $stall = Stall::paginate(6);
+            return view('/cms/stall',['stalls' => $stall]);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
+    //查找档口信息
+    public function searchStall(){
+        session_start();
+        if(isset($_SESSION['username'])){
+            $stall = Stall::where('username','like','%'.Input::get('name').'%')->paginate(6);
             return view('/cms/stall',['stalls' => $stall]);
         }
         else{
