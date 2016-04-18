@@ -5,7 +5,7 @@
 <div class="page_title">
     <h2 class="fl">工厂信息列表</h2>
     <a class="fr top_rt_btn" style="float:right">查找</a>
-    <input type="text" class="textboxsearch" placeholder="搜索"/>
+    <input type="text" class="textboxsearch" placeholder="按姓名查找"/>
 </div>
 <table class="table">
     <tr>
