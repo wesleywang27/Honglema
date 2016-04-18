@@ -105,3 +105,8 @@ Route::get('/cms/brand_info/{id?}',"CMSController@brand_info");
 Route::get('/cms/designer_info/{id?}',"CMSController@designer_info");
 
 Route::get('/cms/stall_info/{id?}',"CMSController@stall_info");
+
+//信息删除入口
+Route::get('/cms/designer/{id?}',"CMSController@deleteDesigner");
+
+Route::get('/cms/stall/{id?}',"CMSController@deleteStall");

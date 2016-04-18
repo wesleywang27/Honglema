@@ -55,7 +55,7 @@
         </table>
         <a href="/cms/stall" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
         <input type="button" value="修改" class="link_btn"/>
-        <button class="link_btn" id="showPopTxt">删除</button>
+        <a href="{{URL::action('CMSController@deleteStall', ['id' => $stall->stall_id]) }}"><input type="button" value="删除" class="link_btn"/></a>
     </div>
     <div class="admin_tab_cont">
         <div class="container">

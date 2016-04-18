@@ -110,6 +110,18 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //删除设计师信息
+    public function deleteDesigner($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            DB::table('designers')->where('designer_id',$id)->delete();
+            $designer = Designer::paginate(6);
+            return view('/cms/designer',['designers' => $designer]);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //档口列表页面
     public function stall(){
         session_start();
@@ -127,6 +139,18 @@ class CMSController extends Controller{
         if(isset($_SESSION['username'])){
             $stall = DB::table('stalls')->where('stall_id',$id)->first();
             return view('cms/stall_info',['stall' => $stall]);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
+    //删除档口信息
+    public function deleteStall($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            DB::table('stalls')->where('stall_id',$id)->delete();
+            $stall = Stall::paginate(6);
+            return view('/cms/stall',['stalls' => $stall]);
         }
         else{
             return Redirect::intended('/cms/login.php');
