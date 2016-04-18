@@ -13,6 +13,7 @@ use App\Models\Factory;
 use App\Models\Stall;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
+use DB;
 use Auth;
 
 class CMSController extends Controller{
@@ -88,11 +89,11 @@ class CMSController extends Controller{
         }
     }
     //档口详情页面
-    public function stall_info(){
+    public function stall_info($id){
         session_start();
         if(isset($_SESSION['username'])){
-            return view('cms/stall_info');
-
+            $stall = DB::table('stalls')->where('stall_id',$id)->first();
+            return view('cms/stall_info',['stall' => $stall]);
         }
         else{
             return Redirect::intended('/cms/login.php');
