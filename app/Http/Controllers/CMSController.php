@@ -55,6 +55,17 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //工厂详情页面
+    public function factory_info($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            $factory = DB::table('factories')->where('factory_id',$id)->first();
+            return view('cms/factory_info',['factory' => $factory]);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //品牌商列表页面
     public function brand(){
         session_start();
