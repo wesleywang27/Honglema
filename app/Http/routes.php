@@ -74,6 +74,8 @@ Route::post('/stall', 'StallController@createStall');
 /*
  * 后台管理系统入口
  */
+
+//登录登出模块入口
 Route::get('/cms/logout', 'CMSController@logout');
 
 Route::post('/cms/login.php','CMSController@login');
@@ -86,6 +88,7 @@ Route::get('/cms/index', "CMSController@index");
 
 Route::get('/cms/', "CMSController@index");
 
+//列表页入口
 Route::get('/cms/factory', "CMSController@factory");
 
 Route::get('/cms/brand', "CMSController@brand");
@@ -93,3 +96,6 @@ Route::get('/cms/brand', "CMSController@brand");
 Route::get('/cms/designer', "CMSController@designer");
 
 Route::get('/cms/stall', "CMSController@stall");
+
+//详情页入口
+Route::get('/cms/stall_info',"CMSController@stall_info");
