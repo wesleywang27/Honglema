@@ -66,6 +66,17 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //品牌商详情页面
+    public function brand_info($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            $brand = DB::table('brands')->where('brand_id',$id)->first();
+            return view('cms/brand_info',['brand' => $brand]);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //设计师列表页面
     public function designer(){
         session_start();
