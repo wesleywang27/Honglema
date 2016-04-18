@@ -22,7 +22,7 @@
                 <th width="15%">手机号码：</th>
                 <td width="17%">{{ $designer->mobile}}</td>
                 <th width="15%">微信号：</th>
-                <td>{{ $designer->weixinNo}}</td>
+                <td width="16%">{{ $designer->weixinNo}}</td>
             </tr>
             <tr>
                 <th>职位：</th>
@@ -54,11 +54,9 @@
             </tr>
             <tr>
                 <th>设计经历：</th>
-                <td colspan="5">{{ $designer->designExperience}}</td>
-            </tr>
-            <tr>
+                <td colspan="2"><textarea name="description" style="width: 98%; height: 100px; margin-top: -22px; margin-bottom: -25px;" readonly>{{ $designer->designExperience}}</textarea></td>
                 <th>备注：</th>
-                <td colspan="5">{{ $designer->description}}</td>
+                <td colspan="2"><textarea name="description" style="width: 98%; height: 100px; margin-top: -22px; margin-bottom: -25px;" readonly>{{ $designer->description}}</textarea></td>
             </tr>
         </table>
         <a href="/cms/designer" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>

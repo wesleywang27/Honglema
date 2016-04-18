@@ -22,7 +22,7 @@
                 <th width="15%">手机号码：</th>
                 <td width="17%">{{ $factory->mobile}}</td>
                 <th width="15%">微信号：</th>
-                <td>{{ $factory->weixinNo}}</td>
+                <td width="16%">{{ $factory->weixinNo}}</td>
             </tr>
             <tr>
                 <th>职位：</th>
@@ -81,8 +81,12 @@
                 @else
                 <td>否</td>
                 @endif
+                <th></th>
+                <td></td>
+            </tr>
+            <tr>
                 <th>备注：</th>
-                <td>{{ $factory->description}}</td>
+                <td colspan="5"><textarea name="description" style="width: 99%; height: 60px; margin-top: -13px; margin-bottom: -15px;" readonly>{{ $factory->description}}</textarea></td>
             </tr>
         </table>
         <a href="/cms/factory" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
