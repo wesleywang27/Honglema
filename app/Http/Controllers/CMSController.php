@@ -66,6 +66,18 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //删除工厂信息
+    public function deleteFactory($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            DB::table('factories')->where('factory_id',$id)->delete();
+            $factory = Factory::paginate(6);
+            return view('/cms/factory',['factories' => $factory]);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //品牌商列表页面
     public function brand(){
         session_start();

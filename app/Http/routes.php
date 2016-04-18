@@ -107,6 +107,8 @@ Route::get('/cms/designer_info/{id?}',"CMSController@designer_info");
 Route::get('/cms/stall_info/{id?}',"CMSController@stall_info");
 
 //信息删除入口
+Route::get('/cms/factory/{id?}',"CMSController@deleteFactory");
+
 Route::get('/cms/brand/{id?}',"CMSController@deleteBrand");
 
 Route::get('/cms/designer/{id?}',"CMSController@deleteDesigner");
