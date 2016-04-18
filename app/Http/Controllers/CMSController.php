@@ -77,6 +77,17 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //设计师详情页面
+    public function designer_info($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            $designer = DB::table('designers')->where('designer_id',$id)->first();
+            return view('cms/designer_info',['designer' => $designer]);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //档口列表页面
     public function stall(){
         session_start();

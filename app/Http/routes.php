@@ -98,4 +98,6 @@ Route::get('/cms/designer', "CMSController@designer");
 Route::get('/cms/stall', "CMSController@stall");
 
 //详情页入口
+Route::get('/cms/designer_info/{id?}',"CMSController@designer_info");
+
 Route::get('/cms/stall_info/{id?}',"CMSController@stall_info");
