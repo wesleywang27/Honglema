@@ -40,7 +40,7 @@ class BrandController extends Controller{
             $brand->factorySize = Input::get('factorySize');
             //$brand->factoryOut = Input::get('factoryOut');
             $brand->design = Input::get('design');
-            $brand->zhangqi = Input::get('zhangqi');
+            //$brand->zhangqi = Input::get('zhangqi');
             $brand->country = Input::get('country');
             //后期完善此部分
             if($brand->country == '中国'){
@@ -58,17 +58,19 @@ class BrandController extends Controller{
             $brand->description = Input::get('description');
 
             $pictures = [];
-            foreach (Input::get('itemImage') as $img) {
-                $picture = new ProductPicture();
-                $picture->type = 1;//商家类型为1
-                $picture->url = $img;
-                $picture->file_id = pathinfo($img)['filename'];
-                $picture->upload_time = time();
-                $pictures[] = $picture;
+            if(Input::has('itemImage')){
+                foreach (Input::get('itemImage') as $img) {
+                    $picture = new ProductPicture();
+                    $picture->type = 1;//商家类型为1
+                    $picture->url = $img;
+                    $picture->file_id = pathinfo($img)['filename'];
+                    $picture->upload_time = time();
+                    $pictures[] = $picture;
+                }
+                $brand->pictures()->saveMany($pictures);
             }
-
+            
             $brand->save();
-            $brand->pictures()->saveMany($pictures);
 
             echo "<script> alert('注册成功!'); </script>";
 
