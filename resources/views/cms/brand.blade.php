@@ -31,7 +31,7 @@
         <td style="text-align:center">
             <a href="{{URL::action('CMSController@brand_info', ['id' => $brand->brand_id]) }}"><input type="button" value="查看" class="link_btn" /></a>
             <a href="#"><input type="button" value="修改" class="link_btn"/></a>
-            <a href="{{URL::action('CMSController@deleteBrand', ['id' => $brand->brand_id]) }}"><input type="button" value="删除" class="link_btn"/></a>
+            <a href="{{URL::action('CMSController@deleteBrand', ['id' => $brand->brand_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
         </td>
     </tr>
     @endforeach
