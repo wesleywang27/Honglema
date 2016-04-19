@@ -26,7 +26,7 @@
     </div>
     <div style="margin-top: 20px;">
         <input name="commit" type="submit" value="保存" class="link_btn" style="margin-left: 12%"/>
-        <input name="cancel" type="button" value="取消" class="link_btn" style="margin-left: 5%"/>
+        <a href="/cms/index"  class="link_btn" style="margin-left: 5%">取消</a>
     </div>
 </form>
 @endsection
