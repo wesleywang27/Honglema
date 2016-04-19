@@ -46,17 +46,28 @@ class UserController extends Controller{
 
                 $user->name = Input::get('name');
                 $user->email = Input::get('email');
-                $user->password = Hash::make(Input::get('password'));
+                $password = Input::get('password');
+                $passwordConfirm = Input::get('passwordConfirm');
+                if(strlen($password) < 8){
+                    echo "<script>history.go(-1); alert('密码至少8位!');</script>";
+                    return;
+                }
+                if($password == $passwordConfirm){
+                    $user->password = Hash::make($password);
+                }
+                else{
+                    echo "<script>history.go(-1); alert('请输入相同的密码!');</script>";
+                    return;
+                }
                 $user->is_admin = Input::get('is_admin');
 
                 $user->save();
 
-                echo "<script> alert('添加成功!'); </script>";
-
+                echo "<script> alert('用户添加成功!'); </script>";
                 return view('/cms/index');
             }else {
                 // 验证没通过就显示错误提示信息
-                echo "<script>history.go(-1); alert('添加信息有误!');</script>";
+                echo "<script>history.go(-1); alert('用户名或邮箱已存在!');</script>";
             }
         }
         else{
