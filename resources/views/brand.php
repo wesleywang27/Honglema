@@ -146,30 +146,6 @@
 
                 </div>
             </div>
-            <!--
-            <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd">
-                    是否有天猫店铺
-                </div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <select class="weui_select" name="tMall">
-                        <option value="0">否</option>
-                        <option value="1">是</option>
-                    </select>
-                </div>
-            </div>
-            <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd">
-                    是否接受贴牌
-                </div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <select class="weui_select" name="tie">
-                        <option value="0">否</option>
-                        <option value="1">是</option>
-                    </select>
-                </div>
-            </div>
-            -->
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd"><label class="">
                     是否自有工厂
@@ -189,14 +165,6 @@
                     <input class="weui_input" type="text" name="factorySize" placeholder="厂房面积">
                 </div>
             </div>
-            <!--
-            <div class="weui_cell">
-                <div class="weui_cell_hd">外发工厂数量</div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="number" name="factoryOut" placeholder="外发工厂数量" required>
-                </div>
-            </div>
-            -->
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd"><label class="">
                     是否有设计团队
@@ -209,14 +177,6 @@
                     </select>
                 </div>
             </div>
-            <!--
-            <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">账期(可选)</label></div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="zhangqi" placeholder="账期">
-                </div>
-            </div>
-            -->
         </div>
 
         <div class="weui_cells_title">产品信息<span class="am-text-danger">(必填)</span></div>
