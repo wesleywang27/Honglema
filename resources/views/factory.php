@@ -139,7 +139,9 @@
                     <input class="weui_input" type="text" name="advantageSubcategory" placeholder="请输入优势子类目">
                 </div>
             </div>
-            <div class="weui_cells_title">工厂信息<span class="am-text-danger">(必填)</span></div>
+        </div>
+        <div class="weui_cells_title">工厂信息<span class="am-text-danger">(必填)</span></div>
+        <div class="weui_cells">
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">工厂面积(m2)</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
