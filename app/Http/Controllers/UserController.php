@@ -110,7 +110,7 @@ class UserController extends Controller{
                 $user->save();
 
                 echo "<script> alert('信息修改成功!'); </script>";
-                return view('/cms/user_info');
+                return view('/cms/index');
             }
             else{
                 echo "<script>history.go(-1); alert('当前密码错误!');</script>";
