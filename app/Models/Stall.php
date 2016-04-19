@@ -34,5 +34,9 @@ class Stall extends Model{
         'username' => 'min:2',
         'mobile' => 'between:11,11',
     );
-    //
+
+    public function pictures()
+    {
+        return $this->hasMany('App\Models\ProductPicture', 'id');
+    }
 }

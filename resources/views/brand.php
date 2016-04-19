@@ -344,52 +344,6 @@
         });
     });
 
-    /*
-    jQuery('#saveSubmit').click(function () {
-        jQuery('#baseInfoForm').ajaxSubmit(function (response) {
-            if (response.status == true) {
-                window.location.href = "http://y.wcc.cn/apply/success.htm";
-            } else {
-                alert(response.message);
-                return false;
-            }
-        });
-    });
-
-    wx.config({"debug":false,"appId":"wx024e9c8cc8941ef3","timestamp":"1460007211","nonceStr":"fc861053-7043-4a3a-bccd-2f9c7bddf4e7","signature":"460d84e121808057c769349dbeb24a453a1337f2","jsApiList":["onMenuShareTimeline","onMenuShareAppMessage"]});
-
-    wx.ready(function () {
-        wx.onMenuShareAppMessage({
-            title : "网红合作商家报名",
-            desc : "我们目前正在运营一个由薛蛮子和徐小平投资了2千万的国内最大的网红项目，旗下有5万多优质网红...",
-            link : "http://y.wcc.cn/apply/index.htm",
-            imgUrl : "http://y.wcc.cn/statics/img/fdcode.jpg",
-            success : function(res) {
-                // 分享成功
-            },
-            cancel : function(res) {
-                //分享取消
-            }
-        });
-
-        wx.onMenuShareTimeline({
-            title : "网红合作商家报名",
-            link : "http://y.wcc.cn/apply/index.htm",
-            imgUrl : "http://y.wcc.cn/statics/img/fdcode.jpg",
-            success : function(res) {
-                // 分享成功
-            },
-            cancel : function(res) {
-                //分享取消
-            }
-        });
-    })
-
-    wx.error(function (res) {
-        //alert(res.errMsg);
-    });
-     */
-
 </script>
 
 <script src="http://y.wcc.cn/statics/amazeui/js/amazeui.min.js"></script>
