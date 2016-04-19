@@ -56,7 +56,7 @@ class UserController extends Controller{
                 return view('/cms/index');
             }else {
                 // 验证没通过就显示错误提示信息
-                echo "<script>history.go(-1); alert('信息有误!');</script>";
+                echo "<script>history.go(-1); alert('添加信息有误!');</script>";
             }
         }
         else{
