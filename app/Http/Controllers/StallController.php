@@ -7,6 +7,7 @@
  */
 namespace App\Http\Controllers;
 
+use App\Models\ProductPicture;
 use Validator;
 use Illuminate\Support\Facades\Input;
 use App\Models\Stall;
