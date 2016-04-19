@@ -128,3 +128,5 @@ Route::post('/cms/stall/',"CMSController@searchStall");
 Route::get('/cms/user/',"UserController@index");
 
 Route::get('/cms/user_create/',"UserController@createUserIndex");
+
+Route::get('/cms/user_info/',"UserController@user_info");
