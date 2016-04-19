@@ -125,4 +125,6 @@ Route::post('/cms/designer/',"CMSController@searchDesigner");
 Route::post('/cms/stall/',"CMSController@searchStall");
 
 //用户管理入口
-Route::get('/cms/user',"UserController@index");
+Route::get('/cms/user/',"UserController@index");
+
+Route::get('/cms/user_create/',"UserController@createUserIndex");
