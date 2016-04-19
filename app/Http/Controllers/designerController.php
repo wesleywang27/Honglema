@@ -55,10 +55,10 @@ class DesignerController extends Controller{
                     $picture->upload_time = time();
                     $pictures[] = $picture;
                 }
-                $designer->pictures()->saveMany($pictures);
             }
             
             $designer->save();
+            $designer->pictures()->saveMany($pictures);
 
             echo "<script> alert('注册成功!'); </script>";
 

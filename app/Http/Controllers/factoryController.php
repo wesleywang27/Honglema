@@ -69,10 +69,10 @@ class FactoryController extends Controller{
                     $picture->upload_time = time();
                     $pictures[] = $picture;
                 }
-                $factory->pictures()->saveMany($pictures);
             }
 
             $factory->save();
+            $factory->pictures()->saveMany($pictures);
 
             echo "<script> alert('注册成功!'); </script>";
 
