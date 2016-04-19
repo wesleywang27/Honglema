@@ -153,46 +153,12 @@
                     <input class="weui_input" type="text" name="ext2" placeholder="工人数" required>
                 </div>
             </div>
-            <!--
-            <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">车位工人数</label></div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="ext3" placeholder="车位工人数" required>
-                </div>
-            </div>
-            <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">翻单速度</label></div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="ext4" placeholder="翻单速度" required>
-                </div>
-            </div>
-            -->
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">打样速度</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="ext5" placeholder="打样速度" required>
                 </div>
             </div>
-            <!--
-            <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">备料深度</label></div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="ext6" placeholder="备料深度" required>
-                </div>
-            </div>
-            <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">工厂规模</label></div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="factorySize" placeholder="工厂规模" required>
-                </div>
-            </div>
-            <div class="weui_cell">
-                <div class="weui_cell_hd">外发工厂数量</div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="number" name="factoryOut" placeholder="外发工厂数量" required>
-                </div>
-            </div>
-            -->
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">最小起订量</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
@@ -238,19 +204,6 @@
                     </select>
                 </div>
             </div>
-            <!--
-            <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd">
-                    是否有天猫店铺
-                </div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <select class="weui_select" name="tMall">
-                        <option value="0">否</option>
-                        <option value="1">是</option>
-                    </select>
-                </div>
-            </div>
-            -->
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd">
                     是否接受贴牌

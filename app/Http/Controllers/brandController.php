@@ -10,7 +10,6 @@ namespace App\Http\Controllers;
 use App\Models\ProductPicture;
 use Validator;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Redirect;
 use App\Models\Brand;
 use Illuminate\Contracts\Http\Request;
 use App\Http\Requests;
