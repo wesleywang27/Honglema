@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 
 use Validator;
 use Hash;
+use Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use App\User;
@@ -79,6 +80,42 @@ class UserController extends Controller{
         session_start();
         if(isset($_SESSION['username'])){
             return view('/cms/user_info');
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
+    //修改用户信息
+    public function updateUser(){
+        session_start();
+        if(isset($_SESSION['username'])){
+            if (Auth::attempt(array('name'=>$_SESSION['username'], 'password'=>Input::get('currentPassword')))){
+                $password = Input::get('password');
+                $passwordConfirm = Input::get('passwordConfirm');
+                if(strlen($password) < 8){
+                    echo "<script>history.go(-1); alert('密码至少8位!');</script>";
+                    return;
+                }
+                if($password == $passwordConfirm){
+                    $password = Hash::make($password);
+                }
+                else{
+                    echo "<script>history.go(-1); alert('请输入相同的密码!');</script>";
+                    return;
+                }
+                $user = User::where('name',$_SESSION['username'])->first();
+                $user->email = Input::get('email');
+                $user->password = $password;
+
+                $user->save();
+
+                echo "<script> alert('信息修改成功!'); </script>";
+                return view('/cms/user_info');
+            }
+            else{
+                echo "<script>history.go(-1); alert('当前密码错误!');</script>";
+                return;
+            }
         }
         else{
             return Redirect::intended('/cms/login.php');

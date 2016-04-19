@@ -6,7 +6,7 @@
 <div class="page_title">
     <h2 class="fl">修改用户信息</h2>
 </div>
-<form style="margin-left: 30%">
+<form action="/cms/user_info" method="post" style="margin-left: 30%">
     <?php echo csrf_field(); ?>
     <div style="margin-top: 20px;">
         <label>用户邮箱：</label>
@@ -18,7 +18,7 @@
     </div>
     <div style="margin-top: 20px;">
         <label>用户密码：</label>
-        <input class="textbox textbox_225" type="password" name="password" placeholder="请输入新密码" value="" required>
+        <input class="textbox textbox_225" type="password" name="password" placeholder="请输入新密码(至少8位)" value="" required>
     </div>
     <div style="margin-top: 20px;">
         <label>确认密码：</label>
