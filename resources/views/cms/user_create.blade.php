@@ -6,7 +6,7 @@
 <div class="page_title">
     <h2 class="fl">添加后台用户</h2>
 </div>
-<form style="margin-left: 30%">
+<form action="/cms/user_create" method="post" style="margin-left: 30%">
     <?php echo csrf_field(); ?>
     <div style="margin-top: 20px;">
         <label>用户名：&nbsp;&nbsp;&nbsp;</label>
@@ -18,7 +18,7 @@
     </div>
     <div style="margin-top: 20px;">
         <label>用户密码：</label>
-        <input class="textbox textbox_225" type="password" name="password" placeholder="请输入密码" value="" required>
+        <input class="textbox textbox_225" type="password" name="password" placeholder="请输入密码(至少8位)" value="" required>
     </div>
     <div style="margin-top: 20px;">
         <label>确认密码：</label>
@@ -26,7 +26,7 @@
     </div>
     <div style="margin-top: 20px;">
         <label>用户身份：</label>
-        <select class="select" name="title">
+        <select class="select" name="is_admin">
             <option value="0">普通用户</option>
             <option value="1">普通管理员</option>
         </select>
