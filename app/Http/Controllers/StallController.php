@@ -51,10 +51,10 @@ class StallController extends Controller{
                     $picture->upload_time = time();
                     $pictures[] = $picture;
                 }
-                $stall->pictures()->saveMany($pictures);
             }
 
             $stall->save();
+            $stall->pictures()->saveMany($pictures);
 
             echo "<script> alert('注册成功!'); </script>";
 
