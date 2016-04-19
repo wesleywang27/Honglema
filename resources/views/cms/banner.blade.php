@@ -77,7 +77,7 @@
         <li>
             <dl>
                 <dt>后台用户管理</dt>
-                <dd><a href="#">后台用户列表</a></dd>
+                <dd><a href="/cms/user">后台用户列表</a></dd>
                 <dd><a href="#">添加后台用户</a></dd>
             </dl>
         </li>
