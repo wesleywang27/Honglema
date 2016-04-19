@@ -41,7 +41,21 @@ class StallController extends Controller{
             $stall->category = Input::get('category');
             $stall->shipmentOK = Input::get('shipmentOK');
 
+            $pictures = [];
+            if(Input::has('itemImage')){
+                foreach (Input::get('itemImage') as $img) {
+                    $picture = new ProductPicture();
+                    $picture->type = 3;//档口类型为3
+                    $picture->url = $img;
+                    $picture->file_id = pathinfo($img)['filename'];
+                    $picture->upload_time = time();
+                    $pictures[] = $picture;
+                }
+                $stall->pictures()->saveMany($pictures);
+            }
+
             $stall->save();
+
             echo "<script> alert('注册成功!'); </script>";
 
             return view('index');

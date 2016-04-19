@@ -167,6 +167,25 @@
             </div>
         </div>
 
+        <div class="weui_cells weui_cells_form">
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <div class="weui_uploader">
+                        <div class="weui_uploader_hd weui_cell">
+                            <div class="weui_cell_bd weui_cell_primary">设计作品(一次上传最多选6张照片)</div>
+                        </div>
+                        <div class="weui_uploader_bd">
+                            <ul class="weui_uploader_files" id="files">
+                            </ul>
+                            <div class="weui_uploader_input_wrp">
+                                <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="weui_btn_area">
             <input class="am-btn am-btn-danger am-btn-block am-round" id="saveSubmit" name="commit" type="submit" value="提交信息"/>
         </div>
@@ -201,6 +220,27 @@
     jQuery('#global_location').cxSelect({
         selects: ['country', 'province', 'city', 'region'],
         nodata: 'none'
+    });
+
+    //上传多图
+    jQuery('#fileupload').change(function(){
+        $.AMUI.progress.start();
+        jQuery.ajaxFileUpload({
+            url:"/productpicture",//需要链接到服务器地址
+            secureuri:false,
+            fileElementId:"fileupload",//文件选择框的id属性
+            dataType: 'json',   //json
+            success: function (data, status) {
+                var urls = data.urls;
+                var $htmls = '';
+                for(var i=0; i<urls.length; i++){
+                    $htmls += '<li class="weui_uploader_file images" style="background-image:url('+urls[i]+')"><input type="hidden" id="itemImage" name="itemImage[]" value="'+urls[i]+'"/></li>';
+                }
+                $('#files').append($htmls);
+                $.AMUI.progress.done();
+                $('.weui_uploader_input_wrp').hide();
+            }
+        });
     });
 
 </script>
