@@ -30,7 +30,14 @@ class UserController extends Controller{
     public function createUserIndex(){
         session_start();
         if(isset($_SESSION['username'])){
-            return view('/cms/user_create');
+            $user = User::where('name',$_SESSION['username'])->first();
+            if($user->is_admin == 1){
+                return view('/cms/user_create');
+            }
+            else{
+                echo "<script>history.go(-1); alert('该用户没有权限操作!');</script>";
+                return;
+            }
         }
         else{
             return Redirect::intended('/cms/login.php');
