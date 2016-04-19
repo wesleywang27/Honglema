@@ -21,6 +21,7 @@ Route::get('/test/{celebrity}','TestController@show');
 Route::get('/playground/celebrity','PlaygroundController@index');
 
 Route::resource('/picture', 'PictureController');
+
 Route::resource('/productpicture', 'ProductPictureController');
 
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
@@ -72,7 +73,7 @@ Route::get('/stall_index', 'StallController@index');
 Route::post('/stall', 'StallController@createStall');
 
 /*
- * 后台管理系统入口
+ * 红了吗后台管理系统入口
  */
 
 //登录登出模块入口
@@ -84,6 +85,7 @@ Route::get('/cms/login.php',function () {
     return view('/cms/login');
 });
 
+//首页入口
 Route::get('/cms/index', "CMSController@index");
 
 Route::get('/cms/', "CMSController@index");
@@ -116,17 +118,17 @@ Route::get('/cms/designer/{id?}',"CMSController@deleteDesigner");
 Route::get('/cms/stall/{id?}',"CMSController@deleteStall");
 
 //信息查找入口
-Route::post('/cms/factory/',"CMSController@searchFactory");
+Route::post('/cms/factory',"CMSController@searchFactory");
 
-Route::post('/cms/brand/',"CMSController@searchBrand");
+Route::post('/cms/brand',"CMSController@searchBrand");
 
-Route::post('/cms/designer/',"CMSController@searchDesigner");
+Route::post('/cms/designer',"CMSController@searchDesigner");
 
-Route::post('/cms/stall/',"CMSController@searchStall");
+Route::post('/cms/stall',"CMSController@searchStall");
 
 //用户管理入口
-Route::get('/cms/user/',"UserController@index");
+Route::get('/cms/user',"UserController@index");
 
-Route::get('/cms/user_create/',"UserController@createUserIndex");
+Route::get('/cms/user_create',"UserController@createUserIndex");
 
-Route::get('/cms/user_info/',"UserController@user_info");
+Route::get('/cms/user_info',"UserController@user_info");
