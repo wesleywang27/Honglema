@@ -44,11 +44,16 @@ jQuery.extend({
 		var formId = 'jUploadForm' + id;
 		var fileId = 'jUploadFile' + id;
 		var form = $('<form  action="" method="POST" name="' + formId + '" id="' + formId + '" enctype="multipart/form-data"></form>');
-		var oldElement = $('#' + fileElementId);
-		var newElement = $(oldElement).clone();
-		$(oldElement).attr('id', fileId);
-		$(oldElement).before(newElement);
-		$(oldElement).appendTo(form);
+		//var oldElement = $('#' + fileElementId);
+		//var newElement = $(oldElement).clone();
+		//$(oldElement).attr('id', fileId);
+		//$(oldElement).before(newElement);
+		//$(oldElement).appendTo(form);
+        var oldElement = jQuery('#' + fileElementId);
+        var newElement = oldElement.clone(true);
+        oldElement.attr('id', fileId);
+        oldElement.before(newElement);
+        oldElement.appendTo(form);
 		//set attributes
 		$(form).css('position', 'absolute');
 		$(form).css('top', '-1200px');
