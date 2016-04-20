@@ -26,10 +26,16 @@
     </div>
     <div style="margin-top: 20px;">
         <label>用户身份：</label>
+        @if ($is_super_admin == 1)
         <select class="select" name="is_admin">
             <option value="0">普通用户</option>
             <option value="1">普通管理员</option>
         </select>
+        @else
+        <select class="select" name="is_admin">
+            <option value="0">普通用户</option>
+        </select>
+        @endif
     </div>
     <div style="margin-top: 20px;">
         <input name="commit" type="submit" value="确认" class="link_btn" style="margin-left: 12%"/>
