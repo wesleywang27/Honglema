@@ -108,6 +108,17 @@ class UserController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //用户信息页
+    public function user_info_confirm(){
+        session_start();
+        if(isset($_SESSION['username'])){
+            $confirmUser = User::where('name',$_SESSION['username'])->first();
+            return view('/cms/user_info_confirm',['user' => $confirmUser]);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //用户信息修改页
     public function user_info(){
         session_start();
