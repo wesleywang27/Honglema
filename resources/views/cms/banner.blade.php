@@ -39,7 +39,7 @@
     <h1><img src="/images/admin_logo.png"/></h1>
     <ul class="rt_nav">
         <li><a href="/cms/index" class="website_icon">站点首页</a></li>
-        <li><a href="#" class="admin_icon">
+        <li><a href="/cms/user_info_confirm" class="admin_icon">
                 <?php
                 echo $_SESSION['username']; // 显示用户名
                 ?>
