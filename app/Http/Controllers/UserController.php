@@ -27,6 +27,18 @@ class UserController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //查找用户
+    public function searchUser(){
+        session_start();
+        if(isset($_SESSION['username'])){
+            $user = User::where('name','like','%'.Input::get('name').'%')->paginate(6);
+            $confirmUser = User::where('name',$_SESSION['username'])->first();
+            return view('/cms/user',['users' => $user ,'is_super_admin' => $confirmUser->is_super_admin]);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //后台用户创建页
     public function createUserIndex(){
         session_start();
