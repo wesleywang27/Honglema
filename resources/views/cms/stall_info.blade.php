@@ -6,7 +6,6 @@
 <div class="page_title">
     <h2 class="fl">档口信息详情</h2>
 </div>
-</section>
 <section>
     <ul class="admin_tab">
         <li><a class="active">基本信息</a></li>
@@ -82,6 +81,5 @@
         });
     });
 </script>
-</div>
 
 @endsection
