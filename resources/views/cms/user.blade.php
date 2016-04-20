@@ -17,6 +17,7 @@
         <th>用户名</th>
         <th>邮箱</th>
         <th>用户权限</th>
+        <th>创建时间</th>
         <th>操作</th>
     </tr>
     @foreach ($users as $user)
@@ -31,9 +32,15 @@
         @else
         <td style="width:150px;text-align:center">普通用户</td>
         @endif
+        <td style="width:200px;text-align:center">{{ $user->created_at}}</td>
+        @if ($is_super_admin == 1)
         <td style="width:150px;text-align:center">
             <a href="#" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
         </td>
+        @else
+        <td style="width:150px;text-align:center">
+        </td>
+        @endif
     </tr>
     @endforeach
 </table>

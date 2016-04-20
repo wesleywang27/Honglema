@@ -20,7 +20,8 @@ class UserController extends Controller{
         session_start();
         if(isset($_SESSION['username'])){
             $user = User::paginate(6);
-            return view('/cms/user',['users' => $user]);
+            $confirmUser = User::where('name',$_SESSION['username'])->first();
+            return view('/cms/user',['users' => $user ,'is_super_admin' => $confirmUser->is_super_admin]);
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -32,7 +33,7 @@ class UserController extends Controller{
         if(isset($_SESSION['username'])){
             $user = User::where('name',$_SESSION['username'])->first();
             if($user->is_admin == 1){
-                return view('/cms/user_create');
+                return view('/cms/user_create',['is_super_admin' => $user->is_super_admin]);
             }
             else{
                 echo "<script>history.go(-1); alert('该用户没有权限操作!');</script>";
