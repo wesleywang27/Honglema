@@ -60,17 +60,15 @@
             </tr>
         </table>
         <a href="/cms/designer" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
-        <input type="button" value="修改" class="link_btn"/>
+        <!--<input type="button" value="修改" class="link_btn"/>-->
         <a href="{{URL::action('CMSController@deleteDesigner', ['id' => $designer->designer_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
     </div>
     <div class="admin_tab_cont">
         <div class="container">
             <ul class="gallery">
-                <li><a href="images/b1.jpg"><img src="images/1.jpg" /></a></li>
-                <li><a href="images/b2.jpg"><img src="images/2.jpg" /></a></li>
-                <li><a href="images/b3.jpg"><img src="images/3.jpg" /></a></li>
-                <li><a href="images/b4.jpg"><img src="images/4.jpg" /></a></li>
-                <li><a href="images/b5.jpg"><img src="images/5.jpg" /></a></li>
+                @foreach ($pictures as $picture)
+                <li><a href="{{ $picture->url }}"><img src="{{ $picture->url }}" style="width: 80px;"/></a></li>
+                @endforeach
             </ul>
             <div class="clear"></div>
         </div>

@@ -11,6 +11,7 @@ use App\Models\Brand;
 use App\Models\Designer;
 use App\Models\Factory;
 use App\Models\Stall;
+use App\Models\ProductPicture;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use Auth;
@@ -59,7 +60,8 @@ class CMSController extends Controller{
         session_start();
         if(isset($_SESSION['username'])){
             $factory = Factory::where('factory_id',$id)->first();
-            return view('cms/factory_info',['factory' => $factory]);
+            $picture = ProductPicture::where('id',$id)->where('type',0)->get();
+            return view('cms/factory_info',['factory' => $factory, 'pictures' => $picture]);
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -104,7 +106,8 @@ class CMSController extends Controller{
         session_start();
         if(isset($_SESSION['username'])){
             $brand = Brand::where('brand_id',$id)->first();
-            return view('cms/brand_info',['brand' => $brand]);
+            $picture = ProductPicture::where('id',$id)->where('type',1)->get();
+            return view('cms/brand_info',['brand' => $brand, 'pictures' => $picture]);
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -149,7 +152,8 @@ class CMSController extends Controller{
         session_start();
         if(isset($_SESSION['username'])){
             $designer = Designer::where('designer_id',$id)->first();
-            return view('cms/designer_info',['designer' => $designer]);
+            $picture = ProductPicture::where('id',$id)->where('type',2)->get();
+            return view('cms/designer_info',['designer' => $designer, 'pictures' => $picture]);
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -193,8 +197,9 @@ class CMSController extends Controller{
     public function stall_info($id){
         session_start();
             if(isset($_SESSION['username'])){
-            $stall = Stall::where('stall_id',$id)->first();
-            return view('cms/stall_info',['stall' => $stall]);
+                $stall = Stall::where('stall_id',$id)->first();
+                $picture = ProductPicture::where('id',$id)->where('type',3)->get();
+                return view('cms/stall_info',['stall' => $stall, 'pictures' => $picture]);
         }
         else{
             return Redirect::intended('/cms/login.php');
