@@ -3,9 +3,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Maatwebsite\Excel\Facades\Excel;
-class ExcelController extends Controller
-{
-    //Excel文件导出功能 By Laravel学院
+class ExcelController extends Controller{
+    //Excel文件导出功能
     public function exportStall(){
         $cellData = [
             ['学号','姓名','成绩'],
@@ -20,7 +19,5 @@ class ExcelController extends Controller
                 $sheet->rows($cellData);
             });
         })->download('xls');
-        echo "<script>alert('导出!');</script>";
-        return view('/cms/index');
     }
 }

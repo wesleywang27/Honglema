@@ -53,5 +53,5 @@
     <a class="{{ ($stalls->currentPage() == $stalls->lastPage()) ? ' disabled' : '' }}" href="{{ $stalls->url($stalls->currentPage()+1) }}" >后一页</a>
     @endif
 </aside>
-<a href="/cms/stall/export" style="margin-left: 2%;"><input type="button" value="导出Excel" class="link_btn"/></a>
+<a href="{{ url('/cms/stall_export') }}" style="margin-left: 2%;"><input type="button" value="导出Excel" class="link_btn"/></a>
 @endsection
