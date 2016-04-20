@@ -39,6 +39,19 @@ class UserController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //删除用户
+    public function deleteUser($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            User::where('id',$id)->delete();
+            $user = User::paginate(6);
+            $confirmUser = User::where('name',$_SESSION['username'])->first();
+            return view('/cms/user',['users' => $user ,'is_super_admin' => $confirmUser->is_super_admin]);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //后台用户创建页
     public function createUserIndex(){
         session_start();
