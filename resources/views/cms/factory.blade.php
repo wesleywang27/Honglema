@@ -30,7 +30,7 @@
         <td style="width:120px;">{{ $factory->title}}</td>
         <td style="text-align:center">
             <a href="{{URL::action('CMSController@factory_info', ['id' => $factory->factory_id]) }}"><input type="button" value="查看" class="link_btn" /></a>
-            <a href="#"><input type="button" value="修改" class="link_btn"/></a>
+            <!--<input type="button" value="修改" class="link_btn"/>-->
             <a href="{{URL::action('CMSController@deleteFactory', ['id' => $factory->factory_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
         </td>
     </tr>
