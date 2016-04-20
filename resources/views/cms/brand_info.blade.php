@@ -85,7 +85,7 @@
                 <td colspan="5"><textarea name="description" style="width: 99%; height: 60px; margin-top: -13px; margin-bottom: -15px;" readonly>{{ $brand->description}}</textarea></td>
             </tr>
         </table>
-        <a href="/cms/brand" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
+        <a href="/cms/brand" style=" margin-left:85%;"><input type="button" value="返回" class="link_btn"/></a>
         <!--<input type="button" value="修改" class="link_btn"/>-->
         <a href="{{URL::action('CMSController@deleteBrand', ['id' => $brand->brand_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
     </div>
@@ -98,8 +98,9 @@
             </ul>
             <div class="clear"></div>
         </div>
-        <script src="js/jquery-1.9.1.min.js"></script>
-        <script src="js/zoom.min.js"></script>
+        <a href="/cms/stall" style=" margin-left:90%;"><input type="button" value="返回" class="link_btn"/></a>
+        <script src="/js/jquery-1.9.1.min.js"></script>
+        <script src="/js/zoom.min.js"></script>
     </div>
 </section>
 <!--tabStyle-->
