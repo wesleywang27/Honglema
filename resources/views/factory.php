@@ -234,7 +234,7 @@
                             <div class="weui_cell_bd weui_cell_primary">商品照片(一次上传最多选6张照片)</div>
                         </div>
                         <div class="weui_uploader_bd">
-                            <ul class="weui_uploader_files" id="files">
+                            <ul class="weui_uploader_files" id="files" style="display: inline;padding-left: 0;">
                             </ul>
                             <div class="weui_uploader_input_wrp">
                                 <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
@@ -301,7 +301,6 @@
                 }
                 $('#files').append($htmls);
                 $.AMUI.progress.done();
-                $('.weui_uploader_input_wrp').hide();
             }
         });
     });
