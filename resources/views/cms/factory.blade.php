@@ -53,4 +53,5 @@
     <a class="{{ ($factories->currentPage() == $factories->lastPage()) ? ' disabled' : '' }}" href="{{ $factories->url($factories->currentPage()+1) }}" >后一页</a>
     @endif
 </aside>
+<a href="{{ url('/cms/factory_export') }}" style="float: right;" ><input type="button" value="导出Excel" class="link_btn"/></a>
 @endsection
