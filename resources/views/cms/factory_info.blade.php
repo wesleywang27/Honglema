@@ -74,12 +74,8 @@
                 @else
                 <td>否</td>
                 @endif
-                <th>是否接受贴牌：</th>
-                @if ($factory->tie == 1)
-                <td>是</td>
-                @else
-                <td>否</td>
-                @endif
+                <th>工厂主要付款方式：</th>
+                <td>{{$factory->zhangqi}}</td>
                 <th></th>
                 <td></td>
             </tr>

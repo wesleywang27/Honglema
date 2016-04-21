@@ -206,26 +206,13 @@
                     </select>
                 </div>
             </div>
-            <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd">
-                    是否接受贴牌
-                </div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <select class="weui_select" name="tie">
-                        <option value="0">否</option>
-                        <option value="1">是</option>
-                    </select>
-                </div>
-            </div>
-
             <div class="weui_cell">
-                <div class="weui_cell_hd">账期(选填)</div>
+                <div class="weui_cell_hd"><label class="">工厂主要付款方式</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="zhangqi" placeholder="账期">
+                    <input class="weui_input" type="text" name="zhangqi" placeholder="工厂主要付款方式" required>
                 </div>
             </div>
         </div>
-
         <div class="weui_cells weui_cells_form">
             <div class="weui_cell">
                 <div class="weui_cell_bd weui_cell_primary">
@@ -244,7 +231,6 @@
                 </div>
             </div>
         </div>
-
         <div class="weui_cells_title">备注(选填)</div>
         <div class="weui_cells weui_cells_form">
             <div class="weui_cell">
@@ -253,7 +239,6 @@
                 </div>
             </div>
         </div>
-
         <div class="weui_btn_area">
             <input class="am-btn am-btn-danger am-btn-block am-round" id="saveSubmit" name="commit" type="submit" value="提交信息"/>
         </div>
