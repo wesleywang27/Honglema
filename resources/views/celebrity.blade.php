@@ -4,7 +4,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
-	<title>single-page</title>
+	<title>详情页</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="format-detection" content="telephone=no" />
 	<link href="{{URL::asset('css/style.css')}}" rel='stylesheet' type='text/css' />
