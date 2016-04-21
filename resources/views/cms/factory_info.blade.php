@@ -97,7 +97,7 @@
             </ul>
             <div class="clear"></div>
         </div>
-        <a href="/cms/stall" style=" margin-left:90%;"><input type="button" value="返回" class="link_btn"/></a>
+        <a href="/cms/factory" style=" margin-left:90%;"><input type="button" value="返回" class="link_btn"/></a>
         <script src="/js/jquery-1.9.1.min.js"></script>
         <script src="/js/zoom.min.js"></script>
     </div>
