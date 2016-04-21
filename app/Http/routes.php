@@ -142,3 +142,6 @@ Route::get('/cms/user_info_confirm',"UserController@user_info_confirm");
 Route::get('/cms/user_info',"UserController@user_info");
 
 Route::post('/cms/user_info',"UserController@updateUser");
+
+//数据导出入口
+Route::get('/cms/stall_export',"ExcelController@exportStall");

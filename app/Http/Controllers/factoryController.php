@@ -50,7 +50,7 @@ class FactoryController extends Controller{
             $factory->orderCount = Input::get('orderCount');
             $factory->shipmentOK = Input::get('shipmentOK');
             //$factory->tMall = Input::get('tMall');
-            $factory->tie = Input::get('tie');
+            //$factory->tie = Input::get('tie');
             //$factory->factorySize = Input::get('factorySize');
             //$factory->factoryOut = Input::get('factoryOut');
             $factory->design = Input::get('design');
