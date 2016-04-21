@@ -13,6 +13,10 @@ class ExcelController extends Controller{
     public function exportStall(){
         $info = Stall::all();
         foreach ($info as $key => $value){
+            if($value['shipmentOK'] == 1)
+                $shipmentOK = '是';
+            else
+                $shipmentOK = '否';
             $export[] = array(
                 '用户ID' => $value['stall_id'],
                 '用户名' => $value['username'],
@@ -25,7 +29,7 @@ class ExcelController extends Controller{
                 '档口地址(其它地区)' => $value['country'].$value['province'].$value['stallCity'].$value['region'].$value['address'],
                 '档口服装风格' => $value['style'],
                 '档口类目' => $value['category'],
-                '是否支持一件代发' => $value['shipmentOK'],
+                '是否支持一件代发' => $shipmentOK,
             );
         }
         Excel::create('档口商家信息汇总',function($excel) use ($export){
