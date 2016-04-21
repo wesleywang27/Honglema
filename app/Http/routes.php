@@ -144,4 +144,6 @@ Route::get('/cms/user_info',"UserController@user_info");
 Route::post('/cms/user_info',"UserController@updateUser");
 
 //数据导出入口
+Route::get('/cms/designer_export',"ExcelController@exportDesigner");
+
 Route::get('/cms/stall_export',"ExcelController@exportStall");

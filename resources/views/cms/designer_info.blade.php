@@ -14,7 +14,7 @@
     <!--tabCont-->
     <div class="admin_tab_cont" style="display:block;">
         <!--左右分栏：左侧栏目-->
-        <table border="2" width="95%" height="360" style="margin: 20px;">
+        <table border="2" width="95%" height="300" style="margin: 20px;">
             <tr>
                 <th width="15%">姓名：</th>
                 <td width="17%">{{ $designer->username}}</td>
@@ -53,9 +53,9 @@
             </tr>
             <tr>
                 <th>设计经历：</th>
-                <td colspan="2"><textarea name="description" style="width: 98%; height: 100px; margin-top: -22px; margin-bottom: -25px;" readonly>{{ $designer->designExperience}}</textarea></td>
+                <td colspan="2"><textarea name="description" style="width: 98%; height: 100px; margin-top: -18px; margin-bottom: -20px;" readonly>{{ $designer->designExperience}}</textarea></td>
                 <th>备注：</th>
-                <td colspan="2"><textarea name="description" style="width: 98%; height: 100px; margin-top: -22px; margin-bottom: -25px;" readonly>{{ $designer->description}}</textarea></td>
+                <td colspan="2"><textarea name="description" style="width: 98%; height: 100px; margin-top: -18px; margin-bottom: -20px;" readonly>{{ $designer->description}}</textarea></td>
             </tr>
         </table>
         <a href="/cms/designer" style=" margin-left:85%;"><input type="button" value="返回" class="link_btn"/></a>
