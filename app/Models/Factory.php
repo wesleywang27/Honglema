@@ -21,7 +21,6 @@ class Factory extends Model
         'category',
         'advantageSubcategory',
         'shipmentOK',
-        'tie',
         'ext1',
         'ext2',
         'ext5',

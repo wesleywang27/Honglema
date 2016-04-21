@@ -9,7 +9,7 @@ use App\Models\Factory;
 use App\Models\Stall;
 
 class ExcelController extends Controller{
-    //Excel文件导出功能
+    //档口信息导出Excel
     public function exportStall(){
         $info = Stall::all();
         foreach ($info as $key => $value){
