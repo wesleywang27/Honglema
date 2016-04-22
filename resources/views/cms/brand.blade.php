@@ -5,7 +5,7 @@
     <h2 class="fl">品牌商信息列表</h2>
     <form action="/cms/brand" id="baseInfoForm" method="post">
         <?php echo csrf_field(); ?>
-        <input class="fr top_rt_btn" style="float:right" id="saveSubmit" name="commit" type="submit" value="查找"/>
+        <input class="fr top_rt_btn" style="float:right; margin-top: 2px;" id="saveSubmit" name="commit" type="submit" value="查找"/>
         <input type="text" name="name" class="textboxsearch" placeholder="按姓名查找"/>
     </form>
 </div>
