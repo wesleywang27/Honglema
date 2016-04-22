@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/designer.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/designer.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/stall.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/stall.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/factory_info.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/factory_info.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,38 +40,18 @@
       <file leaf-file-name="factory.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/cms/factory.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="67" column="154" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="154" />
+            <state relative-caret-position="19">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="brand.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/cms/brand.blade.php">
+      <file leaf-file-name="factory_info.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/cms/factory_info.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="designer.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/cms/designer.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="67" column="128" selection-start-line="67" selection-start-column="128" selection-end-line="67" selection-end-column="128" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stall.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/cms/stall.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="67" column="116" selection-start-line="67" selection-start-column="116" selection-end-line="67" selection-end-column="116" />
+            <state relative-caret-position="342">
+              <caret line="99" column="43" selection-start-line="99" selection-start-column="43" selection-end-line="99" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -142,13 +121,13 @@
         <option value="$PROJECT_DIR$/resources/views/factory.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/brand_info.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/designer_info.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/cms/factory_info.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ExcelController.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/factory.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/brand.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/designer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/stall.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/cms/factory_info.blade.php" />
       </list>
     </option>
   </component>
@@ -768,14 +747,7 @@
       <workItem from="1461212507544" duration="920000" />
       <workItem from="1461213485803" duration="4502000" />
       <workItem from="1461220392167" duration="2220000" />
-      <workItem from="1461295337689" duration="2201000" />
-    </task>
-    <task id="LOCAL-00024" summary="后台登录验证 登出">
-      <created>1460536776380</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1460536776380</updated>
+      <workItem from="1461295337689" duration="2575000" />
     </task>
     <task id="LOCAL-00025" summary="页面blade">
       <created>1460603013642</created>
@@ -1113,11 +1085,18 @@
       <option name="project" value="LOCAL" />
       <updated>1461297767923</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="修改designer stall分页模块">
+      <created>1461297890679</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1461297890679</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157445000" />
+    <option name="totallyTimeSpent" value="157819000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1173,7 +1152,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="后台详情页 designer" />
     <MESSAGE value="后台详情页 brand" />
     <MESSAGE value="后台详情页" />
     <MESSAGE value="修改brandController" />
@@ -1198,7 +1176,8 @@
     <MESSAGE value="工厂导出excel模块" />
     <MESSAGE value="修改分页模块" />
     <MESSAGE value="修改brand分页模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改brand分页模块" />
+    <MESSAGE value="修改designer stall分页模块" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改designer stall分页模块" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1434,13 +1413,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1102">
-          <caret line="63" column="77" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/stall.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -1452,13 +1424,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="31">
           <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="188" column="40" selection-start-line="188" selection-start-column="40" selection-end-line="188" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1504,13 +1470,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/factory_info.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="463">
@@ -1537,18 +1496,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/factory.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/stall.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="67" column="154" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="154" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/brand.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="756">
+          <caret line="67" column="116" selection-start-line="67" selection-start-column="116" selection-end-line="67" selection-end-column="116" />
           <folding />
         </state>
       </provider>
@@ -1561,10 +1512,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/stall.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/brand.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="67" column="116" selection-start-line="67" selection-start-column="116" selection-end-line="67" selection-end-column="116" />
+        <state relative-caret-position="41">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/factory.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1865">
+          <caret line="188" column="40" selection-start-line="188" selection-start-column="40" selection-end-line="188" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/factory_info.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="99" column="43" selection-start-line="99" selection-start-column="43" selection-end-line="99" selection-end-column="43" />
           <folding />
         </state>
       </provider>
