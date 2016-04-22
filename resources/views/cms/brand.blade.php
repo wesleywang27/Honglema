@@ -37,21 +37,35 @@
     @endforeach
 </table>
 <aside class="paging">
+    <a class="{{ ($brands->currentPage() == 1) ? ' disabled' : '' }}" href="{{ $brands->url(1) }}">首页</a>
+
     @if ($brands->currentPage() == 1)
-    <a class="{{ ($brands->currentPage() == 1) ? ' disabled' : '' }}" href="#">前一页</a>
+    <a class="" href="#">前一页</a>
     @else
-    <a class="{{ ($brands->currentPage() == 1) ? ' disabled' : '' }}" href="{{ $brands->url(1) }}">前一页</a>
+    <a class="" href="{{ $brands->url($brands->currentPage() - 1) }}">前一页</a>
     @endif
 
+    @if ($brands->lastPage() <= 9)
     @for ($i = 1; $i <= $brands->lastPage(); $i++)
     <a class="{{ ($brands->currentPage() == $i) ? ' active' : '' }}" href="{{ $brands->url($i) }}">{{ $i }}</a>
     @endfor
+    @elseif ($brands->currentPage() > 4)
+    @for ($i = $brands->currentPage() - 4; $i <= $brands->currentPage() + 4; $i++)
+    <a class="{{ ($brands->currentPage() == $i) ? ' active' : '' }}" href="{{ $brands->url($i) }}">{{ $i }}</a>
+    @endfor
+    @else
+    @for ($i = 1; $i <= 9; $i++)
+    <a class="{{ ($brands->currentPage() == $i) ? ' active' : '' }}" href="{{ $brands->url($i) }}">{{ $i }}</a>
+    @endfor
+    @endif
 
     @if ($brands->currentPage() == $brands->lastPage())
     <a class="{{ ($brands->currentPage() == $brands->lastPage()) ? ' disabled' : '' }}" href="#" >后一页</a>
     @else
     <a class="{{ ($brands->currentPage() == $brands->lastPage()) ? ' disabled' : '' }}" href="{{ $brands->url($brands->currentPage()+1) }}" >后一页</a>
     @endif
+
+    <a class="{{ ($brands->currentPage() == $brands->lastPage()) ? ' disabled' : '' }}" href="{{ $brands->url($brands->lastPage()) }}" >尾页</a>
 </aside>
 <a href="{{ url('/cms/brand_export') }}" style="float: right;" ><input type="button" value="导出Excel" class="link_btn"/></a>
 @endsection

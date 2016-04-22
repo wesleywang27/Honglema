@@ -37,13 +37,12 @@
     @endforeach
 </table>
 <aside class="paging">
-
     <a class="{{ ($factories->currentPage() == 1) ? ' disabled' : '' }}" href="{{ $factories->url(1) }}">首页</a>
 
     @if ($factories->currentPage() == 1)
     <a class="" href="#">前一页</a>
     @else
-    <a class="" href="{{ $factories->url($factories->currentPage()-1) }}">前一页</a>
+    <a class="" href="{{ $factories->url($factories->currentPage() - 1) }}">前一页</a>
     @endif
 
     @if ($factories->lastPage() <= 9)
