@@ -1,7 +1,6 @@
 @extends('cms.banner')
 
 @section('content')
-<h2><strong style="color:grey;">商家信息管理</strong></h2>
 <div class="page_title">
     <h2 class="fl">品牌商信息列表</h2>
     <form action="/cms/brand" id="baseInfoForm" method="post">
@@ -22,16 +21,16 @@
     </tr>
     @foreach ($brands as $brand)
     <tr>
-        <td style="width:65px;">{{ $brand->brand_id}}</td>
+        <td style="width:65px; height: 20px;">{{ $brand->brand_id}}</td>
         <td style="width:100px;">{{ $brand->username}}</td>
         <td style="width:120px;">{{ $brand->mobile}}</td>
         <td style="width:120px;">{{ $brand->weixinNo}}</td>
         <td style="width:155px;">{{ $brand->company}}</td>
         <td style="width:120px;">{{ $brand->title}}</td>
         <td style="text-align:center">
-            <a href="{{URL::action('CMSController@brand_info', ['id' => $brand->brand_id]) }}"><input type="button" value="查看" class="link_btn" /></a>
+            <a href="{{URL::action('CMSController@brand_info', ['id' => $brand->brand_id]) }}"><input type="button" value="查看" class="link_btn" style="margin-top: -10px; margin-bottom: -10px;"/></a>
             <!--<input type="button" value="修改" class="link_btn"/>-->
-            <a href="{{URL::action('CMSController@deleteBrand', ['id' => $brand->brand_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
+            <a href="{{URL::action('CMSController@deleteBrand', ['id' => $brand->brand_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn" style="margin-top: -10px; margin-bottom: -10px;"/></a>
         </td>
     </tr>
     @endforeach

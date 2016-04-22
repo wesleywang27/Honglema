@@ -64,17 +64,18 @@
                 <dd><a href="/cms/stall">档口信息列表</a></dd>
             </dl>
         </li>
+        <!--
         <li>
             <dl>
                 <dt>红人信息管理</dt>
                 <dd><a href="#">红人信息列表</a></dd>
-                <!--
                 <dd><a href="#">添加红人信息</a></dd>
                 <dd><a href="#">查看红人信息</a></dd>
                 <dd><a href="#">修改红人信息</a></dd>
-                -->
             </dl>
         </li>
+        -->
+        @if ($_SESSION['is_admin'] == 1)
         <li>
             <dl>
                 <dt>后台用户管理</dt>
@@ -82,6 +83,7 @@
                 <dd><a href="/cms/user_create">添加后台用户</a></dd>
             </dl>
         </li>
+        @endif
         <li>
             <p class="btm_infor">© 红了吗 版权所有</p>
         </li>
