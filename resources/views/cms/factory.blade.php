@@ -37,21 +37,36 @@
     @endforeach
 </table>
 <aside class="paging">
+
+    <a class="{{ ($factories->currentPage() == 1) ? ' disabled' : '' }}" href="{{ $factories->url(1) }}">首页</a>
+
     @if ($factories->currentPage() == 1)
-    <a class="{{ ($factories->currentPage() == 1) ? ' disabled' : '' }}" href="#">前一页</a>
+    <a class="" href="#">前一页</a>
     @else
-    <a class="{{ ($factories->currentPage() == 1) ? ' disabled' : '' }}" href="{{ $factories->url(1) }}">前一页</a>
+    <a class="" href="{{ $factories->url($factories->currentPage()-1) }}">前一页</a>
     @endif
 
+    @if ($factories->lastPage() <= 9)
     @for ($i = 1; $i <= $factories->lastPage(); $i++)
     <a class="{{ ($factories->currentPage() == $i) ? ' active' : '' }}" href="{{ $factories->url($i) }}">{{ $i }}</a>
     @endfor
+    @elseif ($factories->currentPage() > 4)
+    @for ($i = $factories->currentPage() - 4; $i <= $factories->currentPage() + 4; $i++)
+    <a class="{{ ($factories->currentPage() == $i) ? ' active' : '' }}" href="{{ $factories->url($i) }}">{{ $i }}</a>
+    @endfor
+    @else
+    @for ($i = 1; $i <= 9; $i++)
+    <a class="{{ ($factories->currentPage() == $i) ? ' active' : '' }}" href="{{ $factories->url($i) }}">{{ $i }}</a>
+    @endfor
+    @endif
 
     @if ($factories->currentPage() == $factories->lastPage())
-    <a class="{{ ($factories->currentPage() == $factories->lastPage()) ? ' disabled' : '' }}" href="#" >后一页</a>
+    <a class="" href="#" >后一页</a>
     @else
-    <a class="{{ ($factories->currentPage() == $factories->lastPage()) ? ' disabled' : '' }}" href="{{ $factories->url($factories->currentPage()+1) }}" >后一页</a>
+    <a class="" href="{{ $factories->url($factories->currentPage()+1) }}" >后一页</a>
     @endif
+
+    <a class="{{ ($factories->currentPage() == $factories->lastPage()) ? ' disabled' : '' }}" href="{{ $factories->url($factories->lastPage()) }}" >尾页</a>
 </aside>
 <a href="{{ url('/cms/factory_export') }}" style="float: right;" ><input type="button" value="导出Excel" class="link_btn"/></a>
 @endsection
