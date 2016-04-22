@@ -25,7 +25,7 @@
         <td style="width:100px;">{{ $brand->username}}</td>
         <td style="width:120px;">{{ $brand->mobile}}</td>
         <td style="width:120px;">{{ $brand->weixinNo}}</td>
-        <td style="width:155px;">{{ $brand->company}}</td>
+        <td style="width:200px;">{{ $brand->company}}</td>
         <td style="width:120px;">{{ $brand->title}}</td>
         <td style="text-align:center">
             <a href="{{URL::action('CMSController@brand_info', ['id' => $brand->brand_id]) }}"><input type="button" value="查看" class="link_btn" style="margin-top: -10px; margin-bottom: -10px;"/></a>

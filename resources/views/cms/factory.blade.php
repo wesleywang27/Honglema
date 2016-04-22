@@ -24,8 +24,8 @@
         <td style="width:65px; height: 20px;">{{ $factory->factory_id}}</td>
         <td style="width:100px;">{{ $factory->username}}</td>
         <td style="width:120px;">{{ $factory->mobile}}</td>
-        <td style="width:155px;">{{ $factory->weixinNo}}</td>
-        <td style="width:120px;">{{ $factory->company}}</td>
+        <td style="width:120px;">{{ $factory->weixinNo}}</td>
+        <td style="width:200px;">{{ $factory->company}}</td>
         <td style="width:120px;">{{ $factory->title}}</td>
         <td style="text-align:center">
             <a href="{{URL::action('CMSController@factory_info', ['id' => $factory->factory_id]) }}"><input type="button" value="查看" class="link_btn" style="margin-top: -10px; margin-bottom: -10px;"/></a>

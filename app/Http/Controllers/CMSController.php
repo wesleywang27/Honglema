@@ -54,7 +54,7 @@ class CMSController extends Controller{
     public function factory(){
         session_start();
         if(isset($_SESSION['username'])){
-            $factory = Factory::paginate(9);
+            $factory = Factory::paginate(10);
             return view('/cms/factory',['factories' => $factory]);
         }
         else{
@@ -78,7 +78,7 @@ class CMSController extends Controller{
         session_start();
         if(isset($_SESSION['username'])){
             Factory::where('factory_id',$id)->delete();
-            $factory = Factory::paginate(9);
+            $factory = Factory::paginate(10);
             return view('/cms/factory',['factories' => $factory]);
         }
         else{
@@ -89,7 +89,7 @@ class CMSController extends Controller{
     public function searchFactory(){
         session_start();
         if(isset($_SESSION['username'])){
-            $factory = Factory::where('username','like','%'.Input::get('name').'%')->paginate(9);
+            $factory = Factory::where('username','like','%'.Input::get('name').'%')->paginate(10);
             return view('/cms/factory',['factories' => $factory]);
         }
         else{
@@ -100,7 +100,7 @@ class CMSController extends Controller{
     public function brand(){
         session_start();
         if(isset($_SESSION['username'])){
-            $brand = Brand::paginate(9);
+            $brand = Brand::paginate(10);
             return view('/cms/brand',['brands' => $brand]);
         }
         else{
@@ -124,7 +124,7 @@ class CMSController extends Controller{
         session_start();
         if(isset($_SESSION['username'])){
             Brand::where('brand_id',$id)->delete();
-            $brand = Brand::paginate(9);
+            $brand = Brand::paginate(10);
             return view('/cms/brand',['brands' => $brand]);
         }
         else{
@@ -135,7 +135,7 @@ class CMSController extends Controller{
     public function searchBrand(){
         session_start();
         if(isset($_SESSION['username'])){
-            $brand = Brand::where('username','like','%'.Input::get('name').'%')->paginate(9);
+            $brand = Brand::where('username','like','%'.Input::get('name').'%')->paginate(10);
             return view('/cms/brand',['brands' => $brand]);
         }
         else{
@@ -146,7 +146,7 @@ class CMSController extends Controller{
     public function designer(){
         session_start();
         if(isset($_SESSION['username'])){
-            $designer = Designer::paginate(9);
+            $designer = Designer::paginate(10);
             return view('/cms/designer',['designers' => $designer]);
         }
         else{
@@ -170,7 +170,7 @@ class CMSController extends Controller{
         session_start();
         if(isset($_SESSION['username'])){
             Designer::where('designer_id',$id)->delete();
-            $designer = Designer::paginate(9);
+            $designer = Designer::paginate(10);
             return view('/cms/designer',['designers' => $designer]);
         }
         else{
@@ -181,7 +181,7 @@ class CMSController extends Controller{
     public function searchDesigner(){
         session_start();
         if(isset($_SESSION['username'])){
-            $designer = Designer::where('username','like','%'.Input::get('name').'%')->paginate(9);
+            $designer = Designer::where('username','like','%'.Input::get('name').'%')->paginate(10);
             return view('/cms/designer',['designers' => $designer]);
         }
         else{
@@ -192,7 +192,7 @@ class CMSController extends Controller{
     public function stall(){
         session_start();
         if(isset($_SESSION['username'])){
-            $stall = Stall::paginate(9);
+            $stall = Stall::paginate(10);
             return view('/cms/stall',['stalls' => $stall]);
         }
         else{
@@ -216,7 +216,7 @@ class CMSController extends Controller{
         session_start();
         if(isset($_SESSION['username'])){
             Stall::where('stall_id',$id)->delete();
-            $stall = Stall::paginate(9);
+            $stall = Stall::paginate(10);
             return view('/cms/stall',['stalls' => $stall]);
         }
         else{
@@ -227,7 +227,7 @@ class CMSController extends Controller{
     public function searchStall(){
         session_start();
         if(isset($_SESSION['username'])){
-            $stall = Stall::where('username','like','%'.Input::get('name').'%')->paginate(9);
+            $stall = Stall::where('username','like','%'.Input::get('name').'%')->paginate(10);
             return view('/cms/stall',['stalls' => $stall]);
         }
         else{
