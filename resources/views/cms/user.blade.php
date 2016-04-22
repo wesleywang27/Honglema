@@ -45,21 +45,35 @@
     @endforeach
 </table>
 <aside class="paging">
+    <a class="{{ ($users->currentPage() == 1) ? ' disabled' : '' }}" href="{{ $users->url(1) }}">首页</a>
+
     @if ($users->currentPage() == 1)
-    <a class="{{ ($users->currentPage() == 1) ? ' disabled' : '' }}" href="#">前一页</a>
+    <a class="" href="#">前一页</a>
     @else
-    <a class="{{ ($users->currentPage() == 1) ? ' disabled' : '' }}" href="{{ $users->url(1) }}">前一页</a>
+    <a class="" href="{{ $users->url($users->currentPage() - 1) }}">前一页</a>
     @endif
 
+    @if ($users->lastPage() <= 9)
     @for ($i = 1; $i <= $users->lastPage(); $i++)
     <a class="{{ ($users->currentPage() == $i) ? ' active' : '' }}" href="{{ $users->url($i) }}">{{ $i }}</a>
     @endfor
+    @elseif ($users->currentPage() > 4)
+    @for ($i = $users->currentPage() - 4; $i <= $users->currentPage() + 4; $i++)
+    <a class="{{ ($users->currentPage() == $i) ? ' active' : '' }}" href="{{ $users->url($i) }}">{{ $i }}</a>
+    @endfor
+    @else
+    @for ($i = 1; $i <= 9; $i++)
+    <a class="{{ ($users->currentPage() == $i) ? ' active' : '' }}" href="{{ $users->url($i) }}">{{ $i }}</a>
+    @endfor
+    @endif
 
     @if ($users->currentPage() == $users->lastPage())
     <a class="{{ ($users->currentPage() == $users->lastPage()) ? ' disabled' : '' }}" href="#" >后一页</a>
     @else
     <a class="{{ ($users->currentPage() == $users->lastPage()) ? ' disabled' : '' }}" href="{{ $users->url($users->currentPage()+1) }}" >后一页</a>
     @endif
+
+    <a class="{{ ($users->currentPage() == $users->lastPage()) ? ' disabled' : '' }}" href="{{ $users->url($users->lastPage()) }}" >尾页</a>
 </aside>
 
 @endsection
