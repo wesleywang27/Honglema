@@ -8,7 +8,7 @@
     <form action="/cms/user" id="baseInfoForm" method="post">
         <?php echo csrf_field(); ?>
         <input class="fr top_rt_btn" style="float:right" id="saveSubmit" name="commit" type="submit" value="查找"/>
-        <input type="text" name="name" class="textboxsearch" placeholder="按姓名查找"/>
+        <input type="text" name="name" class="textboxsearch" placeholder="按用户名查找"/>
     </form>
 </div>
 <table class="table">
