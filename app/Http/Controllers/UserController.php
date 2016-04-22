@@ -83,14 +83,14 @@ class UserController extends Controller{
                 $password = Input::get('password');
                 $passwordConfirm = Input::get('passwordConfirm');
                 if(strlen($password) < 8){
-                    echo "<script>history.go(-1); alert('密码至少8位!');</script>";
+                    echo "<script>history.back(); alert('密码至少8位!');</script>";
                     return;
                 }
                 if($password == $passwordConfirm){
                     $user->password = Hash::make($password);
                 }
                 else{
-                    echo "<script>history.go(-1); alert('请输入相同的密码!');</script>";
+                    echo "<script>history.back(); alert('请输入相同的密码!');</script>";
                     return;
                 }
                 $user->is_admin = Input::get('is_admin');
@@ -101,7 +101,7 @@ class UserController extends Controller{
                 return view('/cms/index');
             }else {
                 // 验证没通过就显示错误提示信息
-                echo "<script>history.go(-1); alert('用户名或邮箱已存在!');</script>";
+                echo "<script>history.back(); alert('用户名或邮箱已存在!');</script>";
             }
         }
         else{
@@ -137,14 +137,14 @@ class UserController extends Controller{
                 $password = Input::get('password');
                 $passwordConfirm = Input::get('passwordConfirm');
                 if(strlen($password) < 8){
-                    echo "<script>history.go(-1); alert('密码至少8位!');</script>";
+                    echo "<script>history.back(); alert('密码至少8位!');</script>";
                     return;
                 }
                 if($password == $passwordConfirm){
                     $password = Hash::make($password);
                 }
                 else{
-                    echo "<script>history.go(-1); alert('请输入相同的密码!');</script>";
+                    echo "<script>history.back(); alert('请输入相同的密码!');</script>";
                     return;
                 }
                 $user = User::where('name',$_SESSION['username'])->first();
@@ -157,7 +157,7 @@ class UserController extends Controller{
                 return view('/cms/index');
             }
             else{
-                echo "<script>history.go(-1); alert('当前密码错误!');</script>";
+                echo "<script>history.back(); alert('当前密码错误!');</script>";
                 return;
             }
         }
