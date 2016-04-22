@@ -40,8 +40,8 @@
       <file leaf-file-name="user.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/cms/user.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="75" column="114" selection-start-line="75" selection-start-column="114" selection-end-line="75" selection-end-column="114" />
+            <state relative-caret-position="190">
+              <caret line="10" column="78" selection-start-line="10" selection-start-column="78" selection-end-line="10" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -747,14 +747,7 @@
       <workItem from="1461212507544" duration="920000" />
       <workItem from="1461213485803" duration="4502000" />
       <workItem from="1461220392167" duration="2220000" />
-      <workItem from="1461295337689" duration="2827000" />
-    </task>
-    <task id="LOCAL-00027" summary="designer 列表">
-      <created>1460619979385</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1460619979385</updated>
+      <workItem from="1461295337689" duration="2892000" />
     </task>
     <task id="LOCAL-00028" summary="Merge branch 'master' into shangjia&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;app/Http/Controllers/brandController.php&#10;">
       <created>1460621783548</created>
@@ -1092,11 +1085,18 @@
       <option name="project" value="LOCAL" />
       <updated>1461298348909</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="修改用户列表分页">
+      <created>1461298518863</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1461298518863</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158071000" />
+    <option name="totallyTimeSpent" value="158136000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1152,7 +1152,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="后台详情页" />
     <MESSAGE value="修改brandController" />
     <MESSAGE value="designer stall删除" />
     <MESSAGE value="brand 删除" />
@@ -1177,7 +1176,8 @@
     <MESSAGE value="修改brand分页模块" />
     <MESSAGE value="修改designer stall分页模块" />
     <MESSAGE value="修改返回链接" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改返回链接" />
+    <MESSAGE value="修改用户列表分页" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改用户列表分页" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1550,8 +1550,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/user.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="75" column="114" selection-start-line="75" selection-start-column="114" selection-end-line="75" selection-end-column="114" />
+        <state relative-caret-position="190">
+          <caret line="10" column="78" selection-start-line="10" selection-start-column="78" selection-end-line="10" selection-end-column="78" />
           <folding />
         </state>
       </provider>
