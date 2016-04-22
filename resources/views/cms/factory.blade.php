@@ -36,6 +36,8 @@
     @endforeach
 </table>
 <aside class="paging">
+    <a href="{{ url('/cms/factory_export') }}" style="float: left;">导出EXcel</a>
+
     <a class="{{ ($factories->currentPage() == 1) ? ' disabled' : '' }}" href="{{ $factories->url(1) }}">首页</a>
 
     @if ($factories->currentPage() == 1)
@@ -66,5 +68,4 @@
 
     <a class="{{ ($factories->currentPage() == $factories->lastPage()) ? ' disabled' : '' }}" href="{{ $factories->url($factories->lastPage()) }}" >尾页</a>
 </aside>
-<a href="{{ url('/cms/factory_export') }}" style="float: right;" ><input type="button" value="导出Excel" class="link_btn"/></a>
 @endsection
