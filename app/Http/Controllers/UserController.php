@@ -115,7 +115,7 @@ class UserController extends Controller{
 
                 $user->save();
                 echo "<script> alert('用户添加成功!'); </script>";
-                return view('/cms/index');
+                return Redirect::intended('/cms/index');
             }else {
                 // 验证没通过就显示错误提示信息
                 echo "<script>history.back(); alert('用户名或邮箱已存在!');</script>";
@@ -171,7 +171,7 @@ class UserController extends Controller{
                 $user->save();
 
                 echo "<script> alert('信息修改成功!'); </script>";
-                return view('/cms/index');
+                return Redirect::intended('/cms/index');
             }
             else{
                 echo "<script>history.back(); alert('当前密码错误!');</script>";
