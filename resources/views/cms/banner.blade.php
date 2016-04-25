@@ -58,10 +58,18 @@
         <li>
             <dl>
                 <dt>商家信息管理</dt>
+                @if ($_SESSION['factory_right'])
                 <dd><a href="/cms/factory">工厂信息列表</a></dd>
+                @endif
+                @if ($_SESSION['brand_right'])
                 <dd><a href="/cms/brand">品牌商信息列表</a></dd>
+                @endif
+                @if ($_SESSION['designer_right'])
                 <dd><a href="/cms/designer">设计师信息列表</a></dd>
+                @endif
+                @if ($_SESSION['stall_right'])
                 <dd><a href="/cms/stall">档口信息列表</a></dd>
+                @endif
             </dl>
         </li>
         <!--
@@ -75,7 +83,7 @@
             </dl>
         </li>
         -->
-        @if ($_SESSION['is_admin'] == 1)
+        @if ($_SESSION['is_admin'])
         <li>
             <dl>
                 <dt>后台用户管理</dt>
