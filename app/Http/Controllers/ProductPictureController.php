@@ -58,7 +58,7 @@ class ProductPictureController extends Controller
 
         //上传图片到阿里oss
         $oss = new OssClient(config('oss.accessKeyId'), config('oss.accessKeySecret'), config('oss.endpoint'));
-        $baseDir = "test/honglema";
+        $baseDir = "honglema/product";
         // todo 每张图片异步处理, 最后同步等待\
         $newName = $media_id.".jpg";
         $oss->uploadFile(config('oss.bucket'), "$baseDir/$newName", $filename);
