@@ -8,7 +8,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="stylesheet" href="http://y.wcc.cn/statics/amazeui/css/amazeui.min.css">
-    <link rel="stylesheet" href="http://weui.github.io/weui/weui.css">
+    <link rel="stylesheet" href="/css/weui.css">
     <link rel="stylesheet" href="http://y.wcc.cn/statics/amazeui/css/app.css?v=2016030801">
     <link rel="stylesheet" href="http://y.wcc.cn/statics/amazeui/css/admin.css">
 
