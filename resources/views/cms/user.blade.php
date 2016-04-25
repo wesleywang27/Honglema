@@ -16,14 +16,15 @@
         <th>用户ID</th>
         <th>用户名</th>
         <th>邮箱</th>
-        <th>用户权限</th>
+        <th>用户身份</th>
+        <th>访问权限</th>
         <th>创建时间</th>
         <th>操作</th>
     </tr>
     @foreach ($users as $user)
     <tr>
-        <td style="width:100px;text-align:center">{{ $user->id}}</td>
-        <td style="width:150px;text-align:center">{{ $user->name}}</td>
+        <td style="width:80px;text-align:center">{{ $user->id}}</td>
+        <td style="width:120px;text-align:center">{{ $user->name}}</td>
         <td style="width:200px;text-align:center">{{ $user->email}}</td>
         @if ($user->is_super_admin == 1)
         <td style="width:150px;text-align:center">超级管理员</td>
@@ -32,6 +33,20 @@
         @else
         <td style="width:150px;text-align:center">普通用户</td>
         @endif
+        <td style="width:180px;text-align:center">
+            @if ($user->factory_right == 1)
+            工厂
+            @endif
+            @if ($user->brand_right == 1)
+            品牌商
+            @endif
+            @if ($user->designer_right == 1)
+            设计师
+            @endif
+            @if ($user->stall_right == 1)
+            档口
+            @endif
+        </td>
         <td style="width:200px;text-align:center">{{ $user->created_at}}</td>
         @if ($is_super_admin == 1)
         <td style="width:150px;text-align:center">
