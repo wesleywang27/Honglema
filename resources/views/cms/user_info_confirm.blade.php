@@ -20,7 +20,7 @@
         <input class="textbox textbox_225" type="text"  value="{{ $user->email}}" readonly>
     </div>
     <div style="margin-top: 20px;">
-        <label>用户权限：</label>
+        <label>用户身份：</label>
         @if ($user->is_super_admin == 1)
         <input class="textbox textbox_225" type="text"  value="超级管理员" readonly>
         @elseif ($user->is_admin == 1)
