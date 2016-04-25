@@ -458,6 +458,29 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //修改设计师图片信息
+    public function updateDesignerImg($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            if($_SESSION['designer_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $designer = Designer::where('designer_id',$id)->first();
+                $image = Input::get('img');
+                foreach ($image as $img){
+                    ProductPicture::where('id',$id)->where('type',2)->where('url',$img)->delete();
+                }
+                $picture = ProductPicture::where('id',$id)->where('type',2)->get();
+                echo "<script>alert('删除成功!');</script>";
+                return Redirect::intended("/cms/designer_info/$id")->with(['designer' => $designer, 'pictures' => $picture]);
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //档口列表页面
     public function stall(){
         session_start();
