@@ -293,6 +293,24 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //档口修改信息
+    public function modifyStallInfo($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            if($_SESSION['stall_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $stall = Stall::where('stall_id',$id)->first();
+                $picture = ProductPicture::where('id',$id)->where('type',3)->get();
+                return view('cms/stall_modify',['stall' => $stall, 'pictures' => $picture]);
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //删除档口信息
     public function deleteStall($id){
         session_start();

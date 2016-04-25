@@ -108,6 +108,9 @@ Route::get('/cms/designer_info/{id?}',"CMSController@designer_info");
 
 Route::get('/cms/stall_info/{id?}',"CMSController@stall_info");
 
+//信息修改入口
+Route::get('cms/stall_modify/{id?}',"CMSController@modifyStallInfo");
+
 //信息删除入口
 Route::get('/cms/factory/{id?}',"CMSController@deleteFactory");
 
