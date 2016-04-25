@@ -240,7 +240,7 @@ class CMSController extends Controller{
             else{
                 $designer = Designer::where('designer_id',$id)->first();
                 $picture = ProductPicture::where('id',$id)->where('type',3)->get();
-                return view('cms/designer_modify',['designer' => $designer, 'pictures' => $picture]);
+                return view('/cms/designer_modify',['designer' => $designer, 'pictures' => $picture]);
             }
         }
         else{
@@ -283,7 +283,7 @@ class CMSController extends Controller{
                 $designer->save();
 
                 $picture = ProductPicture::where('id',$id)->where('type',2)->get();
-                return Redirect::intended("cms/designer_info/$id")->with(['designer' => $designer, 'pictures' => $picture]);
+                return Redirect::intended("/cms/designer_info/$id")->with(['designer' => $designer, 'pictures' => $picture]);
             }
         }
         else{
@@ -365,7 +365,7 @@ class CMSController extends Controller{
             else{
                 $stall = Stall::where('stall_id',$id)->first();
                 $picture = ProductPicture::where('id',$id)->where('type',3)->get();
-                return view('cms/stall_modify',['stall' => $stall, 'pictures' => $picture]);
+                return view('/cms/stall_modify',['stall' => $stall, 'pictures' => $picture]);
             }
         }
         else{
@@ -404,7 +404,7 @@ class CMSController extends Controller{
                 $stall->save();
 
                 $picture = ProductPicture::where('id',$id)->where('type',3)->get();
-                return Redirect::intended("cms/stall_info/$id")->with(['stall' => $stall, 'pictures' => $picture]);
+                return Redirect::intended("/cms/stall_info/$id")->with(['stall' => $stall, 'pictures' => $picture]);
             }
         }
         else{
