@@ -199,6 +199,29 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //修改工厂图片信息
+    public function updateFactoryImg($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            if($_SESSION['factory_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $factory = Factory::where('factory_id',$id)->first();
+                $image = Input::get('img');
+                foreach ($image as $img){
+                    ProductPicture::where('id',$id)->where('type',0)->where('url',$img)->delete();
+                }
+                $picture = ProductPicture::where('id',$id)->where('type',0)->get();
+                echo "<script>alert('删除成功!');</script>";
+                return Redirect::intended("/cms/factory_info/$id")->with(['factory' => $factory, 'pictures' => $picture]);
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //品牌商列表页面
     public function brand(){
         session_start();
