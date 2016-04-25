@@ -61,7 +61,7 @@
             <div class="container">
                 <ul class="gallery">
                     @foreach ($pictures as $picture)
-                    <li><a href="{{ $picture->url }}"><img src="{{ $picture->url }}" style="width: 80px;"/></a><label><input name="img" type="checkbox" value="{{ $picture->url }}" style="margin-top:5px;"/></label></li>
+                    <li><a href="{{ $picture->url }}"><img src="{{ $picture->url }}" style="width: 80px; height: 80px;"/></a><label><input name="img[]" type="checkbox" value="{{ $picture->url }}" style="margin-top:5px;"/></label></li>
                     @endforeach
                 </ul>
                 <label class="uploadImg" style="margin-top:10px; margin-left:10px;">
