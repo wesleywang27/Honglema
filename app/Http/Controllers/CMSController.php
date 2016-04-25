@@ -27,7 +27,23 @@ class CMSController extends Controller{
                 $_SESSION['is_admin'] = 1;
             else
                 $_SESSION['is_admin'] = 0;
-            return view("/cms/index", ['is_admin' => $_SESSION['is_admin']]);
+            if ($user->factory_right == 1)
+                $_SESSION['factory_right'] = 1;
+            else
+                $_SESSION['factory_right'] = 0;
+            if ($user->brand_right == 1)
+                $_SESSION['brand_right'] = 1;
+            else
+                $_SESSION['brand_right'] = 0;
+            if ($user->designer_right == 1)
+                $_SESSION['designer_right'] = 1;
+            else
+                $_SESSION['designer_right'] = 0;
+            if ($user->stall_right == 1)
+                $_SESSION['stall_right'] = 1;
+            else
+                $_SESSION['stall_right'] = 0;
+            return view("/cms/index");
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -54,8 +70,14 @@ class CMSController extends Controller{
     public function factory(){
         session_start();
         if(isset($_SESSION['username'])){
-            $factory = Factory::paginate(10);
-            return view('/cms/factory',['factories' => $factory]);
+            if($_SESSION['factory_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $factory = Factory::paginate(10);
+                return view('/cms/factory',['factories' => $factory]);
+            }
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -65,9 +87,15 @@ class CMSController extends Controller{
     public function factory_info($id){
         session_start();
         if(isset($_SESSION['username'])){
-            $factory = Factory::where('factory_id',$id)->first();
-            $picture = ProductPicture::where('id',$id)->where('type',0)->get();
-            return view('cms/factory_info',['factory' => $factory, 'pictures' => $picture]);
+            if($_SESSION['factory_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $factory = Factory::where('factory_id',$id)->first();
+                $picture = ProductPicture::where('id',$id)->where('type',0)->get();
+                return view('cms/factory_info',['factory' => $factory, 'pictures' => $picture]);
+            }
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -77,9 +105,15 @@ class CMSController extends Controller{
     public function deleteFactory($id){
         session_start();
         if(isset($_SESSION['username'])){
-            Factory::where('factory_id',$id)->delete();
-            $factory = Factory::paginate(10);
-            return view('/cms/factory',['factories' => $factory]);
+            if($_SESSION['factory_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                Factory::where('factory_id',$id)->delete();
+                $factory = Factory::paginate(10);
+                return view('/cms/factory',['factories' => $factory]);
+            }
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -100,8 +134,14 @@ class CMSController extends Controller{
     public function brand(){
         session_start();
         if(isset($_SESSION['username'])){
-            $brand = Brand::paginate(10);
-            return view('/cms/brand',['brands' => $brand]);
+            if($_SESSION['brand_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $brand = Brand::paginate(10);
+                return view('/cms/brand',['brands' => $brand]);
+            }
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -111,9 +151,15 @@ class CMSController extends Controller{
     public function brand_info($id){
         session_start();
         if(isset($_SESSION['username'])){
-            $brand = Brand::where('brand_id',$id)->first();
-            $picture = ProductPicture::where('id',$id)->where('type',1)->get();
-            return view('cms/brand_info',['brand' => $brand, 'pictures' => $picture]);
+            if($_SESSION['brand_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $brand = Brand::where('brand_id',$id)->first();
+                $picture = ProductPicture::where('id',$id)->where('type',1)->get();
+                return view('cms/brand_info',['brand' => $brand, 'pictures' => $picture]);
+            }
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -123,9 +169,15 @@ class CMSController extends Controller{
     public function deleteBrand($id){
         session_start();
         if(isset($_SESSION['username'])){
-            Brand::where('brand_id',$id)->delete();
-            $brand = Brand::paginate(10);
-            return view('/cms/brand',['brands' => $brand]);
+            if($_SESSION['brand_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                Brand::where('brand_id',$id)->delete();
+                $brand = Brand::paginate(10);
+                return view('/cms/brand',['brands' => $brand]);
+            }
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -146,8 +198,14 @@ class CMSController extends Controller{
     public function designer(){
         session_start();
         if(isset($_SESSION['username'])){
-            $designer = Designer::paginate(10);
-            return view('/cms/designer',['designers' => $designer]);
+            if($_SESSION['designer_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $designer = Designer::paginate(10);
+                return view('/cms/designer',['designers' => $designer]);
+            }
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -157,9 +215,15 @@ class CMSController extends Controller{
     public function designer_info($id){
         session_start();
         if(isset($_SESSION['username'])){
-            $designer = Designer::where('designer_id',$id)->first();
-            $picture = ProductPicture::where('id',$id)->where('type',2)->get();
-            return view('cms/designer_info',['designer' => $designer, 'pictures' => $picture]);
+            if($_SESSION['designer_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $designer = Designer::where('designer_id',$id)->first();
+                $picture = ProductPicture::where('id',$id)->where('type',2)->get();
+                return view('cms/designer_info',['designer' => $designer, 'pictures' => $picture]);
+            }
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -169,9 +233,15 @@ class CMSController extends Controller{
     public function deleteDesigner($id){
         session_start();
         if(isset($_SESSION['username'])){
-            Designer::where('designer_id',$id)->delete();
-            $designer = Designer::paginate(10);
-            return view('/cms/designer',['designers' => $designer]);
+            if($_SESSION['designer_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                Designer::where('designer_id',$id)->delete();
+                $designer = Designer::paginate(10);
+                return view('/cms/designer',['designers' => $designer]);
+            }
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -192,8 +262,14 @@ class CMSController extends Controller{
     public function stall(){
         session_start();
         if(isset($_SESSION['username'])){
-            $stall = Stall::paginate(10);
-            return view('/cms/stall',['stalls' => $stall]);
+            if($_SESSION['stall_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $stall = Stall::paginate(10);
+                return view('/cms/stall',['stalls' => $stall]);
+            }
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -202,10 +278,16 @@ class CMSController extends Controller{
     //档口详情页面
     public function stall_info($id){
         session_start();
-            if(isset($_SESSION['username'])){
+        if(isset($_SESSION['username'])){
+            if($_SESSION['stall_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
                 $stall = Stall::where('stall_id',$id)->first();
                 $picture = ProductPicture::where('id',$id)->where('type',3)->get();
                 return view('cms/stall_info',['stall' => $stall, 'pictures' => $picture]);
+            }
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -215,9 +297,15 @@ class CMSController extends Controller{
     public function deleteStall($id){
         session_start();
         if(isset($_SESSION['username'])){
-            Stall::where('stall_id',$id)->delete();
-            $stall = Stall::paginate(10);
-            return view('/cms/stall',['stalls' => $stall]);
+            if($_SESSION['stall_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                Stall::where('stall_id',$id)->delete();
+                $stall = Stall::paginate(10);
+                return view('/cms/stall',['stalls' => $stall]);
+            }
         }
         else{
             return Redirect::intended('/cms/login.php');
