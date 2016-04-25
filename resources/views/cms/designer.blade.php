@@ -29,7 +29,7 @@
         <td style="width:120px;">{{ $designer->title}}</td>
         <td style="text-align:center">
             <a href="{{URL::action('CMSController@designer_info', ['id' => $designer->designer_id]) }}"><input type="button" value="查看" class="link_btn" style="margin-top: -10px; margin-bottom: -10px;"/></a>
-            <!--<input type="button" value="修改" class="link_btn"/>-->
+            <a href="{{URL::action('CMSController@modifyDesignerInfo', ['id' => $designer->designer_id]) }}"><input type="button" value="修改" class="link_btn" style="margin-top: -10px; margin-bottom: -10px;"/></a>
             <a href="{{URL::action('CMSController@deleteDesigner', ['id' => $designer->designer_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn" style="margin-top: -10px; margin-bottom: -10px;"/></a>
         </td>
     </tr>
