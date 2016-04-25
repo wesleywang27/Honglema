@@ -101,6 +101,75 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //工厂信息修改页
+    public function modifyFactoryInfo($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            if($_SESSION['factory_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $factory = Factory::where('factory_id',$id)->first();
+                $picture = ProductPicture::where('id',$id)->where('type',0)->get();
+                return view('/cms/factory_modify',['factory' => $factory, 'pictures' => $picture]);
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
+    //修改工厂信息
+    public function updateFactoryInfo($id){
+        session_start();
+        if(isset($_SESSION['username'])) {
+            if ($_SESSION['factory_right'] == 0) {
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $factory = Factory::where('factory_id',$id)->first();
+                $factory->username = Input::get('username');
+                $factory->mobile = Input::get('mobile');
+                $factory->weixinNo = Input::get('weixinNo');
+                $factory->title = Input::get('title');
+                $factory->company = Input::get('company');
+                $factory->province = Input::get('province');
+                $factory->city = Input::get('city');
+                $factory->region = Input::get('region');
+                $factory->address = Input::get('address');
+                $factory->category = Input::get('category');
+                $factory->advantageSubcategory = Input::get('advantageSubcategory');
+                $factory->ext1 = Input::get('ext1');
+                $factory->ext2 = Input::get('ext2');
+                $factory->ext5 = Input::get('ext5');
+                $factory->orderCount = Input::get('orderCount');
+                $factory->productCount = Input::get('productCount');
+                if (Input::get('design') == '是')
+                    $factory->design = 1;
+                else
+                    $factory->design = 0;
+                if (Input::get('refund') == '是')
+                    $factory->refund = 1;
+                else
+                    $factory->refund = 0;
+                if (Input::get('shipmentOK') == '是')
+                    $factory->shipmentOK = 1;
+                else
+                    $factory->shipmentOK = 0;
+                $factory->zhangqi = Input::get('zhangqi');
+                $factory->description = Input::get('description');
+
+                $factory->save();
+
+                $picture = ProductPicture::where('id',$id)->where('type',0)->get();
+                return Redirect::intended("/cms/factory_info/$id")->with(['factory' => $factory, 'pictures' => $picture]);
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //删除工厂信息
     public function deleteFactory($id){
         session_start();
@@ -175,7 +244,7 @@ class CMSController extends Controller{
             }
             else{
                 $brand = Brand::where('brand_id',$id)->first();
-                $picture = ProductPicture::where('id',$id)->where('type',3)->get();
+                $picture = ProductPicture::where('id',$id)->where('type',1)->get();
                 return view('/cms/brand_modify',['brand' => $brand, 'pictures' => $picture]);
             }
         }
@@ -219,12 +288,15 @@ class CMSController extends Controller{
                 $brand->style = Input::get('style');
                 $brand->customPosition = Input::get('customPosition');
                 $brand->customAge = Input::get('customAge');
-                $brand->refund = Input::get('refund');
+                if (Input::get('refund') == '是')
+                    $brand->refund = 1;
+                else
+                    $brand->refund = 0;
                 $brand->description = Input::get('description');
 
                 $brand->save();
 
-                $picture = ProductPicture::where('id',$id)->where('type',2)->get();
+                $picture = ProductPicture::where('id',$id)->where('type',1)->get();
                 return Redirect::intended("/cms/brand_info/$id")->with(['brand' => $brand, 'pictures' => $picture]);
             }
         }
@@ -306,7 +378,7 @@ class CMSController extends Controller{
             }
             else{
                 $designer = Designer::where('designer_id',$id)->first();
-                $picture = ProductPicture::where('id',$id)->where('type',3)->get();
+                $picture = ProductPicture::where('id',$id)->where('type',2)->get();
                 return view('/cms/designer_modify',['designer' => $designer, 'pictures' => $picture]);
             }
         }
