@@ -109,13 +109,13 @@ Route::get('/cms/designer_info/{id?}',"CMSController@designer_info");
 Route::get('/cms/stall_info/{id?}',"CMSController@stall_info");
 
 //信息修改入口
-Route::get('cms/designer_modify/{id?}',"CMSController@modifyDesignerInfo");
+Route::get('/cms/designer_modify/{id?}',"CMSController@modifyDesignerInfo");
 
-Route::post('cms/designer_modify/{id?}', "CMSController@updateDesignerInfo");
+Route::post('/cms/designer_modify/{id?}', "CMSController@updateDesignerInfo");
 
-Route::get('cms/stall_modify/{id?}',"CMSController@modifyStallInfo");
+Route::get('/cms/stall_modify/{id?}',"CMSController@modifyStallInfo");
 
-Route::post('cms/stall_modify/{id?}',"CMSController@updateStallInfo");
+Route::post('/cms/stall_modify/{id?}',"CMSController@updateStallInfo");
 
 //信息删除入口
 Route::get('/cms/factory/{id?}',"CMSController@deleteFactory");
