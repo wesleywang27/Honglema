@@ -101,8 +101,19 @@ class UserController extends Controller{
                 }
                 $user->is_admin = Input::get('is_admin');
 
-                $user->save();
+                $right = Input::get('right');
+                $str = implode("",$right);
 
+                if (strstr($str,'工厂'))
+                    $user->factory_right = 1;
+                if (strstr($str,'品牌商'))
+                    $user->brand_right = 1;
+                if (strstr($str,'设计师'))
+                    $user->designer_right = 1;
+                if (strstr($str,'档口'))
+                    $user->stall_right = 1;
+
+                $user->save();
                 echo "<script> alert('用户添加成功!'); </script>";
                 return view('/cms/index');
             }else {
