@@ -165,6 +165,73 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //品牌商信息修改页
+    public function modifyBrandInfo($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            if($_SESSION['brand_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $brand = Brand::where('brand_id',$id)->first();
+                $picture = ProductPicture::where('id',$id)->where('type',3)->get();
+                return view('/cms/brand_modify',['brand' => $brand, 'pictures' => $picture]);
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
+    //修改品牌商信息
+    public function updateBrandInfo($id){
+        session_start();
+        if(isset($_SESSION['username'])) {
+            if ($_SESSION['brand_right'] == 0) {
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $brand = Brand::where('brand_id',$id)->first();
+                $brand->username = Input::get('username');
+                $brand->mobile = Input::get('mobile');
+                $brand->weixinNo = Input::get('weixinNo');
+                $brand->title = Input::get('title');
+                $brand->company = Input::get('company');
+                $brand->brand = Input::get('brand');
+                $brand->province = Input::get('province');
+                $brand->city = Input::get('city');
+                $brand->region = Input::get('region');
+                $brand->address = Input::get('address');
+                $brand->sales = Input::get('sales');
+                $brand->category = Input::get('category');
+                if (Input::get('factory') == '是')
+                    $brand->factory = 1;
+                else
+                    $brand->factory = 0;
+                $brand->factorySize = Input::get('factorySize');
+                if (Input::get('design') == '是')
+                    $brand->design = 1;
+                else
+                    $brand->design = 0;
+                $brand->product = Input::get('product');
+                $brand->price = Input::get('price');
+                $brand->style = Input::get('style');
+                $brand->customPosition = Input::get('customPosition');
+                $brand->customAge = Input::get('customAge');
+                $brand->refund = Input::get('refund');
+                $brand->description = Input::get('description');
+
+                $brand->save();
+
+                $picture = ProductPicture::where('id',$id)->where('type',2)->get();
+                return Redirect::intended("/cms/brand_info/$id")->with(['brand' => $brand, 'pictures' => $picture]);
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //删除品牌商信息
     public function deleteBrand($id){
         session_start();
