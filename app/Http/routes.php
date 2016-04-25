@@ -108,6 +108,23 @@ Route::get('/cms/designer_info/{id?}',"CMSController@designer_info");
 
 Route::get('/cms/stall_info/{id?}',"CMSController@stall_info");
 
+//信息修改入口
+Route::get('/cms/factory_modify/{id?}',"CMSController@modifyFactoryInfo");
+
+Route::post('/cms/factory_modify/{id?}',"CMSController@updateFactoryInfo");
+
+Route::get('/cms/brand_modify/{id?}',"CMSController@modifyBrandInfo");
+
+Route::post('/cms/brand_modify/{id?}',"CMSController@updateBrandInfo");
+
+Route::get('/cms/designer_modify/{id?}',"CMSController@modifyDesignerInfo");
+
+Route::post('/cms/designer_modify/{id?}', "CMSController@updateDesignerInfo");
+
+Route::get('/cms/stall_modify/{id?}',"CMSController@modifyStallInfo");
+
+Route::post('/cms/stall_modify/{id?}',"CMSController@updateStallInfo");
+
 //信息删除入口
 Route::get('/cms/factory/{id?}',"CMSController@deleteFactory");
 
@@ -126,6 +143,24 @@ Route::post('/cms/designer',"CMSController@searchDesigner");
 
 Route::post('/cms/stall',"CMSController@searchStall");
 
+//图片修改入口
+Route::post('/cms/factory_updateImg/{id?}',"CMSController@updateFactoryImg");
+
+Route::post('/cms/brand_updateImg/{id?}',"CMSController@updateBrandImg");
+
+Route::post('/cms/designer_updateImg/{id?}',"CMSController@updateDesignerImg");
+
+Route::post('/cms/stall_updateImg/{id?}',"CMSController@updateStallImg");
+
+//数据导出入口
+Route::get('/cms/factory_export',"ExcelController@exportFactory");
+
+Route::get('/cms/brand_export',"ExcelController@exportBrand");
+
+Route::get('/cms/designer_export',"ExcelController@exportDesigner");
+
+Route::get('/cms/stall_export',"ExcelController@exportStall");
+
 //用户管理入口
 Route::get('/cms/user',"UserController@index");
 
@@ -142,12 +177,3 @@ Route::get('/cms/user_info_confirm',"UserController@user_info_confirm");
 Route::get('/cms/user_info',"UserController@user_info");
 
 Route::post('/cms/user_info',"UserController@updateUser");
-
-//数据导出入口
-Route::get('/cms/factory_export',"ExcelController@exportFactory");
-
-Route::get('/cms/brand_export',"ExcelController@exportBrand");
-
-Route::get('/cms/designer_export',"ExcelController@exportDesigner");
-
-Route::get('/cms/stall_export',"ExcelController@exportStall");

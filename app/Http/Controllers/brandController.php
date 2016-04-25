@@ -33,13 +33,9 @@ class BrandController extends Controller{
             $brand->brand = Input::get('brand');
             $brand->sales = Input::get('sales');
             $brand->category = Input::get('category');
-            //$brand->tMall = Input::get('tMall');
-            //$brand->tie = Input::get('tie');
             $brand->factory = Input::get('factory');
             $brand->factorySize = Input::get('factorySize');
-            //$brand->factoryOut = Input::get('factoryOut');
             $brand->design = Input::get('design');
-            //$brand->zhangqi = Input::get('zhangqi');
             $brand->country = Input::get('country');
             //后期完善此部分
             if($brand->country == '中国'){
@@ -53,7 +49,7 @@ class BrandController extends Controller{
             $brand->style = Input::get('style');
             $brand->customPosition = Input::get('customPosition');
             $brand->customAge = Input::get('customAge');
-            //$brand->refund = Input::get('refund');
+            $brand->refund = Input::get('refund');
             $brand->description = Input::get('description');
 
             $pictures = [];
@@ -76,7 +72,7 @@ class BrandController extends Controller{
             return view('index');
         } else {
             // 验证没通过就显示错误提示信息
-            echo "<script>history.go(-1); alert('请按要求填写真实信息!');</script>";
+            echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
         }
     }
 }
