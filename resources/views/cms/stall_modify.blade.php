@@ -66,15 +66,23 @@
         </form>
     </div>
     <div class="admin_tab_cont">
-        <div class="container">
-            <ul class="gallery">
-                @foreach ($pictures as $picture)
-                <li><a href="{{ $picture->url }}"><img src="{{ $picture->url }}" style="width: 80px;"/></a></li>
-                @endforeach
-            </ul>
-            <div class="clear"></div>
-        </div>
-        <a href="javascript:history.go(-1);" style=" margin-left:85%;"><input type="button" value="返回" class="link_btn"/></a>
+        <form action="{{URL::action('CMSController@updateStallImg', ['id' => $stall->stall_id]) }}" method="post">
+            <div class="container">
+                <ul class="gallery">
+                    @foreach ($pictures as $picture)
+                    <li><a href="{{ $picture->url }}"><img src="{{ $picture->url }}" style="width: 80px; height: 80px;"/></a><label><input name="img[]" type="checkbox" value="{{ $picture->url }}" style="margin-top:5px;"/></label></li>
+                    @endforeach
+                </ul>
+                <label class="uploadImg" style="margin-top:10px; margin-left:10px;">
+                    <input type="file"/>
+                    <span>上传图片</span>
+                </label>
+                <div class="clear"></div>
+            </div>
+            <a href="/cms/stall" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
+            <input type="submit" value="删除" class="link_btn"/>
+            <input type="submit" value="保存" class="link_btn"/>
+        </form>
         <script src="/js/jquery-1.9.1.min.js"></script>
         <script src="/js/zoom.min.js"></script>
     </div>
