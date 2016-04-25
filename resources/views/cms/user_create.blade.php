@@ -38,6 +38,15 @@
         @endif
     </div>
     <div style="margin-top: 20px;">
+        <label>用户访问权限：</label>
+        <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input class="textbox" type="checkbox" name="right[]" value="工厂">工厂&nbsp;&nbsp;&nbsp;
+        <input class="textbox" type="checkbox" name="right[]" value="品牌商">品牌商&nbsp;&nbsp;&nbsp;
+        <input class="textbox" type="checkbox" name="right[]" value="设计师">设计师&nbsp;&nbsp;&nbsp;
+        <input class="textbox" type="checkbox" name="right[]" value="档口">档口&nbsp;&nbsp;&nbsp;
+    </div>
+    <div style="margin-top: 20px;">
         <input name="commit" type="submit" value="确认" class="link_btn" style="margin-left: 12%"/>
         <a href="/cms/index"  class="link_btn" style="margin-left: 5%">取消</a>
     </div>
