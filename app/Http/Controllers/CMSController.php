@@ -581,6 +581,25 @@ class CMSController extends Controller{
     }
     //修改档口图片信息
     public function updateStallImg($id){
-        
+        session_start();
+        if(isset($_SESSION['username'])){
+            if($_SESSION['stall_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $stall = Stall::where('stall_id',$id)->first();
+                $image = Input::get('img');
+                foreach ($image as $img){
+                    ProductPicture::where('id',$id)->where('type',3)->where('url',$img)->delete();
+                }
+                $picture = ProductPicture::where('id',$id)->where('type',3)->get();
+                echo "<script>alert('删除成功!');</script>";
+                return Redirect::intended("/cms/stall_info/$id")->with(['stall' => $stall, 'pictures' => $picture]);
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
     }
 }

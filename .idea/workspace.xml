@@ -4,7 +4,6 @@
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/stall_info.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/stall_info.blade.php" />
     </list>
     <ignored path="honglema.iws" />
@@ -39,11 +38,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CMSController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="103" column="45" selection-start-line="103" selection-start-column="45" selection-end-line="103" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CMSController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="583" column="8" selection-start-line="583" selection-start-column="8" selection-end-line="583" selection-end-column="8" />
+            <state relative-caret-position="402">
+              <caret line="597" column="116" selection-start-line="597" selection-start-column="116" selection-end-line="597" selection-end-column="116" />
               <folding>
                 <element signature="e#123#144#0#PHP" expanded="true" />
               </folding>
@@ -51,12 +60,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stall_info.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="stall_info.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/cms/stall_info.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="59" column="112" selection-start-line="59" selection-start-column="112" selection-end-line="59" selection-end-column="112" />
+            <state relative-caret-position="171">
+              <caret line="63" column="118" selection-start-line="63" selection-start-column="118" selection-end-line="63" selection-end-column="118" />
               <folding>
+                <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#form#0;n#div#1;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#label#0;n#li#0;n#ul#0;n#div#0;n#form#0;n#div#1;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#label#0;n#div#0;n#form#0;n#div#1;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#form#0;n#div#1;n#section#0;n#!!top" expanded="true" />
@@ -133,8 +143,8 @@
         <option value="$PROJECT_DIR$/resources/views/cms/factory_info.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/factory_modify.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/factoryController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/stall_info.blade.php" />
       </list>
     </option>
@@ -766,14 +776,7 @@
       <workItem from="1461568911649" duration="2180000" />
       <workItem from="1461571180834" duration="2284000" />
       <workItem from="1461573574762" duration="1819000" />
-      <workItem from="1461575427796" duration="2224000" />
-    </task>
-    <task id="LOCAL-00037" summary="后台管理 档口">
-      <created>1460704893825</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1460704893825</updated>
+      <workItem from="1461575427796" duration="2870000" />
     </task>
     <task id="LOCAL-00038" summary="后台列表分页">
       <created>1460711370527</created>
@@ -1111,11 +1114,18 @@
       <option name="project" value="LOCAL" />
       <updated>1461571352390</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="图片信息修改 页面改动">
+      <created>1461577667767</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1461577667767</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190486000" />
+    <option name="totallyTimeSpent" value="191132000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1171,7 +1181,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="后台用户创建" />
     <MESSAGE value="后台用户创建表单验证" />
     <MESSAGE value="用户信息修改" />
     <MESSAGE value="创建用户 用户列表 权限设置" />
@@ -1196,7 +1205,8 @@
     <MESSAGE value="用户信息列表界面修改" />
     <MESSAGE value="档口信息修改页" />
     <MESSAGE value="小修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="小修改" />
+    <MESSAGE value="图片信息修改 页面改动" />
+    <option name="LAST_COMMIT_MESSAGE" value="图片信息修改 页面改动" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1407,13 +1417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="54" column="42" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/stall.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -1555,24 +1558,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/stall_info.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="59" column="112" selection-start-line="59" selection-start-column="112" selection-end-line="59" selection-end-column="112" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#label#0;n#li#0;n#ul#0;n#div#0;n#form#0;n#div#1;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#form#0;n#div#1;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#form#0;n#div#1;n#section#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="171">
+          <caret line="103" column="45" selection-start-line="103" selection-start-column="45" selection-end-line="103" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="583" column="8" selection-start-line="583" selection-start-column="8" selection-end-line="583" selection-end-column="8" />
+        <state relative-caret-position="402">
+          <caret line="597" column="116" selection-start-line="597" selection-start-column="116" selection-end-line="597" selection-end-column="116" />
           <folding>
             <element signature="e#123#144#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/stall_info.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="63" column="118" selection-start-line="63" selection-start-column="118" selection-end-line="63" selection-end-column="118" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#form#0;n#div#1;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#0;n#li#0;n#ul#0;n#div#0;n#form#0;n#div#1;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#form#0;n#div#1;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#form#0;n#div#1;n#section#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
