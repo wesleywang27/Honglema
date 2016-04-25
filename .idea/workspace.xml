@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/user.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/user.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/user_info_confirm.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/user_info_confirm.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,17 +37,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="24" column="57" selection-start-line="24" selection-start-column="57" selection-end-line="24" selection-end-column="57" />
+            <state relative-caret-position="228">
+              <caret line="115" column="30" selection-start-line="115" selection-start-column="30" selection-end-line="115" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_info_confirm.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user_info_confirm.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/cms/user_info_confirm.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="326">
@@ -143,9 +142,9 @@
         <option value="$PROJECT_DIR$/resources/views/cms/banner.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/user_create.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/user.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/user_info_confirm.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
       </list>
     </option>
   </component>
@@ -771,14 +770,7 @@
       <workItem from="1461309495970" duration="4305000" />
       <workItem from="1461316666865" duration="1338000" />
       <workItem from="1461553597704" duration="2550000" />
-      <workItem from="1461556318194" duration="4357000" />
-    </task>
-    <task id="LOCAL-00034" summary="商家注册 添加档口类目">
-      <created>1460695339456</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1460695339456</updated>
+      <workItem from="1461556318194" duration="5113000" />
     </task>
     <task id="LOCAL-00035" summary="商家注册 添加档口类目">
       <created>1460695460983</created>
@@ -1116,11 +1108,18 @@
       <option name="project" value="LOCAL" />
       <updated>1461559978483</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="用户信息列表界面修改">
+      <created>1461560706506</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1461560706506</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176711000" />
+    <option name="totallyTimeSpent" value="177467000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1176,7 +1175,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="添加user index" />
     <MESSAGE value="修改stall图片上传" />
     <MESSAGE value="小修改" />
     <MESSAGE value="后台用户创建" />
@@ -1201,7 +1199,8 @@
     <MESSAGE value="用户管理权限限制" />
     <MESSAGE value="创建用户添加访问权限选项" />
     <MESSAGE value="修改创建后跳转" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改创建后跳转" />
+    <MESSAGE value="用户信息列表界面修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="用户信息列表界面修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1565,14 +1564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="24" column="57" selection-start-line="24" selection-start-column="57" selection-end-line="24" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/user_info_confirm.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
@@ -1580,6 +1571,14 @@
           <folding>
             <element signature="n#style#0;n#div#3;n#form#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="115" column="30" selection-start-line="115" selection-start-column="30" selection-end-line="115" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>

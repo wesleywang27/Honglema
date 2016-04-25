@@ -114,8 +114,7 @@ class UserController extends Controller{
                     $user->stall_right = 1;
 
                 $user->save();
-                echo "<script> alert('用户添加成功!'); </script>";
-                return Redirect::intended('/cms/index');
+                return Redirect::intended('/cms/user');
             }else {
                 // 验证没通过就显示错误提示信息
                 echo "<script>history.back(); alert('用户名或邮箱已存在!');</script>";
