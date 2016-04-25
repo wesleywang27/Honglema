@@ -333,6 +333,29 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //修改品牌商图片信息
+    public function updateBrandImg($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            if($_SESSION['brand_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $brand = Brand::where('brand_id',$id)->first();
+                $image = Input::get('img');
+                foreach ($image as $img){
+                    ProductPicture::where('id',$id)->where('type',1)->where('url',$img)->delete();
+                }
+                $picture = ProductPicture::where('id',$id)->where('type',1)->get();
+                echo "<script>alert('删除成功!');</script>";
+                return Redirect::intended("/cms/brand_info/$id")->with(['brand' => $brand, 'pictures' => $picture]);
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //设计师列表页面
     public function designer(){
         session_start();
