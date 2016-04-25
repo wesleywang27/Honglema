@@ -229,6 +229,67 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //设计师信息修改页
+    public function modifyDesignerInfo($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            if($_SESSION['designer_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $designer = Designer::where('designer_id',$id)->first();
+                $picture = ProductPicture::where('id',$id)->where('type',3)->get();
+                return view('cms/designer_modify',['designer' => $designer, 'pictures' => $picture]);
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
+    //修改设计师信息
+    public function updateDesignerInfo($id){
+        session_start();
+        if(isset($_SESSION['username'])) {
+            if ($_SESSION['designer_right'] == 0) {
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $designer = Designer::where('designer_id',$id)->first();
+                $designer->username = Input::get('username');
+                $designer->mobile = Input::get('mobile');
+                $designer->weixinNo = Input::get('weixinNo');
+                $designer->title = Input::get('title');
+                $designer->designType = Input::get('designType');
+                $designer->company = Input::get('company');
+                $designer->country = Input::get('country');
+                $designer->province = Input::get('province');
+                $designer->city = Input::get('city');
+                $designer->region = Input::get('region');
+                $designer->address = Input::get('address');
+                if (Input::get('designTeam') == '是')
+                    $designer->designTeam = 1;
+                else
+                    $designer->designTeam = 0;
+                if (Input::get('brand') == '是')
+                    $designer->brand = 1;
+                else
+                    $designer->brand = 0;
+                $designer->designBrand = Input::get('designBrand');
+                $designer->designExperience = Input::get('designExperience');
+                $designer->description = Input::get('description');
+
+                $designer->save();
+
+                $picture = ProductPicture::where('id',$id)->where('type',2)->get();
+                return Redirect::intended("cms/designer_info/$id")->with(['designer' => $designer, 'pictures' => $picture]);
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //删除设计师信息
     public function deleteDesigner($id){
         session_start();
