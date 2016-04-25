@@ -579,4 +579,8 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //修改档口图片信息
+    public function updateStallImg($id){
+        
+    }
 }
