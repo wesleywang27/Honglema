@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Input;
 use App\Models\Factory;
 use Illuminate\Contracts\Http\Request;
 use App\Http\Requests;
+use EasyWeChat\Foundation\Application;
 
 class FactoryController extends Controller{
     public function index(){
-        return view('factory');
+        $options = config('wechat');
+        $app = new Application($options);
+        $js = $app->js;
+        return view('factory',['js'=>$js]);
     }
 
     public function createFactory(){
