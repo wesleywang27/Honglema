@@ -293,7 +293,7 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
-    //档口修改信息
+    //档口信息修改页
     public function modifyStallInfo($id){
         session_start();
         if(isset($_SESSION['username'])){
@@ -305,6 +305,45 @@ class CMSController extends Controller{
                 $stall = Stall::where('stall_id',$id)->first();
                 $picture = ProductPicture::where('id',$id)->where('type',3)->get();
                 return view('cms/stall_modify',['stall' => $stall, 'pictures' => $picture]);
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
+    //档口修改信息
+    public function updateStallInfo($id){
+        session_start();
+        if(isset($_SESSION['username'])) {
+            if ($_SESSION['stall_right'] == 0) {
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $stall = Stall::where('stall_id',$id)->first();
+                $stall->username = Input::get('username');
+                $stall->mobile = Input::get('mobile');
+                $stall->weixinNo = Input::get('weixinNo');
+                $stall->title = Input::get('title');
+                $stall->stallName = Input::get('stallName');
+                $stall->stallNum = Input::get('stallNum');
+                $stall->city = Input::get('city');
+                $stall->stall = Input::get('stall');
+                $stall->province = Input::get('province');
+                $stall->stallCity = Input::get('stallCity');
+                $stall->region = Input::get('region');
+                $stall->address = Input::get('address');
+                $stall->style = Input::get('style');
+                $stall->category = Input::get('category');
+                if (Input::get('shipmentOK') == '是')
+                    $stall->shipmentOK = 1;
+                else
+                    $stall->shipmentOK = 0;
+
+                $stall->save();
+
+                $picture = ProductPicture::where('id',$id)->where('type',3)->get();
+                return Redirect::intended("cms/stall_info/$id")->with(['stall' => $stall, 'pictures' => $picture]);
             }
         }
         else{
