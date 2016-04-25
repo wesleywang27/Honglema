@@ -144,6 +144,8 @@ Route::post('/cms/designer',"CMSController@searchDesigner");
 Route::post('/cms/stall',"CMSController@searchStall");
 
 //图片修改入口
+Route::post('/cms/factory_updateImg/{id?}',"CMSController@updateFactoryImg");
+
 Route::post('/cms/brand_updateImg/{id?}',"CMSController@updateBrandImg");
 
 Route::post('/cms/designer_updateImg/{id?}',"CMSController@updateDesignerImg");
