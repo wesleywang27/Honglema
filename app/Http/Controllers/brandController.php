@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Input;
 use App\Models\Brand;
 use Illuminate\Contracts\Http\Request;
 use App\Http\Requests;
+use EasyWeChat\Foundation\Application;
 
 class BrandController extends Controller{
     public function index(){
-        return view('brand');
+        $options = config('wechat');
+        $app = new Application($options);
+        $js = $app->js;
+        return view('brand',['js'=>$js]);
     }
 
     public function createBrand(){

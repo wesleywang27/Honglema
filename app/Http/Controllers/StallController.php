@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Input;
 use App\Models\Stall;
 use Illuminate\Contracts\Http\Request;
 use App\Http\Requests;
+use EasyWeChat\Foundation\Application;
 
 class StallController extends Controller{
     public function index(){
-        return view('stall');
+        $options = config('wechat');
+        $app = new Application($options);
+        $js = $app->js;
+        return view('stall',['js'=>$js]);
     }
     
     public function createStall(){

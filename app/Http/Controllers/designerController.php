@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Input;
 use App\Models\Designer;
 use Illuminate\Contracts\Http\Request;
 use App\Http\Requests;
+use EasyWeChat\Foundation\Application;
 
 class DesignerController extends Controller{
     public function index(){
-        return view('designer');
+        $options = config('wechat');
+        $app = new Application($options);
+        $js = $app->js;
+        return view('designer',['js'=>$js]);
     }
     
     public function createDesigner(){
