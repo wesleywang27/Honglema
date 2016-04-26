@@ -26,7 +26,7 @@
         <td style="width:120px;">{{ $stall->mobile}}</td>
         <td style="width:120px;">{{ $stall->weixinNo}}</td>
         <td style="width:200px;">{{ $stall->stallName}}</td>
-        <td style="width:120px;">{{ $stall->stallNum}}</td>
+        <td style="width:150px;">{{ $stall->stallNum}}</td>
         <td style="text-align:center">
             <a href="{{URL::action('CMSController@stall_info', ['id' => $stall->stall_id]) }}"><input type="button" value="查看" class="link_btn"/></a>
             <a href="{{URL::action('CMSController@modifyStallInfo', ['id' => $stall->stall_id]) }}"><input type="button" value="修改" class="link_btn"/></a>
