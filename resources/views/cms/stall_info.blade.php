@@ -99,7 +99,7 @@
                 var urls = data.urls;
                 var $htmls = '';
                 for(var i=0; i<urls.length; i++){
-                    $htmls += '<li style="background-image:url('+urls[i]+')"><input type="hidden" id="itemImage" name="itemImage[]" value="'+urls[i]+'"/></li>';
+                    $htmls += '<li style="width: 80px; height: 80px;background-image:url('+urls[i]+')"><input type="hidden" id="itemImage" name="itemImage[]" value="'+urls[i]+'"/></li>';
                 }
                 $('#files').append($htmls);
             }
