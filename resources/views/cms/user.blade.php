@@ -48,7 +48,7 @@
             @endif
         </td>
         <td style="width:200px;text-align:center">{{ $user->created_at}}</td>
-        @if ($is_super_admin == 1)
+        @if ($is_super_admin == 1 && $user->is_super_admin == 0)
         <td style="width:150px;text-align:center">
             <a href="{{URL::action('UserController@deleteUser', ['id' => $user->id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
         </td>
