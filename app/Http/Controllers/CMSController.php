@@ -514,12 +514,28 @@ class CMSController extends Controller{
             }
             else{
                 $designer = Designer::where('designer_id',$id)->first();
-                $image = Input::get('img');
-                foreach ($image as $img){
-                    ProductPicture::where('id',$id)->where('type',2)->where('url',$img)->delete();
+                if(Input::has('img')){
+                    $image = Input::get('img');
+                    foreach ($image as $img){
+                        ProductPicture::where('id',$id)->where('type',2)->where('url',$img)->delete();
+                    }
                 }
+
+                $pictures = [];
+                if(Input::has('itemImage')){
+                    foreach (Input::get('itemImage') as $img) {
+                        $picture = new ProductPicture();
+                        $picture->type = 2;//设计师类型为2
+                        $picture->url = $img;
+                        $picture->file_id = pathinfo($img)['filename'];
+                        $picture->upload_time = time();
+                        $pictures[] = $picture;
+                    }
+                }
+                $designer->pictures()->saveMany($pictures);
+
                 $picture = ProductPicture::where('id',$id)->where('type',2)->get();
-                echo "<script>alert('删除成功!');</script>";
+
                 return Redirect::intended("/cms/designer_info/$id")->with(['designer' => $designer, 'pictures' => $picture]);
             }
         }
