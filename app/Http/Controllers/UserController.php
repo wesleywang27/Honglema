@@ -21,7 +21,13 @@ class UserController extends Controller{
         if(isset($_SESSION['username'])){
             $user = User::paginate(6);
             $confirmUser = User::where('name',$_SESSION['username'])->first();
-            return view('/cms/user',['users' => $user ,'is_super_admin' => $confirmUser->is_super_admin]);
+            if ($confirmUser->is_admin == 1)
+                return view('/cms/user',['users' => $user ,'is_super_admin' => $confirmUser->is_super_admin]);
+            else
+            {
+                echo "<script>history.go(-1); alert('该用户没有权限操作!');</script>";
+                return;
+            }
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -46,7 +52,7 @@ class UserController extends Controller{
             User::where('id',$id)->delete();
             $user = User::paginate(6);
             $confirmUser = User::where('name',$_SESSION['username'])->first();
-            return view('/cms/user',['users' => $user ,'is_super_admin' => $confirmUser->is_super_admin]);
+            return Redirect::back()->with(['users' => $user ,'is_super_admin' => $confirmUser->is_super_admin]);
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -83,25 +89,35 @@ class UserController extends Controller{
                 $password = Input::get('password');
                 $passwordConfirm = Input::get('passwordConfirm');
                 if(strlen($password) < 8){
-                    echo "<script>history.go(-1); alert('密码至少8位!');</script>";
+                    echo "<script>history.back(); alert('密码至少8位!');</script>";
                     return;
                 }
                 if($password == $passwordConfirm){
                     $user->password = Hash::make($password);
                 }
                 else{
-                    echo "<script>history.go(-1); alert('请输入相同的密码!');</script>";
+                    echo "<script>history.back(); alert('请输入相同的密码!');</script>";
                     return;
                 }
                 $user->is_admin = Input::get('is_admin');
 
-                $user->save();
+                $right = Input::get('right');
+                $str = implode("",$right);
 
-                echo "<script> alert('用户添加成功!'); </script>";
-                return view('/cms/index');
+                if (strstr($str,'工厂'))
+                    $user->factory_right = 1;
+                if (strstr($str,'品牌商'))
+                    $user->brand_right = 1;
+                if (strstr($str,'设计师'))
+                    $user->designer_right = 1;
+                if (strstr($str,'档口'))
+                    $user->stall_right = 1;
+
+                $user->save();
+                return Redirect::intended('/cms/user');
             }else {
                 // 验证没通过就显示错误提示信息
-                echo "<script>history.go(-1); alert('用户名或邮箱已存在!');</script>";
+                echo "<script>history.back(); alert('用户名或邮箱已存在!');</script>";
             }
         }
         else{
@@ -137,14 +153,14 @@ class UserController extends Controller{
                 $password = Input::get('password');
                 $passwordConfirm = Input::get('passwordConfirm');
                 if(strlen($password) < 8){
-                    echo "<script>history.go(-1); alert('密码至少8位!');</script>";
+                    echo "<script>history.back(); alert('密码至少8位!');</script>";
                     return;
                 }
                 if($password == $passwordConfirm){
                     $password = Hash::make($password);
                 }
                 else{
-                    echo "<script>history.go(-1); alert('请输入相同的密码!');</script>";
+                    echo "<script>history.back(); alert('请输入相同的密码!');</script>";
                     return;
                 }
                 $user = User::where('name',$_SESSION['username'])->first();
@@ -154,10 +170,10 @@ class UserController extends Controller{
                 $user->save();
 
                 echo "<script> alert('信息修改成功!'); </script>";
-                return view('/cms/index');
+                return Redirect::intended('/cms/index');
             }
             else{
-                echo "<script>history.go(-1); alert('当前密码错误!');</script>";
+                echo "<script>history.back(); alert('当前密码错误!');</script>";
                 return;
             }
         }

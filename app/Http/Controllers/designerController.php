@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Input;
 use App\Models\Designer;
 use Illuminate\Contracts\Http\Request;
 use App\Http\Requests;
+use EasyWeChat\Foundation\Application;
 
 class DesignerController extends Controller{
     public function index(){
-        return view('designer');
+        $options = config('wechat');
+        $app = new Application($options);
+        $js = $app->js;
+        return view('designer',['js'=>$js]);
     }
     
     public function createDesigner(){
@@ -65,7 +69,7 @@ class DesignerController extends Controller{
             return view('index');
         } else {
             // 验证没通过就显示错误提示信息
-            echo "<script>history.go(-1); alert('请按要求填写真实信息!');</script>";
+            echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
         }
     }
 }

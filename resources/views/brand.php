@@ -8,7 +8,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="stylesheet" href="http://y.wcc.cn/statics/amazeui/css/amazeui.min.css">
-    <link rel="stylesheet" href="http://weui.github.io/weui/weui.css">
+    <link rel="stylesheet" href="/css/weui.css">
     <link rel="stylesheet" href="http://y.wcc.cn/statics/amazeui/css/app.css?v=2016030801">
     <link rel="stylesheet" href="http://y.wcc.cn/statics/amazeui/css/admin.css">
 
@@ -235,8 +235,8 @@
                         <div class="weui_uploader_bd">
                             <ul class="weui_uploader_files" id="files" style="display: inline;padding-left: 0;">
                             </ul>
-                            <div class="weui_uploader_input_wrp">
-                                <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                            <div class="weui_uploader_input_wrp" id="file_upload">
+<!--                                <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">-->
                             </div>
                         </div>
                     </div>
@@ -275,7 +275,9 @@
 <script src="/js/jquery.cxselect.min.js" type="text/javascript"></script>
 <script src="http://y.wcc.cn/statics/js/jquery.form.js" type="text/javascript"></script>
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-
+<script type="text/javascript" charset="utf-8">
+    wx.config(<?php echo $js->config(array('chooseImage', 'uploadImage','previewImage')) ?>);
+</script>
 <script>
     jQuery.cxSelect.defaults.url = '/js/city.json';
     jQuery('#global_location').cxSelect({
@@ -283,22 +285,49 @@
         nodata: 'none'
     });
 
-    //上传多图
-    jQuery('#fileupload').change(function(){
-        $.AMUI.progress.start();
-        jQuery.ajaxFileUpload({
-            url:"/productpicture",//需要链接到服务器地址
-            secureuri:false,
-            fileElementId:"fileupload",//文件选择框的id属性
-            dataType: 'json',   //json
-            success: function (data, status) {
-                var urls = data.urls;
-                var $htmls = '';
-                for(var i=0; i<urls.length; i++){
-                    $htmls += '<li class="weui_uploader_file images" style="background-image:url('+urls[i]+')"><input type="hidden" id="itemImage" name="itemImage[]" value="'+urls[i]+'"/></li>';
-                }
-                $('#files').append($htmls);
-                $.AMUI.progress.done();
+    var count = 0;
+    //图片需一张一张上传
+    wx.ready(function () {
+        jQuery('#file_upload').click(function () {
+            var images = {
+                localId: [],
+                serverId: []
+            };
+            $html = '';
+            if(count < 6) {
+                $.AMUI.progress.start();
+                wx.chooseImage({
+                    count: 1, // 限制每次只能选择一张
+                    success: function (res) {
+                        images.localId = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                        jQuery.each(images.localId, function (i, n) {
+                            wx.uploadImage({
+                                localId: n,
+                                success: function (res) {
+                                    images.serverId[0] = res.serverId;
+                                    jQuery.each(images.serverId, function (i, m) {
+                                        jQuery.ajax({
+                                            url: "/productpicture",
+                                            data: {"media_id": m},
+                                            success: function (data) {
+                                                count = count + 1;
+                                                $html += '<li class="weui_uploader_file images" style="background-image:url(' + data + ')"><input type="hidden" id="itemImage" name="itemImage[]" value="' + data + '"/></li>';
+                                                $("#files").append($html);
+                                                $.AMUI.progress.done();
+                                            }
+                                        });
+                                    });
+                                },
+                                fail: function (res) {
+                                    alert(JSON.stringify(res));
+                                }
+                            });
+                        });
+                    }
+                });
+
+            }else{
+                alert("图片最多选择6张!");
             }
         });
     });

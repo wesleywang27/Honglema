@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Input;
 use App\Models\Factory;
 use Illuminate\Contracts\Http\Request;
 use App\Http\Requests;
+use EasyWeChat\Foundation\Application;
 
 class FactoryController extends Controller{
     public function index(){
-        return view('factory');
+        $options = config('wechat');
+        $app = new Application($options);
+        $js = $app->js;
+        return view('factory',['js'=>$js]);
     }
 
     public function createFactory(){
@@ -42,21 +46,13 @@ class FactoryController extends Controller{
             $factory->advantageSubcategory = Input::get('advantageSubcategory');
             $factory->ext1 = Input::get('ext1');
             $factory->ext2 = Input::get('ext2');
-            //$factory->ext3 = Input::get('ext3');
-            //$factory->ext4 = Input::get('ext4');
             $factory->ext5 = Input::get('ext5');
-            //$factory->ext6 = Input::get('ext6');
-            $factory->productCount = Input::get('productCount');
             $factory->orderCount = Input::get('orderCount');
-            $factory->shipmentOK = Input::get('shipmentOK');
-            //$factory->tMall = Input::get('tMall');
-            //$factory->tie = Input::get('tie');
-            //$factory->factorySize = Input::get('factorySize');
-            //$factory->factoryOut = Input::get('factoryOut');
+            $factory->productCount = Input::get('productCount');
             $factory->design = Input::get('design');
-            $factory->zhangqi = Input::get('zhangqi');
-            //$factory->product = Input::get('product');
             $factory->refund = Input::get('refund');
+            $factory->shipmentOK = Input::get('shipmentOK');
+            $factory->zhangqi = Input::get('zhangqi');
             $factory->description = Input::get('description');
 
             $pictures = [];
@@ -79,7 +75,7 @@ class FactoryController extends Controller{
             return view('index');
         } else {
             // 验证没通过就显示错误提示信息
-            echo "<script>history.go(-1); alert('请按要求填写真实信息!');</script>";
+            echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
         }
     }
 }

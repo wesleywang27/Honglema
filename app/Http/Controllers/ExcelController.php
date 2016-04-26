@@ -9,7 +9,96 @@ use App\Models\Factory;
 use App\Models\Stall;
 
 class ExcelController extends Controller{
-    //档口信息导出Excel
+    //工厂信息导出Excel
+    public function exportFactory(){
+        $info = Factory::all();
+        foreach ($info as $key => $value){
+            if($value['design'] == 1)
+                $design = '是';
+            else
+                $design = '否';
+            if($value['refund'] == 1)
+                $refund = '是';
+            else
+                $refund = '否';
+            if($value['shipmentOK'] == 1)
+                $shipmentOK = '是';
+            else
+                $shipmentOK = '否';
+            $export[] = array(
+                '用户ID' => $value['factory_id'],
+                '用户名' => $value['username'],
+                '手机号码' => $value['mobile'],
+                '微信号' => $value['weixinNo'],
+                '职位' => $value['title'],
+                '公司名称' => $value['company'],
+                '公司地址' => $value['country'].$value['province'].$value['city'].$value['region'].$value['address'],
+                '产品类目' => $value['category'],
+                '优势子类目' => $value['advantageSubcategory'],
+                '工厂面积' => $value['ext1'],
+                '工人数' => $value['ext2'],
+                '打样速度' => $value['ext5'],
+                '最小起订量' => $value['orderCount'],
+                '日生产量' => $value['productCount'],
+                '是否有设计团队' => $design,
+                '是否支持退换' => $refund,
+                '是否支持一件代发' => $shipmentOK,
+                '工厂主要付款方式' => $value['zhangqi'],
+                '备注' => $value['description'],
+            );
+        }
+        Excel::create('工厂信息汇总',function($excel) use ($export){
+            $excel->sheet('工厂信息', function($sheet) use ($export){
+                $sheet->fromArray($export);
+            });
+        })->export('xls');
+    }
+    //品牌商信息导出Excel
+    public function exportBrand(){
+        $info = Brand::all();
+        foreach ($info as $key => $value){
+            if($value['factory'] == 1)
+                $factory = '是';
+            else
+                $factory = '否';
+            if($value['design'] == 1)
+                $design = '是';
+            else
+                $design = '否';
+            if($value['refund'] == 1)
+                $refund = '是';
+            else
+                $refund = '否';
+            $export[] = array(
+                '用户ID' => $value['brand_id'],
+                '用户名' => $value['username'],
+                '手机号码' => $value['mobile'],
+                '微信号' => $value['weixinNo'],
+                '职位' => $value['title'],
+                '公司名称' => $value['company'],
+                '公司地址' => $value['country'].$value['province'].$value['city'].$value['region'].$value['address'],
+                '品牌名称' => $value['brand'],
+                '2015年线上销售额' => $value['sales'],
+                '类目' => $value['category'],
+                '是否自有工厂' => $factory,
+                '厂房面积' => $value['factorySize'],
+                '是否有设计团队' => $design,
+                '主营产品' => $value['product'],
+                '客单价' => $value['price'],
+                '商品风格' => $value['style'],
+                '客户人群定位' => $value['customPosition'],
+                '客户年龄段' => $value['customAge'],
+                '是否支持退换' => $refund,
+                '备注' => $value['description']
+            );
+        }
+        Excel::create('品牌商信息汇总',function($excel) use ($export){
+            $excel->sheet('品牌商信息', function($sheet) use ($export){
+                $sheet->fromArray($export);
+            });
+        })->export('xls');
+    }
+    //设计师信息导出Excel
     public function exportDesigner(){
         $info = Designer::all();
         foreach ($info as $key => $value){
@@ -43,6 +132,7 @@ class ExcelController extends Controller{
             });
         })->export('xls');
     }
+    //档口信息导出Excel
     public function exportStall(){
         $info = Stall::all();
         foreach ($info as $key => $value){
@@ -65,8 +155,8 @@ class ExcelController extends Controller{
                 '是否支持一件代发' => $shipmentOK,
             );
         }
-        Excel::create('档口商家信息汇总',function($excel) use ($export){
-            $excel->sheet('档口商家信息', function($sheet) use ($export){
+        Excel::create('档口信息汇总',function($excel) use ($export){
+            $excel->sheet('档口信息', function($sheet) use ($export){
                 $sheet->fromArray($export);
             });
         })->export('xls');
