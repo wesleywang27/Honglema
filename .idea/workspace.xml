@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/stall_info.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/stall_info.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,6 +36,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ProductPictureController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductPictureController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="CMSController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -51,23 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StallController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StallController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="61" column="52" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="52" />
-              <folding>
-                <element signature="e#123#153#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="stall_info.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/cms/stall_info.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="93" column="26" selection-start-line="93" selection-start-column="26" selection-end-line="93" selection-end-column="26" />
+            <state relative-caret-position="231">
+              <caret line="95" column="51" selection-start-line="95" selection-start-column="51" selection-end-line="95" selection-end-column="51" />
               <folding>
                 <marker date="1461646571010" expanded="true" signature="4431:4464" placeholder="..." />
               </folding>
@@ -781,14 +776,7 @@
       <workItem from="1461579634428" duration="138000" />
       <workItem from="1461580099715" duration="69000" />
       <workItem from="1461639405694" duration="4751000" />
-      <workItem from="1461644916082" duration="1140000" />
-    </task>
-    <task id="LOCAL-00041" summary="后台详情页 designer">
-      <created>1460956822955</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1460956822955</updated>
+      <workItem from="1461644916082" duration="2064000" />
     </task>
     <task id="LOCAL-00042" summary="后台详情页 brand">
       <created>1460957946412</created>
@@ -1126,11 +1114,18 @@
       <option name="project" value="LOCAL" />
       <updated>1461579429266</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="档口图片上传">
+      <created>1461646589203</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1461646589203</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198441000" />
+    <option name="totallyTimeSpent" value="199365000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1186,7 +1181,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="用户查找" />
     <MESSAGE value="用户删除" />
     <MESSAGE value="商家详情显示图片" />
     <MESSAGE value="修改细节" />
@@ -1211,7 +1205,8 @@
     <MESSAGE value="档口图片删除" />
     <MESSAGE value="品牌商图片删除" />
     <MESSAGE value="工厂图片删除" />
-    <option name="LAST_COMMIT_MESSAGE" value="工厂图片删除" />
+    <MESSAGE value="档口图片上传" />
+    <option name="LAST_COMMIT_MESSAGE" value="档口图片上传" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1512,36 +1507,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/factory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="284" column="62" selection-start-line="284" selection-start-column="44" selection-end-line="284" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/stall.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="76" selection-start-line="14" selection-start-column="76" selection-end-line="14" selection-end-column="76" />
-          <folding>
-            <marker date="1461644979851" expanded="true" signature="12046:12080" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/banner.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductPictureController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -1562,12 +1531,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductPictureController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="665" column="17" selection-start-line="665" selection-start-column="17" selection-end-line="665" selection-end-column="17" />
+        <state relative-caret-position="171">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/stall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3268">
+          <caret line="14" column="76" selection-start-line="14" selection-start-column="76" selection-end-line="14" selection-end-column="76" />
           <folding>
-            <element signature="e#123#144#0#PHP" expanded="true" />
+            <marker date="1461644979851" expanded="true" signature="12046:12080" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1582,10 +1559,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="665" column="17" selection-start-line="665" selection-start-column="17" selection-end-line="665" selection-end-column="17" />
+          <folding>
+            <element signature="e#123#144#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/factory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1178">
+          <caret line="278" column="39" selection-start-line="278" selection-start-column="29" selection-end-line="278" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/stall_info.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="93" column="26" selection-start-line="93" selection-start-column="26" selection-end-line="93" selection-end-column="26" />
+        <state relative-caret-position="231">
+          <caret line="95" column="51" selection-start-line="95" selection-start-column="51" selection-end-line="95" selection-end-column="51" />
           <folding>
             <marker date="1461646571010" expanded="true" signature="4431:4464" placeholder="..." />
           </folding>
