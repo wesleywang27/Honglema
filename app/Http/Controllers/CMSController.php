@@ -209,12 +209,28 @@ class CMSController extends Controller{
             }
             else{
                 $factory = Factory::where('factory_id',$id)->first();
-                $image = Input::get('img');
-                foreach ($image as $img){
-                    ProductPicture::where('id',$id)->where('type',0)->where('url',$img)->delete();
+                if(Input::has('img')){
+                    $image = Input::get('img');
+                    foreach ($image as $img){
+                        ProductPicture::where('id',$id)->where('type',0)->where('url',$img)->delete();
+                    }
                 }
+
+                $pictures = [];
+                if(Input::has('itemImage')){
+                    foreach ( Input::get('itemImage') as $img) {
+                        $picture = new ProductPicture();
+                        $picture->type = 0;//工厂类型为0
+                        $picture->url = $img;
+                        $picture->file_id = pathinfo($img)['filename'];
+                        $picture->upload_time = time();
+                        $pictures[] = $picture;
+                    }
+                }
+                $factory->pictures()->saveMany($pictures);
+
                 $picture = ProductPicture::where('id',$id)->where('type',0)->get();
-                echo "<script>alert('删除成功!');</script>";
+                
                 return Redirect::intended("/cms/factory_info/$id")->with(['factory' => $factory, 'pictures' => $picture]);
             }
         }
@@ -366,12 +382,28 @@ class CMSController extends Controller{
             }
             else{
                 $brand = Brand::where('brand_id',$id)->first();
-                $image = Input::get('img');
-                foreach ($image as $img){
-                    ProductPicture::where('id',$id)->where('type',1)->where('url',$img)->delete();
+                if(Input::has('img')){
+                    $image = Input::get('img');
+                    foreach ($image as $img){
+                        ProductPicture::where('id',$id)->where('type',1)->where('url',$img)->delete();
+                    }
                 }
+
+                $pictures = [];
+                if(Input::has('itemImage')){
+                    foreach (Input::get('itemImage') as $img) {
+                        $picture = new ProductPicture();
+                        $picture->type = 1;//商家类型为1
+                        $picture->url = $img;
+                        $picture->file_id = pathinfo($img)['filename'];
+                        $picture->upload_time = time();
+                        $pictures[] = $picture;
+                    }
+                }
+                $brand->pictures()->saveMany($pictures);
+
                 $picture = ProductPicture::where('id',$id)->where('type',1)->get();
-                echo "<script>alert('删除成功!');</script>";
+
                 return Redirect::intended("/cms/brand_info/$id")->with(['brand' => $brand, 'pictures' => $picture]);
             }
         }
