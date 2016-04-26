@@ -108,7 +108,7 @@ header .rt_nav li .quit_icon:before{content:"Q";}
 .rt_wrap{margin-left:218px;margin-right:10px;height:100%;position:relative;}
 .rt_content{margin-bottom:80px;margin-right:8px;overflow:hidden;}
 .textWhite{color:white;}
-.link_btn{border:1px #139667 solid;border-radius:2px;background:#19a97b;color:white;padding:8px 15px;display:inline-block;cursor:pointer;}
+.link_btn{border:1px #139667 solid;border-radius:2px;background:#19a97b;color:white;padding:3px 10px;display:inline-block;cursor:pointer;}
 .link_btn:hover{background:#11a274;border:1px #0e8f61 solid;}
 .link_btn:active{background:#0c9c6e;border:1px #0e8f61 solid;}
 .textbox{border:1px #139667 solid;height:26px;line-height:26px;padding:5px;font-size:12px; vertical-align:middle;}

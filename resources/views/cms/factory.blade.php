@@ -28,9 +28,9 @@
         <td style="width:200px;">{{ $factory->company}}</td>
         <td style="width:120px;">{{ $factory->title}}</td>
         <td style="text-align:center">
-            <a href="{{URL::action('CMSController@factory_info', ['id' => $factory->factory_id]) }}"><input type="button" value="查看" class="link_btn" style="margin-top: -10px; margin-bottom: -10px;"/></a>
-            <a href="{{URL::action('CMSController@modifyFactoryInfo', ['id' => $factory->factory_id]) }}"><input type="button" value="修改" class="link_btn" style="margin-top: -10px; margin-bottom: -10px;"/></a>
-            <a href="{{URL::action('CMSController@deleteFactory', ['id' => $factory->factory_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn" style="margin-top: -10px; margin-bottom: -10px;"/></a>
+            <a href="{{URL::action('CMSController@factory_info', ['id' => $factory->factory_id]) }}"><input type="button" value="查看" class="link_btn"/></a>
+            <a href="{{URL::action('CMSController@modifyFactoryInfo', ['id' => $factory->factory_id]) }}"><input type="button" value="修改" class="link_btn"/></a>
+            <a href="{{URL::action('CMSController@deleteFactory', ['id' => $factory->factory_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
         </td>
     </tr>
     @endforeach
