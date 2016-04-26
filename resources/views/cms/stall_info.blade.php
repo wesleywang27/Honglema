@@ -65,7 +65,7 @@
                     @endforeach
                 </ul>
                 <label class="uploadImg" style="margin-top:10px; margin-left:10px;">
-                    <input type="file"/>
+                    <input type="file" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple=""/>
                     <span>上传图片</span>
                 </label>
                 <div class="clear"></div>
@@ -86,6 +86,23 @@
             var liindex = $(".admin_tab li a").index(this);
             $(this).addClass("active").parent().siblings().find("a").removeClass("active");
             $(".admin_tab_cont").eq(liindex).fadeIn(150).siblings(".admin_tab_cont").hide();
+        });
+    });
+
+    jQuery('#fileupload').change(function(){
+        jQuery.ajaxFileUpload({
+            url:"/productpicture",//需要链接到服务器地址
+            secureuri:false,
+            fileElementId:"fileupload",//文件选择框的id属性
+            dataType: 'json',   //json
+            success: function (data, status) {
+                var urls = data.urls;
+                var $htmls = '';
+                for(var i=0; i<urls.length; i++){
+                    $htmls += '<li style="background-image:url('+urls[i]+')"><input type="hidden" id="itemImage" name="itemImage[]" value="'+urls[i]+'"/></li>';
+                }
+                $('#files').append($htmls);
+            }
         });
     });
 </script>
