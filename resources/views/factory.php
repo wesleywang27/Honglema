@@ -299,6 +299,7 @@
             };
             $html = '';
             if(count < 6) {
+                $.AMUI.progress.start();
                 wx.chooseImage({
                     count: 1, // 限制每次只能选择一张
                     success: function (res) {
@@ -316,7 +317,7 @@
                                                 count = count + 1;
                                                 $html += '<li class="weui_uploader_file images" style="background-image:url(' + data + ')"><input type="hidden" id="itemImage" name="itemImage[]" value="' + data + '"/></li>';
                                                 $("#files").append($html);
-
+                                                $.AMUI.progress.done();
                                             }
                                         });
                                     });
