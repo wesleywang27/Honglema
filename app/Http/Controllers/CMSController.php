@@ -662,8 +662,22 @@ class CMSController extends Controller{
                 foreach ($image as $img){
                     ProductPicture::where('id',$id)->where('type',3)->where('url',$img)->delete();
                 }
+
+                $pictures = [];
+                if(Input::has('itemImage')){
+                    foreach (Input::get('itemImage') as $img) {
+                        $picture = new ProductPicture();
+                        $picture->type = 3;//档口类型为3
+                        $picture->url = $img;
+                        $picture->file_id = pathinfo($img)['filename'];
+                        $picture->upload_time = time();
+                        $pictures[] = $picture;
+                    }
+                }
+                $stall->pictures()->saveMany($pictures);
+
                 $picture = ProductPicture::where('id',$id)->where('type',3)->get();
-                echo "<script>alert('删除成功!');</script>";
+
                 return Redirect::intended("/cms/stall_info/$id")->with(['stall' => $stall, 'pictures' => $picture]);
             }
         }
