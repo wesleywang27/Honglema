@@ -658,9 +658,11 @@ class CMSController extends Controller{
             }
             else{
                 $stall = Stall::where('stall_id',$id)->first();
-                $image = Input::get('img');
-                foreach ($image as $img){
-                    ProductPicture::where('id',$id)->where('type',3)->where('url',$img)->delete();
+                if(Input::has('img')){
+                    $image = Input::get('img');
+                    foreach ($image as $img){
+                        ProductPicture::where('id',$id)->where('type',3)->where('url',$img)->delete();
+                    }
                 }
 
                 $pictures = [];

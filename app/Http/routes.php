@@ -24,6 +24,8 @@ Route::resource('/picture', 'PictureController');
 
 Route::resource('/productpicture', 'ProductPictureController');
 
+Route::resource('/productPicture', 'ProductPictureController@store');
+
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::resource('/celebrity', 'CelebrityController');

@@ -91,7 +91,7 @@
 
     jQuery('#fileupload').change(function(){
         jQuery.ajaxFileUpload({
-            url:"/productpicture",//需要链接到服务器地址
+            url:"/productPicture",//需要链接到服务器地址
             secureuri:false,
             fileElementId:"fileupload",//文件选择框的id属性
             dataType: 'json',   //json
