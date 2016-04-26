@@ -230,7 +230,7 @@
                 <div class="weui_cell_bd weui_cell_primary">
                     <div class="weui_uploader">
                         <div class="weui_uploader_hd weui_cell">
-                            <div class="weui_cell_bd weui_cell_primary">商品照片(一次上传最多选6张照片)</div>
+                            <div class="weui_cell_bd weui_cell_primary">商品照片(最多选6张照片)</div>
                         </div>
                         <div class="weui_uploader_bd">
                             <ul class="weui_uploader_files" id="files" style="display: inline;padding-left: 0;">
@@ -295,10 +295,10 @@
             };
             $html = '';
             if(count < 6) {
-                $.AMUI.progress.start();
                 wx.chooseImage({
                     count: 1, // 限制每次只能选择一张
                     success: function (res) {
+                        $.AMUI.progress.start();
                         images.localId = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
                         jQuery.each(images.localId, function (i, n) {
                             wx.uploadImage({
@@ -314,6 +314,8 @@
                                                 $html += '<li class="weui_uploader_file images" style="background-image:url(' + data + ')"><input type="hidden" id="itemImage" name="itemImage[]" value="' + data + '"/></li>';
                                                 $("#files").append($html);
                                                 $.AMUI.progress.done();
+                                                if(count == 6)
+                                                    jQuery("#file_upload").hide();
                                             }
                                         });
                                     });
@@ -326,8 +328,6 @@
                     }
                 });
 
-            }else{
-                alert("图片最多选择6张!");
             }
         });
     });
