@@ -83,11 +83,7 @@
 <!--tabStyle-->
 
 <script type="text/javascript" src="http://y.wcc.cn/statics/amazeui/js/jquery.min.js"></script>
-<script type="text/javascript" src="http://y.wcc.cn/statics/amazeui/js/handlebars.min.js"></script>
-<script type="text/javascript" src="http://y.wcc.cn/statics/amazeui/js/amazeui.widgets.helper.js"></script>
 <script type="text/javascript" src="/js/ajaxfileupload.js" charset="utf-8"></script>
-<script type="text/javascript" src="http://y.wcc.cn/statics/js/jQuery-File-Upload/js/jquery.iframe-transport.js"></script>
-<script type="text/javascript" src="http://y.wcc.cn/statics/js/jQuery-File-Upload/js/jquery.fileupload.js"></script>
 <script>
     $(document).ready(function(){
         //tab
