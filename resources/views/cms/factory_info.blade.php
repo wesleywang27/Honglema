@@ -100,7 +100,7 @@
                     <input type="file" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple=""/>
                     <span>上传图片</span>
                 </label>
-                <ul id="files" style="display: inline;padding-left: 0;">
+                <ul class="gallery" id="files" style="display: inline;padding-left: 0;">
                 </ul>
                 <div class="clear"></div>
             </div>
@@ -136,7 +136,7 @@
                 var urls = data.urls;
                 var $htmls = '';
                 for(var i=0; i<urls.length; i++){
-                    $htmls += '<li style="width: 80px; height: 80px;background-image:url('+urls[i]+')"><input type="hidden" id="itemImage" name="itemImage[]" value="'+urls[i]+'"/></li>';
+                    $htmls += '<li><img src="'+urls[i]+'" style="width: 80px; height: 80px;"/><input type="hidden" id="itemImage" name="itemImage[]" value="'+urls[i]+'"/></li>';
                 }
                 $('#files').append($htmls);
             }
