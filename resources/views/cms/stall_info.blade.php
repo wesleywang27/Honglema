@@ -68,6 +68,8 @@
                     <input type="file" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple=""/>
                     <span>上传图片</span>
                 </label>
+                <ul id="files" style="display: inline;padding-left: 0;">
+                </ul>
                 <div class="clear"></div>
             </div>
             <a href="/cms/stall" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
@@ -79,6 +81,8 @@
     </div>
 </section>
 <!--tabStyle-->
+
+<script type="text/javascript" src="/js/ajaxfileupload.js" charset="utf-8"></script>
 <script>
     $(document).ready(function(){
         //tab
