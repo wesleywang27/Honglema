@@ -158,6 +158,7 @@ class CMSController extends Controller{
                 else
                     $factory->shipmentOK = 0;
                 $factory->zhangqi = Input::get('zhangqi');
+                $factory->contact = Input::get('contact');
                 $factory->description = Input::get('description');
 
                 $factory->save();
@@ -331,6 +332,7 @@ class CMSController extends Controller{
                     $brand->refund = 1;
                 else
                     $brand->refund = 0;
+                $brand->contact = Input::get('contact');
                 $brand->description = Input::get('description');
 
                 $brand->save();
@@ -495,6 +497,7 @@ class CMSController extends Controller{
                     $designer->brand = 0;
                 $designer->designBrand = Input::get('designBrand');
                 $designer->designExperience = Input::get('designExperience');
+                $designer->contact = Input::get('contact');
                 $designer->description = Input::get('description');
 
                 $designer->save();
@@ -656,6 +659,7 @@ class CMSController extends Controller{
                     $stall->shipmentOK = 1;
                 else
                     $stall->shipmentOK = 0;
+                $stall->contact = Input::get('contact');
 
                 $stall->save();
 

@@ -76,8 +76,8 @@
                 @endif
                 <th>工厂主要付款方式：</th>
                 <td>{{$factory->zhangqi}}</td>
-                <th></th>
-                <td></td>
+                <th>红了吗对接人</th>
+                <td>{{$factory->contact}}</td>
             </tr>
             <tr>
                 <th>备注：</th>

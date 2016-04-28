@@ -76,8 +76,8 @@
                 @else
                 <td>否</td>
                 @endif
-                <th></th>
-                <td></td>
+                <th>红了吗对接人</th>
+                <td>{{ $brand->contact}}</td>
             </tr>
             <tr>
                 <th>备注：</th>

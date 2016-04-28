@@ -42,9 +42,9 @@
                 </tr>
                 <tr>
                     <th>档口所在市：</th>
-                    <td><input style="width: 98%;height: 100%;" name="stallCity" value="{{ $stall->stallCity}}" />
+                    <td><input style="width: 98%;height: 100%;" name="stallCity" value="{{ $stall->stallCity}}" /></td>
                     <th>档口所在区：</th>
-                    <td><input style="width: 98%;height: 100%;" name="region" value="{{ $stall->region}}" />
+                    <td><input style="width: 98%;height: 100%;" name="region" value="{{ $stall->region}}" /></td>
                     <th>档口详细地址：</th>
                     <td><input style="width: 98%;height: 100%;" name="address" value="{{ $stall->address}}" /></td>
                 </tr>
@@ -59,6 +59,14 @@
                     @else
                     <td><input style="width: 98%;height: 100%;" name="shipmentOK" value="否" /></td>
                     @endif
+                </tr>
+                <tr>
+                    <th>红了吗对接人：</th>
+                    <td><input style="width: 98%;height: 100%;" name="contact" value="{{ $stall->contact}}" /></td>
+                    <th></th>
+                    <td></td>
+                    <th></th>
+                    <td></td>
                 </tr>
             </table>
             <a href="javascript:history.go(-1);" style=" margin-left:85%;"><input type="button" value="返回" class="link_btn"/></a>

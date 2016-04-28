@@ -34,9 +34,9 @@
                 </tr>
                 <tr>
                     <th>公司所在市：</th>
-                    <td><input style="width: 98%;height: 100%;" name="city" value="{{ $factory->city}}" />
+                    <td><input style="width: 98%;height: 100%;" name="city" value="{{ $factory->city}}" /></td>
                     <th>公司所在区：</th>
-                    <td><input style="width: 98%;height: 100%;" name="region" value="{{ $factory->region}}" />
+                    <td><input style="width: 98%;height: 100%;" name="region" value="{{ $factory->region}}" /></td>
                     <th>公司详细地址：</th>
                     <td><input style="width: 98%;height: 100%;" name="address" value="{{ $factory->address}}" /></td>
                 </tr>
@@ -81,8 +81,8 @@
                     @endif
                     <th>主要付款方式：</th>
                     <td><input style="width: 98%;height: 100%;" name="zhangqi" value="{{ $factory->zhangqi}}" /></td>
-                    <th></th>
-                    <td></td>
+                    <th>红了吗对接人</th>
+                    <td><input style="width: 98%;height: 100%;" name="contact" value="{{ $factory->contact}}" /></td>
                 </tr>
                 <tr><th>备注：</th>
                     <td colspan="5"><textarea name="description" style="width: 99.3%; height: 60px; margin-top: -8px; margin-bottom: -10px;">{{ $factory->description}}</textarea></td>

@@ -51,6 +51,14 @@
                 <td>否</td>
                 @endif
             </tr>
+            <tr>
+                <th>红了吗对接人：</th>
+                <td>{{ $stall->contact}}</td>
+                <th></th>
+                <td></td>
+                <th></th>
+                <td></td>
+            </tr>
         </table>
         <a href="/cms/stall" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
         <a href="{{URL::action('CMSController@modifyStallInfo', ['id' => $stall->stall_id]) }}"><input type="button" value="修改" class="link_btn" style="margin-top: -10px; margin-bottom: -10px;"/></a>
