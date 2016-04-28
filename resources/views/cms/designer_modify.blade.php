@@ -42,9 +42,9 @@
                 </tr>
                 <tr>
                     <th>公司所在市：</th>
-                    <td><input style="width: 98%;height: 100%;" name="city" value="{{ $designer->city}}" />
+                    <td><input style="width: 98%;height: 100%;" name="city" value="{{ $designer->city}}" /></td>
                     <th>公司所在区：</th>
-                    <td><input style="width: 98%;height: 100%;" name="region" value="{{ $designer->region}}" />
+                    <td><input style="width: 98%;height: 100%;" name="region" value="{{ $designer->region}}" /></td>
                     <th>公司详细地址：</th>
                     <td><input style="width: 98%;height: 100%;" name="address" value="{{ $designer->address}}" /></td>
                 </tr>
@@ -65,10 +65,18 @@
                     <td><input style="width: 98%;height: 100%;" name="designBrand" value="{{ $designer->designBrand }}" /></td>
                 </tr>
                 <tr>
+                    <th>红了吗对接人：</th>
+                    <td><input style="width: 98%;height: 100%;" name="contact" value="{{ $designer->contact}}" /></td>
+                    <th></th>
+                    <td></td>
+                    <th></th>
+                    <td></td>
+                </tr>
+                <tr>
                     <th>设计经历：</th>
-                    <td colspan="2"><textarea name="designExperience" style="width: 98%; height: 60px; margin-top: -10px; margin-bottom: -10px;">{{ $designer->designExperience}}</textarea></td>
+                    <td colspan="2"><textarea name="designExperience" style="width: 98%; height: 60px; margin-top: -6px; margin-bottom: -8px;">{{ $designer->designExperience}}</textarea></td>
                     <th>备注：</th>
-                    <td colspan="2"><textarea name="description" style="width: 98%; height: 60px; margin-top: -10px; margin-bottom: -10px;">{{ $designer->description}}</textarea></td>
+                    <td colspan="2"><textarea name="description" style="width: 98%; height: 60px; margin-top: -6px; margin-bottom: -8px;">{{ $designer->description}}</textarea></td>
                 </tr>
             </table>
             <a href="javascript:history.go(-1);" style=" margin-left:85%;"><input type="button" value="返回" class="link_btn"/></a>

@@ -36,9 +36,9 @@
                     <th>公司所在省：</th>
                     <td><input style="width: 98%;height: 100%;" name="province" value="{{ $brand->province }}" /></td>
                     <th>公司所在市：</th>
-                    <td><input style="width: 98%;height: 100%;" name="city" value="{{ $brand->city}}" />
+                    <td><input style="width: 98%;height: 100%;" name="city" value="{{ $brand->city}}" /></td>
                     <th>公司所在区：</th>
-                    <td><input style="width: 98%;height: 100%;" name="region" value="{{ $brand->region}}" />
+                    <td><input style="width: 98%;height: 100%;" name="region" value="{{ $brand->region}}" /></td>
                 </tr>
                 <tr>
                     <th>公司详细地址：</th>
@@ -84,8 +84,16 @@
                     <td><input style="width: 98%;height: 100%;" name="refund" value="否" /></td>
                     @endif
                 </tr>
+                <tr>
+                    <th>红了吗对接人：</th>
+                    <td><input style="width: 98%;height: 100%;" name="contact" value="{{ $brand->contact}}" /></td>
+                    <th></th>
+                    <td></td>
+                    <th></th>
+                    <td></td>
+                </tr>
                 <tr><th>备注：</th>
-                    <td colspan="5"><textarea name="description" style="width: 99.3%; height: 60px; margin-top: -8px; margin-bottom: -10px;">{{ $brand->description}}</textarea></td>
+                    <td colspan="5"><textarea name="description" style="width: 99.3%; height: 60px; margin-top: -6px; margin-bottom: -8px;">{{ $brand->description}}</textarea></td>
                 </tr>
             </table>
             <a href="javascript:history.go(-1);" style=" margin-left:85%;"><input type="button" value="返回" class="link_btn"/></a>

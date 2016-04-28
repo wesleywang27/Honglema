@@ -52,10 +52,18 @@
                 <td>{{ $designer->designBrand}}</td>
             </tr>
             <tr>
+                <th>红了吗对接人：</th>
+                <td>{{ $designer->contact}}</td>
+                <th></th>
+                <td></td>
+                <th></th>
+                <td></td>
+            </tr>
+            <tr>
                 <th>设计经历：</th>
-                <td colspan="2"><textarea name="designExperience" style="width: 98%; height: 100px; margin-top: -18px; margin-bottom: -20px;" readonly>{{ $designer->designExperience}}</textarea></td>
+                <td colspan="2"><textarea name="designExperience" style="width: 98%; height: 80px; margin-top: -14px; margin-bottom: -16px;" readonly>{{ $designer->designExperience}}</textarea></td>
                 <th>备注：</th>
-                <td colspan="2"><textarea name="description" style="width: 98%; height: 100px; margin-top: -18px; margin-bottom: -20px;" readonly>{{ $designer->description}}</textarea></td>
+                <td colspan="2"><textarea name="description" style="width: 98%; height: 80px; margin-top: -14px; margin-bottom: -16px;" readonly>{{ $designer->description}}</textarea></td>
             </tr>
         </table>
         <a href="/cms/designer" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
