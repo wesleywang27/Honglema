@@ -53,6 +53,7 @@ class FactoryController extends Controller{
             $factory->refund = Input::get('refund');
             $factory->shipmentOK = Input::get('shipmentOK');
             $factory->zhangqi = Input::get('zhangqi');
+            $factory->contact = Input::get('contact');
             $factory->description = Input::get('description');
 
             $pictures = [];

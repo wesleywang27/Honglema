@@ -47,6 +47,7 @@ class DesignerController extends Controller{
             $designer->designTeam = Input::get('designTeam');
             $designer->brand = Input::get('brand');
             $designer->designBrand = Input::get('designBrand');
+            $designer->contact = Input::get('contact');
             $designer->description = Input::get('description');
 
             $pictures = [];
