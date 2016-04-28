@@ -54,6 +54,7 @@ class BrandController extends Controller{
             $brand->customPosition = Input::get('customPosition');
             $brand->customAge = Input::get('customAge');
             $brand->refund = Input::get('refund');
+            $brand->contact = Input::get('contact');
             $brand->description = Input::get('description');
 
             $pictures = [];

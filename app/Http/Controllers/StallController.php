@@ -45,6 +45,7 @@ class StallController extends Controller{
             $stall->style = Input::get('style');
             $stall->category = Input::get('category');
             $stall->shipmentOK = Input::get('shipmentOK');
+            $stall->contact = Input::get('contact');
 
             $pictures = [];
             if(Input::has('itemImage')){

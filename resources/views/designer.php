@@ -162,6 +162,24 @@
                     </div>
                 </div>
             </div>
+            <div class="weui_cell weui_cell_select weui_select_after">
+                <div class="weui_cell_hd">
+                    红了吗对接人
+                </div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <select class="weui_select" name="contact">
+                        <option value="地文">地文</option>
+                        <option value="零陵">零陵</option>
+                        <option value="左权">左权</option>
+                        <option value="三清">三清</option>
+                        <option value="天闲">天闲</option>
+                        <option value="静宁">静宁</option>
+                        <option value="紫荆">紫荆</option>
+                        <option value="千岛">千岛</option>
+                        <option value="飞电">飞电</option>
+                    </select>
+                </div>
+            </div>
         </div>
 
         <div class="weui_cells weui_cells_form">
