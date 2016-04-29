@@ -225,7 +225,7 @@
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd">
-                    红了吗对接人
+                    <label class="">红了吗对接人</label>
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="contact">
@@ -238,6 +238,7 @@
                         <option value="紫荆">紫荆</option>
                         <option value="千岛">千岛</option>
                         <option value="飞电">飞电</option>
+                        <option value="其他">其他</option>
                     </select>
                 </div>
             </div>
