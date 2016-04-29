@@ -54,6 +54,10 @@ class BrandController extends Controller{
             $brand->customPosition = Input::get('customPosition');
             $brand->customAge = Input::get('customAge');
             $brand->refund = Input::get('refund');
+            if (Input::get('contact') == ''){
+                echo "<script>history.back(); alert('请选择红了吗对接人!');</script>";
+                return;
+            }
             $brand->contact = Input::get('contact');
             $brand->description = Input::get('description');
 

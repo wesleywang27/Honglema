@@ -47,6 +47,10 @@ class DesignerController extends Controller{
             $designer->designTeam = Input::get('designTeam');
             $designer->brand = Input::get('brand');
             $designer->designBrand = Input::get('designBrand');
+            if (Input::get('contact') == ''){
+                echo "<script>history.back(); alert('请选择红了吗对接人!');</script>";
+                return;
+            }
             $designer->contact = Input::get('contact');
             $designer->description = Input::get('description');
 

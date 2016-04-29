@@ -53,6 +53,10 @@ class FactoryController extends Controller{
             $factory->refund = Input::get('refund');
             $factory->shipmentOK = Input::get('shipmentOK');
             $factory->zhangqi = Input::get('zhangqi');
+            if (Input::get('contact') == ''){
+                echo "<script>history.back(); alert('请选择红了吗对接人!');</script>";
+                return;
+            }
             $factory->contact = Input::get('contact');
             $factory->description = Input::get('description');
 

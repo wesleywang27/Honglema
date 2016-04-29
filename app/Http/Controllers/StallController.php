@@ -45,6 +45,10 @@ class StallController extends Controller{
             $stall->style = Input::get('style');
             $stall->category = Input::get('category');
             $stall->shipmentOK = Input::get('shipmentOK');
+            if (Input::get('contact') == ''){
+                echo "<script>history.back(); alert('请选择红了吗对接人!');</script>";
+                return;
+            }
             $stall->contact = Input::get('contact');
 
             $pictures = [];
