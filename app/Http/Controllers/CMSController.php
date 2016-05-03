@@ -436,8 +436,14 @@ class CMSController extends Controller{
                 return;
             }
             else{
-                $designer = Designer::paginate(10);
-                return view('/cms/designer',['designers' => $designer]);
+                if(Input::has('name')){
+                    $name = Input::has('name') ? Input::get('name') : '%';
+                    return Redirect::to("/cms/designer/$name/%");
+                }
+                else{
+                    $designer = Designer::paginate(10);
+                    return view('/cms/designer', ['designers' => $designer]);
+                }
             }
         }
         else{
@@ -543,10 +549,10 @@ class CMSController extends Controller{
         }
     }
     //查找设计师信息
-    public function searchDesigner(){
+    public function searchDesigner($name){
         session_start();
         if(isset($_SESSION['username'])){
-            $designer = Designer::where('username','like','%'.Input::get('name').'%')->paginate(10);
+            $designer = Designer::where('username','like','%'.$name.'%')->paginate(10);
             return view('/cms/designer',['designers' => $designer]);
         }
         else{

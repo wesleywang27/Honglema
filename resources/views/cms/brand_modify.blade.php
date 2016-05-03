@@ -116,7 +116,7 @@
                 </ul>
                 <div class="clear"></div>
             </div>
-            <a href="/cms/brand" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
+            <a href="javascript:history.back();" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
             <input type="submit" value="删除" class="link_btn"/>
             <input type="submit" value="保存" class="link_btn"/>
         </form>
