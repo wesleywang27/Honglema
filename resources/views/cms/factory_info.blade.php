@@ -2,7 +2,6 @@
 
 @section('content')
 
-<h2><strong style="color:grey;">商家信息管理</strong></h2>
 <div class="page_title">
     <h2 class="fl">工厂信息详情</h2>
 </div>

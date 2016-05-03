@@ -2,12 +2,11 @@
 
 @section('content')
 
-<h2><strong style="color:grey;">后台用户管理</strong></h2>
 <div class="page_title">
     <h2 class="fl">后台用户列表</h2>
     <form action="/cms/user" id="baseInfoForm" method="post">
         <?php echo csrf_field(); ?>
-        <input class="fr top_rt_btn" style="float:right" id="saveSubmit" name="commit" type="submit" value="查找"/>
+        <input class="fr top_rt_btn" style="float:right; margin-top: 8px;" id="saveSubmit" name="commit" type="submit" value="查找"/>
         <input type="text" name="name" class="textboxsearch" placeholder="按用户名查找"/>
     </form>
 </div>

@@ -2,7 +2,6 @@
 
 @section('content')
 
-<h2><strong style="color:grey;">后台用户管理</strong></h2>
 <div class="page_title">
     <h2 class="fl">添加后台用户</h2>
 </div>
