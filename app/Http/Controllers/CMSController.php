@@ -607,8 +607,14 @@ class CMSController extends Controller{
                 return;
             }
             else{
-                $stall = Stall::paginate(10);
-                return view('/cms/stall',['stalls' => $stall]);
+                if(Input::has('name')){
+                    $name = Input::has('name') ? Input::get('name') : '%';
+                    return Redirect::to("/cms/stall/$name/%");
+                }
+                else{
+                    $stall = Stall::paginate(10);
+                    return view('/cms/stall', ['stalls' => $stall]);
+                }
             }
         }
         else{
@@ -710,10 +716,10 @@ class CMSController extends Controller{
         }
     }
     //查找档口信息
-    public function searchStall(){
+    public function searchStall($name){
         session_start();
         if(isset($_SESSION['username'])){
-            $stall = Stall::where('username','like','%'.Input::get('name').'%')->paginate(10);
+            $stall = Stall::where('username','like','%'.$name.'%')->paginate(10);
             return view('/cms/stall',['stalls' => $stall]);
         }
         else{

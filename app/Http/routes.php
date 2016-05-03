@@ -143,7 +143,7 @@ Route::get('/cms/brand/{name?}/{category?}',"CMSController@searchBrand");
 
 Route::get('/cms/designer/{name?}/{category?}',"CMSController@searchDesigner");
 
-Route::get('/cms/stall/{name?}',"CMSController@searchStall");
+Route::get('/cms/stall/{name?}/{category?}',"CMSController@searchStall");
 
 //图片修改入口
 Route::post('/cms/factory_updateImg/{id?}',"CMSController@updateFactoryImg");
