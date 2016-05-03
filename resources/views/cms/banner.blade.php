@@ -88,7 +88,7 @@
         </li>
         @endif
         <li>
-            <p class="btm_infor">© 红了吗 版权所有</p>
+            <p class="btm_infor">©红了吗网络科技有限公司</p>
         </li>
     </ul>
 </aside>
