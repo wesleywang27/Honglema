@@ -2,7 +2,6 @@
 
 @section('content')
 
-<h2><strong style="color:grey;">用户账号设置</strong></h2>
 <div class="page_title">
     <h2 class="fl">修改用户信息</h2>
 </div>

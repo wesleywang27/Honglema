@@ -2,9 +2,8 @@
 
 @section('content')
 
-<h2><strong style="color:grey;">用户账号信息</strong></h2>
 <div class="page_title">
-    <h2 class="fl">查看用户信息</h2>
+    <h2 class="fl">用户账号信息</h2>
 </div>
 <form style="margin-left: 30%">
     <div style="margin-top: 20px;">
