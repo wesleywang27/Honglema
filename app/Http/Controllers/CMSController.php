@@ -75,8 +75,18 @@ class CMSController extends Controller{
                 return;
             }
             else{
-                $factory = Factory::paginate(10);
-                return view('/cms/factory',['factories' => $factory]);
+                if(Input::has('category')){
+                    if(Input::has('name'))
+                        $name = Input::get('name');
+                    else
+                        $name = '%';
+                    $category = Input::get('category');
+                    return Redirect::to("/cms/factory/$name/$category");
+                }
+                else{
+                    $factory = Factory::paginate(10);
+                    return view('/cms/factory',['factories' => $factory]);
+                }
             }
         }
         else{
@@ -190,10 +200,10 @@ class CMSController extends Controller{
         }
     }
     //查找工厂信息
-    public function searchFactory(){
+    public function searchFactory($name,$category){
         session_start();
         if(isset($_SESSION['username'])){
-            $factory = Factory::where('username','like','%'.Input::get('name').'%')->paginate(10);
+            $factory = Factory::where('username','like','%'.$name.'%')->where('category',$category)->paginate(10);
             return view('/cms/factory',['factories' => $factory]);
         }
         else{
@@ -248,8 +258,18 @@ class CMSController extends Controller{
                 return;
             }
             else{
-                $brand = Brand::paginate(10);
-                return view('/cms/brand',['brands' => $brand]);
+                if(Input::has('category')){
+                    if(Input::has('name'))
+                        $name = Input::get('name');
+                    else
+                        $name = '%';
+                    $category = Input::get('category');
+                    return Redirect::to("/cms/brand/$name/$category");
+                }
+                else{
+                    $brand = Brand::paginate(10);
+                    return view('/cms/brand', ['brands' => $brand]);
+                }
             }
         }
         else{
@@ -364,10 +384,10 @@ class CMSController extends Controller{
         }
     }
     //查找品牌商信息
-    public function searchBrand(){
+    public function searchBrand($name,$category){
         session_start();
         if(isset($_SESSION['username'])){
-            $brand = Brand::where('username','like','%'.Input::get('name').'%')->paginate(10);
+            $brand = Brand::where('username','like','%'.$name.'%')->where('category',$category)->paginate(10);
             return view('/cms/brand',['brands' => $brand]);
         }
         else{
