@@ -75,12 +75,9 @@ class CMSController extends Controller{
                 return;
             }
             else{
-                if(Input::has('category')){
-                    if(Input::has('name'))
-                        $name = Input::get('name');
-                    else
-                        $name = '%';
-                    $category = Input::get('category');
+                if(Input::has('category') || Input::has('name')){
+                    $name = Input::has('name') ? Input::get('name') : '%';
+                    $category = Input::has('category') ? Input::get('category') : '%';
                     return Redirect::to("/cms/factory/$name/$category");
                 }
                 else{
@@ -203,7 +200,7 @@ class CMSController extends Controller{
     public function searchFactory($name,$category){
         session_start();
         if(isset($_SESSION['username'])){
-            $factory = Factory::where('username','like','%'.$name.'%')->where('category',$category)->paginate(10);
+            $factory = Factory::where('username','like','%'.$name.'%')->where('category','like','%'.$category.'%')->paginate(10);
             return view('/cms/factory',['factories' => $factory]);
         }
         else{
@@ -258,12 +255,9 @@ class CMSController extends Controller{
                 return;
             }
             else{
-                if(Input::has('category')){
-                    if(Input::has('name'))
-                        $name = Input::get('name');
-                    else
-                        $name = '%';
-                    $category = Input::get('category');
+                if(Input::has('category') || Input::has('name')){
+                    $name = Input::has('name') ? Input::get('name') : '%';
+                    $category = Input::has('category') ? Input::get('category') : '%';
                     return Redirect::to("/cms/brand/$name/$category");
                 }
                 else{
@@ -387,7 +381,7 @@ class CMSController extends Controller{
     public function searchBrand($name,$category){
         session_start();
         if(isset($_SESSION['username'])){
-            $brand = Brand::where('username','like','%'.$name.'%')->where('category',$category)->paginate(10);
+            $brand = Brand::where('username','like','%'.$name.'%')->where('category','like','%'.$category.'%')->paginate(10);
             return view('/cms/brand',['brands' => $brand]);
         }
         else{
