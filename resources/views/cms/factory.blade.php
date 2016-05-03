@@ -7,8 +7,26 @@
         <?php echo csrf_field(); ?>
         <input class="fr top_rt_btn" style="float:right; margin-top: 2px;" id="saveSubmit" name="commit" type="submit" value="查找"/>
         <input type="text" name="name" class="textboxsearch" placeholder="按姓名查找"/>
-        <select class="select" style="float:right; margin-top: 2px; margin-right: 5px;">
-            <option>选择类目</option>
+        <select class="select" name="category" style="float:right; margin-top: 2px; margin-right: 5px;">
+            <option value="">选择类目</option>
+            <option value="女装">女装</option>
+            <option value="男装">男装</option>
+            <option value="内衣">内衣</option>
+            <option value="鞋靴">鞋靴</option>
+            <option value="帽子">帽子</option>
+            <option value="食品">食品</option>
+            <option value="数码家电">数码家电</option>
+            <option value="家居家纺">家居家纺</option>
+            <option value="家具建材">家具建材</option>
+            <option value="珠宝饰品">珠宝饰品</option>
+            <option value="户外运动">户外运动</option>
+            <option value="母婴">母婴</option>
+            <option value="美妆">美妆</option>
+            <option value="箱包">箱包</option>
+            <option value="汽车">汽车</option>
+            <option value="百货">百货</option>
+            <option value="情趣用品">情趣用品</option>
+            <option value="其他">其他</option>
         </select>
     </form>
 </div>

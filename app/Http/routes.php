@@ -93,9 +93,9 @@ Route::get('/cms/index', "CMSController@index");
 Route::get('/cms/', "CMSController@index");
 
 //列表页入口
-Route::get('/cms/factory', "CMSController@factory");
+Route::resource('/cms/factory', "CMSController@factory");
 
-Route::get('/cms/brand', "CMSController@brand");
+Route::resource('/cms/brand', "CMSController@brand");
 
 Route::get('/cms/designer', "CMSController@designer");
 
@@ -137,9 +137,9 @@ Route::get('/cms/designer/{id?}',"CMSController@deleteDesigner");
 Route::get('/cms/stall/{id?}',"CMSController@deleteStall");
 
 //信息查找入口
-Route::post('/cms/factory',"CMSController@searchFactory");
+Route::get('/cms/factory/{name?}/{category?}', "CMSController@searchFactory");
 
-Route::post('/cms/brand',"CMSController@searchBrand");
+Route::get('/cms/brand/{name?}/{category?}',"CMSController@searchBrand");
 
 Route::post('/cms/designer',"CMSController@searchDesigner");
 
