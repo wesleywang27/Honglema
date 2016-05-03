@@ -115,7 +115,7 @@ header .rt_nav li .quit_icon:before{content:"Q";}
 .textboxsearch{border:1px #139667 solid;height:18px;line-height:26px;padding:5px;font-size:12px; vertical-align:middle; float:right; margin-right:8px; margin-top:2px;}
 .textbox_295{width:295px;}
 .textbox_225{width:225px;}
-.select{padding:0 5px;height:38px;font-size:12px;border:1px #139667 solid;vertical-align:middle; appearance: button;-webkit-appearance:button;}
+.select{padding:0 5px;height:30px;font-size:12px;border:1px #139667 solid;vertical-align:middle; appearance: button;}
 .group_btn{border:1px #139667 solid;background:#19a97b;color:white;padding:0 15px;height:38px;cursor:pointer;display:inline-block;vertical-align:middle;}
 .group_btn:hover{background:#11a274;border:1px #0e8f61 solid;}
 .group_btn:active{background:#0c9c6e;border:1px #0e8f61 solid;}
