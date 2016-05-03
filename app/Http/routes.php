@@ -97,9 +97,9 @@ Route::resource('/cms/factory', "CMSController@factory");
 
 Route::resource('/cms/brand', "CMSController@brand");
 
-Route::get('/cms/designer', "CMSController@designer");
+Route::resource('/cms/designer', "CMSController@designer");
 
-Route::get('/cms/stall', "CMSController@stall");
+Route::resource('/cms/stall', "CMSController@stall");
 
 //详情页入口
 Route::get('/cms/factory_info/{id?}',"CMSController@factory_info");
@@ -141,9 +141,9 @@ Route::get('/cms/factory/{name?}/{category?}', "CMSController@searchFactory");
 
 Route::get('/cms/brand/{name?}/{category?}',"CMSController@searchBrand");
 
-Route::post('/cms/designer',"CMSController@searchDesigner");
+Route::get('/cms/designer/{name?}/{category?}',"CMSController@searchDesigner");
 
-Route::post('/cms/stall',"CMSController@searchStall");
+Route::get('/cms/stall/{name?}',"CMSController@searchStall");
 
 //图片修改入口
 Route::post('/cms/factory_updateImg/{id?}',"CMSController@updateFactoryImg");

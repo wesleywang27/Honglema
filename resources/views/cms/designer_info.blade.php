@@ -66,7 +66,7 @@
                 <td colspan="2"><textarea name="description" style="width: 98%; height: 80px; margin-top: -14px; margin-bottom: -16px;" readonly>{{ $designer->description}}</textarea></td>
             </tr>
         </table>
-        <a href="/cms/designer" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
+        <a href="javascript:history.back();" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
         <a href="{{URL::action('CMSController@modifyDesignerInfo', ['id' => $designer->designer_id]) }}"><input type="button" value="修改" class="link_btn" style="margin-top: -10px; margin-bottom: -10px;"/></a>
         <a href="{{URL::action('CMSController@deleteDesigner', ['id' => $designer->designer_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
     </div>
@@ -86,7 +86,7 @@
                 </ul>
                 <div class="clear"></div>
             </div>
-            <a href="/cms/designer" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
+            <a href="javascript:history.back();" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
             <input type="submit" value="删除" class="link_btn"/>
             <input type="submit" value="保存" class="link_btn"/>
         </form>

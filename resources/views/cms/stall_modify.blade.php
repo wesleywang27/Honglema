@@ -69,7 +69,7 @@
                     <td></td>
                 </tr>
             </table>
-            <a href="javascript:history.go(-1);" style=" margin-left:85%;"><input type="button" value="返回" class="link_btn"/></a>
+            <a href="javascript:history.back();" style=" margin-left:85%;"><input type="button" value="返回" class="link_btn"/></a>
             <input type="submit" value="保存" class="link_btn" style="margin-top: -10px; margin-bottom: -10px;"/>
         </form>
     </div>
@@ -89,7 +89,7 @@
                 </ul>
                 <div class="clear"></div>
             </div>
-            <a href="/cms/stall" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
+            <a href="javascript:history.back();" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
             <input type="submit" value="删除" class="link_btn"/>
             <input type="submit" value="保存" class="link_btn"/>
         </form>
