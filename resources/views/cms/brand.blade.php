@@ -6,8 +6,15 @@
     <form action="/cms/brand" id="baseInfoForm" method="post">
         <?php echo csrf_field(); ?>
         <input class="fr top_rt_btn" style="float:right; margin-top: 2px;" id="saveSubmit" name="commit" type="submit" value="查找"/>
-        <input type="text" name="name" class="textboxsearch" placeholder="按姓名查找"/>
+        <input type="text" name="name" class="textboxsearch"
+               @if ($name != '%')
+               value="{{ $name }}"
+               @endif
+               placeholder="按姓名查找"/>
         <select class="select" name="category" style="float:right; margin-top: 2px; margin-right: 5px;">
+            @if ($category != '%')
+            <option value="{{ $category }}">{{ $category }}</option>
+            @endif
             <option value="">选择类目</option>
             <option value="女装">女装</option>
             <option value="男装">男装</option>
