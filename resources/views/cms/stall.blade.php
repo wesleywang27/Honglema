@@ -7,9 +7,6 @@
         <?php echo csrf_field(); ?>
         <input class="fr top_rt_btn" style="float:right; margin-top: 2px;" id="saveSubmit" name="commit" type="submit" value="查找"/>
         <input type="text" name="name" class="textboxsearch" placeholder="按姓名查找"/>
-        <select class="select" style="float:right; margin-top: 2px; margin-right: 5px;">
-            <option>选择类目</option>
-        </select>
     </form>
 </div>
 <table class="table">
