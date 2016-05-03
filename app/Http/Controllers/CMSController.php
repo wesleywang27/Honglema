@@ -82,7 +82,7 @@ class CMSController extends Controller{
                 }
                 else{
                     $factory = Factory::paginate(10);
-                    return view('/cms/factory',['factories' => $factory]);
+                    return view('/cms/factory',['factories' => $factory ,'name' => '%' ,'category' => '%']);
                 }
             }
         }
@@ -201,7 +201,7 @@ class CMSController extends Controller{
         session_start();
         if(isset($_SESSION['username'])){
             $factory = Factory::where('username','like','%'.$name.'%')->where('category','like','%'.$category.'%')->paginate(10);
-            return view('/cms/factory',['factories' => $factory]);
+            return view('/cms/factory',['factories' => $factory ,'name' => $name ,'category' => $category]);
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -262,7 +262,7 @@ class CMSController extends Controller{
                 }
                 else{
                     $brand = Brand::paginate(10);
-                    return view('/cms/brand', ['brands' => $brand]);
+                    return view('/cms/brand', ['brands' => $brand ,'name' => '%' ,'category' => '%']);
                 }
             }
         }
@@ -382,7 +382,7 @@ class CMSController extends Controller{
         session_start();
         if(isset($_SESSION['username'])){
             $brand = Brand::where('username','like','%'.$name.'%')->where('category','like','%'.$category.'%')->paginate(10);
-            return view('/cms/brand',['brands' => $brand]);
+            return view('/cms/brand',['brands' => $brand ,'name' => $name ,'category' => $category]);
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -442,7 +442,7 @@ class CMSController extends Controller{
                 }
                 else{
                     $designer = Designer::paginate(10);
-                    return view('/cms/designer', ['designers' => $designer]);
+                    return view('/cms/designer', ['designers' => $designer ,'name' => '%']);
                 }
             }
         }
@@ -553,7 +553,7 @@ class CMSController extends Controller{
         session_start();
         if(isset($_SESSION['username'])){
             $designer = Designer::where('username','like','%'.$name.'%')->paginate(10);
-            return view('/cms/designer',['designers' => $designer]);
+            return view('/cms/designer',['designers' => $designer ,'name' => $name]);
         }
         else{
             return Redirect::intended('/cms/login.php');
@@ -613,7 +613,7 @@ class CMSController extends Controller{
                 }
                 else{
                     $stall = Stall::paginate(10);
-                    return view('/cms/stall', ['stalls' => $stall]);
+                    return view('/cms/stall', ['stalls' => $stall ,'name' => '%']);
                 }
             }
         }
@@ -720,7 +720,7 @@ class CMSController extends Controller{
         session_start();
         if(isset($_SESSION['username'])){
             $stall = Stall::where('username','like','%'.$name.'%')->paginate(10);
-            return view('/cms/stall',['stalls' => $stall]);
+            return view('/cms/stall',['stalls' => $stall ,'name' => $name]);
         }
         else{
             return Redirect::intended('/cms/login.php');
