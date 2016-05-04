@@ -78,8 +78,12 @@
     @for ($i = 1; $i <= $factories->lastPage(); $i++)
     <a class="{{ ($factories->currentPage() == $i) ? ' active' : '' }}" href="{{ $factories->url($i) }}">{{ $i }}</a>
     @endfor
-    @elseif ($factories->currentPage() > 4)
+    @elseif ($factories->currentPage() > 4 && $factories->currentPage() < $factories->lastPage() - 4)
     @for ($i = $factories->currentPage() - 4; $i <= $factories->currentPage() + 4; $i++)
+    <a class="{{ ($factories->currentPage() == $i) ? ' active' : '' }}" href="{{ $factories->url($i) }}">{{ $i }}</a>
+    @endfor
+    @elseif ($factories->currentPage() > 4)
+    @for ($i = $factories->lastPage() - 8; $i <= $factories->lastPage(); $i++)
     <a class="{{ ($factories->currentPage() == $i) ? ' active' : '' }}" href="{{ $factories->url($i) }}">{{ $i }}</a>
     @endfor
     @else

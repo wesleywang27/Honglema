@@ -54,8 +54,12 @@
     @for ($i = 1; $i <= $designers->lastPage(); $i++)
     <a class="{{ ($designers->currentPage() == $i) ? ' active' : '' }}" href="{{ $designers->url($i) }}">{{ $i }}</a>
     @endfor
-    @elseif ($designers->currentPage() > 4)
+    @elseif ($designers->currentPage() > 4 && $designers->currentPage() < $designers->lastPage() - 4)
     @for ($i = $designers->currentPage() - 4; $i <= $designers->currentPage() + 4; $i++)
+    <a class="{{ ($designers->currentPage() == $i) ? ' active' : '' }}" href="{{ $designers->url($i) }}">{{ $i }}</a>
+    @endfor
+    @elseif ($designers->currentPage() > 4)
+    @for ($i = $designers->lastPage() - 8; $i <= $designers->lastPage(); $i++)
     <a class="{{ ($designers->currentPage() == $i) ? ' active' : '' }}" href="{{ $designers->url($i) }}">{{ $i }}</a>
     @endfor
     @else
