@@ -78,8 +78,8 @@
                     <td colspan="2"><textarea name="description" style="width: 98%; height: 60px; margin-top: -6px; margin-bottom: -8px;">{{ $designer->description}}</textarea></td>
                 </tr>
             </table>
-            <a href="javascript:history.back();" style=" margin-left:85%;"><input type="button" value="返回" class="link_btn"/></a>
-            <input type="submit" value="保存" class="link_btn" style="margin-top: -10px; margin-bottom: -10px;"/>
+            <input type="submit" value="保存" class="link_btn" style="float: right; margin-right: 40px;"/>
+            <a href="javascript:history.back();" style="float: right; margin-right: 5px;"><input type="button" value="返回" class="link_btn"/></a>
         </form>
     </div>
     <div class="admin_tab_cont">
@@ -98,9 +98,9 @@
                 </ul>
                 <div class="clear"></div>
             </div>
-            <a href="javascript:history.back();" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
-            <input type="submit" value="删除" class="link_btn"/>
-            <input type="submit" value="保存" class="link_btn"/>
+            <input type="submit" value="保存" class="link_btn" style="float: right; margin-right: 15%;"/>
+            <input type="submit" value="删除" class="link_btn" style="float: right; margin-right: 5px;"/>
+            <a href="javascript:history.back();" style="float: right; margin-right: 5px;"><input type="button" value="返回" class="link_btn"/></a>
         </form>
         <script src="/js/jquery-1.9.1.min.js"></script>
         <script src="/js/zoom.min.js"></script>

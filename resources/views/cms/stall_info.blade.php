@@ -59,9 +59,9 @@
                 <td></td>
             </tr>
         </table>
-        <a href="javascript:history.back();" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
-        <a href="{{URL::action('CMSController@modifyStallInfo', ['id' => $stall->stall_id]) }}"><input type="button" value="修改" class="link_btn" style="margin-top: -10px; margin-bottom: -10px;"/></a>
-        <a href="{{URL::action('CMSController@deleteStall', ['id' => $stall->stall_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
+        <a href="{{URL::action('CMSController@deleteStall', ['id' => $stall->stall_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn" style="float: right; margin-right: 40px;"/></a>
+        <a href="{{URL::action('CMSController@modifyStallInfo', ['id' => $stall->stall_id]) }}"><input type="button" value="修改" class="link_btn" style="float: right; margin-right: 5px;"/></a>
+        <a href="javascript:history.back();" style="float: right; margin-right: 5px;"><input type="button" value="返回" class="link_btn"/></a>
     </div>
     <div class="admin_tab_cont">
         <form action="{{URL::action('CMSController@updateStallImg', ['id' => $stall->stall_id]) }}" method="post">
@@ -79,9 +79,9 @@
                 </ul>
                 <div class="clear"></div>
             </div>
-            <a href="javascript:history.back();" style=" margin-left:80%;"><input type="button" value="返回" class="link_btn"/></a>
-            <input type="submit" value="删除" class="link_btn"/>
-            <input type="submit" value="保存" class="link_btn"/>
+            <input type="submit" value="保存" class="link_btn" style="float: right; margin-right: 15%;"/>
+            <input type="submit" value="删除" class="link_btn" style="float: right; margin-right: 5px;"/>
+            <a href="javascript:history.back();" style="float: right; margin-right: 5px;"><input type="button" value="返回" class="link_btn"/></a>
         </form>
         <script src="/js/jquery-1.9.1.min.js"></script>
         <script src="/js/zoom.min.js"></script>
