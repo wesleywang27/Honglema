@@ -44,6 +44,7 @@ class ExcelController extends Controller{
                 '是否支持退换' => $refund,
                 '是否支持一件代发' => $shipmentOK,
                 '工厂主要付款方式' => $value['zhangqi'],
+                '红了吗对接人' => $value['contact'],
                 '备注' => $value['description'],
             );
         }
@@ -89,6 +90,7 @@ class ExcelController extends Controller{
                 '客户人群定位' => $value['customPosition'],
                 '客户年龄段' => $value['customAge'],
                 '是否支持退换' => $refund,
+                '红了吗对接人' => $value['contact'],
                 '备注' => $value['description']
             );
         }
@@ -123,6 +125,7 @@ class ExcelController extends Controller{
                 '是否有自己的设计品牌' => $brand,
                 '设计品牌名称' => $value['designBrand'],
                 '设计经历' => $value['designExperience'],
+                '红了吗对接人' => $value['contact'],
                 '备注' => $value['description'],
             );
         }
@@ -153,6 +156,7 @@ class ExcelController extends Controller{
                 '档口服装风格' => $value['style'],
                 '档口类目' => $value['category'],
                 '是否支持一件代发' => $shipmentOK,
+                '红了吗对接人' => $value['contact'],
             );
         }
         Excel::create('档口信息汇总',function($excel) use ($export){
