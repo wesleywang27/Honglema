@@ -76,13 +76,13 @@ class CMSController extends Controller{
             }
             else{
                 if(Input::has('category') || Input::has('name')){
-                    $name = Input::has('name') ? Input::get('name') : '%';
-                    $category = Input::has('category') ? Input::get('category') : '%';
+                    $name = Input::has('name') ? Input::get('name') : 'all';
+                    $category = Input::has('category') ? Input::get('category') : 'all';
                     return Redirect::to("/cms/factory/$name/$category");
                 }
                 else{
                     $factory = Factory::paginate(10);
-                    return view('/cms/factory',['factories' => $factory ,'name' => '%' ,'category' => '%']);
+                    return view('/cms/factory',['factories' => $factory ,'name' => 'all' ,'category' => 'all']);
                 }
             }
         }
@@ -200,7 +200,9 @@ class CMSController extends Controller{
     public function searchFactory($name,$category){
         session_start();
         if(isset($_SESSION['username'])){
-            $factory = Factory::where('username','like','%'.$name.'%')->where('category','like','%'.$category.'%')->paginate(10);
+            $n = ($name != 'all') ? $name : '%';
+            $c = ($category != 'all') ? $category : '%';
+            $factory = Factory::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->paginate(10);
             return view('/cms/factory',['factories' => $factory ,'name' => $name ,'category' => $category]);
         }
         else{
@@ -256,13 +258,13 @@ class CMSController extends Controller{
             }
             else{
                 if(Input::has('category') || Input::has('name')){
-                    $name = Input::has('name') ? Input::get('name') : '%';
-                    $category = Input::has('category') ? Input::get('category') : '%';
+                    $name = Input::has('name') ? Input::get('name') : 'all';
+                    $category = Input::has('category') ? Input::get('category') : 'all';
                     return Redirect::to("/cms/brand/$name/$category");
                 }
                 else{
                     $brand = Brand::paginate(10);
-                    return view('/cms/brand', ['brands' => $brand ,'name' => '%' ,'category' => '%']);
+                    return view('/cms/brand', ['brands' => $brand ,'name' => 'all' ,'category' => 'all']);
                 }
             }
         }
@@ -381,7 +383,9 @@ class CMSController extends Controller{
     public function searchBrand($name,$category){
         session_start();
         if(isset($_SESSION['username'])){
-            $brand = Brand::where('username','like','%'.$name.'%')->where('category','like','%'.$category.'%')->paginate(10);
+            $n = ($name != 'all') ? $name : '%';
+            $c = ($category != 'all') ? $category : '%';
+            $brand = Brand::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->paginate(10);
             return view('/cms/brand',['brands' => $brand ,'name' => $name ,'category' => $category]);
         }
         else{
@@ -437,12 +441,12 @@ class CMSController extends Controller{
             }
             else{
                 if(Input::has('name')){
-                    $name = Input::has('name') ? Input::get('name') : '%';
-                    return Redirect::to("/cms/designer/$name/%");
+                    $name = Input::has('name') ? Input::get('name') : 'all';
+                    return Redirect::to("/cms/designer/$name/all");
                 }
                 else{
                     $designer = Designer::paginate(10);
-                    return view('/cms/designer', ['designers' => $designer ,'name' => '%']);
+                    return view('/cms/designer', ['designers' => $designer ,'name' => 'all']);
                 }
             }
         }
@@ -552,7 +556,8 @@ class CMSController extends Controller{
     public function searchDesigner($name){
         session_start();
         if(isset($_SESSION['username'])){
-            $designer = Designer::where('username','like','%'.$name.'%')->paginate(10);
+            $n = ($name != 'all') ? $name : '%';
+            $designer = Designer::where('username','like','%'.$n.'%')->paginate(10);
             return view('/cms/designer',['designers' => $designer ,'name' => $name]);
         }
         else{
@@ -608,12 +613,12 @@ class CMSController extends Controller{
             }
             else{
                 if(Input::has('name')){
-                    $name = Input::has('name') ? Input::get('name') : '%';
-                    return Redirect::to("/cms/stall/$name/%");
+                    $name = Input::has('name') ? Input::get('name') : 'all';
+                    return Redirect::to("/cms/stall/$name/all");
                 }
                 else{
                     $stall = Stall::paginate(10);
-                    return view('/cms/stall', ['stalls' => $stall ,'name' => '%']);
+                    return view('/cms/stall', ['stalls' => $stall ,'name' => 'all']);
                 }
             }
         }
@@ -719,7 +724,8 @@ class CMSController extends Controller{
     public function searchStall($name){
         session_start();
         if(isset($_SESSION['username'])){
-            $stall = Stall::where('username','like','%'.$name.'%')->paginate(10);
+            $n = ($name != 'all') ? $name : '%';
+            $stall = Stall::where('username','like','%'.$n.'%')->paginate(10);
             return view('/cms/stall',['stalls' => $stall ,'name' => $name]);
         }
         else{

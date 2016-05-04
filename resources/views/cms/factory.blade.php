@@ -7,12 +7,12 @@
         <?php echo csrf_field(); ?>
         <input class="fr top_rt_btn" style="float:right; margin-top: 8px;" id="saveSubmit" name="commit" type="submit" value="查找"/>
         <input type="text" name="name" class="textboxsearch"
-               @if ($name != '%')
+               @if ($name != 'all')
                value="{{ $name }}"
                @endif
                placeholder="按姓名查找"/>
         <select class="select" name="category" style="float:right; margin-top: 8px; margin-right: 8px;">
-            @if ($category != '%')
+            @if ($category != 'all')
             <option value="{{ $category }}">{{ $category }}</option>
             @endif
             <option value="">选择类目</option>
