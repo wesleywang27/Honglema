@@ -55,9 +55,9 @@ Route::group(['middleware' => ['web']], function () {
  *红了吗商家注册入口
  */
 
-//Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/', 'IndexController@index');
-//});
+});
 
 Route::get('/factory_index', 'FactoryController@index');
 

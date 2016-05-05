@@ -63,7 +63,7 @@
 </div>
 <script type="text/javascript" src="/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript" charset="utf-8">
-    wx.config(<?php echo $js->config(array('chooseImage', 'uploadImage','previewImage')) ?>);
+    wx.config(<?php echo $js->config(array("onMenuShareTimeline","onMenuShareAppMessage")) ?>);
 </script>
 <script>
     wx.ready(function () {

@@ -16,6 +16,9 @@ class IndexController extends Controller{
         $options = config('wechat');
         $app = new Application($options);
         $js = $app->js;
+
+        $user = session('wechat.oauth_user');
+
         return view('index',['js'=>$js]);
     }
 }
