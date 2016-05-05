@@ -64,7 +64,7 @@
 <script type="text/javascript" src="/js/jweixin-1.0.0.js"></script>
 
 <script>
-    wx.config({"debug":false,"appId":"wx024e9c8cc8941ef3","timestamp":"1460006957","nonceStr":"f963154e-1bd2-4813-a44f-f45b80a322ed","signature":"63444f4eafda096789180475e6af8a7d6ef4bc77","jsApiList":["onMenuShareTimeline","onMenuShareAppMessage"]});
+    wx.config({"debug":false,"appId":"wx3c94feaebc8b82c6","timestamp":"1462423530","nonceStr":"Im4qg1IAF3","signature":"2be2866e06fb0a9dda5fccb1da54683eb3ed272e","jsApiList":["onMenuShareTimeline","onMenuShareAppMessage"]});
 
     wx.ready(function () {
         wx.onMenuShareAppMessage({
