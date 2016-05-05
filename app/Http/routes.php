@@ -104,7 +104,7 @@ Route::get('/cms/designer/{id?}',"CMSController@deleteDesigner");
 
 Route::get('/cms/stall/{id?}',"CMSController@deleteStall");
 
-//列表页入口
+//访问列表入口
 Route::resource('/cms/factory', "CMSController@factory");
 
 Route::resource('/cms/brand', "CMSController@brand");
@@ -113,7 +113,7 @@ Route::resource('/cms/designer', "CMSController@designer");
 
 Route::resource('/cms/stall', "CMSController@stall");
 
-//详情页入口
+//信息详情入口
 Route::get('/cms/factory_info/{id?}',"CMSController@factory_info");
 
 Route::get('/cms/brand_info/{id?}',"CMSController@brand_info");
