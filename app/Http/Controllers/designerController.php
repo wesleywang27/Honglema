@@ -26,7 +26,7 @@ class DesignerController extends Controller{
     public function createDesigner(){
 
         $validator = Validator::make(Input::all(), Designer::$rules);
-        
+
         if ($validator->passes()) {
             // 验证通过就存储用户数据
             $designer = new Designer();
