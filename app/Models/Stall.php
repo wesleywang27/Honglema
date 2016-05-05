@@ -27,7 +27,8 @@ class Stall extends Model{
         'address',
         'style',
         'category',
-        'shipmentOK'
+        'shipmentOK',
+        'open_id'
     ];
 
     public static $rules = array(

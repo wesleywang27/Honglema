@@ -20,7 +20,15 @@ class StallController extends Controller{
         $options = config('wechat');
         $app = new Application($options);
         $js = $app->js;
-        return view('stall',['js'=>$js]);
+
+        $user = session('wechat.oauth_user');
+        $stall = Stall::where('open_id',$user->openid)->first();
+        
+        if($stall->open_id != ''){
+            return view('stall_info',['js'=>$js, 'user'=>$user]);
+        }else{
+            return view('stall',['js'=>$js]);
+        }
     }
     
     public function createStall(){
@@ -29,6 +37,8 @@ class StallController extends Controller{
         if ($validator->passes()) {
             // 验证通过就存储用户数据
             $stall = new Stall();
+            $user = session('wechat.oauth_user');
+
             $stall->username = Input::get('username');
             $stall->mobile = Input::get('mobile');
             $stall->weixinNo = Input::get('weixinNo');
@@ -50,6 +60,7 @@ class StallController extends Controller{
                 return;
             }
             $stall->contact = Input::get('contact');
+            $stall->open_id = $user->openid;
 
             $pictures = [];
             if(Input::has('itemImage')){
