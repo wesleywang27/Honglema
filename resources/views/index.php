@@ -7,14 +7,14 @@
     <title>红了吗网红供应链合作报名</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <link rel="stylesheet" href="http://y.wcc.cn/statics/amazeui/css/amazeui.min.css">
+    <link rel="stylesheet" href="/css/amazeui.min.css">
     <link rel="stylesheet" href="/css/weui.css">
-    <link rel="stylesheet" href="http://y.wcc.cn/statics/amazeui/css/app.css?v=2016030801">
-    <link rel="stylesheet" href="http://y.wcc.cn/statics/amazeui/css/admin.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/admin.css">
 
-    <script src="http://y.wcc.cn/statics/amazeui/js/jquery.min.js"></script>
-    <script src="http://y.wcc.cn/statics/amazeui/js/handlebars.min.js"></script>
-    <script src="http://y.wcc.cn/statics/amazeui/js/amazeui.widgets.helper.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/handlebars.min.js"></script>
+    <script src="/js/amazeui.widgets.helper.js"></script>
 </head>
 <body>
 <header data-am-widget="header" class="am-header am-header-default" style="background-color: #DD514C">
@@ -61,7 +61,7 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="/js/jweixin-1.0.0.js"></script>
 
 <script>
     wx.config({"debug":false,"appId":"wx024e9c8cc8941ef3","timestamp":"1460006957","nonceStr":"f963154e-1bd2-4813-a44f-f45b80a322ed","signature":"63444f4eafda096789180475e6af8a7d6ef4bc77","jsApiList":["onMenuShareTimeline","onMenuShareAppMessage"]});
@@ -100,6 +100,6 @@
 </script>
 
 
-<script src="http://y.wcc.cn/statics/amazeui/js/amazeui.min.js"></script>
+<script src="/js/amazeui.min.js"></script>
 </body>
 </html>

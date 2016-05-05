@@ -7,14 +7,14 @@
     <title>红了吗网红供应链合作报名</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <link rel="stylesheet" href="http://y.wcc.cn/statics/amazeui/css/amazeui.min.css">
+    <link rel="stylesheet" href="/css/amazeui.min.css">
     <link rel="stylesheet" href="/css/weui.css">
-    <link rel="stylesheet" href="http://y.wcc.cn/statics/amazeui/css/app.css?v=2016030801">
-    <link rel="stylesheet" href="http://y.wcc.cn/statics/amazeui/css/admin.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/admin.css">
 
-    <script src="http://y.wcc.cn/statics/amazeui/js/jquery.min.js"></script>
-    <script src="http://y.wcc.cn/statics/amazeui/js/handlebars.min.js"></script>
-    <script src="http://y.wcc.cn/statics/amazeui/js/amazeui.widgets.helper.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/handlebars.min.js"></script>
+    <script src="/js/amazeui.widgets.helper.js"></script>
 </head>
 <body>
 <header data-am-widget="header" class="am-header am-header-default" style="background-color: #DD514C">
@@ -229,11 +229,9 @@
 
 </div>
 <script type="text/javascript" src="/js/ajaxfileupload.js" charset="utf-8"></script>
-<script type="text/javascript" src="http://y.wcc.cn/statics/js/jQuery-File-Upload/js/vendor/jquery.ui.widget.js"></script>
-<script type="text/javascript" src="http://y.wcc.cn/statics/js/jQuery-File-Upload/js/jquery.iframe-transport.js"></script>
 <script src="/js/jquery.cxselect.min.js" type="text/javascript"></script>
-<script src="http://y.wcc.cn/statics/js/jquery.form.js" type="text/javascript"></script>
-<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/js/jquery.form.js" type="text/javascript"></script>
+<script type="text/javascript" src="/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript" charset="utf-8">
     wx.config(<?php echo $js->config(array('chooseImage', 'uploadImage','previewImage')) ?>);
 </script>
@@ -295,6 +293,6 @@
 </script>
 
 
-<script src="http://y.wcc.cn/statics/amazeui/js/amazeui.min.js"></script>
+<script src="/js/amazeui.min.js"></script>
 </body>
 </html>
