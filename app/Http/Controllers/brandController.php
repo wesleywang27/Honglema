@@ -20,7 +20,7 @@ class BrandController extends Controller{
         $options = config('wechat');
         $app = new Application($options);
         $js = $app->js;
-        return Redirect::to('brand')->with(['js'=>$js]);
+        return view('brand',['js'=>$js]);
     }
 
     public function createBrand(){
