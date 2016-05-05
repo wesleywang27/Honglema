@@ -72,7 +72,7 @@ class BrandController extends Controller{
                     $pictures[] = $picture;
                 }
             }
-            
+
             $brand->save();
             $brand->pictures()->saveMany($pictures);
 

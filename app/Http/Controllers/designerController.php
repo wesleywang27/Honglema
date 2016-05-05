@@ -22,7 +22,7 @@ class DesignerController extends Controller{
         $js = $app->js;
         return view('designer',['js'=>$js]);
     }
-    
+
     public function createDesigner(){
 
         $validator = Validator::make(Input::all(), Designer::$rules);
@@ -65,7 +65,7 @@ class DesignerController extends Controller{
                     $pictures[] = $picture;
                 }
             }
-            
+
             $designer->save();
             $designer->pictures()->saveMany($pictures);
 
