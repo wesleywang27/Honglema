@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/banner.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/banner.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -787,14 +784,7 @@
       <workItem from="1462351490090" duration="3304000" />
       <workItem from="1462420475214" duration="1830000" />
       <workItem from="1462422390607" duration="2327000" />
-      <workItem from="1462428956900" duration="3596000" />
-    </task>
-    <task id="LOCAL-00056" summary="后台用户创建">
-      <created>1461055491134</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1461055491134</updated>
+      <workItem from="1462428956900" duration="3623000" />
     </task>
     <task id="LOCAL-00057" summary="后台用户创建表单验证">
       <created>1461056583059</created>
@@ -1132,11 +1122,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462356538351</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="修改信息删除bug">
+      <created>1462432585978</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1462432585978</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="262859000" />
+    <option name="totallyTimeSpent" value="262886000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1192,7 +1189,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="修改designer stall分页模块" />
     <MESSAGE value="修改返回链接" />
     <MESSAGE value="修改用户列表分页" />
     <MESSAGE value="修改表单错误提示返回" />
@@ -1217,7 +1213,8 @@
     <MESSAGE value="界面优化" />
     <MESSAGE value="修改分页bug" />
     <MESSAGE value="修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改" />
+    <MESSAGE value="修改信息删除bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改信息删除bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
