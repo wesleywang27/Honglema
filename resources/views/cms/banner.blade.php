@@ -54,16 +54,16 @@
             <dl>
                 <dt>商家信息管理</dt>
                 @if ($_SESSION['factory_right'])
-                <dd><a href="/cms/factory">工厂信息列表</a></dd>
+                <dd><a href="/cms/factory/all">工厂信息列表</a></dd>
                 @endif
                 @if ($_SESSION['brand_right'])
-                <dd><a href="/cms/brand">品牌商信息列表</a></dd>
+                <dd><a href="/cms/brand/all">品牌商信息列表</a></dd>
                 @endif
                 @if ($_SESSION['designer_right'])
-                <dd><a href="/cms/designer">设计师信息列表</a></dd>
+                <dd><a href="/cms/designer/all">设计师信息列表</a></dd>
                 @endif
                 @if ($_SESSION['stall_right'])
-                <dd><a href="/cms/stall">档口信息列表</a></dd>
+                <dd><a href="/cms/stall/all">档口信息列表</a></dd>
                 @endif
             </dl>
         </li>

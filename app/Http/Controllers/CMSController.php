@@ -82,7 +82,7 @@ class CMSController extends Controller{
                 }
                 else{
                     $factory = Factory::paginate(10);
-                    return view('/cms/factory',['factories' => $factory ,'name' => 'all' ,'category' => 'all']);
+                    return Redirect::to('/cms/factory/all')->with(['factories' => $factory ,'name' => 'all' ,'category' => 'all']);
                 }
             }
         }
@@ -189,7 +189,7 @@ class CMSController extends Controller{
             else{
                 Factory::where('factory_id',$id)->delete();
                 $factory = Factory::paginate(10);
-                return view('/cms/factory',['factories' => $factory]);
+                return view('/cms/factory',['factories' => $factory ,'name' => 'all' ,'category' => 'all']);
             }
         }
         else{
@@ -264,7 +264,7 @@ class CMSController extends Controller{
                 }
                 else{
                     $brand = Brand::paginate(10);
-                    return view('/cms/brand', ['brands' => $brand ,'name' => 'all' ,'category' => 'all']);
+                    return Redirect::to('/cms/brand/all')->with(['brands' => $brand ,'name' => 'all' ,'category' => 'all']);
                 }
             }
         }
@@ -372,7 +372,7 @@ class CMSController extends Controller{
             else{
                 Brand::where('brand_id',$id)->delete();
                 $brand = Brand::paginate(10);
-                return view('/cms/brand',['brands' => $brand]);
+                return view('/cms/brand',['brands' => $brand ,'name' => 'all' ,'category' => 'all']);
             }
         }
         else{
@@ -446,7 +446,7 @@ class CMSController extends Controller{
                 }
                 else{
                     $designer = Designer::paginate(10);
-                    return view('/cms/designer', ['designers' => $designer ,'name' => 'all']);
+                    return Redirect::to('/cms/designer/all')->with(['designers' => $designer ,'name' => 'all']);
                 }
             }
         }
@@ -545,7 +545,7 @@ class CMSController extends Controller{
             else{
                 Designer::where('designer_id',$id)->delete();
                 $designer = Designer::paginate(10);
-                return view('/cms/designer',['designers' => $designer]);
+                return view('/cms/designer',['designers' => $designer ,'name' => 'all']);
             }
         }
         else{
@@ -618,7 +618,7 @@ class CMSController extends Controller{
                 }
                 else{
                     $stall = Stall::paginate(10);
-                    return view('/cms/stall', ['stalls' => $stall ,'name' => 'all']);
+                    return Redirect::to('/cms/stall/all')->with(['stalls' => $stall ,'name' => 'all']);
                 }
             }
         }
@@ -713,7 +713,7 @@ class CMSController extends Controller{
             else{
                 Stall::where('stall_id',$id)->delete();
                 $stall = Stall::paginate(10);
-                return view('/cms/stall',['stalls' => $stall]);
+                return view('/cms/stall',['stalls' => $stall ,'name' => 'all']);
             }
         }
         else{

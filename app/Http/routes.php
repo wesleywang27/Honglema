@@ -95,6 +95,15 @@ Route::get('/cms/index', "CMSController@index");
 
 Route::get('/cms/', "CMSController@index");
 
+//信息删除入口
+Route::get('/cms/factory/{id?}',"CMSController@deleteFactory");
+
+Route::get('/cms/brand/{id?}',"CMSController@deleteBrand");
+
+Route::get('/cms/designer/{id?}',"CMSController@deleteDesigner");
+
+Route::get('/cms/stall/{id?}',"CMSController@deleteStall");
+
 //列表页入口
 Route::resource('/cms/factory', "CMSController@factory");
 
@@ -129,15 +138,6 @@ Route::post('/cms/designer_modify/{id?}', "CMSController@updateDesignerInfo");
 Route::get('/cms/stall_modify/{id?}',"CMSController@modifyStallInfo");
 
 Route::post('/cms/stall_modify/{id?}',"CMSController@updateStallInfo");
-
-//信息删除入口
-Route::get('/cms/factory/{id?}',"CMSController@deleteFactory");
-
-Route::get('/cms/brand/{id?}',"CMSController@deleteBrand");
-
-Route::get('/cms/designer/{id?}',"CMSController@deleteDesigner");
-
-Route::get('/cms/stall/{id?}',"CMSController@deleteStall");
 
 //信息查找入口
 Route::get('/cms/factory/{name?}/{category?}', "CMSController@searchFactory");
