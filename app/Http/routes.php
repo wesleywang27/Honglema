@@ -57,23 +57,23 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/', 'IndexController@index');
+
+    Route::get('/factory_index', 'FactoryController@index');
+
+    Route::post('/factory', 'FactoryController@createFactory');
+
+    Route::get('/brand_index', 'BrandController@index');
+
+    Route::post('/brand', 'BrandController@createBrand');
+
+    Route::get('/designer_index', 'DesignerController@index');
+
+    Route::post('/designer', 'DesignerController@createDesigner');
+
+    Route::get('/stall_index', 'StallController@index');
+
+    Route::post('/stall', 'StallController@createStall');
 });
-
-Route::get('/factory_index', 'FactoryController@index');
-
-Route::post('/factory', 'FactoryController@createFactory');
-
-Route::get('/brand_index', 'BrandController@index');
-
-Route::post('/brand', 'BrandController@createBrand');
-
-Route::get('/designer_index', 'DesignerController@index');
-
-Route::post('/designer', 'DesignerController@createDesigner');
-
-Route::get('/stall_index', 'StallController@index');
-
-Route::post('/stall', 'StallController@createStall');
 
 /*
  * 红了吗后台管理系统入口

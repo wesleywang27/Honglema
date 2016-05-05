@@ -318,7 +318,7 @@
                 wx.chooseImage({
                     count: 1, // 限制每次只能选择一张
                     success: function (res) {
-                        $.AMUI.progress.start();
+                        //$.AMUI.progress.start();
                         images.localId = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
                         jQuery.each(images.localId, function (i, n) {
                             wx.uploadImage({
@@ -333,7 +333,7 @@
                                                 count = count + 1;
                                                 $html += '<li class="weui_uploader_file images" style="background-image:url(' + data + ')"><input type="hidden" id="itemImage" name="itemImage[]" value="' + data + '"/></li>';
                                                 $("#files").append($html);
-                                                $.AMUI.progress.done();
+                                                //$.AMUI.progress.done();
                                                 if(count == 6)
                                                     jQuery("#file_upload").hide();
                                             }
