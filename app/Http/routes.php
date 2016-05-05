@@ -56,9 +56,7 @@ Route::group(['middleware' => ['web']], function () {
  */
 
 //Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
-    Route::get('/', function () {
-        return view('index');
-    });
+    Route::get('/', 'IndexController@index');
 //});
 
 Route::get('/factory_index', 'FactoryController@index');

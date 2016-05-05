@@ -62,10 +62,10 @@
     </div>
 </div>
 <script type="text/javascript" src="/js/jweixin-1.0.0.js"></script>
-
+<script type="text/javascript" charset="utf-8">
+    wx.config(<?php echo $js->config(array('chooseImage', 'uploadImage','previewImage')) ?>);
+</script>
 <script>
-    wx.config({"debug":false,"appId":"wx3c94feaebc8b82c6","timestamp":"1462423530","nonceStr":"Im4qg1IAF3","signature":"2be2866e06fb0a9dda5fccb1da54683eb3ed272e","jsApiList":["onMenuShareTimeline","onMenuShareAppMessage"]});
-
     wx.ready(function () {
         wx.onMenuShareAppMessage({
             title : "红了吗网红供应链合作报名",
