@@ -71,7 +71,7 @@
             title : "红了吗网红供应链合作报名",
             desc : "我们目前正在运营一个由薛蛮子和徐小平投资了2千万的国内最大的网红项目，旗下有5万多优质网红...",
             link : "http://m.honglema.com/",
-            imgUrl : "/images/fdcode.jpg",
+            imgUrl : "http://m.honglema.com/images/fdcode.jpg",
             success : function(res) {
                 // 分享成功
             },
@@ -83,7 +83,7 @@
         wx.onMenuShareTimeline({
             title : "红了吗网红供应链合作报名",
             link : "http://m.honglema.com/",
-            imgUrl : "/images/fdcode.jpg",
+            imgUrl : "http://m.honglema.com/images/fdcode.jpg",
             success : function(res) {
                 // 分享成功
             },
