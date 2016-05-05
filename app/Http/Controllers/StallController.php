@@ -24,10 +24,10 @@ class StallController extends Controller{
         $user = session('wechat.oauth_user');
         $stall = Stall::where('open_id',$user->openid)->first();
         
-        if($stall->open_id != ''){
-            return view('stall_info',['js'=>$js, 'user'=>$user]);
+        if($stall){
+            return Redirect::to('stall_info')->with(['js'=>$js ,'stall'=>$stall]);
         }else{
-            return view('stall',['js'=>$js]);
+            return Redirect::to('stall')->with(['js'=>$js]);
         }
     }
     

@@ -20,7 +20,7 @@ class DesignerController extends Controller{
         $options = config('wechat');
         $app = new Application($options);
         $js = $app->js;
-        return view('designer',['js'=>$js]);
+        return Redirect::to('designer')->with(['js'=>$js]);
     }
 
     public function createDesigner(){

@@ -20,7 +20,7 @@ class FactoryController extends Controller{
         $options = config('wechat');
         $app = new Application($options);
         $js = $app->js;
-        return view('factory',['js'=>$js]);
+        return Redirect::to('factory')->with(['js'=>$js]);
     }
 
     public function createFactory(){
