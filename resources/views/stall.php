@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/amazeui.min.css">
     <link rel="stylesheet" href="/css/weui.css">
     <link rel="stylesheet" href="/css/app.css">
-    <link rel="stylesheet" href="http://y.wcc.cn/statics/amazeui/css/admin.css">
+    <link rel="stylesheet" href="/css/admin.css">
 
     <script src="/js/jquery.min.js"></script>
     <script src="/js/handlebars.min.js"></script>
