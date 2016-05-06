@@ -2,12 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/brand.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/brand_info.blade.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/brand.php" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/factory.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/factory_info.blade.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/factory.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/brandController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/brandController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/factoryController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/factoryController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/stall.json" afterPath="$PROJECT_DIR$/public/js/stall.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/brand.blade.php" afterPath="$PROJECT_DIR$/resources/views/brand.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/brand_info.blade.php" afterPath="$PROJECT_DIR$/resources/views/brand_info.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/designer.blade.php" afterPath="$PROJECT_DIR$/resources/views/designer.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/designer_info.blade.php" afterPath="$PROJECT_DIR$/resources/views/designer_info.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/stall.blade.php" afterPath="$PROJECT_DIR$/resources/views/stall.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/stall_info.blade.php" afterPath="$PROJECT_DIR$/resources/views/stall_info.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,7 +41,7 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
+            <state relative-caret-position="304">
               <caret line="76" column="2" selection-start-line="76" selection-start-column="2" selection-end-line="76" selection-end-column="2" />
               <folding />
             </state>
@@ -64,9 +71,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/app/Models/Factory.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/stall_modify.php" />
         <option value="$PROJECT_DIR$/public/css/cms_style.css" />
         <option value="$PROJECT_DIR$/resources/views/cms/user.blade.php" />
@@ -100,21 +104,24 @@
         <option value="$PROJECT_DIR$/resources/views/index.php" />
         <option value="$PROJECT_DIR$/resources/views/stall_info.php" />
         <option value="$PROJECT_DIR$/public/css/amazeui.min.css" />
-        <option value="$PROJECT_DIR$/resources/views/stall.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/index.blade.php" />
         <option value="$PROJECT_DIR$/public/css/weui.css" />
         <option value="$PROJECT_DIR$/resources/views/cms/stall_info.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/factoryController.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/designer_modify.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/designer_info.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/designer.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/stall_info.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/StallController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/designerController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/brandController.php" />
         <option value="$PROJECT_DIR$/resources/views/brand_info.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/brand.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/stall_info.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/designer_info.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/factoryController.php" />
+        <option value="$PROJECT_DIR$/resources/views/factory_info.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/resources/views/brand.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/designer.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/factory.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/stall.blade.php" />
+        <option value="$PROJECT_DIR$/public/js/stall.json" />
       </list>
     </option>
   </component>
@@ -211,6 +218,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="honglema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="honglema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="honglema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="honglema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -773,14 +812,7 @@
       <workItem from="1462504178173" duration="1044000" />
       <workItem from="1462505293008" duration="5502000" />
       <workItem from="1462511839452" duration="3529000" />
-      <workItem from="1462515424464" duration="3467000" />
-    </task>
-    <task id="LOCAL-00068" summary="添加excel模块">
-      <created>1461146123712</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1461146123712</updated>
+      <workItem from="1462515424464" duration="6530000" />
     </task>
     <task id="LOCAL-00069" summary="设计师导出excel模块">
       <created>1461218667912</created>
@@ -1118,11 +1150,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462516219941</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="修改品牌商注册信息详情页">
+      <created>1462518930380</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1462518930380</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="287467000" />
+    <option name="totallyTimeSpent" value="290530000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1178,7 +1217,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="用户管理模块隐藏" />
     <MESSAGE value="页面小修改" />
     <MESSAGE value="用户管理权限限制" />
     <MESSAGE value="创建用户添加访问权限选项" />
@@ -1203,7 +1241,8 @@
     <MESSAGE value="修改档口注册" />
     <MESSAGE value="修改档口注册信息详情页" />
     <MESSAGE value="修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改" />
+    <MESSAGE value="修改品牌商注册信息详情页" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改品牌商注册信息详情页" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1214,31 +1253,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/stall.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="61" column="65" selection-start-line="61" selection-start-column="65" selection-end-line="61" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/designer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="61" column="71" selection-start-line="61" selection-start-column="71" selection-end-line="61" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/brand.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
           <caret line="80" column="34" selection-start-line="80" selection-start-column="34" selection-end-line="80" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/factory_modify.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="109" column="100" selection-start-line="109" selection-start-column="100" selection-end-line="109" selection-end-column="100" />
         </state>
       </provider>
     </entry>
@@ -1298,13 +1316,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/factory_info.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="85" column="98" selection-start-line="85" selection-start-column="98" selection-end-line="85" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/factory.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1140">
@@ -1348,20 +1359,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/stall.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/factory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="339" column="50" selection-start-line="339" selection-start-column="50" selection-end-line="339" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/images/fdcode.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1393,13 +1390,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="0" column="28781" selection-start-line="0" selection-start-column="28781" selection-end-line="0" selection-end-column="28781" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/stall.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="297" column="7" selection-start-line="297" selection-start-column="7" selection-end-line="297" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1442,16 +1432,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/factoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1456">
-          <caret line="92" column="46" selection-start-line="92" selection-start-column="46" selection-end-line="92" selection-end-column="46" />
-          <folding>
-            <element signature="e#122#136#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/designer_info.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -1475,29 +1455,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/designer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="299" column="7" selection-start-line="299" selection-start-column="7" selection-end-line="299" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/designerController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="29" column="58" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
           <folding>
             <element signature="e#122#136#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StallController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
-          <folding>
-            <element signature="e#123#137#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1512,46 +1475,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/designer_info.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1912">
-          <caret line="176" column="6" selection-start-line="176" selection-start-column="6" selection-end-line="176" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/brand_modify.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="354">
           <caret line="92" column="21" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
           <folding>
             <marker date="1462428603459" expanded="true" signature="7980:8039" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/brand_info.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="218" column="6" selection-start-line="218" selection-start-column="6" selection-end-line="218" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/stall_info.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="145" column="14" selection-start-line="145" selection-start-column="14" selection-end-line="145" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/brandController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-890">
-          <caret line="30" column="82" selection-start-line="30" selection-start-column="82" selection-end-line="30" selection-end-column="82" />
-          <folding>
-            <element signature="e#122#136#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1564,19 +1493,145 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/designer_info.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="139" column="31" selection-start-line="139" selection-start-column="31" selection-end-line="139" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/brandController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="30" column="82" selection-start-line="30" selection-start-column="82" selection-end-line="30" selection-end-column="82" />
+          <folding>
+            <element signature="e#122#136#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/factoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StallController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="29" column="58" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
+          <folding>
+            <element signature="e#123#137#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/factory_info.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="34" column="139" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="139" />
+          <folding>
+            <marker date="1462428603483" expanded="true" signature="6023:6049" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/brand_info.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="123" column="26" selection-start-line="123" selection-start-column="26" selection-end-line="123" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/factory_modify.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="86" column="142" selection-start-line="86" selection-start-column="142" selection-end-line="86" selection-end-column="142" />
+          <folding>
+            <marker date="1462428603490" expanded="true" signature="7741:7800" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/stall_info.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="147" column="14" selection-start-line="147" selection-start-column="14" selection-end-line="147" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/factory_info.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="201" column="14" selection-start-line="201" selection-start-column="14" selection-end-line="201" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/factory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="339" column="50" selection-start-line="0" selection-start-column="0" selection-end-line="363" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/brand.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="358" column="7" selection-start-line="358" selection-start-column="7" selection-end-line="358" selection-end-column="7" />
+        <state relative-caret-position="-437">
+          <caret line="215" column="43" selection-start-line="215" selection-start-column="43" selection-end-line="215" selection-end-column="43" />
           <folding>
-            <marker date="1462518901541" expanded="true" signature="15641:15675" placeholder="..." />
+            <marker date="1462521645525" expanded="true" signature="15408:15442" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/designer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="158" column="65" selection-start-line="158" selection-start-column="65" selection-end-line="158" selection-end-column="65" />
+          <folding>
+            <marker date="1462521753588" expanded="true" signature="12401:12435" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/factory.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-836">
+          <caret line="208" column="43" selection-start-line="208" selection-start-column="43" selection-end-line="208" selection-end-column="43" />
+          <folding>
+            <marker date="1462521980127" expanded="true" signature="15976:16010" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/stall.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-814">
+          <caret line="167" column="43" selection-start-line="167" selection-start-column="43" selection-end-line="167" selection-end-column="43" />
+          <folding>
+            <marker date="1462521980065" expanded="true" signature="12689:12723" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/stall.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
+        <state relative-caret-position="304">
           <caret line="76" column="2" selection-start-line="76" selection-start-column="2" selection-end-line="76" selection-end-column="2" />
           <folding />
         </state>

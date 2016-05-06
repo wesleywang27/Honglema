@@ -27,6 +27,7 @@ class FactoryController extends Controller{
 
         if($factory){
             $picture = ProductPicture::where('id',$factory->factory_id)->where('type',0)->get();
+            echo "<script> alert('您已成功提交信息!'); </script>";
             return view('factory_info',['factory' => $factory ,'pictures' => $picture]);
         }else{
             return view('factory',['js'=>$js]);

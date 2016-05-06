@@ -40,28 +40,28 @@
         <div class="weui_cells_title">个人信息<span class="am-text-danger">(必填)</span></div>
         <div class="weui_cells">
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">姓名</label></div>
+                <div class="weui_cell_hd"><label class="">姓名：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="username" placeholder="请输入姓名"
                            value="" required>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">手机号码</label></div>
+                <div class="weui_cell_hd"><label class="">手机号码：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="number" name="mobile" pattern="[0-9]*" placeholder="请输入手机号码"
                            value="" required>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">微信号</label></div>
+                <div class="weui_cell_hd"><label class="">微信号：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="weixinNo" placeholder="请输入微信号"
                            value="" required>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">职位</label></div>
+                <div class="weui_cell_hd"><label class="">职位：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="title" placeholder="请输入职位" required>
                 </div>
@@ -70,19 +70,19 @@
         <div class="weui_cells_title">档口信息<span class="am-text-danger">(必填)</span></div>
         <div class="weui_cells">
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">档口名称</label></div>
+                <div class="weui_cell_hd"><label class="">档口名称：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="stallName" placeholder="请输入档口名称" required>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">档口号</label></div>
+                <div class="weui_cell_hd"><label class="">档口号：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="stallNum" placeholder="请输入档口号" required>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">档口地址</label></div>
+                <div class="weui_cell_hd"><label class="">档口地址：</label></div>
             </div>
             <div class="weui_cells" id="global_location1">
                 <div class="weui_cell weui_cell_select">
@@ -127,9 +127,7 @@
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd"><label class="">
-                        档口服装风格
-                    </label></div>
+                <div class="weui_cell_hd"><label class="">档口服装风格：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="style">
                         <option value="甜美">甜美</option>
@@ -149,14 +147,14 @@
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">档口服装类目</label></div>
+                <div class="weui_cell_hd"><label class="">档口服装类目：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="category" placeholder="请输入服装类目 ">
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd">
-                    <label class="">是否支持一件代发</label>
+                    <label class="">是否支持一件代发：</label>
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="shipmentOK">
@@ -167,7 +165,7 @@
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd">
-                    <label class="">红了吗对接人</label>
+                    <label class="">红了吗对接人：</label>
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="contact">

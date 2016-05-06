@@ -136,6 +136,8 @@
         </div>
         <div class="weui_cell">
             <div class="weui_cell_hd"><label class="">设计作品：</label></div>
+        </div>
+        <div class="weui_cell">
             <div class="weui_cell_bd weui_cell_primary">
                 <ul class="gallery">
                     @foreach ($pictures as $picture)

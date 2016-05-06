@@ -40,28 +40,28 @@
         <div class="weui_cells_title">个人信息<span class="am-text-danger">(必填)</span></div>
         <div class="weui_cells">
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">姓名</label></div>
+                <div class="weui_cell_hd"><label class="">姓名：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="username" placeholder="请输入姓名"
                            value="" required>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">手机号码</label></div>
+                <div class="weui_cell_hd"><label class="">手机号码：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="number" name="mobile" pattern="[0-9]*" placeholder="请输入手机号码"
                            value="" required>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">微信号</label></div>
+                <div class="weui_cell_hd"><label class="">微信号：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="weixinNo" placeholder="请输入微信号"
                            value="" required>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">职位</label></div>
+                <div class="weui_cell_hd"><label class="">职位：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="title" placeholder="请输入职位" required>
                 </div>
@@ -70,13 +70,13 @@
         <div class="weui_cells_title">公司信息<span class="am-text-danger">(必填)</span></div>
         <div class="weui_cells">
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">公司名称</label></div>
+                <div class="weui_cell_hd"><label class="">公司名称：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="company" placeholder="请输入公司名称" required>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">公司地址</label></div>
+                <div class="weui_cell_hd"><label class="">公司地址：</label></div>
             </div>
             <div class="weui_cells" id="global_location">
                 <div class="weui_cell weui_cell_select">
@@ -106,9 +106,7 @@
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd"><label class="">
-                    产品类目
-                </label></div>
+                <div class="weui_cell_hd"><label class="">产品类目：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="category">
                         <option value="女装">女装</option>
@@ -134,7 +132,7 @@
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd">优势子类目(选填)</div>
+                <div class="weui_cell_hd">优势子类目(选填)：</div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="advantageSubcategory" placeholder="请输入优势子类目">
                 </div>
@@ -143,40 +141,38 @@
         <div class="weui_cells_title">工厂信息<span class="am-text-danger">(必填)</span></div>
         <div class="weui_cells">
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">工厂面积(m2)</label></div>
+                <div class="weui_cell_hd"><label class="">工厂面积(m2)：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="ext1" placeholder="工厂面积" required>
                 </div>
             </div>
 
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">工人数</label></div>
+                <div class="weui_cell_hd"><label class="">工人数：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="ext2" placeholder="工人数" required>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">打样速度</label></div>
+                <div class="weui_cell_hd"><label class="">打样速度：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="ext5" placeholder="打样速度" required>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">最小起订量</label></div>
+                <div class="weui_cell_hd"><label class="">最小起订量：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" name="orderCount" placeholder="最小起订量" required>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">日生产量</label></div>
+                <div class="weui_cell_hd"><label class="">日生产量：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" name="productCount" placeholder="日生产量" required>
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd">
-                    是否有设计师或设计团队
-                </div>
+                <div class="weui_cell_hd"><label class="">是否有设计师或设计团队：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="design">
                         <option value="0">否</option>
@@ -185,9 +181,7 @@
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd">
-                    是否支持退换
-                </div>
+                <div class="weui_cell_hd"><label class="">是否支持退换：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="refund">
                         <option value="0">否</option>
@@ -196,9 +190,7 @@
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd">
-                    是否支持一件代发
-                </div>
+                <div class="weui_cell_hd"><label class="">是否支持一件代发：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="shipmentOK">
                         <option value="0">否</option>
@@ -207,14 +199,14 @@
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">工厂主要付款方式</label></div>
+                <div class="weui_cell_hd"><label class="">工厂主要付款方式：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="zhangqi" placeholder="工厂主要付款方式" required>
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd">
-                    <label class="">红了吗对接人</label>
+                    <label class="">红了吗对接人：</label>
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="contact">
@@ -244,7 +236,7 @@
                             <ul class="weui_uploader_files" id="files" style="display: inline;padding-left: 0;">
                             </ul>
                             <div class="weui_uploader_input_wrp" id="file_upload">
-<!--                                <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">-->
+                                <!--                                <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">-->
                             </div>
                         </div>
                     </div>
@@ -291,24 +283,24 @@
     });
 
     //上传多图
-//    jQuery('#fileupload').change(function(){
-//        $.AMUI.progress.start();
-//        jQuery.ajaxFileUpload({
-//            url:"/productpicture",//需要链接到服务器地址
-//            secureuri:false,
-//            fileElementId:"fileupload",//文件选择框的id属性
-//            dataType: 'json',   //json
-//            success: function (data, status) {
-//                var urls = data.urls;
-//                var $htmls = '';
-//                for(var i=0; i<urls.length; i++){
-//                    $htmls += '<li class="weui_uploader_file images" style="background-image:url('+urls[i]+')"><input type="hidden" id="itemImage" name="itemImage[]" value="'+urls[i]+'"/></li>';
-//                }
-//                $('#files').append($htmls);
-//                $.AMUI.progress.done();
-//            }
-//        });
-//    });
+    //    jQuery('#fileupload').change(function(){
+    //        $.AMUI.progress.start();
+    //        jQuery.ajaxFileUpload({
+    //            url:"/productpicture",//需要链接到服务器地址
+    //            secureuri:false,
+    //            fileElementId:"fileupload",//文件选择框的id属性
+    //            dataType: 'json',   //json
+    //            success: function (data, status) {
+    //                var urls = data.urls;
+    //                var $htmls = '';
+    //                for(var i=0; i<urls.length; i++){
+    //                    $htmls += '<li class="weui_uploader_file images" style="background-image:url('+urls[i]+')"><input type="hidden" id="itemImage" name="itemImage[]" value="'+urls[i]+'"/></li>';
+    //                }
+    //                $('#files').append($htmls);
+    //                $.AMUI.progress.done();
+    //            }
+    //        });
+    //    });
     var count = 0;
     //图片需一张一张上传
     wx.ready(function () {
