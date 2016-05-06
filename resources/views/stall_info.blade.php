@@ -115,31 +115,17 @@
                     <input class="weui_input" type="text" name="contact" value="{{ $stall->contact}}" readonly/>
                 </div>
             </div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><label class="">图片信息：</label></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <ul class="gallery">
+                        @foreach ($pictures as $picture)
+                        <img src="{{ $picture->url }}" style="width: 80px; height: 80px;"/>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
         </div>
-        <!--
-                <div class="weui_cells weui_cells_form">
-                    <div class="weui_cell">
-                        <div class="weui_cell_bd weui_cell_primary">
-                            <div class="weui_uploader">
-                                <div class="weui_uploader_hd weui_cell">
-                                    <div class="weui_cell_bd weui_cell_primary">商品照片(最多选6张照片)</div>
-                                </div>
-                                <div class="weui_uploader_bd">
-                                    <ul class="weui_uploader_files" id="files" style="display: inline;padding-left: 0;">
-                                    </ul>
-                                    <div class="weui_uploader_input_wrp" id="file_upload">
-                                        <!--                                <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="weui_btn_area">
-                    <input class="am-btn am-btn-danger am-btn-block am-round" id="saveSubmit" name="commit" type="submit" value="提交信息"/>
-                </div>
-        -->
         <div class="weui_btn_area">
             <a href="#"><input class="am-btn am-btn-danger am-btn-block am-round" value="修改"/></a>
         </div>

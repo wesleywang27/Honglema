@@ -7,12 +7,12 @@
  */
 namespace App\Http\Controllers;
 
-use App\Models\ProductPicture;
 use Validator;
-use Illuminate\Support\Facades\Input;
 use App\Models\Stall;
-use Illuminate\Contracts\Http\Request;
+use App\Models\ProductPicture;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Contracts\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use EasyWeChat\Foundation\Application;
 
@@ -26,7 +26,8 @@ class StallController extends Controller{
         $stall = Stall::where('open_id',$user->openid)->first();
         
         if($stall){
-            return view('stall_info',['stall'=>$stall]);
+            $picture = ProductPicture::where('id',$stall->stall_id)->where('type',3)->get();
+            return view('stall_info',['stall' => $stall ,'pictures' => $picture]);
         }else{
             return view('stall',['js'=>$js]);
         }

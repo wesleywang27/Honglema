@@ -198,7 +198,7 @@
                             <ul class="weui_uploader_files" id="files" style="display: inline;padding-left: 0;">
                             </ul>
                             <div class="weui_uploader_input_wrp" id="file_upload">
-<!--                                <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">-->
+                                <!--                                <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">-->
                             </div>
                         </div>
                     </div>
