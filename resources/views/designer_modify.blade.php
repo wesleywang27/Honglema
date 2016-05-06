@@ -23,78 +23,69 @@
             <span class="am-header-nav-title" style="margin-right: 5px">返回</span>
         </a>
     </div>
-    <h1 class="am-header-title" style="margin: 0px; font-size: 20px;">
+    <h1 class="am-header-title" style="margin: 0px">
         红了吗网红供应链合作报名
     </h1>
 </header>
 
 <div>
-    <div class="am-intro-default am-padding-sm am-text-center" style="margin-top: -10px; margin-bottom: -20px; font-size: 20px;">
+    <div class="am-intro-default am-padding-sm am-text-center">
         <span class="am-intro-title">
-            档口报名信息
+            设计师报名信息
         </span>
     </div>
 
-    <form action="/stall_modify" id="baseInfoForm" method="post" enctype="multipart/form-data">
+    <form action="/designer_modify" id="baseInfoForm" method="post" enctype="multipart/form-data">
         <?php echo csrf_field(); ?>
         <div class="weui_cells_title">个人信息</div>
         <div class="weui_cells">
+            <div class="weui_cell weui_cell_select weui_select_after">
+                <div class="weui_cell_hd"><label class="">设计师类型：</label></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <select class="weui_select" name="designType">
+                        <option value="职业设计师">职业设计师</option>
+                        <option value="贴牌设计师">贴牌设计师</option>
+                        <option value="高级定制设计师">高级定制设计师</option>
+                        <option value="个体设计师">个体设计师</option>
+                        <option value="独立设计师">独立设计师</option>
+                    </select>
+                </div>
+            </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">姓名：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="username" value="{{ $stall->username}}" />
+                    <input class="weui_input" type="text" name="username" value="{{ $designer->username}}" />
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">手机号码：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="mobile" value="{{ $stall->mobile}}" />
+                    <input class="weui_input" type="text" name="mobile" value="{{ $designer->mobile}}" />
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">微信号：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="weixinNo" value="{{ $stall->weixinNo}}" />
+                    <input class="weui_input" type="text" name="weixinNo" value="{{ $designer->weixinNo}}" />
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">职位：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="title" value="{{ $stall->title}}" />
+                    <input class="weui_input" type="text" name="title" value="{{ $designer->title}}" />
                 </div>
             </div>
         </div>
-        <div class="weui_cells_title">档口信息</div>
+        <div class="weui_cells_title">公司信息</div>
         <div class="weui_cells">
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">档口名称：</label></div>
+                <div class="weui_cell_hd"><label class="">公司名称：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="stallName" value="{{ $stall->stallName}}" />
+                    <input class="weui_input" type="text" name="company" value="{{ $designer->company}}" />
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">档口号：</label></div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="stallNum" value="{{ $stall->stallNum}}" />
-                </div>
-            </div>
-            <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">档口地址：</label></div>
-            </div>
-            <div class="weui_cells" id="global_location1">
-                <div class="weui_cell weui_cell_select">
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <select class="weui_select city" id="city" name="city"></select>
-                    </div>
-                </div>
-                <div class="weui_cell weui_cell_select">
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <select class="weui_select stall" id="stall" name="stall"></select>
-                    </div>
-                </div>
-            </div>
-            <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">若以上档口地址选择"其它"请填写以下部分</label></div>
+                <div class="weui_cell_hd"><label class="">公司地址：</label></div>
             </div>
             <div class="weui_cells" id="global_location">
                 <div class="weui_cell weui_cell_select">
@@ -109,7 +100,7 @@
                 </div>
                 <div class="weui_cell weui_cell_select">
                     <div class="weui_cell_bd weui_cell_primary">
-                        <select class="weui_select city" id="city" name="stallCity"></select>
+                        <select class="weui_select city" id="city" name="city"></select>
                     </div>
                 </div>
                 <div class="weui_cell weui_cell_select">
@@ -123,47 +114,46 @@
                     </div>
                 </div>
             </div>
-            <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd"><label class="">档口服装风格：</label></div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <select class="weui_select" name="style">
-                        <option value="甜美">甜美</option>
-                        <option value="欧美">欧美</option>
-                        <option value="韩版">韩版</option>
-                        <option value="淑女">淑女</option>
-                        <option value="文艺">文艺</option>
-                        <option value="复古">复古</option>
-                        <option value="嘻哈">嘻哈</option>
-                        <option value="波西米亚">波西米亚</option>
-                        <option value="民族">民族</option>
-                        <option value="中性">中性</option>
-                        <option value="简约">简约</option>
-                        <option value="其他">其他</option>
-                    </select>
+        </div>
 
-                </div>
-            </div>
-            <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">档口服装类目：</label></div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="category" value="{{ $stall->category}}" />
-                </div>
-            </div>
+        <div class="weui_cells_title">个人设计经历</div>
+        <div class="weui_cells">
             <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd">
-                    <label class="">是否支持一件代发：</label>
-                </div>
+                <div class="weui_cell_hd"><label class="">是否有设计团队：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <select class="weui_select" name="shipmentOK">
+                    <select class="weui_select" name="designTeam">
                         <option value="0">否</option>
                         <option value="1">是</option>
                     </select>
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd">
-                    <label class="">红了吗对接人：</label>
+                <div class="weui_cell_hd"><label class="">是否有自己的设计品牌：</label></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <select class="weui_select" name="brand">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
                 </div>
+            </div>
+            <div class="weui_cells_title">设计品牌名称</div>
+            <div class="weui_cells weui_cells_form">
+                <div class="weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <textarea class="weui_textarea" name="designBrand" rows="5" >{{ $designer->designBrand }}</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="weui_cells_title">设计经历</div>
+            <div class="weui_cells weui_cells_form">
+                <div class="weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <textarea class="weui_textarea" name="designExperience" rows="5" >{{ $designer->designExperience}}</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="weui_cell weui_cell_select weui_select_after">
+                <div class="weui_cell_hd"><label class="">红了吗对接人：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="contact">
                         <option value="">请选择</option>
@@ -180,19 +170,29 @@
                     </select>
                 </div>
             </div>
-            <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">图片信息：</label></div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_hd"><label class="">设计作品：</label></div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <ul class="gallery">
+                    @foreach ($pictures as $picture)
+                    <img src="{{ $picture->url }}" style="width: 80px; height: 80px;"/>
+                    @endforeach
+                </ul>
             </div>
+        </div>
+
+        <div class="weui_cells_title">备注</div>
+        <div class="weui_cells weui_cells_form">
             <div class="weui_cell">
                 <div class="weui_cell_bd weui_cell_primary">
-                    <ul class="gallery">
-                        @foreach ($pictures as $picture)
-                        <img src="{{ $picture->url }}" style="width: 80px; height: 80px;"/>
-                        @endforeach
-                    </ul>
+                    <textarea class="weui_textarea" name="description" rows="5" >{{ $designer->description}}</textarea>
                 </div>
             </div>
         </div>
+
         <div class="weui_btn_area">
             <input class="am-btn am-btn-danger am-btn-block am-round" id="saveSubmit" name="commit" type="submit" value="保存"/>
         </div>
@@ -212,7 +212,7 @@
     </div>
 
 </div>
-<script type="text/javascript" src="/js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="/js/ajaxfileupload.js" charset="utf-8"></script>
 <script type="text/javascript" src="/js/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/jquery.fileupload.js"></script>
 <script src="/js/jquery.cxselect.min.js" type="text/javascript"></script>
@@ -220,17 +220,12 @@
 <script type="text/javascript" src="/js/jweixin-1.0.0.js"></script>
 
 <script>
-    jQuery.cxSelect.defaults.url = '/js/stall.json';
-    jQuery('#global_location1').cxSelect({
-        selects: ['city', 'stall'],
-        nodata: 'none'
-    });
-
     jQuery.cxSelect.defaults.url = '/js/city.json';
     jQuery('#global_location').cxSelect({
         selects: ['country', 'province', 'city', 'region'],
         nodata: 'none'
     });
+
 
     var count = 0;
     //图片需一张一张上传

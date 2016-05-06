@@ -10,9 +10,8 @@ namespace App\Http\Controllers;
 use Validator;
 use App\Models\Factory;
 use App\Models\ProductPicture;
-use App\Http\Requests;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Contracts\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use EasyWeChat\Foundation\Application;
 
@@ -96,5 +95,26 @@ class FactoryController extends Controller{
             // 验证没通过就显示错误提示信息
             echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
         }
+    }
+
+    public function modifyFactory(){
+        $options = config('wechat');
+        $app = new Application($options);
+        $js = $app->js;
+
+        $user = session('wechat.oauth_user');
+        $factory = Factory::where('open_id',$user->openid)->first();
+        $picture = ProductPicture::where('id',$factory->factory_id)->where('type',0)->get();
+
+        return view('factory_info',['factory' => $factory ,'pictures' => $picture ,'js' => $js]);
+    }
+
+    public function updateFactory(Request $request){
+        $user = session('wechat.oauth_user');
+        $factory = Factory::where('open_id',$user->openid)->first();
+
+        $factory->update($request->all());
+
+        return Redirect::to('factory_index');
     }
 }

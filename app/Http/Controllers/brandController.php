@@ -10,9 +10,8 @@ namespace App\Http\Controllers;
 use Validator;
 use App\Models\Brand;
 use App\Models\ProductPicture;
-use App\Http\Requests;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Contracts\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use EasyWeChat\Foundation\Application;
 
@@ -97,5 +96,26 @@ class BrandController extends Controller{
             // 验证没通过就显示错误提示信息
             echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
         }
+    }
+    
+    public function modifyBrand(){
+        $options = config('wechat');
+        $app = new Application($options);
+        $js = $app->js;
+
+        $user = session('wechat.oauth_user');
+        $brand = Brand::where('open_id',$user->openid)->first();
+        $picture = ProductPicture::where('id',$brand->brand_id)->where('type',1)->get();
+
+        return view('brand_info',['brand' => $brand ,'pictures' => $picture ,'js' => $js]);
+    }
+    
+    public function updateBrand(Request $request){
+        $user = session('wechat.oauth_user');
+        $brand = Brand::where('open_id',$user->openid)->first();
+        
+        $brand->update($request->all());
+
+        return Redirect::to('brand_index');
     }
 }

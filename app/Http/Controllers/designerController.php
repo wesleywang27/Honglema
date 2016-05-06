@@ -10,9 +10,8 @@ namespace App\Http\Controllers;
 use Validator;
 use App\Models\Designer;
 use App\Models\ProductPicture;
-use App\Http\Requests;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Contracts\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use EasyWeChat\Foundation\Application;
 
@@ -87,5 +86,26 @@ class DesignerController extends Controller{
             // 验证没通过就显示错误提示信息
             echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
         }
+    }
+    
+    public function modifyDesigner(){
+        $options = config('wechat');
+        $app = new Application($options);
+        $js = $app->js;
+
+        $user = session('wechat.oauth_user');
+        $designer = Designer::where('open_id',$user->openid)->first();
+        $picture = ProductPicture::where('id',$designer->designer_id)->where('type',2)->get();
+
+        return view('designer_modify',['designer' => $designer ,'pictures' => $picture ,'js' => $js]);
+    }
+
+    public function updateDesigner(Request $request){
+        $user = session('wechat.oauth_user');
+        $designer = Designer::where('open_id',$user->openid)->first();
+
+        $designer->update($request->all());
+
+        return Redirect::to('designer_index');
     }
 }
