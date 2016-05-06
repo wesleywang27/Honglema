@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Input;
 use App\Models\Factory;
 use Illuminate\Contracts\Http\Request;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Redirect;
 use EasyWeChat\Foundation\Application;
 
 class FactoryController extends Controller{

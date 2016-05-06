@@ -43,21 +43,21 @@
                 <div class="weui_cell_hd"><label class="">姓名</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="username" placeholder="请输入姓名"
-                           value="" required>
+                           value="{{ $stall->username}}" readonly>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">手机号码</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="number" name="mobile" pattern="[0-9]*" placeholder="请输入手机号码"
-                           value="" required>
+                           value="{{ $stall->mobile}}" readonly>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">微信号</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="weixinNo" placeholder="请输入微信号"
-                           value="" required>
+                           value="{{ $stall->weixinNo}}" readonly>
                 </div>
             </div>
             <div class="weui_cell">
