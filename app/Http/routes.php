@@ -74,6 +74,9 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::post('/stall', 'StallController@createStall');
 });
+Route::get('/stall_info',function () {
+    return view('stall_info');
+});
 
 /*
  * 红了吗后台管理系统入口
