@@ -27,6 +27,7 @@ class BrandController extends Controller{
 
         if($brand){
             $picture = ProductPicture::where('id',$brand->brand_id)->where('type',1)->get();
+            echo "<script> alert('您已成功提交信息!'); </script>";
             return view('brand_info',['brand' => $brand ,'pictures' => $picture]);
         }else{
             return view('brand',['js'=>$js]);

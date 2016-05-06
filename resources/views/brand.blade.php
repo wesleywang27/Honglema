@@ -79,26 +79,26 @@
                 <div class="weui_cell_hd"><label class="">公司地址</label></div>
             </div>
             <div class="weui_cells" id="global_location">
-            <div class="weui_cell weui_cell_select">
-                <div class="weui_cell_bd weui_cell_primary">
-                    <select class="weui_select country" id="country" name="country"></select>
+                <div class="weui_cell weui_cell_select">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <select class="weui_select country" id="country" name="country"></select>
+                    </div>
                 </div>
-            </div>
-            <div class="weui_cell weui_cell_select">
-                <div class="weui_cell_bd weui_cell_primary">
-                    <select class="weui_select province" id="province" name="province"></select>
+                <div class="weui_cell weui_cell_select">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <select class="weui_select province" id="province" name="province"></select>
+                    </div>
                 </div>
-            </div>
-            <div class="weui_cell weui_cell_select">
-                <div class="weui_cell_bd weui_cell_primary">
-                    <select class="weui_select city" id="city" name="city"></select>
+                <div class="weui_cell weui_cell_select">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <select class="weui_select city" id="city" name="city"></select>
+                    </div>
                 </div>
-            </div>
-            <div class="weui_cell weui_cell_select">
-                <div class="weui_cell_bd weui_cell_primary">
-                    <select class="weui_select region" id="region" name="region"></select>
+                <div class="weui_cell weui_cell_select">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <select class="weui_select region" id="region" name="region"></select>
+                    </div>
                 </div>
-            </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_bd weui_cell_primary">
@@ -119,8 +119,8 @@
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd"><label class="">
-                    类目
-                        </label>
+                        类目
+                    </label>
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="category">
@@ -148,8 +148,8 @@
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd"><label class="">
-                    是否自有工厂
-                        </label>
+                        是否自有工厂
+                    </label>
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="factory">
@@ -167,8 +167,8 @@
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd"><label class="">
-                    是否有设计团队
-                        </label>
+                        是否有设计团队
+                    </label>
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="design">
@@ -213,8 +213,8 @@
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd"><label class="">
-                    是否支持退换
-                        </label>
+                        是否支持退换
+                    </label>
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="refund">
@@ -256,7 +256,7 @@
                             <ul class="weui_uploader_files" id="files" style="display: inline;padding-left: 0;">
                             </ul>
                             <div class="weui_uploader_input_wrp" id="file_upload">
-<!--                                <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">-->
+                                <!--                                <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">-->
                             </div>
                         </div>
                     </div>

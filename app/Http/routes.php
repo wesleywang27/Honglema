@@ -74,14 +74,14 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::post('/stall', 'StallController@createStall');
 });
-
-use App\Models\Designer;
+/*
+use App\Models\Brand;
 use App\Models\ProductPicture;
-Route::get('/designer_info',function () {
-    $designer = Designer::where('open_id','123')->first();
-    $picture = ProductPicture::where('id',$designer->designer_id)->where('type',2)->get();
-    echo "<script> alert('您已成功提交信息，如有需要可对信息进行修改!'); </script>";
-    return view('designer_info',['designer' => $designer ,'pictures' => $picture]);
+Route::get('/brand_info',function () {
+    $brand = Brand::where('open_id','123')->first();
+    $picture = ProductPicture::where('id',$brand->brand_id)->where('type',1)->get();
+    echo "<script> alert('您已成功提交信息!'); </script>";
+    return view('brand_info',['brand' => $brand ,'pictures' => $picture]);
 });
 
 /*
