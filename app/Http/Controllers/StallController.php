@@ -10,9 +10,8 @@ namespace App\Http\Controllers;
 use Validator;
 use App\Models\Stall;
 use App\Models\ProductPicture;
-use App\Http\Requests;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Contracts\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use EasyWeChat\Foundation\Application;
 
@@ -85,5 +84,26 @@ class StallController extends Controller{
             // 验证没通过就显示错误提示信息
             echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
         }
+    }
+    
+    public function modifyStall(){
+        $options = config('wechat');
+        $app = new Application($options);
+        $js = $app->js;
+
+        $user = session('wechat.oauth_user');
+        $stall = Stall::where('open_id',$user->open_id)->first();
+        $picture = ProductPicture::where('id',$stall->stall_id)->where('type',3)->get();
+
+        return view('stall_modify',['stall' => $stall ,'pictures' => $picture ,'js' => $js]);
+    }
+
+    public function updateStall(Request $request){
+        $user = session('wechat.oauth_user');
+        $stall = Stall::where('open_id',$user->open_id)->first();
+
+        $stall->update($request->all());
+        
+        return Redirect::to('stall_index');
     }
 }

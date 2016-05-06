@@ -73,15 +73,19 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/stall_index', 'StallController@index');
 
     Route::post('/stall', 'StallController@createStall');
+
+    Route::get('/stall_modify', 'StallController@modifyStall');
+
+    Route::post('/stall_modify', 'StallController@updateStall');
 });
 /*
-use App\Models\Factory;
+use App\Models\Stall;
 use App\Models\ProductPicture;
-Route::get('/factory_info',function () {
-    $factory = Factory::where('open_id','123')->first();
-    $picture = ProductPicture::where('id',$factory->factory_id)->where('type',0)->get();
+Route::get('/stall_info',function () {
+    $stall = Stall::where('open_id','123')->first();
+    $picture = ProductPicture::where('id',$stall->stall_id)->where('type',3)->get();
     echo "<script> alert('您已成功提交信息!'); </script>";
-    return view('factory_info',['factory' => $factory ,'pictures' => $picture]);
+    return view('stall_info',['stall' => $stall ,'pictures' => $picture]);
 });
 
 /*
