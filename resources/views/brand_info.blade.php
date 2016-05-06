@@ -204,7 +204,7 @@
         </div>
         -->
         <div class="weui_btn_area">
-            <a href="/"><input class="am-btn am-btn-primary am-btn-block am-round" value="返回"/></a>
+            <a href="/" class="am-btn am-btn-primary am-btn-block am-round">返回</a>
         </div>
     </form>
 
