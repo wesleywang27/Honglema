@@ -78,15 +78,6 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::post('/stall_modify', 'StallController@updateStall');
 });
-/*
-use App\Models\Stall;
-use App\Models\ProductPicture;
-Route::get('/stall_info',function () {
-    $stall = Stall::where('open_id','123')->first();
-    $picture = ProductPicture::where('id',$stall->stall_id)->where('type',3)->get();
-    echo "<script> alert('您已成功提交信息!'); </script>";
-    return view('stall_info',['stall' => $stall ,'pictures' => $picture]);
-});
 
 /*
  * 红了吗后台管理系统入口
