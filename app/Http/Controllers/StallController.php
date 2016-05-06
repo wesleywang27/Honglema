@@ -26,7 +26,7 @@ class StallController extends Controller{
         $stall = Stall::where('open_id',$user->openid)->first();
         
         if($stall){
-            return view('stall_info',['js'=>$js ,'stall'=>$stall]);
+            return view('stall_info',['stall'=>$stall]);
         }else{
             return view('stall',['js'=>$js]);
         }

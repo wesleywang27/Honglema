@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/amazeui.min.css">
     <link rel="stylesheet" href="/css/weui.css">
     <link rel="stylesheet" href="/css/app.css">
-    <link rel="stylesheet" href="http://y.wcc.cn/statics/amazeui/css/admin.css">
+    <link rel="stylesheet" href="/css/admin.css">
 
     <script src="/js/jquery.min.js"></script>
     <script src="/js/handlebars.min.js"></script>
@@ -39,25 +39,25 @@
         <div class="weui_cells_title">个人信息</div>
         <div class="weui_cells">
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">姓名</label></div>
+                <div class="weui_cell_hd"><label class="">姓名：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="username" value="{{ $stall->username}}" readonly/>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">手机号码</label></div>
+                <div class="weui_cell_hd"><label class="">手机号码：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="mobile" value="{{ $stall->mobile}}" readonly/>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">微信号</label></div>
+                <div class="weui_cell_hd"><label class="">微信号：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="weixinNo" value="{{ $stall->weixinNo}}" readonly/>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">职位</label></div>
+                <div class="weui_cell_hd"><label class="">职位：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="title" value="{{ $stall->title}}" readonly/>
                 </div>
@@ -66,19 +66,19 @@
         <div class="weui_cells_title">档口信息</div>
         <div class="weui_cells">
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">档口名称</label></div>
+                <div class="weui_cell_hd"><label class="">档口名称：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="stallName" value="{{ $stall->stallName}}" readonly/>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">档口号</label></div>
+                <div class="weui_cell_hd"><label class="">档口号：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="stallNum" value="{{ $stall->stallNum}}" readonly/>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">档口地址</label></div>
+                <div class="weui_cell_hd"><label class="">档口地址：</label></div>
             </div>
             <div class="weui_cells" id="global_location">
                 <div class="weui_cell">
@@ -87,20 +87,20 @@
                     </div>
                 </div>
             </div>
-            <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd"><label class="">档口服装风格</label></div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><label class="">档口服装风格：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="style" value="{{ $stall->style}}" readonly/>
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">档口服装类目</label></div>
+                <div class="weui_cell_hd"><label class="">档口服装类目：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="category" value="{{ $stall->category}}" readonly/>
                 </div>
             </div>
-            <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd"><label class="">是否支持一件代发</label></div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><label class="">是否支持一件代发：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     @if ($stall->shipmentOK == 1)
                     <input class="weui_input" type="text" name="shipmentOK" value="是" readonly/>
@@ -109,37 +109,37 @@
                     @endif
                 </div>
             </div>
-            <div class="weui_cell weui_cell_select weui_select_after">
-                <div class="weui_cell_hd"><label class="">红了吗对接人</label></div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><label class="">红了吗对接人：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="contact" value="{{ $stall->contact}}" readonly/>
                 </div>
             </div>
         </div>
-<!--
-        <div class="weui_cells weui_cells_form">
-            <div class="weui_cell">
-                <div class="weui_cell_bd weui_cell_primary">
-                    <div class="weui_uploader">
-                        <div class="weui_uploader_hd weui_cell">
-                            <div class="weui_cell_bd weui_cell_primary">商品照片(最多选6张照片)</div>
-                        </div>
-                        <div class="weui_uploader_bd">
-                            <ul class="weui_uploader_files" id="files" style="display: inline;padding-left: 0;">
-                            </ul>
-                            <div class="weui_uploader_input_wrp" id="file_upload">
-                                <!--                                <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+        <!--
+                <div class="weui_cells weui_cells_form">
+                    <div class="weui_cell">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <div class="weui_uploader">
+                                <div class="weui_uploader_hd weui_cell">
+                                    <div class="weui_cell_bd weui_cell_primary">商品照片(最多选6张照片)</div>
+                                </div>
+                                <div class="weui_uploader_bd">
+                                    <ul class="weui_uploader_files" id="files" style="display: inline;padding-left: 0;">
+                                    </ul>
+                                    <div class="weui_uploader_input_wrp" id="file_upload">
+                                        <!--                                <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="weui_btn_area">
-            <input class="am-btn am-btn-danger am-btn-block am-round" id="saveSubmit" name="commit" type="submit" value="提交信息"/>
-        </div>
--->
+                <div class="weui_btn_area">
+                    <input class="am-btn am-btn-danger am-btn-block am-round" id="saveSubmit" name="commit" type="submit" value="提交信息"/>
+                </div>
+        -->
         <div class="weui_btn_area">
             <a href="#"><input class="am-btn am-btn-danger am-btn-block am-round" value="修改"/></a>
         </div>
@@ -159,9 +159,6 @@
     </div>
 
 </div>
-<script type="text/javascript" src="/js/ajaxfileupload.js"></script>
-<script src="/js/jquery.cxselect.min.js" type="text/javascript"></script>
-<script src="/js/jquery.form.js" type="text/javascript"></script>
 <script type="text/javascript" src="/js/jweixin-1.0.0.js"></script>
 
 <script src="/js/amazeui.min.js"></script>
