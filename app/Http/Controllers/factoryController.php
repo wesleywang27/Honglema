@@ -106,7 +106,7 @@ class FactoryController extends Controller{
         $factory = Factory::where('open_id',$user->openid)->first();
         $picture = ProductPicture::where('id',$factory->factory_id)->where('type',0)->get();
 
-        return view('factory_info',['factory' => $factory ,'pictures' => $picture ,'js' => $js]);
+        return view('factory_modify',['factory' => $factory ,'pictures' => $picture ,'js' => $js]);
     }
 
     public function updateFactory(Request $request){

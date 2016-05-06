@@ -100,7 +100,7 @@ class StallController extends Controller{
 
     public function updateStall(Request $request){
         $user = session('wechat.oauth_user');
-        $stall = Stall::where('open_id',$user->open_id)->first();
+        $stall = Stall::where('open_id',$user->openid)->first();
 
         $stall->update($request->all());
         

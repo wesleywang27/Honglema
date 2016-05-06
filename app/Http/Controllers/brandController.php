@@ -107,7 +107,7 @@ class BrandController extends Controller{
         $brand = Brand::where('open_id',$user->openid)->first();
         $picture = ProductPicture::where('id',$brand->brand_id)->where('type',1)->get();
 
-        return view('brand_info',['brand' => $brand ,'pictures' => $picture ,'js' => $js]);
+        return view('brand_modify',['brand' => $brand ,'pictures' => $picture ,'js' => $js]);
     }
     
     public function updateBrand(Request $request){
