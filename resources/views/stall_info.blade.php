@@ -78,12 +78,22 @@
                 </div>
             </div>
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label class="">档口地址：</label></div>
+                <div class="weui_cell_hd"><label class="">档口地址(杭州/广州)：</label></div>
             </div>
             <div class="weui_cells" id="global_location">
                 <div class="weui_cell">
                     <div class="weui_cell_bd weui_cell_primary">
-                        <textarea class="weui_textarea" name="address" rows="5" readonly>{{ $stall->city}}{{ $stall->stall}}{{ $stall->country}}{{ $stall->province}}{{ $stall->stallCity}}{{ $stall->region}}{{ $stall->address}}</textarea>
+                        <textarea class="weui_textarea" name="address" rows="5" readonly>{{ $stall->city}}{{ $stall->stall}}{{ $stall->address}}</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><label class="">档口地址(其它城市)：</label></div>
+            </div>
+            <div class="weui_cells" id="global_location">
+                <div class="weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <textarea class="weui_textarea" name="address" rows="5" readonly>{{ $stall->country}}{{ $stall->province}}{{ $stall->stallCity}}{{ $stall->region}}{{ $stall->address}}</textarea>
                     </div>
                 </div>
             </div>

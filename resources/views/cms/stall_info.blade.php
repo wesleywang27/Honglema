@@ -36,7 +36,7 @@
             </tr>
             <tr>
                 <th>档口地址(其它)：</th>
-                <td colspan="5">{{ $stall->country}}{{ $stall->province}}{{ $stall->stallCity}}{{ $stall->region}}{{ $stall->address}}</td>
+                <td colspan="5">{{ $stall->province}}{{ $stall->stallCity}}{{ $stall->region}}{{ $stall->address}}</td>
             </tr>
             <tr>
                 <th>档口服装风格：</th>
