@@ -7,12 +7,12 @@
  */
 namespace App\Http\Controllers;
 
-use App\Models\ProductPicture;
 use Validator;
-use Illuminate\Support\Facades\Input;
 use App\Models\Designer;
-use Illuminate\Contracts\Http\Request;
+use App\Models\ProductPicture;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Contracts\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use EasyWeChat\Foundation\Application;
 
@@ -21,16 +21,26 @@ class DesignerController extends Controller{
         $options = config('wechat');
         $app = new Application($options);
         $js = $app->js;
-        return view('designer',['js'=>$js]);
+
+        $user = session('wechat.oauth_user');
+        $designer = Designer::where('open_id',$user->openid)->first();
+
+        if($designer){
+            $picture = ProductPicture::where('id',$designer->designer_id)->where('type',2)->get();
+            return view('designer_info',['designer' => $designer ,'pictures' => $picture]);
+        }else{
+            return view('designer',['js'=>$js]);
+        }
     }
 
     public function createDesigner(){
-
         $validator = Validator::make(Input::all(), Designer::$rules);
 
         if ($validator->passes()) {
             // 验证通过就存储用户数据
             $designer = new Designer();
+            $user = session('wechat.oauth_user');
+
             $designer->designType = Input::get('designType');
             $designer->username = Input::get('username');
             $designer->mobile = Input::get('mobile');
@@ -54,6 +64,7 @@ class DesignerController extends Controller{
             }
             $designer->contact = Input::get('contact');
             $designer->description = Input::get('description');
+            $designer->open_id = $user->openid;
 
             $pictures = [];
             if(Input::has('itemImage')){
@@ -72,7 +83,7 @@ class DesignerController extends Controller{
 
             echo "<script> alert('注册成功!'); </script>";
 
-            return Redirect::to('/');
+            return Redirect::to('designer_index');
         } else {
             // 验证没通过就显示错误提示信息
             echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";

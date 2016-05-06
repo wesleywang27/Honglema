@@ -75,12 +75,12 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::post('/stall', 'StallController@createStall');
 });
 /*
-use App\Models\Stall;
+use App\Models\Designer;
 use App\Models\ProductPicture;
-Route::get('/stall_info',function () {
-    $stall = Stall::where('open_id','123')->first();
-    $picture = ProductPicture::where('id',$stall->stall_id)->where('type',3)->get();
-    return view('stall_info',['stall' => $stall ,'pictures' => $picture]);
+Route::get('/designer_info',function () {
+    $designer = Designer::where('open_id','123')->first();
+    $picture = ProductPicture::where('id',$designer->designer_id)->where('type',2)->get();
+    return view('designer_info',['designer' => $designer ,'pictures' => $picture]);
 });
 
 /*

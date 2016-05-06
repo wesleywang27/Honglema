@@ -34,10 +34,6 @@ class StallController extends Controller{
     }
     
     public function createStall(){
-        $options = config('wechat');
-        $app = new Application($options);
-        $js = $app->js;
-        
         $validator = Validator::make(Input::all(), Stall::$rules);
 
         if ($validator->passes()) {

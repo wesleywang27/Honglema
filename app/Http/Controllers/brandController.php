@@ -7,12 +7,12 @@
  */
 namespace App\Http\Controllers;
 
-use App\Models\ProductPicture;
 use Validator;
-use Illuminate\Support\Facades\Input;
 use App\Models\Brand;
-use Illuminate\Contracts\Http\Request;
+use App\Models\ProductPicture;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Contracts\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use EasyWeChat\Foundation\Application;
 
@@ -21,7 +21,16 @@ class BrandController extends Controller{
         $options = config('wechat');
         $app = new Application($options);
         $js = $app->js;
-        return view('brand',['js'=>$js]);
+
+        $user = session('wechat.oauth_user');
+        $brand = Brand::where('open_id',$user->openid)->first();
+
+        if($brand){
+            $picture = ProductPicture::where('id',$brand->brand_id)->where('type',1)->get();
+            return view('brand_info',['brand' => $brand ,'pictures' => $picture]);
+        }else{
+            return view('brand',['js'=>$js]);
+        }
     }
 
     public function createBrand(){
@@ -30,6 +39,8 @@ class BrandController extends Controller{
         if ($validator->passes()) {
             // 验证通过就存储用户数据
             $brand = new Brand();
+            $user = session('wechat.oauth_user');
+            
             $brand->username = Input::get('username');
             $brand->mobile = Input::get('mobile');
             $brand->weixinNo = Input::get('weixinNo');
@@ -61,6 +72,7 @@ class BrandController extends Controller{
             }
             $brand->contact = Input::get('contact');
             $brand->description = Input::get('description');
+            $brand->open_id = $user->openid;
 
             $pictures = [];
             if(Input::has('itemImage')){
@@ -79,7 +91,7 @@ class BrandController extends Controller{
 
             echo "<script> alert('注册成功!'); </script>";
 
-            return Redirect::to('/');
+            return Redirect::to('brand_index');
         } else {
             // 验证没通过就显示错误提示信息
             echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";

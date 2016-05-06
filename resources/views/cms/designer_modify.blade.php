@@ -32,28 +32,26 @@
                     <td><input style="width: 98%;height: 100%;" name="company" value="{{ $designer->company}}" /></td>
                 </tr>
                 <tr>
-                    <th>公司地址：</th>
-                    <td></td>
                     <th>公司所在国家：</th>
                     <td><input style="width: 98%;height: 100%;" name="country" value="{{ $designer->country}}" /></td>
                     <th>公司所在省：</th>
                     <td><input style="width: 98%;height: 100%;" name="province" value="{{ $designer->province }}" /></td>
-                </tr>
-                <tr>
                     <th>公司所在市：</th>
                     <td><input style="width: 98%;height: 100%;" name="city" value="{{ $designer->city}}" /></td>
+                </tr>
+                <tr>
                     <th>公司所在区：</th>
                     <td><input style="width: 98%;height: 100%;" name="region" value="{{ $designer->region}}" /></td>
                     <th>公司详细地址：</th>
                     <td><input style="width: 98%;height: 100%;" name="address" value="{{ $designer->address}}" /></td>
-                </tr>
-                <tr>
                     <th>是否有设计团队：</th>
                     @if ($designer->designTeam == 1)
                     <td><input style="width: 98%;height: 100%;" name="designTeam" value="是" /></td>
                     @else
                     <td><input style="width: 98%;height: 100%;" name="designTeam" value="否" /></td>
                     @endif
+                </tr>
+                <tr>
                     <th>是否有自己设计的品牌：</th>
                     @if ($designer->brand == 1)
                     <td><input style="width: 98%;height: 100%;" name="brand" value="是" /></td>
@@ -62,20 +60,14 @@
                     @endif
                     <th>设计品牌名称：</th>
                     <td><input style="width: 98%;height: 100%;" name="designBrand" value="{{ $designer->designBrand }}" /></td>
-                </tr>
-                <tr>
                     <th>红了吗对接人：</th>
                     <td><input style="width: 98%;height: 100%;" name="contact" value="{{ $designer->contact}}" /></td>
-                    <th></th>
-                    <td></td>
-                    <th></th>
-                    <td></td>
                 </tr>
                 <tr>
                     <th>设计经历：</th>
-                    <td colspan="2"><textarea name="designExperience" style="width: 98%; height: 60px; margin-top: -6px; margin-bottom: -8px;">{{ $designer->designExperience}}</textarea></td>
+                    <td colspan="2"><textarea name="designExperience" style="width: 98%; height: 60px; margin-top: -8px; margin-bottom: -10px;">{{ $designer->designExperience}}</textarea></td>
                     <th>备注：</th>
-                    <td colspan="2"><textarea name="description" style="width: 98%; height: 60px; margin-top: -6px; margin-bottom: -8px;">{{ $designer->description}}</textarea></td>
+                    <td colspan="2"><textarea name="description" style="width: 98%; height: 60px; margin-top: -8px; margin-bottom: -10px;">{{ $designer->description}}</textarea></td>
                 </tr>
             </table>
             <input type="submit" value="保存" class="link_btn" style="float: right; margin-right: 40px;"/>
