@@ -78,7 +78,7 @@ class FactoryController extends Controller{
 
             echo "<script> alert('注册成功!'); </script>";
 
-            return Redirect::to('index');
+            return Redirect::to('/');
         } else {
             // 验证没通过就显示错误提示信息
             echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
