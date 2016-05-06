@@ -92,7 +92,7 @@ class StallController extends Controller{
         $js = $app->js;
 
         $user = session('wechat.oauth_user');
-        $stall = Stall::where('open_id',$user->open_id)->first();
+        $stall = Stall::where('open_id',$user->openid)->first();
         $picture = ProductPicture::where('id',$stall->stall_id)->where('type',3)->get();
 
         return view('stall_modify',['stall' => $stall ,'pictures' => $picture ,'js' => $js]);
