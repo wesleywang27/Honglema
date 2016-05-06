@@ -27,6 +27,7 @@ class DesignerController extends Controller{
 
         if($designer){
             $picture = ProductPicture::where('id',$designer->designer_id)->where('type',2)->get();
+            echo "<script> alert('您已成功提交信息!'); </script>";
             return view('designer_info',['designer' => $designer ,'pictures' => $picture]);
         }else{
             return view('designer',['js'=>$js]);
@@ -80,8 +81,6 @@ class DesignerController extends Controller{
 
             $designer->save();
             $designer->pictures()->saveMany($pictures);
-
-            echo "<script> alert('注册成功!'); </script>";
 
             return Redirect::to('designer_index');
         } else {

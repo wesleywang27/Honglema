@@ -27,6 +27,7 @@ class StallController extends Controller{
         
         if($stall){
             $picture = ProductPicture::where('id',$stall->stall_id)->where('type',3)->get();
+            echo "<script> alert('您已成功提交信息!'); </script>";
             return view('stall_info',['stall' => $stall ,'pictures' => $picture]);
         }else{
             return view('stall',['js'=>$js]);
@@ -78,8 +79,6 @@ class StallController extends Controller{
 
             $stall->save();
             $stall->pictures()->saveMany($pictures);
-
-            echo "<script> alert('注册成功!'); </script>";
 
             return Redirect::to('stall_index');
         } else {
