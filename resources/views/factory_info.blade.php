@@ -192,11 +192,10 @@
                 </div>
             </div>
         </div>
-        <!--
+        
         <div class="weui_btn_area">
-            <a href="#"><input class="am-btn am-btn-danger am-btn-block am-round" value="修改"/></a>
+            <a href="/factory_modify" class="am-btn am-btn-danger am-btn-block am-round">修改</a>
         </div>
-        -->
         <div class="weui_btn_area">
             <a href="/" class="am-btn am-btn-primary am-btn-block am-round">返回</a>
         </div>
