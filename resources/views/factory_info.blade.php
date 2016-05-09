@@ -131,9 +131,9 @@
                 <div class="weui_cell_hd"><label class="">是否有设计师或设计团队：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     @if ($factory->design == 1)
-                    <input class="weui_input" name="design" value="是" />
+                    <input class="weui_input" name="design" value="是" readonly/>
                     @else
-                    <input class="weui_input" name="design" value="否" />
+                    <input class="weui_input" name="design" value="否" readonly/>
                     @endif
                 </div>
             </div>
@@ -141,9 +141,9 @@
                 <div class="weui_cell_hd"><label class="">是否支持退换：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     @if ($factory->refund == 1)
-                    <input class="weui_input" name="refund" value="是" />
+                    <input class="weui_input" name="refund" value="是" readonly/>
                     @else
-                    <input class="weui_input" name="refund" value="否" />
+                    <input class="weui_input" name="refund" value="否" readonly/>
                     @endif
                 </div>
             </div>
@@ -151,9 +151,9 @@
                 <div class="weui_cell_hd"><label class="">是否支持一件代发：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     @if ($factory->shipmentOK == 1)
-                    <input class="weui_input" name="shipmentOK" value="是" />
+                    <input class="weui_input" name="shipmentOK" value="是" readonly/>
                     @else
-                    <input class="weui_input" name="shipmentOK" value="否" />
+                    <input class="weui_input" name="shipmentOK" value="否" readonly/>
                     @endif
                 </div>
             </div>

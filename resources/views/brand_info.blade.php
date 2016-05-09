@@ -101,9 +101,9 @@
                 <div class="weui_cell_hd"><label class="">是否自有工厂：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     @if ($brand->factory == 1)
-                    <input class="weui_input" type="text" name="factory" value="是" />
+                    <input class="weui_input" type="text" name="factory" value="是" readonly/>
                     @else
-                    <input class="weui_input" type="text" name="factory" value="否" />
+                    <input class="weui_input" type="text" name="factory" value="否" readonly/>
                     @endif
                 </div>
             </div>
@@ -118,9 +118,9 @@
                 <div class="weui_cell_hd"><label class="">是否有设计团队：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     @if ($brand->designTeam == 1)
-                    <input class="weui_input" type="text" name="designTeam" value="是" />
+                    <input class="weui_input" type="text" name="designTeam" value="是" readonly/>
                     @else
-                    <input class="weui_input" type="text" name="designTeam" value="否" />
+                    <input class="weui_input" type="text" name="designTeam" value="否" readonly/>
                     @endif
                 </div>
             </div>
@@ -162,9 +162,9 @@
                 <div class="weui_cell_hd"><label class="">是否支持退换：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     @if ($brand->refund == 1)
-                    <input class="weui_input" type="text" name="refund" value="是" />
+                    <input class="weui_input" type="text" name="refund" value="是" readonly/>
                     @else
-                    <input class="weui_input" type="text" name="refund" value="否" />
+                    <input class="weui_input" type="text" name="refund" value="否" readonly/>
                     @endif
                 </div>
             </div>
