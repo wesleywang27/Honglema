@@ -81,8 +81,12 @@ class CMSController extends Controller{
                     return Redirect::to("/cms/factory/$name/$category");
                 }
                 else{
-                    $factory = Factory::paginate(10);
-                    return Redirect::to('/cms/factory/all')->with(['factories' => $factory ,'name' => 'all' ,'category' => 'all']);
+                    $user = User::where('name',$_SESSION['username'])->first();
+                    if($user->contact_only == 0)
+                        $factory = Factory::paginate(10);
+                    else
+                        $factory = Factory::where('contact',$user->nickname)->paginate(10);
+                    return view('/cms/factory')->with(['factories' => $factory ,'name' => 'all' ,'category' => 'all']);
                 }
             }
         }
@@ -188,8 +192,7 @@ class CMSController extends Controller{
             }
             else{
                 Factory::where('factory_id',$id)->delete();
-                $factory = Factory::paginate(10);
-                return view('/cms/factory',['factories' => $factory ,'name' => 'all' ,'category' => 'all']);
+                return Redirect::to('/cms/factoryList');
             }
         }
         else{
@@ -202,7 +205,11 @@ class CMSController extends Controller{
         if(isset($_SESSION['username'])){
             $n = ($name != 'all') ? $name : '%';
             $c = ($category != 'all') ? $category : '%';
-            $factory = Factory::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->paginate(10);
+            $user = User::where('name',$_SESSION['username'])->first();
+            if($user->contact_only == 0)
+                $factory = Factory::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->paginate(10);
+            else
+                $factory = Factory::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->where('contact',$user->nickname)->paginate(10);
             return view('/cms/factory',['factories' => $factory ,'name' => $name ,'category' => $category]);
         }
         else{
@@ -263,8 +270,12 @@ class CMSController extends Controller{
                     return Redirect::to("/cms/brand/$name/$category");
                 }
                 else{
-                    $brand = Brand::paginate(10);
-                    return Redirect::to('/cms/brand/all')->with(['brands' => $brand ,'name' => 'all' ,'category' => 'all']);
+                    $user = User::where('name',$_SESSION['username'])->first();
+                    if($user->contact_only == 0)
+                        $brand = Brand::paginate(10);
+                    else
+                        $brand = Brand::where('contact',$user->nickname)->paginate(10);
+                    return view('/cms/brand')->with(['brands' => $brand ,'name' => 'all' ,'category' => 'all']);
                 }
             }
         }
@@ -371,8 +382,7 @@ class CMSController extends Controller{
             }
             else{
                 Brand::where('brand_id',$id)->delete();
-                $brand = Brand::paginate(10);
-                return view('/cms/brand',['brands' => $brand ,'name' => 'all' ,'category' => 'all']);
+                return Redirect::to('/cms/brandList');
             }
         }
         else{
@@ -385,7 +395,11 @@ class CMSController extends Controller{
         if(isset($_SESSION['username'])){
             $n = ($name != 'all') ? $name : '%';
             $c = ($category != 'all') ? $category : '%';
-            $brand = Brand::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->paginate(10);
+            $user = User::where('name',$_SESSION['username'])->first();
+            if($user->contact_only == 0)
+                $brand = Brand::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->paginate(10);
+            else
+                $brand = Brand::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->where('contact',$user->nickname)->paginate(10);
             return view('/cms/brand',['brands' => $brand ,'name' => $name ,'category' => $category]);
         }
         else{
@@ -445,8 +459,12 @@ class CMSController extends Controller{
                     return Redirect::to("/cms/designer/$name/all");
                 }
                 else{
-                    $designer = Designer::paginate(10);
-                    return Redirect::to('/cms/designer/all')->with(['designers' => $designer ,'name' => 'all']);
+                    $user = User::where('name',$_SESSION['username'])->first();
+                    if($user->contact_only == 0)
+                        $designer = Designer::paginate(10);
+                    else
+                        $designer = Designer::where('contact',$user->nickname)->paginate(10);
+                    return view('/cms/designer')->with(['designers' => $designer ,'name' => 'all']);
                 }
             }
         }
@@ -544,8 +562,7 @@ class CMSController extends Controller{
             }
             else{
                 Designer::where('designer_id',$id)->delete();
-                $designer = Designer::paginate(10);
-                return view('/cms/designer',['designers' => $designer ,'name' => 'all']);
+                return Redirect::to('/cms/designerList');
             }
         }
         else{
@@ -557,7 +574,11 @@ class CMSController extends Controller{
         session_start();
         if(isset($_SESSION['username'])){
             $n = ($name != 'all') ? $name : '%';
-            $designer = Designer::where('username','like','%'.$n.'%')->paginate(10);
+            $user = User::where('name',$_SESSION['username'])->first();
+            if($user->contact_only == 0)
+                $designer = Designer::where('username','like','%'.$n.'%')->paginate(10);
+            else
+                $designer = Designer::where('username','like','%'.$n.'%')->where('contact',$user->nickname)->paginate(10);
             return view('/cms/designer',['designers' => $designer ,'name' => $name]);
         }
         else{
@@ -617,8 +638,12 @@ class CMSController extends Controller{
                     return Redirect::to("/cms/stall/$name/all");
                 }
                 else{
-                    $stall = Stall::paginate(10);
-                    return Redirect::to('/cms/stall/all')->with(['stalls' => $stall ,'name' => 'all']);
+                    $user = User::where('name',$_SESSION['username'])->first();
+                    if($user->contact_only == 0)
+                        $stall = Stall::paginate(10);
+                    else
+                        $stall = Stall::where('contact',$user->nickname)->paginate(10);
+                    return view('/cms/stall')->with(['stalls' => $stall ,'name' => 'all']);
                 }
             }
         }
@@ -712,8 +737,7 @@ class CMSController extends Controller{
             }
             else{
                 Stall::where('stall_id',$id)->delete();
-                $stall = Stall::paginate(10);
-                return view('/cms/stall',['stalls' => $stall ,'name' => 'all']);
+                return Redirect::to('/cms/stallList');
             }
         }
         else{
@@ -725,7 +749,11 @@ class CMSController extends Controller{
         session_start();
         if(isset($_SESSION['username'])){
             $n = ($name != 'all') ? $name : '%';
-            $stall = Stall::where('username','like','%'.$n.'%')->paginate(10);
+            $user = User::where('name',$_SESSION['username'])->first();
+            if($user->contact_only == 0)
+                $stall = Stall::where('username','like','%'.$n.'%')->paginate(10);
+            else
+                $stall = Stall::where('username','like','%'.$n.'%')->where('contact',$user->nickname)->paginate(10);
             return view('/cms/stall',['stalls' => $stall ,'name' => $name]);
         }
         else{
