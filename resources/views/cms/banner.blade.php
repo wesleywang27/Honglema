@@ -41,7 +41,7 @@
     <ul class="rt_nav">
         <li><a href="/cms/index" class="website_icon">站点首页</a></li>
         <li><a href="/cms/user_info_confirm" class="admin_icon">{{ $_SESSION['username'] }}</a></li>
-        <li><a href="/cms/user_info" class="set_icon">账号设置</a></li>
+        <li><a href="/cms/user_info" class="set_icon">修改密码</a></li>
         <li><a href="{{ url('/cms/logout') }}" class="quit_icon">安全退出</a></li>
     </ul>
 </header>
