@@ -85,6 +85,7 @@ class UserController extends Controller{
                 $user = new User();
 
                 $user->name = Input::get('name');
+                $user->nickname = Input::get('nickname');
                 $user->email = Input::get('email');
                 $password = Input::get('password');
                 $passwordConfirm = Input::get('passwordConfirm');
@@ -164,7 +165,6 @@ class UserController extends Controller{
                     return;
                 }
                 $user = User::where('name',$_SESSION['username'])->first();
-                $user->email = Input::get('email');
                 $user->password = $password;
 
                 $user->save();

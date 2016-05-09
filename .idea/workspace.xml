@@ -4,12 +4,10 @@
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/brand_info.blade.php" afterPath="$PROJECT_DIR$/resources/views/brand_info.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/user.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/user.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/user_create.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/user_create.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/user_info.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/user_info.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/user_info_confirm.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/user_info_confirm.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/factory_info.blade.php" afterPath="$PROJECT_DIR$/resources/views/factory_info.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -820,14 +818,7 @@
       <workItem from="1462531078555" duration="590000" />
       <workItem from="1462763127824" duration="3094000" />
       <workItem from="1462767411253" duration="3649000" />
-      <workItem from="1462773924236" duration="2705000" />
-    </task>
-    <task id="LOCAL-00076" summary="修改用户列表分页">
-      <created>1461298518863</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1461298518863</updated>
+      <workItem from="1462773924236" duration="2743000" />
     </task>
     <task id="LOCAL-00077" summary="修改表单错误提示返回">
       <created>1461298883866</created>
@@ -1165,11 +1156,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462768257640</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="页面修改">
+      <created>1462776655443</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1462776655443</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="307948000" />
+    <option name="totallyTimeSpent" value="307986000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

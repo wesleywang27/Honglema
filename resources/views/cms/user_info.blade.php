@@ -8,10 +8,6 @@
 <form action="/cms/user_info" method="post" style="margin-left: 30%">
     <?php echo csrf_field(); ?>
     <div style="margin-top: 20px;">
-        <label>用户邮箱：</label>
-        <input class="textbox textbox_225" type="email" name="email" placeholder="请输入邮箱" value="" required>
-    </div>
-    <div style="margin-top: 20px;">
         <label>当前密码：</label>
         <input class="textbox textbox_225" type="password" name="currentPassword" placeholder="请输入当前密码" value="" required>
     </div>

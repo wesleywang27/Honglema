@@ -7,12 +7,12 @@
 </div>
 <form style="margin-left: 30%">
     <div style="margin-top: 20px;">
-        <label>用户ID：&nbsp;&nbsp;&nbsp;</label>
-        <input class="textbox textbox_225" type="text"  value="{{ $user->id}}" readonly>
+        <label>用户账号：</label>
+        <input class="textbox textbox_225" type="text"  value="{{ $user->name}}" readonly>
     </div>
     <div style="margin-top: 20px;">
-        <label>用户名：&nbsp;&nbsp;&nbsp;</label>
-        <input class="textbox textbox_225" type="text"  value="{{ $user->name}}" readonly>
+        <label>用户花名：</label>
+        <input class="textbox textbox_225" type="text"  value="{{ $user->nickname}}" readonly>
     </div>
     <div style="margin-top: 20px;">
         <label>用户邮箱：</label>
@@ -33,8 +33,8 @@
         <input class="textbox textbox_225" type="text"  value="{{ $user->created_at}}" readonly>
     </div>
     <div style="margin-top: 20px;">
-        <a href="/cms/user_info"  class="link_btn" style="margin-left: 12%">修改</a>
-        <a href="/cms/index"  class="link_btn" style="margin-left: 5%">返回</a>
+        <a href="/cms/user_info"  class="link_btn" style="margin-left: 10%">修改密码</a>
+        <a href="/cms/index"  class="link_btn" style="margin-left: 5%">返回首页</a>
     </div>
 </form>
 

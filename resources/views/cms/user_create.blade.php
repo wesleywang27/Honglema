@@ -12,6 +12,10 @@
         <input class="textbox textbox_225" type="text" name="name" placeholder="请输入用户名" value="" required>
     </div>
     <div style="margin-top: 20px;">
+        <label>用户花名：</label>
+        <input class="textbox textbox_225" type="text" name="nickname" placeholder="请输入用户花名" value="" required>
+    </div>
+    <div style="margin-top: 20px;">
         <label>用户邮箱：</label>
         <input class="textbox textbox_225" type="email" name="email" placeholder="请输入邮箱" value="" required>
     </div>
