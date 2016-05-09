@@ -113,7 +113,9 @@ class UserController extends Controller{
                     $user->designer_right = 1;
                 if (strstr($str,'档口'))
                     $user->stall_right = 1;
-
+    
+                $user->contact_only = Input::get('contact_only');
+                
                 $user->save();
                 return Redirect::intended('/cms/user');
             }else {

@@ -50,6 +50,13 @@
         <input class="textbox" type="checkbox" name="right[]" value="档口">档口&nbsp;&nbsp;&nbsp;
     </div>
     <div style="margin-top: 20px;">
+        <label>只能访问对接人为该用户的商家：</label>
+        <select class="select" name="contact_only">
+            <option value="1">是</option>
+            <option value="0">否</option>
+        </select>
+    </div>
+    <div style="margin-top: 20px;">
         <input name="commit" type="submit" value="确认" class="link_btn" style="margin-left: 12%"/>
         <a href="/cms/index"  class="link_btn" style="margin-left: 5%">取消</a>
     </div>
