@@ -114,7 +114,7 @@
                     <input class="weui_input" type="text" name="sales" value="{{ $brand->sales}}" />
                 </div>
             </div>
-            <div class="weui_cell">
+            <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd"><label class="">类目：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="category">
@@ -140,7 +140,7 @@
                     </select>
                 </div>
             </div>
-            <div class="weui_cell">
+            <div class="weui_cell weui_cell_select weui_select_after">
                 <div class="weui_cell_hd"><label class="">是否自有工厂：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="factory">
