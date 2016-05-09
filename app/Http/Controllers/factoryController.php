@@ -115,6 +115,20 @@ class FactoryController extends Controller{
 
         $factory->update($request->all());
 
+        $pictures = [];
+        if(Input::has('itemImage')){
+            foreach ( Input::get('itemImage') as $img) {
+                $picture = new ProductPicture();
+                $picture->type = 0;//工厂类型为0
+                $picture->url = $img;
+                $picture->file_id = pathinfo($img)['filename'];
+                $picture->upload_time = time();
+                $pictures[] = $picture;
+            }
+        }
+
+        $factory->pictures()->saveMany($pictures);
+
         return Redirect::to('factory_index');
     }
 }

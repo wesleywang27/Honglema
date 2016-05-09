@@ -106,6 +106,20 @@ class DesignerController extends Controller{
 
         $designer->update($request->all());
 
+        $pictures = [];
+        if(Input::has('itemImage')){
+            foreach (Input::get('itemImage') as $img) {
+                $picture = new ProductPicture();
+                $picture->type = 2;//设计类型为2
+                $picture->url = $img;
+                $picture->file_id = pathinfo($img)['filename'];
+                $picture->upload_time = time();
+                $pictures[] = $picture;
+            }
+        }
+
+        $designer->pictures()->saveMany($pictures);
+
         return Redirect::to('designer_index');
     }
 }

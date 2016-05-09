@@ -347,8 +347,7 @@
             }
         });
     });
-
-
+    
 </script>
 
 <script src="/js/amazeui.min.js"></script>

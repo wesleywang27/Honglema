@@ -184,7 +184,6 @@
                 </div>
             </div>
         </div>
-
         <div class="weui_cells weui_cells_form">
             <div class="weui_cell">
                 <div class="weui_cell_bd weui_cell_primary">
@@ -203,7 +202,6 @@
                 </div>
             </div>
         </div>
-
         <div class="weui_btn_area">
             <input class="am-btn am-btn-danger am-btn-block am-round" id="saveSubmit" name="commit" type="submit" value="提交信息"/>
         </div>

@@ -116,6 +116,20 @@ class BrandController extends Controller{
         
         $brand->update($request->all());
 
+        $pictures = [];
+        if(Input::has('itemImage')){
+            foreach (Input::get('itemImage') as $img) {
+                $picture = new ProductPicture();
+                $picture->type = 1;//商家类型为1
+                $picture->url = $img;
+                $picture->file_id = pathinfo($img)['filename'];
+                $picture->upload_time = time();
+                $pictures[] = $picture;
+            }
+        }
+
+        $brand->pictures()->saveMany($pictures);
+
         return Redirect::to('brand_index');
     }
 }

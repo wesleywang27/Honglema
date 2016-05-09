@@ -103,6 +103,20 @@ class StallController extends Controller{
         $stall = Stall::where('open_id',$user->openid)->first();
 
         $stall->update($request->all());
+
+        $pictures = [];
+        if(Input::has('itemImage')){
+            foreach (Input::get('itemImage') as $img) {
+                $picture = new ProductPicture();
+                $picture->type = 3;//档口类型为3
+                $picture->url = $img;
+                $picture->file_id = pathinfo($img)['filename'];
+                $picture->upload_time = time();
+                $pictures[] = $picture;
+            }
+        }
+
+        $stall->pictures()->saveMany($pictures);
         
         return Redirect::to('stall_index');
     }
