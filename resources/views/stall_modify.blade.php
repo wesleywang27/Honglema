@@ -119,7 +119,7 @@
                 </div>
                 <div class="weui_cell">
                     <div class="weui_cell_bd weui_cell_primary">
-                        <textarea class="weui_textarea" name="address" placeholder="请输入详细地址" rows="5"></textarea>
+                        <textarea class="weui_textarea" name="address" placeholder="请输入详细地址" rows="5">{{ $stall->address}}</textarea>
                     </div>
                 </div>
             </div>
@@ -127,6 +127,7 @@
                 <div class="weui_cell_hd"><label class="">档口服装风格：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="style">
+                        <option value="{{ $stall->style}}">{{ $stall->style}}</option>
                         <option value="甜美">甜美</option>
                         <option value="欧美">欧美</option>
                         <option value="韩版">韩版</option>
@@ -155,8 +156,13 @@
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="shipmentOK">
+                        @if ($stall->shipmentOK == 1)
+                        <option value="1">是</option>
+                        <option value="0">否</option>
+                        @else
                         <option value="0">否</option>
                         <option value="1">是</option>
+                        @endif
                     </select>
                 </div>
             </div>
@@ -166,7 +172,7 @@
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="contact">
-                        <option value="">请选择</option>
+                        <option value="{{ $stall->contact}}">{{ $stall->contact}}</option>
                         <option value="地文">地文</option>
                         <option value="零陵">零陵</option>
                         <option value="左权">左权</option>

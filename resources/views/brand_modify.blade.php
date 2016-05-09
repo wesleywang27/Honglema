@@ -98,6 +98,11 @@
                 </div>
             </div>
             <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <textarea class="weui_textarea" name="address" placeholder="请输入详细地址" rows="5">{{ $brand->address}}</textarea>
+                </div>
+            </div>
+            <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">品牌名称：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="brand" value="{{ $brand->brand}}" />
@@ -113,6 +118,7 @@
                 <div class="weui_cell_hd"><label class="">类目：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="category">
+                        <option value="{{ $brand->category}}">{{ $brand->category}}</option>
                         <option value="女装">女装</option>
                         <option value="男装">男装</option>
                         <option value="内衣">内衣</option>
@@ -138,8 +144,13 @@
                 <div class="weui_cell_hd"><label class="">是否自有工厂：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="factory">
+                        @if ($brand->factory == 1)
+                        <option value="1">是</option>
+                        <option value="0">否</option>
+                        @else
                         <option value="0">否</option>
                         <option value="1">是</option>
+                        @endif
                     </select>
                 </div>
             </div>
@@ -153,8 +164,13 @@
                 <div class="weui_cell_hd"><label class="">是否有设计团队：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="design">
+                        @if ($brand->designTeam == 1)
+                        <option value="1">是</option>
+                        <option value="0">否</option>
+                        @else
                         <option value="0">否</option>
                         <option value="1">是</option>
+                        @endif
                     </select>
                 </div>
             </div>
@@ -196,8 +212,13 @@
                 <div class="weui_cell_hd"><label class="">是否支持退换：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="refund">
+                        @if ($brand->refund == 1)
+                        <option value="1">是</option>
+                        <option value="0">否</option>
+                        @else
                         <option value="0">否</option>
                         <option value="1">是</option>
+                        @endif
                     </select>
                 </div>
             </div>
@@ -207,7 +228,7 @@
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="contact">
-                        <option value="">请选择</option>
+                        <option value="{{ $brand->contact}}">{{ $brand->contact}}</option>
                         <option value="地文">地文</option>
                         <option value="零陵">零陵</option>
                         <option value="左权">左权</option>

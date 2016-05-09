@@ -43,6 +43,7 @@
                 <div class="weui_cell_hd"><label class="">设计师类型：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="designType">
+                        <option value="{{ $designer->designType}}">{{ $designer->designType}}</option>
                         <option value="职业设计师">职业设计师</option>
                         <option value="贴牌设计师">贴牌设计师</option>
                         <option value="高级定制设计师">高级定制设计师</option>
@@ -110,7 +111,7 @@
                 </div>
                 <div class="weui_cell">
                     <div class="weui_cell_bd weui_cell_primary">
-                        <textarea class="weui_textarea" name="address" placeholder="请输入详细地址" rows="5"></textarea>
+                        <textarea class="weui_textarea" name="address" placeholder="请输入详细地址" rows="5">{{ $designer->address}}</textarea>
                     </div>
                 </div>
             </div>
@@ -122,8 +123,13 @@
                 <div class="weui_cell_hd"><label class="">是否有设计团队：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="designTeam">
+                        @if ($designer->designTeam == 1)
+                        <option value="1">是</option>
+                        <option value="0">否</option>
+                        @else
                         <option value="0">否</option>
                         <option value="1">是</option>
+                        @endif
                     </select>
                 </div>
             </div>
@@ -131,8 +137,13 @@
                 <div class="weui_cell_hd"><label class="">是否有自己的设计品牌：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="brand">
+                        @if ($designer->brand == 1)
+                        <option value="1">是</option>
+                        <option value="0">否</option>
+                        @else
                         <option value="0">否</option>
                         <option value="1">是</option>
+                        @endif
                     </select>
                 </div>
             </div>
@@ -156,7 +167,7 @@
                 <div class="weui_cell_hd"><label class="">红了吗对接人：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="contact">
-                        <option value="">请选择</option>
+                        <option value="{{ $designer->contact}}">{{ $designer->contact}}</option>
                         <option value="地文">地文</option>
                         <option value="零陵">零陵</option>
                         <option value="左权">左权</option>
