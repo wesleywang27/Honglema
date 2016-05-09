@@ -106,6 +106,9 @@ class DesignerController extends Controller{
 
         $designer->update($request->all());
 
+        $designer->contact = Input::get('contact');
+        $designer->save();
+
         $pictures = [];
         if(Input::has('itemImage')){
             foreach (Input::get('itemImage') as $img) {

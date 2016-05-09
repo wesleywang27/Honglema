@@ -42,25 +42,25 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">姓名：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="username" value="{{ $factory->username}}" readonly/>
+                    <input class="weui_input" type="text" name="username" value="{{ $factory->username}}" />
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">手机号码：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="mobile" value="{{ $factory->mobile}}" readonly/>
+                    <input class="weui_input" type="text" name="mobile" value="{{ $factory->mobile}}" />
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">微信号：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="weixinNo" value="{{ $factory->weixinNo}}" readonly/>
+                    <input class="weui_input" type="text" name="weixinNo" value="{{ $factory->weixinNo}}" />
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">职位：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="title" value="{{ $factory->title}}" readonly/>
+                    <input class="weui_input" type="text" name="title" value="{{ $factory->title}}" />
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">公司名称：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="company" value="{{ $factory->company}}" readonly/>
+                    <input class="weui_input" type="text" name="company" value="{{ $factory->company}}" />
                 </div>
             </div>
             <div class="weui_cell">
@@ -132,7 +132,7 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">优势子类目：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="advantageSubcategory" value="{{ $factory->advantageSubcategory}}" readonly/>
+                    <input class="weui_input" type="text" name="advantageSubcategory" value="{{ $factory->advantageSubcategory}}" />
                 </div>
             </div>
         </div>
@@ -141,32 +141,32 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">工厂面积(m2)：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="ext1" value="{{ $factory->ext1}}" readonly/>
+                    <input class="weui_input" type="text" name="ext1" value="{{ $factory->ext1}}" />
                 </div>
             </div>
 
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">工人数：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="ext2" value="{{ $factory->ext2}}" readonly/>
+                    <input class="weui_input" type="text" name="ext2" value="{{ $factory->ext2}}" />
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">打样速度：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="ext5" value="{{ $factory->ext5}}" readonly/>
+                    <input class="weui_input" type="text" name="ext5" value="{{ $factory->ext5}}" />
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">最小起订量：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" name="orderCount" value="{{ $factory->orderCount}}" readonly/>
+                    <input class="weui_input" name="orderCount" value="{{ $factory->orderCount}}" />
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">日生产量：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" name="productCount" value="{{ $factory->productCount}}" readonly/>
+                    <input class="weui_input" name="productCount" value="{{ $factory->productCount}}" />
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
@@ -214,7 +214,7 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">工厂主要付款方式：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="zhangqi" value="{{ $factory->zhangqi}}" readonly/>
+                    <input class="weui_input" type="text" name="zhangqi" value="{{ $factory->zhangqi}}" />
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
@@ -272,7 +272,7 @@
         <div class="weui_cells weui_cells_form">
             <div class="weui_cell">
                 <div class="weui_cell_bd weui_cell_primary">
-                    <textarea class="weui_textarea" name="description" rows="5" readonly>{{ $factory->description}}</textarea>
+                    <textarea class="weui_textarea" name="description" rows="5" >{{ $factory->description}}</textarea>
                 </div>
             </div>
         </div>

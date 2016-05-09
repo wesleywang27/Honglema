@@ -104,6 +104,9 @@ class StallController extends Controller{
 
         $stall->update($request->all());
 
+        $stall->contact = Input::get('contact');
+        $stall->save();
+
         $pictures = [];
         if(Input::has('itemImage')){
             foreach (Input::get('itemImage') as $img) {

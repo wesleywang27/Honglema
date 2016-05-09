@@ -116,6 +116,9 @@ class BrandController extends Controller{
         
         $brand->update($request->all());
 
+        $brand->contact = Input::get('contact');
+        $brand->save();
+
         $pictures = [];
         if(Input::has('itemImage')){
             foreach (Input::get('itemImage') as $img) {

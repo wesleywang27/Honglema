@@ -164,7 +164,7 @@
                 <div class="weui_cell_hd"><label class="">是否有设计团队：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <select class="weui_select" name="design">
-                        @if ($brand->designTeam == 1)
+                        @if ($brand->design == 1)
                         <option value="1">是</option>
                         <option value="0">否</option>
                         @else

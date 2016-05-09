@@ -115,6 +115,9 @@ class FactoryController extends Controller{
 
         $factory->update($request->all());
 
+        $factory->contact = Input::get('contact');
+        $factory->save();
+
         $pictures = [];
         if(Input::has('itemImage')){
             foreach ( Input::get('itemImage') as $img) {
