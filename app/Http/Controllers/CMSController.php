@@ -625,6 +625,62 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //设计师添加页
+    public function createDesignerIndex(){
+        session_start();
+        if(isset($_SESSION['username'])){
+            return view('/cms/designer_create');
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
+    //添加设计师信息
+    public function createDesigner(){
+        session_start();
+        if(isset($_SESSION['username'])){
+            $validator = Validator::make(Input::all(), Designer::$rules);
+
+            if ($validator->passes()) {
+                // 验证通过就存储用户数据
+                $designer = new Designer();
+
+                $designer->designType = Input::get('designType');
+                $designer->username = Input::get('username');
+                $designer->mobile = Input::get('mobile');
+                $designer->weixinNo = Input::get('weixinNo');
+                $designer->title = Input::get('title');
+                $designer->company = Input::get('company');
+                $designer->country = Input::get('country');
+                $designer->province = Input::get('province');
+                $designer->city = Input::get('city');
+                $designer->region = Input::get('region');
+                $designer->address = Input::get('address');
+                $designer->designExperience = Input::get('designExperience');
+                if(Input::get('designTeam') == '是')
+                    $designer->designTeam = 1;
+                else
+                    $designer->designTeam = 0;
+                if(Input::get('brand') == '是')
+                    $designer->brand = 1;
+                else
+                    $designer->brand = 0;
+                $designer->designBrand = Input::get('designBrand');
+                $designer->contact = Input::get('contact');
+                $designer->description = Input::get('description');
+
+                $designer->save();
+
+                return Redirect::to('/cms/designerList');
+            } else {
+                // 验证没通过就显示错误提示信息
+                echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //档口列表页面
     public function stall(){
         session_start();
@@ -812,40 +868,46 @@ class CMSController extends Controller{
     }
     //添加档口信息
     public function createStall(){
-        $validator = Validator::make(Input::all(), Stall::$rules);
+        session_start();
+        if(isset($_SESSION['username'])){
+            $validator = Validator::make(Input::all(), Stall::$rules);
 
-        if ($validator->passes()) {
-            // 验证通过就存储用户数据
-            $stall = new Stall();
+            if ($validator->passes()) {
+                // 验证通过就存储用户数据
+                $stall = new Stall();
 
-            $stall->username = Input::get('username');
-            $stall->mobile = Input::get('mobile');
-            $stall->weixinNo = Input::get('weixinNo');
-            $stall->title = Input::get('title');
-            $stall->stallName = Input::get('stallName');
-            $stall->stallNum = Input::get('stallNum');
-            $stall->city = Input::get('city');
-            $stall->stall = Input::get('stall');
-            $stall->country = Input::get('country');
-            $stall->province = Input::get('province');
-            $stall->stallCity = Input::get('stallCity');
-            $stall->region = Input::get('region');
-            $stall->address = Input::get('address');
-            $stall->style = Input::get('style');
-            $stall->category = Input::get('category');
-            if(Input::get('shipmentOK') == '是')
-                $stall->shipmentOK = 1;
-            else
-                $stall->shipmentOK = 0;
+                $stall->username = Input::get('username');
+                $stall->mobile = Input::get('mobile');
+                $stall->weixinNo = Input::get('weixinNo');
+                $stall->title = Input::get('title');
+                $stall->stallName = Input::get('stallName');
+                $stall->stallNum = Input::get('stallNum');
+                $stall->city = Input::get('city');
+                $stall->stall = Input::get('stall');
+                $stall->country = Input::get('country');
+                $stall->province = Input::get('province');
+                $stall->stallCity = Input::get('stallCity');
+                $stall->region = Input::get('region');
+                $stall->address = Input::get('address');
+                $stall->style = Input::get('style');
+                $stall->category = Input::get('category');
+                if(Input::get('shipmentOK') == '是')
+                    $stall->shipmentOK = 1;
+                else
+                    $stall->shipmentOK = 0;
 
-            $stall->contact = Input::get('contact');
+                $stall->contact = Input::get('contact');
 
-            $stall->save();
+                $stall->save();
 
-            return Redirect::to('/cms/stallList');
-        } else {
-            // 验证没通过就显示错误提示信息
-            echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
+                return Redirect::to('/cms/stallList');
+            } else {
+                // 验证没通过就显示错误提示信息
+                echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
         }
     }
 }
