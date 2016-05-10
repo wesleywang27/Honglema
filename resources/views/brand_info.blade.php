@@ -117,7 +117,7 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">是否有设计团队：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    @if ($brand->designTeam == 1)
+                    @if ($brand->design == 1)
                     <input class="weui_input" type="text" name="design" value="是" readonly/>
                     @else
                     <input class="weui_input" type="text" name="design" value="否" readonly/>
