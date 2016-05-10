@@ -33,8 +33,7 @@ class Designer extends Model
 
     public static $rules = array(
         'username' => 'min:2',
-        'mobile' => 'between:11,11',
-        'designBrand' => 'required'
+        'mobile' => 'between:11,11'
     );
 
     public function pictures()
