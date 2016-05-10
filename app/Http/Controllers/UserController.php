@@ -183,4 +183,50 @@ class UserController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //用户权限修改页
+    public function modifyUserRight($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            $user = User::where('id',$id)->first();
+            return view('/cms/user_right',['user' => $user]);
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
+    //修改用户权限
+    public function updateUserRight($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            $user = User::where('id',$id)->first();
+            $user->is_admin = Input::get('is_admin');
+
+            $user->factory_right = 0;
+            $user->brand_right = 0;
+            $user->designer_right = 0;
+            $user->stall_right = 0;
+            $right = Input::get('right');
+            
+            if($right){
+                $str = implode("",$right);
+
+                if (strstr($str,'工厂'))
+                    $user->factory_right = 1;
+                if (strstr($str,'品牌商'))
+                    $user->brand_right = 1;
+                if (strstr($str,'设计师'))
+                    $user->designer_right = 1;
+                if (strstr($str,'档口'))
+                    $user->stall_right = 1;
+            }
+
+            $user->contact_only = Input::get('contact_only');
+
+            $user->save();
+            return Redirect::to('/cms/user');
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
 }

@@ -200,3 +200,7 @@ Route::get('/cms/user_info_confirm',"UserController@user_info_confirm");
 Route::get('/cms/user_info',"UserController@user_info");
 
 Route::post('/cms/user_info',"UserController@updateUser");
+
+Route::get('/cms/user_right/{id?}',"UserController@modifyUserRight");
+
+Route::post('/cms/user_right/{id?}',"UserController@updateUserRight");

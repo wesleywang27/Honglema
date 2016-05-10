@@ -18,15 +18,16 @@
         <th>邮箱</th>
         <th>用户身份</th>
         <th>访问权限</th>
+        <th>访问全表</th>
         <th>创建时间</th>
         <th>操作</th>
     </tr>
     @foreach ($users as $user)
     <tr>
-        <td style="width:80px;height:20px;text-align:center">{{ $user->id}}</td>
-        <td style="width:100px;text-align:center">{{ $user->name}}</td>
-        <td style="width:100px;text-align:center">{{ $user->nickname}}</td>
-        <td style="width:200px;text-align:center">{{ $user->email}}</td>
+        <td style="width:60px;height:20px;text-align:center">{{ $user->id}}</td>
+        <td style="width:80px;text-align:center">{{ $user->name}}</td>
+        <td style="width:80px;text-align:center">{{ $user->nickname}}</td>
+        <td style="width:180px;text-align:center">{{ $user->email}}</td>
         @if ($user->is_super_admin == 1)
         <td style="width:120px;text-align:center">超级管理员</td>
         @elseif($user->is_admin == 1)
@@ -48,15 +49,23 @@
             档口
             @endif
         </td>
+        <td style="width:60px;text-align:center">
+            @if ($user->contact_only == 1)
+            否
+            @else
+            是
+            @endif
+        </td>
         <td style="width:150px;text-align:center">{{ $user->created_at}}</td>
-        @if ($is_super_admin == 1 && $user->is_super_admin == 0)
+        
         <td style="width:150px;text-align:center">
+            @if (($is_super_admin == 1 && $user->is_super_admin == 0)||$user->is_admin == 0)
+            <a href="{{URL::action('UserController@modifyUserRight', ['id' => $user->id]) }}" ><input type="button" value="修改" class="link_btn"/></a>
+            @endif
+            @if ($is_super_admin == 1 && $user->is_super_admin == 0)
             <a href="{{URL::action('UserController@deleteUser', ['id' => $user->id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
+            @endif
         </td>
-        @else
-        <td style="width:150px;text-align:center">
-        </td>
-        @endif
     </tr>
     @endforeach
 </table>
