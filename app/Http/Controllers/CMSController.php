@@ -7,16 +7,16 @@
  */
 namespace App\Http\Controllers;
 
+use Auth;
 use Validator;
+use App\User;
 use App\Models\Brand;
 use App\Models\Designer;
 use App\Models\Factory;
 use App\Models\Stall;
-use App\User;
 use App\Models\ProductPicture;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
-use Auth;
 
 class CMSController extends Controller{
     //访问首页时验证是否登录
