@@ -49,15 +49,49 @@
                 </tr>
                 <tr>
                     <th>档口服装风格：</th>
-                    <td><input style="width: 98%;height: 100%;" name="style" value="" /></td>
+                    <td>
+                        <select style="width: 100%;height: 100%;" name="style">
+                            <option value="甜美">甜美</option>
+                            <option value="欧美">欧美</option>
+                            <option value="韩版">韩版</option>
+                            <option value="淑女">淑女</option>
+                            <option value="文艺">文艺</option>
+                            <option value="复古">复古</option>
+                            <option value="嘻哈">嘻哈</option>
+                            <option value="波西米亚">波西米亚</option>
+                            <option value="民族">民族</option>
+                            <option value="中性">中性</option>
+                            <option value="简约">简约</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </td>
                     <th>档口服装类目：</th>
                     <td><input style="width: 98%;height: 100%;" name="category" value="" /></td>
                     <th>是否支持一件代发：</th>
-                    <td><input style="width: 98%;height: 100%;" name="shipmentOK" value="" /></td>
+                    <td>
+                        <select style="width: 100%;height: 100%;" name="shipmentOK">
+                            <option value="0">否</option>
+                            <option value="1">是</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <th>红了吗对接人：</th>
-                    <td><input style="width: 98%;height: 100%;" name="contact" value="" /></td>
+                    <td>
+                        <select style="width: 100%;height: 100%;" name="contact">
+                            <option value="">请选择</option>
+                            <option value="地文">地文</option>
+                            <option value="零陵">零陵</option>
+                            <option value="左权">左权</option>
+                            <option value="三清">三清</option>
+                            <option value="天闲">天闲</option>
+                            <option value="静宁">静宁</option>
+                            <option value="紫荆">紫荆</option>
+                            <option value="千岛">千岛</option>
+                            <option value="飞电">飞电</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </td>
                     <th></th>
                     <td></td>
                     <th></th>
