@@ -140,7 +140,6 @@
                         <option value="情趣用品">情趣用品</option>
                         <option value="其他">其他</option>
                     </select>
-
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">

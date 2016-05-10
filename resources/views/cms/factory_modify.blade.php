@@ -41,7 +41,29 @@
                 </tr>
                 <tr>
                     <th>类目：</th>
-                    <td><input style="width: 98%;height: 100%;" name="category" value="{{ $factory->category}}" /></td>
+                    <td>
+                        <select style="width: 100%;height: 100%;" name="category">
+                            <option value="{{ $factory->category}}">{{ $factory->category}}</option>
+                            <option value="女装">女装</option>
+                            <option value="男装">男装</option>
+                            <option value="内衣">内衣</option>
+                            <option value="鞋靴">鞋靴</option>
+                            <option value="帽子">帽子</option>
+                            <option value="食品">食品</option>
+                            <option value="数码家电">数码家电</option>
+                            <option value="家居家纺">家居家纺</option>
+                            <option value="家具建材">家具建材</option>
+                            <option value="珠宝饰品">珠宝饰品</option>
+                            <option value="户外运动">户外运动</option>
+                            <option value="母婴">母婴</option>
+                            <option value="美妆">美妆</option>
+                            <option value="箱包">箱包</option>
+                            <option value="汽车">汽车</option>
+                            <option value="百货">百货</option>
+                            <option value="情趣用品">情趣用品</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </td>
                     <th>优势子类目：</th>
                     <td><input style="width: 98%;height: 100%;" name="advantageSubcategory" value="{{ $factory->advantageSubcategory}}" /></td>
                     <th>工厂面积：</th>
@@ -59,29 +81,61 @@
                     <th>日生产量：</th>
                     <td><input style="width: 98%;height: 100%;" name="productCount" value="{{ $factory->productCount}}" /></td>
                     <th>是否有设计团队：</th>
-                    @if ($factory->design == 1)
-                    <td><input style="width: 98%;height: 100%;" name="design" value="是" /></td>
-                    @else
-                    <td><input style="width: 98%;height: 100%;" name="design" value="否" /></td>
-                    @endif
+                    <td>
+                        <select style="width: 100%;height: 100%;" name="design">
+                            @if ($factory->design == 1)
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                            @else
+                            <option value="0">否</option>
+                            <option value="1">是</option>
+                            @endif
+                        </select>
+                    </td>
                     <th>是否支持退换：</th>
-                    @if ($factory->refund == 1)
-                    <td><input style="width: 98%;height: 100%;" name="refund" value="是" /></td>
-                    @else
-                    <td><input style="width: 98%;height: 100%;" name="refund" value="否" /></td>
-                    @endif
+                    <td>
+                        <select style="width: 100%;height: 100%;" name="refund">
+                            @if ($factory->refund == 1)
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                            @else
+                            <option value="0">否</option>
+                            <option value="1">是</option>
+                            @endif
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <th>是否支持一件代发：</th>
-                    @if ($factory->shipmentOK == 1)
-                    <td><input style="width: 98%;height: 100%;" name="shipmentOK" value="是" /></td>
-                    @else
-                    <td><input style="width: 98%;height: 100%;" name="shipmentOK" value="否" /></td>
-                    @endif
+                    <td>
+                        <select style="width: 100%;height: 100%;" name="shipmentOK">
+                            @if ($factory->shipmentOK == 1)
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                            @else
+                            <option value="0">否</option>
+                            <option value="1">是</option>
+                            @endif
+                        </select>
+                    </td>
                     <th>主要付款方式：</th>
                     <td><input style="width: 98%;height: 100%;" name="zhangqi" value="{{ $factory->zhangqi}}" /></td>
                     <th>红了吗对接人</th>
-                    <td><input style="width: 98%;height: 100%;" name="contact" value="{{ $factory->contact}}" /></td>
+                    <td>
+                        <select style="width: 100%;height: 100%;" name="contact">
+                            <option value="{{ $factory->contact}}">{{ $factory->contact}}</option>
+                            <option value="地文">地文</option>
+                            <option value="零陵">零陵</option>
+                            <option value="左权">左权</option>
+                            <option value="三清">三清</option>
+                            <option value="天闲">天闲</option>
+                            <option value="静宁">静宁</option>
+                            <option value="紫荆">紫荆</option>
+                            <option value="千岛">千岛</option>
+                            <option value="飞电">飞电</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr><th>备注：</th>
                     <td colspan="5"><textarea name="description" style="width: 99.3%; height: 60px; margin-top: -8px; margin-bottom: -10px;">{{ $factory->description}}</textarea></td>

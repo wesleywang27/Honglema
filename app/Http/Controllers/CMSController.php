@@ -157,18 +157,9 @@ class CMSController extends Controller{
                 $factory->ext5 = Input::get('ext5');
                 $factory->orderCount = Input::get('orderCount');
                 $factory->productCount = Input::get('productCount');
-                if (Input::get('design') == '是')
-                    $factory->design = 1;
-                else
-                    $factory->design = 0;
-                if (Input::get('refund') == '是')
-                    $factory->refund = 1;
-                else
-                    $factory->refund = 0;
-                if (Input::get('shipmentOK') == '是')
-                    $factory->shipmentOK = 1;
-                else
-                    $factory->shipmentOK = 0;
+                $factory->design = Input::get('design');
+                $factory->refund = Input::get('refund');
+                $factory->shipmentOK = Input::get('shipmentOK');
                 $factory->zhangqi = Input::get('zhangqi');
                 $factory->contact = Input::get('contact');
                 $factory->description = Input::get('description');
@@ -293,18 +284,9 @@ class CMSController extends Controller{
                 $factory->ext5 = Input::get('ext5');
                 $factory->orderCount = Input::get('orderCount');
                 $factory->productCount = Input::get('productCount');
-                if(Input::get('design') == '是')
-                    $factory->design = 1;
-                else
-                    $factory->design = 0;
-                if(Input::get('refund') == '是')
-                    $factory->refund = 1;
-                else
-                    $factory->refund = 0;
-                if(Input::get('shipmentOK') == '是')
-                    $factory->shipmentOK = 1;
-                else
-                    $factory->shipmentOK = 0;
+                $factory->design = Input::get('design');
+                $factory->refund = Input::get('refund');
+                $factory->shipmentOK = Input::get('shipmentOK');
                 $factory->zhangqi = Input::get('zhangqi');
                 $factory->contact = Input::get('contact');
                 $factory->description = Input::get('description');
@@ -409,24 +391,15 @@ class CMSController extends Controller{
                 $brand->address = Input::get('address');
                 $brand->sales = Input::get('sales');
                 $brand->category = Input::get('category');
-                if (Input::get('factory') == '是')
-                    $brand->factory = 1;
-                else
-                    $brand->factory = 0;
+                $brand->factory = Input::get('factory');
                 $brand->factorySize = Input::get('factorySize');
-                if (Input::get('design') == '是')
-                    $brand->design = 1;
-                else
-                    $brand->design = 0;
+                $brand->design = Input::get('design');
                 $brand->product = Input::get('product');
                 $brand->price = Input::get('price');
                 $brand->style = Input::get('style');
                 $brand->customPosition = Input::get('customPosition');
                 $brand->customAge = Input::get('customAge');
-                if (Input::get('refund') == '是')
-                    $brand->refund = 1;
-                else
-                    $brand->refund = 0;
+                $brand->refund = Input::get('refund');
                 $brand->contact = Input::get('contact');
                 $brand->description = Input::get('description');
 
@@ -541,15 +514,9 @@ class CMSController extends Controller{
                 $brand->brand = Input::get('brand');
                 $brand->sales = Input::get('sales');
                 $brand->category = Input::get('category');
-                if(Input::get('factory') == '是')
-                    $brand->factory = 1;
-                else
-                    $brand->factory = 0;
+                $brand->factory = Input::get('factory');
                 $brand->factorySize = Input::get('factorySize');
-                if(Input::get('design') == '是')
-                    $brand->design = 1;
-                else
-                    $brand->design = 0;
+                $brand->design = Input::get('design');
                 $brand->country = Input::get('country');
                 $brand->province = Input::get('province');
                 $brand->city = Input::get('city');
@@ -560,10 +527,7 @@ class CMSController extends Controller{
                 $brand->style = Input::get('style');
                 $brand->customPosition = Input::get('customPosition');
                 $brand->customAge = Input::get('customAge');
-                if(Input::get('refund') == '是')
-                    $brand->refund = 1;
-                else
-                    $brand->refund = 0;
+                $brand->refund = Input::get('refund');
                 $brand->contact = Input::get('contact');
                 $brand->description = Input::get('description');
 
@@ -665,14 +629,8 @@ class CMSController extends Controller{
                 $designer->city = Input::get('city');
                 $designer->region = Input::get('region');
                 $designer->address = Input::get('address');
-                if (Input::get('designTeam') == '是')
-                    $designer->designTeam = 1;
-                else
-                    $designer->designTeam = 0;
-                if (Input::get('brand') == '是')
-                    $designer->brand = 1;
-                else
-                    $designer->brand = 0;
+                $designer->designTeam = Input::get('designTeam');
+                $designer->brand = Input::get('brand');
                 $designer->designBrand = Input::get('designBrand');
                 $designer->designExperience = Input::get('designExperience');
                 $designer->contact = Input::get('contact');
@@ -792,14 +750,8 @@ class CMSController extends Controller{
                 $designer->region = Input::get('region');
                 $designer->address = Input::get('address');
                 $designer->designExperience = Input::get('designExperience');
-                if(Input::get('designTeam') == '是')
-                    $designer->designTeam = 1;
-                else
-                    $designer->designTeam = 0;
-                if(Input::get('brand') == '是')
-                    $designer->brand = 1;
-                else
-                    $designer->brand = 0;
+                $designer->designTeam = Input::get('designTeam');
+                $designer->brand = Input::get('brand');
                 $designer->designBrand = Input::get('designBrand');
                 $designer->contact = Input::get('contact');
                 $designer->description = Input::get('description');
@@ -903,10 +855,7 @@ class CMSController extends Controller{
                 $stall->address = Input::get('address');
                 $stall->style = Input::get('style');
                 $stall->category = Input::get('category');
-                if (Input::get('shipmentOK') == '是')
-                    $stall->shipmentOK = 1;
-                else
-                    $stall->shipmentOK = 0;
+                $stall->shipmentOK = Input::get('shipmentOK');
                 $stall->contact = Input::get('contact');
 
                 $stall->save();
@@ -1026,11 +975,7 @@ class CMSController extends Controller{
                 $stall->address = Input::get('address');
                 $stall->style = Input::get('style');
                 $stall->category = Input::get('category');
-                if(Input::get('shipmentOK') == '是')
-                    $stall->shipmentOK = 1;
-                else
-                    $stall->shipmentOK = 0;
-
+                $stall->shipmentOK = Input::get('shipmentOK');
                 $stall->contact = Input::get('contact');
 
                 $stall->save();

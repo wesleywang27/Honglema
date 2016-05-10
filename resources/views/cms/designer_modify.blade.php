@@ -27,7 +27,16 @@
                     <th>职位：</th>
                     <td><input style="width: 98%;height: 100%;" name="title" value="{{ $designer->title}}" /></td>
                     <th>设计师类型：</th>
-                    <td><input style="width: 98%;height: 100%;" name="designType" value="{{ $designer->designType}}" /></td>
+                    <td>
+                        <select style="width: 100%;height: 100%;" name="designType">
+                            <option value="{{ $designer->designType}}">{{ $designer->designType}}</option>
+                            <option value="职业设计师">职业设计师</option>
+                            <option value="贴牌设计师">贴牌设计师</option>
+                            <option value="高级定制设计师">高级定制设计师</option>
+                            <option value="个体设计师">个体设计师</option>
+                            <option value="独立设计师">独立设计师</option>
+                        </select>
+                    </td>
                     <th>公司名称：</th>
                     <td><input style="width: 98%;height: 100%;" name="company" value="{{ $designer->company}}" /></td>
                 </tr>
@@ -45,23 +54,49 @@
                     <th>公司详细地址：</th>
                     <td><input style="width: 98%;height: 100%;" name="address" value="{{ $designer->address}}" /></td>
                     <th>是否有设计团队：</th>
-                    @if ($designer->designTeam == 1)
-                    <td><input style="width: 98%;height: 100%;" name="designTeam" value="是" /></td>
-                    @else
-                    <td><input style="width: 98%;height: 100%;" name="designTeam" value="否" /></td>
-                    @endif
+                    <td>
+                        <select style="width: 100%;height: 100%;" name="designTeam">
+                            @if ($designer->designTeam == 1)
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                            @else
+                            <option value="0">否</option>
+                            <option value="1">是</option>
+                            @endif
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <th>是否有自己设计的品牌：</th>
-                    @if ($designer->brand == 1)
-                    <td><input style="width: 98%;height: 100%;" name="brand" value="是" /></td>
-                    @else
-                    <td><input style="width: 98%;height: 100%;" name="brand" value="否" /></td>
-                    @endif
+                    <td>
+                        <select style="width: 100%;height: 100%;" name="brand">
+                            @if ($designer->brand == 1)
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                            @else
+                            <option value="0">否</option>
+                            <option value="1">是</option>
+                            @endif
+                        </select>
+                    </td>
                     <th>设计品牌名称：</th>
                     <td><input style="width: 98%;height: 100%;" name="designBrand" value="{{ $designer->designBrand }}" /></td>
                     <th>红了吗对接人：</th>
-                    <td><input style="width: 98%;height: 100%;" name="contact" value="{{ $designer->contact}}" /></td>
+                    <td>
+                        <select style="width: 100%;height: 100%;" name="contact">
+                            <option value="{{ $designer->contact}}">{{ $designer->contact}}</option>
+                            <option value="地文">地文</option>
+                            <option value="零陵">零陵</option>
+                            <option value="左权">左权</option>
+                            <option value="三清">三清</option>
+                            <option value="天闲">天闲</option>
+                            <option value="静宁">静宁</option>
+                            <option value="紫荆">紫荆</option>
+                            <option value="千岛">千岛</option>
+                            <option value="飞电">飞电</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <th>设计经历：</th>
