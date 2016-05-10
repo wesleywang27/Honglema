@@ -41,6 +41,7 @@
 </table>
 <aside class="paging">
     <a href="{{ url('/cms/stall_export') }}" style="float: left;" >导出Excel</a>
+    <a href="/cms/stall_create" style="float: left;margin-left: 10px;" >添加档口</a>
 
     <a class="{{ ($stalls->currentPage() == 1) ? ' disabled' : '' }}" href="{{ $stalls->url(1) }}">首页</a>
 

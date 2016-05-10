@@ -7,6 +7,7 @@
  */
 namespace App\Http\Controllers;
 
+use Validator;
 use App\Models\Brand;
 use App\Models\Designer;
 use App\Models\Factory;
@@ -797,6 +798,54 @@ class CMSController extends Controller{
         }
         else{
             return Redirect::intended('/cms/login.php');
+        }
+    }
+    //档口添加页
+    public function createStallIndex(){
+        session_start();
+        if(isset($_SESSION['username'])){
+            return view('/cms/stall_create');
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
+    //添加档口信息
+    public function createStall(){
+        $validator = Validator::make(Input::all(), Stall::$rules);
+
+        if ($validator->passes()) {
+            // 验证通过就存储用户数据
+            $stall = new Stall();
+
+            $stall->username = Input::get('username');
+            $stall->mobile = Input::get('mobile');
+            $stall->weixinNo = Input::get('weixinNo');
+            $stall->title = Input::get('title');
+            $stall->stallName = Input::get('stallName');
+            $stall->stallNum = Input::get('stallNum');
+            $stall->city = Input::get('city');
+            $stall->stall = Input::get('stall');
+            $stall->country = Input::get('country');
+            $stall->province = Input::get('province');
+            $stall->stallCity = Input::get('stallCity');
+            $stall->region = Input::get('region');
+            $stall->address = Input::get('address');
+            $stall->style = Input::get('style');
+            $stall->category = Input::get('category');
+            if(Input::get('shipmentOK') == '是')
+                $stall->shipmentOK = 1;
+            else
+                $stall->shipmentOK = 0;
+
+            $stall->contact = Input::get('contact');
+
+            $stall->save();
+
+            return Redirect::to('/cms/stallList');
+        } else {
+            // 验证没通过就显示错误提示信息
+            echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
         }
     }
 }
