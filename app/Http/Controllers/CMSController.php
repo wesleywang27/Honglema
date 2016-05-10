@@ -256,6 +256,73 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login.php');
         }
     }
+    //工厂添加页
+    public function createFactoryIndex(){
+        session_start();
+        if(isset($_SESSION['username'])){
+            return view('/cms/factory_create');
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
+    //添加工厂信息
+    public function createFactory(){
+        session_start();
+        if(isset($_SESSION['username'])){
+            $validator = Validator::make(Input::all(), Factory::$rules);
+
+            if ($validator->passes()) {
+                // 验证通过就存储用户数据
+                $factory = new Factory();
+
+                $factory->username = Input::get('username');
+                $factory->mobile = Input::get('mobile');
+                $factory->weixinNo = Input::get('weixinNo');
+                $factory->title = Input::get('title');
+                $factory->company = Input::get('company');
+                $factory->country = '中国';
+                $factory->province = Input::get('province');
+                $factory->city = Input::get('city');
+                $factory->region = Input::get('region');
+                $factory->address = Input::get('address');
+                $factory->category = Input::get('category');
+                $factory->advantageSubcategory = Input::get('advantageSubcategory');
+                $factory->ext1 = Input::get('ext1');
+                $factory->ext2 = Input::get('ext2');
+                $factory->ext5 = Input::get('ext5');
+                $factory->orderCount = Input::get('orderCount');
+                $factory->productCount = Input::get('productCount');
+                if(Input::get('design') == '是')
+                    $factory->design = 1;
+                else
+                    $factory->design = 0;
+                if(Input::get('refund') == '是')
+                    $factory->refund = 1;
+                else
+                    $factory->refund = 0;
+                if(Input::get('shipmentOK') == '是')
+                    $factory->shipmentOK = 1;
+                else
+                    $factory->shipmentOK = 0;
+                $factory->zhangqi = Input::get('zhangqi');
+                $factory->contact = Input::get('contact');
+                $factory->description = Input::get('description');
+
+                $factory->save();
+
+                echo "<script> alert('注册成功!'); </script>";
+
+                return Redirect::to('/cms/factoryList');
+            } else {
+                // 验证没通过就显示错误提示信息
+                echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login.php');
+        }
+    }
     //品牌商列表页面
     public function brand(){
         session_start();

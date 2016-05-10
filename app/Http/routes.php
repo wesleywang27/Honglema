@@ -176,6 +176,10 @@ Route::post('/cms/designer_updateImg/{id?}',"CMSController@updateDesignerImg");
 Route::post('/cms/stall_updateImg/{id?}',"CMSController@updateStallImg");
 
 //商家添加页
+Route::get('/cms/factory_create',"CMSController@createFactoryIndex");
+
+Route::post('/cms/factory_create',"CMSController@createFactory");
+
 Route::get('/cms/brand_create',"CMSController@createBrandIndex");
 
 Route::post('/cms/brand_create',"CMSController@createBrand");
