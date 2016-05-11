@@ -221,6 +221,3 @@ Route::post('/cms/user_info',"UserController@updateUser");
 Route::get('/cms/user_right/{id?}',"UserController@modifyUserRight");
 
 Route::post('/cms/user_right/{id?}',"UserController@updateUserRight");
-
-//数据备份还原
-Route::get('/cms/data/backup',"DataController@dataBackup");
