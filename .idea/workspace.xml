@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/factory.blade.php" afterPath="$PROJECT_DIR$/resources/views/factory.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/stall.blade.php" afterPath="$PROJECT_DIR$/resources/views/stall.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,13 +71,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="factory.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="factory.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/factory.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="224">
               <caret line="202" column="106" selection-start-line="202" selection-start-column="96" selection-end-line="202" selection-end-column="106" />
               <folding>
                 <marker date="1462957634319" expanded="true" signature="15986:16020" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stall.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/stall.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1828">
+              <caret line="80" column="105" selection-start-line="80" selection-start-column="95" selection-end-line="80" selection-end-column="105" />
+              <folding>
+                <marker date="1462957674537" expanded="true" signature="12693:12727" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -117,7 +129,6 @@
         <option value="$PROJECT_DIR$/public/css/amazeui.min.css" />
         <option value="$PROJECT_DIR$/resources/views/designer_modify.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/stall_modify.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/stall.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/user_info_confirm.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/user_info.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/factory_info.blade.php" />
@@ -157,6 +168,7 @@
         <option value="$PROJECT_DIR$/resources/views/brand.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/designer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/factory.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/stall.blade.php" />
       </list>
     </option>
   </component>
@@ -851,14 +863,7 @@
       <workItem from="1462936594794" duration="7433000" />
       <workItem from="1462955675497" duration="725000" />
       <workItem from="1462956525077" duration="274000" />
-      <workItem from="1462956846879" duration="781000" />
-    </task>
-    <task id="LOCAL-00088" summary="品牌商图片删除">
-      <created>1461579137225</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1461579137225</updated>
+      <workItem from="1462956846879" duration="821000" />
     </task>
     <task id="LOCAL-00089" summary="工厂图片删除">
       <created>1461579429266</created>
@@ -1196,11 +1201,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462957601358</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="修改">
+      <created>1462957637425</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1462957637425</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="348926000" />
+    <option name="totallyTimeSpent" value="348966000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1525,13 +1537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/stall.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="182" column="29" selection-start-line="182" selection-start-column="29" selection-end-line="182" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/stall_create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -1652,6 +1657,16 @@
           <caret line="202" column="106" selection-start-line="202" selection-start-column="96" selection-end-line="202" selection-end-column="106" />
           <folding>
             <marker date="1462957634319" expanded="true" signature="15986:16020" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/stall.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1828">
+          <caret line="80" column="105" selection-start-line="80" selection-start-column="95" selection-end-line="80" selection-end-column="105" />
+          <folding>
+            <marker date="1462957674537" expanded="true" signature="12693:12727" placeholder="..." />
           </folding>
         </state>
       </provider>
