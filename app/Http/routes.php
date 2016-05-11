@@ -206,7 +206,7 @@ Route::get('/cms/user',"UserController@index");
 
 Route::post('/cms/user',"UserController@searchUser");
 
-Route::get('cms/user/{id?}',"UserController@deleteUser");
+Route::get('/cms/user/{id?}',"UserController@deleteUser");
 
 Route::get('/cms/user_create',"UserController@createUserIndex");
 
