@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/designer.blade.php" afterPath="$PROJECT_DIR$/resources/views/designer.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/factory.blade.php" afterPath="$PROJECT_DIR$/resources/views/factory.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,13 +59,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="designer.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="designer.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/designer.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="224">
               <caret line="86" column="105" selection-start-line="86" selection-start-column="95" selection-end-line="86" selection-end-column="105" />
               <folding>
                 <marker date="1462957598363" expanded="true" signature="12403:12437" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="factory.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/factory.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="202" column="106" selection-start-line="202" selection-start-column="96" selection-end-line="202" selection-end-column="106" />
+              <folding>
+                <marker date="1462957634319" expanded="true" signature="15986:16020" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -137,7 +149,6 @@
         <option value="$PROJECT_DIR$/resources/views/cms/designer_modify.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/brand_create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/brand_modify.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/factory.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/factory_create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/factory_modify.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
@@ -145,6 +156,7 @@
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/brand.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/designer.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/factory.blade.php" />
       </list>
     </option>
   </component>
@@ -839,14 +851,7 @@
       <workItem from="1462936594794" duration="7433000" />
       <workItem from="1462955675497" duration="725000" />
       <workItem from="1462956525077" duration="274000" />
-      <workItem from="1462956846879" duration="745000" />
-    </task>
-    <task id="LOCAL-00087" summary="档口图片删除">
-      <created>1461578312688</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1461578312688</updated>
+      <workItem from="1462956846879" duration="781000" />
     </task>
     <task id="LOCAL-00088" summary="品牌商图片删除">
       <created>1461579137225</created>
@@ -1184,11 +1189,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462957561151</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="修改">
+      <created>1462957601358</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1462957601358</updated>
+    </task>
+    <option name="localTasksCounter" value="137" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="348890000" />
+    <option name="totallyTimeSpent" value="348926000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1569,13 +1581,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/factory.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="222" column="29" selection-start-line="222" selection-start-column="29" selection-end-line="222" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/factory_create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2280">
@@ -1637,6 +1642,16 @@
           <caret line="86" column="105" selection-start-line="86" selection-start-column="95" selection-end-line="86" selection-end-column="105" />
           <folding>
             <marker date="1462957598363" expanded="true" signature="12403:12437" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/factory.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="202" column="106" selection-start-line="202" selection-start-column="96" selection-end-line="202" selection-end-column="106" />
+          <folding>
+            <marker date="1462957634319" expanded="true" signature="15986:16020" placeholder="..." />
           </folding>
         </state>
       </provider>

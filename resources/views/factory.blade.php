@@ -43,27 +43,27 @@
                 <div class="weui_cell_hd"><label class="">姓名：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="username" placeholder="请输入姓名"
-                           value="" required>
+                           value="" required/>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">手机号码：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="number" name="mobile" pattern="[0-9]*" placeholder="请输入手机号码"
-                           value="" required>
+                           value="" required/>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">微信号：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="weixinNo" placeholder="请输入微信号"
-                           value="" required>
+                           value="" required/>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">职位：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="title" placeholder="请输入职位" required>
+                    <input class="weui_input" type="text" name="title" placeholder="请输入职位" required/>
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">公司名称：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="company" placeholder="请输入公司名称" required>
+                    <input class="weui_input" type="text" name="company" placeholder="请输入公司名称" required/>
                 </div>
             </div>
             <div class="weui_cell">
@@ -142,32 +142,32 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">工厂面积(m2)：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="ext1" placeholder="工厂面积" required>
+                    <input class="weui_input" type="text" name="ext1" placeholder="工厂面积" required/>
                 </div>
             </div>
 
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">工人数：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="ext2" placeholder="工人数" required>
+                    <input class="weui_input" type="text" name="ext2" placeholder="工人数" required/>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">打样速度：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="ext5" placeholder="打样速度" required>
+                    <input class="weui_input" type="text" name="ext5" placeholder="打样速度" required/>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">最小起订量：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" name="orderCount" placeholder="最小起订量" required>
+                    <input class="weui_input" name="orderCount" placeholder="最小起订量" required/>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">日生产量：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" name="productCount" placeholder="日生产量" required>
+                    <input class="weui_input" name="productCount" placeholder="日生产量" required/>
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
@@ -200,7 +200,7 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">工厂主要付款方式：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="zhangqi" placeholder="工厂主要付款方式" required>
+                    <input class="weui_input" type="text" name="zhangqi" placeholder="工厂主要付款方式" required/>
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
