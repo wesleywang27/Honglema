@@ -43,27 +43,27 @@
                 <div class="weui_cell_hd"><label class="">姓名：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="username" placeholder="请输入姓名"
-                           value="" required>
+                           value="" required/>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">手机号码：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="number" name="mobile" pattern="[0-9]*" placeholder="请输入手机号码"
-                           value="" required>
+                           value="" required/>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">微信号：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="weixinNo" placeholder="请输入微信号"
-                           value="" required>
+                           value="" required/>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">职位：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="title" placeholder="请输入职位" required>
+                    <input class="weui_input" type="text" name="title" placeholder="请输入职位" required/>
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">公司名称：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="company" placeholder="请输入公司名称" required>
+                    <input class="weui_input" type="text" name="company" placeholder="请输入公司名称" required/>
                 </div>
             </div>
             <div class="weui_cell">
@@ -108,13 +108,13 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">品牌名称：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="brand" placeholder="品牌名称" required>
+                    <input class="weui_input" type="text" name="brand" placeholder="品牌名称" required/>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">2015年线上销售额：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="sales" placeholder="2015年线上销售额" required>
+                    <input class="weui_input" type="text" name="sales" placeholder="2015年线上销售额" required/>
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
@@ -174,31 +174,31 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">主营产品：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="product" placeholder="主营产品" required>
+                    <input class="weui_input" type="text" name="product" placeholder="主营产品" required/>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">客单价：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="price" placeholder="客单价" required>
+                    <input class="weui_input" type="text" name="price" placeholder="客单价" required/>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">商品风格：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="style" placeholder="商品风格" required>
+                    <input class="weui_input" type="text" name="style" placeholder="商品风格" required/>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">客户人群定位：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="customPosition" placeholder="客户人群定位" required>
+                    <input class="weui_input" type="text" name="customPosition" placeholder="客户人群定位" required/>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">客户年龄段：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="customAge" placeholder="客户年龄段" required>
+                    <input class="weui_input" type="text" name="customAge" placeholder="客户年龄段" required/>
                 </div>
             </div>
             <div class="weui_cell weui_cell_select weui_select_after">
