@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/brand.blade.php" afterPath="$PROJECT_DIR$/resources/views/brand.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/designer.blade.php" afterPath="$PROJECT_DIR$/resources/views/designer.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,13 +47,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="brand.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="brand.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/brand.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-2258">
               <caret line="200" column="105" selection-start-line="200" selection-start-column="95" selection-end-line="200" selection-end-column="105" />
               <folding>
                 <marker date="1462957553925" expanded="true" signature="15416:15450" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="designer.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/designer.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="86" column="105" selection-start-line="86" selection-start-column="95" selection-end-line="86" selection-end-column="105" />
+              <folding>
+                <marker date="1462957598363" expanded="true" signature="12403:12437" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -71,7 +83,7 @@
     </option>
     <option name="FORCE_PUSH_ALLOWED" value="true" />
     <push-targets>
-      <push-target-info repo="$PROJECT_DIR$" source="shangjia" target-remote="origin" target-branch="shangjia" />
+      <push-target-info repo="$PROJECT_DIR$" source="shangjia" target-remote="github" target-branch="shangjia" />
     </push-targets>
   </component>
   <component name="GradleLocalSettings">
@@ -94,7 +106,6 @@
         <option value="$PROJECT_DIR$/resources/views/designer_modify.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/stall_modify.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/stall.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/designer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/user_info_confirm.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/user_info.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/factory_info.blade.php" />
@@ -133,6 +144,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/DataController.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/brand.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/designer.blade.php" />
       </list>
     </option>
   </component>
@@ -827,14 +839,7 @@
       <workItem from="1462936594794" duration="7433000" />
       <workItem from="1462955675497" duration="725000" />
       <workItem from="1462956525077" duration="274000" />
-      <workItem from="1462956846879" duration="704000" />
-    </task>
-    <task id="LOCAL-00086" summary="图片信息修改 页面改动">
-      <created>1461577667767</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1461577667767</updated>
+      <workItem from="1462956846879" duration="745000" />
     </task>
     <task id="LOCAL-00087" summary="档口图片删除">
       <created>1461578312688</created>
@@ -1172,11 +1177,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462947182660</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="修改">
+      <created>1462957561151</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1462957561151</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="348849000" />
+    <option name="totallyTimeSpent" value="348890000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1515,13 +1527,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/designer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="172" column="29" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/stall_info.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -1622,6 +1627,16 @@
           <caret line="200" column="105" selection-start-line="200" selection-start-column="95" selection-end-line="200" selection-end-column="105" />
           <folding>
             <marker date="1462957553925" expanded="true" signature="15416:15450" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/designer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="86" column="105" selection-start-line="86" selection-start-column="95" selection-end-line="86" selection-end-column="105" />
+          <folding>
+            <marker date="1462957598363" expanded="true" signature="12403:12437" placeholder="..." />
           </folding>
         </state>
       </provider>

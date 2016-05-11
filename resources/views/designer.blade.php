@@ -55,27 +55,27 @@
                 <div class="weui_cell_hd"><label class="">姓名：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="username" placeholder="请输入姓名"
-                           value="" required>
+                           value="" required/>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">手机号码：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="number" name="mobile" pattern="[0-9]*" placeholder="请输入手机号码"
-                           value="" required>
+                           value="" required/>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">微信号：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="text" name="weixinNo" placeholder="请输入微信号"
-                           value="" required>
+                           value="" required/>
                 </div>
             </div>
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">职位：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="title" placeholder="请输入职位" required>
+                    <input class="weui_input" type="text" name="title" placeholder="请输入职位" required/>
                 </div>
             </div>
         </div>
@@ -84,7 +84,7 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="">公司名称：</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" name="company" placeholder="请输入公司名称" required>
+                    <input class="weui_input" type="text" name="company" placeholder="请输入公司名称" required/>
                 </div>
             </div>
             <div class="weui_cell">
