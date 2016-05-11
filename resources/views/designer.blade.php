@@ -29,7 +29,7 @@
 </header>
 
 <div>
-    <div class="am-intro-default am-padding-sm am-text-center">
+    <div class="am-intro-default am-padding-sm am-text-center" style="margin-top: -10px; margin-bottom: -20px; font-size: 20px;">
         <span class="am-intro-title">
             设计师报名表
         </span>
