@@ -40,14 +40,14 @@
       <file leaf-file-name="CMSController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="590" column="16" selection-start-line="590" selection-start-column="16" selection-end-line="590" selection-end-column="16" />
+            <state relative-caret-position="422">
+              <caret line="848" column="41" selection-start-line="848" selection-start-column="41" selection-end-line="848" selection-end-column="41" />
               <folding>
                 <element signature="e#123#132#0#PHP" expanded="true" />
-                <marker date="1463027718986" expanded="true" signature="7565:7566" placeholder="delete from " />
-                <marker date="1463027718986" expanded="true" signature="7565:7576" placeholder="delete from " />
-                <marker date="1463027718986" expanded="true" signature="7565:7584" placeholder="delete from " />
-                <marker date="1463027718986" expanded="true" signature="12722:12740" placeholder="insert into t_factories... " />
+                <marker date="1463028034187" expanded="true" signature="7565:7566" placeholder="delete from " />
+                <marker date="1463028034187" expanded="true" signature="7565:7576" placeholder="delete from " />
+                <marker date="1463028034187" expanded="true" signature="7565:7584" placeholder="delete from " />
+                <marker date="1463028034187" expanded="true" signature="12722:12740" placeholder="insert into t_factories... " />
               </folding>
             </state>
           </provider>
@@ -904,14 +904,7 @@
       <workItem from="1463022395571" duration="904000" />
       <workItem from="1463023625966" duration="131000" />
       <workItem from="1463023791573" duration="71000" />
-      <workItem from="1463023892076" duration="3372000" />
-    </task>
-    <task id="LOCAL-00092" summary="档口图片上传">
-      <created>1461652543527</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1461652543527</updated>
+      <workItem from="1463023892076" duration="3660000" />
     </task>
     <task id="LOCAL-00093" summary="图片上传">
       <created>1461652821287</created>
@@ -1249,11 +1242,18 @@
       <option name="project" value="LOCAL" />
       <updated>1463027564125</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="添加品牌商操作日志">
+      <created>1463027810708</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1463027810708</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="355894000" />
+    <option name="totallyTimeSpent" value="356182000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1309,7 +1309,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="品牌商图片删除" />
     <MESSAGE value="工厂图片删除" />
     <MESSAGE value="档口图片上传" />
     <MESSAGE value="图片上传" />
@@ -1334,7 +1333,8 @@
     <MESSAGE value="添加创建品牌商模块" />
     <MESSAGE value="修改" />
     <MESSAGE value="添加工厂操作日志" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加工厂操作日志" />
+    <MESSAGE value="添加品牌商操作日志" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加品牌商操作日志" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1699,14 +1699,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="590" column="16" selection-start-line="590" selection-start-column="16" selection-end-line="590" selection-end-column="16" />
+        <state relative-caret-position="422">
+          <caret line="848" column="41" selection-start-line="848" selection-start-column="41" selection-end-line="848" selection-end-column="41" />
           <folding>
             <element signature="e#123#132#0#PHP" expanded="true" />
-            <marker date="1463027718986" expanded="true" signature="7565:7566" placeholder="delete from " />
-            <marker date="1463027718986" expanded="true" signature="7565:7576" placeholder="delete from " />
-            <marker date="1463027718986" expanded="true" signature="7565:7584" placeholder="delete from " />
-            <marker date="1463027718986" expanded="true" signature="12722:12740" placeholder="insert into t_factories... " />
+            <marker date="1463028034187" expanded="true" signature="7565:7566" placeholder="delete from " />
+            <marker date="1463028034187" expanded="true" signature="7565:7576" placeholder="delete from " />
+            <marker date="1463028034187" expanded="true" signature="7565:7584" placeholder="delete from " />
+            <marker date="1463028034187" expanded="true" signature="12722:12740" placeholder="insert into t_factories... " />
           </folding>
         </state>
       </provider>

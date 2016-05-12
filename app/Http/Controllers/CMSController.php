@@ -700,6 +700,13 @@ class CMSController extends Controller{
                 $designer->contact = Input::get('contact');
                 $designer->description = Input::get('description');
 
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'update';
+                $log->operated_table = 't_designers';
+                $log->operated_username = $designer->username;
+                $log->save();
+
                 $designer->save();
 
                 $picture = ProductPicture::where('id',$id)->where('type',2)->get();
@@ -719,6 +726,15 @@ class CMSController extends Controller{
                 return;
             }
             else{
+                $designer = Designer::where('designer_id',$id)->first();
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'delete';
+                $log->operated_table = 't_designers';
+                $log->operated_username = $designer->username;
+                $log->save();
+
                 Designer::where('designer_id',$id)->delete();
                 return Redirect::to('/cms/designerList');
             }
@@ -771,6 +787,14 @@ class CMSController extends Controller{
                         $pictures[] = $picture;
                     }
                 }
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'update';
+                $log->operated_table = 't_product_picture';
+                $log->operated_username = $designer->username;
+                $log->save();
+
                 $designer->pictures()->saveMany($pictures);
 
                 $picture = ProductPicture::where('id',$id)->where('type',2)->get();
@@ -819,6 +843,13 @@ class CMSController extends Controller{
                 $designer->designBrand = Input::get('designBrand');
                 $designer->contact = Input::get('contact');
                 $designer->description = Input::get('description');
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'insert';
+                $log->operated_table = 't_designers';
+                $log->operated_username = $designer->username;
+                $log->save();
 
                 $designer->save();
 
