@@ -14,6 +14,7 @@ use App\Models\Brand;
 use App\Models\Designer;
 use App\Models\Factory;
 use App\Models\Stall;
+use App\Models\Log;
 use App\Models\ProductPicture;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
@@ -164,6 +165,13 @@ class CMSController extends Controller{
                 $factory->contact = Input::get('contact');
                 $factory->description = Input::get('description');
 
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'update';
+                $log->operated_table = 't_factories';
+                $log->operated_username = $factory->username;
+                $log->save();
+
                 $factory->save();
 
                 $picture = ProductPicture::where('id',$id)->where('type',0)->get();
@@ -183,6 +191,15 @@ class CMSController extends Controller{
                 return;
             }
             else{
+                $factory = Factory::where('factory_id',$id)->first();
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'delete';
+                $log->operated_table = 't_factories';
+                $log->operated_username = $factory->username;
+                $log->save();
+
                 Factory::where('factory_id',$id)->delete();
                 return Redirect::to('/cms/factoryList');
             }
@@ -236,6 +253,14 @@ class CMSController extends Controller{
                         $pictures[] = $picture;
                     }
                 }
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'update';
+                $log->operated_table = 't_product_picture';
+                $log->operated_username = $factory->username;
+                $log->save();
+
                 $factory->pictures()->saveMany($pictures);
 
                 $picture = ProductPicture::where('id',$id)->where('type',0)->get();
@@ -290,6 +315,13 @@ class CMSController extends Controller{
                 $factory->zhangqi = Input::get('zhangqi');
                 $factory->contact = Input::get('contact');
                 $factory->description = Input::get('description');
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'insert';
+                $log->operated_table = 't_factories';
+                $log->operated_username = $factory->username;
+                $log->save();
 
                 $factory->save();
 
