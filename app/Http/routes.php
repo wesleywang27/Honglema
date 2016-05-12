@@ -221,3 +221,6 @@ Route::post('/cms/user_info',"UserController@updateUser");
 Route::get('/cms/user_right/{id?}',"UserController@modifyUserRight");
 
 Route::post('/cms/user_right/{id?}',"UserController@updateUserRight");
+
+//操作日志入口
+Route::get('/cms/logList',"LogController@index");

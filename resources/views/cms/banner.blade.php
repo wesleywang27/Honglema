@@ -87,6 +87,14 @@
             </dl>
         </li>
         @endif
+        @if ($_SESSION['is_super_admin'])
+        <li>
+            <dl>
+                <dt>后台操作日志</dt>
+                <dd><a href="/cms/logList">操作日志列表</a></dd>
+            </dl>
+        </li>
+        @endif
         <li>
             <p class="btm_infor">©红了吗网络科技有限公司</p>
         </li>
