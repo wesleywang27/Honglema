@@ -58,9 +58,14 @@ class CMSController extends Controller{
     //用户登录
     public function login(){
         if (Auth::attempt(array('name'=>Input::get('name'), 'password'=>Input::get('password')))){
-            session_start();
-            $_SESSION['username'] = Input::get('name');
-            return Redirect::intended('/cms/index');
+            if (Input::get('check') == 'success'){
+                session_start();
+                $_SESSION['username'] = Input::get('name');
+                return Redirect::intended('/cms/index');
+            }
+            else{
+                echo "<script>history.go(-1); alert('请核验验证码!');</script>";
+            }
         }
         else{
             echo "<script>history.go(-1); alert('用户名密码错误!');</script>";

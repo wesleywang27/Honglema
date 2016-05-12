@@ -19,6 +19,7 @@
                 dotColor: '#5cbdaa',
                 lineColor: '#5cbdaa'
             });
+            createCode();
         });
     </script>
 </head>
@@ -35,12 +36,20 @@
         <dd class="pwd_icon">
             <input type="password" placeholder="密码" class="login_txtbx" name="password" required/>
         </dd>
+        <dd class="val_icon">
+            <div class="checkcode">
+                <input type="text" id="J_codetext" placeholder="输入验证码" maxlength="4" class="login_txtbx"/>
+                <canvas class="J_codeimg" id="myCanvas" onclick="createCode()"></canvas>
+            </div>
+            <input type="button" id="result" value="验证码核验" class="ver_btn" onClick="validate();"/>
+            <input type="hidden" id="check" name="check" />
+        </dd>
         <dd>
             <input type="submit" value="立即登陆" class="submit_btn"/>
         </dd>
     </form>
     <dd>
-        <p>© 2016 红了吗 版权所有</p>
+        <p>© 2016 红了吗网络科技有限公司</p>
     </dd>
 </dl>
 </body>
