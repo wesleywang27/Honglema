@@ -8,12 +8,14 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Symfony\Component\Yaml\Tests\B;
 use Validator;
 use App\User;
 use App\Models\Brand;
 use App\Models\Designer;
 use App\Models\Factory;
 use App\Models\Stall;
+use App\Models\Log;
 use App\Models\ProductPicture;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
@@ -164,6 +166,13 @@ class CMSController extends Controller{
                 $factory->contact = Input::get('contact');
                 $factory->description = Input::get('description');
 
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'update';
+                $log->operated_table = 't_factories';
+                $log->operated_username = $factory->username;
+                $log->save();
+
                 $factory->save();
 
                 $picture = ProductPicture::where('id',$id)->where('type',0)->get();
@@ -183,6 +192,15 @@ class CMSController extends Controller{
                 return;
             }
             else{
+                $factory = Factory::where('factory_id',$id)->first();
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'delete';
+                $log->operated_table = 't_factories';
+                $log->operated_username = $factory->username;
+                $log->save();
+
                 Factory::where('factory_id',$id)->delete();
                 return Redirect::to('/cms/factoryList');
             }
@@ -236,6 +254,14 @@ class CMSController extends Controller{
                         $pictures[] = $picture;
                     }
                 }
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'update';
+                $log->operated_table = 't_product_picture';
+                $log->operated_username = $factory->username;
+                $log->save();
+
                 $factory->pictures()->saveMany($pictures);
 
                 $picture = ProductPicture::where('id',$id)->where('type',0)->get();
@@ -290,6 +316,13 @@ class CMSController extends Controller{
                 $factory->zhangqi = Input::get('zhangqi');
                 $factory->contact = Input::get('contact');
                 $factory->description = Input::get('description');
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'insert';
+                $log->operated_table = 't_factories';
+                $log->operated_username = $factory->username;
+                $log->save();
 
                 $factory->save();
 
@@ -403,6 +436,13 @@ class CMSController extends Controller{
                 $brand->contact = Input::get('contact');
                 $brand->description = Input::get('description');
 
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'update';
+                $log->operated_table = 't_brands';
+                $log->operated_username = $brand->username;
+                $log->save();
+
                 $brand->save();
 
                 $picture = ProductPicture::where('id',$id)->where('type',1)->get();
@@ -422,6 +462,15 @@ class CMSController extends Controller{
                 return;
             }
             else{
+                $brand = Brand::where('brand_id',$id)->first();
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'delete';
+                $log->operated_table = 't_brands';
+                $log->operated_username = $brand->username;
+                $log->save();
+
                 Brand::where('brand_id',$id)->delete();
                 return Redirect::to('/cms/brandList');
             }
@@ -475,6 +524,14 @@ class CMSController extends Controller{
                         $pictures[] = $picture;
                     }
                 }
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'update';
+                $log->operated_table = 't_product_picture';
+                $log->operated_username = $brand->username;
+                $log->save();
+
                 $brand->pictures()->saveMany($pictures);
 
                 $picture = ProductPicture::where('id',$id)->where('type',1)->get();
@@ -530,6 +587,13 @@ class CMSController extends Controller{
                 $brand->refund = Input::get('refund');
                 $brand->contact = Input::get('contact');
                 $brand->description = Input::get('description');
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'insert';
+                $log->operated_table = 't_brands';
+                $log->operated_username = $brand->username;
+                $log->save();
 
                 $brand->save();
 
@@ -636,6 +700,13 @@ class CMSController extends Controller{
                 $designer->contact = Input::get('contact');
                 $designer->description = Input::get('description');
 
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'update';
+                $log->operated_table = 't_designers';
+                $log->operated_username = $designer->username;
+                $log->save();
+
                 $designer->save();
 
                 $picture = ProductPicture::where('id',$id)->where('type',2)->get();
@@ -655,6 +726,15 @@ class CMSController extends Controller{
                 return;
             }
             else{
+                $designer = Designer::where('designer_id',$id)->first();
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'delete';
+                $log->operated_table = 't_designers';
+                $log->operated_username = $designer->username;
+                $log->save();
+
                 Designer::where('designer_id',$id)->delete();
                 return Redirect::to('/cms/designerList');
             }
@@ -707,6 +787,14 @@ class CMSController extends Controller{
                         $pictures[] = $picture;
                     }
                 }
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'update';
+                $log->operated_table = 't_product_picture';
+                $log->operated_username = $designer->username;
+                $log->save();
+
                 $designer->pictures()->saveMany($pictures);
 
                 $picture = ProductPicture::where('id',$id)->where('type',2)->get();
@@ -755,6 +843,13 @@ class CMSController extends Controller{
                 $designer->designBrand = Input::get('designBrand');
                 $designer->contact = Input::get('contact');
                 $designer->description = Input::get('description');
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'insert';
+                $log->operated_table = 't_designers';
+                $log->operated_username = $designer->username;
+                $log->save();
 
                 $designer->save();
 
@@ -858,6 +953,13 @@ class CMSController extends Controller{
                 $stall->shipmentOK = Input::get('shipmentOK');
                 $stall->contact = Input::get('contact');
 
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'update';
+                $log->operated_table = 't_stalls';
+                $log->operated_username = $stall->username;
+                $log->save();
+
                 $stall->save();
 
                 $picture = ProductPicture::where('id',$id)->where('type',3)->get();
@@ -877,6 +979,15 @@ class CMSController extends Controller{
                 return;
             }
             else{
+                $stall = Stall::where('stall_id',$id)->first();
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'delete';
+                $log->operated_table = 't_stalls';
+                $log->operated_username = $stall->username;
+                $log->save();
+
                 Stall::where('stall_id',$id)->delete();
                 return Redirect::to('/cms/stallList');
             }
@@ -929,6 +1040,14 @@ class CMSController extends Controller{
                         $pictures[] = $picture;
                     }
                 }
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'update';
+                $log->operated_table = 't_product_picture';
+                $log->operated_username = $stall->username;
+                $log->save();
+
                 $stall->pictures()->saveMany($pictures);
 
                 $picture = ProductPicture::where('id',$id)->where('type',3)->get();
@@ -977,6 +1096,13 @@ class CMSController extends Controller{
                 $stall->category = Input::get('category');
                 $stall->shipmentOK = Input::get('shipmentOK');
                 $stall->contact = Input::get('contact');
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'insert';
+                $log->operated_table = 't_stalls';
+                $log->operated_username = $stall->username;
+                $log->save();
 
                 $stall->save();
 
