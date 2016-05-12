@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/Log.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
     </list>
@@ -41,14 +40,14 @@
       <file leaf-file-name="CMSController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="259" column="57" selection-start-line="259" selection-start-column="57" selection-end-line="259" selection-end-column="57" />
+            <state relative-caret-position="23">
+              <caret line="590" column="16" selection-start-line="590" selection-start-column="16" selection-end-line="590" selection-end-column="16" />
               <folding>
                 <element signature="e#123#132#0#PHP" expanded="true" />
-                <marker date="1463027323852" expanded="true" signature="7529:7530" placeholder="delete from " />
-                <marker date="1463027323852" expanded="true" signature="7529:7540" placeholder="delete from " />
-                <marker date="1463027323852" expanded="true" signature="7529:7548" placeholder="delete from " />
-                <marker date="1463027323852" expanded="true" signature="12686:12704" placeholder="insert into t_factories... " />
+                <marker date="1463027718986" expanded="true" signature="7565:7566" placeholder="delete from " />
+                <marker date="1463027718986" expanded="true" signature="7565:7576" placeholder="delete from " />
+                <marker date="1463027718986" expanded="true" signature="7565:7584" placeholder="delete from " />
+                <marker date="1463027718986" expanded="true" signature="12722:12740" placeholder="insert into t_factories... " />
               </folding>
             </state>
           </provider>
@@ -66,7 +65,7 @@
     </option>
     <option name="FORCE_PUSH_ALLOWED" value="true" />
     <push-targets>
-      <push-target-info repo="$PROJECT_DIR$" source="shangjia" target-remote="origin" target-branch="shangjia" />
+      <push-target-info repo="$PROJECT_DIR$" source="shangjia" target-remote="github" target-branch="shangjia" />
     </push-targets>
   </component>
   <component name="GradleLocalSettings">
@@ -905,14 +904,7 @@
       <workItem from="1463022395571" duration="904000" />
       <workItem from="1463023625966" duration="131000" />
       <workItem from="1463023791573" duration="71000" />
-      <workItem from="1463023892076" duration="3120000" />
-    </task>
-    <task id="LOCAL-00091" summary="档口图片上传">
-      <created>1461650740520</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1461650740520</updated>
+      <workItem from="1463023892076" duration="3372000" />
     </task>
     <task id="LOCAL-00092" summary="档口图片上传">
       <created>1461652543527</created>
@@ -1250,11 +1242,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462959257316</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="添加工厂操作日志">
+      <created>1463027564125</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1463027564125</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="355642000" />
+    <option name="totallyTimeSpent" value="355894000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1310,7 +1309,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="档口图片删除" />
     <MESSAGE value="品牌商图片删除" />
     <MESSAGE value="工厂图片删除" />
     <MESSAGE value="档口图片上传" />
@@ -1335,7 +1333,8 @@
     <MESSAGE value="添加创建设计师模块" />
     <MESSAGE value="添加创建品牌商模块" />
     <MESSAGE value="修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改" />
+    <MESSAGE value="添加工厂操作日志" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加工厂操作日志" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1700,14 +1699,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="259" column="57" selection-start-line="259" selection-start-column="57" selection-end-line="259" selection-end-column="57" />
+        <state relative-caret-position="23">
+          <caret line="590" column="16" selection-start-line="590" selection-start-column="16" selection-end-line="590" selection-end-column="16" />
           <folding>
             <element signature="e#123#132#0#PHP" expanded="true" />
-            <marker date="1463027323852" expanded="true" signature="7529:7530" placeholder="delete from " />
-            <marker date="1463027323852" expanded="true" signature="7529:7540" placeholder="delete from " />
-            <marker date="1463027323852" expanded="true" signature="7529:7548" placeholder="delete from " />
-            <marker date="1463027323852" expanded="true" signature="12686:12704" placeholder="insert into t_factories... " />
+            <marker date="1463027718986" expanded="true" signature="7565:7566" placeholder="delete from " />
+            <marker date="1463027718986" expanded="true" signature="7565:7576" placeholder="delete from " />
+            <marker date="1463027718986" expanded="true" signature="7565:7584" placeholder="delete from " />
+            <marker date="1463027718986" expanded="true" signature="12722:12740" placeholder="insert into t_factories... " />
           </folding>
         </state>
       </provider>

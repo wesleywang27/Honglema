@@ -8,6 +8,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Symfony\Component\Yaml\Tests\B;
 use Validator;
 use App\User;
 use App\Models\Brand;
@@ -435,6 +436,13 @@ class CMSController extends Controller{
                 $brand->contact = Input::get('contact');
                 $brand->description = Input::get('description');
 
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'update';
+                $log->operated_table = 't_brands';
+                $log->operated_username = $brand->username;
+                $log->save();
+
                 $brand->save();
 
                 $picture = ProductPicture::where('id',$id)->where('type',1)->get();
@@ -454,6 +462,15 @@ class CMSController extends Controller{
                 return;
             }
             else{
+                $brand = Brand::where('brand_id',$id)->first();
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'delete';
+                $log->operated_table = 't_brands';
+                $log->operated_username = $brand->username;
+                $log->save();
+
                 Brand::where('brand_id',$id)->delete();
                 return Redirect::to('/cms/brandList');
             }
@@ -507,6 +524,14 @@ class CMSController extends Controller{
                         $pictures[] = $picture;
                     }
                 }
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'update';
+                $log->operated_table = 't_product_picture';
+                $log->operated_username = $brand->username;
+                $log->save();
+
                 $brand->pictures()->saveMany($pictures);
 
                 $picture = ProductPicture::where('id',$id)->where('type',1)->get();
@@ -562,6 +587,13 @@ class CMSController extends Controller{
                 $brand->refund = Input::get('refund');
                 $brand->contact = Input::get('contact');
                 $brand->description = Input::get('description');
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'insert';
+                $log->operated_table = 't_brands';
+                $log->operated_username = $brand->username;
+                $log->save();
 
                 $brand->save();
 
