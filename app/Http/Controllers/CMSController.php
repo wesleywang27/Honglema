@@ -8,7 +8,6 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use Symfony\Component\Yaml\Tests\B;
 use Validator;
 use App\User;
 use App\Models\Brand;
@@ -30,6 +29,10 @@ class CMSController extends Controller{
                 $_SESSION['is_admin'] = 1;
             else
                 $_SESSION['is_admin'] = 0;
+            if ($user->is_super_admin == 1)
+                $_SESSION['is_super_admin'] = 1;
+            else
+                $_SESSION['is_super_admin'] = 0;
             if ($user->factory_right == 1)
                 $_SESSION['factory_right'] = 1;
             else
