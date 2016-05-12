@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,7 +37,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CMSController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CMSController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="274">
@@ -48,6 +48,18 @@
                 <marker date="1463028431131" expanded="true" signature="7565:7576" placeholder="delete from " />
                 <marker date="1463028431131" expanded="true" signature="7565:7584" placeholder="delete from " />
                 <marker date="1463028431131" expanded="true" signature="12722:12740" placeholder="insert into t_factories... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+              <folding>
+                <element signature="e#123#132#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -101,7 +113,6 @@
         <option value="$PROJECT_DIR$/resources/views/cms/user_right.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/brand_info.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ExcelController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/stall.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/designer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/brand.blade.php" />
@@ -127,6 +138,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" />
         <option value="$PROJECT_DIR$/app/Models/Log.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
       </list>
     </option>
   </component>
@@ -904,14 +916,7 @@
       <workItem from="1463022395571" duration="904000" />
       <workItem from="1463023625966" duration="131000" />
       <workItem from="1463023791573" duration="71000" />
-      <workItem from="1463023892076" duration="4056000" />
-    </task>
-    <task id="LOCAL-00094" summary="档口图片上传">
-      <created>1461654067886</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1461654067886</updated>
+      <workItem from="1463023892076" duration="4370000" />
     </task>
     <task id="LOCAL-00095" summary="图片上传">
       <created>1461656240399</created>
@@ -1249,11 +1254,18 @@
       <option name="project" value="LOCAL" />
       <updated>1463028091341</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="添加品牌商操作日志">
+      <created>1463028487384</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1463028487384</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="356578000" />
+    <option name="totallyTimeSpent" value="356892000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1673,14 +1685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1216">
-          <caret line="116" column="17" selection-start-line="116" selection-start-column="17" selection-end-line="116" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Brand.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -1707,6 +1711,16 @@
             <marker date="1463028431131" expanded="true" signature="7565:7576" placeholder="delete from " />
             <marker date="1463028431131" expanded="true" signature="7565:7584" placeholder="delete from " />
             <marker date="1463028431131" expanded="true" signature="12722:12740" placeholder="insert into t_factories... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+          <folding>
+            <element signature="e#123#132#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

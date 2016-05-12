@@ -7,12 +7,13 @@
  */
 namespace App\Http\Controllers;
 
-use Validator;
 use Hash;
 use Auth;
+use Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use App\User;
+use App\Models\Log;
 
 class UserController extends Controller{
     //后台用户列表页
@@ -49,6 +50,15 @@ class UserController extends Controller{
     public function deleteUser($id){
         session_start();
         if(isset($_SESSION['username'])){
+            $user = User::where('id',$id)->first();
+
+            $log = new Log();
+            $log->username = $_SESSION['username'];
+            $log->operation = 'delete';
+            $log->operated_table = 't_users';
+            $log->operated_username = $user->name;
+            $log->save();
+
             User::where('id',$id)->delete();
             $user = User::paginate(6);
             $confirmUser = User::where('name',$_SESSION['username'])->first();
@@ -115,9 +125,15 @@ class UserController extends Controller{
                     if (strstr($str,'档口'))
                         $user->stall_right = 1;
                 }
-    
                 $user->contact_only = Input::get('contact_only');
-                
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'insert';
+                $log->operated_table = 't_users';
+                $log->operated_username = $user->name;
+                $log->save();
+
                 $user->save();
                 return Redirect::intended('/cms/user');
             }else {
@@ -221,8 +237,14 @@ class UserController extends Controller{
                 if (strstr($str,'档口'))
                     $user->stall_right = 1;
             }
-
             $user->contact_only = Input::get('contact_only');
+
+            $log = new Log();
+            $log->username = $_SESSION['username'];
+            $log->operation = 'update';
+            $log->operated_table = 't_users';
+            $log->operated_username = $user->name;
+            $log->save();
 
             $user->save();
             return Redirect::to('/cms/user');
