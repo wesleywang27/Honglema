@@ -10,7 +10,7 @@
         <th>日志ID</th>
         <th>操作用户</th>
         <th>操作类别</th>
-        <th>操作表</th>
+        <th>操作数据</th>
         <th>操作对象</th>
         <th>操作时间</th>
     </tr>
@@ -19,7 +19,7 @@
         <td style="width:60px;height:20px;text-align:center">{{ $log->log_id}}</td>
         <td style="width:100px;text-align:center">{{ $log->username}}</td>
         <td style="width:100px;text-align:center">{{ $log->operation}}</td>
-        <td style="width:160px;text-align:center">{{ $log->operated_table}}</td>
+        <td style="width:160px;text-align:center">{{ $log->operated_data}}</td>
         <td style="width:160px;text-align:center">{{ $log->operated_username}}</td>
         <td style="width:180px;text-align:center">{{ $log->time}}</td>
     </tr>

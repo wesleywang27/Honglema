@@ -55,7 +55,7 @@ class UserController extends Controller{
             $log = new Log();
             $log->username = $_SESSION['username'];
             $log->operation = 'delete';
-            $log->operated_table = 't_users';
+            $log->operated_data = '用户信息';
             $log->operated_username = $user->name;
             $log->save();
 
@@ -130,7 +130,7 @@ class UserController extends Controller{
                 $log = new Log();
                 $log->username = $_SESSION['username'];
                 $log->operation = 'insert';
-                $log->operated_table = 't_users';
+                $log->operated_data = '用户信息';
                 $log->operated_username = $user->name;
                 $log->save();
 
@@ -242,7 +242,7 @@ class UserController extends Controller{
             $log = new Log();
             $log->username = $_SESSION['username'];
             $log->operation = 'update';
-            $log->operated_table = 't_users';
+            $log->operated_data = '用户信息';
             $log->operated_username = $user->name;
             $log->save();
 

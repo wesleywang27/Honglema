@@ -172,7 +172,7 @@ class CMSController extends Controller{
                 $log = new Log();
                 $log->username = $_SESSION['username'];
                 $log->operation = 'update';
-                $log->operated_table = 't_factories';
+                $log->operated_data = '工厂信息';
                 $log->operated_username = $factory->username;
                 $log->save();
 
@@ -200,7 +200,7 @@ class CMSController extends Controller{
                 $log = new Log();
                 $log->username = $_SESSION['username'];
                 $log->operation = 'delete';
-                $log->operated_table = 't_factories';
+                $log->operated_data = '工厂信息';
                 $log->operated_username = $factory->username;
                 $log->save();
 
@@ -261,7 +261,7 @@ class CMSController extends Controller{
                 $log = new Log();
                 $log->username = $_SESSION['username'];
                 $log->operation = 'update';
-                $log->operated_table = 't_product_picture';
+                $log->operated_data = '工厂图片';
                 $log->operated_username = $factory->username;
                 $log->save();
 
@@ -323,7 +323,7 @@ class CMSController extends Controller{
                 $log = new Log();
                 $log->username = $_SESSION['username'];
                 $log->operation = 'insert';
-                $log->operated_table = 't_factories';
+                $log->operated_data = '工厂图片';
                 $log->operated_username = $factory->username;
                 $log->save();
 
@@ -442,7 +442,7 @@ class CMSController extends Controller{
                 $log = new Log();
                 $log->username = $_SESSION['username'];
                 $log->operation = 'update';
-                $log->operated_table = 't_brands';
+                $log->operated_data = '品牌商信息';
                 $log->operated_username = $brand->username;
                 $log->save();
 
@@ -470,7 +470,7 @@ class CMSController extends Controller{
                 $log = new Log();
                 $log->username = $_SESSION['username'];
                 $log->operation = 'delete';
-                $log->operated_table = 't_brands';
+                $log->operated_data = '品牌商信息';
                 $log->operated_username = $brand->username;
                 $log->save();
 
@@ -531,7 +531,7 @@ class CMSController extends Controller{
                 $log = new Log();
                 $log->username = $_SESSION['username'];
                 $log->operation = 'update';
-                $log->operated_table = 't_product_picture';
+                $log->operated_data = '品牌商图片';
                 $log->operated_username = $brand->username;
                 $log->save();
 
@@ -594,7 +594,7 @@ class CMSController extends Controller{
                 $log = new Log();
                 $log->username = $_SESSION['username'];
                 $log->operation = 'insert';
-                $log->operated_table = 't_brands';
+                $log->operated_data = '品牌商信息';
                 $log->operated_username = $brand->username;
                 $log->save();
 
@@ -706,7 +706,7 @@ class CMSController extends Controller{
                 $log = new Log();
                 $log->username = $_SESSION['username'];
                 $log->operation = 'update';
-                $log->operated_table = 't_designers';
+                $log->operated_data = '设计师信息';
                 $log->operated_username = $designer->username;
                 $log->save();
 
@@ -734,7 +734,7 @@ class CMSController extends Controller{
                 $log = new Log();
                 $log->username = $_SESSION['username'];
                 $log->operation = 'delete';
-                $log->operated_table = 't_designers';
+                $log->operated_data = '设计师信息';
                 $log->operated_username = $designer->username;
                 $log->save();
 
@@ -794,7 +794,7 @@ class CMSController extends Controller{
                 $log = new Log();
                 $log->username = $_SESSION['username'];
                 $log->operation = 'update';
-                $log->operated_table = 't_product_picture';
+                $log->operated_data = '设计师图片';
                 $log->operated_username = $designer->username;
                 $log->save();
 
@@ -850,7 +850,7 @@ class CMSController extends Controller{
                 $log = new Log();
                 $log->username = $_SESSION['username'];
                 $log->operation = 'insert';
-                $log->operated_table = 't_designers';
+                $log->operated_data = '设计师信息';
                 $log->operated_username = $designer->username;
                 $log->save();
 
@@ -959,7 +959,7 @@ class CMSController extends Controller{
                 $log = new Log();
                 $log->username = $_SESSION['username'];
                 $log->operation = 'update';
-                $log->operated_table = 't_stalls';
+                $log->operated_data = '档口信息';
                 $log->operated_username = $stall->username;
                 $log->save();
 
@@ -987,7 +987,7 @@ class CMSController extends Controller{
                 $log = new Log();
                 $log->username = $_SESSION['username'];
                 $log->operation = 'delete';
-                $log->operated_table = 't_stalls';
+                $log->operated_data = '档口信息';
                 $log->operated_username = $stall->username;
                 $log->save();
 
@@ -1047,7 +1047,7 @@ class CMSController extends Controller{
                 $log = new Log();
                 $log->username = $_SESSION['username'];
                 $log->operation = 'update';
-                $log->operated_table = 't_product_picture';
+                $log->operated_data = '档口图片';
                 $log->operated_username = $stall->username;
                 $log->save();
 
@@ -1103,7 +1103,7 @@ class CMSController extends Controller{
                 $log = new Log();
                 $log->username = $_SESSION['username'];
                 $log->operation = 'insert';
-                $log->operated_table = 't_stalls';
+                $log->operated_data = '档口信息';
                 $log->operated_username = $stall->username;
                 $log->save();
 
