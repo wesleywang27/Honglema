@@ -64,7 +64,7 @@ class CMSController extends Controller{
                 return Redirect::intended('/cms/index');
             }
             else{
-                echo "<script>history.go(-1); alert('请核验验证码!');</script>";
+                echo "<script>history.go(-1); alert('验证码错误!');</script>";
             }
         }
         else{
