@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 
 use Hash;
 use Auth;
+use Mail;
 use Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
@@ -97,19 +98,8 @@ class UserController extends Controller{
                 $user->name = Input::get('name');
                 $user->nickname = Input::get('nickname');
                 $user->email = Input::get('email');
-                $password = Input::get('password');
-                $passwordConfirm = Input::get('passwordConfirm');
-                if(strlen($password) < 8){
-                    echo "<script>history.back(); alert('密码至少8位!');</script>";
-                    return;
-                }
-                if($password == $passwordConfirm){
-                    $user->password = Hash::make($password);
-                }
-                else{
-                    echo "<script>history.back(); alert('请输入相同的密码!');</script>";
-                    return;
-                }
+                $password = str_random(8);
+                $user->password = Hash::make($password);
                 $user->is_admin = Input::get('is_admin');
 
                 $right = Input::get('right');
@@ -135,6 +125,10 @@ class UserController extends Controller{
                 $log->save();
 
                 $user->save();
+
+                Mail::send('/cms/mail', ['user' => $user , 'password' => $password], function ($m) use ($user) {
+                    $m->to($user->email, $user->name)->subject('红了吗后台账号创建通知');
+                });
                 return Redirect::intended('/cms/user');
             }else {
                 // 验证没通过就显示错误提示信息
