@@ -20,6 +20,7 @@
                 lineColor: '#5cbdaa'
             });
             createCode();
+            validate();
         });
     </script>
 </head>
@@ -38,7 +39,7 @@
         </dd>
         <dd class="val_icon">
             <div class="checkcode">
-                <input type="text" id="J_codetext" placeholder="输入验证码" maxlength="4" class="login_txtbx"/>
+                <input type="text" id="J_codetext" placeholder="输入验证码" maxlength="4" class="login_txtbx" onblur="validate();"/>
                 <canvas class="J_codeimg" id="myCanvas" onclick="createCode()"></canvas>
             </div>
             <input type="button" id="result" value="验证码核验" class="ver_btn" onClick="validate();"/>
