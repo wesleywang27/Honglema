@@ -20,7 +20,7 @@ class UserController extends Controller{
     public function index(){
         session_start();
         if(isset($_SESSION['username'])){
-            $user = User::paginate(6);
+            $user = User::paginate(10);
             $confirmUser = User::where('name',$_SESSION['username'])->first();
             if ($confirmUser->is_admin == 1)
                 return view('/cms/user',['users' => $user ,'is_super_admin' => $confirmUser->is_super_admin]);
@@ -60,7 +60,7 @@ class UserController extends Controller{
             $log->save();
 
             User::where('id',$id)->delete();
-            $user = User::paginate(6);
+            $user = User::paginate(10);
             $confirmUser = User::where('name',$_SESSION['username'])->first();
             return Redirect::back()->with(['users' => $user ,'is_super_admin' => $confirmUser->is_super_admin]);
         }
