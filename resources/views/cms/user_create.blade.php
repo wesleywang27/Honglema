@@ -20,14 +20,6 @@
         <input class="textbox textbox_225" type="email" name="email" placeholder="请输入邮箱" value="" required>
     </div>
     <div style="margin-top: 20px;">
-        <label>用户密码：</label>
-        <input class="textbox textbox_225" type="password" name="password" placeholder="请输入密码(至少8位)" value="" required>
-    </div>
-    <div style="margin-top: 20px;">
-        <label>确认密码：</label>
-        <input class="textbox textbox_225" type="password" name="passwordConfirm" placeholder="请确认密码" value="" required>
-    </div>
-    <div style="margin-top: 20px;">
         <label>用户身份：</label>
         @if ($is_super_admin == 1)
         <select class="select" name="is_admin">
