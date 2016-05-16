@@ -11,10 +11,10 @@ use Hash;
 use Auth;
 use Mail;
 use Validator;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Redirect;
 use App\User;
 use App\Models\Log;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller{
     //后台用户列表页
@@ -126,7 +126,7 @@ class UserController extends Controller{
 
                 $user->save();
 
-                Mail::send('/cms/mail', ['user' => $user , 'password' => $password], function ($m) use ($user) {
+                Mail::send('/cms/mail_create_user', ['user' => $user , 'password' => $password], function ($m) use ($user) {
                     $m->to($user->email, $user->name)->subject('红了吗后台账号创建通知');
                 });
                 return Redirect::intended('/cms/user');
