@@ -127,7 +127,7 @@ class UserController extends Controller{
                 $user->save();
 
                 Mail::send('/cms/mail_create_user', ['user' => $user , 'password' => $password], function ($m) use ($user) {
-                    $m->to($user->email, $user->name)->subject('红了吗后台账号创建通知');
+                    $m->to($user->email, $user->name)->subject('红了吗后台管理系统账号创建通知');
                 });
                 return Redirect::intended('/cms/user');
             }else {
