@@ -56,6 +56,8 @@ Route::group(['middleware' => ['web']], function () {
  */
 
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+    
+    //首页
     Route::get('/', 'IndexController@index');
 
     //工厂
@@ -110,12 +112,12 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
         return view('/cms/login');
     });
 
-//首页入口
+    //首页入口
     Route::get('/cms/index', "CMSController@index");
 
     Route::get('/cms/', "CMSController@index");
 
-//访问列表入口
+    //访问列表入口
     Route::resource('/cms/factoryList', "CMSController@factory");
 
     Route::resource('/cms/brandList', "CMSController@brand");
@@ -124,7 +126,7 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 
     Route::resource('/cms/stallList', "CMSController@stall");
 
-//信息详情入口
+    //信息详情入口
     Route::get('/cms/factory_info/{id?}',"CMSController@factory_info");
 
     Route::get('/cms/brand_info/{id?}',"CMSController@brand_info");
@@ -133,7 +135,7 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 
     Route::get('/cms/stall_info/{id?}',"CMSController@stall_info");
 
-//信息修改入口
+    //信息修改入口
     Route::get('/cms/factory_modify/{id?}',"CMSController@modifyFactoryInfo");
 
     Route::post('/cms/factory_modify/{id?}',"CMSController@updateFactoryInfo");
@@ -150,7 +152,7 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 
     Route::post('/cms/stall_modify/{id?}',"CMSController@updateStallInfo");
 
-//信息删除入口
+    //信息删除入口
     Route::get('/cms/factory_delete/{id?}',"CMSController@deleteFactory");
 
     Route::get('/cms/brand_delete/{id?}',"CMSController@deleteBrand");
@@ -159,7 +161,7 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 
     Route::get('/cms/stall_delete/{id?}',"CMSController@deleteStall");
 
-//信息查找入口
+    //信息查找入口
     Route::get('/cms/factory/{name?}/{category?}', "CMSController@searchFactory");
 
     Route::get('/cms/brand/{name?}/{category?}',"CMSController@searchBrand");
@@ -168,7 +170,7 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 
     Route::get('/cms/stall/{name?}/{category?}',"CMSController@searchStall");
 
-//图片修改入口
+    //图片修改入口
     Route::post('/cms/factory_updateImg/{id?}',"CMSController@updateFactoryImg");
 
     Route::post('/cms/brand_updateImg/{id?}',"CMSController@updateBrandImg");
@@ -177,7 +179,7 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 
     Route::post('/cms/stall_updateImg/{id?}',"CMSController@updateStallImg");
 
-//商家添加页
+    //商家添加页
     Route::get('/cms/factory_create',"CMSController@createFactoryIndex");
 
     Route::post('/cms/factory_create',"CMSController@createFactory");
@@ -194,7 +196,7 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 
     Route::post('/cms/stall_create',"CMSController@createStall");
 
-//数据导出入口
+    //数据导出入口
     Route::get('/cms/factory_export',"ExcelController@exportFactory");
 
     Route::get('/cms/brand_export',"ExcelController@exportBrand");
@@ -203,7 +205,7 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 
     Route::get('/cms/stall_export',"ExcelController@exportStall");
 
-//用户管理入口
+    //用户管理入口
     Route::get('/cms/user',"UserController@index");
 
     Route::post('/cms/user',"UserController@searchUser");
@@ -224,7 +226,7 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 
     Route::post('/cms/user_right/{id?}',"UserController@updateUserRight");
 
-//操作日志入口
+    //操作日志入口
     Route::get('/cms/logList',"LogController@index");
 
 });
