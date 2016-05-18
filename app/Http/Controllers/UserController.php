@@ -248,6 +248,20 @@ class UserController extends Controller{
     }
     //忘记密码
     public function forget(){
-        
+        $user = User::where('name',Input::get('name'))->first();
+        if($user){
+            $password = str_random(8);
+            $user->password = Hash::make($password);
+            $user->save();
+
+            Mail::send('/cms/mail_forget', ['password' => $password], function ($m) use ($user) {
+                $m->to($user->email, $user->name)->subject('红了吗后台管理系统账号密码重置');
+            });
+
+            return view('/cms/login');
+        }
+        else{
+            echo "<script>history.back(); alert('该用户不存在!');</script>";
+        }
     }
 }
