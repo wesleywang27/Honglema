@@ -24,7 +24,7 @@ class LogController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
 }

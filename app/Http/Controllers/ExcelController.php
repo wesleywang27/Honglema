@@ -63,7 +63,7 @@ class ExcelController extends Controller{
             })->export('xls');
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //品牌商信息导出Excel
@@ -119,7 +119,7 @@ class ExcelController extends Controller{
             })->export('xls');
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //设计师信息导出Excel
@@ -164,7 +164,7 @@ class ExcelController extends Controller{
             })->export('xls');
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //档口信息导出Excel
@@ -204,7 +204,7 @@ class ExcelController extends Controller{
             })->export('xls');
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
 }

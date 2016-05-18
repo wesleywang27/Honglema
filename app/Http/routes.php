@@ -101,14 +101,14 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
  * 红了吗后台管理系统入口
  */
 
-Route::group(['domain' => 'cms.honglema.com'], function() {
+//Route::group(['domain' => 'cms.honglema.com'], function() {
 
     //登录登出模块入口
     Route::get('/cms/logout', 'CMSController@logout');
 
-    Route::post('/cms/login.php','CMSController@login');
+    Route::post('/cms/login','CMSController@login');
 
-    Route::get('/cms/login.php',function () {
+    Route::get('/cms/login',function () {
         return view('/cms/login');
     });
 
@@ -229,4 +229,4 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
     //操作日志入口
     Route::get('/cms/logList',"LogController@index");
 
-});
+//});

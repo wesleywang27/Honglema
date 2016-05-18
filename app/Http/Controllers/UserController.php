@@ -32,7 +32,7 @@ class UserController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //查找用户
@@ -44,7 +44,7 @@ class UserController extends Controller{
             return view('/cms/user',['users' => $user ,'is_super_admin' => $confirmUser->is_super_admin]);
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //删除用户
@@ -66,7 +66,7 @@ class UserController extends Controller{
             return Redirect::back()->with(['users' => $user ,'is_super_admin' => $confirmUser->is_super_admin]);
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //后台用户创建页
@@ -83,7 +83,7 @@ class UserController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //创建后台用户
@@ -136,7 +136,7 @@ class UserController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //用户信息页
@@ -147,7 +147,7 @@ class UserController extends Controller{
             return view('/cms/user_info_confirm',['user' => $confirmUser]);
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //用户信息修改页
@@ -157,7 +157,7 @@ class UserController extends Controller{
             return view('/cms/user_info');
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //修改用户信息
@@ -182,8 +182,7 @@ class UserController extends Controller{
                 $user->password = $password;
 
                 $user->save();
-
-                echo "<script> alert('信息修改成功!'); </script>";
+                
                 return Redirect::intended('/cms/index');
             }
             else{
@@ -192,7 +191,7 @@ class UserController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //用户权限修改页
@@ -203,7 +202,7 @@ class UserController extends Controller{
             return view('/cms/user_right',['user' => $user]);
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //修改用户权限
@@ -244,7 +243,7 @@ class UserController extends Controller{
             return Redirect::to('/cms/user');
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
 }

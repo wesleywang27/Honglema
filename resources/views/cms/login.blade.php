@@ -30,7 +30,7 @@
         <strong>红了吗后台管理系统</strong>
         <em>Management System</em>
     </dt>
-    <form action="/cms/login.php" method="post" name="loginForm">
+    <form action="/cms/login" method="post" name="loginForm">
         <dd class="user_icon">
             <input type="text" placeholder="账号" class="login_txtbx" name="name" required/>
         </dd>

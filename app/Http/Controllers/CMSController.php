@@ -52,7 +52,7 @@ class CMSController extends Controller{
             return view("/cms/index");
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //用户登录
@@ -75,7 +75,7 @@ class CMSController extends Controller{
     public function logout(){
         session_start();
         unset($_SESSION['username']);
-        return Redirect::intended('/cms/login.php');
+        return Redirect::intended('/cms/login');
     }
     //工厂列表页面
     public function factory(){
@@ -102,7 +102,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //工厂详情页面
@@ -120,7 +120,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //工厂信息修改页
@@ -138,7 +138,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //修改工厂信息
@@ -188,7 +188,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //删除工厂信息
@@ -214,7 +214,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //查找工厂信息
@@ -231,7 +231,7 @@ class CMSController extends Controller{
             return view('/cms/factory',['factories' => $factory ,'name' => $name ,'category' => $category]);
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //修改工厂图片信息
@@ -278,7 +278,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //工厂添加页
@@ -288,7 +288,7 @@ class CMSController extends Controller{
             return view('/cms/factory_create');
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //添加工厂信息
@@ -343,7 +343,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //品牌商列表页面
@@ -371,7 +371,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //品牌商详情页面
@@ -389,7 +389,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //品牌商信息修改页
@@ -407,7 +407,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //修改品牌商信息
@@ -458,7 +458,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //删除品牌商信息
@@ -484,7 +484,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //查找品牌商信息
@@ -501,7 +501,7 @@ class CMSController extends Controller{
             return view('/cms/brand',['brands' => $brand ,'name' => $name ,'category' => $category]);
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //修改品牌商图片信息
@@ -548,7 +548,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //品牌商添加页
@@ -558,7 +558,7 @@ class CMSController extends Controller{
             return view('/cms/brand_create');
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //添加品牌商信息
@@ -614,7 +614,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //设计师列表页面
@@ -641,7 +641,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //设计师详情页面
@@ -659,7 +659,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //设计师信息修改页
@@ -677,7 +677,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //修改设计师信息
@@ -722,7 +722,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //删除设计师信息
@@ -748,7 +748,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //查找设计师信息
@@ -764,7 +764,7 @@ class CMSController extends Controller{
             return view('/cms/designer',['designers' => $designer ,'name' => $name]);
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //修改设计师图片信息
@@ -811,7 +811,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //设计师添加页
@@ -821,7 +821,7 @@ class CMSController extends Controller{
             return view('/cms/designer_create');
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //添加设计师信息
@@ -868,7 +868,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //档口列表页面
@@ -895,7 +895,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //档口详情页面
@@ -913,7 +913,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //档口信息修改页
@@ -931,7 +931,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //档口修改信息
@@ -975,7 +975,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //删除档口信息
@@ -1001,7 +1001,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //查找档口信息
@@ -1017,7 +1017,7 @@ class CMSController extends Controller{
             return view('/cms/stall',['stalls' => $stall ,'name' => $name]);
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //修改档口图片信息
@@ -1064,7 +1064,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //档口添加页
@@ -1074,7 +1074,7 @@ class CMSController extends Controller{
             return view('/cms/stall_create');
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
     //添加档口信息
@@ -1121,7 +1121,7 @@ class CMSController extends Controller{
             }
         }
         else{
-            return Redirect::intended('/cms/login.php');
+            return Redirect::intended('/cms/login');
         }
     }
 }
