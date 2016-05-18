@@ -30,26 +30,13 @@
         <strong>红了吗后台管理系统</strong>
         <em>Management System</em>
     </dt>
-    <form action="/cms/login" method="post" name="loginForm">
+    <form action="/cms/forget" method="post" name="loginForm">
         <dd class="user_icon">
             <input type="text" placeholder="账号" class="login_txtbx" name="name" required/>
         </dd>
-        <dd class="pwd_icon">
-            <input type="password" placeholder="密码" class="login_txtbx" name="password" required/>
-        </dd>
-        <dd class="val_icon">
-            <div class="checkcode">
-                <input type="text" id="J_codetext" placeholder="输入验证码" maxlength="4" class="login_txtbx" onblur="validate();"/>
-                <canvas class="J_codeimg" id="myCanvas" onclick="createCode()"></canvas>
-            </div>
-            <input type="button" id="result" value="验证码核验" class="ver_btn" onClick="validate();"/>
-            <input type="hidden" id="check" name="check" />
-        </dd>
         <dd>
-            <input type="submit" value="立即登陆" class="submit_btn"/>
+            <input type="submit" value="发送密码到红了吗邮箱" class="submit_btn"/>
         </dd>
-        <a href="/cms/forget" style="color: seashell;float: right;margin-right: 15px;">忘记密码</a>
-        <br>
     </form>
     <dd>
         <p>© 2016 红了吗网络科技有限公司</p>
