@@ -246,4 +246,8 @@ class UserController extends Controller{
             return Redirect::intended('/cms/login');
         }
     }
+    //忘记密码
+    public function forget(){
+        
+    }
 }

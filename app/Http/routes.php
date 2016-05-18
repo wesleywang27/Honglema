@@ -106,11 +106,17 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     //登录登出模块入口
     Route::get('/cms/logout', 'CMSController@logout');
 
-    Route::post('/cms/login','CMSController@login');
+    Route::post('/cms/login', 'CMSController@login');
 
     Route::get('/cms/login',function () {
         return view('/cms/login');
     });
+
+    //忘记密码
+    Route::get('/cms/forget',function () {
+        return view('/cms/forget');
+    });
+    Route::post('/cms/forget', 'UserController@forget');
 
     //首页入口
     Route::get('/cms/index', "CMSController@index");
