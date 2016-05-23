@@ -199,7 +199,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::post('/cms/celebrity_updateImg/{id?}',"CMSController@updateCelebrityImg");
 
-    //商家添加页
+    //信息添加页
     Route::get('/cms/factory_create',"CMSController@createFactoryIndex");
 
     Route::post('/cms/factory_create',"CMSController@createFactory");
@@ -215,6 +215,10 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/cms/stall_create',"CMSController@createStallIndex");
 
     Route::post('/cms/stall_create',"CMSController@createStall");
+
+    Route::get('/cms/celebrity_create',"CMSController@createCelebrityIndex");
+
+    Route::post('/cms/celebrity_create',"CMSController@createCelebrity");
 
     //数据导出入口
     Route::get('/cms/factory_export',"ExcelController@exportFactory");
