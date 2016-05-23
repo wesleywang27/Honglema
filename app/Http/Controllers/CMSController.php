@@ -14,7 +14,9 @@ use App\Models\Brand;
 use App\Models\Designer;
 use App\Models\Factory;
 use App\Models\Stall;
+use App\Models\Celebrity;
 use App\Models\Log;
+use App\Models\Picture;
 use App\Models\ProductPicture;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
@@ -49,6 +51,10 @@ class CMSController extends Controller{
                 $_SESSION['stall_right'] = 1;
             else
                 $_SESSION['stall_right'] = 0;
+            if ($user->celebrity_right == 1)
+                $_SESSION['celebrity_right'] = 1;
+            else
+                $_SESSION['celebrity_right'] = 0;
             return view("/cms/index");
         }
         else{
@@ -1118,6 +1124,55 @@ class CMSController extends Controller{
             } else {
                 // 验证没通过就显示错误提示信息
                 echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login');
+        }
+    }
+    //红人列表页面
+    public function celebrity(){
+        session_start();
+        if(isset($_SESSION['username'])){
+            if($_SESSION['celebrity_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                /*
+                if(Input::has('name')){
+                    $name = Input::has('name') ? Input::get('name') : 'all';
+                    return Redirect::to("/cms/stall/$name/all");
+                }
+                else{
+                    $user = User::where('name',$_SESSION['username'])->first();
+                    if($user->contact_only == 0)
+                        $stall = Stall::paginate(10);
+                    else
+                        $stall = Stall::where('contact',$user->nickname)->paginate(10);
+                    return view('/cms/stall')->with(['stalls' => $stall ,'name' => 'all']);
+                }
+                */
+                $celebrity = Celebrity::paginate(10);
+                return view('/cms/celebrity',['celebrities' => $celebrity]);
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login');
+        }
+    }
+    //红人详情页
+    public function celebrity_info($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            if($_SESSION['celebrity_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $celebrity = Celebrity::where('id',$id)->first();
+                $picture = Picture::where('uid',$id)->get();
+                return view('cms/celebrity_info',['celebrity' => $celebrity, 'pictures' => $picture]);
             }
         }
         else{

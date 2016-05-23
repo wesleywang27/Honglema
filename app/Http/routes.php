@@ -101,7 +101,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
  * 红了吗后台管理系统入口
  */
 
-Route::group(['domain' => 'cms.honglema.com'], function() {
+//Route::group(['domain' => 'cms.honglema.com'], function() {
 
     //登录登出模块入口
     Route::get('/cms/logout', 'CMSController@logout');
@@ -132,6 +132,8 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 
     Route::resource('/cms/stallList', "CMSController@stall");
 
+    Route::resource('/cms/celebrityList', "CMSController@celebrity");
+
     //信息详情入口
     Route::get('/cms/factory_info/{id?}',"CMSController@factory_info");
 
@@ -140,6 +142,8 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
     Route::get('/cms/designer_info/{id?}',"CMSController@designer_info");
 
     Route::get('/cms/stall_info/{id?}',"CMSController@stall_info");
+
+    Route::get('/cms/celebrity_info/{id?}',"CMSController@celebrity_info");
 
     //信息修改入口
     Route::get('/cms/factory_modify/{id?}',"CMSController@modifyFactoryInfo");
@@ -235,4 +239,4 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
     //操作日志入口
     Route::get('/cms/logList',"LogController@index");
 
-});
+//});

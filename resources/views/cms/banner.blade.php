@@ -52,7 +52,9 @@
     <ul>
         <li>
             <dl>
+                @if ($_SESSION['factory_right'] || $_SESSION['brand_right'] || $_SESSION['designer_right'] || $_SESSION['stall_right'])
                 <dt>商家信息管理</dt>
+                @endif
                 @if ($_SESSION['factory_right'])
                 <dd><a href="/cms/factoryList">工厂信息列表</a></dd>
                 @endif
@@ -67,17 +69,15 @@
                 @endif
             </dl>
         </li>
-        <!--
         <li>
             <dl>
+                @if ($_SESSION['celebrity_right'])
                 <dt>红人信息管理</dt>
-                <dd><a href="#">红人信息列表</a></dd>
-                <dd><a href="#">添加红人信息</a></dd>
-                <dd><a href="#">查看红人信息</a></dd>
-                <dd><a href="#">修改红人信息</a></dd>
+                <dd><a href="/cms/celebrityList">红人信息列表</a></dd>
+                @endif
             </dl>
         </li>
-        -->
+
         @if ($_SESSION['is_admin'])
         <li>
             <dl>
