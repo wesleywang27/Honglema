@@ -216,6 +216,7 @@ class CMSController extends Controller{
                 $log->operated_username = $factory->username;
                 $log->save();
 
+                ProductPicture::where('id',$id)->where('type',3)->delete();
                 Factory::where('factory_id',$id)->delete();
                 return Redirect::to('/cms/factoryList');
             }
@@ -486,6 +487,7 @@ class CMSController extends Controller{
                 $log->operated_username = $brand->username;
                 $log->save();
 
+                ProductPicture::where('id',$id)->where('type',1)->delete();
                 Brand::where('brand_id',$id)->delete();
                 return Redirect::to('/cms/brandList');
             }
@@ -750,6 +752,7 @@ class CMSController extends Controller{
                 $log->operated_username = $designer->username;
                 $log->save();
 
+                ProductPicture::where('id',$id)->where('type',2)->delete();
                 Designer::where('designer_id',$id)->delete();
                 return Redirect::to('/cms/designerList');
             }
@@ -1003,6 +1006,7 @@ class CMSController extends Controller{
                 $log->operated_username = $stall->username;
                 $log->save();
 
+                ProductPicture::where('id',$id)->where('type',3)->delete();
                 Stall::where('stall_id',$id)->delete();
                 return Redirect::to('/cms/stallList');
             }
@@ -1250,6 +1254,35 @@ class CMSController extends Controller{
 
                 $picture = Picture::where('uid',$id)->get();
                 return Redirect::intended("/cms/celebrity_info/$id")->with(['celebrity' => $celebrity, 'pictures' => $picture]);
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login');
+        }
+    }
+    //删除红人信息
+    public function deleteCelebrity($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            if($_SESSION['celebrity_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $celebrity = Celebrity::where('id',$id)->first();
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'delete';
+                $log->operated_data = '档口信息';
+                $log->operated_username = $celebrity->realname;
+                $log->save();
+
+                FansProfile::where('id',$id)->delete();
+                Picture::where('uid',$id)->delete();
+                Celebrity::where('id',$id)->delete();
+
+                return Redirect::to('/cms/celebrityList');
             }
         }
         else{

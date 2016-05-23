@@ -27,7 +27,7 @@
         <td style="text-align:center">
             <a href="{{URL::action('CMSController@celebrity_info', ['id' => $celebrity->id]) }}"><input type="button" value="查看" class="link_btn"/></a>
             <a href="{{URL::action('CMSController@modifyCelebrityInfo', ['id' => $celebrity->id]) }}"><input type="button" value="修改" class="link_btn"/></a>
-            <a href="#" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
+            <a href="{{URL::action('CMSController@deleteCelebrity', ['id' => $celebrity->id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
         </td>
     </tr>
     @endforeach

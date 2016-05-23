@@ -175,6 +175,8 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::get('/cms/stall_delete/{id?}',"CMSController@deleteStall");
 
+    Route::get('/cms/celebrity_delete/{id?}',"CMSController@deleteCelebrity");
+
     //信息查找入口
     Route::get('/cms/factory/{name?}/{category?}', "CMSController@searchFactory");
 
