@@ -16,6 +16,7 @@ use App\Models\Factory;
 use App\Models\Stall;
 use App\Models\Celebrity;
 use App\Models\Log;
+use App\Models\FansProfile;
 use App\Models\Picture;
 use App\Models\ProductPicture;
 use Illuminate\Support\Facades\Redirect;

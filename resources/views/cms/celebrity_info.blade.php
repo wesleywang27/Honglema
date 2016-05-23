@@ -9,60 +9,100 @@
     <ul class="admin_tab">
         <li><a class="active">基本信息</a></li>
         <li><a>图片信息</a></li>
+        <li><a>统计信息</a></li>
     </ul>
     <!--tabCont-->
     <div class="admin_tab_cont" style="display:block;">
         <!--左右分栏：左侧栏目-->
-        <table border="2" width="95%" height="300" style="margin: 20px;">
+        <table border="2" width="95%" height="360" style="margin: 20px;">
             <tr>
-                <th width="15%">姓名：</th>
-                <td width="17%">{{ $celebrity->username}}</td>
-                <th width="15%">手机号码：</th>
-                <td width="17%">{{ $celebrity->mobile}}</td>
-                <th width="15%">微信号：</th>
-                <td>{{ $celebrity->weixinNo}}</td>
-            </tr>
-            <tr>
-                <th>职位：</th>
-                <td>{{ $celebrity->title}}</td>
-                <th>档口名称：</th>
-                <td>{{ $celebrity->celebrityName}}</td>
-                <th>档口号：</th>
-                <td>{{ $celebrity->celebrityNum}}</td>
-            </tr>
-            <tr>
-                <th>档口地址(杭州/广州)：</th>
-                <td colspan="5">{{ $celebrity->city}}{{ $celebrity->celebrity}}</td>
-            </tr>
-            <tr>
-                <th>档口地址(其它)：</th>
-                <td colspan="5">{{ $celebrity->province}}{{ $celebrity->celebrityCity}}{{ $celebrity->region}}{{ $celebrity->address}}</td>
-            </tr>
-            <tr>
-                <th>档口服装风格：</th>
-                <td>{{ $celebrity->style}}</td>
-                <th>档口服装类目：</th>
-                <td>{{ $celebrity->category}}</td>
-                <th>是否支持一件代发：</th>
-                @if ($celebrity->shipmentOK == 1)
-                <td>是</td>
+                <th width="12%">网络昵称：</th>
+                <td width="13%">{{ $celebrity->nickname}}</td>
+                <th width="12%">真实姓名：</th>
+                <td width="13%">{{ $celebrity->realname}}</td>
+                <th width="12%">性别：</th>
+                @if ($celebrity->sex == 1)
+                <td width="13%">女</td>
                 @else
-                <td>否</td>
+                <td width="13%">男</td>
+                @endif
+                <th width="12%">生日：</th>
+                <td width="13%">{{ $celebrity->birthday}}</td>
+            </tr>
+            <tr>
+                <th width="12%">城市：</th>
+                <td width="13%">{{ $celebrity->city}}</td>
+                <th width="12%">学历：</th>
+                <td width="13%">{{ $celebrity->education}}</td>
+                <th width="12%">身高：</th>
+                <td width="13%">{{ $celebrity->height}}</td>
+                <th width="12%">体重：</th>
+                <td width="13%">{{ $celebrity->weight}}</td>
+            </tr>
+            <tr>
+                <th width="12%">胸围：</th>
+                <td width="13%">{{ $celebrity->bust}}</td>
+                <th width="12%">腰围：</th>
+                <td width="13%">{{ $celebrity->waist}}</td>
+                <th width="12%">臀围：</th>
+                <td width="13%">{{ $celebrity->hop}}</td>
+                <th width="12%">年收入：</th>
+                @if ($celebrity->annual_income == 0)
+                <td width="13%">10万以下</td>
+                @elseif ($celebrity->annual_income == 1)
+                <td width="13%">10~30万</td>
+                @elseif ($celebrity->annual_income == 2)
+                <td width="13%">30~50万</td>
+                @elseif ($celebrity->annual_income == 3)
+                <td width="13%">50万以上</td>
                 @endif
             </tr>
             <tr>
-                <th>红了吗对接人：</th>
-                <td>{{ $celebrity->contact}}</td>
-                <th></th>
-                <td></td>
-                <th></th>
-                <td></td>
+                <th width="12%">职业：</th>
+                <td width="13%">{{ $celebrity->occupation}}</td>
+                <th width="12%">手机号码：</th>
+                <td width="13%">{{ $celebrity->cellphone}}</td>
+                <th width="12%">微信账号：</th>
+                <td width="13%">{{ $celebrity->wechat_id}}</td>
+                <th width="12%">微博账号：</th>
+                <td width="13%">{{ $celebrity->weibo_nickname}}</td>
+            </tr>
+            <tr>
+                <th width="12%">全网粉丝数量：</th>
+                <td width="13%">{{ $celebrity->total_fans_num}}</td>
+                <th width="12%">微博粉丝数量：</th>
+                <td width="13%">{{ $celebrity->weibo_fans_num}}</td>
+                <th width="12%">微拍粉丝数量：</th>
+                <td width="13%">{{ $celebrity->weipai_fans_num}}</td>
+                <th width="12%">美拍粉丝数量：</th>
+                <td width="13%">{{ $celebrity->meipai_fans_num}}</td>
+            </tr>
+            <tr>
+                <th width="12%">快手粉丝数量：</th>
+                <td width="13%">{{ $celebrity->kuaishou_fans_num}}</td>
+                <th width="12%">秒拍粉丝数量：</th>
+                <td width="13%">{{ $celebrity->miaopai_fans_num}}</td>
+                <th width="12%">标签：</th>
+                <td width="13%">{{ $celebrity->tags}}</td>
+                <th width="12%">特长：</th>
+                <td width="13%">{{ $celebrity->skills}}</td>
+            </tr>
+            <tr>
+                <th width="12%">联系地址：</th>
+                <td colspan="3">{{ $celebrity->address}}</td>
+                <th width="12%">性格：</th>
+                <td colspan="3">{{ $celebrity->personality}}</td>
+            </tr>
+            <tr>
+                <th width="12%">经历：</th>
+                <td colspan="7">{{ $celebrity->experience}}</td>
             </tr>
         </table>
         <a href="#" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn" style="float: right; margin-right: 40px;"/></a>
         <a href="#"><input type="button" value="修改" class="link_btn" style="float: right; margin-right: 5px;"/></a>
         <a href="javascript:history.back();" style="float: right; margin-right: 5px;"><input type="button" value="返回" class="link_btn"/></a>
     </div>
+
     <div class="admin_tab_cont">
         <form action="#" method="post">
             <div class="container">
@@ -85,6 +125,10 @@
         </form>
         <script src="/js/jquery-1.9.1.min.js"></script>
         <script src="/js/zoom.min.js"></script>
+    </div>
+
+    <div class="admin_tab_cont">
+
     </div>
 </section>
 <!--tabStyle-->

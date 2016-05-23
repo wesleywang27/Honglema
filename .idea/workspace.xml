@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="修改">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/cms/celebrity.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/cms/celebrity_info.blade.php" />
+    <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/banner.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/banner.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/celebrity_info.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/celebrity_info.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,9 +41,11 @@
       <file leaf-file-name="CMSController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-              <folding />
+            <state relative-caret-position="255">
+              <caret line="1173" column="65" selection-start-line="1173" selection-start-column="65" selection-end-line="1173" selection-end-column="65" />
+              <folding>
+                <element signature="e#123#132#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,10 +72,10 @@
       <file leaf-file-name="celebrity_info.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/cms/celebrity_info.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="908">
-              <caret line="54" column="33" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
+            <state relative-caret-position="190">
+              <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
               <folding>
-                <marker date="1463984618589" expanded="true" signature="4927:4953" placeholder="..." />
+                <marker date="1463987932984" expanded="true" signature="7027:7053" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -289,6 +288,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="honglema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="honglema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -958,14 +975,7 @@
       <workItem from="1463536181419" duration="4490000" />
       <workItem from="1463554258151" duration="1496000" />
       <workItem from="1463566041153" duration="2823000" />
-      <workItem from="1463974446904" duration="5516000" />
-    </task>
-    <task id="LOCAL-00102" summary="界面优化">
-      <created>1462266863081</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1462266863081</updated>
+      <workItem from="1463974446904" duration="9045000" />
     </task>
     <task id="LOCAL-00103" summary="修改分页bug">
       <created>1462342881110</created>
@@ -1303,11 +1313,18 @@
       <option name="project" value="LOCAL" />
       <updated>1463554346901</updated>
     </task>
-    <option name="localTasksCounter" value="151" />
+    <task id="LOCAL-00151" summary="红人信息列表">
+      <created>1463984710252</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1463984710252</updated>
+    </task>
+    <option name="localTasksCounter" value="152" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="402740000" />
+    <option name="totallyTimeSpent" value="406269000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1363,7 +1380,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="优化设计师搜索" />
     <MESSAGE value="小修改" />
     <MESSAGE value="界面优化" />
     <MESSAGE value="修改分页bug" />
@@ -1388,7 +1404,8 @@
     <MESSAGE value="忘记密码" />
     <MESSAGE value="密码重置邮件" />
     <MESSAGE value="修改&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改&#10;" />
+    <MESSAGE value="红人信息列表" />
+    <option name="LAST_COMMIT_MESSAGE" value="红人信息列表" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1401,37 +1418,13 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4104">
-          <caret line="225" column="49" selection-start-line="225" selection-start-column="49" selection-end-line="225" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/login.php" />
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4104">
-          <caret line="225" column="49" selection-start-line="225" selection-start-column="49" selection-end-line="225" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/login.php" />
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#123#132#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1448,7 +1441,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#123#132#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4104">
+          <caret line="225" column="49" selection-start-line="225" selection-start-column="49" selection-end-line="225" selection-end-column="49" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/login.php" />
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#123#132#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1465,7 +1479,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1159">
           <caret line="66" column="58" selection-start-line="66" selection-start-column="58" selection-end-line="66" selection-end-column="58" />
-          <folding />
+          <folding>
+            <element signature="e#123#132#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1520,7 +1536,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2261">
           <caret line="124" column="5" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#123#132#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1537,7 +1555,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#123#132#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1693,11 +1713,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/stall_info.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="152">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding>
+            <marker date="1462515419955" expanded="true" signature="5070:5096" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/brand_info.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1462428603452" expanded="true" signature="5976:6002" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1718,22 +1750,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/stall_info.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Models/FansProfile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="1173" column="65" selection-start-line="1173" selection-start-column="65" selection-end-line="1173" selection-end-column="65" />
           <folding>
-            <marker date="1462515419955" expanded="true" signature="5070:5096" placeholder="..." />
+            <element signature="e#123#132#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/celebrity_info.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="908">
-          <caret line="54" column="33" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
+        <state relative-caret-position="190">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
           <folding>
-            <marker date="1463984618589" expanded="true" signature="4927:4953" placeholder="..." />
+            <marker date="1463987932984" expanded="true" signature="7027:7053" placeholder="..." />
           </folding>
         </state>
       </provider>
