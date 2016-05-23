@@ -1162,7 +1162,7 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login');
         }
     }
-    //红人详情页
+    //红人详情页面
     public function celebrity_info($id){
         session_start();
         if(isset($_SESSION['username'])){
@@ -1174,6 +1174,24 @@ class CMSController extends Controller{
                 $celebrity = Celebrity::where('id',$id)->first();
                 $picture = Picture::where('uid',$id)->get();
                 return view('cms/celebrity_info',['celebrity' => $celebrity, 'pictures' => $picture]);
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login');
+        }
+    }
+    //红人信息修改页
+    public function modifyCelebrityInfo($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            if($_SESSION['celebrity_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $celebrity = Celebrity::where('id',$id)->first();
+                $picture = Picture::where('uid',$id)->get();
+                return view('/cms/celebrity_modify',['celebrity' => $celebrity, 'pictures' => $picture]);
             }
         }
         else{

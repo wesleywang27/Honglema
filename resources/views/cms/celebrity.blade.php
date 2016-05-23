@@ -26,7 +26,7 @@
         <td style="width:120px;">{{ $celebrity->occupation}}</td>
         <td style="text-align:center">
             <a href="{{URL::action('CMSController@celebrity_info', ['id' => $celebrity->id]) }}"><input type="button" value="查看" class="link_btn"/></a>
-            <a href="#"><input type="button" value="修改" class="link_btn"/></a>
+            <a href="{{URL::action('CMSController@modifyCelebrityInfo', ['id' => $celebrity->id]) }}"><input type="button" value="修改" class="link_btn"/></a>
             <a href="#" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
         </td>
     </tr>
@@ -34,7 +34,7 @@
 </table>
 <aside class="paging">
     <a href="{{ url('/cms/celebrity_export') }}" style="float: left;" >导出Excel</a>
-    <a href="/cms/celebrity_create" style="float: left;margin-left: 10px;" >添加档口</a>
+    <a href="/cms/celebrity_create" style="float: left;margin-left: 10px;" >添加红人</a>
 
     <a class="{{ ($celebrities->currentPage() == 1) ? ' disabled' : '' }}" href="{{ $celebrities->url(1) }}">首页</a>
 
