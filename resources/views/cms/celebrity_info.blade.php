@@ -104,7 +104,7 @@
     </div>
 
     <div class="admin_tab_cont">
-        <form action="#" method="post">
+        <form action="{{URL::action('CMSController@updateCelebrityImg', ['id' => $celebrity->id]) }}" method="post">
             <div class="container">
                 <ul class="gallery">
                     @foreach ($pictures as $picture)

@@ -1194,7 +1194,7 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login');
         }
     }
-    //修改档口信息
+    //修改红人信息
     public function updateCelebrityInfo($id){
         session_start();
         if(isset($_SESSION['username'])) {
@@ -1293,5 +1293,51 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login');
         }
     }
-    
+    //修改红人图片信息
+    public function updateCelebrityImg($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            if($_SESSION['celebrity_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $celebrity = Celebrity::where('id',$id)->first();
+                if(Input::has('img')){
+                    $image = Input::get('img');
+                    foreach ($image as $img){
+                        Picture::where('uid',$id)->where('url',$img)->delete();
+                    }
+                }
+
+                $pictures = [];
+                if(Input::has('itemImage')){
+                    foreach (Input::get('itemImage') as $img) {
+                        $picture = new Picture();
+                        $picture->uid = $id;
+                        $picture->url = $img;
+                        $picture->file_id = pathinfo($img)['filename'].'.jpg';
+                        $picture->upload_time = time();
+                        $pictures[] = $picture;
+                    }
+                }
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'update';
+                $log->operated_data = '红人图片';
+                $log->operated_username = $celebrity->realname;
+                $log->save();
+
+                $celebrity->pictures()->saveMany($pictures);
+
+                $picture = Picture::where('uid',$id)->get();
+
+                return Redirect::intended("/cms/celebrity_info/$id")->with(['celebrity' => $celebrity, 'pictures' => $picture]);
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login');
+        }
+    }
 }
