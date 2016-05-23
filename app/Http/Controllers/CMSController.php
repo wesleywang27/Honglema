@@ -941,7 +941,7 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login');
         }
     }
-    //档口修改信息
+    //修改档口信息
     public function updateStallInfo($id){
         session_start();
         if(isset($_SESSION['username'])) {
@@ -1192,6 +1192,64 @@ class CMSController extends Controller{
                 $celebrity = Celebrity::where('id',$id)->first();
                 $picture = Picture::where('uid',$id)->get();
                 return view('/cms/celebrity_modify',['celebrity' => $celebrity, 'pictures' => $picture]);
+            }
+        }
+        else{
+            return Redirect::intended('/cms/login');
+        }
+    }
+    //修改档口信息
+    public function updateCelebrityInfo($id){
+        session_start();
+        if(isset($_SESSION['username'])) {
+            if ($_SESSION['celebrity_right'] == 0) {
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $celebrity = Celebrity::where('id',$id)->first();
+                $celebrity->nickname = Input::get('nickname');
+                $celebrity->realname = Input::get('realname');
+                if(Input::get('sex') == '女')
+                    $celebrity->sex = 1;
+                else
+                    $celebrity->sex = 0;
+                $celebrity->birthday = Input::get('birthday');
+                $celebrity->city = Input::get('city');
+                $celebrity->education = Input::get('education');
+                $celebrity->height = Input::get('height');
+                $celebrity->weight = Input::get('weight');
+                $celebrity->bust = Input::get('bust');
+                $celebrity->waist = Input::get('waist');
+                $celebrity->hop = Input::get('hop');
+                $celebrity->annual_income = Input::get('annual_income');
+                $celebrity->occupation = Input::get('occupation');
+                $celebrity->cellphone = Input::get('cellphone');
+                $celebrity->wechat_id = Input::get('wechat_id');
+                $celebrity->weibo_nickname = Input::get('weibo_nickname');
+                $celebrity->total_fans_num = Input::get('total_fans_num');
+                $celebrity->weibo_fans_num = Input::get('weibo_fans_num');
+                $celebrity->weipai_fans_num = Input::get('weipai_fans_num');
+                $celebrity->meipai_fans_num = Input::get('meipai_fans_num');
+                $celebrity->kuaishou_fans_num = Input::get('kuaishou_fans_num');
+                $celebrity->miaopai_fans_num = Input::get('miaopai_fans_num');
+                $celebrity->tags = Input::get('tags');
+                $celebrity->skills = Input::get('skills');
+                $celebrity->address = Input::get('address');
+                $celebrity->personality = Input::get('personality');
+                $celebrity->experience = Input::get('experience');
+
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'update';
+                $log->operated_data = '红人信息';
+                $log->operated_username = $celebrity->realname;
+                $log->save();
+
+                $celebrity->save();
+
+                $picture = Picture::where('uid',$id)->get();
+                return Redirect::intended("/cms/celebrity_info/$id")->with(['celebrity' => $celebrity, 'pictures' => $picture]);
             }
         }
         else{

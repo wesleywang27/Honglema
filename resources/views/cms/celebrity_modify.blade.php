@@ -14,7 +14,7 @@
     <!--tabCont-->
     <div class="admin_tab_cont" style="display:block;">
         <!--左右分栏：左侧栏目-->
-        <form action="" method="post">
+        <form action="{{URL::action('CMSController@updateCelebrityInfo', ['id' => $celebrity->id]) }}" method="post">
         <table border="2" width="95%" height="360" style="margin: 20px;">
             <tr>
                 <th width="12%">网络昵称：</th>
@@ -99,9 +99,9 @@
                 <td colspan="7"><textarea style="width: 99.5%;height: 40px;margin-top: -8px; margin-bottom: -10px;" name="experience" >{{ $celebrity->experience}}</textarea></td>
             </tr>
         </table>
+            <input type="submit" value="保存" class="link_btn" style="float: right; margin-right: 40px;"/>
+            <a href="javascript:history.back();" style="float: right; margin-right: 5px;"><input type="button" value="返回" class="link_btn"/></a>
         </form>
-        <input type="submit" value="保存" class="link_btn" style="float: right; margin-right: 40px;"/>
-        <a href="javascript:history.back();" style="float: right; margin-right: 5px;"><input type="button" value="返回" class="link_btn"/></a>
     </div>
 
     <div class="admin_tab_cont">
