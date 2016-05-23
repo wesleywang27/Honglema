@@ -186,6 +186,8 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::get('/cms/stall/{name?}/{category?}',"CMSController@searchStall");
 
+    Route::get('/cms/celebrity/{name?}/{category?}',"CMSController@searchCelebrity");
+
     //图片修改入口
     Route::post('/cms/factory_updateImg/{id?}',"CMSController@updateFactoryImg");
 
@@ -194,6 +196,8 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::post('/cms/designer_updateImg/{id?}',"CMSController@updateDesignerImg");
 
     Route::post('/cms/stall_updateImg/{id?}',"CMSController@updateStallImg");
+
+    Route::post('/cms/celebrity_updateImg/{id?}',"CMSController@updateCelebrityImg");
 
     //商家添加页
     Route::get('/cms/factory_create',"CMSController@createFactoryIndex");

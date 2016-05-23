@@ -1144,22 +1144,14 @@ class CMSController extends Controller{
                 return;
             }
             else{
-                /*
                 if(Input::has('name')){
                     $name = Input::has('name') ? Input::get('name') : 'all';
-                    return Redirect::to("/cms/stall/$name/all");
+                    return Redirect::to("/cms/celebrity/$name/all");
                 }
                 else{
-                    $user = User::where('name',$_SESSION['username'])->first();
-                    if($user->contact_only == 0)
-                        $stall = Stall::paginate(10);
-                    else
-                        $stall = Stall::where('contact',$user->nickname)->paginate(10);
-                    return view('/cms/stall')->with(['stalls' => $stall ,'name' => 'all']);
+                    $celebrity = Celebrity::paginate(10);
+                    return view('/cms/celebrity')->with(['celebrities' => $celebrity ,'name' => 'all']);
                 }
-                */
-                $celebrity = Celebrity::paginate(10);
-                return view('/cms/celebrity',['celebrities' => $celebrity]);
             }
         }
         else{
@@ -1289,4 +1281,17 @@ class CMSController extends Controller{
             return Redirect::intended('/cms/login');
         }
     }
+    //查找红人信息
+    public function searchCelebrity($name){
+        session_start();
+        if(isset($_SESSION['username'])){
+            $n = ($name != 'all') ? $name : '%';
+            $celebrity = Celebrity::where('realname','like','%'.$n.'%')->paginate(10);
+            return view('/cms/celebrity',['celebrities' => $celebrity ,'name' => $name]);
+        }
+        else{
+            return Redirect::intended('/cms/login');
+        }
+    }
+    
 }
