@@ -9,6 +9,7 @@
     <ul class="admin_tab">
         <li><a class="active">基本信息</a></li>
         <li><a>图片信息</a></li>
+        <li><a>统计信息</a></li>
     </ul>
     <!--tabCont-->
     <div class="admin_tab_cont" style="display:block;">
@@ -126,6 +127,87 @@
         </form>
         <script src="/js/jquery-1.9.1.min.js"></script>
         <script src="/js/zoom.min.js"></script>
+    </div>
+
+    <div class="admin_tab_cont">
+        <div id="pie-wrapper">
+            <input type="hidden" id="age1" value="{{ $fan_profile->fans_age_group1 }}"/>
+            <input type="hidden" id="age2" value="{{ $fan_profile->fans_age_group2 }}"/>
+            <input type="hidden" id="age3" value="{{ $fan_profile->fans_age_group3 }}"/>
+            <input type="hidden" id="age4" value="{{ $fan_profile->fans_age_group4 }}"/>
+        </div>
+        <script type="text/javascript" src="/js/jquery.piechart.js"></script>
+        <script type="text/javascript">
+            var age1 = document.getElementById("age1").value;
+            var age2 = document.getElementById("age2").value;
+            var age3 = document.getElementById("age3").value;
+            var age4 = document.getElementById("age4").value;
+            $('#pie-wrapper').piechart({
+                piedata:["19岁及以下","20-29岁","30-39岁","40岁及以上"],
+                pievalue:[age1,age2,age3,age4],
+                piecolor:["red","blue","green","yellow"],
+                label: "粉丝年龄分布统计"
+            });
+        </script>
+
+        <div id="horizontalbar-chart-wrapper">
+            <input type="hidden" id="num" value="{{ $fan_profile->total_fans }}"/>
+            <input type="hidden" id="city1" value="{{ $fan_profile->fans_city1 }}"/>
+            <input type="hidden" id="num1" value="{{ $fan_profile->fans_num_city1 }}"/>
+            <input type="hidden" id="city2" value="{{ $fan_profile->fans_city2 }}"/>
+            <input type="hidden" id="num2" value="{{ $fan_profile->fans_num_city2 }}"/>
+            <input type="hidden" id="city3" value="{{ $fan_profile->fans_city3 }}"/>
+            <input type="hidden" id="num3" value="{{ $fan_profile->fans_num_city3 }}"/>
+            <input type="hidden" id="city4" value="{{ $fan_profile->fans_city4 }}"/>
+            <input type="hidden" id="num4" value="{{ $fan_profile->fans_num_city4 }}"/>
+            <input type="hidden" id="city5" value="{{ $fan_profile->fans_city5 }}"/>
+            <input type="hidden" id="num5" value="{{ $fan_profile->fans_num_city5 }}"/>
+            <input type="hidden" id="city6" value="{{ $fan_profile->fans_city6 }}"/>
+            <input type="hidden" id="num6" value="{{ $fan_profile->fans_num_city6 }}"/>
+            <input type="hidden" id="city7" value="{{ $fan_profile->fans_city7 }}"/>
+            <input type="hidden" id="num7" value="{{ $fan_profile->fans_num_city7 }}"/>
+            <input type="hidden" id="city8" value="{{ $fan_profile->fans_city8 }}"/>
+            <input type="hidden" id="num8" value="{{ $fan_profile->fans_num_city8 }}"/>
+            <input type="hidden" id="city9" value="{{ $fan_profile->fans_city9 }}"/>
+            <input type="hidden" id="num9" value="{{ $fan_profile->fans_num_city9 }}"/>
+            <input type="hidden" id="city10" value="{{ $fan_profile->fans_city10 }}"/>
+            <input type="hidden" id="num10" value="{{ $fan_profile->fans_num_city10 }}"/>
+        </div>
+        <p id="horizontalbar-label">粉丝所在城市分布</p>
+        <script type="text/javascript" src="/js/jquery.horizontalchart.js"></script>
+        <script type="text/javascript">
+            var num = document.getElementById("num").value;
+            var city1 = document.getElementById("city1").value;
+            var num1 = document.getElementById("num1").value;
+            var city2 = document.getElementById("city2").value;
+            var num2 = document.getElementById("num2").value;
+            var city3 = document.getElementById("city3").value;
+            var num3 = document.getElementById("num3").value;
+            var city4 = document.getElementById("city4").value;
+            var num4 = document.getElementById("num4").value;
+            var city5 = document.getElementById("city5").value;
+            var num5 = document.getElementById("num5").value;
+            var city6 = document.getElementById("city6").value;
+            var num6 = document.getElementById("num6").value;
+            var city7 = document.getElementById("city7").value;
+            var num7 = document.getElementById("num7").value;
+            var city8 = document.getElementById("city8").value;
+            var num8 = document.getElementById("num8").value;
+            var city9 = document.getElementById("city9").value;
+            var num9 = document.getElementById("num9").value;
+            var city10 = document.getElementById("city10").value;
+            var num10 = document.getElementById("num10").value;
+            $('#horizontalbar-chart-wrapper').horizontalchart({
+                YData: [city1,city2,city3,city4,city5,city6,city7,city8,city9,city10],
+                XData: [0,10,20,30,40,50,60,70,80,90,100],
+                bar: [
+                    parseInt(num1/num*100),parseInt(num2/num*100),parseInt(num3/num*100),parseInt(num4/num*100),
+                    parseInt(num5/num*100),parseInt(num6/num*100),parseInt(num7/num*100),parseInt(num8/num*100),
+                    parseInt(num9/num*100),parseInt(num10/num*100)
+                ],
+                suffix: "%"
+            });
+        </script>
     </div>
 </section>
 <!--tabStyle-->

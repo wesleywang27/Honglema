@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/celebrity_info.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/celebrity_info.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/celebrity_modify.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/celebrity_modify.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,11 +38,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="celebrity_info.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CMSController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="337">
+              <caret line="1238" column="69" selection-start-line="1238" selection-start-column="69" selection-end-line="1238" selection-end-column="69" />
+              <folding>
+                <element signature="e#123#132#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="celebrity_info.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/cms/celebrity_info.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="198" column="84" selection-start-line="198" selection-start-column="84" selection-end-line="198" selection-end-column="84" />
+            <state relative-caret-position="383">
+              <caret line="208" column="10" selection-start-line="208" selection-start-column="10" selection-end-line="208" selection-end-column="10" />
               <folding>
                 <marker date="1464069656897" expanded="true" signature="12244:12270" placeholder="..." />
               </folding>
@@ -49,13 +62,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="celebrity_modify.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="celebrity_modify.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/cms/celebrity_modify.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="128" column="10" selection-start-line="128" selection-start-column="10" selection-end-line="128" selection-end-column="10" />
+            <state relative-caret-position="209">
+              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
               <folding>
-                <marker date="1464063484889" expanded="true" signature="9605:9631" placeholder="..." />
+                <marker date="1464069848475" expanded="true" signature="14710:14736" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -131,11 +144,11 @@
         <option value="$PROJECT_DIR$/resources/views/cms/user_right.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ExcelController.php" />
-        <option value="$PROJECT_DIR$/resources/views/cms/celebrity_modify.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/banner.blade.php" />
         <option value="$PROJECT_DIR$/public/css/horizontal-bar.css" />
         <option value="$PROJECT_DIR$/resources/views/cms/celebrity_info.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
+        <option value="$PROJECT_DIR$/resources/views/cms/celebrity_modify.blade.php" />
       </list>
     </option>
   </component>
@@ -938,14 +951,7 @@
       <workItem from="1463554258151" duration="1496000" />
       <workItem from="1463566041153" duration="2823000" />
       <workItem from="1463974446904" duration="18272000" />
-      <workItem from="1464059197288" duration="8886000" />
-    </task>
-    <task id="LOCAL-00114" summary="修改档口注册信息详情页">
-      <created>1462512650252</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1462512650252</updated>
+      <workItem from="1464059197288" duration="9035000" />
     </task>
     <task id="LOCAL-00115" summary="修改档口注册信息详情页">
       <created>1462515522752</created>
@@ -1283,11 +1289,18 @@
       <option name="project" value="LOCAL" />
       <updated>1464066895452</updated>
     </task>
-    <option name="localTasksCounter" value="163" />
+    <task id="LOCAL-00163" summary="红人信息统计">
+      <created>1464069709798</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1464069709798</updated>
+    </task>
+    <option name="localTasksCounter" value="164" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="424382000" />
+    <option name="totallyTimeSpent" value="424531000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1673,31 +1686,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/celebrity_modify.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="128" column="10" selection-start-line="128" selection-start-column="10" selection-end-line="128" selection-end-column="10" />
-          <folding>
-            <marker date="1464063484889" expanded="true" signature="9605:9631" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/banner.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" column="74" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="74" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="1220" column="130" selection-start-line="1220" selection-start-column="130" selection-end-line="1220" selection-end-column="130" />
-          <folding>
-            <element signature="e#123#132#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1719,10 +1712,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/celebrity_info.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="198" column="84" selection-start-line="198" selection-start-column="84" selection-end-line="198" selection-end-column="84" />
+        <state relative-caret-position="383">
+          <caret line="208" column="10" selection-start-line="208" selection-start-column="10" selection-end-line="208" selection-end-column="10" />
           <folding>
             <marker date="1464069656897" expanded="true" signature="12244:12270" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="1238" column="69" selection-start-line="1238" selection-start-column="69" selection-end-line="1238" selection-end-column="69" />
+          <folding>
+            <element signature="e#123#132#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/celebrity_modify.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding>
+            <marker date="1464069848475" expanded="true" signature="14710:14736" placeholder="..." />
           </folding>
         </state>
       </provider>
