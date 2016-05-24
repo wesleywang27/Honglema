@@ -55,10 +55,12 @@ Route::group(['middleware' => ['web']], function () {
  *红了吗商家注册入口
  */
 
-Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+//Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     
     //首页
     Route::get('/', 'IndexController@index');
+    
+    Route::get('/login','IndexController@login');
 
     //工厂
     Route::get('/factory_index', 'FactoryController@index');
@@ -95,7 +97,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/stall_modify', 'StallController@modifyStall');
 
     Route::post('/stall_modify', 'StallController@updateStall');
-});
+//});
 
 /*
  * 红了吗后台管理系统入口
