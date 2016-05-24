@@ -9,7 +9,6 @@
     <ul class="admin_tab">
         <li><a class="active">基本信息</a></li>
         <li><a>图片信息</a></li>
-        <li><a>统计信息</a></li>
     </ul>
     <!--tabCont-->
     <div class="admin_tab_cont" style="display:block;">
@@ -127,10 +126,6 @@
         </form>
         <script src="/js/jquery-1.9.1.min.js"></script>
         <script src="/js/zoom.min.js"></script>
-    </div>
-
-    <div class="admin_tab_cont">
-
     </div>
 </section>
 <!--tabStyle-->

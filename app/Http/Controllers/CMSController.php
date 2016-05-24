@@ -1217,7 +1217,8 @@ class CMSController extends Controller{
             else{
                 $celebrity = Celebrity::where('id',$id)->first();
                 $picture = Picture::where('uid',$id)->get();
-                return view('cms/celebrity_info',['celebrity' => $celebrity, 'pictures' => $picture]);
+                $fan_profile = FansProfile::where('id',$id)->first();
+                return view('cms/celebrity_info',['celebrity' => $celebrity, 'pictures' => $picture, 'fan_profile' => $fan_profile]);
             }
         }
         else{

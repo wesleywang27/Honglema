@@ -6,6 +6,10 @@
     <meta name="author" content="DeathGhost" />
     <link rel="stylesheet" type="text/css" href="/css/cms_style.css" />
     <link rel="stylesheet"  href="/css/zoom.css" media="all" />
+
+    <link rel="stylesheet" type="text/css" href="/css/pie-graph.css">
+    <link rel="stylesheet" type="text/css" href="/css/horizontal-bar.css">
+    
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->

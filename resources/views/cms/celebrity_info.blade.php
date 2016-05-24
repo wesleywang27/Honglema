@@ -128,12 +128,61 @@
     </div>
 
     <div class="admin_tab_cont">
+        <div id="pie-wrapper">
+            <input type="hidden" id="age1" value="{{ $fan_profile->fans_age_group1 }}"/>
+            <input type="hidden" id="age2" value="{{ $fan_profile->fans_age_group2 }}"/>
+            <input type="hidden" id="age3" value="{{ $fan_profile->fans_age_group3 }}"/>
+            <input type="hidden" id="age4" value="{{ $fan_profile->fans_age_group4 }}"/>
+        </div>
+        <script type="text/javascript" src="/js/jquery.piechart.js"></script>
+        <script type="text/javascript">
+            var age1 = document.getElementById("age1").value;
+            var age2 = document.getElementById("age2").value;
+            var age3 = document.getElementById("age3").value;
+            var age4 = document.getElementById("age4").value;
+            $('#pie-wrapper').piechart({
+                piedata:["19岁及以下","20-29岁","30-39岁","40岁及以上"],
+                pievalue:[age1,age2,age3,age4],
+                piecolor:["red","blue","green","yellow"],
+                label: "粉丝年龄分布统计"
+            });
+        </script>
 
+        <div id="horizontalbar-chart-wrapper">
+            <input type="hidden" id="num" value="{{ $fan_profile->total_fans }}"/>
+            <input type="hidden" id="city1" value="{{ $fan_profile->fans_city1 }}"/>
+            <input type="hidden" id="num1" value="{{ $fan_profile->fans_num_city1 }}"/>
+            <input type="hidden" id="city2" value="{{ $fan_profile->fans_city2 }}"/>
+            <input type="hidden" id="num2" value="{{ $fan_profile->fans_num_city2 }}"/>
+            <input type="hidden" id="city3" value="{{ $fan_profile->fans_city3 }}"/>
+            <input type="hidden" id="num3" value="{{ $fan_profile->fans_num_city3 }}"/>
+            <input type="hidden" id="city4" value="{{ $fan_profile->fans_city4 }}"/>
+            <input type="hidden" id="num4" value="{{ $fan_profile->fans_num_city4 }}"/>
+        </div>
+        <p id="horizontalbar-label">粉丝所在城市分布</p>
+        <script type="text/javascript" src="/js/jquery.horizontalchart.js"></script>
+        <script type="text/javascript">
+            var num = document.getElementById("num").value;
+            var city1 = document.getElementById("city1").value;
+            var num1 = document.getElementById("num1").value;
+            var city2 = document.getElementById("city2").value;
+            var num2 = document.getElementById("num2").value;
+            var city3 = document.getElementById("city3").value;
+            var num3 = document.getElementById("num3").value;
+            var city4 = document.getElementById("city4").value;
+            var num4 = document.getElementById("num4").value;
+            $('#horizontalbar-chart-wrapper').horizontalchart({
+                YData: [city1,city2,city3,city4],
+                XData: [0,10,20,30,40,50,60,70,80,90,100],
+                bar: [num1/num*100,num2/num*100,num3/num*100,num4/num*100],
+                suffix: "%"
+            });
+        </script>
     </div>
 </section>
 <!--tabStyle-->
 
-<script type="text/javascript" src="http://y.wcc.cn/statics/amazeui/js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 <script type="text/javascript" src="/js/ajaxfileupload.js" charset="utf-8"></script>
 <script>
     $(document).ready(function(){
