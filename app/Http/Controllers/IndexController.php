@@ -7,8 +7,8 @@
  */
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\Http\Request;
 use App\Http\Requests;
+use Illuminate\Contracts\Http\Request;
 use EasyWeChat\Foundation\Application;
 
 class IndexController extends Controller{

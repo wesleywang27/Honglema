@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,42 +30,20 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1786">
+            <state relative-caret-position="1105">
               <caret line="103" column="61" selection-start-line="103" selection-start-column="61" selection-end-line="103" selection-end-column="61" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/index.blade.php">
+      <file leaf-file-name="IndexController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/IndexController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CMSController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="1229" column="24" selection-start-line="1229" selection-start-column="24" selection-end-line="1229" selection-end-column="24" />
+            <state relative-caret-position="114">
+              <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
               <folding>
-                <element signature="e#123#132#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stall_info.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/cms/stall_info.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="68" column="36" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
-              <folding>
-                <marker date="1462515419955" expanded="true" signature="5070:5096" placeholder="..." />
+                <element signature="e#122#144#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,7 +93,6 @@
         <option value="$PROJECT_DIR$/resources/views/brand.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/factory.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/designer.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" />
         <option value="$PROJECT_DIR$/app/Models/Log.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/log.blade.php" />
         <option value="$PROJECT_DIR$/composer.json" />
@@ -138,7 +115,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/user_create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/user_right.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ExcelController.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/banner.blade.php" />
         <option value="$PROJECT_DIR$/public/css/horizontal-bar.css" />
@@ -146,6 +122,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/celebrity_modify.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" />
       </list>
     </option>
   </component>
@@ -244,28 +222,6 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="honglema" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="honglema" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -296,6 +252,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="honglema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="honglema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Middleware" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -948,14 +926,7 @@
       <workItem from="1463554258151" duration="1496000" />
       <workItem from="1463566041153" duration="2823000" />
       <workItem from="1463974446904" duration="18272000" />
-      <workItem from="1464059197288" duration="10551000" />
-    </task>
-    <task id="LOCAL-00116" summary="修改">
-      <created>1462516219941</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1462516219941</updated>
+      <workItem from="1464059197288" duration="12976000" />
     </task>
     <task id="LOCAL-00117" summary="修改品牌商注册信息详情页">
       <created>1462518930380</created>
@@ -1293,11 +1264,18 @@
       <option name="project" value="LOCAL" />
       <updated>1464069859446</updated>
     </task>
-    <option name="localTasksCounter" value="165" />
+    <task id="LOCAL-00165" summary="修改">
+      <created>1464071387663</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1464071387663</updated>
+    </task>
+    <option name="localTasksCounter" value="166" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="426047000" />
+    <option name="totallyTimeSpent" value="428472000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1358,7 +1336,6 @@
     <MESSAGE value="添加创建档口模块" />
     <MESSAGE value="添加创建设计师模块" />
     <MESSAGE value="添加创建品牌商模块" />
-    <MESSAGE value="修改" />
     <MESSAGE value="添加工厂操作日志" />
     <MESSAGE value="添加品牌商操作日志" />
     <MESSAGE value="添加日志列表" />
@@ -1378,7 +1355,8 @@
     <MESSAGE value="用户访问红人权限" />
     <MESSAGE value="红人信息导出" />
     <MESSAGE value="红人信息统计" />
-    <option name="LAST_COMMIT_MESSAGE" value="红人信息统计" />
+    <MESSAGE value="修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1391,54 +1369,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3800">
-          <caret line="209" column="0" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4104">
-          <caret line="225" column="22" selection-start-line="225" selection-start-column="22" selection-end-line="225" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2261">
-          <caret line="124" column="5" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
-          <folding>
-            <element signature="e#123#132#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/login.php" />
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1711,24 +1641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1786">
-          <caret line="103" column="61" selection-start-line="103" selection-start-column="61" selection-end-line="103" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="1229" column="24" selection-start-line="1229" selection-start-column="24" selection-end-line="1229" selection-end-column="24" />
-          <folding>
-            <element signature="e#123#132#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/stall_info.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -1744,6 +1656,80 @@
         <state relative-caret-position="228">
           <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/playground/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1460019332048" expanded="true" signature="7472:7484" placeholder="..." />
+            <marker date="1460019332048" expanded="true" signature="7590:7603" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/celebrity/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partial/jquery_mobile_page.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/celebrities.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1462428591073" expanded="true" signature="7349:7361" placeholder="..." />
+            <marker date="1462428591073" expanded="true" signature="7467:7480" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23237">
+          <caret line="1228" column="45" selection-start-line="1228" selection-start-column="45" selection-end-line="1228" selection-end-column="45" />
+          <folding>
+            <element signature="e#123#132#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="103" column="61" selection-start-line="103" selection-start-column="61" selection-end-line="103" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/WechatAuth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-513">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/IndexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+          <folding>
+            <element signature="e#122#144#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
