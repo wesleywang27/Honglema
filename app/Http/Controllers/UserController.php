@@ -114,6 +114,8 @@ class UserController extends Controller{
                         $user->designer_right = 1;
                     if (strstr($str,'档口'))
                         $user->stall_right = 1;
+                    if (strstr($str,'红人'))
+                        $user->celebrity_right = 1;
                 }
                 $user->contact_only = Input::get('contact_only');
 
@@ -229,6 +231,8 @@ class UserController extends Controller{
                     $user->designer_right = 1;
                 if (strstr($str,'档口'))
                     $user->stall_right = 1;
+                if (strstr($str,'红人'))
+                    $user->celebrity_right = 1;
             }
             $user->contact_only = Input::get('contact_only');
 

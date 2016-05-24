@@ -26,12 +26,12 @@
     </div>
     <div style="margin-top: 20px;">
         <label>用户访问权限：</label>
-        <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <br /><br />&nbsp;&nbsp;&nbsp;
         <input class="textbox" type="checkbox" name="right[]" value="工厂">工厂&nbsp;&nbsp;&nbsp;
         <input class="textbox" type="checkbox" name="right[]" value="品牌商">品牌商&nbsp;&nbsp;&nbsp;
         <input class="textbox" type="checkbox" name="right[]" value="设计师">设计师&nbsp;&nbsp;&nbsp;
         <input class="textbox" type="checkbox" name="right[]" value="档口">档口&nbsp;&nbsp;&nbsp;
+        <input class="textbox" type="checkbox" name="right[]" value="红人">红人&nbsp;&nbsp;&nbsp;
     </div>
     <div style="margin-top: 20px;">
         <label>只能访问对接人为该用户的商家：</label>
