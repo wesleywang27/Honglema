@@ -4,8 +4,6 @@
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ExcelController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExcelController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,8 +50,8 @@
       <file leaf-file-name="CMSController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5437">
-              <caret line="1358" column="53" selection-start-line="1358" selection-start-column="53" selection-end-line="1358" selection-end-column="53" />
+            <state relative-caret-position="-21975">
+              <caret line="299" column="17" selection-start-line="299" selection-start-column="17" selection-end-line="299" selection-end-column="17" />
               <folding>
                 <element signature="e#123#132#0#PHP" expanded="true" />
               </folding>
@@ -960,14 +958,7 @@
       <workItem from="1463554258151" duration="1496000" />
       <workItem from="1463566041153" duration="2823000" />
       <workItem from="1463974446904" duration="18272000" />
-      <workItem from="1464059197288" duration="1984000" />
-    </task>
-    <task id="LOCAL-00111" summary="修改">
-      <created>1462506056278</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1462506056278</updated>
+      <workItem from="1464059197288" duration="2278000" />
     </task>
     <task id="LOCAL-00112" summary="修改档口注册信息详情页">
       <created>1462507967269</created>
@@ -1305,11 +1296,18 @@
       <option name="project" value="LOCAL" />
       <updated>1464059718429</updated>
     </task>
-    <option name="localTasksCounter" value="160" />
+    <task id="LOCAL-00160" summary="红人信息导出">
+      <created>1464061209274</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1464061209274</updated>
+    </task>
+    <option name="localTasksCounter" value="161" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="417480000" />
+    <option name="totallyTimeSpent" value="417774000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1365,7 +1363,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="页面修改" />
     <MESSAGE value="增加contact_only字段" />
     <MESSAGE value="添加修改用户权限功能" />
     <MESSAGE value="修改excel导出权限" />
@@ -1390,7 +1387,8 @@
     <MESSAGE value="修改红人图片信息" />
     <MESSAGE value="添加红人信息" />
     <MESSAGE value="用户访问红人权限" />
-    <option name="LAST_COMMIT_MESSAGE" value="用户访问红人权限" />
+    <MESSAGE value="红人信息导出" />
+    <option name="LAST_COMMIT_MESSAGE" value="红人信息导出" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1732,8 +1730,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5437">
-          <caret line="1358" column="53" selection-start-line="1358" selection-start-column="53" selection-end-line="1358" selection-end-column="53" />
+        <state relative-caret-position="-21975">
+          <caret line="299" column="17" selection-start-line="299" selection-start-column="17" selection-end-line="299" selection-end-column="17" />
           <folding>
             <element signature="e#123#132#0#PHP" expanded="true" />
           </folding>

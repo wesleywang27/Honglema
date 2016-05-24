@@ -293,7 +293,13 @@ class CMSController extends Controller{
     public function createFactoryIndex(){
         session_start();
         if(isset($_SESSION['username'])){
-            return view('/cms/factory_create');
+            if($_SESSION['factory_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                return view('/cms/factory_create');
+            }
         }
         else{
             return Redirect::intended('/cms/login');
@@ -303,51 +309,57 @@ class CMSController extends Controller{
     public function createFactory(){
         session_start();
         if(isset($_SESSION['username'])){
-            $validator = Validator::make(Input::all(), Factory::$rules);
+            if($_SESSION['factory_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $validator = Validator::make(Input::all(), Factory::$rules);
 
-            if ($validator->passes()) {
-                // 验证通过就存储用户数据
-                $factory = new Factory();
+                if ($validator->passes()) {
+                    // 验证通过就存储用户数据
+                    $factory = new Factory();
 
-                $factory->username = Input::get('username');
-                $factory->mobile = Input::get('mobile');
-                $factory->weixinNo = Input::get('weixinNo');
-                $factory->title = Input::get('title');
-                $factory->company = Input::get('company');
-                $factory->country = '中国';
-                $factory->province = Input::get('province');
-                $factory->city = Input::get('city');
-                $factory->region = Input::get('region');
-                $factory->address = Input::get('address');
-                $factory->category = Input::get('category');
-                $factory->advantageSubcategory = Input::get('advantageSubcategory');
-                $factory->ext1 = Input::get('ext1');
-                $factory->ext2 = Input::get('ext2');
-                $factory->ext5 = Input::get('ext5');
-                $factory->orderCount = Input::get('orderCount');
-                $factory->productCount = Input::get('productCount');
-                $factory->design = Input::get('design');
-                $factory->refund = Input::get('refund');
-                $factory->shipmentOK = Input::get('shipmentOK');
-                $factory->zhangqi = Input::get('zhangqi');
-                $factory->contact = Input::get('contact');
-                $factory->description = Input::get('description');
+                    $factory->username = Input::get('username');
+                    $factory->mobile = Input::get('mobile');
+                    $factory->weixinNo = Input::get('weixinNo');
+                    $factory->title = Input::get('title');
+                    $factory->company = Input::get('company');
+                    $factory->country = '中国';
+                    $factory->province = Input::get('province');
+                    $factory->city = Input::get('city');
+                    $factory->region = Input::get('region');
+                    $factory->address = Input::get('address');
+                    $factory->category = Input::get('category');
+                    $factory->advantageSubcategory = Input::get('advantageSubcategory');
+                    $factory->ext1 = Input::get('ext1');
+                    $factory->ext2 = Input::get('ext2');
+                    $factory->ext5 = Input::get('ext5');
+                    $factory->orderCount = Input::get('orderCount');
+                    $factory->productCount = Input::get('productCount');
+                    $factory->design = Input::get('design');
+                    $factory->refund = Input::get('refund');
+                    $factory->shipmentOK = Input::get('shipmentOK');
+                    $factory->zhangqi = Input::get('zhangqi');
+                    $factory->contact = Input::get('contact');
+                    $factory->description = Input::get('description');
 
-                $log = new Log();
-                $log->username = $_SESSION['username'];
-                $log->operation = 'insert';
-                $log->operated_data = '工厂图片';
-                $log->operated_username = $factory->username;
-                $log->save();
+                    $log = new Log();
+                    $log->username = $_SESSION['username'];
+                    $log->operation = 'insert';
+                    $log->operated_data = '工厂图片';
+                    $log->operated_username = $factory->username;
+                    $log->save();
 
-                $factory->save();
+                    $factory->save();
 
-                echo "<script> alert('注册成功!'); </script>";
+                    echo "<script> alert('注册成功!'); </script>";
 
-                return Redirect::to('/cms/factoryList');
-            } else {
-                // 验证没通过就显示错误提示信息
-                echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
+                    return Redirect::to('/cms/factoryList');
+                } else {
+                    // 验证没通过就显示错误提示信息
+                    echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
+                }
             }
         }
         else{
@@ -564,7 +576,13 @@ class CMSController extends Controller{
     public function createBrandIndex(){
         session_start();
         if(isset($_SESSION['username'])){
-            return view('/cms/brand_create');
+            if($_SESSION['brand_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                return view('/cms/brand_create');
+            }
         }
         else{
             return Redirect::intended('/cms/login');
@@ -574,52 +592,58 @@ class CMSController extends Controller{
     public function createBrand(){
         session_start();
         if(isset($_SESSION['username'])){
-            $validator = Validator::make(Input::all(), Brand::$rules);
+            if($_SESSION['brand_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $validator = Validator::make(Input::all(), Brand::$rules);
 
-            if ($validator->passes()) {
-                // 验证通过就存储用户数据
-                $brand = new Brand();
+                if ($validator->passes()) {
+                    // 验证通过就存储用户数据
+                    $brand = new Brand();
 
-                $brand->username = Input::get('username');
-                $brand->mobile = Input::get('mobile');
-                $brand->weixinNo = Input::get('weixinNo');
-                $brand->title = Input::get('title');
-                $brand->company = Input::get('company');
-                $brand->brand = Input::get('brand');
-                $brand->sales = Input::get('sales');
-                $brand->category = Input::get('category');
-                $brand->factory = Input::get('factory');
-                $brand->factorySize = Input::get('factorySize');
-                $brand->design = Input::get('design');
-                $brand->country = Input::get('country');
-                $brand->province = Input::get('province');
-                $brand->city = Input::get('city');
-                $brand->region = Input::get('region');
-                $brand->address = Input::get('address');
-                $brand->product = Input::get('product');
-                $brand->price = Input::get('price');
-                $brand->style = Input::get('style');
-                $brand->customPosition = Input::get('customPosition');
-                $brand->customAge = Input::get('customAge');
-                $brand->refund = Input::get('refund');
-                $brand->contact = Input::get('contact');
-                $brand->description = Input::get('description');
+                    $brand->username = Input::get('username');
+                    $brand->mobile = Input::get('mobile');
+                    $brand->weixinNo = Input::get('weixinNo');
+                    $brand->title = Input::get('title');
+                    $brand->company = Input::get('company');
+                    $brand->brand = Input::get('brand');
+                    $brand->sales = Input::get('sales');
+                    $brand->category = Input::get('category');
+                    $brand->factory = Input::get('factory');
+                    $brand->factorySize = Input::get('factorySize');
+                    $brand->design = Input::get('design');
+                    $brand->country = Input::get('country');
+                    $brand->province = Input::get('province');
+                    $brand->city = Input::get('city');
+                    $brand->region = Input::get('region');
+                    $brand->address = Input::get('address');
+                    $brand->product = Input::get('product');
+                    $brand->price = Input::get('price');
+                    $brand->style = Input::get('style');
+                    $brand->customPosition = Input::get('customPosition');
+                    $brand->customAge = Input::get('customAge');
+                    $brand->refund = Input::get('refund');
+                    $brand->contact = Input::get('contact');
+                    $brand->description = Input::get('description');
 
-                $log = new Log();
-                $log->username = $_SESSION['username'];
-                $log->operation = 'insert';
-                $log->operated_data = '品牌商信息';
-                $log->operated_username = $brand->username;
-                $log->save();
+                    $log = new Log();
+                    $log->username = $_SESSION['username'];
+                    $log->operation = 'insert';
+                    $log->operated_data = '品牌商信息';
+                    $log->operated_username = $brand->username;
+                    $log->save();
 
-                $brand->save();
+                    $brand->save();
 
-                echo "<script> alert('注册成功!'); </script>";
+                    echo "<script> alert('注册成功!'); </script>";
 
-                return Redirect::to('/cms/brandList');
-            } else {
-                // 验证没通过就显示错误提示信息
-                echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
+                    return Redirect::to('/cms/brandList');
+                } else {
+                    // 验证没通过就显示错误提示信息
+                    echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
+                }
             }
         }
         else{
@@ -828,7 +852,13 @@ class CMSController extends Controller{
     public function createDesignerIndex(){
         session_start();
         if(isset($_SESSION['username'])){
-            return view('/cms/designer_create');
+            if($_SESSION['designer_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                return view('/cms/designer_create');
+            }
         }
         else{
             return Redirect::intended('/cms/login');
@@ -838,43 +868,49 @@ class CMSController extends Controller{
     public function createDesigner(){
         session_start();
         if(isset($_SESSION['username'])){
-            $validator = Validator::make(Input::all(), Designer::$rules);
+            if($_SESSION['designer_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $validator = Validator::make(Input::all(), Designer::$rules);
 
-            if ($validator->passes()) {
-                // 验证通过就存储用户数据
-                $designer = new Designer();
+                if ($validator->passes()) {
+                    // 验证通过就存储用户数据
+                    $designer = new Designer();
 
-                $designer->designType = Input::get('designType');
-                $designer->username = Input::get('username');
-                $designer->mobile = Input::get('mobile');
-                $designer->weixinNo = Input::get('weixinNo');
-                $designer->title = Input::get('title');
-                $designer->company = Input::get('company');
-                $designer->country = Input::get('country');
-                $designer->province = Input::get('province');
-                $designer->city = Input::get('city');
-                $designer->region = Input::get('region');
-                $designer->address = Input::get('address');
-                $designer->designExperience = Input::get('designExperience');
-                $designer->designTeam = Input::get('designTeam');
-                $designer->brand = Input::get('brand');
-                $designer->designBrand = Input::get('designBrand');
-                $designer->contact = Input::get('contact');
-                $designer->description = Input::get('description');
+                    $designer->designType = Input::get('designType');
+                    $designer->username = Input::get('username');
+                    $designer->mobile = Input::get('mobile');
+                    $designer->weixinNo = Input::get('weixinNo');
+                    $designer->title = Input::get('title');
+                    $designer->company = Input::get('company');
+                    $designer->country = Input::get('country');
+                    $designer->province = Input::get('province');
+                    $designer->city = Input::get('city');
+                    $designer->region = Input::get('region');
+                    $designer->address = Input::get('address');
+                    $designer->designExperience = Input::get('designExperience');
+                    $designer->designTeam = Input::get('designTeam');
+                    $designer->brand = Input::get('brand');
+                    $designer->designBrand = Input::get('designBrand');
+                    $designer->contact = Input::get('contact');
+                    $designer->description = Input::get('description');
 
-                $log = new Log();
-                $log->username = $_SESSION['username'];
-                $log->operation = 'insert';
-                $log->operated_data = '设计师信息';
-                $log->operated_username = $designer->username;
-                $log->save();
+                    $log = new Log();
+                    $log->username = $_SESSION['username'];
+                    $log->operation = 'insert';
+                    $log->operated_data = '设计师信息';
+                    $log->operated_username = $designer->username;
+                    $log->save();
 
-                $designer->save();
+                    $designer->save();
 
-                return Redirect::to('/cms/designerList');
-            } else {
-                // 验证没通过就显示错误提示信息
-                echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
+                    return Redirect::to('/cms/designerList');
+                } else {
+                    // 验证没通过就显示错误提示信息
+                    echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
+                }
             }
         }
         else{
@@ -1082,7 +1118,13 @@ class CMSController extends Controller{
     public function createStallIndex(){
         session_start();
         if(isset($_SESSION['username'])){
-            return view('/cms/stall_create');
+            if($_SESSION['stall_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                return view('/cms/stall_create');
+            }
         }
         else{
             return Redirect::intended('/cms/login');
@@ -1092,43 +1134,49 @@ class CMSController extends Controller{
     public function createStall(){
         session_start();
         if(isset($_SESSION['username'])){
-            $validator = Validator::make(Input::all(), Stall::$rules);
+            if($_SESSION['stall_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $validator = Validator::make(Input::all(), Stall::$rules);
 
-            if ($validator->passes()) {
-                // 验证通过就存储用户数据
-                $stall = new Stall();
+                if ($validator->passes()) {
+                    // 验证通过就存储用户数据
+                    $stall = new Stall();
 
-                $stall->username = Input::get('username');
-                $stall->mobile = Input::get('mobile');
-                $stall->weixinNo = Input::get('weixinNo');
-                $stall->title = Input::get('title');
-                $stall->stallName = Input::get('stallName');
-                $stall->stallNum = Input::get('stallNum');
-                $stall->city = Input::get('city');
-                $stall->stall = Input::get('stall');
-                $stall->country = Input::get('country');
-                $stall->province = Input::get('province');
-                $stall->stallCity = Input::get('stallCity');
-                $stall->region = Input::get('region');
-                $stall->address = Input::get('address');
-                $stall->style = Input::get('style');
-                $stall->category = Input::get('category');
-                $stall->shipmentOK = Input::get('shipmentOK');
-                $stall->contact = Input::get('contact');
+                    $stall->username = Input::get('username');
+                    $stall->mobile = Input::get('mobile');
+                    $stall->weixinNo = Input::get('weixinNo');
+                    $stall->title = Input::get('title');
+                    $stall->stallName = Input::get('stallName');
+                    $stall->stallNum = Input::get('stallNum');
+                    $stall->city = Input::get('city');
+                    $stall->stall = Input::get('stall');
+                    $stall->country = Input::get('country');
+                    $stall->province = Input::get('province');
+                    $stall->stallCity = Input::get('stallCity');
+                    $stall->region = Input::get('region');
+                    $stall->address = Input::get('address');
+                    $stall->style = Input::get('style');
+                    $stall->category = Input::get('category');
+                    $stall->shipmentOK = Input::get('shipmentOK');
+                    $stall->contact = Input::get('contact');
 
-                $log = new Log();
-                $log->username = $_SESSION['username'];
-                $log->operation = 'insert';
-                $log->operated_data = '档口信息';
-                $log->operated_username = $stall->username;
-                $log->save();
+                    $log = new Log();
+                    $log->username = $_SESSION['username'];
+                    $log->operation = 'insert';
+                    $log->operated_data = '档口信息';
+                    $log->operated_username = $stall->username;
+                    $log->save();
 
-                $stall->save();
+                    $stall->save();
 
-                return Redirect::to('/cms/stallList');
-            } else {
-                // 验证没通过就显示错误提示信息
-                echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
+                    return Redirect::to('/cms/stallList');
+                } else {
+                    // 验证没通过就显示错误提示信息
+                    echo "<script>history.back(); alert('请按要求填写真实信息!');</script>";
+                }
             }
         }
         else{
