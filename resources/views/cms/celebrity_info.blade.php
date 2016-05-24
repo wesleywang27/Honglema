@@ -158,6 +158,18 @@
             <input type="hidden" id="num3" value="{{ $fan_profile->fans_num_city3 }}"/>
             <input type="hidden" id="city4" value="{{ $fan_profile->fans_city4 }}"/>
             <input type="hidden" id="num4" value="{{ $fan_profile->fans_num_city4 }}"/>
+            <input type="hidden" id="city5" value="{{ $fan_profile->fans_city5 }}"/>
+            <input type="hidden" id="num5" value="{{ $fan_profile->fans_num_city5 }}"/>
+            <input type="hidden" id="city6" value="{{ $fan_profile->fans_city6 }}"/>
+            <input type="hidden" id="num6" value="{{ $fan_profile->fans_num_city6 }}"/>
+            <input type="hidden" id="city7" value="{{ $fan_profile->fans_city7 }}"/>
+            <input type="hidden" id="num7" value="{{ $fan_profile->fans_num_city7 }}"/>
+            <input type="hidden" id="city8" value="{{ $fan_profile->fans_city8 }}"/>
+            <input type="hidden" id="num8" value="{{ $fan_profile->fans_num_city8 }}"/>
+            <input type="hidden" id="city9" value="{{ $fan_profile->fans_city9 }}"/>
+            <input type="hidden" id="num9" value="{{ $fan_profile->fans_num_city9 }}"/>
+            <input type="hidden" id="city10" value="{{ $fan_profile->fans_city10 }}"/>
+            <input type="hidden" id="num10" value="{{ $fan_profile->fans_num_city10 }}"/>
         </div>
         <p id="horizontalbar-label">粉丝所在城市分布</p>
         <script type="text/javascript" src="/js/jquery.horizontalchart.js"></script>
@@ -171,10 +183,26 @@
             var num3 = document.getElementById("num3").value;
             var city4 = document.getElementById("city4").value;
             var num4 = document.getElementById("num4").value;
+            var city5 = document.getElementById("city5").value;
+            var num5 = document.getElementById("num5").value;
+            var city6 = document.getElementById("city6").value;
+            var num6 = document.getElementById("num6").value;
+            var city7 = document.getElementById("city7").value;
+            var num7 = document.getElementById("num7").value;
+            var city8 = document.getElementById("city8").value;
+            var num8 = document.getElementById("num8").value;
+            var city9 = document.getElementById("city9").value;
+            var num9 = document.getElementById("num9").value;
+            var city10 = document.getElementById("city10").value;
+            var num10 = document.getElementById("num10").value;
             $('#horizontalbar-chart-wrapper').horizontalchart({
-                YData: [city1,city2,city3,city4],
+                YData: [city1,city2,city3,city4,city5,city6,city7,city8,city9,city10],
                 XData: [0,10,20,30,40,50,60,70,80,90,100],
-                bar: [num1/num*100,num2/num*100,num3/num*100,num4/num*100],
+                bar: [
+                        parseInt(num1/num*100),parseInt(num2/num*100),parseInt(num3/num*100),parseInt(num4/num*100),
+                        parseInt(num5/num*100),parseInt(num6/num*100),parseInt(num7/num*100),parseInt(num8/num*100),
+                        parseInt(num9/num*100),parseInt(num10/num*100)
+                ],
                 suffix: "%"
             });
         </script>
