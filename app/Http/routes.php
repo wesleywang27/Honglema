@@ -229,6 +229,8 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::get('/cms/stall_export',"ExcelController@exportStall");
 
+    Route::get('/cms/celebrity_export',"ExcelController@exportCelebrity");
+
     //用户管理入口
     Route::get('/cms/user',"UserController@index");
 

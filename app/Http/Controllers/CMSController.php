@@ -1351,7 +1351,13 @@ class CMSController extends Controller{
     public function createCelebrityIndex(){
         session_start();
         if(isset($_SESSION['username'])){
-            return view('/cms/celebrity_create');
+            if($_SESSION['celebrity_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                return view('/cms/celebrity_create');
+            }
         }
         else{
             return Redirect::intended('/cms/login');
@@ -1361,56 +1367,62 @@ class CMSController extends Controller{
     public function createCelebrity(){
         session_start();
         if(isset($_SESSION['username'])){
-            $celebrity = new Celebrity();
+            if($_SESSION['celebrity_right'] == 0){
+                echo "<script>history.go(-1); alert('该用户没有权限访问!');</script>";
+                return;
+            }
+            else{
+                $celebrity = new Celebrity();
 
-            $celebrity->nickname = Input::get('nickname');
-            $celebrity->realname = Input::get('realname');
-            if(Input::get('sex') == '女')
-                $celebrity->sex = 1;
-            else
-                $celebrity->sex = 0;
-            $celebrity->birthday = Input::get('birthday');
-            $celebrity->city = Input::get('city');
-            $celebrity->education = Input::get('education');
-            $celebrity->height = Input::get('height');
-            $celebrity->weight = Input::get('weight');
-            $celebrity->bust = Input::get('bust');
-            $celebrity->waist = Input::get('waist');
-            $celebrity->hop = Input::get('hop');
-            if(Input::get('annual_income') == '10万以下')
-                $celebrity->annual_income = 0;
-            elseif(Input::get('annual_income') == '10~30万')
-                $celebrity->annual_income = 1;
-            elseif(Input::get('annual_income') == '30~50万')
-                $celebrity->annual_income = 2;
-            else
-                $celebrity->annual_income = 3;
-            $celebrity->occupation = Input::get('occupation');
-            $celebrity->cellphone = Input::get('cellphone');
-            $celebrity->wechat_id = Input::get('wechat_id');
-            $celebrity->weibo_nickname = Input::get('weibo_nickname');
-            $celebrity->total_fans_num = Input::get('total_fans_num');
-            $celebrity->weibo_fans_num = Input::get('weibo_fans_num');
-            $celebrity->weipai_fans_num = Input::get('weipai_fans_num');
-            $celebrity->meipai_fans_num = Input::get('meipai_fans_num');
-            $celebrity->kuaishou_fans_num = Input::get('kuaishou_fans_num');
-            $celebrity->miaopai_fans_num = Input::get('miaopai_fans_num');
-            $celebrity->tags = Input::get('tags');
-            $celebrity->skills = Input::get('skills');
-            $celebrity->address = Input::get('address');
-            $celebrity->personality = Input::get('personality');
-            $celebrity->experience = Input::get('experience');
+                $celebrity->nickname = Input::get('nickname');
+                $celebrity->realname = Input::get('realname');
+                if(Input::get('sex') == '女')
+                    $celebrity->sex = 1;
+                else
+                    $celebrity->sex = 0;
+                $celebrity->birthday = Input::get('birthday');
+                $celebrity->city = Input::get('city');
+                $celebrity->education = Input::get('education');
+                $celebrity->height = Input::get('height');
+                $celebrity->weight = Input::get('weight');
+                $celebrity->bust = Input::get('bust');
+                $celebrity->waist = Input::get('waist');
+                $celebrity->hop = Input::get('hop');
+                if(Input::get('annual_income') == '10万以下')
+                    $celebrity->annual_income = 0;
+                elseif(Input::get('annual_income') == '10~30万')
+                    $celebrity->annual_income = 1;
+                elseif(Input::get('annual_income') == '30~50万')
+                    $celebrity->annual_income = 2;
+                else
+                    $celebrity->annual_income = 3;
+                $celebrity->occupation = Input::get('occupation');
+                $celebrity->cellphone = Input::get('cellphone');
+                $celebrity->wechat_id = Input::get('wechat_id');
+                $celebrity->weibo_nickname = Input::get('weibo_nickname');
+                $celebrity->total_fans_num = Input::get('total_fans_num');
+                $celebrity->weibo_fans_num = Input::get('weibo_fans_num');
+                $celebrity->weipai_fans_num = Input::get('weipai_fans_num');
+                $celebrity->meipai_fans_num = Input::get('meipai_fans_num');
+                $celebrity->kuaishou_fans_num = Input::get('kuaishou_fans_num');
+                $celebrity->miaopai_fans_num = Input::get('miaopai_fans_num');
+                $celebrity->tags = Input::get('tags');
+                $celebrity->skills = Input::get('skills');
+                $celebrity->address = Input::get('address');
+                $celebrity->personality = Input::get('personality');
+                $celebrity->experience = Input::get('experience');
 
-            $log = new Log();
-            $log->username = $_SESSION['username'];
-            $log->operation = 'insert';
-            $log->operated_data = '红人信息';
-            $log->operated_username = $celebrity->realname;
-            $log->save();
+                $log = new Log();
+                $log->username = $_SESSION['username'];
+                $log->operation = 'insert';
+                $log->operated_data = '红人信息';
+                $log->operated_username = $celebrity->realname;
+                $log->save();
 
-            $celebrity->save();
+                $celebrity->save();
 
-            return Redirect::to('/cms/celebrityList');
+                return Redirect::to('/cms/celebrityList');
+            }
         }
         else{
             return Redirect::intended('/cms/login');
