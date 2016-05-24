@@ -132,6 +132,8 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 
     Route::resource('/cms/stallList', "CMSController@stall");
 
+    Route::resource('/cms/celebrityList', "CMSController@celebrity");
+
     //信息详情入口
     Route::get('/cms/factory_info/{id?}',"CMSController@factory_info");
 
@@ -140,6 +142,8 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
     Route::get('/cms/designer_info/{id?}',"CMSController@designer_info");
 
     Route::get('/cms/stall_info/{id?}',"CMSController@stall_info");
+
+    Route::get('/cms/celebrity_info/{id?}',"CMSController@celebrity_info");
 
     //信息修改入口
     Route::get('/cms/factory_modify/{id?}',"CMSController@modifyFactoryInfo");
@@ -158,6 +162,10 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 
     Route::post('/cms/stall_modify/{id?}',"CMSController@updateStallInfo");
 
+    Route::get('/cms/celebrity_modify/{id?}',"CMSController@modifyCelebrityInfo");
+
+    Route::post('/cms/celebrity_update/{id?}',"CMSController@updateCelebrityInfo");
+
     //信息删除入口
     Route::get('/cms/factory_delete/{id?}',"CMSController@deleteFactory");
 
@@ -166,6 +174,8 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
     Route::get('/cms/designer_delete/{id?}',"CMSController@deleteDesigner");
 
     Route::get('/cms/stall_delete/{id?}',"CMSController@deleteStall");
+
+    Route::get('/cms/celebrity_delete/{id?}',"CMSController@deleteCelebrity");
 
     //信息查找入口
     Route::get('/cms/factory/{name?}/{category?}', "CMSController@searchFactory");
@@ -176,6 +186,8 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 
     Route::get('/cms/stall/{name?}/{category?}',"CMSController@searchStall");
 
+    Route::get('/cms/celebrity/{name?}/{category?}',"CMSController@searchCelebrity");
+
     //图片修改入口
     Route::post('/cms/factory_updateImg/{id?}',"CMSController@updateFactoryImg");
 
@@ -185,7 +197,9 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 
     Route::post('/cms/stall_updateImg/{id?}',"CMSController@updateStallImg");
 
-    //商家添加页
+    Route::post('/cms/celebrity_updateImg/{id?}',"CMSController@updateCelebrityImg");
+
+    //信息添加页
     Route::get('/cms/factory_create',"CMSController@createFactoryIndex");
 
     Route::post('/cms/factory_create',"CMSController@createFactory");
@@ -202,6 +216,10 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 
     Route::post('/cms/stall_create',"CMSController@createStall");
 
+    Route::get('/cms/celebrity_create',"CMSController@createCelebrityIndex");
+
+    Route::post('/cms/celebrity_create',"CMSController@createCelebrity");
+
     //数据导出入口
     Route::get('/cms/factory_export',"ExcelController@exportFactory");
 
@@ -210,6 +228,8 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
     Route::get('/cms/designer_export',"ExcelController@exportDesigner");
 
     Route::get('/cms/stall_export',"ExcelController@exportStall");
+
+    Route::get('/cms/celebrity_export',"ExcelController@exportCelebrity");
 
     //用户管理入口
     Route::get('/cms/user',"UserController@index");

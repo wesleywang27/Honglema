@@ -19,7 +19,7 @@
 <body>
 <header data-am-widget="header" class="am-header am-header-default" style="background-color: #DD514C">
     <div class="am-header-left am-header-nav">
-        <a href="#">
+        <a href="javascript:history.back();">
             <span class="am-header-nav-title" style="margin-right: 5px">返回</span>
         </a>
     </div>
