@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/celebrity_modify.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/celebrity_modify.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +30,18 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
+            <state relative-caret-position="1786">
               <caret line="103" column="61" selection-start-line="103" selection-start-column="61" selection-end-line="103" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -41,8 +50,8 @@
       <file leaf-file-name="CMSController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="1238" column="69" selection-start-line="1238" selection-start-column="69" selection-end-line="1238" selection-end-column="69" />
+            <state relative-caret-position="166">
+              <caret line="1229" column="24" selection-start-line="1229" selection-start-column="24" selection-end-line="1229" selection-end-column="24" />
               <folding>
                 <element signature="e#123#132#0#PHP" expanded="true" />
               </folding>
@@ -50,25 +59,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="celebrity_info.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/cms/celebrity_info.blade.php">
+      <file leaf-file-name="stall_info.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/cms/stall_info.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="208" column="10" selection-start-line="208" selection-start-column="10" selection-end-line="208" selection-end-column="10" />
+            <state relative-caret-position="193">
+              <caret line="68" column="36" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
               <folding>
-                <marker date="1464069656897" expanded="true" signature="12244:12270" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="celebrity_modify.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/cms/celebrity_modify.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-              <folding>
-                <marker date="1464069848475" expanded="true" signature="14710:14736" placeholder="..." />
+                <marker date="1462515419955" expanded="true" signature="5070:5096" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -98,7 +95,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/brand_info.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/stall.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/designer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/brand.blade.php" />
@@ -149,6 +145,7 @@
         <option value="$PROJECT_DIR$/resources/views/cms/celebrity_info.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/celebrity_modify.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/index.blade.php" />
       </list>
     </option>
   </component>
@@ -951,14 +948,7 @@
       <workItem from="1463554258151" duration="1496000" />
       <workItem from="1463566041153" duration="2823000" />
       <workItem from="1463974446904" duration="18272000" />
-      <workItem from="1464059197288" duration="9035000" />
-    </task>
-    <task id="LOCAL-00115" summary="修改档口注册信息详情页">
-      <created>1462515522752</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1462515522752</updated>
+      <workItem from="1464059197288" duration="10551000" />
     </task>
     <task id="LOCAL-00116" summary="修改">
       <created>1462516219941</created>
@@ -1296,11 +1286,18 @@
       <option name="project" value="LOCAL" />
       <updated>1464069709798</updated>
     </task>
-    <option name="localTasksCounter" value="164" />
+    <task id="LOCAL-00164" summary="红人信息统计">
+      <created>1464069859446</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1464069859446</updated>
+    </task>
+    <option name="localTasksCounter" value="165" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="424531000" />
+    <option name="totallyTimeSpent" value="426047000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1394,7 +1391,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/login.php" />
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3800">
@@ -1602,13 +1598,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/stall_info.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="66" column="114" selection-start-line="66" selection-start-column="114" selection-end-line="66" selection-end-column="114" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/stall_create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1311">
@@ -1694,14 +1683,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="103" column="61" selection-start-line="103" selection-start-column="61" selection-end-line="103" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/horizontal-bar.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -1710,9 +1691,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/celebrity_modify.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+          <folding>
+            <marker date="1464069848475" expanded="true" signature="14710:14736" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/celebrity_info.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
+        <state relative-caret-position="1946">
           <caret line="208" column="10" selection-start-line="208" selection-start-column="10" selection-end-line="208" selection-end-column="10" />
           <folding>
             <marker date="1464069656897" expanded="true" signature="12244:12270" placeholder="..." />
@@ -1720,23 +1711,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1786">
+          <caret line="103" column="61" selection-start-line="103" selection-start-column="61" selection-end-line="103" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="1238" column="69" selection-start-line="1238" selection-start-column="69" selection-end-line="1238" selection-end-column="69" />
+        <state relative-caret-position="166">
+          <caret line="1229" column="24" selection-start-line="1229" selection-start-column="24" selection-end-line="1229" selection-end-column="24" />
           <folding>
             <element signature="e#123#132#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/celebrity_modify.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/stall_info.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        <state relative-caret-position="193">
+          <caret line="68" column="36" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
           <folding>
-            <marker date="1464069848475" expanded="true" signature="14710:14736" placeholder="..." />
+            <marker date="1462515419955" expanded="true" signature="5070:5096" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
