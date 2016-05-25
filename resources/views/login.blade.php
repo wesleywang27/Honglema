@@ -1,7 +1,9 @@
 <!doctype html>
 <html class="no-js">
-<body>
-<img src="{{$img}}">
-<script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
-</body>
+    <body>
+        <div style="text-align: center;">
+            <img src="{{$img}}">
+            <p>请扫描二维码登录红了吗</p>
+        </div>
+    </body>
 </html>
