@@ -32,10 +32,10 @@
     </dt>
     <form action="/cms/login" method="post" name="loginForm">
         <dd class="user_icon">
-            <input type="text" placeholder="账号" class="login_txtbx" name="name" required/>
+            <input type="text" placeholder="请输入账号(花名全拼)" class="login_txtbx" name="name" required/>
         </dd>
         <dd class="pwd_icon">
-            <input type="password" placeholder="密码" class="login_txtbx" name="password" required/>
+            <input type="password" placeholder="请输入密码" class="login_txtbx" name="password" required/>
         </dd>
         <dd class="val_icon">
             <div class="checkcode">
