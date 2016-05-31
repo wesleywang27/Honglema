@@ -37,33 +37,26 @@
         </select>
     </form>
 </div>
-<table class="table">
-    <tr>
-        <th>品牌商ID</th>
-        <th>姓名</th>
-        <th>联系方式</th>
-        <th>微信账号</th>
-        <th>公司名称</th>
-        <th>职位</th>
-        <th>操作</th>
-    </tr>
-    @foreach ($brands as $brand)
-    <tr>
-        <td style="width:65px; height: 20px;">{{ $brand->brand_id}}</td>
-        <td style="width:100px;">{{ $brand->username}}</td>
-        <td style="width:120px;">{{ $brand->mobile}}</td>
-        <td style="width:120px;">{{ $brand->weixinNo}}</td>
-        <td style="width:200px;">{{ $brand->company}}</td>
-        <td style="width:150px;">{{ $brand->title}}</td>
-        <td style="text-align:center">
-            <a href="{{URL::action('CMSController@brand_info', ['id' => $brand->brand_id]) }}"><input type="button" value="查看" class="link_btn"/></a>
-            <a href="{{URL::action('CMSController@modifyBrandInfo', ['id' => $brand->brand_id]) }}"><input type="button" value="修改" class="link_btn"/></a>
-            <a href="{{URL::action('CMSController@deleteBrand', ['id' => $brand->brand_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
-        </td>
-    </tr>
+<div style="margin-left: 100px; margin-top: 50px;width: 1000px;">
+    @foreach ($brands as $item)
+        <div style="position: relative;float: left;margin-right: 20px; margin-bottom: 20px;">
+            <div style="display: table; margin-bottom: 20px;">
+                <a href="{{URL::action('CMSController@brand_info', ['id' => $item->brand_id]) }}">
+                    @if (count($item->pictures) > 0)
+                        <img src="{{$item->pictures[0]->url}}" width="200px" height="200px">
+                    @else
+                        <img src="http://image.weipai.cn/honglema/default.gif"  width="200px" height="200px">
+                    @endif
+                </a>
+            </div>
+            <div style="text-align: center;">
+                <span>{{$item->company }}</span>
+            </div>
+        </div>
     @endforeach
-</table>
-<aside class="paging">
+
+</div>
+<aside class="paging" style="clear:both;">
     <a href="{{ url('/cms/brand_export') }}" style="float: left;" >导出Excel</a>
     <a href="/cms/brand_create" style="float: left;margin-left: 10px;" >添加品牌商</a>
 

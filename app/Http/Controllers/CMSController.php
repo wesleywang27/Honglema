@@ -101,7 +101,7 @@ class CMSController extends Controller{
                 else{
                     $user = User::where('name',$_SESSION['username'])->first();
                     if($user->contact_only == 0)
-                        $factory = Factory::paginate(10);
+                        $factory = Factory::with("pictures")->paginate(10);
                     else
                         $factory = Factory::where('contact',$user->nickname)->paginate(10);
                     return view('/cms/factory')->with(['factories' => $factory ,'name' => 'all' ,'category' => 'all']);
@@ -383,7 +383,7 @@ class CMSController extends Controller{
                 else{
                     $user = User::where('name',$_SESSION['username'])->first();
                     if($user->contact_only == 0)
-                        $brand = Brand::paginate(10);
+                        $brand = Brand::with("pictures")->paginate(10);
                     else
                         $brand = Brand::where('contact',$user->nickname)->paginate(10);
                     return view('/cms/brand')->with(['brands' => $brand ,'name' => 'all' ,'category' => 'all']);
@@ -666,7 +666,7 @@ class CMSController extends Controller{
                 else{
                     $user = User::where('name',$_SESSION['username'])->first();
                     if($user->contact_only == 0)
-                        $designer = Designer::paginate(10);
+                        $designer = Designer::with("pictures")->paginate(10);
                     else
                         $designer = Designer::where('contact',$user->nickname)->paginate(10);
                     return view('/cms/designer')->with(['designers' => $designer ,'name' => 'all']);
@@ -933,7 +933,7 @@ class CMSController extends Controller{
                 else{
                     $user = User::where('name',$_SESSION['username'])->first();
                     if($user->contact_only == 0)
-                        $stall = Stall::paginate(10);
+                        $stall = Stall::with("pictures")->paginate(10);
                     else
                         $stall = Stall::where('contact',$user->nickname)->paginate(10);
                     return view('/cms/stall')->with(['stalls' => $stall ,'name' => 'all']);

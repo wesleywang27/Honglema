@@ -37,33 +37,30 @@
         </select>
     </form>
 </div>
-<table class="table">
-    <tr>
-        <th>工厂ID</th>
-        <th>姓名</th>
-        <th>联系方式</th>
-        <th>微信账号</th>
-        <th>公司名称</th>
-        <th>职位</th>
-        <th>操作</th>
-    </tr>
+
+<div style="margin-left: 100px; margin-top: 50px;width: 1000px;">
     @foreach ($factories as $factory)
-    <tr>
-        <td style="width:65px; height: 20px;">{{ $factory->factory_id}}</td>
-        <td style="width:100px;">{{ $factory->username}}</td>
-        <td style="width:120px;">{{ $factory->mobile}}</td>
-        <td style="width:120px;">{{ $factory->weixinNo}}</td>
-        <td style="width:200px;">{{ $factory->company}}</td>
-        <td style="width:150px;">{{ $factory->title}}</td>
-        <td style="text-align:center">
-            <a href="{{URL::action('CMSController@factory_info', ['id' => $factory->factory_id]) }}"><input type="button" value="查看" class="link_btn"/></a>
-            <a href="{{URL::action('CMSController@modifyFactoryInfo', ['id' => $factory->factory_id]) }}"><input type="button" value="修改" class="link_btn"/></a>
-            <a href="{{URL::action('CMSController@deleteFactory', ['id' => $factory->factory_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
-        </td>
-    </tr>
+        <div style="position: relative;float: left;margin-right: 20px; margin-bottom: 20px;">
+        <div style="display: table; margin-bottom: 20px;">
+            <a href="{{URL::action('CMSController@factory_info', ['id' => $factory->factory_id]) }}">
+            @if (count($factory->pictures) > 0)
+                <img src="{{$factory->pictures[0]->url}}" width="200px" height="200px">
+            @else
+                <img src="http://image.weipai.cn/honglema/default.gif"  width="200px" height="200px">
+            @endif
+            </a>
+        </div>
+            <div style="text-align: center;">
+                <span>{{$factory->company }}</span>
+            </div>
+
+        </div>
     @endforeach
-</table>
-<aside class="paging">
+
+</div>
+
+
+<aside class="paging" style="clear: both">
     <a href="{{ url('/cms/factory_export') }}" style="float: left;">导出EXcel</a>
     <a href="/cms/factory_create" style="float: left;margin-left: 10px;" >添加工厂</a>
 
