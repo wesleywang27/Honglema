@@ -37,10 +37,9 @@
         </select>
     </form>
 </div>
-
 <div style="margin-left: 100px; margin-top:20px;width: 1000px;">
     <div>
-        <p>总{{ $total }}条，合作商户 条</p>
+        <p>总{{ $total }}条，合作商户{{ $cooperation }}条</p>
     </div>
     @foreach ($factories as $factory)
         <div style="position: relative;float: left;margin-right: 20px; margin-bottom: 20px;">
