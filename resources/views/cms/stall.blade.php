@@ -13,33 +13,27 @@
                placeholder="按姓名查找"/>
     </form>
 </div>
-<table class="table">
-    <tr>
-        <th>档口ID</th>
-        <th>姓名</th>
-        <th>联系方式</th>
-        <th>微信账号</th>
-        <th>档口名称</th>
-        <th>档口号</th>
-        <th>操作</th>
-    </tr>
-    @foreach ($stalls as $stall)
-    <tr>
-        <td style="width:65px; height: 20px;">{{ $stall->stall_id}}</td>
-        <td style="width:100px;">{{ $stall->username}}</td>
-        <td style="width:120px;">{{ $stall->mobile}}</td>
-        <td style="width:120px;">{{ $stall->weixinNo}}</td>
-        <td style="width:200px;">{{ $stall->stallName}}</td>
-        <td style="width:150px;">{{ $stall->stallNum}}</td>
-        <td style="text-align:center">
-            <a href="{{URL::action('CMSController@stall_info', ['id' => $stall->stall_id]) }}"><input type="button" value="查看" class="link_btn"/></a>
-            <a href="{{URL::action('CMSController@modifyStallInfo', ['id' => $stall->stall_id]) }}"><input type="button" value="修改" class="link_btn"/></a>
-            <a href="{{URL::action('CMSController@deleteStall', ['id' => $stall->stall_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
-        </td>
-    </tr>
+<div style="margin-left: 100px; margin-top: 50px;width: 1000px;">
+    @foreach ($stalls as $item)
+        <div style="position: relative;float: left;margin-right: 20px; margin-bottom: 20px;">
+            <div style="display: table; margin-bottom: 20px;">
+                <a href="{{URL::action('CMSController@stall_info', ['id' => $item->stall_id]) }}">
+                    @if (count($item->pictures) > 0)
+                        <img src="{{$item->pictures[0]->url}}" width="200px" height="200px">
+                    @else
+                        <img src="http://image.weipai.cn/honglema/default.gif"  width="200px" height="200px">
+                    @endif
+                </a>
+            </div>
+            <div style="text-align: center;">
+                <span>{{$item->stallName }}</span>
+            </div>
+
+        </div>
     @endforeach
-</table>
-<aside class="paging">
+
+</div>
+<aside class="paging" style="clear:both;">
     <a href="{{ url('/cms/stall_export') }}" style="float: left;" >导出Excel</a>
     <a href="/cms/stall_create" style="float: left;margin-left: 10px;" >添加档口</a>
 

@@ -38,6 +38,6 @@ class Designer extends Model
 
     public function pictures()
     {
-        return $this->hasMany('App\Models\ProductPicture', 'id');
+        return $this->hasMany('App\Models\ProductPicture', 'id')->where('type', '=', 2);
     }
 }
