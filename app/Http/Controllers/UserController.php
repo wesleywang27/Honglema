@@ -146,6 +146,7 @@ class UserController extends Controller{
     public function user_info_confirm(){
         session_start();
         if(isset($_SESSION['username'])){
+            $_SESSION['active'] = null;
             $confirmUser = User::where('name',$_SESSION['username'])->first();
             return view('/cms/user_info_confirm',['user' => $confirmUser]);
         }
@@ -157,6 +158,7 @@ class UserController extends Controller{
     public function user_info(){
         session_start();
         if(isset($_SESSION['username'])){
+            $_SESSION['active'] = null;
             return view('/cms/user_info');
         }
         else{

@@ -56,7 +56,7 @@ class CMSController extends Controller{
                 $_SESSION['celebrity_right'] = 1;
             else
                 $_SESSION['celebrity_right'] = 0;
-            
+
             $_SESSION['active'] = null;
             return view("/cms/index");
         }
@@ -84,6 +84,7 @@ class CMSController extends Controller{
     public function logout(){
         session_start();
         unset($_SESSION['username']);
+        $_SESSION['active'] = null;
         return Redirect::intended('/cms/login');
     }
     //工厂列表页面
