@@ -56,6 +56,8 @@ class CMSController extends Controller{
                 $_SESSION['celebrity_right'] = 1;
             else
                 $_SESSION['celebrity_right'] = 0;
+            
+            $_SESSION['active'] = null;
             return view("/cms/index");
         }
         else{
@@ -93,6 +95,7 @@ class CMSController extends Controller{
                 return;
             }
             else{
+                $_SESSION['active'] = 'factory';
                 if(Input::has('category') || Input::has('name')){
                     $name = Input::has('name') ? Input::get('name') : 'all';
                     $category = Input::has('category') ? Input::get('category') : 'all';
@@ -375,10 +378,11 @@ class CMSController extends Controller{
                 return;
             }
             else{
+                $_SESSION['active'] = 'brand';
                 if(Input::has('category') || Input::has('name')){
                     $name = Input::has('name') ? Input::get('name') : 'all';
                     $category = Input::has('category') ? Input::get('category') : 'all';
-                    return Redirect::to("/cms/brand/$name/$category");
+                    return Redirect::to("/cms/brand/$name/$category",['active' => 'brand']);
                 }
                 else{
                     $user = User::where('name',$_SESSION['username'])->first();
@@ -386,7 +390,7 @@ class CMSController extends Controller{
                         $brand = Brand::with("pictures")->paginate(10);
                     else
                         $brand = Brand::where('contact',$user->nickname)->paginate(10);
-                    return view('/cms/brand')->with(['brands' => $brand ,'name' => 'all' ,'category' => 'all']);
+                    return view('/cms/brand')->with(['brands' => $brand ,'name' => 'all' ,'category' => 'all' ,'active' => 'brand']);
                 }
             }
         }
@@ -519,7 +523,7 @@ class CMSController extends Controller{
                 $brand = Brand::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->paginate(10);
             else
                 $brand = Brand::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->where('contact',$user->nickname)->paginate(10);
-            return view('/cms/brand',['brands' => $brand ,'name' => $name ,'category' => $category]);
+            return view('/cms/brand',['brands' => $brand ,'name' => $name ,'category' => $category ,'active' => 'brand']);
         }
         else{
             return Redirect::intended('/cms/login');
@@ -659,9 +663,10 @@ class CMSController extends Controller{
                 return;
             }
             else{
+                $_SESSION['active'] = 'designer';
                 if(Input::has('name')){
                     $name = Input::has('name') ? Input::get('name') : 'all';
-                    return Redirect::to("/cms/designer/$name/all");
+                    return Redirect::to("/cms/designer/$name/all" ,['active' => 'designer']);
                 }
                 else{
                     $user = User::where('name',$_SESSION['username'])->first();
@@ -669,7 +674,7 @@ class CMSController extends Controller{
                         $designer = Designer::with("pictures")->paginate(10);
                     else
                         $designer = Designer::where('contact',$user->nickname)->paginate(10);
-                    return view('/cms/designer')->with(['designers' => $designer ,'name' => 'all']);
+                    return view('/cms/designer')->with(['designers' => $designer ,'name' => 'all' ,'active' => 'designer']);
                 }
             }
         }
@@ -795,7 +800,7 @@ class CMSController extends Controller{
                 $designer = Designer::where('username','like','%'.$n.'%')->paginate(10);
             else
                 $designer = Designer::where('username','like','%'.$n.'%')->where('contact',$user->nickname)->paginate(10);
-            return view('/cms/designer',['designers' => $designer ,'name' => $name]);
+            return view('/cms/designer',['designers' => $designer ,'name' => $name ,'active' => 'designer']);
         }
         else{
             return Redirect::intended('/cms/login');
@@ -926,6 +931,7 @@ class CMSController extends Controller{
                 return;
             }
             else{
+                $_SESSION['active'] = 'stall';
                 if(Input::has('name')){
                     $name = Input::has('name') ? Input::get('name') : 'all';
                     return Redirect::to("/cms/stall/$name/all");
@@ -1192,6 +1198,7 @@ class CMSController extends Controller{
                 return;
             }
             else{
+                $_SESSION['active'] = 'celebrity';
                 if(Input::has('name')){
                     $name = Input::has('name') ? Input::get('name') : 'all';
                     return Redirect::to("/cms/celebrity/$name/all");

@@ -70,6 +70,8 @@
     @endforeach
 </table>
 <aside class="paging">
+    <a href="/cms/user_create" style="float: left;" >添加用户</a>
+
     <a class="{{ ($users->currentPage() == 1) ? ' disabled' : '' }}" href="{{ $users->url(1) }}">首页</a>
 
     @if ($users->currentPage() == 1)

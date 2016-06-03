@@ -19,6 +19,7 @@ class LogController extends Controller{
                 return;
             }
             else{
+                $_SESSION['active'] = 'log';
                 $log = Log::paginate(10);
                 return view('/cms/log',['logs' => $log]);
             }

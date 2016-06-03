@@ -21,6 +21,7 @@ class UserController extends Controller{
     public function index(){
         session_start();
         if(isset($_SESSION['username'])){
+            $_SESSION['active'] = 'user';
             $user = User::paginate(10);
             $confirmUser = User::where('name',$_SESSION['username'])->first();
             if ($confirmUser->is_admin == 1)

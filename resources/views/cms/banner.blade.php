@@ -59,17 +59,37 @@
                 @if ($_SESSION['factory_right'] || $_SESSION['brand_right'] || $_SESSION['designer_right'] || $_SESSION['stall_right'])
                 <dt>商家信息管理</dt>
                 @endif
+
                 @if ($_SESSION['factory_right'])
+                @if ($_SESSION['active'] == 'factory')
+                <dd><a href="/cms/factoryList" class="active">工厂信息列表</a></dd>
+                @else
                 <dd><a href="/cms/factoryList">工厂信息列表</a></dd>
                 @endif
+                @endif
+
                 @if ($_SESSION['brand_right'])
+                @if ($_SESSION['active'] == 'brand')
+                <dd><a href="/cms/brandList" class="active">品牌商信息列表</a></dd>
+                @else
                 <dd><a href="/cms/brandList">品牌商信息列表</a></dd>
                 @endif
+                @endif
+
                 @if ($_SESSION['designer_right'])
+                @if ($_SESSION['active'] == 'designer')
+                <dd><a href="/cms/designerList" class="active">设计师信息列表</a></dd>
+                @else
                 <dd><a href="/cms/designerList">设计师信息列表</a></dd>
                 @endif
+                @endif
+
                 @if ($_SESSION['stall_right'])
+                @if ($_SESSION['active'] == 'stall')
+                <dd><a href="/cms/stallList" class="active">档口信息列表</a></dd>
+                @else
                 <dd><a href="/cms/stallList">档口信息列表</a></dd>
+                @endif
                 @endif
             </dl>
         </li>
@@ -77,7 +97,11 @@
             <dl>
                 @if ($_SESSION['celebrity_right'])
                 <dt>红人信息管理</dt>
+                @if ($_SESSION['active'] == 'celebrity')
+                <dd><a href="/cms/celebrityList" class="active">红人信息列表</a></dd>
+                @else
                 <dd><a href="/cms/celebrityList">红人信息列表</a></dd>
+                @endif
                 @endif
             </dl>
         </li>
@@ -86,8 +110,11 @@
         <li>
             <dl>
                 <dt>后台用户管理</dt>
+                @if ($_SESSION['active'] == 'user')
+                <dd><a href="/cms/user" class="active">后台用户列表</a></dd>
+                @else
                 <dd><a href="/cms/user">后台用户列表</a></dd>
-                <dd><a href="/cms/user_create">添加后台用户</a></dd>
+                @endif
             </dl>
         </li>
         @endif
@@ -95,7 +122,11 @@
         <li>
             <dl>
                 <dt>后台操作日志</dt>
+                @if ($_SESSION['active'] == 'log')
+                <dd><a href="/cms/logList" class="active">操作日志列表</a></dd>
+                @else
                 <dd><a href="/cms/logList">操作日志列表</a></dd>
+                @endif
             </dl>
         </li>
         @endif
