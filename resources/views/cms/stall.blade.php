@@ -13,7 +13,10 @@
                placeholder="按姓名查找"/>
     </form>
 </div>
-<div style="margin-left: 100px; margin-top: 50px;width: 1000px;">
+<div style="margin-left: 100px; margin-top: 20px;width: 1000px;">
+    <div>
+        <p>总{{ $total }}条，合作商户 条</p>
+    </div>
     @foreach ($stalls as $item)
         <div style="position: relative;float: left;margin-right: 20px; margin-bottom: 20px;">
             <div style="display: table; margin-bottom: 20px;">

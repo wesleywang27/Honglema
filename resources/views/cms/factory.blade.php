@@ -38,22 +38,24 @@
     </form>
 </div>
 
-<div style="margin-left: 100px; margin-top: 50px;width: 1000px;">
+<div style="margin-left: 100px; margin-top:20px;width: 1000px;">
+    <div>
+        <p>总{{ $total }}条，合作商户 条</p>
+    </div>
     @foreach ($factories as $factory)
         <div style="position: relative;float: left;margin-right: 20px; margin-bottom: 20px;">
-        <div style="display: table; margin-bottom: 20px;">
-            <a href="{{URL::action('CMSController@factory_info', ['id' => $factory->factory_id]) }}">
-            @if (count($factory->pictures) > 0)
-                <img src="{{$factory->pictures[0]->url}}" width="200px" height="200px">
-            @else
-                <img src="http://image.weipai.cn/honglema/default.gif"  width="200px" height="200px">
-            @endif
-            </a>
-        </div>
+            <div style="display: table; margin-bottom: 20px;">
+                <a href="{{URL::action('CMSController@factory_info', ['id' => $factory->factory_id]) }}">
+                @if (count($factory->pictures) > 0)
+                    <img src="{{$factory->pictures[0]->url}}" width="200px" height="200px">
+                @else
+                    <img src="http://image.weipai.cn/honglema/default.gif"  width="200px" height="200px">
+                @endif
+                </a>
+            </div>
             <div style="text-align: center;">
                 <span>{{$factory->company }}</span>
             </div>
-
         </div>
     @endforeach
 
