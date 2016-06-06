@@ -105,9 +105,9 @@ class CMSController extends Controller{
                 else{
                     $user = User::where('name',$_SESSION['username'])->first();
                     if($user->contact_only == 0)
-                        $factory = Factory::with("pictures")->paginate(10);
+                        $factory = Factory::with("pictures")->paginate(12);
                     else
-                        $factory = Factory::where('contact',$user->nickname)->paginate(10);
+                        $factory = Factory::where('contact',$user->nickname)->paginate(12);
                     $total = Factory::count();
                     $cooperation = Factory::where('cooperation',1)->count();
                     return view('/cms/factory')->with(['factories' => $factory ,'name' => 'all' ,'category' => 'all' ,'total' => $total ,'cooperation' => $cooperation]);
@@ -240,9 +240,9 @@ class CMSController extends Controller{
             $c = ($category != 'all') ? $category : '%';
             $user = User::where('name',$_SESSION['username'])->first();
             if($user->contact_only == 0)
-                $factory = Factory::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->paginate(10);
+                $factory = Factory::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->paginate(12);
             else
-                $factory = Factory::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->where('contact',$user->nickname)->paginate(10);
+                $factory = Factory::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->where('contact',$user->nickname)->paginate(12);
             $total = Factory::count();
             $cooperation = Factory::where('cooperation',1)->count();
             return view('/cms/factory',['factories' => $factory ,'name' => $name ,'category' => $category ,'total' => $total ,'cooperation' => $cooperation]);
