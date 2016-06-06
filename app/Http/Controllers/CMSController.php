@@ -475,6 +475,7 @@ class CMSController extends Controller{
                 $brand->refund = Input::get('refund');
                 $brand->contact = Input::get('contact');
                 $brand->description = Input::get('description');
+                $brand->cooperation = Input::get('cooperation');
 
                 $log = new Log();
                 $log->username = $_SESSION['username'];

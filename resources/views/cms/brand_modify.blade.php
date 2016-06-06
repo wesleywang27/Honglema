@@ -140,8 +140,18 @@
                             <option value="其他">其他</option>
                         </select>
                     </td>
-                    <th></th>
-                    <td></td>
+                    <th>已合作：</th>
+                    <td>
+                        <select style="width: 100%;height: 100%;" name="cooperation">
+                            @if ($brand->cooperation == 1)
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                            @else
+                            <option value="0">否</option>
+                            <option value="1">是</option>
+                            @endif
+                        </select>
+                    </td>
                     <th></th>
                     <td></td>
                 </tr>

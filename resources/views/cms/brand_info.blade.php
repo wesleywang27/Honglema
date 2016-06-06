@@ -79,8 +79,20 @@
                 <td>{{ $brand->contact}}</td>
             </tr>
             <tr>
+                <th>已合作：</th>
+                @if ($brand->cooperation == 1)
+                <td>是</td>
+                @else
+                <td>否</td>
+                @endif
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
                 <th>备注：</th>
-                <td colspan="5"><textarea name="description" style="width: 99%; height: 60px; margin-top: -13px; margin-bottom: -15px;" readonly>{{ $brand->description}}</textarea></td>
+                <td colspan="5"><textarea name="description" style="width: 99.3%; height: 60px; margin-top: -11px; margin-bottom: -13px;" readonly>{{ $brand->description}}</textarea></td>
             </tr>
         </table>
         <a href="{{URL::action('CMSController@deleteBrand', ['id' => $brand->brand_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn" style="float: right; margin-right: 40px;"/></a>
