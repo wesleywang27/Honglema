@@ -186,6 +186,7 @@ class CMSController extends Controller{
                 $factory->zhangqi = Input::get('zhangqi');
                 $factory->contact = Input::get('contact');
                 $factory->description = Input::get('description');
+                $factory->cooperation = Input::get('cooperation');
 
                 $log = new Log();
                 $log->username = $_SESSION['username'];

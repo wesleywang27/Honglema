@@ -137,8 +137,27 @@
                         </select>
                     </td>
                 </tr>
-                <tr><th>备注：</th>
-                    <td colspan="5"><textarea name="description" style="width: 99.3%; height: 60px; margin-top: -8px; margin-bottom: -10px;">{{ $factory->description}}</textarea></td>
+                <tr>
+                    <th>已合作：</th>
+                    <td>
+                        <select style="width: 100%;height: 100%;" name="cooperation">
+                            @if ($factory->cooperation == 1)
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                            @else
+                            <option value="0">否</option>
+                            <option value="1">是</option>
+                            @endif
+                        </select>
+                    </td>
+                    <th></th>
+                    <td></td>
+                    <th></th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>备注：</th>
+                    <td colspan="5"><textarea name="description" style="width: 99.3%; height: 60px; margin-top: -6px; margin-bottom: -8px;">{{ $factory->description}}</textarea></td>
                 </tr>
             </table>
             <input type="submit" value="保存" class="link_btn" style="float: right; margin-right: 40px;"/>

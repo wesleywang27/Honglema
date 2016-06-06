@@ -27,32 +27,30 @@
                 <td>{{ $factory->title}}</td>
                 <th>公司名称：</th>
                 <td>{{ $factory->company}}</td>
-                <th></th>
-                <td></td>
+                <th>产品类目：</th>
+                <td>{{ $factory->category}}</td>
             </tr>
             <tr>
                 <th>公司地址：</th>
                 <td colspan="5">{{ $factory->country}}{{ $factory->province}}{{ $factory->city}}{{ $factory->region}}{{ $factory->address}}</td>
             </tr>
             <tr>
-                <th>产品类目：</th>
-                <td>{{ $factory->category}}</td>
                 <th>优势子类目：</th>
                 <td>{{ $factory->advantageSubcategory}}</td>
                 <th>工厂面积：</th>
                 <td>{{ $factory->ext1}}</td>
-            </tr>
-            <tr>
                 <th>工人数：</th>
                 <td>{{ $factory->ext2}}</td>
+            </tr>
+            <tr>
                 <th>打样速度：</th>
                 <td>{{ $factory->ext5}}</td>
                 <th>最小起订量：</th>
                 <td>{{ $factory->orderCount}}</td>
-            </tr>
-            <tr>
                 <th>日生产量：</th>
                 <td>{{ $factory->productCount}}</td>
+            </tr>
+            <tr>
                 <th>是否有设计团队：</th>
                 @if ($factory->design == 1)
                 <td>是</td>
@@ -65,18 +63,24 @@
                 @else
                 <td>否</td>
                 @endif
-            </tr>
-            <tr>
                 <th>是否支持一件代发：</th>
                 @if ($factory->shipmentOK == 1)
                 <td>是</td>
                 @else
                 <td>否</td>
                 @endif
+            </tr>
+            <tr>
                 <th>工厂主要付款方式：</th>
                 <td>{{$factory->zhangqi}}</td>
                 <th>红了吗对接人</th>
                 <td>{{$factory->contact}}</td>
+                <th>已合作</th>
+                @if ($factory->cooperation == 1)
+                <td>是</td>
+                @else
+                <td>否</td>
+                @endif
             </tr>
             <tr>
                 <th>备注：</th>
