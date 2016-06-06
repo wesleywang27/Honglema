@@ -105,9 +105,9 @@ class CMSController extends Controller{
                 else{
                     $user = User::where('name',$_SESSION['username'])->first();
                     if($user->contact_only == 0)
-                        $factory = Factory::with("pictures")->paginate(10);
+                        $factory = Factory::with("pictures")->paginate(12);
                     else
-                        $factory = Factory::where('contact',$user->nickname)->paginate(10);
+                        $factory = Factory::where('contact',$user->nickname)->paginate(12);
                     $total = Factory::count();
                     $cooperation = Factory::where('cooperation',1)->count();
                     return view('/cms/factory')->with(['factories' => $factory ,'name' => 'all' ,'category' => 'all' ,'total' => $total ,'cooperation' => $cooperation]);
@@ -240,9 +240,9 @@ class CMSController extends Controller{
             $c = ($category != 'all') ? $category : '%';
             $user = User::where('name',$_SESSION['username'])->first();
             if($user->contact_only == 0)
-                $factory = Factory::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->paginate(10);
+                $factory = Factory::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->paginate(12);
             else
-                $factory = Factory::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->where('contact',$user->nickname)->paginate(10);
+                $factory = Factory::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->where('contact',$user->nickname)->paginate(12);
             $total = Factory::count();
             $cooperation = Factory::where('cooperation',1)->count();
             return view('/cms/factory',['factories' => $factory ,'name' => $name ,'category' => $category ,'total' => $total ,'cooperation' => $cooperation]);
@@ -388,17 +388,17 @@ class CMSController extends Controller{
                 if(Input::has('category') || Input::has('name')){
                     $name = Input::has('name') ? Input::get('name') : 'all';
                     $category = Input::has('category') ? Input::get('category') : 'all';
-                    return Redirect::to("/cms/brand/$name/$category",['active' => 'brand']);
+                    return Redirect::to("/cms/brand/$name/$category");
                 }
                 else{
                     $user = User::where('name',$_SESSION['username'])->first();
                     if($user->contact_only == 0)
-                        $brand = Brand::with("pictures")->paginate(10);
+                        $brand = Brand::with("pictures")->paginate(12);
                     else
-                        $brand = Brand::where('contact',$user->nickname)->paginate(10);
+                        $brand = Brand::where('contact',$user->nickname)->paginate(12);
                     $total = Brand::count();
                     $cooperation = Brand::where('cooperation',1)->count();
-                    return view('/cms/brand')->with(['brands' => $brand ,'name' => 'all' ,'category' => 'all' ,'active' => 'brand' ,'total' => $total ,'cooperation' => $cooperation]);
+                    return view('/cms/brand')->with(['brands' => $brand ,'name' => 'all' ,'category' => 'all' ,'total' => $total ,'cooperation' => $cooperation]);
                 }
             }
         }
@@ -529,12 +529,12 @@ class CMSController extends Controller{
             $c = ($category != 'all') ? $category : '%';
             $user = User::where('name',$_SESSION['username'])->first();
             if($user->contact_only == 0)
-                $brand = Brand::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->paginate(10);
+                $brand = Brand::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->paginate(12);
             else
-                $brand = Brand::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->where('contact',$user->nickname)->paginate(10);
+                $brand = Brand::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->where('contact',$user->nickname)->paginate(12);
             $total = Brand::count();
             $cooperation = Brand::where('cooperation',1)->count();
-            return view('/cms/brand',['brands' => $brand ,'name' => $name ,'category' => $category ,'active' => 'brand' ,'total' => $total ,'cooperation' => $cooperation]);
+            return view('/cms/brand',['brands' => $brand ,'name' => $name ,'category' => $category ,'total' => $total ,'cooperation' => $cooperation]);
         }
         else{
             return Redirect::intended('/cms/login');
@@ -677,7 +677,7 @@ class CMSController extends Controller{
                 $_SESSION['active'] = 'designer';
                 if(Input::has('name')){
                     $name = Input::has('name') ? Input::get('name') : 'all';
-                    return Redirect::to("/cms/designer/$name/all" ,['active' => 'designer']);
+                    return Redirect::to("/cms/designer/$name/all");
                 }
                 else{
                     $user = User::where('name',$_SESSION['username'])->first();
@@ -687,7 +687,7 @@ class CMSController extends Controller{
                         $designer = Designer::where('contact',$user->nickname)->paginate(10);
                     $total = Designer::count();
                     $cooperation = Designer::where('cooperation',1)->count();
-                    return view('/cms/designer')->with(['designers' => $designer ,'name' => 'all' ,'active' => 'designer' ,'total' => $total ,'cooperation' => $cooperation]);
+                    return view('/cms/designer')->with(['designers' => $designer ,'name' => 'all' ,'total' => $total ,'cooperation' => $cooperation]);
                 }
             }
         }
@@ -816,7 +816,7 @@ class CMSController extends Controller{
                 $designer = Designer::where('username','like','%'.$n.'%')->where('contact',$user->nickname)->paginate(10);
             $total = Designer::count();
             $cooperation = Designer::where('cooperation',1)->count();
-            return view('/cms/designer',['designers' => $designer ,'name' => $name ,'active' => 'designer' ,'total' => $total ,'cooperation' => $cooperation]);
+            return view('/cms/designer',['designers' => $designer ,'name' => $name ,'total' => $total ,'cooperation' => $cooperation]);
         }
         else{
             return Redirect::intended('/cms/login');
