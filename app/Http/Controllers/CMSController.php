@@ -393,9 +393,9 @@ class CMSController extends Controller{
                 else{
                     $user = User::where('name',$_SESSION['username'])->first();
                     if($user->contact_only == 0)
-                        $brand = Brand::with("pictures")->paginate(10);
+                        $brand = Brand::with("pictures")->paginate(12);
                     else
-                        $brand = Brand::where('contact',$user->nickname)->paginate(10);
+                        $brand = Brand::where('contact',$user->nickname)->paginate(12);
                     $total = Brand::count();
                     $cooperation = Brand::where('cooperation',1)->count();
                     return view('/cms/brand')->with(['brands' => $brand ,'name' => 'all' ,'category' => 'all' ,'active' => 'brand' ,'total' => $total ,'cooperation' => $cooperation]);
@@ -529,9 +529,9 @@ class CMSController extends Controller{
             $c = ($category != 'all') ? $category : '%';
             $user = User::where('name',$_SESSION['username'])->first();
             if($user->contact_only == 0)
-                $brand = Brand::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->paginate(10);
+                $brand = Brand::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->paginate(12);
             else
-                $brand = Brand::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->where('contact',$user->nickname)->paginate(10);
+                $brand = Brand::where('username','like','%'.$n.'%')->where('category','like','%'.$c.'%')->where('contact',$user->nickname)->paginate(12);
             $total = Brand::count();
             $cooperation = Brand::where('cooperation',1)->count();
             return view('/cms/brand',['brands' => $brand ,'name' => $name ,'category' => $category ,'active' => 'brand' ,'total' => $total ,'cooperation' => $cooperation]);

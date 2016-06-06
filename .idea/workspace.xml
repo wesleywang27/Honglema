@@ -40,8 +40,8 @@
       <file leaf-file-name="CMSController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="244" column="155" selection-start-line="244" selection-start-column="155" selection-end-line="244" selection-end-column="155" />
+            <state relative-caret-position="384">
+              <caret line="533" column="151" selection-start-line="533" selection-start-column="151" selection-end-line="533" selection-end-column="151" />
               <folding>
                 <element signature="e#123#132#0#PHP" expanded="true" />
               </folding>
@@ -943,14 +943,7 @@
       <workItem from="1464927983911" duration="13244000" />
       <workItem from="1465183938185" duration="3129000" />
       <workItem from="1465187140455" duration="1019000" />
-      <workItem from="1465188326983" duration="2740000" />
-    </task>
-    <task id="LOCAL-00129" summary="修改excel导出权限">
-      <created>1462856792229</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1462856792229</updated>
+      <workItem from="1465188326983" duration="2834000" />
     </task>
     <task id="LOCAL-00130" summary="添加创建档口模块">
       <created>1462860641499</created>
@@ -1288,11 +1281,18 @@
       <option name="project" value="LOCAL" />
       <updated>1465186912915</updated>
     </task>
-    <option name="localTasksCounter" value="178" />
+    <task id="LOCAL-00178" summary="修改">
+      <created>1465194747393</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1465194747393</updated>
+    </task>
+    <option name="localTasksCounter" value="179" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="466598000" />
+    <option name="totallyTimeSpent" value="466692000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1369,11 +1369,11 @@
     <MESSAGE value="用户访问红人权限" />
     <MESSAGE value="红人信息导出" />
     <MESSAGE value="红人信息统计" />
-    <MESSAGE value="修改" />
     <MESSAGE value="修改工厂" />
     <MESSAGE value="修改品牌商" />
     <MESSAGE value="修改设计师" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改设计师" />
+    <MESSAGE value="修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1740,8 +1740,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="244" column="155" selection-start-line="244" selection-start-column="155" selection-end-line="244" selection-end-column="155" />
+        <state relative-caret-position="384">
+          <caret line="533" column="151" selection-start-line="533" selection-start-column="151" selection-end-line="533" selection-end-column="151" />
           <folding>
             <element signature="e#123#132#0#PHP" expanded="true" />
           </folding>
