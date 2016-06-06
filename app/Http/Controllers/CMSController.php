@@ -1030,6 +1030,7 @@ class CMSController extends Controller{
                 $stall->category = Input::get('category');
                 $stall->shipmentOK = Input::get('shipmentOK');
                 $stall->contact = Input::get('contact');
+                $stall->cooperation = Input::get('cooperation');
 
                 $log = new Log();
                 $log->username = $_SESSION['username'];
