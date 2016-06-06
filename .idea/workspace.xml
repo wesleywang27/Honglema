@@ -4,8 +4,8 @@
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/brand_info.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/brand_info.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/brand_modify.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/brand_modify.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/designer_info.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/designer_info.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/cms/designer_modify.blade.php" afterPath="$PROJECT_DIR$/resources/views/cms/designer_modify.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,8 +42,8 @@
       <file leaf-file-name="CMSController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="477" column="61" selection-start-line="477" selection-start-column="61" selection-end-line="477" selection-end-column="61" />
+            <state relative-caret-position="378">
+              <caret line="760" column="64" selection-start-line="760" selection-start-column="64" selection-end-line="760" selection-end-column="64" />
               <folding>
                 <element signature="e#123#132#0#PHP" expanded="true" />
               </folding>
@@ -51,27 +51,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="brand_info.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/cms/brand_info.blade.php">
+      <file leaf-file-name="designer_info.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/cms/designer_info.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="86" column="22" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
+            <state relative-caret-position="342">
+              <caret line="60" column="22" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
               <folding>
-                <element signature="n#style#0;n#textarea#0;n#td#0;n#tr#8;n#table#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <marker date="1465186434815" expanded="true" signature="6293:6319" placeholder="..." />
+                <marker date="1465186671195" expanded="true" signature="5734:5760" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="brand_modify.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/cms/brand_modify.blade.php">
+      <file leaf-file-name="designer_modify.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/cms/designer_modify.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="145" column="52" selection-start-line="145" selection-start-column="52" selection-end-line="145" selection-end-column="52" />
+            <state relative-caret-position="380">
+              <caret line="122" column="135" selection-start-line="122" selection-start-column="135" selection-end-line="122" selection-end-column="135" />
               <folding>
-                <element signature="n#style#0;n#select#0;n#td#1;n#tr#7;n#table#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <marker date="1465186557429" expanded="true" signature="11127:11186" placeholder="..." />
+                <element signature="n#style#0;n#textarea#0;n#td#0;n#tr#6;n#table#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <marker date="1465186823180" expanded="true" signature="9221:9280" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -101,10 +100,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/cms/stall_create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/designer_create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/stall_modify.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/cms/designer_modify.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/brand_create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/factory_create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DataController.php" />
@@ -150,8 +147,10 @@
         <option value="$PROJECT_DIR$/resources/views/cms/factory_info.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/factory_modify.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/brand_info.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/brand_modify.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/cms/designer_info.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/cms/designer_modify.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
       </list>
     </option>
   </component>
@@ -969,14 +968,7 @@
       <workItem from="1464320504712" duration="1337000" />
       <workItem from="1464924306649" duration="1281000" />
       <workItem from="1464927983911" duration="13244000" />
-      <workItem from="1465183938185" duration="2620000" />
-    </task>
-    <task id="LOCAL-00127" summary="增加contact_only字段">
-      <created>1462782088700</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1462782088700</updated>
+      <workItem from="1465183938185" duration="2947000" />
     </task>
     <task id="LOCAL-00128" summary="修改">
       <created>1462787859383</created>
@@ -1314,11 +1306,18 @@
       <option name="project" value="LOCAL" />
       <updated>1465185816589</updated>
     </task>
-    <option name="localTasksCounter" value="176" />
+    <task id="LOCAL-00176" summary="修改品牌商">
+      <created>1465186581969</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1465186581969</updated>
+    </task>
+    <option name="localTasksCounter" value="177" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="462330000" />
+    <option name="totallyTimeSpent" value="462657000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1374,7 +1373,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="修改excel导出权限" />
     <MESSAGE value="添加创建档口模块" />
     <MESSAGE value="添加创建设计师模块" />
     <MESSAGE value="添加创建品牌商模块" />
@@ -1399,7 +1397,8 @@
     <MESSAGE value="红人信息统计" />
     <MESSAGE value="修改" />
     <MESSAGE value="修改工厂" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改工厂" />
+    <MESSAGE value="修改品牌商" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改品牌商" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1412,20 +1411,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/mail_create_user.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="15" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/mail_forget.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/stall.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
@@ -1740,6 +1725,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/factory_modify.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="159" column="135" selection-start-line="159" selection-start-column="135" selection-end-line="159" selection-end-column="135" />
+          <folding>
+            <marker date="1465184961699" expanded="true" signature="11134:11193" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/brand_info.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1762,20 +1757,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/factory_modify.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/designer_info.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="159" column="135" selection-start-line="159" selection-start-column="135" selection-end-line="159" selection-end-column="135" />
+        <state relative-caret-position="342">
+          <caret line="60" column="22" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
           <folding>
-            <marker date="1465184961699" expanded="true" signature="11134:11193" placeholder="..." />
+            <marker date="1465186671195" expanded="true" signature="5734:5760" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/designer_modify.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="122" column="135" selection-start-line="122" selection-start-column="135" selection-end-line="122" selection-end-column="135" />
+          <folding>
+            <element signature="n#style#0;n#textarea#0;n#td#0;n#tr#6;n#table#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <marker date="1465186823180" expanded="true" signature="9221:9280" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="477" column="61" selection-start-line="477" selection-start-column="61" selection-end-line="477" selection-end-column="61" />
+        <state relative-caret-position="378">
+          <caret line="760" column="64" selection-start-line="760" selection-start-column="64" selection-end-line="760" selection-end-column="64" />
           <folding>
             <element signature="e#123#132#0#PHP" expanded="true" />
           </folding>

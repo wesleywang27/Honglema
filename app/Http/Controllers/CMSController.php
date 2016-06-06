@@ -758,6 +758,7 @@ class CMSController extends Controller{
                 $designer->designExperience = Input::get('designExperience');
                 $designer->contact = Input::get('contact');
                 $designer->description = Input::get('description');
+                $designer->cooperation = Input::get('cooperation');
 
                 $log = new Log();
                 $log->username = $_SESSION['username'];

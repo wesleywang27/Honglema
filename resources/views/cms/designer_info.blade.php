@@ -53,8 +53,12 @@
             <tr>
                 <th>红了吗对接人：</th>
                 <td>{{ $designer->contact}}</td>
-                <th></th>
-                <td></td>
+                <th>已合作：</th>
+                @if ($designer->cooperation == 1)
+                <td>是</td>
+                @else
+                <td>否</td>
+                @endif
                 <th></th>
                 <td></td>
             </tr>

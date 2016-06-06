@@ -99,10 +99,28 @@
                     </td>
                 </tr>
                 <tr>
+                    <th>已合作：</th>
+                    <td>
+                        <select style="width: 100%;height: 100%;" name="cooperation">
+                            @if ($designer->cooperation == 1)
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                            @else
+                            <option value="0">否</option>
+                            <option value="1">是</option>
+                            @endif
+                        </select>
+                    </td>
+                    <th></th>
+                    <td></td>
+                    <th></th>
+                    <td></td>
+                </tr>
+                <tr>
                     <th>设计经历：</th>
-                    <td colspan="2"><textarea name="designExperience" style="width: 98%; height: 60px; margin-top: -8px; margin-bottom: -10px;">{{ $designer->designExperience}}</textarea></td>
+                    <td colspan="2"><textarea name="designExperience" style="width: 98.2%; height: 60px; margin-top: -6px; margin-bottom: -8px;">{{ $designer->designExperience}}</textarea></td>
                     <th>备注：</th>
-                    <td colspan="2"><textarea name="description" style="width: 98%; height: 60px; margin-top: -8px; margin-bottom: -10px;">{{ $designer->description}}</textarea></td>
+                    <td colspan="2"><textarea name="description" style="width: 98.4%; height: 60px; margin-top: -6px; margin-bottom: -8px;">{{ $designer->description}}</textarea></td>
                 </tr>
             </table>
             <input type="submit" value="保存" class="link_btn" style="float: right; margin-right: 40px;"/>
