@@ -38,7 +38,7 @@
     </form>
 </div>
 <div style="margin-left: 100px; margin-top:20px;width: 1000px;">
-    <div>
+    <div style="margin-bottom: 20px;">
         <p>总{{ $total }}条，合作商户{{ $cooperation }}条</p>
     </div>
     @foreach ($factories as $factory)
