@@ -40,8 +40,8 @@
       <file leaf-file-name="CMSController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="533" column="151" selection-start-line="533" selection-start-column="151" selection-end-line="533" selection-end-column="151" />
+            <state relative-caret-position="174">
+              <caret line="679" column="65" selection-start-line="679" selection-start-column="65" selection-end-line="679" selection-end-column="65" />
               <folding>
                 <element signature="e#123#132#0#PHP" expanded="true" />
               </folding>
@@ -943,14 +943,7 @@
       <workItem from="1464927983911" duration="13244000" />
       <workItem from="1465183938185" duration="3129000" />
       <workItem from="1465187140455" duration="1019000" />
-      <workItem from="1465188326983" duration="2834000" />
-    </task>
-    <task id="LOCAL-00130" summary="添加创建档口模块">
-      <created>1462860641499</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1462860641499</updated>
+      <workItem from="1465188326983" duration="3417000" />
     </task>
     <task id="LOCAL-00131" summary="添加创建设计师模块">
       <created>1462861799963</created>
@@ -1288,11 +1281,18 @@
       <option name="project" value="LOCAL" />
       <updated>1465194747393</updated>
     </task>
-    <option name="localTasksCounter" value="179" />
+    <task id="LOCAL-00179" summary="修改">
+      <created>1465194836653</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1465194836653</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="466692000" />
+    <option name="totallyTimeSpent" value="467275000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1722,14 +1722,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/brand.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/factory.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -1738,10 +1730,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/brand.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="71" column="10" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="533" column="151" selection-start-line="533" selection-start-column="151" selection-end-line="533" selection-end-column="151" />
+        <state relative-caret-position="174">
+          <caret line="679" column="65" selection-start-line="679" selection-start-column="65" selection-end-line="679" selection-end-column="65" />
           <folding>
             <element signature="e#123#132#0#PHP" expanded="true" />
           </folding>
