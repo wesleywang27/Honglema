@@ -22,7 +22,7 @@ Route::get('/playground/celebrity','PlaygroundController@index');
 
 Route::resource('/picture', 'PictureController');
 
-Route::resource('/productpicture', 'ProductPictureController');
+Route::resource('/productPicture', 'ProductPictureController');
 
 Route::resource('/productPicture', 'ProductPictureController@store');
 
