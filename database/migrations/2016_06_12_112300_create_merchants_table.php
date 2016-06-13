@@ -27,6 +27,7 @@ class CreateMerchantsTable extends Migration
             $table->string('alipay_account');
             $table->string('license');
             $table->string('openid');
+            $table->string('status');
         });
     }
 

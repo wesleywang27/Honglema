@@ -31,6 +31,8 @@ class Stall extends Model{
         'open_id'
     ];
 
+    protected $dates = ['deleted_at'];
+
     public static $rules = array(
         'username' => 'min:2',
         'mobile' => 'between:11,11',
