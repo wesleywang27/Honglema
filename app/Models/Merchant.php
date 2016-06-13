@@ -10,5 +10,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Merchant extends Model{
-    
+    protected $table = 'merchants';
+
+    public $timestamps = false;
+
+    protected  $primaryKey = 'merchant_id';
+
+    protected  $fillable = [
+        'avatar',
+        'name',
+        'country',
+        'province',
+        'city',
+        'region',
+        'address',
+        'wechat',
+        'cellphone',
+        'alipay_name',
+        'alipay_account',
+        'license'
+    ];
+
+    public static $rules = array(
+        //
+    );
 }
