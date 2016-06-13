@@ -22,7 +22,7 @@ Route::get('/playground/celebrity','PlaygroundController@index');
 
 Route::resource('/picture', 'PictureController');
 
-Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+/*Route::group(['middleware' => ['web', 'wechat.oauth']], function () {*/
 
     Route::resource('/celebrity', 'CelebrityController');
 
@@ -30,7 +30,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::get('/celebrity/{celebrity}', 'CelebrityController@show');
     
-});
+/*});*/
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +61,25 @@ Route::post('/brand', 'BrandController@createBrand');
 Route::get('/designer.php', 'DesignerController@index');
 
 Route::post('/designer', 'DesignerController@createDesigner');
+
+//网红入口
+
+Route::get('/star/activity',"StarController@activity");
+
+Route::get('/star/order',"StarController@order");
+
+Route::get('/star/process',"StarController@process");
+
+Route::get('/star/comment',"StarController@comment");
+
+Route::get('/star/contention',"StarController@contention");
+
+Route::get('/star/show_process',"StarController@show_process");
+
+Route::get('/star/show_comment',"StarController@show_comment");
+
+Route::get('/star/show_contention',"StarController@show_contention");
+
+Route::get('/star/all_order',"StarController@all_order");
+
+Route::get('/star/info',"StarController@info");
