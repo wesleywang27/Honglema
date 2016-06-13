@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/Avatar.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/License.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2016_06_13_115954_create_avatars_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2016_06_13_120038_create_licenses_table.php" />
+    <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="修改">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Merchant.php" afterPath="$PROJECT_DIR$/app/Models/Merchant.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/ProductPicture.php" afterPath="$PROJECT_DIR$/app/Models/ProductPicture.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_06_12_112300_create_merchants_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_06_12_112300_create_merchants_table.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Models/Product.php" afterPath="$PROJECT_DIR$/app/Models/Commodity.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Models/ProductList.php" afterPath="$PROJECT_DIR$/app/Models/CommodityList.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/database/migrations/2016_06_12_112404_create_products_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_06_13_134712_create_commodities_table.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/database/migrations/2016_06_12_112728_create_product_lists_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_06_13_134744_create_commodity_lists_table.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,36 +40,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Merchant.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Merchant.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Models/Merchant.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="209">
               <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Avatar.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/Avatar.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-              <folding>
-                <element signature="e#6#89#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="License.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Models/License.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-              <folding>
-                <element signature="e#6#89#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -90,7 +63,7 @@
     <option name="FORCE_PUSH_ALLOWED" value="true" />
     <push-targets>
       <push-target-info repo="$PROJECT_DIR$" source="master" target-remote="origin" target-branch="master" />
-      <push-target-info repo="$PROJECT_DIR$" source="shangjia" target-remote="github" target-branch="shangjia" />
+      <push-target-info repo="$PROJECT_DIR$" source="shangjia" target-remote="origin" target-branch="shangjia" />
     </push-targets>
   </component>
   <component name="GradleLocalSettings">
@@ -101,8 +74,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/stall.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/cms/celebrity_modify.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/celebrity.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/celebrity_create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/user_create.blade.php" />
@@ -152,6 +123,8 @@
         <option value="$PROJECT_DIR$/app/Models/ProductPicture.php" />
         <option value="$PROJECT_DIR$/app/Models/Avatar.php" />
         <option value="$PROJECT_DIR$/app/Models/License.php" />
+        <option value="$PROJECT_DIR$/app/Models/Commodity.php" />
+        <option value="$PROJECT_DIR$/app/Models/CommodityList.php" />
       </list>
     </option>
   </component>
@@ -1025,14 +998,7 @@
       <workItem from="1465272385997" duration="1390000" />
       <workItem from="1465701005297" duration="8139000" />
       <workItem from="1465723604469" duration="1581000" />
-      <workItem from="1465785113413" duration="7426000" />
-    </task>
-    <task id="LOCAL-00132" summary="添加创建品牌商模块">
-      <created>1462863279169</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
-      <option name="project" value="LOCAL" />
-      <updated>1462863279169</updated>
+      <workItem from="1465785113413" duration="8485000" />
     </task>
     <task id="LOCAL-00133" summary="修改">
       <created>1462864730441</created>
@@ -1370,11 +1336,18 @@
       <option name="project" value="LOCAL" />
       <updated>1465272408414</updated>
     </task>
-    <option name="localTasksCounter" value="181" />
+    <task id="LOCAL-00181" summary="修改">
+      <created>1465793759395</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1465793759395</updated>
+    </task>
+    <option name="localTasksCounter" value="182" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="485811000" />
+    <option name="totallyTimeSpent" value="486870000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1402,6 +1375,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35854766" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1414,7 +1388,6 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1468,13 +1441,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="34" column="54" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -1658,13 +1624,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Activities.php" />
-    <entry file="file://$PROJECT_DIR$/app/Models/Product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Activity.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -1673,13 +1632,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Task.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/ProductList.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
@@ -1788,14 +1740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Merchant.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/ProductPicture.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -1820,13 +1764,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Avatar.php">
+    <entry file="file://$PROJECT_DIR$/app/Models/Commodity.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-          <folding>
-            <element signature="e#6#89#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="114">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_12_112728_create_product_lists_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1837,6 +1787,32 @@
           <folding>
             <element signature="e#6#89#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Avatar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+          <folding>
+            <element signature="e#6#89#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/CommodityList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Merchant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
