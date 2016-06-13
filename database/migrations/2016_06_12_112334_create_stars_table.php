@@ -14,6 +14,7 @@ class CreateStarsTable extends Migration
     {
         Schema::create('stars', function (Blueprint $table) {
             $table->increments('star_id');
+            $table->string('avatar');
             $table->string('name');
             $table->tinyInteger('sex');
             $table->string('location');
@@ -42,7 +43,10 @@ class CreateStarsTable extends Migration
             $table->string('wechat');
             $table->string('alipay_name');
             $table->string('alipay_account');
+            $table->string('ID_card1');
+            $table->string('ID_card2');
             $table->string('openid');
+            $table->string('status');
         });
     }
 

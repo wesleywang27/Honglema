@@ -105,7 +105,7 @@ Route::group(['middleware' => ['web']], function () {
  * 红了吗后台管理系统入口
  */
 
-//Route::group(['domain' => 'cms.honglema.com'], function() {
+Route::group(['domain' => 'cms.honglema.com'], function() {
 
     //登录登出模块入口
     Route::get('/cms/logout', 'CMSController@logout');
@@ -259,6 +259,7 @@ Route::group(['middleware' => ['web']], function () {
     //操作日志入口
     Route::get('/cms/logList',"LogController@index");
 
+<<<<<<< HEAD
 Route::post('/designer', 'DesignerController@createDesigner');
 
 //网红入口
@@ -284,3 +285,6 @@ Route::get('/star/all_order',"StarController@all_order");
 Route::get('/star/info',"StarController@info");
 /*
 });*/
+=======
+});
+>>>>>>> 4de2db150f7a7f346c4260c92cad80b2b3222505
