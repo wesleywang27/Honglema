@@ -26,6 +26,6 @@ class CreateStarPicturesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('star_pictures');
     }
 }
