@@ -20,31 +20,32 @@ class CreateFactoriesTable extends Migration
             $table->string('title');
             $table->string('company');
             $table->string('category');
-            $table->boolean('tMall');
+            $table->string('advantageSubcategory')->nullable();
+            $table->tinyInteger('shipmentOK');
+            //$table->boolean('tMall');
             $table->boolean('tie');
             $table->string('ext1');
             $table->string('ext2');
-            $table->string('ext3');
-            $table->string('ext4');
+            //$table->string('ext3');
+            //$table->string('ext4');
             $table->string('ext5');
-            $table->string('ext6');
-            $table->string('factorySize');
-            $table->integer('factoryOut');
+            //$table->string('ext6');
+            //$table->string('factorySize');
+            //$table->integer('factoryOut');
             $table->boolean('design');
             $table->string('zhangqi')->nullable();
             $table->string('country');
-            $table->string('province');
-            $table->string('city');
-            $table->string('region');
+            $table->string('province')->nullable();
+            $table->string('city')->nullable();
+            $table->string('region')->nullable();
             $table->string('address');
-            $table->string('product');
+            //$table->string('product');
             $table->integer('productCount');
             $table->integer('orderCount');
             $table->boolean('refund');
-            $table->string('description');
+            $table->string('description')->nullable();
         });
     }
-
     /**
      * Reverse the migrations.
      *

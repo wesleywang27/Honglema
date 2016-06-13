@@ -16,7 +16,7 @@ class PictureController extends Controller
         $images = $request->file('imgs');
         $urls = [];
         $oss = new OssClient(config('oss.accessKeyId'), config('oss.accessKeySecret'), config('oss.endpoint'));
-        $baseDir = "honglame/avatar";
+        $baseDir = "honglema/avatar";
         // todo 每张图片异步处理, 最后同步等待
         foreach ($images as $image) {
             $originName = $image->getBasename() . '.' . $image->getClientOriginalExtension();
@@ -37,6 +37,6 @@ class PictureController extends Controller
 
 
 
-        return response()->json(['urls' => $urls], 201);
+        return response()->json(['urls' => $urls], 200);
     }
 }

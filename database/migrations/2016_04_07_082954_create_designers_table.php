@@ -19,11 +19,17 @@ class CreateDesignersTable extends Migration
             $table->string('mobile');
             $table->string('weixinNo');
             $table->string('title');
+            $table->string('company');
+            $table->string('country');
+            $table->string('province')->nullable();
+            $table->string('city')->nullable();
+            $table->string('region')->nullable();
+            $table->string('address');
             $table->string('designExperience');
             $table->boolean('designTeam');
             $table->boolean('brand');
             $table->string('designBrand');
-            $table->string('description');
+            $table->string('description')->nullable();
         });
     }
 

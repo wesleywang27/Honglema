@@ -21,13 +21,9 @@ class Brand extends Model
         'brand',
         'sales',
         'category',
-        'tMall',
-        'tie',
         'factory',
         'factorySize',
-        'factoryOut',
         'design',
-        'zhangqi',
         'country',
         'province',
         'city',
@@ -45,8 +41,11 @@ class Brand extends Model
     public static $rules = array(
         'username' => 'min:2',
         'mobile' => 'between:11,11',
-        'address' => 'required',
-        'description' => 'required'
+        'address' => 'required'
     );
-    //
+
+    public function pictures()
+    {
+        return $this->hasMany('App\Models\ProductPicture', 'id')->where('type', '=', 1);
+    }
 }

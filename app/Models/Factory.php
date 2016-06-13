@@ -19,16 +19,11 @@ class Factory extends Model
         'title',
         'company',
         'category',
-        'tMall',
-        'tie',
+        'advantageSubcategory',
+        'shipmentOK',
         'ext1',
         'ext2',
-        'ext3',
-        'ext4',
         'ext5',
-        'ext6',
-        'factorySize',
-        'factoryOut',
         'design',
         'zhangqi',
         'country',
@@ -36,7 +31,6 @@ class Factory extends Model
         'city',
         'region',
         'address',
-        'product',
         'productCount',
         'orderCount',
         'refund',
@@ -46,8 +40,11 @@ class Factory extends Model
     public static $rules = array(
         'username' => 'min:2',
         'mobile' => 'between:11,11',
-        'address' => 'required',
-        'description' => 'required'
+        'address' => 'required'
     );
-    //
+
+    public function pictures()
+    {
+        return $this->hasMany('App\Models\ProductPicture', 'id')->where('type', '=', 0);
+    }
 }
