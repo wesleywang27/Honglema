@@ -3,8 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Stall extends Model{
+    use SoftDeletes;
+
     protected $table = 'stalls';
 
     public $timestamps = false;
@@ -30,6 +33,8 @@ class Stall extends Model{
         'shipmentOK',
         'open_id'
     ];
+
+    protected $dates = ['deleted_at'];
 
     public static $rules = array(
         'username' => 'min:2',

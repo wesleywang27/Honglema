@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Designer extends Model
-{
+class Designer extends Model{
+    use SoftDeletes;
+    
     protected $table = 'designers';
 
     public $timestamps = false;
