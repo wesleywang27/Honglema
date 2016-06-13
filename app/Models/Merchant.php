@@ -17,6 +17,7 @@ class Merchant extends Model{
     protected  $primaryKey = 'merchant_id';
 
     protected  $fillable = [
+        'avatar',
         'name',
         'country',
         'province',
@@ -26,20 +27,11 @@ class Merchant extends Model{
         'wechat',
         'cellphone',
         'alipay_name',
-        'alipay_account'
+        'alipay_account',
+        'license'
     ];
 
     public static $rules = array(
         //
     );
-
-    public function avatars()
-    {
-        return $this->has('App\Models\Avatar', 'id')->where('type', '=', 1);
-    }
-
-    public function licenses()
-    {
-        return $this->has('App\Models\License', 'id');
-    }
 }

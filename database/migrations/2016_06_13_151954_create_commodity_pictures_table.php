@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAvatarsTable extends Migration
+class CreateCommodityPicturesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,7 @@ class CreateAvatarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('avatars', function (Blueprint $table) {
-            $table->integer('id',11);
-            $table->tinyInteger('type',2);
-            $table->string('file_name');
-            $table->string('url');
-        });
+        //
     }
 
     /**

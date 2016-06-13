@@ -14,6 +14,7 @@ class CreateMerchantsTable extends Migration
     {
         Schema::create('merchants', function (Blueprint $table) {
             $table->increments('merchant_id');
+            $table->string('avatar');
             $table->string('name');
             $table->string('country');
             $table->string('province')->nullable();
@@ -24,6 +25,8 @@ class CreateMerchantsTable extends Migration
             $table->string('cellphone');
             $table->string('alipay_name');
             $table->string('alipay_account');
+            $table->string('license');
+            $table->string('openid');
         });
     }
 
