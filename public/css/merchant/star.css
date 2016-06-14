@@ -1,0 +1,136 @@
+.body{
+    background-color: #efefef;
+    margin: 0px;;
+}
+.header{
+    font-size:18px;
+    font-weight: normal;
+    border-top: 1px solid #e5e5e5;
+    text-align: center;
+    line-height: 50px;
+    margin: 0 auto;
+
+}
+.nav{
+    width: 100%;
+    border-width:1px;
+    border-top-style:solid;
+    border-bottom-style:solid;
+    border-top-color: #9b9b9b;
+    border-bottom-color: #9b9b9b;
+    text-align:center;
+    background: white;
+    height:40px;
+    overflow: hidden;
+    padding: 0px;
+}
+.cell{width:33.3%; float:left; height:40px;background: white; }
+.cell a{
+    margin:0 auto;
+    height:40px;
+    line-height:40px;
+    text-decoration:none;
+    color:black;
+    font-size: 14px;
+    margin-right: 3px;
+}
+
+.item{
+    margin-top: 10px;;
+    border-width:1px;
+    border-top-style:solid;
+    border-bottom-style:solid;
+    border-top-color: #9b9b9b;
+    border-bottom-color: #9b9b9b;
+    background: white;
+    height:130px;
+    overflow: hidden;
+    padding: 0px;
+}
+
+.shop{
+    border-width:2px;
+    border-bottom-style:solid;
+    border-bottom-color: #9b9b9b;
+    background: white;
+    height:39px;
+    overflow: hidden;
+    padding: 0px;
+    padding-left: 10px;
+}
+
+.shop a{
+    margin:0 auto;
+    height:40px;
+    line-height:40px;
+    text-decoration:none;
+    color:black;
+}
+.item_detail{
+    height:93px;
+    padding-left: 10px;
+}
+.item_pic{
+    float: left;
+    height: 93px;
+
+}
+.item_pic img{
+    margin-top: 10px;
+    width:80px;
+    height:70px;
+}
+
+.item_info{
+    float: left;
+    height: 93px;
+    margin-left: 20px;
+}
+
+.info_font1{
+    margin-top: 20px;
+    font-size: 14px;
+}
+.info_font2{
+    margin-top: 10px;;
+    font-size:16px;
+}
+.price{
+    padding-top: 15px;
+    float: left;
+    margin-left: 50px;
+}
+.price_font{
+    color:#ff9800;
+}
+.price button{
+    margin-top: 10px;
+    width: 84px;
+    line-height:30px;
+    height: 30px;
+    color: white;
+    background: #fb8c00;
+    border-radius:8px;
+    border-style:solid;
+    border-width: 1px;
+    padding: 0px;
+}
+.tail{
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    border-top: 1px solid #9b9b9b;
+    text-align: center;
+    line-height: 50px;
+}
+
+.tail div{
+    width:25%; float:left; height:100%;background: white;
+}
+
+.tail div a{
+    text-decoration:none;
+    color:black;
+    font-size: 14px;
+}

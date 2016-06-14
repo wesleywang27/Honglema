@@ -103,7 +103,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
  * 红了吗后台管理系统入口
  */
 
-Route::group(['domain' => 'cms.honglema.com'], function() {
+//Route::group(['domain' => 'cms.honglema.com'], function() {
 
     //登录登出模块入口
     Route::get('/cms/logout', 'CMSController@logout');
@@ -257,4 +257,83 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
     //操作日志入口
     Route::get('/cms/logList',"LogController@index");
 
+// });
+
+
+/*
+**
+** 商家注册
+** @author tianxugeng
+**
+*/
+
+Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
+{
+
+  //Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+    
+    //首页
+        Route::get('/', 'IndexController@index');
+        
+        Route::get('/login','IndexController@login');
+
+
+        //用户信息管理
+        Route::get('/user', 'UserController@index');
+        Route::get('/user/modify', 'UserController@modify');
+
+        //活动订单管理
+        Route::get('/activityOrder','ActivityController@index');
+        Route::get('/activityOrder/addOrder','ActivityController@addOrder');
+        Route::get('/activityOrder/activityDetail/{id?}',"ActivityController@activityDetail");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //工厂
+        Route::get('/factory_index', 'FactoryController@index');
+
+        Route::post('/factory', 'FactoryController@createFactory');
+
+        Route::get('/factory_modify', 'FactoryController@modifyFactory');
+
+        Route::post('/factory_modify', 'FactoryController@updateFactory');
+
+        //品牌商
+        Route::get('/brand_index', 'BrandController@index');
+
+        Route::post('/brand', 'BrandController@createBrand');
+
+        Route::get('/brand_modify', 'BrandController@modifyBrand');
+
+        Route::post('/brand_modify', 'BrandController@updateBrand');
+
+        //设计师
+        Route::get('/designer_index', 'DesignerController@index');
+
+        Route::post('/designer', 'DesignerController@createDesigner');
+
+        Route::get('/designer_modify', 'DesignerController@modifyDesigner');
+
+        Route::post('/designer_modify', 'DesignerController@updateDesigner');
+
+        //档口
+        Route::get('/stall_index', 'StallController@index');
+
+        Route::post('/stall', 'StallController@createStall');
+
+        Route::get('/stall_modify', 'StallController@modifyStall');
+
+        Route::post('/stall_modify', 'StallController@updateStall');
+    // });
 });
