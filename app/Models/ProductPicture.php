@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class TPicture
  */
-class CommodityPicture extends Model{
+class ProductPicture extends Model{
     use SoftDeletes;
     
     protected $table = 'product_picture';
@@ -23,5 +23,4 @@ class CommodityPicture extends Model{
     ];
 
     protected $guarded = [];
-        
 }
