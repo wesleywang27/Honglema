@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Models/CommodityList.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_06_13_134744_create_commodity_lists_table.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Models/ProductPicture.php" afterPath="$PROJECT_DIR$/app/Models/CommodityPicture.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/CommodityPicture.php" afterPath="$PROJECT_DIR$/app/Models/CommodityPicture.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,8 +40,30 @@
       <file leaf-file-name="CommodityPicture.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Models/CommodityPicture.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+            <state relative-caret-position="418">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding>
+                <element signature="e#30#69#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2016_06_13_151954_create_commodity_pictures_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_151954_create_commodity_pictures_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Designer.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Models/Designer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
               <folding>
                 <element signature="e#30#69#0#PHP" expanded="true" />
               </folding>
@@ -64,7 +84,7 @@
     <option name="FORCE_PUSH_ALLOWED" value="true" />
     <push-targets>
       <push-target-info repo="$PROJECT_DIR$" source="master" target-remote="origin" target-branch="master" />
-      <push-target-info repo="$PROJECT_DIR$" source="shangjia" target-remote="github" target-branch="shangjia" />
+      <push-target-info repo="$PROJECT_DIR$" source="shangjia" target-remote="origin" target-branch="shangjia" />
     </push-targets>
   </component>
   <component name="GradleLocalSettings">
@@ -75,7 +95,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/cms/factory_info.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/factory_modify.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/brand_info.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/brand_modify.blade.php" />
@@ -126,6 +145,7 @@
         <option value="$PROJECT_DIR$/app/Models/Picture.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Models/ProductPicture.php" />
+        <option value="$PROJECT_DIR$/app/Models/CommodityPicture.php" />
       </list>
     </option>
   </component>
@@ -980,14 +1000,7 @@
       <workItem from="1465785113413" duration="14445000" />
       <workItem from="1465803612505" duration="6096000" />
       <workItem from="1465810733000" duration="1537000" />
-      <workItem from="1465874059812" duration="1222000" />
-    </task>
-    <task id="LOCAL-00137" summary="修改">
-      <created>1462957637425</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1462957637425</updated>
+      <workItem from="1465874059812" duration="2240000" />
     </task>
     <task id="LOCAL-00138" summary="修改">
       <created>1462957677182</created>
@@ -1325,11 +1338,18 @@
       <option name="project" value="LOCAL" />
       <updated>1465808938282</updated>
     </task>
-    <option name="localTasksCounter" value="186" />
+    <task id="LOCAL-00186" summary="修改">
+      <created>1465884015016</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1465884015016</updated>
+    </task>
+    <option name="localTasksCounter" value="187" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="501685000" />
+    <option name="totallyTimeSpent" value="502703000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1423,13 +1443,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Models/Estimation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Order.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -1610,16 +1623,6 @@
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_165903_alter_designers_deleted_at.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_165945_alter_brands_deleted_at.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_170011_alter_factories_deleted_at.php" />
-    <entry file="file://$PROJECT_DIR$/app/Models/Designer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-          <folding>
-            <element signature="e#30#69#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Brand.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -1711,10 +1714,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_151954_create_commodity_pictures_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Designer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding>
+            <element signature="e#30#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/CommodityPicture.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+        <state relative-caret-position="418">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
             <element signature="e#30#69#0#PHP" expanded="true" />
           </folding>
