@@ -10,5 +10,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Commodity extends Model{
-    
+    protected $table = 'commodities';
+
+    public $timestamps = false;
+
+    protected  $primaryKey = ['merchant_id', 'create_at'];
+
+    protected  $fillable = [
+        'name',
+        'introduction',
+        'url'
+    ];
+
+    public static $rules = array(
+        //
+    );
+
+    public function commodityPictures()
+    {
+        return $this->hasMany('App\Models\CommodityPicture', 'uid');
+    }
 }
