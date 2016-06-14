@@ -14,8 +14,6 @@ class Commodity extends Model{
 
     public $timestamps = false;
 
-    protected  $primaryKey = ['merchant_id', 'create_at'];
-
     protected  $fillable = [
         'name',
         'introduction',
