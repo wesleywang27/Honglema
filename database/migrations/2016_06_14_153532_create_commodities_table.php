@@ -14,7 +14,7 @@ class CreateCommoditiesTable extends Migration
     {
         Schema::create('commodities', function (Blueprint $table) {
             $table->integer('merchant_id',11);
-            $table->timestamp('create_at');
+            $table->integer('commodity_id',11);
             $table->string('name');
             $table->string('introduction');
             $table->string('url');
