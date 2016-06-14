@@ -18,7 +18,6 @@ class CreateCommoditiesTable extends Migration
             $table->string('name');
             $table->string('introduction');
             $table->string('url');
-            $table->primary(['merchant_id', 'create_at']);
         });
     }
 
