@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class CommodityPicture extends Model{
     use SoftDeletes;
     
-    protected $table = 'commodity_picture';
+    protected $table = 'product_picture';
 
     public $timestamps = false;
 
