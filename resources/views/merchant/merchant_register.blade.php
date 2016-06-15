@@ -38,7 +38,7 @@
 					<div class="box_Pda">
 						<div class="portrait_Pda">
 							<div class="left_Pda">
-								头像
+							   头像
 							</div>
 							<div class="right_Pda">
 								<a href="javascript:$('#img').click();">
