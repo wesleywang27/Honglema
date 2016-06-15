@@ -105,7 +105,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
  * 红了吗后台管理系统入口
  */
 
-Route::group(['domain' => 'cms.honglema.com'], function() {
+//Route::group(['domain' => 'cms.honglema.com'], function() {
 
     //登录登出模块入口
     Route::get('/cms/logout', 'CMSController@logout');
@@ -259,11 +259,12 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
     //操作日志入口
     Route::get('/cms/logList',"LogController@index");
 
-Route::post('/designer', 'DesignerController@createDesigner');
 
+Route::post('/designer', 'DesignerController@createDesigner');
+});
 
 //网红入口
-
+    Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 Route::get('/star/activity',"StarController@activity");
 
 Route::get('/star/order',"StarController@order");
@@ -288,5 +289,40 @@ Route::get('/star/create',"StarController@create");
 
 Route::post('/star/register',"StarController@register");
 
+});
 
-});}
+
+/*
+**
+** 商家注册
+** @author tianxugeng
+**
+*/
+
+Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
+{
+
+  //Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+    
+        //首页
+        Route::get('/', 'IndexController@index');
+        Route::get('/login','IndexController@login');
+
+
+        //用户信息管理
+        Route::get('/user', 'UserController@index');
+        Route::get('/user/modify', 'UserController@modify');
+        Route::post('/user/updateUser', 'UserController@save');
+
+        //活动订单管理
+        Route::get('/activityOrder','ActivityController@index');
+        Route::get('/activityOrder/addOrder','ActivityController@addOrder');
+        Route::get('/activityOrder/activityDetail/{id?}',"ActivityController@activityDetail");
+
+        //注册
+        Route::get('/register', 'IndexController@index');
+        Route::post('/register/save', 'IndexController@register');
+        Route::resource('/register/uploadPicture', 'IndexController@uploadPic');
+
+    // });
+});

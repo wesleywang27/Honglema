@@ -1,0 +1,266 @@
+/***
+ * *
+ *  2016.1.20
+ *  创建人：张瑶
+ *  文件说明：
+ *  Editingplanning.html （编辑规划页面）样式
+ *  这个页面的标签样式因为宽高比例要固定，样式准确度要求较高，不能粗暴的写在通用的rem下
+ *  所以没有写到styleRem.css里
+ *  在此单独用媒体查询给每个主流手机（iphone5，iphone6，iphone6Plus）型号都写一套样式
+ * 
+ *  文件名为labelCom.css：label代表这是标签的样式；Com是common缩写，代表这里的代码可以通用
+ * （还有可能被home2.html用到，如果用到请在上方添加注释说明）
+ * 
+ * */
+
+/*-----------------------------Editingplanning.html 缩写为Epl-----------------------------*/		
+	/*-----------------------content部分-----------------------*/		
+
+	.content_Epl{display: -webkit-box; position: absolute; width: 100%; top: .44rem; bottom: 0; background-color:#FFFFFF;}
+	.contentLabel_Epl{background: #FFFFFF; width: 80%; float: right;}	
+	.contentNode_Epl{ background: #FFFFFF; width: 20%;}
+	.content1_Epl{ display: -webkit-box; width: 100%; height: auto;}
+	
+	.contentRight_Epl{ padding-left: 6px; width: 100%; height: 100%;}
+	.box_Epl{ position: relative; width: 95%; margin-left: 2.5%; height: 55px; margin-top: 22px;}
+	
+	.box1_Epl{ position: relative; width: 95%; margin-left: 2.5%; height: 55px; margin-top: 21px;}
+	.left_Epl{ z-index: 1; box-shadow:3px 1px 7px #c4c5c6; border: 1px solid #c4c5c6; position: absolute; left: 5px; top: 8px; width: 38px; height: 38px; background: #FFFFFF; -webkit-transform: rotate(45deg);}
+	.right_Epl{ display: -webkit-box; -webkit-box-align: center; border: 1px solid #c4c5c6; border-left: none; border-bottom-right-radius: 55px; border-top-right-radius: 55px; position: absolute; z-index: 2; left: 25px; width: 89%; height:55px; background: #FFFFFF;}
+	.right_Epl div:nth-child(1){ font-size: .17rem; color: #717171; width: 53%; overflow: hidden;white-space:nowrap; text-overflow:ellipsis;}
+	.right_Epl div:nth-child(2){display: -webkit-box; font-size: .13rem; color: #fe5e39; width: 45%;}
+	.right_Epl div:nth-child(2) img{width: 25%; margin-right: 2px; vertical-align:middle;}
+	.right_Epl div:nth-child(2) p{ font-size: .15rem; margin: 0; color: #C4C5C6; text-align: right; padding-right: 5px; padding-bottom: 0; padding-top: 1px; width: 65%; overflow: hidden;white-space:nowrap; text-overflow:ellipsis;}
+	.top_Epl{ box-shadow:1px 3px 7px #717071; width: 89%; height: 48px;  border-bottom-right-radius: 50px; border-top-right-radius: 50px; position: absolute; left: 25px; top: 8px;}
+	.leftNode_Epl{ width: 100%; height: 77px; position: relative;}
+	.leftNode_Epl div:nth-child(1){ width: 2px; height: 49.5px; background: #c4c5c6; position: absolute; right: 0;}
+	.leftNode_Epl div:nth-child(2){ width: 2px; height: 27.5px; background: #c4c5c6; position: absolute; right: 0; top: 49.5px;}
+	/*.bottom1_Epl{ width: 100%; height: 77px; position: relative;}
+	.bottom1_Epl div:nth-child(1){ width: 2px; height: 49.5px; background: #FE5E39; position: absolute; right: 0;}
+	.bottom1_Epl div:nth-child(2){ width: 2px; height: 27.5px; background: #FE5E39; position: absolute; right: 0; top: 49.5px;}*/
+	.ascension_Epl{ display: -webkit-box; width: 100%; height: 21px; position: absolute; top: 38px;}
+	.label_Epl{ display: -webkit-box; width: 80%; height: 21px; position: relative;}
+	.label_Epl section:nth-child(1){ position: absolute; z-index: 2; line-height: 21px; text-align: center; color: #FFFFFF; width: 70%; margin-left: 14%; border-bottom-left-radius: 21px; border-top-left-radius: 21px; height: 21px; background: #FE5E39;}
+	.label_Epl section:nth-child(2){z-index: 1; position: absolute; top: 3px; right: 2px; width: 15px; height: 15px; background: #FE5E39;  -webkit-transform: rotate(45deg);}
+	.round_Epl{ position: relative; width: 20%; height: 21px;}
+	.round_Epl span{ position: absolute; top: 2px; width: 14px; height: 14px; border-radius: 14px; background: #FFFFFF; left: 3px; border: 2px solid #C4C5C6;}
+	
+	.xuxian_Epl{ position: relative; width: 95%; margin-left: 2.5%; height: 55px; margin-top: 22px;}
+	.left1_Epl{ z-index: 1; border: 2px dashed #c4c5c6; position: absolute; left: 5px; top: 8px; width: 38px; height: 38px; background: #FFFFFF; -webkit-transform: rotate(45deg);}
+	.right1_Epl{ display: -webkit-box; -webkit-box-align: center; border: 2px dashed #c4c5c6; border-left: none; border-bottom-right-radius: 55px; border-top-right-radius: 55px; position: absolute; z-index: 2; left: 25px; width: 89%; height:55px; background: #FFFFFF;}
+	.right1_Epl div:nth-child(1){ font-size: .17rem; color: #717171; width: 55%;}
+	.right1_Epl div:nth-child(2){ font-size: .13rem; color: #fe5e39; width: 40%; text-align: right;}
+	.right1_Epl div:nth-child(2) img{width: 25%; margin-right: 2px; vertical-align:middle;}
+	.leftNode1_Epl{ width: 100%; height: 77px; position: relative;}
+	.leftNode1_Epl div:nth-child(1){ border: 1px dashed #c4c5c6; width: 0px; height: 49.5px; position: absolute; right: 0;}
+	.leftNode1_Epl div:nth-child(2){ border: 1px dashed #c4c5c6; width: 0px; height: 27.5px; position: absolute; right: 0; top: 49.5px;}
+	/*.bottom1_Epl{ width: 100%; height: 77px; position: relative;}
+	.bottom1_Epl div:nth-child(1){ width: 2px; height: 49.5px; background: #FE5E39; position: absolute; right: 0;}
+	.bottom1_Epl div:nth-child(2){ width: 2px; height: 27.5px; background: #FE5E39; position: absolute; right: 0; top: 49.5px;}*/
+	.ascension1_Epl{ display: -webkit-box; width: 100%; height: 21px; position: absolute; top: 38px;}
+	.round1_Epl{ position: relative; width: 20%; height: 21px;}
+	.round1_Epl span{ position: absolute; top: 2px; width: 14px; height: 14px; border-radius: 14px; background: #FFFFFF; right: -7px; border: 1px dashed #c4c5c6;}
+	.contentPopupEdp{ position: absolute; top: 0px; bottom: 0; width: 100%; overflow-x: hidden;}
+	
+	.delPopup_Epl{ position: fixed; z-index: 200; width: 80%; margin: 50% 10% 0 10%; background-color: #ffffff; border-radius: 10px;}
+	.delPopup_Epl p{ width: 100%;  font-size: .16rem; color: #000; text-align: center; font-family: "黑体";}
+	.delButtonBar_Epl{ width: 100%; height: .40rem; border-top:1px #DCDDDD solid;}
+	.delButton_Epl{float: left; width: 49.5%; height: .40rem; line-height: .40rem; text-align: center; color: #0f7aed; font-size: .16rem; font-family: "黑体";}
+	.delButtonBorder_Epl{ border-left: 1px solid #DCDDDD;}
+
+	/*Editingplanning.html*/
+	/*通用标签样式 后缀是Com*/
+	/*左边栏*/
+	.leftNode_Com{ width: 100%; height: 77px; position: relative;}
+	.leftNode_Com div:nth-child(1){ width: 2px; height: 49.5px; background: #c4c5c6; position: absolute; right: 0;}
+	.leftNode_Com div:nth-child(2){ width: 2px; height: 27.5px; background: #c4c5c6; position: absolute; right: 0; top: 49.5px;}
+	.ascension_Com{ display: -webkit-box; width: 100%; height: 21px; position: absolute; top: 38px;}		
+	.label_Com{ display: -webkit-box; width: 80%; height: 21px; position: relative;}
+	.label_Com section:nth-child(1){ position: absolute; z-index: 2; line-height: 21px; text-align: center; color: #FFFFFF; width: 70%; margin-left: 14%; border-bottom-left-radius: 21px; border-top-left-radius: 21px; height: 21px; background: #FE5E39;}
+	.label_Com section:nth-child(2){z-index: 1; position: absolute; top: 3px; right: 2px; width: 15px; height: 15px; background: #FE5E39;  -webkit-transform: rotate(45deg);}
+	.round_Com{ position: relative; width: 20%; height: 21px;}
+	.round_Com span{ position: absolute; top: 2px; width: 14px; height: 14px; border-radius: 14px; background: #FFFFFF; left: 3px; border: 2px solid #C4C5C6;}
+
+	.leftNode1_Com{ width: 100%; height: 77px; position: relative;}
+	.leftNode1_Com div:nth-child(1){ border: 1px dashed #c4c5c6; width: 0px; height: 49.5px; position: absolute; right: 0;}
+	.leftNode1_Com div:nth-child(2){ border: 1px dashed #c4c5c6; width: 0px; height: 27.5px; position: absolute; right: 0; top: 49.5px;}
+	.ascension1_Com{ display: -webkit-box; width: 100%; height: 21px; position: absolute; top: 38px;}
+	.round1_Com{ position: relative; width: 20%; height: 21px;}
+	.round1_Com span{ position: absolute; top: 2px; width: 14px; height: 14px; border-radius: 14px; background: #FFFFFF; right: -7px; border: 1px dashed #c4c5c6;}
+
+	/*右边栏*/
+	.box_Com{ position: relative; width: 95%; margin-left: 2.5%; height: 55px; margin-top: 22px;}
+	.left_Com{ z-index: 1; box-shadow:3px 1px 7px #c4c5c6; border: 1px solid #c4c5c6; position: absolute; left: 5px; top: 8px; width: 38px; height: 38px; background: #FFFFFF; -webkit-transform: rotate(45deg);}
+	.right_Com{ display: -webkit-box; -webkit-box-align: center; border: 1px solid #c4c5c6; border-left: none; border-bottom-right-radius: 55px; border-top-right-radius: 55px; position: absolute; z-index: 2; left: 25px; width: 89%; height:55px; background: #FFFFFF;}
+	.right_Com div:nth-child(1){ font-size: .17rem; color: #717171; width: 53%; overflow: hidden;white-space:nowrap; text-overflow:ellipsis;}
+	.right_Com div:nth-child(2){display: -webkit-box; font-size: .13rem; color: #fe5e39; width: 45%;}
+	.right_Com div:nth-child(2) img{width: 25%; margin-right: 2px; vertical-align:middle;}
+	.right_Com div:nth-child(2) p{ font-size: .15rem; margin: 0; color: #C4C5C6; text-align: right; padding-right: 5px; padding-bottom: 0; padding-top: 1px; width: 65%; overflow: hidden;white-space:nowrap; text-overflow:ellipsis;}
+	.top_Com{ box-shadow:1px 3px 7px #717071; width: 89%; height: 48px;  border-bottom-right-radius: 50px; border-top-right-radius: 50px; position: absolute; left: 25px; top: 8px;}
+
+	.box1_Com{ position: relative; width: 95%; margin-left: 2.5%; height: 55px; margin-top: 21px;}
+	.left1_Com{ z-index: 1; border: 2px dashed #c4c5c6; position: absolute; left: 5px; top: 8px; width: 38px; height: 38px; background: #FFFFFF; -webkit-transform: rotate(45deg);}
+	.right1_Com{ display: -webkit-box; -webkit-box-align: center; border: 2px dashed #c4c5c6; border-left: none; border-bottom-right-radius: 55px; border-top-right-radius: 55px; position: absolute; z-index: 2; left: 25px; width: 89%; height:55px; background: #FFFFFF;}
+	.right1_Com div:nth-child(1){ font-size: .17rem; color: #717171; width: 55%;}
+	.right1_Com div:nth-child(2){ font-size: .13rem; color: #fe5e39; width: 40%; text-align: right;}
+	.right1_Com div:nth-child(2) img{width: 25%; margin-right: 2px; vertical-align:middle;}
+
+
+
+
+/*--------------iPhone5-------------*/
+@media only screen and (min-width:320px) {
+	html{
+		font-size: 100px;
+	}
+	
+	/*Editingplanning.html*/
+	/*通用标签样式 后缀是Com*/
+	/*左边栏*/
+	.leftNode_Com{ width: 100%; height: .64rem; position: relative;}
+	.leftNode_Com div:nth-child(1){ width: 2px; height: .40rem; background: #c4c5c6; position: absolute; right: 0;}
+	.leftNode_Com div:nth-child(2){ width: 2px; height: .24rem; background: #c4c5c6; position: absolute; right: 0; top: .40rem;}
+	.ascension_Com{ display: -webkit-box; width: 100%; height: .20rem; position: absolute; top: .30rem;}	
+	.label_Com{ display: -webkit-box; width: 80%; height: .20rem; position: relative;}
+	.label_Com section:nth-child(1){ position: absolute; z-index: 2; line-height: .19rem; font-size: .12rem; text-align: center; color: #FFFFFF; width: 70%; margin-left: 14%; border-bottom-left-radius: .20rem; border-top-left-radius: .20rem; height: .20rem; background: #FE5E39;}
+	.label_Com section:nth-child(2){z-index: 1; position: absolute; top: .03rem; right: .01rem; width: .14rem; height: .14rem; background: #FE5E39;  -webkit-transform: rotate(45deg);}
+	.round_Com{ position: relative; width: 20%; height: .20rem;}
+	.round_Com span{ position: absolute; top: .02rem; width: .12rem; height: .12rem; border-radius: .12rem; background: #FFFFFF; left: .04rem; border: 2px solid #C4C5C6;}
+
+	.leftNode1_Com{ width: 100%; height: .64rem; position: relative;}
+	.leftNode1_Com div:nth-child(1){ border: 1px dashed #c4c5c6; width: 0px; height: .40rem; position: absolute; right: 0;}
+	.leftNode1_Com div:nth-child(2){ border: 1px dashed #c4c5c6; width: 0px; height: .24rem; position: absolute; right: 0; top: .40rem;}
+	.ascension1_Com{ display: -webkit-box; width: 100%; height: .20rem; position: absolute; top: .30rem;}
+	.round1_Com{ position: relative; width: 20%; height: .20rem;}
+	.round1_Com span{ position: absolute; top: .02rem; width: .14rem; height: .14rem; border-radius: .14rem; background: #FFFFFF; right: -0.07rem; border: 1px dashed #c4c5c6;}
+
+
+	/*右边栏*/
+	.box_Com{ position: relative; width: 92%; margin-left: 2.5%; height: .48rem; margin-top: .16rem;}
+	.left_Com{ z-index: 1; box-shadow:3px 1px 7px #c4c5c6; border: 1px solid #c4c5c6; position: absolute; left: .07rem; top: .06rem; width: .34rem; height: .34rem; background: #FFFFFF; -webkit-transform: rotate(45deg);}
+	.right_Com{ display: -webkit-box; -webkit-box-align: center; border: 1px solid #c4c5c6; border-left: none; border-bottom-right-radius: .48rem; border-top-right-radius: .48rem; position: absolute; z-index: 2; top: -0.01rem; left: .25rem; width: 89%; height: .48rem; background: #FFFFFF;}
+	.right_Com div:nth-child(1){ font-size: .17rem; color: #717171; width: 53%; overflow: hidden;white-space:nowrap; text-overflow:ellipsis;}
+	.right_Com div:nth-child(2){display: -webkit-box; font-size: .13rem; color: #fe5e39; width: 45%;}
+	.right_Com div:nth-child(2) img{width: 25%; margin-right: 2px; vertical-align:middle;}
+	.right_Com div:nth-child(2) p{ font-size: .15rem; margin: 0; color: #C4C5C6; text-align: right; padding-right: 5px; padding-bottom: 0; padding-top: 1px; width: 65%; overflow: hidden;white-space:nowrap; text-overflow:ellipsis;}
+	.top_Com{ box-shadow:1px 3px 7px #717071; width: 89%; height: .48rem;  border-bottom-right-radius: 50px; border-top-right-radius: 50px; position: absolute; left: .25rem; top: .00rem;}
+	
+	.box1_Com{ position: relative; width: 92%; margin-left: 2.5%; height: .48rem; margin-top: .16rem;}
+	.left1_Com{ z-index: 1; border: 2px dashed #c4c5c6; position: absolute; left: .07rem; top: .06rem; width: .33rem; height: .33rem; background: #FFFFFF; -webkit-transform: rotate(45deg);}
+	.right1_Com{ display: -webkit-box; -webkit-box-align: center; border: 2px dashed #c4c5c6; border-left: none; border-bottom-right-radius: .48rem; border-top-right-radius: .48rem; position: absolute; z-index: 2; top: -0.01rem; left: .26rem; width: 89%; height: .46rem; background: #FFFFFF;}
+	.right1_Com div:nth-child(1){ font-size: .18rem; color: #717171; width: 55%;}
+	.right1_Com div:nth-child(2){ font-size: .14rem; color: #fe5e39; width: 40%; text-align: right;}
+	.right1_Com div:nth-child(2) img{width: 25%; margin-right: 2px; vertical-align:middle;}
+
+	
+	
+	
+	
+}
+
+/*--------------iPhone6-------------*/
+@media only screen and (min-width:375px) {
+	html{
+		font-size: 100px;
+	}
+	
+	/*Editingplanning.html*/
+	/*通用标签样式 后缀是Com*/
+	/*左边栏*/
+	.leftNode_Com{ width: 100%; height: .64rem; position: relative;}
+	.leftNode_Com div:nth-child(1){ width: 2px; height: .40rem; background: #c4c5c6; position: absolute; right: 0;}
+	.leftNode_Com div:nth-child(2){ width: 2px; height: .24rem; background: #c4c5c6; position: absolute; right: 0; top: .40rem;}
+	.ascension_Com{ display: -webkit-box; width: 100%; height: .20rem; position: absolute; top: .30rem;}	
+	.label_Com{ display: -webkit-box; width: 80%; height: .20rem; position: relative;}
+	.label_Com section:nth-child(1){ position: absolute; z-index: 2; line-height: .19rem; font-size: .12rem; text-align: center; color: #FFFFFF; width: 70%; margin-left: 14%; border-bottom-left-radius: .20rem; border-top-left-radius: .20rem; height: .20rem; background: #FE5E39;}
+	.label_Com section:nth-child(2){z-index: 1; position: absolute; top: .03rem; right: .03rem; width: .14rem; height: .14rem; background: #FE5E39;  -webkit-transform: rotate(45deg);}
+	.round_Com{ position: relative; width: 20%; height: .20rem;}
+	.round_Com span{ position: absolute; top: .02rem; width: .12rem; height: .12rem; border-radius: .14rem; background: #FFFFFF; left: .06rem; border: 2px solid #C4C5C6;}
+
+	.leftNode1_Com{ width: 100%; height: .64rem; position: relative;}
+	.leftNode1_Com div:nth-child(1){ border: 1px dashed #c4c5c6; width: 0px; height: .40rem; position: absolute; right: 0;}
+	.leftNode1_Com div:nth-child(2){ border: 1px dashed #c4c5c6; width: 0px; height: .24rem; position: absolute; right: 0; top: .40rem;}
+	.ascension1_Com{ display: -webkit-box; width: 100%; height: .20rem; position: absolute; top: .30rem;}
+	.round1_Com{ position: relative; width: 20%; height: .20rem;}
+	.round1_Com span{ position: absolute; top: .02rem; width: .14rem; height: .14rem; border-radius: .14rem; background: #FFFFFF; right: -0.07rem; border: 1px dashed #c4c5c6;}
+
+
+
+	/*右边栏*/
+	.box_Com{ position: relative; width: 92%; margin-left: 2.5%; height: .48rem; margin-top: .16rem;}	
+	.left_Com{ z-index: 1; box-shadow:3px 1px 7px #c4c5c6; border: 1px solid #c4c5c6; position: absolute; left: .07rem; top: .06rem; width: .34rem; height: .34rem; background: #FFFFFF; -webkit-transform: rotate(45deg);}
+	.right_Com{ display: -webkit-box; -webkit-box-align: center; border: 1px solid #c4c5c6; border-left: none; border-bottom-right-radius: 55px; border-top-right-radius: 55px; position: absolute; z-index: 2; top: -0.01rem; left: .25rem; width: 89%; height: .48rem; background: #FFFFFF;}
+	.right_Com div:nth-child(1){ font-size: .17rem; color: #717171; width: 53%; overflow: hidden;white-space:nowrap; text-overflow:ellipsis;}
+	.right_Com div:nth-child(2){display: -webkit-box; font-size: .13rem; color: #fe5e39; width: 45%;}
+	.right_Com div:nth-child(2) img{width: 25%; margin-right: 2px; vertical-align:middle;}
+	.right_Com div:nth-child(2) p{ font-size: .15rem; margin: 0; color: #C4C5C6; text-align: right; padding-right: 5px; padding-bottom: 0; padding-top: 1px; width: 65%; overflow: hidden;white-space:nowrap; text-overflow:ellipsis;}
+	.top_Com{ box-shadow:1px 3px 7px #717071; width: 89%; height: .48rem;  border-bottom-right-radius: 50px; border-top-right-radius: 50px; position: absolute; left: .25rem; top: .00rem;}
+	
+	.box1_Com{ position: relative; width: 92%; margin-left: 2.5%; height: .48rem; margin-top: .16rem;}
+	.left1_Com{ z-index: 1; border: 2px dashed #c4c5c6; position: absolute; left: .07rem; top: .06rem; width: .33rem; height: .33rem; background: #FFFFFF; -webkit-transform: rotate(45deg);}
+	.right1_Com{ display: -webkit-box; -webkit-box-align: center; border: 2px dashed #c4c5c6; border-left: none; border-bottom-right-radius: .48rem; border-top-right-radius: .48rem; position: absolute; z-index: 2; top: -0.01rem; left: .25rem; width: 89%; height: .46rem; background: #FFFFFF;}
+	.right1_Com div:nth-child(1){ font-size: .18rem; color: #717171; width: 55%;}
+	.right1_Com div:nth-child(2){ font-size: .14rem; color: #fe5e39; width: 40%; text-align: right;}
+	.right1_Com div:nth-child(2) img{width: 25%; margin-right: 2px; vertical-align:middle;}
+	
+	
+	
+	
+	
+}
+
+/*-----------iPhone6 Plus-----------*/
+@media only screen and (min-width:414px) {
+	html{
+		font-size: 129px;
+	}
+	
+	/*Editingplanning.html*/
+	/*通用标签样式 后缀是Com*/
+	/*左边栏*/
+	.leftNode_Com{ width: 100%; height: .64rem; position: relative;}
+	.leftNode_Com div:nth-child(1){ width: 2px; height: .40rem; background: #c4c5c6; position: absolute; right: 0;}
+	.leftNode_Com div:nth-child(2){ width: 2px; height: .24rem; background: #c4c5c6; position: absolute; right: 0; top: .40rem;}
+	.ascension_Com{ display: -webkit-box; width: 100%; height: .20rem; position: absolute; top: .30rem;}	
+	.label_Com{ display: -webkit-box; width: 80%; height: .20rem; position: relative;}
+	.label_Com section:nth-child(1){ position: absolute; z-index: 2; line-height: .20rem; font-size: .12rem; text-align: center; color: #FFFFFF; width: 70%; margin-left: 14%; border-bottom-left-radius: .20rem; border-top-left-radius: .20rem; height: .20rem; background: #FE5E39;}
+	.label_Com section:nth-child(2){z-index: 1; position: absolute; top: .03rem; right: .01rem; width: .14rem; height: .14rem; background: #FE5E39;  -webkit-transform: rotate(45deg);}
+	.round_Com{ position: relative; width: 20%; height: .20rem;}
+	.round_Com span{ position: absolute; top: .02rem; width: .12rem; height: .12rem; border-radius: .14rem; background: #FFFFFF; left: .04rem; border: 2px solid #C4C5C6;}
+
+	.leftNode1_Com{ width: 100%; height: .64rem; position: relative;}
+	.leftNode1_Com div:nth-child(1){ border: 1px dashed #c4c5c6; width: 0px; height: .40rem; position: absolute; right: 0;}
+	.leftNode1_Com div:nth-child(2){ border: 1px dashed #c4c5c6; width: 0px; height: .24rem; position: absolute; right: 0; top: .40rem;}
+	.ascension1_Com{ display: -webkit-box; width: 100%; height: .20rem; position: absolute; top: .30rem;}
+	.round1_Com{ position: relative; width: 20%; height: .20rem;}
+	.round1_Com span{ position: absolute; top: .02rem; width: .14rem; height: .14rem; border-radius: .14rem; background: #FFFFFF; right: -0.07rem; border: 1px dashed #c4c5c6;}
+
+
+	/*右边栏*/
+	.box_Com{ position: relative; width: 92%; margin-left: 2.5%; height: .48rem; margin-top: .16rem;}
+	.left_Com{ z-index: 1; box-shadow:3px 1px 7px #c4c5c6; border: 1px solid #c4c5c6; position: absolute; left: .07rem; top: .06rem; width: .34rem; height: .34rem; background: #FFFFFF; -webkit-transform: rotate(45deg);}
+	.right_Com{ display: -webkit-box; -webkit-box-align: center; border: 1px solid #c4c5c6; border-left: none; border-bottom-right-radius: 55px; border-top-right-radius: 55px; position: absolute; z-index: 2; top: -0.01rem; left: .25rem; width: 89%; height: .48rem; background: #FFFFFF;}
+	.right_Com div:nth-child(1){ font-size: .17rem; color: #717171; width: 53%; overflow: hidden;white-space:nowrap; text-overflow:ellipsis;}
+	.right_Com div:nth-child(2){display: -webkit-box; font-size: .13rem; color: #fe5e39; width: 45%;}
+	.right_Com div:nth-child(2) img{width: 25%; margin-right: 2px; vertical-align:middle;}
+	.right_Com div:nth-child(2) p{ font-size: .15rem; margin: 0; color: #C4C5C6; text-align: right; padding-right: 5px; padding-bottom: 0; padding-top: 1px; width: 65%; overflow: hidden;white-space:nowrap; text-overflow:ellipsis;}
+	.top_Com{ box-shadow:1px 3px 7px #717071; width: 89%; height: .48rem;  border-bottom-right-radius: 50px; border-top-right-radius: 50px; position: absolute; left: .25rem; top: .00rem;}
+	
+	.box1_Com{ position: relative; width: 92%; margin-left: 2.5%; height: .48rem; margin-top: .16rem;}
+	.left1_Com{ z-index: 1; border: 2px dashed #c4c5c6; position: absolute; left: .07rem; top: .06rem; width: .34rem; height: .34rem; background: #FFFFFF; -webkit-transform: rotate(45deg);}
+	.right1_Com{ display: -webkit-box; -webkit-box-align: center; border: 2px dashed #c4c5c6; border-left: none; border-bottom-right-radius: .46rem; border-top-right-radius: .48rem; position: absolute; z-index: 2; top: -0.01rem; left: .25rem; width: 89%; height: .48rem; background: #FFFFFF;}
+	.right1_Com div:nth-child(1){ font-size: .18rem; color: #717171; width: 55%;}
+	.right1_Com div:nth-child(2){ font-size: .14rem; color: #fe5e39; width: 40%; text-align: right;}
+	.right1_Com div:nth-child(2) img{width: 25%; margin-right: 2px; vertical-align:middle;}
+
+
+	
+	
+	
+}
+
+
+
+
+
+
