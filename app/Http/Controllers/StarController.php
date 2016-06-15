@@ -1,14 +1,48 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use DB;
 use App\Models\Star;
-use App\Models\Celebrity;
+use Illuminate\Support\Facades\Input;
+use App\Models\User;
 class StarController extends Controller
 {
+    public function addCele(Request $request){
+        $celebrities = new Star();
+        $celebrities->realname = $request->input('realname');
+        $celebrities->save();
+    }
+
+    /*评论界面*/
+    public function info(Request $request){
+        $star_info = Star::where('openid',$request->input('opendid'))->first();
+        return view('star/star_info',['star_info'=>$star_info]);
+    }
+
+    public function create() {
+        $user = session('wechat.oauth_user'); // 拿到授权用户资料
+        //$user=array('nickname'=>"张敏",'sex'=>'M','province'=>"云南",'city'=>"普洱",'avatar'=>"/images/nike.jpg",'wechat'=>'zhangmin0924');
+        return view('star.create', ["user" => $user]);
+    }
+
+    public function register(Request $request){
+          $input =Input::all();
+          $star = new Star($input);
+          //$notice = new Notice(Notice::$danger, Lang::get('notice.star_error'));
+           if($star->isValid()) {
+              $star->save();
+          }
+
+        $pictures = [];
+        foreach ($request->input('images') as $img) {
+            $picture = new Picture();
+            $picture->url = $img;
+            $picture->file_id = pathinfo($img)['filename'];
+            $picture->upload_time = time();
+            $pictures[] = $picture;
+        }
+
+    }
 
     /*跳转到获得界面*/
     public function activity() {
@@ -96,19 +130,7 @@ class StarController extends Controller
             'company_name'=>$company_name,'type'=>'comment','pic'=>'square_header.jpeg']);
     }
 
-    /*评论界面*/
-    public function info(){
-        return view('star/star_info');
-    }
 
-    public function addCele(Request $request){
-    	  $celebrities = new Star();
-    	  $celebrities->realname = $request->input('realname');
-    	   $celebrities->save();
-    }
 
-    public function deleteCele(Request $request){
-    	$realname=$request->input('realname');
-    	$deleted = DB::delete('delete from t_star where realname=?',[$realname]);
-    }
+
 }

@@ -6,6 +6,10 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="/css/starStyle/Font-Awesome/css/font-awesome.css">
     <link rel="stylesheet" href="/css/starStyle/star.css">
+    <script src="/js/jquery-1.9.1.min.js"></script>
+{{--    <link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>--}}
 </head>
 <body>
 
@@ -32,7 +36,7 @@
     <div >
         <a href="/star/contention"><i class="icon-user"></i>活动订单</a></div>
     <div >
-        <a href="/star/info"><i class="icon-user"></i>我的</a></div>
+        <a href="/star/info?opendid=openid"><i class="icon-user"></i>我的</a></div>
 </div>
         @show
 </body>

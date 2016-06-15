@@ -23,12 +23,12 @@ Route::get('/playground/celebrity','PlaygroundController@index');
 Route::resource('/picture', 'PictureController');
 
 
-/*Route::group(['middleware' => ['web', 'wechat.oauth']], function () {*/
+Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 Route::resource('/productPicture', 'ProductPictureController');
 
 Route::resource('/productPicture', 'ProductPictureController@store');
-/*
-Route::group(['middleware' => ['web', 'wechat.oauth']], function () {*/
+
+Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::resource('/celebrity', 'CelebrityController');
 
@@ -36,7 +36,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {*/
 
     Route::get('/celebrity/{celebrity}', 'CelebrityController@show');
     
- //});
+ });
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +57,7 @@ Route::group(['middleware' => ['web']], function () {
  *红了吗商家注册入口
  */
 
-/*Route::group(['middleware' => ['web', 'wechat.oauth']], function () {*/
+Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     
     //首页
     Route::get('/', 'IndexController@index');
@@ -99,7 +99,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/stall_modify', 'StallController@modifyStall');
 
     Route::post('/stall_modify', 'StallController@updateStall');
-/*});*/
+});
 
 /*
  * 红了吗后台管理系统入口
@@ -259,8 +259,8 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
     //操作日志入口
     Route::get('/cms/logList',"LogController@index");
 
-<<<<<<< HEAD
 Route::post('/designer', 'DesignerController@createDesigner');
+
 
 //网红入口
 
@@ -283,8 +283,10 @@ Route::get('/star/show_contention',"StarController@show_contention");
 Route::get('/star/all_order',"StarController@all_order");
 
 Route::get('/star/info',"StarController@info");
-/*
-});*/
-=======
-});
->>>>>>> 4de2db150f7a7f346c4260c92cad80b2b3222505
+
+Route::get('/star/create',"StarController@create");
+
+Route::post('/star/register',"StarController@register");
+
+
+});}

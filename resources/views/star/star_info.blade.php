@@ -1,111 +1,119 @@
 @extends('star.star')
 @section('back', '&nbsp;')
 @section('title', '个人信息')
-<style>
-    .info_header{
-        padding: 10px;
-        height:120px;
-        width:100%;
-        background-color: #0a8ddf;
-        border-top: 1px solid #9b9b9b;
-        border-bottom: 1px solid #9b9b9b;
-    }
-    .info_header img{
-        width: 90px;
-        height: 90px;
-        border-radius:50%;
-        float: left;
-        overflow:hidden;
-    }
-    .info_pic{
-        width: 30%;
-        height: 100%;
-        float: left;
-    }
-    .info_name{
-        width:30%;
-        float: left;
-        margin-top: 8%;
-    }
-    .info_header a{
-        width: 29%;
-        float:left;
-        text-align: center;
-        margin-top: 7%;
-    }
-    .info_nav{
-        height: 90px;
-        width:100%;
-        background-color: #2ac845;
-        border-top: 1px solid #9b9b9b;
-        border-bottom: 1px solid #9b9b9b;
-    }
-    .info_cell{
-        width:25%;
-        float:left;
-        height:40px;
-        background: white; }
-    .info_nav a{
-        padding-left: 5%;
-        display: block;
-    }
-    .info_detail{
-        margin-top: 3%;
-        width: 100%;
-        border-top: 1px solid #9b9b9b;
-        border-bottom: 1px solid #9b9b9b;
-    }
-    .info_detail ul{
-        margin: 0;
-        padding: 0;
-    }
-    .info_detail li{
-        height:6%;
-        line-height: 250%;
-        border-top: 1px solid #9b9b9b;
-        border-bottom: 1px solid #9b9b9b;
-        list-style: none;
-    }
-    .info_detail a{
-        padding-left: 5%;
-        display: block;
-        float: right;
-    }
-    .sign_out{
-        height: 5%;
-        display: block;
-        border-top: 1px solid #9b9b9b;
-        border-bottom: 1px solid #9b9b9b;
-        text-align: center;
-        line-height: 250%;
-        margin-top: 5%;
-    }
+@section('nav')
+    <style>
+        .info_nav{
+            width: 100%;
+            border-top:2px solid #9b9b9b;
+            border-bottom: 1px solid #9b9b9b;
+            text-align:center;
+            background: white;
+            height:100px;
+            overflow: hidden;
+            padding: 0px;
+        }
+        .info_cell{
+            width:33.3%; float:left; height:100px;background: white;
+        }
+        .info_cell a{
+            margin:0 auto;
+            height:100px;
+            line-height:100px;
+            text-decoration:none;
+            color:black;
+            font-size: 18px;
+            margin-right: 3px;
+            display: block;
+        }
+        .info_nav_cell{
+            width:24.5%; float:left; height:100px;background: white;border-left: 1px lightgrey solid;
+        }
+        .info_nav_cell a{
+            margin:0 auto;
+            height:100px;
+            line-height:100px;
+            text-decoration:none;
+            color:black;
+            font-size: 18px;
+            margin-right: 3px;
+            display: block;
+        }
+        .info_cell img{
+            margin-top: 5px;
+            height: 90px;
+            width: 90px;
+            border-radius: 50%;
+        }
+        .info_detail{
+            margin-top: 10px;;
+            border-top: 1px solid #9b9b9b;
+            border-bottom: 1px solid #9b9b9b;
+            background: white;
+            overflow: hidden;
+            padding: 0px;
+        }
+
+        .info_detail a{
+            float: right;
+            background: white;
+            height:39px;
+            overflow: hidden;
+            padding: 0px;
+            padding-left: 10px;
+        }
+        .info_item{
+            border-width:1px;
+            border-bottom-style:solid;
+            border-bottom-color: #9b9b9b;
+            background: white;
+            height:39px;
+            overflow: hidden;
+            padding: 0px;
+            padding-left: 10px;
+        }
+        .info_item a{
+            margin:0 auto;
+            height:40px;
+            line-height:40px;
+            text-decoration:none;
+            color:black;
+            font-size: 18px;
+            margin-right: 5px;
+        }
+        .info_item span{
+            margin-right: 40px;
+        }
+
     </style>
-
+    <div id="" class="info_nav">
+        <div class="info_cell">  <a href="#"><img src="/images/profile.jpg"></a></div>
+        <div class="info_cell">  <a href="#">{{$star_info->name}}</a></div>
+        <div class="info_cell">  <a href="#">&nbsp;<i class="icon-angle-right "></i></a></div>
+    </div>
+    <div id="" class="info_nav">
+        <div class="info_nav_cell">  <a href="#">相册</a></div>
+        <div class="info_nav_cell">  <a href="#">手机认证</a></div>
+        <div class="info_nav_cell">  <a href="#">身份认证</a></div>
+        <div class="info_nav_cell">  <a href="#">平台信息</a></div>
+    </div>
+@endsection
 @section('context')
-<div class="info_header">
-        <div class="info_pic" ><img src="/images/profile.jpg"></div>
-        <div class="info_name">小王子<br>等级7级</div>
-    <a href="#"><i class="icon-angle-right"></i></a>
-    </div>
-    <div class="info_nav">
-         <div class="info_cell">  <a href="#">相册</a></div>
-         <div class="info_cell">  <a href="#">手机认证</a></div>
-         <div class="info_cell">  <a href="#">身份认证</a></div>
-         <div class="info_cell">  <a href="#">平台信息</a></div>
-    </div>
+        <div id="" class="info_detail">
+            <div class="info_item">
+                <a href="#"><span>{{$star_info->name}}</span><i class="icon-angle-right  "></i> </a>
+            </div>
+            <div class="info_item">
+                <a href="#"><span>{{$star_info->name}}</span><i class="icon-angle-right  "></i> </a>
+            </div>
+            <div class="info_item">
+                <a href="#"><span>{{$star_info->name}}</span><i class="icon-angle-right  "></i> </a>
+            </div>
 
-    <div class="info_detail">
-        <ul>
-            <li>直播收费<a href="#">4~9W <i class="icon-angle-right"></i></a></li>
-            <li>收货地址<a href="#">北京 <i class="icon-angle-right"></i></a></li>
-            <li>微信号<a href="#">123 <i class="icon-angle-right"></i></a></li>
-            <li>支付宝账号<a href="#">123 <i class="icon-angle-right"></i></a></li>
-            <li>衣服尺寸<a href="#">12 <i class="icon-angle-right"></i></a></li>
-            <li>标签设置<a href="#">d <i class="icon-angle-right"></i></a></li>
-            <li>意见反馈<a href="#">意见反馈<i class="icon-angle-right"></i></a></li>
-        </ul>
-    </div>
+        </div>
+@endsection
 
-        <a class="sign_out" href="#">退出登陆</a>
-    @endsection
+
+@section('footer')
+    @@parent
+@endsection

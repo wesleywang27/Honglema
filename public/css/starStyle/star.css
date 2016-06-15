@@ -10,7 +10,7 @@ body{
     text-align: center;
     line-height: 50px;
     margin: 0 auto;
-    height:8%
+    height:50px
     }
 .header ul{
     margin: 0;
@@ -48,6 +48,12 @@ a{
     color:black;
     font-size: 14px;
     margin-right: 3px;
+}
+.cell img{
+    margin-top: 5px;
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
 }
 
 .item{
@@ -154,6 +160,7 @@ a{
     height: 25px;
     line-height: 25px;
 }
+
 .order_pic{
     background-color: blueviolet;
     height: 160px;

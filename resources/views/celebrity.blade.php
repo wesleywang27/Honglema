@@ -20,7 +20,7 @@
 			$('#activator').click(function(){
 				$('#box').animate({'top':'0px'},500);
 			});
-			$('#boxclose').click(function(){
+			$('#boxclose').click(function(){zzzzz
 				$('#box').animate({'top':'-700px'},500);
 			});
 		});
