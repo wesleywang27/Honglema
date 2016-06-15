@@ -16,26 +16,25 @@ use Illuminate\Support\Facades\Input;
 use App\Models\Merchant;
 class IndexController extends Controller{
     public function index(){
-        var_dump(1234);die;
-        $options = config('wechat');
-        $app = new Application($options);
-        $js = $app->js;
-        var_dump(111111);die;
         $user = session('wechat.oauth_user');
-        $merchant = Merchant::where('open_id',$user->openid)->first();
-
-        if($merchant){
-            //$picture = ProductPicture::where('id',$brand->brand_id)->where('type',1)->get();
-            // echo "<script> alert('您已成功提交信息!'); </script>";
-            // return view('brand_info',['merchant' => $merchant ,'pictures' => $picture]);
-
-            //首页
-            return view('merchant.personalData',['merchant' => $merchant]);
-        }else{
+        if($user){
+            $options = config('wechat');
+            $app = new Application($options);
+            $js = $app->js;
             return view('merchant.merchant_register',['js'=>$js]);
+
+            $merchant = Merchant::where('open_id',$user->openid)->first();
+
+            if($merchant){
+                
+                //首页
+                return view('merchant.personalData',['merchant' => $merchant]);
+            }else{
+                return view('merchant.merchant_register',['js'=>$js]);
+            }
+        }else{
+            echo "<script>alert(1);</script>";
         }
-    
-        return view('merchant.merchant_register');
     }
 
     public function register(){
