@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Input;
 use App\Models\Merchant;
 class IndexController extends Controller{
     public function index(){
-    /*
+    
         $options = config('wechat');
         $app = new Application($options);
         $js = $app->js;
@@ -30,11 +30,11 @@ class IndexController extends Controller{
             // return view('brand_info',['merchant' => $merchant ,'pictures' => $picture]);
 
             //首页
-            return view('brand_info',['merchant' => $merchant]);
+            return view('merchant.personalData',['merchant' => $merchant]);
         }else{
             return view('merchant.merchant_register',['js'=>$js]);
         }
-    */
+    
         return view('merchant.merchant_register');
     }
 

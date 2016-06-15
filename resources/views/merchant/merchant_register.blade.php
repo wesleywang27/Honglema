@@ -302,7 +302,7 @@
 		</div>
 		</form>
 	<script type="text/javascript" charset="utf-8">
-    	//wx.config(<?php //echo $js->config(array('chooseImage', 'uploadImage','previewImage')) ?>);
+    	wx.config(<?php echo $js->config(array('chooseImage', 'uploadImage','previewImage')) ?>);
 	</script>
 	<script type="text/javascript">
 	 
@@ -384,8 +384,8 @@
 	        selects: ['country', 'province', 'city', 'region'],
 	        nodata: 'none'
     	});
-
-
+	</script>
+	<script type="text/javascript">
     //图片需一张一张上传
     // wx.ready(function () {
     //     jQuery('#file_upload').click(function () {
@@ -399,7 +399,7 @@
     //                 //$.AMUI.progress.start();
     //                 images.localId = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
     //                 wx.uploadImage({
-    //                     localId: images.localId[0],,
+    //                     localId: images.localId[0],
     //                     success: function (res) {
     //                         images.serverId[0] = res.serverId;
                             
@@ -426,6 +426,51 @@
             
     //     });
     // });
+	var count = 0;
+	wx.ready(function () {
+        jQuery('#file_upload').click(function () {
+            var images = {
+                localId: [],
+                serverId: []
+            };
+            $html = '';
+            if(count < 1) {
+                wx.chooseImage({
+                    count: 1, // 限制每次只能选择一张
+                    success: function (res) {
+                        //$.AMUI.progress.start();
+                        images.localId = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                        jQuery.each(images.localId, function (i, n) {
+                            wx.uploadImage({
+                                localId: n,
+                                success: function (res) {
+                                    images.serverId[0] = res.serverId;
+                                    jQuery.each(images.serverId, function (i, m) {
+                                        jQuery.ajax({
+                                            url: "/productpicture",
+                                            data: {"media_id": m},
+                                            success: function (data) {
+                                                count = count + 1;
+                                                $html += '<li class="weui_uploader_file images" style="background-image:url(' + data + ')"><input type="hidden" id="itemImage" name="itemImage[]" value="' + data + '"/></li>';
+                                                $("#files").append($html);
+                                                //$.AMUI.progress.done();
+                                                if(count == 1)
+                                                    jQuery("#file_upload").hide();
+                                            }
+                                        });
+                                    });
+                                },
+                                fail: function (res) {
+                                    alert(JSON.stringify(res));
+                                }
+                            });
+                        });
+                    }
+                });
+
+            }
+        });
+    });
 
 
 
