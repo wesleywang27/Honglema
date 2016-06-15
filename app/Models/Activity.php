@@ -10,5 +10,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Activity extends Model{
-    
+    protected $table = 'activities';
+
+    public $timestamps = false;
+
+    protected  $fillable = [
+        'title',
+        'claim',
+        'time_within',
+        'event',
+        'level',
+        'total_price',
+    ];
+
+    public static $rules = array(
+        //
+    );
 }

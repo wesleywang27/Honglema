@@ -23,5 +23,4 @@ class ProductPicture extends Model{
     ];
 
     protected $guarded = [];
-        
 }
