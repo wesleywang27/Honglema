@@ -12,7 +12,13 @@ class CreateCommoditiesTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('commodities', function (Blueprint $table) {
+            $table->integer('merchant_id',10);
+            $table->integer('commodity_id',10);
+            $table->string('name');
+            $table->string('introduction');
+            $table->string('url');
+        });
     }
 
     /**
@@ -22,6 +28,6 @@ class CreateCommoditiesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('commodities');
     }
 }
