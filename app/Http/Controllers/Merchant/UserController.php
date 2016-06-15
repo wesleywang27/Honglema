@@ -11,36 +11,34 @@ use Illuminate\Contracts\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use EasyWeChat\Foundation\Application;
 use App\Http\Controllers\Controller;
+use App\Models\Merchant;
 
 class UserController extends Controller{
     public function index(){
-        // var_dump(1);die;
-        // $user = session('wechat.oauth_user');
-        // $options = config('wechat');
-        //$app = new Application($options);
-       // $js = $app->js;
-        return view('merchant.user');
+        $merchant = Merchant::where('merchant_id',2)->first();
+
+        return view('merchant.user',['merchant' => $merchant]);
         //return view('merchant.index');
        
     }
 
     public function modify(){
-        return view('merchant.personalData');
+        $merchant = Merchant::where('merchant_id',2)->first();
+        //$picture = ProductPicture::where('id',$id)->where('type',0)->get();
+        //return view('/cms/factory_modify',['factory' => $factory, 'pictures' => $picture]);
+        return view('merchant.personalData',['merchant' => $merchant]);
     } 
 
-    public function login(){
-        $options = config('wechat');
-        $app = new Application($options);
-
-        $qrcode = $app->qrcode;
-        $result = $qrcode->temporary(56, 6 * 24 * 3600);
-
-        $ticket = $result->ticket;// 或者 $result['ticket']
-        $expireSeconds = $result->expire_seconds; // 有效秒数
-        $url = $result->url; // 二维码图片解析后的地址，开发者可根据该地址自行生成需要的二维码图片
-
-        $img = $qrcode->url($ticket);
-        
-        return view('login',['img' => $img]);
+    public function save(){
+        $saveList = $_POST;
+        $open_id = $saveList['openId'];//openId
+        unset($saveList['openId']);
+        $merchant = Merchant::where('merchant_id',$open_id)->first();
+        foreach ($saveList as $key => $value) {
+           $merchant->$key = $value; 
+        }
+        $merchant->status = 0;
+        $merchant->save();
+        return view('merchant.user',['merchant' => $merchant]);
     }
 }

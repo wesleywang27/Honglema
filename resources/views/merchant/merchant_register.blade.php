@@ -26,14 +26,13 @@
 			</div>
 			<!--标题：个人资料-->
 			<header class="head_Com">
-				<section onclick="window.location.href='/Merchant/user/'" class="kouda_Com">
+				<section onclick="window.location.href='#'" class="kouda_Com">
 					<img class="scmimg_Com" src="/images/merchant/scmimg4.png" />
 				</section>
-				<div>编辑资料</div>
+				<div>商家注册</div>
 			</header>
 			<!--内容-->
-			<form id="registerForm" method="post" action="/Merchant/user/updateUser" enctype="multipart/form-data">
-			<input type="hidden" name="openId" value="{{$merchant['merchant_id']}}">
+			<form id="registerForm" method="post" action="/Merchant/register/save" enctype="multipart/form-data">
 			<section class="content_Pda" id="content" >
 				<div class="data_Pda">
 					<div class="box_Pda">
@@ -61,7 +60,7 @@
 								商家店铺名称
 							</div>
 							<div class="right1_Pda">
-								<input type="text" id="nameBoxInput" name="name" readonly="readonly" placeholder="" value="{{ $merchant->name}}">
+								<input type="text" id="nameBoxInput" name="name" readonly="readonly" placeholder="" value="">
 							</div>
 							<img src="/images/merchant/pdaimg.png" />
 						</div>
@@ -74,38 +73,38 @@
 							</div>
 						</header>
 						<div class="other_Pda" id="address" onclick="showBox(this)">
-						<input type="hidden" name="country" value="{{$merchant->country}}">
-						<input type="hidden" name="province" value="{{$merchant->province}}">
-						<input type="hidden" name="city" value="{{$merchant->city}}">
-						<input type="hidden" name="region" value="{{$merchant->region}}">
-						<input type="hidden" name="address" value="{{$merchant->address}}">
+						<input type="hidden" name="country" value="">
+						<input type="hidden" name="province" value="">
+						<input type="hidden" name="city" value="">
+						<input type="hidden" name="region" value="">
+						<input type="hidden" name="address" value="">
 							<div class="left1_Pda">
 								商家地址
 							</div>
 							<div class="right1_Pda">
-								<input type="text" id="addressBoxInput" readonly="readonly" placeholder="请填写" value="{{$merchant->country}} {{$merchant->province}} {{$merchant->city}} {{$merchant->region}} {{$merchant->address}}">
+								<input type="text" id="addressBoxInput" readonly="readonly" placeholder="请填写" value="">
 							</div>
 							<img src="/images/merchant/pdaimg.png" />
 						</div>
 						<div class="other_Pda" onclick="showBox(this)" id="contact" >
-						<input type="hidden" name="wechat" value="{{$merchant->wechat}}">
-						<input type="hidden" name="cellphone" value="{{$merchant->cellphone}}">
+						<input type="hidden" name="wechat" value="">
+						<input type="hidden" name="cellphone" value="">
 							<div class="left1_Pda">
 								联系方式
 							</div>
 							<div class="right1_Pda">
-								<input type="text" id="contactBoxInput" readonly="readonly" placeholder="请填写" value="{{$merchant->wechat}}/{{$merchant->cellphone}}">
+								<input type="text" id="contactBoxInput" readonly="readonly" placeholder="请填写" value="">
 							</div>
 							<img src="/images/merchant/pdaimg.png" />
 						</div>
 						<div class="other_Pda" onclick="showBox(this)" id="alipay">
-						<input type="hidden" name="alipay_name" value="{{$merchant->alipay_name}}">
-						<input type="hidden" name="alipay_account" value="{{$merchant->alipay_account}}">
+						<input type="hidden" name="alipay_name" value="">
+						<input type="hidden" name="alipay_account" value="">
 							<div class="left1_Pda">
 								支付宝账号
 							</div>
 							<div class="right1_Pda">
-								<input type="text" id="alipayBoxInput" readonly="readonly" placeholder="请填写" value="{{$merchant->alipay_name}}/{{$merchant->alipay_account}}">
+								<input type="text" id="alipayBoxInput" readonly="readonly" placeholder="请填写" value="">
 							</div>
 							<img src="/images/merchant/pdaimg.png" />
 						</div>
@@ -293,15 +292,18 @@
 			<!--内容-->	
 			<section class="content_Pda">
 				<div class="weui_uploader_bd">
-                            <ul class="weui_uploader_files" id="files" style="display: inline;padding-left: 0;">
-                            </ul>
-                            <div class="weui_uploader_input_wrp" id="file_upload">
-                                <!--                                <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">-->
-                            </div>
-                        </div>
+                    <ul class="weui_uploader_files" id="files" style="display: inline;padding-left: 0;">
+                    </ul>
+                    <div class="weui_uploader_input_wrp" id="file_upload">
+                        <!--                                <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">-->
+                    </div>
+                </div>
 			</section>
 		</div>
 		</form>
+	<script type="text/javascript" charset="utf-8">
+    	//wx.config(<?php //echo $js->config(array('chooseImage', 'uploadImage','previewImage')) ?>);
+	</script>
 	<script type="text/javascript">
 	 
 		// 触发函数：点击输入框跳转页面
@@ -383,43 +385,50 @@
 	        nodata: 'none'
     	});
 
-    	var count = 0;
+
     //图片需一张一张上传
-    wx.ready(function () {
-        jQuery('#file_upload').click(function () {
-            var images = {
-                localId: [],
-                serverId: []
-            };
-                wx.chooseImage({
-                    success: function (res) {
-                        //$.AMUI.progress.start();
-                        images.localId = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
-                        jQuery.each(images.localId, function (i, n) {
-                            wx.uploadImage({
-                                localId: n,
-                                success: function (res) {
-                                    images.serverId[0] = res.serverId;
-                                    jQuery.each(images.serverId, function (i, m) {
-                                        jQuery.ajax({
-                                            url: "Merchant/uploadPicture",
-                                            data: {"media_id": m},
-                                            success: function (data) {
-                                                $html += '<li class="weui_uploader_file images" style="background-image:url(' + data + ')"><input type="hidden" id="itemImage" name="itemImage[]" value="' + data + '"/></li>';
-                                                $("#files").append($html);
-                                            }
-                                        });
-                                    });
-                                },
-                                fail: function (res) {
-                                    alert(JSON.stringify(res));
-                                }
-                            });
-                        });
-                    }
-                });
-        });
-    });
+    // wx.ready(function () {
+    //     jQuery('#file_upload').click(function () {
+    //         var images = {
+    //             localId: [],
+    //             serverId: []
+    //         };
+
+    //         wx.chooseImage({
+    //             success: function (res) {
+    //                 //$.AMUI.progress.start();
+    //                 images.localId = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+    //                 wx.uploadImage({
+    //                     localId: images.localId[0],,
+    //                     success: function (res) {
+    //                         images.serverId[0] = res.serverId;
+                            
+    //                         jQuery.ajax({
+    //                             url: "Merchant/register/uploadPicture",
+    //                             data: {"media_id": sakjksvdjkadsjkldfsjlk},
+    //                             success: function (data) {
+    //                                 $html += '<li class="weui_uploader_file images" style="background-image:url(' + data + ')"><input type="hidden" id="itemImage" name="itemImage[]" value="' + data + '"/></li>';
+    //                                 $("#files").append($html);
+    //                                 //$.AMUI.progress.done();
+    //                                 jQuery("#file_upload").hide();
+    //                             }
+    //                         });
+                            
+    //                     },
+    //                     fail: function (res) {
+    //                         alert(JSON.stringify(res));
+    //                     }
+    //                 });
+    //             });
+    //         });
+
+            
+            
+    //     });
+    // });
+
+
+
 	</script>
 	</body>
 </html>

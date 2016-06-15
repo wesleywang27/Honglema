@@ -39,7 +39,7 @@
 								</a>
 							</div>
 							<div class="right_User">
-								用户头像
+								{{$merchant['name']}}
 							</div>
 							<img src="/images/merchant/pdaimg.png" />
 						</div>

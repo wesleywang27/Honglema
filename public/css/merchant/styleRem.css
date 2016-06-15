@@ -119,16 +119,34 @@
 	.right1_Add>input{ border: none; text-align: left; padding: 0; font-size: .14rem; font-family: "黑体",arial; color: #9e9e9e; box-sizing: border-box; width:	100%; height: .53rem; line-height: .55rem; border-radius: 3px;}
 	.right1_Add>p{ border: none; text-align: left; padding: 0; font-size: .16rem; color: #585858; box-sizing: border-box; height: .54rem; line-height: .54rem; border-radius: 3px;}
 	.direction_Add{ width: 100%; background: #fb8c00;text-align: center;color:#FFFFFF;}
-	
+	.pic_Add{ padding-left: .07rem;padding-right: .04rem;padding-top: .04rem;padding-bottom: .04rem;background:#EEEEEE;height: .84rem; display: -webkit-box; -webkit-box-align: center;border-top-style: solid;border-width: 1px;border-bottom-style: solid;border-color: #FF99DB;}
+	.weui_uploader_bd_Add {overflow: hidden;}
+	.weui_uploader_files_Add {list-style: none;}
+	.weui_uploader_input_wrp_Add {float: left;position: relative;width: .8rem;height: .8rem;border: 1px solid #D9D9D9;}
+	.weui_uploader_input_wrp_Add:before,.weui_uploader_input_wrp_Add:after {content: " ";position: absolute;top: 50%;left: 50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);background-color: #D9D9D9;}
+	.weui_uploader_input_wrp_Add:before {width: 2px;height: 39.5px;}
+	.weui_uploader_input_wrp_Add:after {width: 39.5px;height: 2px;}
+	.weui_uploader_input_wrp_Add:active {border-color: #999999;}
+	.weui_uploader_input_wrp_Add:active:before,
+	.weui_uploader_input_wrp_Add:active:after {background-color: #999999;}
 /*---------------------------------------------------------------------------------------------------*/
 
 /*-------------------------------发布活动详情页 activity_detail_using.blade.php : 后缀为Adu---------------------------------*/
 	.other_Adu{ height: .4rem; display: -webkit-box; -webkit-box-align: center;border-top-style: solid;border-width: 1px;border-bottom-style: solid;border-color: #FF99DB;}
 	.status{width:100%;}
 	.status>p{ border: none; text-align: left; padding: 0; font-size: .16rem; color: #585858; box-sizing: border-box; height: .54rem; line-height: .54rem; border-radius: 3px;}
-	.status>button{margin-top: 10px;width: 84px;line-height:30px;height: 30px;color: white;background: #fb8c00;border-radius:8px;border-style:solid;border-width: 1px;padding: 0px;
-}
+	.status>button{margin-top: 10px;width: 84px;line-height:30px;height: 30px;color: white;background: #fb8c00;border-radius:8px;border-style:solid;border-width: 1px;padding: 0px;}
 /*---------------------------------------------------------------------------------------------------*/
+/*-------------------------------商家注册页 merchant_register.blade.php : 后缀为Mr---------------------------------*/
+	.head_Com_Mr{ width: 100%; height: .44rem; background-color: #EEEEEE;  display: -webkit-box; -webkit-box-align: center; position: fixed; top: 0; z-index: 200;}
+	.head_Com_Mr>div{ font-family: "黑体",arial; width: 100%; height: .44rem;text-align: center; line-height: .44rem; font-size: .17rem;}
+	.head_Com_Mr>img{width: 10%;  margin-top: .03rem;}
+	.scmimg_Com_Mr{ width: auto; height: .18rem; position: absolute; top: .13rem; left: .122rem;}
+	.kouda_Com_Mr>div{ font-family: "黑体",arial;width: 10%; height: .44rem; text-align: center;position: absolute; top: 0; left: .1rem;line-height: .44rem; font-size: .14rem;}
+	.kouda_Com_Mr>p{ font-family: "黑体",arial;width: 10%; height: .44rem; text-align: center;position: absolute; top: 0; right: .1rem;line-height: .44rem; font-size: .15rem;}
+	.mid_Com_Mr>p{ font-family: "黑体",arial; width: 100%; height: .44rem;text-align: center; line-height: .44rem; font-size: .17rem;}
+/*---------------------------------------------------------------------------------------------------*/
+
 
 	
 /*--------------iPhone5-------------*/

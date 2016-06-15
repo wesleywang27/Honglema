@@ -1,50 +1,37 @@
 <?php
-
+/**
+ * Created by IntelliJ IDEA.
+ * User: 王得屹
+ * Date: 2016/6/12
+ * Time: 12:09
+ */
 namespace App\Models\Merchant;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Merchant extends Model
-{
-    protected $table = 'factories';
+class Merchant extends Model{
+    protected $table = 'merchants';
 
     public $timestamps = false;
 
-    protected $primaryKey = 'factory_id';
+    protected  $primaryKey = 'merchant_id';
 
-    protected $fillable = [
-        'username',
-        'mobile',
-        'weixinNo',
-        'title',
-        'company',
-        'category',
-        'advantageSubcategory',
-        'shipmentOK',
-        'ext1',
-        'ext2',
-        'ext5',
-        'design',
-        'zhangqi',
+    protected  $fillable = [
+        'avatar',
+        'name',
         'country',
         'province',
         'city',
         'region',
         'address',
-        'productCount',
-        'orderCount',
-        'refund',
-        'description',
+        'wechat',
+        'cellphone',
+        'alipay_name',
+        'alipay_account',
+        'license'
     ];
 
     public static $rules = array(
-        'username' => 'min:2',
-        'mobile' => 'between:11,11',
-        'address' => 'required'
+        //
     );
-
-    public function pictures()
-    {
-        return $this->hasMany('App\Models\ProductPicture', 'id')->where('type', '=', 0);
-    }
 }

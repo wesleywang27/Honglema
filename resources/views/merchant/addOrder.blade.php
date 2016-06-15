@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="/css/merchant/labelCom.css"/>
 		<link rel="stylesheet" href="/css/Font-Awesome/css/font-awesome.css">
     	<link rel="stylesheet" href="/css/merchant/star.css">
+    	<link rel="stylesheet" href="/css/weui.css">
 		<script src="/js/jquery.js"></script>
 		<script src="/js/jquery-2.1.4.js"></script>
 		<script src="/js/ajaxfileupload.js"></script>
@@ -38,6 +39,37 @@
 						<header class="direction_Add">
 								以下为商品信息
 						</header>
+						
+                		<div class="pic_Add">
+							<div class="weui_uploader_bd_Add" style="width:25%">
+			                    <ul class="weui_uploader_files_Add" id="files" style="display: inline;padding-left: 0;">
+			                    </ul>
+			                    <div class="weui_uploader_input_wrp_Add" id="file_upload">
+			                        <!--                                <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">-->
+			                    </div>
+			                </div>
+			                <div class="weui_uploader_bd_Add" style="width:25%">
+			                    <ul class="weui_uploader_files_Add" id="files" style="display: inline;padding-left: 0;">
+			                    </ul>
+			                    <div class="weui_uploader_input_wrp_Add" id="file_upload">
+			                        <!--                                <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">-->
+			                    </div>
+			                </div>
+			                <div class="weui_uploader_bd_Add" style="width:25%">
+			                    <ul class="weui_uploader_files_Add" id="files" style="display: inline;padding-left: 0;">
+			                    </ul>
+			                    <div class="weui_uploader_input_wrp_Add" id="file_upload">
+			                        <!--                                <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">-->
+			                    </div>
+			                </div>
+			                <div class="weui_uploader_bd_Add" style="width:25%">
+			                    <ul class="weui_uploader_files_Add" id="files" style="display: inline;padding-left: 0;">
+			                    </ul>
+			                    <div class="weui_uploader_input_wrp_Add" id="file_upload">
+			                        <!--                                <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">-->
+			                    </div>
+			                </div>
+						</div>
 						<div class="other_Pda">
 							<div class="left1_Add">
 								商品介绍
