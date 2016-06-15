@@ -257,4 +257,71 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
     //操作日志入口
     Route::get('/cms/logList',"LogController@index");
 
+
 });
+
+
+//网红入口
+Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+    Route::get('/star/activity',"StarController@activity");
+
+    Route::get('/star/order',"StarController@order");
+
+    Route::get('/star/process',"StarController@process");
+
+    Route::get('/star/comment',"StarController@comment");
+
+    Route::get('/star/contention',"StarController@contention");
+
+    Route::get('/star/show_process',"StarController@show_process");
+
+    Route::get('/star/show_comment',"StarController@show_comment");
+
+    Route::get('/star/show_contention',"StarController@show_contention");
+
+    Route::get('/star/all_order',"StarController@all_order");
+
+    Route::get('/star/info',"StarController@info");
+
+    Route::get('/star/create',"StarController@create");
+
+    Route::post('/star/register',"StarController@register");
+
+});
+
+
+/*
+**
+** 商家注册
+** @author tianxugeng
+**
+*/
+
+Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
+{
+
+  Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+    
+        //首页
+        Route::get('/', 'IndexController@index');
+        Route::get('/login','IndexController@login');
+
+
+        //用户信息管理
+        Route::get('/user', 'UserController@index');
+        Route::get('/user/modify', 'UserController@modify');
+        Route::post('/user/updateUser', 'UserController@save');
+
+        //活动订单管理
+        Route::get('/activityOrder','ActivityController@index');
+        Route::get('/activityOrder/addOrder','ActivityController@addOrder');
+        Route::get('/activityOrder/activityDetail/{id?}',"ActivityController@activityDetail");
+
+        //注册
+        Route::get('/register', 'IndexController@index');
+        Route::post('/register/save', 'IndexController@register');
+        Route::resource('/register/uploadPicture', 'IndexController@uploadPic');
+
+    });
+});
+
