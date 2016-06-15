@@ -682,9 +682,9 @@ class CMSController extends Controller{
                 else{
                     $user = User::where('name',$_SESSION['username'])->first();
                     if($user->contact_only == 0)
-                        $designer = Designer::with("pictures")->paginate(10);
+                        $designer = Designer::with("pictures")->paginate(12);
                     else
-                        $designer = Designer::where('contact',$user->nickname)->paginate(10);
+                        $designer = Designer::where('contact',$user->nickname)->paginate(12);
                     $total = Designer::count();
                     $cooperation = Designer::where('cooperation',1)->count();
                     return view('/cms/designer')->with(['designers' => $designer ,'name' => 'all' ,'total' => $total ,'cooperation' => $cooperation]);
@@ -811,9 +811,9 @@ class CMSController extends Controller{
             $n = ($name != 'all') ? $name : '%';
             $user = User::where('name',$_SESSION['username'])->first();
             if($user->contact_only == 0)
-                $designer = Designer::where('username','like','%'.$n.'%')->paginate(10);
+                $designer = Designer::where('username','like','%'.$n.'%')->paginate(12);
             else
-                $designer = Designer::where('username','like','%'.$n.'%')->where('contact',$user->nickname)->paginate(10);
+                $designer = Designer::where('username','like','%'.$n.'%')->where('contact',$user->nickname)->paginate(12);
             $total = Designer::count();
             $cooperation = Designer::where('cooperation',1)->count();
             return view('/cms/designer',['designers' => $designer ,'name' => $name ,'total' => $total ,'cooperation' => $cooperation]);
@@ -955,9 +955,9 @@ class CMSController extends Controller{
                 else{
                     $user = User::where('name',$_SESSION['username'])->first();
                     if($user->contact_only == 0)
-                        $stall = Stall::with("pictures")->paginate(10);
+                        $stall = Stall::with("pictures")->paginate(12);
                     else
-                        $stall = Stall::where('contact',$user->nickname)->paginate(10);
+                        $stall = Stall::where('contact',$user->nickname)->paginate(12);
                     $total = Stall::count();
                     $cooperation = Stall::where('cooperation',1)->count();
                     return view('/cms/stall')->with(['stalls' => $stall ,'name' => 'all' ,'total' => $total ,'cooperation' => $cooperation]);
@@ -1083,9 +1083,9 @@ class CMSController extends Controller{
             $n = ($name != 'all') ? $name : '%';
             $user = User::where('name',$_SESSION['username'])->first();
             if($user->contact_only == 0)
-                $stall = Stall::where('username','like','%'.$n.'%')->paginate(10);
+                $stall = Stall::where('username','like','%'.$n.'%')->paginate(12);
             else
-                $stall = Stall::where('username','like','%'.$n.'%')->where('contact',$user->nickname)->paginate(10);
+                $stall = Stall::where('username','like','%'.$n.'%')->where('contact',$user->nickname)->paginate(12);
             $total = Stall::count();
             $cooperation = Stall::where('cooperation',1)->count();
             return view('/cms/stall',['stalls' => $stall ,'name' => $name ,'total' => $total ,'cooperation' => $cooperation]);
@@ -1351,7 +1351,7 @@ class CMSController extends Controller{
                 $log = new Log();
                 $log->username = $_SESSION['username'];
                 $log->operation = 'delete';
-                $log->operated_data = '档口信息';
+                $log->operated_data = '红人信息';
                 $log->operated_username = $celebrity->realname;
                 $log->save();
 
