@@ -12,7 +12,7 @@ class CreateTaskPictureTable extends Migration
      */
     public function up()
     {
-        Schema::create('star_pictures', function (Blueprint $table) {
+        Schema::create('task_pictures', function (Blueprint $table) {
             $table->integer('uid');
             $table->string('file_id');
             $table->string('url');
