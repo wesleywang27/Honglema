@@ -10,5 +10,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class StarPayment extends Model{
-    
+    protected $table = 'star_payments';
+
+    public $timestamps = false;
+
+    protected  $fillable = [
+        'administrator_id',
+        'star_id',
+        'pay_at',
+        'money'
+    ];
 }

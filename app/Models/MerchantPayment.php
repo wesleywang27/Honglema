@@ -18,6 +18,7 @@ class MerchantPayment extends Model{
         'activity_id',
         'create_at',
         'pay_at',
+        'money',
         'status'
     ];
 }
