@@ -2,20 +2,21 @@
 /**
  * Created by IntelliJ IDEA.
  * User: 王得屹
- * Date: 2016/6/12
- * Time: 12:19
+ * Date: 2016/6/16
+ * Time: 14:38
  */
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model{
-    protected $table = 'tasks';
+class Administrator extends Model{
+    protected $table = 'administrators';
 
     public $timestamps = false;
 
     protected  $fillable = [
-        'activity_id',
-        'status'
+        'name',
+        'email',
+        'password'
     ];
 }
