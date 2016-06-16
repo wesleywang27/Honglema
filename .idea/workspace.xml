@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/brand.blade.php" afterPath="$PROJECT_DIR$/resources/views/brand.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/designer.blade.php" afterPath="$PROJECT_DIR$/resources/views/designer.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/factory.blade.php" afterPath="$PROJECT_DIR$/resources/views/factory.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/stall.blade.php" afterPath="$PROJECT_DIR$/resources/views/stall.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +34,8 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-639">
-              <caret line="260" column="2" selection-start-line="260" selection-start-column="2" selection-end-line="260" selection-end-column="2" />
+            <state relative-caret-position="361">
+              <caret line="28" column="69" selection-start-line="28" selection-start-column="69" selection-end-line="28" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -50,7 +54,7 @@
     <option name="FORCE_PUSH_ALLOWED" value="true" />
     <push-targets>
       <push-target-info repo="$PROJECT_DIR$" source="master" target-remote="origin" target-branch="master" />
-      <push-target-info repo="$PROJECT_DIR$" source="shangjia" target-remote="github" target-branch="shangjia" />
+      <push-target-info repo="$PROJECT_DIR$" source="shangjia" target-remote="origin" target-branch="shangjia" />
     </push-targets>
   </component>
   <component name="GradleLocalSettings">
@@ -61,11 +65,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Models/License.php" />
-        <option value="$PROJECT_DIR$/app/Models/CommodityList.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2016_06_13_120038_create_licenses_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2016_06_13_115954_create_avatars_table.php" />
-        <option value="$PROJECT_DIR$/app/Models/Merchant.php" />
         <option value="$PROJECT_DIR$/app/Models/Star.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_13_151936_create_star_pictures_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_12_112334_create_stars_table.php" />
@@ -112,6 +111,11 @@
         <option value="$PROJECT_DIR$/app/Models/Administrator.php" />
         <option value="$PROJECT_DIR$/composer.lock" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/resources/views/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/brand.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/designer.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/factory.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/stall.blade.php" />
       </list>
     </option>
   </component>
@@ -931,14 +935,7 @@
       <workItem from="1465979039490" duration="864000" />
       <workItem from="1465980042489" duration="2571000" />
       <workItem from="1466047288769" duration="9463000" />
-      <workItem from="1466059948339" duration="186000" />
-    </task>
-    <task id="LOCAL-00156" summary="查找红人信息">
-      <created>1463995632378</created>
-      <option name="number" value="00156" />
-      <option name="presentableId" value="LOCAL-00156" />
-      <option name="project" value="LOCAL" />
-      <updated>1463995632378</updated>
+      <workItem from="1466059948339" duration="4278000" />
     </task>
     <task id="LOCAL-00157" summary="修改红人图片信息">
       <created>1463996355851</created>
@@ -1276,11 +1273,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466060020170</updated>
     </task>
-    <option name="localTasksCounter" value="205" />
+    <task id="LOCAL-00205" summary="修改">
+      <created>1466060141752</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1466060141752</updated>
+    </task>
+    <option name="localTasksCounter" value="206" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="526878000" />
+    <option name="totallyTimeSpent" value="530970000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1353,7 +1357,6 @@
     <MESSAGE value="修改工厂" />
     <MESSAGE value="修改品牌商" />
     <MESSAGE value="修改设计师" />
-    <MESSAGE value="修改" />
     <MESSAGE value="添加task" />
     <MESSAGE value="添加task_picture" />
     <MESSAGE value="添加order" />
@@ -1361,7 +1364,8 @@
     <MESSAGE value="添加star_payments" />
     <MESSAGE value="添加administrator" />
     <MESSAGE value="修改lock" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改lock" />
+    <MESSAGE value="修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1374,17 +1378,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_164722_alter_stalls_deleted_at.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_171346_alter_celebrity_deleted_at.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_171504_alter_productPicture_deleted_at.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_171409_alter_picture_deleted_at.php" />
-    <entry file="file://$PROJECT_DIR$/app/Models/Picture.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/.gitkeep">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1582,10 +1575,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/stall.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="214" column="24" selection-start-line="214" selection-start-column="24" selection-end-line="214" selection-end-column="24" />
+          <folding>
+            <marker date="1466071389894" expanded="true" signature="12693:12727" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/factory.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="262" column="24" selection-start-line="262" selection-start-column="24" selection-end-line="262" selection-end-column="24" />
+          <folding>
+            <marker date="1466071389956" expanded="true" signature="15986:16020" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/designer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="212" column="24" selection-start-line="212" selection-start-column="24" selection-end-line="212" selection-end-column="24" />
+          <folding>
+            <marker date="1466071389800" expanded="true" signature="12469:12503" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/brand.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-594">
+          <caret line="269" column="24" selection-start-line="269" selection-start-column="24" selection-end-line="269" selection-end-column="24" />
+          <folding>
+            <marker date="1466071362865" expanded="true" signature="15416:15450" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-639">
-          <caret line="260" column="2" selection-start-line="260" selection-start-column="2" selection-end-line="260" selection-end-column="2" />
+        <state relative-caret-position="361">
+          <caret line="28" column="69" selection-start-line="28" selection-start-column="69" selection-end-line="28" selection-end-column="69" />
           <folding />
         </state>
       </provider>
