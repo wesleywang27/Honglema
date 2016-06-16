@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/ActivityCommodityList.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2016_06_16_142034_create_commodity_lists_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/Administrator.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2016_06_16_143422_create_administrators_table.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="honglema.iws" />
@@ -38,11 +38,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActivityCommodityList.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Models/ActivityCommodityList.php">
+      <file leaf-file-name="2016_06_16_143422_create_administrators_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_16_143422_create_administrators_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+            <state relative-caret-position="323">
+              <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Administrator.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Models/Administrator.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
               <folding>
                 <element signature="e#6#89#0#PHP" expanded="true" />
               </folding>
@@ -50,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/Activity.php">
+      <file leaf-file-name="2016_04_15_114134_create_stalls_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2016_04_15_114134_create_stalls_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+            <state relative-caret-position="247">
+              <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -84,8 +94,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Models/Account.php" />
-        <option value="$PROJECT_DIR$/app/Models/Avatar.php" />
         <option value="$PROJECT_DIR$/app/Models/License.php" />
         <option value="$PROJECT_DIR$/app/Models/CommodityList.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_13_120038_create_licenses_table.php" />
@@ -135,6 +143,8 @@
         <option value="$PROJECT_DIR$/app/Models/StarPayment.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_16_142034_create_commodity_lists_table.php" />
         <option value="$PROJECT_DIR$/app/Models/ActivityCommodityList.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2016_06_16_143422_create_administrators_table.php" />
+        <option value="$PROJECT_DIR$/app/Models/Administrator.php" />
       </list>
     </option>
   </component>
@@ -971,14 +981,7 @@
       <workItem from="1465976520278" duration="1146000" />
       <workItem from="1465979039490" duration="864000" />
       <workItem from="1465980042489" duration="2571000" />
-      <workItem from="1466047288769" duration="8810000" />
-    </task>
-    <task id="LOCAL-00153" summary="红人信息修改页">
-      <created>1463989855277</created>
-      <option name="number" value="00153" />
-      <option name="presentableId" value="LOCAL-00153" />
-      <option name="project" value="LOCAL" />
-      <updated>1463989855277</updated>
+      <workItem from="1466047288769" duration="9234000" />
     </task>
     <task id="LOCAL-00154" summary="修改红人信息">
       <created>1463991514705</created>
@@ -1316,11 +1319,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466057831487</updated>
     </task>
-    <option name="localTasksCounter" value="202" />
+    <task id="LOCAL-00202" summary="添加star_payments">
+      <created>1466058798840</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
+      <option name="project" value="LOCAL" />
+      <updated>1466058798840</updated>
+    </task>
+    <option name="localTasksCounter" value="203" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="526039000" />
+    <option name="totallyTimeSpent" value="526463000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1414,16 +1424,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_165903_alter_designers_deleted_at.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_165945_alter_brands_deleted_at.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_170011_alter_factories_deleted_at.php" />
-    <entry file="file://$PROJECT_DIR$/app/Models/Brand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Factory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -1435,13 +1435,6 @@
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_171346_alter_celebrity_deleted_at.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_171504_alter_productPicture_deleted_at.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_171409_alter_picture_deleted_at.php" />
-    <entry file="file://$PROJECT_DIR$/app/Models/Stall.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Picture.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -1526,13 +1519,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Merchant.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1734,6 +1720,58 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <folding>
+            <element signature="e#6#89#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_04_15_114134_create_stalls_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Stall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+          <folding>
+            <element signature="e#30#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Merchant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-57">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_16_143422_create_administrators_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Administrator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
           <folding>
             <element signature="e#6#89#0#PHP" expanded="true" />
           </folding>
