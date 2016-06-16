@@ -38,11 +38,11 @@
 					<div class="box_Pda">
 						<div class="portrait_Pda">
 							<div class="left_Pda">
-								头像
+							   头像
 							</div>
 							<div class="right_Pda">
 								<a href="javascript:$('#img').click();">
-									<img id="pic_img" src="<?php echo isset($data['thumb']) && $data['thumb'] ? $data['thumb'] :'/images/merchant/guiimg8.png'; ?>">
+									<img id="pic_img" src="{{$user['avatar']}}">
 								</a>
 								<input type="file" name="picImg" id="img" accept="video/*;capture=camcorder" style="display: none;">
 							</div>
@@ -447,7 +447,7 @@
                                     images.serverId[0] = res.serverId;
                                     jQuery.each(images.serverId, function (i, m) {
                                         jQuery.ajax({
-                                            url: "/productpicture",
+                                            url: "/Merchant/register/uploadPicture",
                                             data: {"media_id": m},
                                             success: function (data) {
                                                 count = count + 1;
