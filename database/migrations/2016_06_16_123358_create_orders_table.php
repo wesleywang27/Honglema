@@ -12,7 +12,7 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->increments('order_id');
             $table->integer('star_id');
             $table->integer('task_id');
