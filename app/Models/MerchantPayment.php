@@ -10,5 +10,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class MerchantPayment extends Model{
-    
+    protected $table = 'merchant_payments';
+
+    public $timestamps = false;
+
+    protected  $fillable = [
+        'activity_id',
+        'create_at',
+        'pay_at',
+        'status'
+    ];
 }
