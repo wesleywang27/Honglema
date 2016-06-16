@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/ActivityCommodityList.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2016_06_16_142034_create_commodity_lists_table.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/MerchantPayment.php" afterPath="$PROJECT_DIR$/app/Models/MerchantPayment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/StarPayment.php" afterPath="$PROJECT_DIR$/app/Models/StarPayment.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/database/migrations/2016_06_12_113006_create_star_payments.php" afterPath="$PROJECT_DIR$/database/migrations/2016_06_16_135138_create_star_payments_table.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,11 +28,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="611">
               <caret line="259" column="3" selection-start-line="259" selection-start-column="3" selection-end-line="259" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActivityCommodityList.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Models/ActivityCommodityList.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+              <folding>
+                <element signature="e#6#89#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Models/Activity.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -63,8 +84,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Models/ProductList.php" />
-        <option value="$PROJECT_DIR$/app/Models/Estimation.php" />
         <option value="$PROJECT_DIR$/app/Models/Account.php" />
         <option value="$PROJECT_DIR$/app/Models/Avatar.php" />
         <option value="$PROJECT_DIR$/app/Models/License.php" />
@@ -114,6 +133,8 @@
         <option value="$PROJECT_DIR$/database/migrations/2016_06_16_135138_create_star_payments_table.php" />
         <option value="$PROJECT_DIR$/app/Models/MerchantPayment.php" />
         <option value="$PROJECT_DIR$/app/Models/StarPayment.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2016_06_16_142034_create_commodity_lists_table.php" />
+        <option value="$PROJECT_DIR$/app/Models/ActivityCommodityList.php" />
       </list>
     </option>
   </component>
@@ -950,14 +971,7 @@
       <workItem from="1465976520278" duration="1146000" />
       <workItem from="1465979039490" duration="864000" />
       <workItem from="1465980042489" duration="2571000" />
-      <workItem from="1466047288769" duration="7845000" />
-    </task>
-    <task id="LOCAL-00152" summary="红人信息详情">
-      <created>1463988242179</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1463988242179</updated>
+      <workItem from="1466047288769" duration="8810000" />
     </task>
     <task id="LOCAL-00153" summary="红人信息修改页">
       <created>1463989855277</created>
@@ -1295,11 +1309,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466055750577</updated>
     </task>
-    <option name="localTasksCounter" value="201" />
+    <task id="LOCAL-00201" summary="添加star_payments">
+      <created>1466057831487</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1466057831487</updated>
+    </task>
+    <option name="localTasksCounter" value="202" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="525074000" />
+    <option name="totallyTimeSpent" value="526039000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1355,7 +1376,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="添加日志列表" />
     <MESSAGE value="界面修改" />
     <MESSAGE value="修改访问域名" />
     <MESSAGE value="忘记密码" />
@@ -1380,7 +1400,8 @@
     <MESSAGE value="添加task_picture" />
     <MESSAGE value="添加order" />
     <MESSAGE value="添加merchant_payments" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加merchant_payments" />
+    <MESSAGE value="添加star_payments" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加star_payments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1393,20 +1414,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StallController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="81" column="47" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Star.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_165903_alter_designers_deleted_at.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_165945_alter_brands_deleted_at.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_170011_alter_factories_deleted_at.php" />
@@ -1537,14 +1544,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Activity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_13_151936_create_star_pictures_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -1599,14 +1598,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_16_123358_create_orders_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
           <folding />
         </state>
       </provider>
@@ -1712,6 +1703,40 @@
         <state relative-caret-position="611">
           <caret line="259" column="3" selection-start-line="259" selection-start-column="3" selection-end-line="259" selection-end-column="3" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_16_123358_create_orders_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_16_142034_create_commodity_lists_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Activity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/ActivityCommodityList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <folding>
+            <element signature="e#6#89#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
