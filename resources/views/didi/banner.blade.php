@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>红了吗后台管理系统</title>
+    <title>滴滴打网红后台系统</title>
     <meta name="author" content="DeathGhost" />
     <link rel="stylesheet" type="text/css" href="/css/cms_style.css" />
     <link rel="stylesheet"  href="/css/zoom.css" media="all" />
@@ -41,18 +41,18 @@
 <body>
 <!--header-->
 <header>
-    <h1><a href="/cms/index"><img src="/images/admin_logo.png"/></a></h1>
+    <h1><a href="#"><img src="/images/didi_logo.png"/></a></h1>
     <ul class="rt_nav">
-        <li><a href="/cms/index" class="website_icon">站点首页</a></li>
-        <li><a href="/cms/user_info_confirm" class="admin_icon">admin</a></li>
-        <li><a href="/cms/user_info" class="set_icon">修改密码</a></li>
-        <li><a href="{{ url('/cms/logout') }}" class="quit_icon">安全退出</a></li>
+        <li><a href="#" class="website_icon">站点首页</a></li>
+        <li><a href="#" class="admin_icon">admin</a></li>
+        <li><a href="#" class="set_icon">修改密码</a></li>
+        <li><a href="#" class="quit_icon">安全退出</a></li>
     </ul>
 </header>
 
 <!--aside nav-->
 <aside class="lt_aside_nav content mCustomScrollbar">
-    <h2><a href="/cms/index"><b>首页</b></a></h2>
+    <h2><a href="#"><b>首页</b></a></h2>
     <ul>
         <li>
             <dl>
