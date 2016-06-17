@@ -119,6 +119,7 @@
 <script type="text/javascript" src="{{URL::asset('js/jquery-1.8.3.min.js')}}" charset="utf-8"></script>
 <script type="text/javascript" src="{{URL::asset('js/ajaxfileupload.js')}}" charset="utf-8"></script>
 <script type="text/javascript" src="{{URL::asset('/js/jquery.cxselect.min.js')}}" charset="utf-8"></script>
+<script type="text/javascript" src="{{URL::asset('/js/jweixin-1.0.0.js')}}"></script>
 <script type="text/javascript" charset="utf-8">
     wx.config(<?php echo $js->config(array('chooseImage', 'uploadImage','previewImage')) ?>);
     var count = 0;

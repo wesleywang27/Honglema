@@ -22,6 +22,7 @@ class IndexController extends Controller{
             $options = config('wechat');
             $app = new Application($options);
             $js = $app->js;
+            
             return view('merchant.merchant_register',['js'=>$js,'user'=>$user]);
 
             $merchant = Merchant::where('open_id',$user->openid)->first();
