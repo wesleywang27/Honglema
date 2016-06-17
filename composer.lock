@@ -1120,16 +1120,16 @@
         },
         {
             "name": "overtrue/laravel-wechat",
-            "version": "3.0.5",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/laravel-wechat.git",
-                "reference": "26307b8f882202efba37e270f9f87d541e5d0242"
+                "reference": "c43758a3c71c28fcce1bf05a9a76b084fecffb20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/laravel-wechat/zipball/26307b8f882202efba37e270f9f87d541e5d0242",
-                "reference": "26307b8f882202efba37e270f9f87d541e5d0242",
+                "url": "https://api.github.com/repos/overtrue/laravel-wechat/zipball/c43758a3c71c28fcce1bf05a9a76b084fecffb20",
+                "reference": "c43758a3c71c28fcce1bf05a9a76b084fecffb20",
                 "shasum": ""
             },
             "require": {
@@ -1158,7 +1158,7 @@
                 "wechat",
                 "weixin"
             ],
-            "time": "2016-04-24 12:25:27"
+            "time": "2016-04-19 10:48:56"
         },
         {
             "name": "overtrue/socialite",
