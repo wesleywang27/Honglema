@@ -172,30 +172,30 @@
     // });
 
 
-    //上传多图
-    $('#imgupload').change(function(){
-        $.showPreloader('正在上传...');
-        $j.ajaxFileUpload({
-            url:"/picture",//需要链接到服务器地址
-            secureuri:false,
-            fileElementId:"imgupload",//文件选择框的id属性
-            dataType: 'json',   //json
-            success: function (data, status) {
-                var urls = data.urls;
-                var $htmls = '';
-                for(var i=0; i<urls.length; i++){
-                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
-                    <input type="hidden" id="manyimg" value="'+urls[i]+'"></li>';
-                }
-                $('#imgfiles').append($htmls);
-                $.hidePreloader();
-                $.toast("添加成功", 1000);
-            },error:function(data, status, e){
-                $.hidePreloader();
-                $.toast("添加失败", 1000);
-            }
-        });
-    });
+    // //上传多图
+    // $('#imgupload').change(function(){
+    //     $.showPreloader('正在上传...');
+    //     $j.ajaxFileUpload({
+    //         url:"/picture",//需要链接到服务器地址
+    //         secureuri:false,
+    //         fileElementId:"imgupload",//文件选择框的id属性
+    //         dataType: 'json',   //json
+    //         success: function (data, status) {
+    //             var urls = data.urls;
+    //             var $htmls = '';
+    //             for(var i=0; i<urls.length; i++){
+    //                 $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
+    //                 <input type="hidden" id="manyimg" value="'+urls[i]+'"></li>';
+    //             }
+    //             $('#imgfiles').append($htmls);
+    //             $.hidePreloader();
+    //             $.toast("添加成功", 1000);
+    //         },error:function(data, status, e){
+    //             $.hidePreloader();
+    //             $.toast("添加失败", 1000);
+    //         }
+    //     });
+    // });
 
     //验证码页面,倒计时按钮,点击确认事件
     var waittime = 60;
@@ -357,7 +357,7 @@
         });
     });
     var count = 0;
-    wx.ready(function () {
+    wx.ready(function() {
         jQuery('#headimgupload').click(function () {
             var images = {
                 localId: [],
