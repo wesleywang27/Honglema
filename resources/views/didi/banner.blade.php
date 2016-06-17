@@ -58,7 +58,6 @@
             <dl>
                 <dt>商家信息管理</dt>
                 <dd><a href="/cms/factoryList" class="active">工厂信息列表</a></dd>
-
                 <dd><a href="/cms/brandList">品牌商信息列表</a></dd>
                 <dd><a href="/cms/designerList">设计师信息列表</a></dd>
                 <dd><a href="/cms/stallList">档口信息列表</a></dd>
@@ -70,7 +69,6 @@
                 <dd><a href="/cms/celebrityList">红人信息列表</a></dd>
             </dl>
         </li>
-
         <li>
             <dl>
                 <dt>后台用户管理</dt>
