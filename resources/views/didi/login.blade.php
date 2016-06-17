@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>红了吗后台管理系统</title>
+    <title>滴滴打网红后台系统</title>
     <meta name="author" content="DeathGhost" />
     <link rel="stylesheet" type="text/css" href="/css/cms_style.css" />
     <style>
@@ -27,7 +27,7 @@
 <body>
 <dl class="admin_login">
     <dt>
-        <strong>红了吗后台管理系统</strong>
+        <strong>滴滴打网红后台系统</strong>
         <em>Management System</em>
     </dt>
     <form action="/cms/login" method="post" name="loginForm">
