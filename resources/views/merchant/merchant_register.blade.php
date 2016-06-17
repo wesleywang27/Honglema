@@ -15,7 +15,7 @@
                         <div class="item-inner">
                             <div class="item-title">头像</div>
                             <div class="item-after">
-                                <img id="f_avatar" src="" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
+                                <img id="f_avatar" src="{{$user['avatar']}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
                                 <input class="weui_uploader_input" id="headimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                             </div>
                             

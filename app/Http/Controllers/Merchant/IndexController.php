@@ -18,7 +18,10 @@ class IndexController extends Controller{
     public function index(){
 
         $user = session('wechat.oauth_user');
-        
+        $options = config('wechat');
+        $app = new Application($options);
+        $js = $app->js;
+        return view('merchant.merchant_register',['js'=>$js,'user'=>$user]);
         if($user){
             $options = config('wechat');
             $app = new Application($options);

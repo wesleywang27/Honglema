@@ -297,7 +297,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 **
 */
 // ,'middleware' => ['web', 'wechat.oauth']
-Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant','middleware' => ['web', 'wechat.oauth']], function()
+Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
 {
 
         //首页
