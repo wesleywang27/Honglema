@@ -296,7 +296,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 ** @author tianxugeng
 **
 */
-
+// ,'middleware' => ['web', 'wechat.oauth']
 Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant','middleware' => ['web', 'wechat.oauth']], function()
 {
 
