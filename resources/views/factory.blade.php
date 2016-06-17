@@ -260,7 +260,7 @@
             <div class="am-thumbnail">
                 <img src="/images/fdcode.jpg">
 
-                <p>负责人飞电微信</p>
+                <p>负责人武仙微信</p>
             </div>
         </div>
     </div>
