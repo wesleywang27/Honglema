@@ -16,7 +16,7 @@
                             <div class="item-title">头像</div>
                             <div class="item-after">
                                 <img id="f_avatar" src="{{$user['avatar']}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
-                                <input class="weui_uploader_input" id="headimgupload" name="imgFiles" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                                <input class="weui_uploader_input" id="headimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                             </div>
                             
                         </div>
@@ -320,7 +320,7 @@
                             <div class="weui_uploader_bd">
                                 <ul class="weui_uploader_files" id="idfile" style="padding-left: 0;"></ul>
                                 <div class="weui_uploader_input_wrp">
-                                    <input class="weui_uploader_input" id="fileupload" name="imgFiles" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                                    <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                                 </div>
                             </div>
                         </div>

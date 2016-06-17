@@ -119,6 +119,53 @@
 <script type="text/javascript" src="{{URL::asset('js/jquery-1.8.3.min.js')}}" charset="utf-8"></script>
 <script type="text/javascript" src="{{URL::asset('js/ajaxfileupload.js')}}" charset="utf-8"></script>
 <script type="text/javascript" src="{{URL::asset('/js/jquery.cxselect.min.js')}}" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+    wx.config(<?php echo $js->config(array('chooseImage', 'uploadImage','previewImage')) ?>);
+    var count = 0;
+    wx.ready(function () {
+        jQuery('#headimgupload').click(function () {
+            var images = {
+                localId: [],
+                serverId: []
+            };
+            $html = '';
+            if(count < 1) {
+                wx.chooseImage({
+                    count: 1, // 限制每次只能选择一张
+                    success: function (res) {
+                        //$.AMUI.progress.start();
+                        images.localId = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                        jQuery.each(images.localId, function (i, n) {
+                            wx.uploadImage({
+                                localId: n,
+                                success: function (res) {
+                                    images.serverId[0] = res.serverId;
+                                    jQuery.each(images.serverId, function (i, m) {
+                                        jQuery.ajax({
+                                            url: "/Merchant/register/uploadPicture",
+                                            data: {"media_id": m},
+                                            success: function (data) {
+                                                count = count + 1;
+                                                $('#f_avatar').attr('src',data);
+                                                //$.AMUI.progress.done();
+                                                if(count == 1)
+                                                    jQuery("#file_upload").hide();
+                                            }
+                                        });
+                                    });
+                                },
+                                fail: function (res) {
+                                    alert(JSON.stringify(res));
+                                }
+                            });
+                        });
+                    }
+                });
+
+            }
+        });
+    });
+    </script>
 <script>
     //    $(function() {
     //        $('#test').click(function() {
@@ -156,27 +203,27 @@
     });
 
     //上传头像
-    $('#headimgupload').change(function(){
-        $.showPreloader('正在上传...');
-        $j.ajaxFileUpload({
-            url:"/picture",//需要链接到服务器地址
-            secureuri:false,
-            fileElementId:"headimgupload",//文件选择框的id属性
-            dataType: 'json',   //json
-            success: function (data, status) {
-                var urls = data.urls;
-                var $htmls = '';
-                $('#idfile').append('<li class="weui_uploader_file images" style="background-image:url('+urls[0]+')">\
-                <input type="hidden" id="id_image" name="id_image" value="'+urls[0]+'">\
-                </li>');
-                $(this).parent('div').hide();
-                $.toast("添加成功",1000);
-            },error:function(data, status, e){
-                $.hidePreloader();
-                $.toast("添加失败", 1000);
-            }
-        });
-    });
+    // $('#headimgupload').change(function(){
+    //     $.showPreloader('正在上传...');
+    //     $j.ajaxFileUpload({
+    //         url:"/picture",//需要链接到服务器地址
+    //         secureuri:false,
+    //         fileElementId:"headimgupload",//文件选择框的id属性
+    //         dataType: 'json',   //json
+    //         success: function (data, status) {
+    //             var urls = data.urls;
+    //             var $htmls = '';
+    //             $('#idfile').append('<li class="weui_uploader_file images" style="background-image:url('+urls[0]+')">\
+    //             <input type="hidden" id="id_image" name="id_image" value="'+urls[0]+'">\
+    //             </li>');
+    //             $(this).parent('div').hide();
+    //             $.toast("添加成功",1000);
+    //         },error:function(data, status, e){
+    //             $.hidePreloader();
+    //             $.toast("添加失败", 1000);
+    //         }
+    //     });
+    // });
 
 
     //上传多图
