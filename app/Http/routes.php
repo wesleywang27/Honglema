@@ -257,8 +257,31 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     //操作日志入口
     Route::get('/cms/logList',"LogController@index");
 
+//});
+
+
+/*
+ * 
+ * 滴滴打网红 后台系统
+ * 
+ */
+
+//Route::group(['domain' => 'cms.honglema.com'], function() {
+
+    Route::get('/didi',"DidiController@index");
+
+    Route::get('/didi/index',"DidiController@index");
+
+    Route::get('/didi/login',"DidiController@loginIndex");
+
+    Route::post('/didi/login',"DidiController@login");
+
+    Route::get('/didi/logout',"DidiController@logout");
 
 //});
+
+
+
 
 
 //网红入口
