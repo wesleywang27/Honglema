@@ -18,10 +18,7 @@ class IndexController extends Controller{
     public function index(){
         $user = session('wechat.oauth_user');
         if($user){
-            $options = config('wechat');
-            $app = new Application($options);
-            $js = $app->js;
-            return view('merchant.merchant_register',['js'=>$js]);
+            return view('merchant.merchant_register',['user'=>$user]);
 
             $merchant = Merchant::where('open_id',$user->openid)->first();
 
