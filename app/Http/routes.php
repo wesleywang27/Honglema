@@ -297,11 +297,9 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 **
 */
 
-Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
+Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant','middleware' => ['web', 'wechat.oauth']], function()
 {
 
-  Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
-    
         //首页
         Route::get('/', 'IndexController@index');
         Route::get('/login','IndexController@login');
@@ -322,6 +320,5 @@ Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
         Route::post('/register/save', 'IndexController@register');
         Route::resource('/register/uploadPicture', 'IndexController@uploadPic');
 
-    });
 });
 
