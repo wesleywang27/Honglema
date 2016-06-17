@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Input;
 use App\Models\Merchant;
 class IndexController extends Controller{
     public function index(){
-
+var_dump(1);die;
         $user = session('wechat.oauth_user');
         $options = config('wechat');
         $app = new Application($options);
