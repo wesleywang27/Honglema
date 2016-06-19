@@ -8,13 +8,37 @@ use App\Models\User;
 use App\Models\StarPicture;
 class StarController extends Controller
 {
+    /* $oauthUser->openid   = $original['openid'];
+           $oauthUser->unionid  = $original['unionid'];
+           $oauthUser->nickname = $original['nickname'];
+           $oauthUser->sex      = $original['sex'] === 1? Config::get("constants.SEX.MALE") : Config::get("constants.SEX.FEMALE");
+           $oauthUser->language = $original['language'];
+           $oauthUser->city     = $original['city'];
+           $oauthUser->province = $original['province'];
+           $oauthUser->country  = $original['country'];*/
 
+    public function index(){
+        $user = session('wechat.oauth_user');
+        $openid =$user->openid;
+       // $openid="001";
+        $star = Star::where('openid',$openid)->first();
+        if($star){
+            return view('star/star_info',["star"=>$star]);
+        }else{
+            $star = new Star();
+            $star->name = $user->nickname;
+            $star->openid = $user->openid;
+            $star->save();
+            $user=array('nickname'=>"zhangmin",'sex'=>'M','province'=>"云南",'city'=>"普洱",'avatar'=>"/images/nike.jpg",'wechat'=>'zhangmin0924');
+            return view('star/create', ["user" => $user]);
+        }
+
+    }
     public function info(Request $request){
 
         $user = session('wechat.oauth_user');
         $openid =$user->openid;
-
-        // $openid ="openidTest";
+        //$openid ="001";
         $star = Star::where('openid',$openid)->first();
         return view('star/star_info',["star"=>$star]);
     }
@@ -22,7 +46,7 @@ class StarController extends Controller
     public function update(){
         $user = session('wechat.oauth_user');
         $openid =$user->openid;
-       // $openid ="openidTest";
+       // $openid ="001";
         $star = Star::where('openid',$openid)->first();
         $input =Input::all();
         $formKey = array_keys($input);
@@ -35,17 +59,12 @@ class StarController extends Controller
         }
         $star->save();
     }
-    public function create() {
-
-        $user = session('wechat.oauth_user'); // 拿到授权用户资料
-        //$user=array('nickname'=>"张敏",'sex'=>'M','province'=>"云南",'city'=>"普洱",'avatar'=>"/images/nike.jpg",'wechat'=>'zhangmin0924');
-        return view('star.create', ["user" => $user]);
-    }
-
     public function register(Request $request){
-
         $input =Input::all();
-        $star = new Star();
+       $user = session('wechat.oauth_user');
+        $openid =$user->openid;
+      //  $openid ="001";
+        $star = Star::where('openid',$openid)->first();
         $input =Input::all();
         $formKey = array_keys($input);
         foreach ($formKey as $value)
@@ -55,23 +74,20 @@ class StarController extends Controller
                 $star->$value = $input[$value];
             }
         }
-        $pictures = [];
-        foreach ($request->input('images') as $img) {
-            $picture = new StarPicture();
-            $picture->url = $img;
-            $picture->file_id = pathinfo($img)['filename'];
-            $pictures[] = $picture;
-        }
-
-        if($star->isValid()) {
-            $star->save();
-            $star->starPictures()->saveMany($pictures);
-        }
-
+        $star->save();
         return view('star/star_info',["star"=>$star]);
     }
 
-
+    public function uploadimg(Request $request){
+        $user = session('wechat.oauth_user');
+        $openid =$user->openid;
+        $url =$request->input('url');
+        $starPicture = new StarPicture();
+        $starPicture->url = $url;
+        $starPicture->file_id = pathinfo($url)['filename'];
+        $starPicture->uid = $openid;
+        $starPicture->save();
+    }
 
     /*跳转到获得界面*/
     public function activity() {

@@ -439,7 +439,14 @@
                                 <div class="weui_cell_bd weui_cell_primary">上传6张照片</div>
                             </div>
                             <div class="weui_uploader_bd">
-                                <ul class="weui_uploader_files" id="imgfiles" style="padding-left: 0;float: left;"></ul>
+                                <ul class="weui_uploader_files" id="imgfiles" style="padding-left: 0;float: left;">
+                                    <li class="weui_uploader_file images" style='width:80px;height:80px;background-image: url("/images/nike.jpg")'>
+                                        <input type="hidden" id="manyimg1" value="/images/nike.jpg"></li>
+                                    <li class="weui_uploader_file images" style='width:80px;height:80px;background-image: url("/images/nike.jpg")'>
+                                        <input type="hidden" id="manyimg2" value="/images/nike.jpg"></li>
+                                    <li class="weui_uploader_file images" style='width:80px;height:80px;background-image: url("/images/nike.jpg")'>
+                                        <input type="hidden" id="manyimg3" value="/images/nike.jpg"></li>
+                                </ul>
                                 <div class="weui_uploader_input_wrp" style="width: 80px;height: 80px;float: left;">
                                     <input class="weui_uploader_input" id="imgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                                 </div>
