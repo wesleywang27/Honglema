@@ -5,44 +5,73 @@ use Illuminate\Http\Request;
 use App\Models\Star;
 use Illuminate\Support\Facades\Input;
 use App\Models\User;
+use App\Models\StarPicture;
 class StarController extends Controller
 {
-    public function addCele(Request $request){
-        $celebrities = new Star();
-        $celebrities->realname = $request->input('realname');
-        $celebrities->save();
-    }
 
-    /*评论界面*/
     public function info(Request $request){
-        $star_info = Star::where('openid',$request->input('opendid'))->first();
-        return view('star/star_info',['star_info'=>$star_info]);
+
+        $user = session('wechat.oauth_user');
+        $openid =$user->openid;
+
+        // $openid ="openidTest";
+        $star = Star::where('openid',$openid)->first();
+        return view('star/star_info',["star"=>$star]);
     }
 
+    public function update(){
+        $user = session('wechat.oauth_user');
+        $openid =$user->openid;
+       // $openid ="openidTest";
+        $star = Star::where('openid',$openid)->first();
+        $input =Input::all();
+        $formKey = array_keys($input);
+        foreach ($formKey as $value)
+        {
+            if(isset($input[$value]))
+            {
+                $star->$value = $input[$value];
+            }
+        }
+        $star->save();
+    }
     public function create() {
+
         $user = session('wechat.oauth_user'); // 拿到授权用户资料
         //$user=array('nickname'=>"张敏",'sex'=>'M','province'=>"云南",'city'=>"普洱",'avatar'=>"/images/nike.jpg",'wechat'=>'zhangmin0924');
         return view('star.create', ["user" => $user]);
     }
 
     public function register(Request $request){
-          $input =Input::all();
-          $star = new Star($input);
-          //$notice = new Notice(Notice::$danger, Lang::get('notice.star_error'));
-           if($star->isValid()) {
-              $star->save();
-          }
 
+        $input =Input::all();
+        $star = new Star();
+        $input =Input::all();
+        $formKey = array_keys($input);
+        foreach ($formKey as $value)
+        {
+            if(isset($input[$value]))
+            {
+                $star->$value = $input[$value];
+            }
+        }
         $pictures = [];
         foreach ($request->input('images') as $img) {
-            $picture = new Picture();
+            $picture = new StarPicture();
             $picture->url = $img;
             $picture->file_id = pathinfo($img)['filename'];
-            $picture->upload_time = time();
             $pictures[] = $picture;
         }
 
+        if($star->isValid()) {
+            $star->save();
+            $star->starPictures()->saveMany($pictures);
+        }
+
+        return view('star/star_info',["star"=>$star]);
     }
+
+
 
     /*跳转到获得界面*/
     public function activity() {

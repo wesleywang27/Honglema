@@ -276,6 +276,36 @@
         $('#f_chicun').text($('#'+v1).val()+'/'+$('#'+v2).val()+'/'+$('#'+v3).val());
     }
 
+    //编辑尺寸
+    $.save_size = function(){
+
+        $('#f_cloth').text($('#f_shirt').val()+'/'+$('#f_pants').val()+'/'+$('#f_shoe').val());
+
+        $.post('{{ URL::action('StarController@update') }}',{
+                'shirt_size': $("#f_shirt").val(),
+                'pants_size': $("#f_pants").val(),
+                'shoes_size': $("#f_shoe").val(),}
+        );
+    }
+
+    //编辑单项
+
+    $.save_address =function(v1,v2){
+        $('#f_dizhi').text($('#'+v1).val() +$('#'+v2).val());
+        $.post('{{ URL::action('StarController@update') }}',{
+            'address': $('#'+v1)+val().$('#'+v2).val()}
+        );
+    }
+    $.save_edit = function(va1,tag){
+        $('#f_'+va1).text($('#'+va1).val());
+        var data = {};
+        data[tag]=$('#'+va1).val();
+        $.post('{{ URL::action('StarController@update') }}',
+          data
+        );
+    }
+
+
     //完成注册
     $('#finish').click(function(){
         var imgdata = [];
@@ -318,6 +348,8 @@
         });
 
     });
+
 </script>
+
 </body>
 </html>
