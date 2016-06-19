@@ -16,9 +16,17 @@ use Illuminate\Support\Facades\Input;
 use App\Models\Merchant;
 class IndexController extends Controller{
     public function index(){
+var_dump(1);die;
         $user = session('wechat.oauth_user');
+        $options = config('wechat');
+        $app = new Application($options);
+        $js = $app->js;
+        return view('merchant.merchant_register',['js'=>$js,'user'=>$user]);
         if($user){
-            return view('merchant.merchant_register',['user'=>$user]);
+            $options = config('wechat');
+            $app = new Application($options);
+            $js = $app->js;
+            return view('merchant.merchant_register',['js'=>$js,'user'=>$user]);
 
             $merchant = Merchant::where('open_id',$user->openid)->first();
 
