@@ -267,17 +267,26 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
  */
 
 //Route::group(['domain' => 'cms.honglema.com'], function() {
-
-    Route::get('/didi',"DidiController@index");
-
-    Route::get('/didi/index',"DidiController@index");
-
+    //登入登出
     Route::get('/didi/login',"DidiController@loginIndex");
 
     Route::post('/didi/login',"DidiController@login");
 
     Route::get('/didi/logout',"DidiController@logout");
 
+    //首页
+    Route::get('/didi',"DidiController@index");
+
+    Route::get('/didi/index',"DidiController@index");
+
+    //平台信息审核
+
+    //平台信息管理
+    Route::get('/didi/MerchantList',"MerchantController@merchantList");
+
+    Route::get('/didi/MerchantCreate',"MerchantController@merchantCreate");
+
+    Route::post('/didi/MerchantCreate',"MerchantController@merchantStore");
 //});
 
 

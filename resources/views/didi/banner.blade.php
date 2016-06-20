@@ -57,7 +57,7 @@
         <li>
             <dl>
                 <dt>平台信息审核</dt>
-                <dd><a href="#" class="active">商家注册审核</a></dd>
+                <dd><a href="#">商家注册审核</a></dd>
                 <dd><a href="#">红人注册审核</a></dd>
                 <dd><a href="#">商家活动审核</a></dd>
             </dl>
@@ -65,7 +65,7 @@
         <li>
             <dl>
                 <dt>平台信息管理</dt>
-                <dd><a href="#">商家信息管理</a></dd>
+                <dd><a href="/didi/MerchantList">商家信息管理</a></dd>
                 <dd><a href="#">红人信息管理</a></dd>
                 <dd><a href="#">商家活动管理</a></dd>
                 <dd><a href="#">收费标准管理</a></dd>
