@@ -298,6 +298,9 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/didi/ActivityCreate/{merchant_id?}',"ActivityController@activityCreate");
 
     Route::post('/didi/ActivityUpdate/{merchant_id?}',"ActivityController@activityUpdate");
+
+    //商品信息管理
+    Route::get('/didi/CommodityCreate/{activity_id}',"CommodityController@commodityCreate");
 //});
 
 

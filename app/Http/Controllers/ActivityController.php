@@ -8,10 +8,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
-use App\Models\ActivityCommodityList;
-use App\Models\Commodity;
-use App\Models\CommodityPicture;
-use App\Models\Merchant;
 use App\Models\PriceLevel;
 use App\Models\Task;
 use Illuminate\Http\Request;
@@ -33,7 +29,6 @@ class ActivityController extends Controller{
     //添加活动信息
     public function activityUpdate($merchant_id ,Request $request){
         $activity = new Activity();
-
         $activity->merchant_id = $merchant_id;
         $activity->title = $request->input('title');
         $activity->claim = $request->input('claim');
@@ -43,9 +38,14 @@ class ActivityController extends Controller{
         $price_level = PriceLevel::where('pl_id',$request->input('level'))->first();
         $activity->total_price = $price_level->price;
         $activity->activity_status = 1;
-
         $activity->save();
 
-        return Redirect::intended('/didi/');
+        $activity = Activity::where('merchant_id',$merchant_id)->orderBy('created_at', 'desc')->first();
+        $task = new Task();
+        $task->activity_id = $activity->activity_id;
+        $task->status = 1;
+        $task->save();
+
+        return Redirect::intended("/didi/CommodityCreate/$activity->activity_id");
     }
 }
