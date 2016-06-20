@@ -5,7 +5,14 @@ use Illuminate\Http\Request;
 use App\Models\Star;
 use Illuminate\Support\Facades\Input;
 use App\Models\User;
+use App\Models\Activity;
+use App\Models\Task;
 use App\Models\StarPicture;
+use App\Models\Order;
+use App\Models\Merchant;
+use App\Models\Commodity;
+use App\Models\ProductPicture;
+use DB;
 class StarController extends Controller
 {
     /* $oauthUser->openid   = $original['openid'];
@@ -32,8 +39,49 @@ class StarController extends Controller
             $star->save();
             return view('star/create', ["user" => $user]);
         }
-
     }
+
+
+    public function order(){
+        $star_id="001";
+        $star =  Star::where('star_id',$star_id)->first();
+        $orders = Order::where('star_id',$star_id)->get();
+         $data = array();
+        foreach($orders as $order){
+            //each order  has one task
+            $task = Task::where('task_id',$order->task_id)->first();
+            //each task belong to one activity
+            $activity = Activity::where('activity_id',$task->activity_id)->first( );
+            //each activity belong to one  merchant
+            $merchant = Merchant::where('merchant_id',$activity->merchant_id)->first();
+            //each activity has many commodity
+            $relations = DB::table('activity_commodity_lists')->where('activity_id',$activity->activity_id)->get();
+            //commodity array initialize
+            $commodities = array();
+            foreach($relations as $relation){
+                $commodities[] =Commodity::where('commodity_id',$relation->commodity_id)->get(); 
+            }
+
+            $data[]=array('title'=>$activity->title,
+                'merchant_name'=>$merchant->name,
+                'avatar'=>$merchant->avatar,
+                'total_price'=>$activity->total_price,
+                'requirement'=>$activity->claim,
+                'status'=>$task->status,
+                'task_id'=>$task->task_id,
+                'merchant_id'=>$merchant->merchant_id, );
+        }
+        return view('/star/star_order',["data"=>$data]);
+    }
+
+         public function merchant_info(Request $request){
+  
+            $merchant_id =$request->input('merchant_id');
+            $merchant = Merchant::where('merchant_id',$merchant_id)->first();
+              return view('star/merchant_info',["merchant"=>$merchant]);
+    }
+
+
     public function info(Request $request){
          $user = session('wechat.oauth_user');
          $openid =$user->openid;
@@ -90,6 +138,8 @@ class StarController extends Controller
         $starPicture->save();
     }
 
+
+
     /*跳转到获得界面*/
     public function activity() {
         $items=array(
@@ -124,9 +174,6 @@ class StarController extends Controller
         return view('/star/star_order', ['items' => $items,'type'=>'comment']);
     }
 
-    public function order(){
-        return view('/star/star_order');
-    }
 
     public function contention() {
         $items=array(
