@@ -1211,26 +1211,27 @@
         },
         {
             "name": "overtrue/wechat",
-            "version": "3.0.5",
+            "version": "3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/wechat.git",
-                "reference": "808f5a71b2050a341c17921932f0c521cadd6ef9"
+                "reference": "1619f62e47a5668d36eb1fefd209442ec9715fad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/wechat/zipball/808f5a71b2050a341c17921932f0c521cadd6ef9",
-                "reference": "808f5a71b2050a341c17921932f0c521cadd6ef9",
+                "url": "https://api.github.com/repos/overtrue/wechat/zipball/1619f62e47a5668d36eb1fefd209442ec9715fad",
+                       "reference": "1619f62e47a5668d36eb1fefd209442ec9715fad",
                 "shasum": ""
             },
             "require": {
                 "doctrine/cache": "~1.4",
-                "ext-mcrypt": "*",
                 "ext-openssl": "*",
+                "guzzlehttp/guzzle": "~6.1",
                 "monolog/monolog": "^1.17",
                 "overtrue/socialite": ">=1.0.7",
                 "php": ">=5.5.0",
-                "pimple/pimple": "~3.0"
+                "pimple/pimple": "~3.0",
+                "symfony/http-foundation": "~2.6|~2.7|~2.8|~3.0"
             },
             "require-dev": {
                 "mockery/mockery": "^1.0@dev",
@@ -1238,19 +1239,19 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
+                        "psr-4": {
                     "EasyWeChat\\": "src/"
-                },
+                                    },
                 "files": [
                     "src/Payment/helpers.php"
-                ]
+                        ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                       "MIT"
             ],
             "authors": [
-                {
+                       {
                     "name": "overtrue",
                     "email": "anzhengchao@gmail.com"
                 }
@@ -1262,7 +1263,7 @@
                 "weixin",
                 "weixin-sdk"
             ],
-            "time": "2016-03-09 03:44:55"
+            "time": "2016-03-18 14:34:05"
         },
         {
             "name": "paragonie/random_compat",
