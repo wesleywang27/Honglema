@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/didi/merchant_info.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/didi/merchant_modify.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/MerchantController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/MerchantController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/didi/merchant_list.blade.php" afterPath="$PROJECT_DIR$/resources/views/didi/merchant_list.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/didi/merchant_info.blade.php" afterPath="$PROJECT_DIR$/resources/views/didi/merchant_info.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,26 +41,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CMSController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
+      <file leaf-file-name="merchant_modify.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/didi/merchant_modify.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-19770">
-              <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+            <state relative-caret-position="326">
+              <caret line="40" column="66" selection-start-line="40" selection-start-column="66" selection-end-line="40" selection-end-column="66" />
               <folding>
-                <element signature="e#123#132#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MerchantController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MerchantController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-              <folding>
-                <element signature="e#6#89#0#PHP" expanded="true" />
-                <element signature="e#123#147#0#PHP" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#table#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,22 +56,22 @@
       <file leaf-file-name="merchant_info.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/didi/merchant_info.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="39" column="65" selection-start-line="39" selection-start-column="65" selection-end-line="39" selection-end-column="65" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="293">
+              <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="merchant_list.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/didi/merchant_list.blade.php">
+      <file leaf-file-name="MerchantController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MerchantController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="24" column="101" selection-start-line="24" selection-start-column="101" selection-end-line="24" selection-end-column="101" />
-              <folding />
+            <state relative-caret-position="459">
+              <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+              <folding>
+                <element signature="e#6#89#0#PHP" expanded="true" />
+                <element signature="e#123#147#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,7 +100,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2016_06_13_171346_alter_celebrity_deleted_at.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_13_171409_alter_picture_deleted_at.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_13_171504_alter_productPicture_deleted_at.php" />
         <option value="$PROJECT_DIR$/app/Models/Celebrity.php" />
@@ -161,10 +146,11 @@
         <option value="$PROJECT_DIR$/app/Http/MerchantController.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/merchant_create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/user_create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/didi/merchant_info.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/merchant_list.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MerchantController.php" />
+        <option value="$PROJECT_DIR$/resources/views/didi/merchant_info.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/didi/merchant_modify.blade.php" />
       </list>
     </option>
   </component>
@@ -1024,14 +1010,7 @@
       <workItem from="1466136844173" duration="6292000" />
       <workItem from="1466146646945" duration="3422000" />
       <workItem from="1466154289441" duration="4447000" />
-      <workItem from="1466390529662" duration="11187000" />
-    </task>
-    <task id="LOCAL-00166" summary="修改">
-      <created>1464073822340</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL-00166" />
-      <option name="project" value="LOCAL" />
-      <updated>1464073822340</updated>
+      <workItem from="1466390529662" duration="13173000" />
     </task>
     <task id="LOCAL-00167" summary="修改">
       <created>1464078781559</created>
@@ -1369,11 +1348,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466404113951</updated>
     </task>
-    <option name="localTasksCounter" value="215" />
+    <task id="LOCAL-00215" summary="打网红后台 商家删除 详情页">
+      <created>1466406965374</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1466406965374</updated>
+    </task>
+    <option name="localTasksCounter" value="216" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="558250000" />
+    <option name="totallyTimeSpent" value="560236000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1429,7 +1415,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="查找红人信息" />
     <MESSAGE value="修改红人图片信息" />
     <MESSAGE value="添加红人信息" />
     <MESSAGE value="用户访问红人权限" />
@@ -1454,7 +1439,8 @@
     <MESSAGE value="打网红后台 登入登出" />
     <MESSAGE value="打网红后台 商家列表页 商家创建页" />
     <MESSAGE value="打网红后台 商家创建" />
-    <option name="LAST_COMMIT_MESSAGE" value="打网红后台 商家创建" />
+    <MESSAGE value="打网红后台 商家删除 详情页" />
+    <option name="LAST_COMMIT_MESSAGE" value="打网红后台 商家删除 详情页" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1467,9 +1453,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_16_124937_create_orders_table.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_16_114333_create_task_picture_table.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_15_144822_create_tasks_table.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_12_112946_create_merchant_payments.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_12_112300_create_merchants_table.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_12_113006_create_star_payments.php" />
@@ -1627,14 +1610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CelebrityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/didi/login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
@@ -1743,12 +1718,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/stall_modify.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="296" column="31" selection-start-line="296" selection-start-column="31" selection-end-line="296" selection-end-column="31" />
+        <state relative-caret-position="-817">
+          <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
           <folding>
-            <element signature="e#950#1176#1#PHP" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#table#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#2;n#tr#3;n#table#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <marker date="1465803607985" expanded="true" signature="8739:8798" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1761,10 +1739,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PlaygroundController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-171">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CelebrityController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-249">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MerchantController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="459">
+          <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
           <folding>
             <element signature="e#6#89#0#PHP" expanded="true" />
             <element signature="e#123#147#0#PHP" expanded="true" />
@@ -1772,23 +1766,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/didi/merchant_info.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="39" column="65" selection-start-line="39" selection-start-column="65" selection-end-line="39" selection-end-column="65" />
+        <state relative-caret-position="304">
+          <caret line="192" column="43" selection-start-line="192" selection-start-column="43" selection-end-line="192" selection-end-column="43" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="e#123#132#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19770">
-          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+        <state relative-caret-position="459">
+          <caret line="296" column="31" selection-start-line="296" selection-start-column="31" selection-end-line="296" selection-end-column="31" />
           <folding>
-            <element signature="e#123#132#0#PHP" expanded="true" />
+            <element signature="e#950#1176#1#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/didi/merchant_info.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/didi/merchant_modify.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="40" column="66" selection-start-line="40" selection-start-column="66" selection-end-line="40" selection-end-column="66" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#table#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

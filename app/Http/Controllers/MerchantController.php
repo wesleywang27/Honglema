@@ -55,6 +55,37 @@ class MerchantController extends Controller{
         }
     }
 
+    //商家修改页
+    public function merchantModify($id){
+        session_start();
+        if(isset($_SESSION['name'])) {
+            $merchant = Merchant::where('merchant_id',$id)->first();
+            
+            return view('/didi/merchant_modify',['merchant' => $merchant]);
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
+
+    //修改商家信息
+    public function merchantUpdate($id ,Request $request){
+        $merchant = Merchant::where('merchant_id',$id)->first();
+
+        $merchant->name = $request->input('name');
+        $merchant->country = $request->input('country');
+        $merchant->province = $request->input('province');
+        $merchant->city = $request->input('city');
+        $merchant->region = $request->input('region');
+        $merchant->address = $request->input('address');
+        $merchant->wechat = $request->input('wechat');
+        $merchant->cellphone = $request->input('cellphone');
+
+        $merchant->save();
+
+        return Redirect::intended("/didi/MerchantInfo/$id")->with(['merchant' => $merchant]);
+    }
+
     //商家列表页
     public function merchantList(){
         session_start();
