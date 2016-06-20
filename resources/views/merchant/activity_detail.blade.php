@@ -32,7 +32,7 @@
             <li>
                 <div class="item-content">
                     <div class="item-inner">
-                        <div class="item-title">韩束保湿乳推广活动</div>
+                        <div class="item-title">{{$detail['title']}}</div>
                         <div id="f_merchant_name" class="item-after">$5W</div>
                     </div>
                 </div>

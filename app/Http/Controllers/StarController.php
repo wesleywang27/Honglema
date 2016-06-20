@@ -8,36 +8,13 @@ use App\Models\User;
 use App\Models\StarPicture;
 class StarController extends Controller
 {
-    /* $oauthUser->openid   = $original['openid'];
-           $oauthUser->unionid  = $original['unionid'];
-           $oauthUser->nickname = $original['nickname'];
-           $oauthUser->sex      = $original['sex'] === 1? Config::get("constants.SEX.MALE") : Config::get("constants.SEX.FEMALE");
-           $oauthUser->language = $original['language'];
-           $oauthUser->city     = $original['city'];
-           $oauthUser->province = $original['province'];
-           $oauthUser->country  = $original['country'];*/
 
-    public function index(){
-        $user = session('wechat.oauth_user');
-        $openid =$user->openid;
-        //$openid="001";
-        $star = Star::where('openid',$openid)->first();
-        if($star){
-            return view('star/star_info',["star"=>$star]);
-        }else{
-            $user=array('nickname'=>$user->nickname,'sex'=>$user->sex,'province'=>$user->province,'city'=>$user->city,'avatar'=>"/images/nike.jpg",'wechat'=>$user->openid);
-            $star = new Star();
-            $star->name = $user->nickname;
-            $star->openid = $user->openid;
-            $star->save();
-            return view('star/create', ["user" => $user]);
-        }
-
-    }
     public function info(Request $request){
+
         $user = session('wechat.oauth_user');
         $openid =$user->openid;
-        //$openid ="001";
+
+        // $openid ="openidTest";
         $star = Star::where('openid',$openid)->first();
         return view('star/star_info',["star"=>$star]);
     }
@@ -45,7 +22,7 @@ class StarController extends Controller
     public function update(){
         $user = session('wechat.oauth_user');
         $openid =$user->openid;
-       // $openid ="001";
+       // $openid ="openidTest";
         $star = Star::where('openid',$openid)->first();
         $input =Input::all();
         $formKey = array_keys($input);
@@ -57,14 +34,18 @@ class StarController extends Controller
             }
         }
         $star->save();
+    }
+    public function create() {
+
+        $user = session('wechat.oauth_user'); // 拿到授权用户资料
+        //$user=array('nickname'=>"张敏",'sex'=>'M','province'=>"云南",'city'=>"普洱",'avatar'=>"/images/nike.jpg",'wechat'=>'zhangmin0924');
+        return view('star.create', ["user" => $user]);
     }
 
     public function register(Request $request){
+
         $input =Input::all();
-       $user = session('wechat.oauth_user');
-        $openid =$user->openid;
-        //$openid ="001";
-        $star = Star::where('openid',$openid)->first();
+        $star = new Star();
         $input =Input::all();
         $formKey = array_keys($input);
         foreach ($formKey as $value)
@@ -74,31 +55,28 @@ class StarController extends Controller
                 $star->$value = $input[$value];
             }
         }
-        $star->save();
+        $pictures = [];
+        foreach ($request->input('images') as $img) {
+            $picture = new StarPicture();
+            $picture->url = $img;
+            $picture->file_id = pathinfo($img)['filename'];
+            $pictures[] = $picture;
+        }
+
+        if($star->isValid()) {
+            $star->save();
+            $star->starPictures()->saveMany($pictures);
+        }
+
         return view('star/star_info',["star"=>$star]);
     }
 
-    public function uploadimg(Request $request){
-        $user = session('wechat.oauth_user');
-        $openid =$user->openid;
-       // $openid ="001";
-        $url =$request->input('url');
-        $starPicture = new StarPicture();
-        $starPicture->url = $url;
-        $starPicture->file_id = pathinfo($url)['filename'];
-        $starPicture->uid = $openid;
-        $starPicture->save();
-    }
+
 
     /*跳转到获得界面*/
     public function activity() {
         $items=array(
             array("Adidas","阿迪达斯推广活动","5W","2016-6-13 24:00","adidas.jpg"),
-            array("Nike","耐克推广活动","5W","2016-6-14 24:00","nike.jpg"),
-            array("Nike","耐克推广活动","5W","2016-6-14 24:00","nike.jpg"),
-            array("Nike","耐克推广活动","5W","2016-6-14 24:00","nike.jpg"),
-            array("Nike","耐克推广活动","5W","2016-6-14 24:00","nike.jpg"),
-            array("Nike","耐克推广活动","5W","2016-6-14 24:00","nike.jpg"),
             array("Nike","耐克推广活动","5W","2016-6-14 24:00","nike.jpg"),
       );
         return view('star/star_activity', ['items' => $items]);
@@ -122,10 +100,6 @@ class StarController extends Controller
             array("Adidas","阿迪达斯推广活动","5W","2016-6-13 24:00","adidas.jpg"),
         );
         return view('/star/star_order', ['items' => $items,'type'=>'comment']);
-    }
-
-    public function order(){
-        return view('/star/star_order');
     }
 
     public function contention() {
