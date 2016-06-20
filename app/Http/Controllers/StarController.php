@@ -20,12 +20,12 @@ class StarController extends Controller
     public function index(){
         $user = session('wechat.oauth_user');
         $openid =$user->openid;
-        //$openid="001";
+     // $openid="001";
         $star = Star::where('openid',$openid)->first();
         if($star){
             return view('star/star_info',["star"=>$star]);
         }else{
-            $user=array('nickname'=>$user->nickname,'sex'=>$user->sex,'province'=>$user->province,'city'=>$user->city,'avatar'=>"/images/nike.jpg",'wechat'=>$user->openid);
+            $user=array('nickname'=>$user->nickname,'sex'=>'M','province'=>'beijing','city'=>'beijing','avatar'=>"/images/nike.jpg",'wechat'=>'wechat');
             $star = new Star();
             $star->name = $user->nickname;
             $star->openid = $user->openid;
@@ -35,15 +35,15 @@ class StarController extends Controller
 
     }
     public function info(Request $request){
-        $user = session('wechat.oauth_user');
-        $openid =$user->openid;
-        //$openid ="001";
+         $user = session('wechat.oauth_user');
+         $openid =$user->openid;
+       // $openid ="001";
         $star = Star::where('openid',$openid)->first();
         return view('star/star_info',["star"=>$star]);
     }
 
     public function update(){
-        $user = session('wechat.oauth_user');
+       $user = session('wechat.oauth_user');
         $openid =$user->openid;
        // $openid ="001";
         $star = Star::where('openid',$openid)->first();
@@ -61,9 +61,9 @@ class StarController extends Controller
 
     public function register(Request $request){
         $input =Input::all();
-       $user = session('wechat.oauth_user');
+        $user = session('wechat.oauth_user');
         $openid =$user->openid;
-        //$openid ="001";
+        // $openid ="001";
         $star = Star::where('openid',$openid)->first();
         $input =Input::all();
         $formKey = array_keys($input);
@@ -79,9 +79,9 @@ class StarController extends Controller
     }
 
     public function uploadimg(Request $request){
-        $user = session('wechat.oauth_user');
-        $openid =$user->openid;
-       // $openid ="001";
+         $user = session('wechat.oauth_user');
+         $openid =$user->openid;
+      //  $openid ="001";
         $url =$request->input('url');
         $starPicture = new StarPicture();
         $starPicture->url = $url;
