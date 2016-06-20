@@ -154,7 +154,8 @@
                 var $htmls = '';
                 for(var i=0; i<urls.length; i++){
                     $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
-                    <input type="hidden" id="manyimg" value="'+urls[i]+'"></li>';
+                    <input type="hidden" id="manyimg"+i value="'+urls[i]+'"></li>';
+                    $.post('star/uploadimg',{'url':urls[i]});
                 }
                 $('#imgfiles').append($htmls);
                 $.hidePreloader();
@@ -307,48 +308,50 @@
 
 
     //完成注册
-    $('#finish').click(function(){
-        var imgdata = [];
-        var i = 0;
-        $('[id=manyimg]').each(function(){
-            imgdata[i] = $(this).val();
-            i++;
+
+    $('#finish').click(function() {
+        $.ajax({
+            url: "/star/register",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data: {
+                "name": $('#f_nickname').text(),
+                "sex": $('#f_sex').text() == '男' ? 'M' : 'F',
+                "location": $('#f_city-picker').text(),
+
+                "cup": $('#f_cup').text(),
+                "weight": $('#f_tizhong').text(),
+                "height": $('#f_shengao').text(),
+                "age": $('#f_age').text(),
+                "occupation": $('#f_zhiye').text(),
+                "education": $('#f_xueli').text(),
+
+                "experience": $('#jingli').val(),
+
+                "real_name": $('#id_name').val(),
+                "ID_number": $('#id_code').val(),
+
+                "shirt_size": $('#f_shangyi').val(),
+                "pants_size": $('#f_xiayi').val(),
+                "shoes_size": $('#f_shoe').val(),
+
+                "cellphone": $('#phonenum').val(),
+                "address": $('#f_dizhi').val(),
+
+                "weibo_id": $('#weiboid').val(),
+                "weipai_id": $('#weipaiid').val(),
+                "miaopai_id": $('#miaopaiid').val(),
+                "meipai_id": $('#meipaiid').val(),
+                "kuaishou_id": $('#kuaishouid').val(),
+            },success: function(data) {
+                $.toast("注册成功!",1000);
+                setTimeout(function(){
+                    location.href="/star/info";
+                },1000);
+            }
         });
-        $.post('{{ URL::action('StarController@register') }}', {
-            "avatar"       : $('#f_wx_headimg').text(),
-            "name"         : $('#f_nickname').text(),
-            "sex"          : $('#f_sex').text() == '男' ? 'M' : 'F',
-            "location"     : $('#f_city-picker').text(),
-            "images[]"      : imgdata,
-
-            "cup"          : $('#f_cup').text(),
-            "weight"       : $('#f_tizhong').text(),
-            "height"       : $('#f_shengao').text(),
-            "age"          : $('#f_age').text(),
-            "occupation"   : $('#f_zhiye').text(),
-            "education"   : $('#f_xueli').text(),
-
-            "experience"   : $('#jingli').val(),
-
-            "real_name"      : $('#id_name').val(),
-            "ID_number"      : $('#id_code').val(),
-
-            "shirt_size"     : $('#f_shangyi').val(),
-            "pants_size"     : $('#f_xiayi').val(),
-            "shoes_size"   : $('#f_shoe').val(),
-
-            "cellphone"     : $('#phonenum').val(),
-            "address"     : $('#f_dizhi').val(),
-
-            "weibo_id"     : $('#weiboid').val(),
-            "weipai_id"    : $('#weipaiid').val(),
-            "miaopai_id"   : $('#miaopaiid').val(),
-            "meipai_id"    : $('#meipaiid').val(),
-            "kuaishou_id"  : $('#kuaishouid').val(),
-        });
-
     });
-
 </script>
 
 </body>
