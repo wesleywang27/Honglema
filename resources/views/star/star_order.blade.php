@@ -10,26 +10,107 @@
     <div class="content" style="top: 2.5rem;">
         <div class="buttons-tab">
             <a href="#tab1" class="tab-link active button">抢单中</a>
-            <a href="#tab2" class="tab-link button">待付款</a>
-            <a href="#tab3" class="tab-link button">待发货</a>
+            <a href="#tab2" class="tab-link button">进行中</a>
+            <a href="#tab3" class="tab-link button">已完成</a>
         </div>
-        <div class="content-block">
+        <div class="content-block"  style="padding: 0px">
             <div class="tabs">
                 <div id="tab1" class="tab active">
-                    <div class="content-block">
-
-
-
+                    <div class="content-block content-block-my content-no-margin"  style="padding: 0px">
+                        <div class="list-block">
+                            @foreach($orders as $order)
+                                @if($order[3]=="1")
+                                <div id="" class="item">
+                                    <ul>
+                                        <li class="item-content">
+                                            <div class="item-media"><i class="icon icon-f7"></i></div>
+                                            <div class="item-inner">
+                                                <div class="item-title">    <a href="#commodity " class="item-link item-content">{{$order[0]}}</a></div>
+                                                <div class="item-after">抢单中</div>
+                                            </div>
+                                        </li>
+                                        <li class="item-content">
+                                            <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
+                                            <div class="item-inner">
+                                                <div class="item-title">{{$order[1]}}</div>
+                                                <div class="item-after">{{$order[2]}}</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                @endif
+                            @endforeach
+                        </div>
                     </div>
                 </div>
                 <div id="tab2" class="tab">
-                    <div class="content-block">
-                        <p>This is tab 2 content</p>
+                    <div class="content-block" style="padding: 0px">
+
+                        <div class="content-block content-block-my content-no-margin"  style="padding: 0px">
+                            <div class="list-block">
+                                @foreach($orders as $order)
+                                    @if($order[3]=="2"||$order[3]=="3")
+                                        <div id="" class="item">
+                                            <ul>
+                                                <li class="item-content">
+                                                    <div class="item-media"><i class="icon icon-f7"></i></div>
+                                                    <div class="item-inner">
+                                                        <div class="item-title">{{$order[0]}}</div>
+                                                        <div class="item-after">{{$order[3]==2?"进行中":"已上传图片"}}</div>
+                                                    </div>
+                                                </li>
+                                                <li class="item-content">
+                                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
+                                                    <div class="item-inner">
+                                                        <div class="item-title">{{$order[1]}}</div>
+                                                        <div class="item-after">{{$order[2]}}</div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div id="tab3" class="tab">
-                    <div class="content-block">
-                        <p>This is tab 3 content</p>
+                    <div class="content-block" style="padding: 0px">
+
+                        <div class="content-block content-block-my content-no-margin"  style="padding: 0px">
+                            <div class="list-block">
+                                @foreach($orders as $order)
+                                    @if($order[3]=="4"||$order[3]=="5"||$order[3]=="0")
+                                        <div id="" class="item">
+                                            <ul>
+                                                <li class="item-content">
+                                                    <div class="item-media"><i class="icon icon-f7"></i></div>
+                                                    <div class="item-inner">
+                                                        <div class="item-title">{{$order[0]}}</div>
+                                                        <div class="item-after">@if($order[3]=="4")
+                                                                                商家已评论@endif
+                                                                            @if($order[3]=="5")
+                                                                                商家已付款@endif
+                                                                            @if($order[3]=='0')
+                                                                                申请未通过@endif
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="item-content">
+                                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
+                                                    <div class="item-inner">
+                                                        <div class="item-title">{{$order[1]}}</div>
+                                                        <div class="item-after">{{$order[2]}}</div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -40,97 +121,26 @@
 @include('partial/jquery_mobile_page', ["page_id" => "main"])
 
 
+@foreach($orders as $order)
 @section('page-main')
     <header class="bar bar-nav">
         <a class="button button-link button-nav pull-left back" href="#main">
             <span class="icon icon-left"></span>
             返回
         </a>
-        <h1 class="title">提交结果</h1>
-        <a class="button button-link button-nav pull-right back" href="#main" onclick="">
-            保存
-            <span class="save"></span>
-        </a>
+        <h1 class="title">商家简介</h1>
+
     </header>
-    <div class="content" style="top: 1.2rem;">
-        <div class="list-block">
-        <ul>
-            <li>
-                <div class="item-content">
-                    <div class="weui_uploader" style="margin-top: .5rem;margin-right: 1.5rem;">
-                        <div class="weui_uploader_hd weui_cell">
-                            <div class="weui_cell_bd weui_cell_primary">上传6张照片</div>
-                        </div>
-                        <div class="weui_uploader_bd">
-                            <ul class="weui_uploader_files" id="imgfiles" style="padding-left: 0;float: left;">
-                                <li class="weui_uploader_file images" style='width:80px;height:80px;background-image: url("/images/nike.jpg")'>
-                                    <input type="hidden" id="manyimg1" value="/images/nike.jpg"></li>
-                                <li class="weui_uploader_file images" style='width:80px;height:80px;background-image: url("/images/nike.jpg")'>
-                                    <input type="hidden" id="manyimg2" value="/images/nike.jpg"></li>
-                                <li class="weui_uploader_file images" style='width:80px;height:80px;background-image: url("/images/nike.jpg")'>
-                                    <input type="hidden" id="manyimg3" value="/images/nike.jpg"></li>
-                            </ul>
-                            <div class="weui_uploader_input_wrp" style="width: 80px;height: 80px;float: left;">
-                                <input class="weui_uploader_input" id="imgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-        <div class="list-block">
-            <ul>
-                <li>
-                    <div class="item-content">
-                        <div class="item-media"><i class="icon icon-form-name"></i></div>
-                        <div class="item-inner">
-                            <div class="item-title label">直播回放链接</div>
-                            <div class="item-input">
-                                <input id="dnickname" type="text" value="aa">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+    <div class="content" style="top: 1.2rem;text-align: center;">
+        <div class="list-block" style="margin:2rem auto;">
+            <img id="wx_headimg" style="width: 50%;" src="/images/nike.jpg">
         </div>
+        <div class="content-block" style="margin-top: -1rem;">
 
-        <div class="list-block">
-            <ul>
-                <li>
-                    <div class="item-content">
-                        <div class="item-media"><i class="icon icon-form-name"></i></div>
-                        <div class="item-inner">
-                            <div class="item-title label">观看人数</div>
-                            <div class="item-input">
-                                <input id="dnickname" type="text" value="aa">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item-content">
-                        <div class="item-media"><i class="icon icon-form-name"></i></div>
-                        <div class="item-inner">
-                            <div class="item-title label">直播人数</div>
-                            <div class="item-input">
-                                <input id="dnickname" type="text" value="aa">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <div class="list-block" style="margin-top: -1rem;">
-              &nbsp;
         </div>
     </div>
 
-    @include("star.star_footer")
 @overwrite
-@include('partial/jquery_mobile_page', ["page_id" => "result"])
-
-
-
+@include('partial/jquery_mobile_page', ["page_id" => "commodity"+{{$order[]}}])
+    @endsection
+@endforeach

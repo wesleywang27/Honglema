@@ -310,6 +310,8 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::post('/star/register',"StarController@register");
 
+    Route::post('/star/update',"StarController@update");
+
 });
 
 

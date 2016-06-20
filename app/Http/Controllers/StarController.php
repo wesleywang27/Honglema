@@ -6,6 +6,12 @@ use App\Models\Star;
 use Illuminate\Support\Facades\Input;
 use App\Models\User;
 use App\Models\StarPicture;
+use App\Models\Order;
+use App\Models\Activity;
+use App\Models\Merchant;
+use App\Models\CommodityPicture;
+use App\Models\Task;
+use DB;
 class StarController extends Controller
 {
     /* $oauthUser->openid   = $original['openid'];
@@ -16,6 +22,28 @@ class StarController extends Controller
            $oauthUser->city     = $original['city'];
            $oauthUser->province = $original['province'];
            $oauthUser->country  = $original['country'];*/
+
+    public function order(){
+        $starid="1";
+        $orders = Order::where('star_id',$starid)->get();
+        $array = array();
+        foreach($orders as $order){
+            echo $order -> status;
+            $task = Task::where('task_id',$order -> task_id)->first();
+            $activity =Activity::where('activity_id',$task->activity_id)->first();
+            $merchant = Merchant::where('merchant_id',$activity->merchant_id)->first();
+            $relation = DB::table('activity_commodity_lists')->where('activity_id', $task->activity_id)->first();
+            $commodityPicture = CommodityPicture::where("uid",$relation->commodity_id)->first();
+            $array[] =  array($merchant->name,
+                $activity->title,
+                $activity->total_price,
+                $task->status,
+                $merchant->avatar,
+                $commodityPicture->url,
+                $merchant->merchant_id,);
+        }
+        return view('/star/star_order',['orders'=> $array]);
+    }
 
     public function index(){
         $user = session('wechat.oauth_user');
@@ -124,9 +152,6 @@ class StarController extends Controller
         return view('/star/star_order', ['items' => $items,'type'=>'comment']);
     }
 
-    public function order(){
-        return view('/star/star_order');
-    }
 
     public function contention() {
         $items=array(
