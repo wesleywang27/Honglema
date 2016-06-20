@@ -10,7 +10,7 @@ namespace App\Http\Controllers;
 use Hash;
 use Validator;
 use App\Models\Administrator;
-use App\Http\Requests\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
 class DidiController extends Controller{

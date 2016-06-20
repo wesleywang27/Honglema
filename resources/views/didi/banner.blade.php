@@ -43,10 +43,10 @@
 <header>
     <h1><a href="#"><img src="/images/didi_logo.png"/></a></h1>
     <ul class="rt_nav">
-        <li><a href="#" class="website_icon">站点首页</a></li>
-        <li><a href="#" class="admin_icon">admin</a></li>
+        <li><a href="/didi/index" class="website_icon">站点首页</a></li>
+        <li><a href="#" class="admin_icon">{{ $_SESSION['name'] }}</a></li>
         <li><a href="#" class="set_icon">修改密码</a></li>
-        <li><a href="#" class="quit_icon">安全退出</a></li>
+        <li><a href="/didi/logout" class="quit_icon">安全退出</a></li>
     </ul>
 </header>
 
