@@ -30,7 +30,6 @@ class StarController extends Controller
             $star->name = $user->nickname;
             $star->openid = $user->openid;
             $star->save();
-            $user=array('nickname'=>"zhangmin",'sex'=>'M','province'=>"云南",'city'=>"普洱",'avatar'=>"/images/nike.jpg",'wechat'=>'zhangmin0924');
             return view('star/create', ["user" => $user]);
         }
 
