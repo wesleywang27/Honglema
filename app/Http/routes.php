@@ -314,6 +314,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::post('/star/update',"StarController@update");
 
+<<<<<<< HEAD
     Route::post('/star/uploadimg',"StarController@uploadimg");
 
     Route::get('/star/activityList',"ActivityController@index");
@@ -322,6 +323,8 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::post('/star/setOrder',"ActivityController@setOrder");
 
+=======
+>>>>>>> 3a1f69b8e34835d6cf96c2db93eaf871c96d8414
 });
 
 
