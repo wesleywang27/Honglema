@@ -30,6 +30,7 @@ class StarController extends Controller
             $star->name = $user->nickname;
             $star->openid = $user->openid;
             $star->save();
+            $user=array('nickname'=>"zhangmin",'sex'=>'M','province'=>"云南",'city'=>"普洱",'avatar'=>"/images/nike.jpg",'wechat'=>'zhangmin0924');
             return view('star/create', ["user" => $user]);
         }
 
@@ -63,7 +64,7 @@ class StarController extends Controller
         $input =Input::all();
        $user = session('wechat.oauth_user');
         $openid =$user->openid;
-        //$openid ="001";
+      //  $openid ="001";
         $star = Star::where('openid',$openid)->first();
         $input =Input::all();
         $formKey = array_keys($input);
