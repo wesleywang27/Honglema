@@ -25,7 +25,21 @@ class MerchantController extends Controller{
     
     //添加商家
     public function merchantStore(Request $request){
+        $merchant = new Merchant();
         
+        $merchant->name = $request->input('name');
+        $merchant->country = $request->input('country');
+        $merchant->province = $request->input('province');
+        $merchant->city = $request->input('city');
+        $merchant->region = $request->input('region');
+        $merchant->address = $request->input('address');
+        $merchant->wechat = $request->input('wechat');
+        $merchant->cellphone = $request->input('cellphone');
+        $merchant->status = 1;
+        
+        $merchant->save();
+
+        return Redirect::intended('/didi/MerchantList');
     }
     
     //商家列表页
