@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Input;
 use App\Models\Merchant;
 class IndexController extends Controller{
     public function index(){
-var_dump(1);die;
+        // var_dump(1);die;
         $user = session('wechat.oauth_user');
         $options = config('wechat');
         $app = new Application($options);
@@ -43,7 +43,8 @@ var_dump(1);die;
     }
 
     public function register(){
-
+        echo "<pre>";
+        var_dump($_POST);die;
         $merchant = new Merchant();
         foreach ($_POST as $key => $value) {
            $merchant->$key = trim($value); 

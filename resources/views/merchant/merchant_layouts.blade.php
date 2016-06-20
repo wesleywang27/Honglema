@@ -121,8 +121,13 @@
 <script type="text/javascript" src="{{URL::asset('/js/jquery.cxselect.min.js')}}" charset="utf-8"></script>
 <script type="text/javascript" src="{{URL::asset('/js/jweixin-1.0.0.js')}}"></script>
 <script type="text/javascript" charset="utf-8">
-    wx.config(<?php echo $js->config(array('chooseImage', 'uploadImage','previewImage')) ?>);
+    //wx.config(<?php //echo $js->config(array('chooseImage', 'uploadImage','previewImage')) ?>);
 </script>
+<script type="text/javascript">
+    // $(function(){
+    //        $("#country option[value='{{$merchant['country']}}']").attr("selected",true);
+    // });
+    </script>
 <script>
     
     $j=jQuery.noConflict();
@@ -281,11 +286,14 @@
     //保存单行内容按钮
     $.set_value = function(va){
         $('#f_'+va).text($('#'+va).val());
+        $('#'+va+'_hidden').val($('#'+va).val());
     }
 
     //多值拼接
     $.set_values = function(v,v1,v2){
         $('#f_' + v).text($('#'+v1).val()+'/'+$('#'+v2).val());
+        $('#'+v1+'_hidden').val($('#'+v1).val());
+        $('#'+v2+'_hidden').val($('#'+v2).val());
     }
     //设置性别
     $.set_sex = function(){
@@ -300,10 +308,6 @@
     //设置地址
     $.set_address = function(v1,v2,v3,v4,v5){
         $('#f_address').text(clearEmply(v1) + clearEmply(v2) + clearEmply(v3) +clearEmply(v4) +clearEmply(v5));
-    }
-    //设置尺寸
-    $.set_contact = function(v1,v2){
-        $('#f_contact').text($('#'+v1).val()+'/'+$('#'+v2).val());
     }
 
     //城市关联查询
@@ -327,22 +331,22 @@
         }
 
         $.ajax({
-            url: "Merchant/register/save",
+            url: "/Merchant/register/save",
             type: "POST",
             traditional: true,
             dataType: "JSON",
             data: {
                 "avatar"      : $('#f_avatar').attr('src'),
-                "name"     : $('#f_merchant_name').text(),
-                "country"     : $('#country').val(),
-                "province"     : $('#province').val(),
-                "city"     : $('#city').val(),
-                "region"     : $('#region').text(),
+                "name"     : $('#merchant_name_hidden').val(),
+                "country"     : clearEmply('country'),
+                "province"     : clearEmply('province'),
+                "city"     : clearEmply('city'),
+                "region"     : clearEmply('region'),
                 "address"     : $('#addressInput').val(),
-                "wechat"     : contactValues[0],
-                "cellphone"     : contactValues[1],
-                "alipay_name"     : alipayValues[0],
-                "alipay_account"     : alipayValues[1],
+                "wechat"     : $('#wechat_hidden').val(),
+                "cellphone"     : $('#cellphone_hidden').val(),
+                "alipay_name"     : $('#alipay_name_hidden').val(),
+                "alipay_account"     : $('#alipay_phone_hidden').val(),
                 "license"     : $('#id_image').val()
             },
             // success: function(data) {

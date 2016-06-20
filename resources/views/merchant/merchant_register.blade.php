@@ -31,6 +31,7 @@
                         <div class="item-inner">
                             <div class="item-title">商家店铺名称</div>
                             <div id="f_merchant_name" class="item-after">未编辑</div>
+                            <input type="hidden" id="merchant_name_hidden" value="">
                         </div>
                     </a>
                 </li>
@@ -39,6 +40,7 @@
                         <div class="item-inner">
                             <div class="item-title">店铺链接</div>
                             <div id="f_merchant_link" class="item-after">未编辑</div>
+                            <input type="hidden" id="merchant_link_hidden" value="">
                         </div>
                     </a>
                 </li>
@@ -60,6 +62,8 @@
                         <div class="item-inner">
                             <div class="item-title">联系方式</div>
                             <div id="f_contact" class="item-after">未编辑</div>
+                            <input type="hidden" id="wechat_hidden" >
+                            <input type="hidden" id="cellphone_hidden">
                         </div>
                     </a>
                 </li>
@@ -72,6 +76,8 @@
                         <div class="item-inner">
                             <div class="item-title">支付宝账号</div>
                             <div id="f_alipay" class="item-after">未编辑</div>
+                            <input type="hidden" id="alipay_name_hidden" >
+                            <input type="hidden" id="alipay_account_hidden">    
                         </div>
                     </a>
                 </li>
@@ -263,7 +269,7 @@
             <span class="icon icon-left"></span>
             返回
         </a>
-        <h1 class="title">联系方式</h1>
+        <h1 class="title">支付宝</h1>
         <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_values('alipay','alipay_name','alipay_account');">
             保存
             <span class="save"></span>

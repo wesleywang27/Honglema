@@ -1,119 +1,137 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<link rel="stylesheet" href="/css/merchant/reset.css" />
-		<!--<link rel="stylesheet" href="__CSS__/test2/style.css" />-->
-		<link rel="stylesheet" href="/css/merchant/styleRem.css" />
-		<link rel="stylesheet" href="/css/merchant/labelCom.css"/>
-		<link rel="stylesheet" href="/css/Font-Awesome/css/font-awesome.css">
-    	<link rel="stylesheet" href="/css/merchant/star.css">
-		<script src="/js/jquery.js"></script>
-		<script src="/js/jquery-2.1.4.js"></script>
-		<script src="/js/ajaxfileupload.js"></script>
-		<script src="/js/merchant/js.js"></script>
-		<script src="/js/merchant/majorObj.js"></script>
-		<script src="/js/merchant/setinfo.js"></script>
-	</head>
+@extends('merchant.merchant_layouts')
 
-	<body>
-		<div class="wrap" onclick="" id="main">
-			<div class="contentPopup_Com" id="contentPopup" style="display: none;">
-				<div class="pageBgPopup_Com"></div>
-				
-			</div>
-			<!--标题：个人资料-->
-			<header class="head_Com">
-				<div>我的</div>
-			</header>
-			<!--内容-->
-			<section class="content_Pda" id="content" >
-				<div class="data_Pda">
-					<div class="box_Pda" onclick="window.location.href='/Merchant/user/modify'">
-						<div class="portrait_Pda" >
-							<div class="left_User">
-								<a href="javascript:$('#img').click();">
-									<img id="pic_img" src="<?php echo isset($data['thumb']) && $data['thumb'] ? $data['thumb'] :'/images/merchant/guiimg8.png'; ?>">
-								</a>
-							</div>
-							<div class="right_User">
-								{{$merchant['name']}}
-							</div>
-							<img src="/images/merchant/pdaimg.png" />
-						</div>
-						
-					</div>
-					<div class="box1_Pda">
-						<header class="direction_Pda">
-							<div>
-								
-							</div>
-						</header>
-						<div class="other_Pda" onclick="">
-							<div class="left1_Pda">
-								意见反馈
-							</div>
-							<div class="right1_Pda">
-								<input type="text" id="name" readonly="readonly" >
-							</div>
-							<img src="/images/merchant/pdaimg.png" />
-						</div>
-					</div>
-					<div class="box1_Pda">
-						<header class="direction_Pda">
-							<div>
-								
-							</div>
-						</header>
-						<div class="other_Pda" onclick="">
-							<div class="left1_Pda">
-								关于红了吗
-							</div>
-							<div class="right1_Pda">
-								<input type="text" id="name" readonly="readonly" >
-							</div>
-							<img src="/images/merchant/pdaimg.png" />
-						</div>
-					</div>
-					<div class="box1_Pda">
-						<header class="direction_Pda">
-							<div>
-								
-							</div>
-						</header>
-						<div class="other_Pda" onclick="">
-							<div class="left1_Pda" style="width:93%;text-align:center">
-								退出登录
-							</div>
-							<div class="right1_Pda" style="width:3%;">
-								<input type="text" id="name" readonly="readonly" >
-							</div>
-						</div>
-					</div>
-					
-					
-				</div>
-			</section>
-			<div class="contentPopup_Com contentPopup_Pda" id="contentPopup" style="display: none;">
-				<div class="pageBgPopup_Com" onclick="hiddenSelPda()"></div>
-				<div class="selectPopup_Com" id="select" style="display: none;">
-					<div>
-						<p onclick="selectOptionsPda(this)" style="display: block;">123</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="tail">
-			    <div>
-			        <a href="/star/square"><i class="icon-home"></i>网红广场</a></div>
-			    <div>
-			        <a href="/star/activity"><i class="icon-calendar"></i>活动广场</a></div>
-			    <div>
-			        <a href="/Merchant/activityOrder"><i class="icon-user"></i>活动订单</a></div>
-			    <div>
-			        <a href="/Merchant/user"><i class="icon-user"></i>我的</a></div>
-			</div>
-	</body>
-</html>
+@section('title', "创建用户")
+
+@section('body')
+@section('page-main')
+    <header class="bar bar-nav">
+        <h1 class="title">商家注册</h1>
+    </header>
+    <div class="content" style="top: 1.2rem;">
+        <div class="list-block">
+            <ul>
+                <li>
+                    <div class="item-link item-content" onclick="window.location.href='/Merchant/user/modify'">
+                        <div class="item-inner">
+                        <div class="item-after">
+                                <img id="f_avatar" src="{{$merchant['avatar']}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
+                            </div>
+                            <div class="item-title">{{$merchant['name']}}</div>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="list-block" style="margin-top: -1rem;">
+            <ul>
+                <li>
+                    <a href="#feedback" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">意见反馈</div>
+                            <!-- <input type="hidden" id="merchant_link_hidden" value=""> -->
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="list-block" style="margin-top: -1rem;">
+            <ul>
+                <li>
+                    <a href="#about" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">关于红了吗</div>
+                        </div>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+       
+        <div class="content-block" style="margin-top: -1rem;">
+            <div class="row">
+                <div class="col-100"><a id="finish" href="#" class="button button-big button-fill button-success">退出登录</a></div>
+            </div>
+        </div>
+    </div>
+    <nav class="bar bar-tab">
+        <a class="tab-item external" href="#">
+            <span class="icon icon-home"></span>
+            <span class="tab-label">热门活动</span>
+        </a>
+        <a class="tab-item external" href="/Merchant/activityOrder">
+            <span class="icon icon-star"></span>
+            <span class="tab-label">活动订单</span>
+        </a>
+        <a class="tab-item external active" href="#">
+            <span class="icon icon-settings"></span>
+            <span class="tab-label">我的</span>
+        </a>
+    </nav>
+@overwrite
+@include('partial/jquery_mobile_page', ["page_id" => "main"])
+
+
+
+@section('page-main')
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-left back" href="#main">
+            <span class="icon icon-left"></span>
+            返回
+        </a>
+        <h1 class="title">意见反馈</h1>
+        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('merchant_link');">
+            保存
+            <span class="save"></span>
+        </a>
+    </header>
+    <div class="content" style="top: 1.2rem;">
+        <div class="list-block">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">意见反馈</div>
+                            <div class="item-input">
+                                <input id="merchant_link" type="text" >
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+@overwrite
+@include('partial/jquery_mobile_page', ["page_id" => "feedback"])
+
+@section('page-main')
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-left back" href="#main">
+            <span class="icon icon-left"></span>
+            返回
+        </a>
+        <h1 class="title">关于红了吗</h1>
+    </header>
+    <div class="content" style="top: 1.2rem;">
+        <div class="list-block">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-input">
+                                <input id="merchant_link" type="text" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+@overwrite
+@include('partial/jquery_mobile_page', ["page_id" => "about"])
+
+@endsection

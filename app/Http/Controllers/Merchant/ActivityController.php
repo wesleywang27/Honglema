@@ -42,6 +42,6 @@ class ActivityController extends Controller{
             3表示已结束
         */
         $detail['status'] = 2;
-        return view('merchant.activity_detail_using',['status' => $detail['status']]);
+        return view('merchant.activity_detail',['status' => $detail['status']]);
     }
 }

@@ -53,6 +53,7 @@
 				            </div>
 				            <div class="item-subtitle">&nbsp;</div>
 				           <div class="item-subtitle">
+				            	<button class="button pull-right button-fill button-warning" style="margin-left:1rem;width:4rem">已抢单1/2</button>
 				            </div>
 				          </div>
 				        </a>
@@ -120,6 +121,7 @@
 				            </div>
 				            <div class="item-subtitle">&nbsp;</div>
 				           <div class="item-subtitle">
+				            	<button class="button pull-right button-fill button-warning" style="margin-left:1rem;width:4rem">抢单</button>
 				            </div>
 				          </div>
 				        </a>
@@ -158,6 +160,7 @@
 				            </div>
 				            <div class="item-subtitle">&nbsp;</div>
 				           <div class="item-subtitle">
+				            	<button class="button pull-right button-fill button-warning" style="margin-left:1rem;width:4rem">抢单</button>
 				            </div>
 				          </div>
 				        </a>
