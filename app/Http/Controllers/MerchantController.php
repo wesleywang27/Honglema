@@ -41,7 +41,20 @@ class MerchantController extends Controller{
 
         return Redirect::intended('/didi/MerchantList');
     }
-    
+
+    //商家信息删除
+    public function merchantDelete($id){
+        session_start();
+        if(isset($_SESSION['name'])) {
+            Merchant::where('merchant_id',$id)->delete();
+
+            return Redirect::intended('/didi/MerchantList');
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
+
     //商家列表页
     public function merchantList(){
         session_start();
@@ -49,6 +62,19 @@ class MerchantController extends Controller{
             $merchant = Merchant::paginate(10);
 
             return view('/didi/merchant_list',['merchants' => $merchant]);
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
+
+    //商家详情页
+    public function merchantInfo($id){
+        session_start();
+        if(isset($_SESSION['name'])) {
+            $merchant = Merchant::where('merchant_id',$id)->first();
+
+            return view('/didi/merchant_info',['merchant' => $merchant]);
         }
         else{
             return Redirect::intended('/didi/login');

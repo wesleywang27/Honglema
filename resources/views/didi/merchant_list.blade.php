@@ -20,11 +20,9 @@
         <td style="width:180px;text-align:center">{{ $merchant->wechat }}</td>
         <td style="width:180px;text-align:center">{{ $merchant->cellphone }}</td>
         <td style="width:180px;text-align:center">
-            <a href="{{URL::action('UserController@modifyUserRight', ['id' => $merchant->id]) }}" ><input type="button" value="查看" class="link_btn"/></a>
-
+            <a href="{{URL::action('MerchantController@merchantInfo', ['id' => $merchant->merchant_id]) }}" ><input type="button" value="查看" class="link_btn"/></a>
             <a href="{{URL::action('UserController@modifyUserRight', ['id' => $merchant->id]) }}" ><input type="button" value="发布" class="link_btn"/></a>
-
-            <a href="{{URL::action('UserController@deleteUser', ['id' => $merchant->id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
+            <a href="{{URL::action('MerchantController@merchantDelete', ['id' => $merchant->merchant_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
         </td>
     </tr>
     @endforeach

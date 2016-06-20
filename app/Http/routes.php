@@ -282,11 +282,20 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     //平台信息审核
 
     //平台信息管理
-    Route::get('/didi/MerchantList',"MerchantController@merchantList");
-
     Route::get('/didi/MerchantCreate',"MerchantController@merchantCreate");
 
     Route::post('/didi/MerchantCreate',"MerchantController@merchantStore");
+
+    Route::get('/didi/MerchantDelete/{id?}',"MerchantController@merchantDelete");
+
+    Route::get('/didi/MerchantModify/{id?}',"MerchantController@merchantModify");
+
+    Route::post('/didi/MerchantModify/{id?}',"MerchantController@merchantUpdate");
+
+    Route::get('/didi/MerchantList',"MerchantController@merchantList");
+    
+    Route::get('/didi/MerchantInfo/{id?}',"MerchantController@merchantInfo");
+
 //});
 
 
