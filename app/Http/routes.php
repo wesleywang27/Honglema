@@ -292,6 +292,16 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::get('/star/order',"StarController@order");
 
+    Route::post('/star/cancelOrder',"StarController@cancelOrder");
+
+     Route::get('/star/task_result',"StarController@task_result");
+
+     Route::post('star/submitTaskResult',"StarController@submitTaskResult");
+
+   Route::get('/star/order_detail',"StarController@order_detail");
+
+    Route::get('/star/merchant',"StarController@merchant_info");
+
     Route::get('/star/process',"StarController@process");
 
     Route::get('/star/comment',"StarController@comment");
@@ -322,9 +332,6 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::post('/star/setOrder',"ActivityController@setOrder");
 
-    Route::post('/star/order',"ActivityController@order");
-
-    Route::get('/star/merchant',"StarController@merchant_info");
 //});
 
 

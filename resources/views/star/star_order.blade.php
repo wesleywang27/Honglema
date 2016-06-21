@@ -19,7 +19,7 @@
                     <div class="content-block content-block-my content-no-margin"  style="padding: 0px">
                         <div class="list-block">
                             @foreach($data as $order)
-                                @if($order['status']=="1")
+                                @if($order['order_status']=="1")
                                 <div id="" class="item">
                                     <ul>
                                         <li class="item-content">
@@ -30,12 +30,12 @@
                                             </div>
                                         </li>
                                         <li class="item-content"><a href="/star/order_detail?order_id={{$order['order_id']}}" class="item-link item-content">
-                                            <div class="item-media"><img src="{{$order['avatar']}}" style='width: 4rem;'></div>
+                                            <div class="item-media"><img src="{{$order['avatar']}}" style='width: 4rem;'></div></a>
                                             <div class="item-inner">
                                                 <div class="item-title">{{$order['title']}}</div>
-                                                <div class="item-after">{{$order['total_price']}}</div>
+                                                <div class="item-after">${{$order['total_price']}}</div>
                                             </div>
-                                            </a>
+                                            
                                         </li>
                                     </ul>
                                 </div>
@@ -50,7 +50,7 @@
                         <div class="content-block content-block-my content-no-margin"  style="padding: 0px">
                             <div class="list-block">
                                 @foreach($data as $order)
-                                    @if($order['status']=="2"||$order['status']=="3")
+                                    @if($order['order_status']==2&&$order['task_status']<4)
                                         <div id="" class="item">
                                             <ul>
                                                 <li class="item-content">
@@ -60,8 +60,8 @@
                                                         <div class="item-after">{{$order['status']==2?"进行中":"已上传图片"}}</div>
                                                     </div>
                                                 </li>
-                                                <li class="item-content">
-                                                    <div class="item-media"><img src="{{$order['avatar']}}" style='width: 4rem;'></div>
+                                                <li class="item-content"><a href="/star/order_detail?order_id={{$order['order_id']}}" class="item-link item-content">
+                                            <div class="item-media"><img src="{{$order['avatar']}}" style='width: 4rem;'></div></a>
                                                     <div class="item-inner">
                                                             <div class="item-title">{{$order['title']}}</div>
                                                 <div class="item-after">{{$order['total_price']}}</div>
@@ -82,7 +82,7 @@
                         <div class="content-block content-block-my content-no-margin"  style="padding: 0px">
                             <div class="list-block">
                                 @foreach($data as $order)
-                                    @if($order['status']=="4"||$order['status']=="5"||$order['status']=="0")
+                                    @if($order['order_status']==2&&($order['task_status']==4||$order['task_status']==5))
                                         <div id="" class="item">
                                             <ul>
                                                 <li class="item-content">
@@ -98,8 +98,8 @@
                                                         </div>
                                                     </div>
                                                 </li>
-                                                <li class="item-content">
-                                                    <div class="item-media"><img src="{{$order['avatar']}}" style='width: 4rem;'></div>
+                                                <li class="item-content"><a href="/star/order_detail?order_id={{$order['order_id']}}" class="item-link item-content">
+                                            <div class="item-media"><img src="{{$order['avatar']}}" style='width: 4rem;'></div></a>
                                                     <div class="item-inner">
                                                            <div class="item-title">{{$order['title']}}</div>
                                                 <div class="item-after">{{$order['total_price']}}</div>

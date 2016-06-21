@@ -154,6 +154,37 @@
         });
     });
 
+//upload task picture
+ $('#taskimgupload').change(function(){
+        $.showPreloader('正在上传...');
+        $j.ajaxFileUpload({
+            url:"/picture",//需要链接到服务器地址
+            secureuri:false,
+            fileElementId:"imgupload",//文件选择框的id属性
+            dataType: 'json',   //json
+            success: function (data, status) {
+                var urls = data.urls;
+                var $htmls = '';
+                for(var i=0; i<urls.length; i++){
+                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
+                    <input type="hidden" id="task"+i value="'+urls[i]+'"></li>';
+                }
+                $('#taskimg').append($htmls);
+                $.hidePreloader();
+                $.toast("添加成功", 1000);
+            },error:function(data, status, e){
+                $.hidePreloader();
+                $.toast("添加失败", 1000);
+            }
+        });
+    });
+//submit task result
+
+
+
+ //star album upload
+ 
+
     //验证码页面,倒计时按钮,点击确认事件
     var waittime = 60;
     var countdown = waittime;
@@ -339,6 +370,29 @@
             }
         });
     });
+
+$.submmitTaskResult=function(id){
+    $.post('star/submitTaskResult',{
+        order_id:id,
+        img1:$('#task1').val(),
+         img2:$('#task2').val(),
+          img3:$('#task3').val(),
+           img4:$('#task4').val(),
+    },function(){
+             $.toast("取消成功!",1000);
+               setTimeout(function(){
+                    location.href="/star/order";
+                },1000);});
+}
+
+$.cancelOrder=function(id){
+    $.post('/star/cancelOrder',{order_id:id},function(){
+             $.toast("取消成功!",1000);
+               setTimeout(function(){
+                    location.href="/star/order";
+                },1000);
+    })
+}
 </script>
 
 </body>
