@@ -43,10 +43,10 @@
 <header>
     <h1><a href="#"><img src="/images/didi_logo.png"/></a></h1>
     <ul class="rt_nav">
-        <li><a href="#" class="website_icon">站点首页</a></li>
-        <li><a href="#" class="admin_icon">admin</a></li>
+        <li><a href="/didi/index" class="website_icon">站点首页</a></li>
+        <li><a href="#" class="admin_icon">{{ $_SESSION['name'] }}</a></li>
         <li><a href="#" class="set_icon">修改密码</a></li>
-        <li><a href="#" class="quit_icon">安全退出</a></li>
+        <li><a href="/didi/logout" class="quit_icon">安全退出</a></li>
     </ul>
 </header>
 
@@ -57,7 +57,7 @@
         <li>
             <dl>
                 <dt>平台信息审核</dt>
-                <dd><a href="#" class="active">商家注册审核</a></dd>
+                <dd><a href="#">商家注册审核</a></dd>
                 <dd><a href="#">红人注册审核</a></dd>
                 <dd><a href="#">商家活动审核</a></dd>
             </dl>
@@ -65,9 +65,9 @@
         <li>
             <dl>
                 <dt>平台信息管理</dt>
-                <dd><a href="#">商家信息管理</a></dd>
+                <dd><a href="/didi/MerchantList">商家信息管理</a></dd>
                 <dd><a href="#">红人信息管理</a></dd>
-                <dd><a href="#">商家活动管理</a></dd>
+                <dd><a href="/didi/ActivityList">活动信息管理</a></dd>
                 <dd><a href="#">收费标准管理</a></dd>
                 <dd><a href="#">热门广场管理</a></dd>
             </dl>
