@@ -300,7 +300,7 @@
 
         $('#f_cloth').text($('#f_shirt').val()+'/'+$('#f_pants').val()+'/'+$('#f_shoe').val());
 
-        $.post('{{ URL::action('StarController@update') }}',{
+        $.post('{{ URL::action('star\StarController@update') }}',{
                 'shirt_size': $("#f_shirt").val(),
                 'pants_size': $("#f_pants").val(),
                 'shoes_size': $("#f_shoe").val(),}
@@ -311,7 +311,7 @@
 
     $.save_address =function(v1,v2){
         $('#f_dizhi').text($('#'+v1).val() +$('#'+v2).val());
-        $.post('{{ URL::action('StarController@update') }}',{
+        $.post('{{ URL::action('star\StarController@update') }}',{
             'address': $('#'+v1)+val().$('#'+v2).val()}
         );
     }
@@ -319,7 +319,7 @@
         $('#f_'+va1).text($('#'+va1).val());
         var data = {};
         data[tag]=$('#'+va1).val();
-        $.post('{{ URL::action('StarController@update') }}',
+        $.post('{{ URL::action('star\StarController@update') }}',
           data
         );
     }
