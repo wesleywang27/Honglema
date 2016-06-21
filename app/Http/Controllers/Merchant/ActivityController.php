@@ -11,18 +11,16 @@ use Illuminate\Contracts\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use EasyWeChat\Foundation\Application;
 use App\Http\Controllers\Controller;
+use App\Models\Activity;
 
 class ActivityController extends RootController{
     public function __construct(){
         parent::__construct();
     }
     public function index(){
-        // var_dump(1);die;
-        // $user = session('wechat.oauth_user');
-        // $options = config('wechat');
-        //$app = new Application($options);
-       // $js = $app->js;
-        return view('merchant.activityOrder');
+        $merchant_id = $_SESSION['merchant_id'];
+        $activity = Activity::where('merchant_id',$merchant_id)->where('activity_status',1)->get();
+        return view('merchant.activityOrder',['list'=>$activity]);
         //return view('merchant.index');
        
     }

@@ -34,7 +34,7 @@
 
       	$merchant = App\Models\Merchant::where('merchant_id',$vo->merchant_id)->first();
       	$commodity_id = App\Models\ActivityCommodityList::where('activity_id',$vo['activity_id'])->first()['commodity_id'];
-		$commodity_pic = App\Models\CommodityPicture::where('commodity_id',$commodity_id)->first();
+		    $commodity_pic = App\Models\CommodityPicture::where('commodity_id',$commodity_id)->first();
       ?>
         <div class="content-block content-block-my content-no-margin">
          	<div class="content-block content-block-my">

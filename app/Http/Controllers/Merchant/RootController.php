@@ -18,7 +18,8 @@ class RootController extends Controller{
 		session_start();
 		// $i = $_SESSION['merchant_id'];
 		if(!isset($_SESSION['merchant_id'])){
-			echo "<script>alert(1);</script>";
+			//echo "<script>alert(1);</script>";
+			$_SESSION['merchant_id'] = 1;
 		}
 	}
 }
