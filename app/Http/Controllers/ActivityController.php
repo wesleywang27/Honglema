@@ -8,6 +8,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
+use App\Models\ActivityCommodityList;
+use App\Models\Commodity;
+use App\Models\Merchant;
 use App\Models\PriceLevel;
 use App\Models\Task;
 use Illuminate\Http\Request;
@@ -55,6 +58,28 @@ class ActivityController extends Controller{
             $activity = Activity::orderBy('created_at','desc')->paginate(10);
 
             return view('/didi/activity_list',['activities' => $activity]);
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
+    //活动详情页
+    public function activityInfo($id){
+        session_start();
+        if(isset($_SESSION['name'])) {
+            $activity = Activity::where('activity_id',$id)->first();
+            $merchant = Merchant::where('merchant_id',$activity->merchant_id)->first();
+
+            $commodity_id = ActivityCommodityList::where('activity_id',$id)->lists('commodity_id');
+
+            $commodity = [];
+            $count = 0;
+            foreach ($commodity_id as $cid){
+                $commodity[$count] = Commodity::where('commodity_id',$cid)->first();
+                $count++;
+            }
+            
+            return view('/didi/activity_info',['activity' => $activity ,'merchant' => $merchant ,'commodities' => $commodity]);
         }
         else{
             return Redirect::intended('/didi/login');
