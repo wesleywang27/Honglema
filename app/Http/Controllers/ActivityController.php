@@ -50,6 +50,14 @@ class ActivityController extends Controller{
     }
     //活动列表页
     public function activityList(){
-        return Redirect::intended('/didi/index');
+        session_start();
+        if(isset($_SESSION['name'])) {
+            $activity = Activity::orderBy('created_at','desc')->paginate(10);
+
+            return view('/didi/activity_list',['activities' => $activity]);
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
     }
 }
