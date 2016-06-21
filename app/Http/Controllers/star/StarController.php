@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\star;
 use Illuminate\Http\Request;
 use App\Models\Star;
 use Illuminate\Support\Facades\Input;
@@ -13,7 +13,7 @@ use App\Models\Merchant;
 use App\Models\Commodity;
 use App\Models\ProductPicture;
 use DB;
-class StarController extends Controller
+class StarController extends RootController
 {
     /* $oauthUser->openid   = $original['openid'];
            $oauthUser->unionid  = $original['unionid'];
@@ -25,7 +25,7 @@ class StarController extends Controller
            $oauthUser->country  = $original['country'];*/
 
            public function __construct(){
-                session_start();
+              parent::__construct();
            }
 
     public function index(){
@@ -92,7 +92,7 @@ class StarController extends Controller
 
 
     public function info(Request $request){
-         $star_id =  $_SESSION['star_id'];
+        $star_id =  $_SESSION['star_id'];
         $star = Star::where('star_id',$star_id)->first();
         return view('star/star_info',["star"=>$star]);
     }
