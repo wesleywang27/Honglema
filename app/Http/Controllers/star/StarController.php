@@ -124,7 +124,7 @@ class StarController extends RootController
         $star->save();
        $star = Star::where('openid',$oepnid)->first();
 
-        for($x=0;$x<6,$x++){
+        for($x=0;$x<6;$x++){
           if(isset($input['imgurl'+$x))
              $url =$request->input('imgurl'+$x);
              $starPicture = new StarPicture();
