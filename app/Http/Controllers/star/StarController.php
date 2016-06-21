@@ -37,18 +37,7 @@ class StarController extends RootController
             $_SESSION['star_id']=$star->star_id;
             return view('star/star_info',["star"=>$star]);
         }else{
-<<<<<<< HEAD:app/Http/Controllers/StarController.php
             return view('star/visitor', ["user" => $user]);
-=======
-          //$user=array('nickname'=>$user->nickname,'sex'=>'M','province'=>'beijing','city'=>'beijing','avatar'=>"/images/nike.jpg",'wechat'=>'wechat');
-            $star = new Star();
-            $star->name = $user->nickname;
-            $star->openid = $user->openid;
-            $star->save();
-            $star = Star::where('openid',$openid)->first();
-            $_SESSION['star_id']=$star->star_id;
-            return view('star/create', ["user" => $user]);
->>>>>>> 0cf390a9171ebb5b8a0d129f77cf1582e9e6b8fa:app/Http/Controllers/star/StarController.php
         }
     }
 
