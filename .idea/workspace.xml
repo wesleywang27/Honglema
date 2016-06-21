@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CommodityController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CommodityController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/didi/commodity_create.blade.php" afterPath="$PROJECT_DIR$/resources/views/didi/commodity_create.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,8 +42,8 @@
       <file leaf-file-name="CommodityController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CommodityController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+            <state relative-caret-position="421">
+              <caret line="44" column="41" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="41" />
               <folding>
                 <element signature="e#6#89#0#PHP" expanded="true" />
                 <element signature="e#123#147#0#PHP" expanded="true" />
@@ -111,7 +108,6 @@
         <option value="$PROJECT_DIR$/app/Models/CommodityPicture.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_14_153532_create_commodities_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_14_155842_create_activities_table.php" />
-        <option value="$PROJECT_DIR$/app/Models/Commodity.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_15_144822_create_tasks_table.php" />
         <option value="$PROJECT_DIR$/app/Models/Activity.php" />
@@ -156,6 +152,7 @@
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CommodityController.php" />
+        <option value="$PROJECT_DIR$/app/Models/Commodity.php" />
       </list>
     </option>
   </component>
@@ -298,6 +295,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="honglema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="honglema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -994,14 +1009,7 @@
       <workItem from="1466146646945" duration="3422000" />
       <workItem from="1466154289441" duration="4447000" />
       <workItem from="1466390529662" duration="21928000" />
-      <workItem from="1466477626014" duration="3369000" />
-    </task>
-    <task id="LOCAL-00172" summary="修改">
-      <created>1464938148898</created>
-      <option name="number" value="00172" />
-      <option name="presentableId" value="LOCAL-00172" />
-      <option name="project" value="LOCAL" />
-      <updated>1464938148898</updated>
+      <workItem from="1466477626014" duration="4878000" />
     </task>
     <task id="LOCAL-00173" summary="修改">
       <created>1464941037887</created>
@@ -1339,11 +1347,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466417910323</updated>
     </task>
-    <option name="localTasksCounter" value="221" />
+    <task id="LOCAL-00221" summary="打网红后台 添加商品信息">
+      <created>1466481038165</created>
+      <option name="number" value="00221" />
+      <option name="presentableId" value="LOCAL-00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1466481038166</updated>
+    </task>
+    <option name="localTasksCounter" value="222" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="572360000" />
+    <option name="totallyTimeSpent" value="573869000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1399,7 +1414,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="修改工厂" />
     <MESSAGE value="修改品牌商" />
     <MESSAGE value="修改设计师" />
     <MESSAGE value="添加task" />
@@ -1424,7 +1438,8 @@
     <MESSAGE value="打网红后台 添加活动" />
     <MESSAGE value="打网红后台 创建活动 创建任务" />
     <MESSAGE value="打网红后台 添加商品页" />
-    <option name="LAST_COMMIT_MESSAGE" value="打网红后台 添加商品页" />
+    <MESSAGE value="打网红后台 添加商品信息" />
+    <option name="LAST_COMMIT_MESSAGE" value="打网红后台 添加商品信息" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1437,7 +1452,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_16_125014_create_merchant_payments_table.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_16_135138_create_star_payments_table.php" />
     <entry file="file://$PROJECT_DIR$/app/Models/MerchantPayment.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1763,10 +1777,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Commodity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CommodityController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+        <state relative-caret-position="421">
+          <caret line="44" column="41" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="41" />
           <folding>
             <element signature="e#6#89#0#PHP" expanded="true" />
             <element signature="e#123#147#0#PHP" expanded="true" />

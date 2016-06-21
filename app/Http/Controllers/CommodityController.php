@@ -37,6 +37,13 @@ class CommodityController extends Controller{
 
         $commodity->save();
 
+        $commodity = Commodity::where('merchant_id',$activity->merchant_id)->orderBy('created_at','desc')->first();
+        $activity_commodity_list = new ActivityCommodityList();
+        $activity_commodity_list->activity_id = $activity_id;
+        $activity_commodity_list->commodity_id = $commodity->commodity_id;
+
+        $activity_commodity_list->save();
+
         return Redirect::intended('/didi/ActivityList');
     }
 }
