@@ -27,7 +27,7 @@ class ActivityController extends Controller{
         }
     }
     //添加活动信息
-    public function activityUpdate($merchant_id ,Request $request){
+    public function activityStore($merchant_id ,Request $request){
         $activity = new Activity();
         $activity->merchant_id = $merchant_id;
         $activity->title = $request->input('title');

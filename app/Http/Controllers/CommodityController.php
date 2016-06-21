@@ -19,7 +19,9 @@ class CommodityController extends Controller{
     public function commodityCreate($activity_id){
         session_start();
         if(isset($_SESSION['name'])) {
-            return view('/didi/commodity_create',['activity_id' => $activity_id]);
+            $num = ActivityCommodityList::where('activity_id',$activity_id)->count();
+            
+            return view('/didi/commodity_create',['activity_id' => $activity_id ,'num' => $num]);
         }
         else{
             return Redirect::intended('/didi/login');
@@ -27,23 +29,29 @@ class CommodityController extends Controller{
     }
     //添加商品信息
     public function commodityStore($activity_id ,Request $request){
-        $commodity = new Commodity();
+        session_start();
+        if(isset($_SESSION['name'])) {
+            $commodity = new Commodity();
 
-        $activity = Activity::where('activity_id',$activity_id)->first();
-        $commodity->merchant_id = $activity->merchant_id;
-        $commodity->name = $request->input('name');
-        $commodity->introduction = $request->input('introduction');
-        $commodity->url = $request->input('url');
+            $activity = Activity::where('activity_id',$activity_id)->first();
+            $commodity->merchant_id = $activity->merchant_id;
+            $commodity->name = $request->input('name');
+            $commodity->introduction = $request->input('introduction');
+            $commodity->url = $request->input('url');
 
-        $commodity->save();
+            $commodity->save();
 
-        $commodity = Commodity::where('merchant_id',$activity->merchant_id)->orderBy('created_at','desc')->first();
-        $activity_commodity_list = new ActivityCommodityList();
-        $activity_commodity_list->activity_id = $activity_id;
-        $activity_commodity_list->commodity_id = $commodity->commodity_id;
+            $commodity = Commodity::where('merchant_id',$activity->merchant_id)->orderBy('created_at','desc')->first();
+            $activity_commodity_list = new ActivityCommodityList();
+            $activity_commodity_list->activity_id = $activity_id;
+            $activity_commodity_list->commodity_id = $commodity->commodity_id;
 
-        $activity_commodity_list->save();
+            $activity_commodity_list->save();
 
-        return Redirect::intended('/didi/ActivityList');
+            return Redirect::intended("/didi/CommodityCreate/$activity->activity_id");
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
     }
 }

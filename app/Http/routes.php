@@ -297,14 +297,14 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     //活动信息管理
     Route::get('/didi/ActivityCreate/{merchant_id?}',"ActivityController@activityCreate");
 
-    Route::post('/didi/ActivityUpdate/{merchant_id?}',"ActivityController@activityUpdate");
+    Route::post('/didi/ActivityCreate/{merchant_id?}',"ActivityController@activityStore");
 
     Route::get('/didi/ActivityList',"ActivityController@activityList");
 
     //商品信息管理
     Route::get('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityCreate");
 
-    Route::post('/didi/CommodityUpdate/{activity_id?}',"CommodityController@commodityStore");
+    Route::post('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityStore");
 //});
 
 

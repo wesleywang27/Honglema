@@ -5,7 +5,7 @@
 <div class="page_title">
     <h2 class="fl">添加推广活动</h2>
 </div>
-<form action="{{URL::action('ActivityController@activityUpdate', ['id' => $merchant_id]) }}" method="post" style="margin-left: 30%">
+<form action="{{URL::action('ActivityController@activityStore', ['id' => $merchant_id]) }}" method="post" style="margin-left: 30%">
     <?php echo csrf_field(); ?>
     <div style="margin-top: 20px;">
         <label>活动名称：</label>
