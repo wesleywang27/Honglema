@@ -19,17 +19,13 @@
       <h1 class='title'>订单详情</h1>
       <span class="icon icon-left pull-left" onclick="window.location.href='/star/activityList'"></span>
   </header>
-  <?php
-
-        $commodity_id = App\Models\ActivityCommodityList::where('activity_id',$detail['activity_id'])->first()['commodity_id'];
-        $commodity_pic = App\Models\CommodityPicture::where('commodity_id',$commodity_id)->first();
-  ?>
+  
   <div class="content">
     <div class="list-block content-no-margin">
         <ul>
             <li>
               <div valign="bottom" class="card-header color-white no-border no-padding" style="height:6rem">
-                <img class='card-cover' style="height:100%" src="{{$commodity_pic['url']}}" alt="">
+                <img class='card-cover' style="height:100%" src=" " alt="">
               </div>
             </li>
         </ul>
@@ -38,17 +34,17 @@
             <li>
                 <div class="item-content">
                     <div class="item-inner">
-                        <div class="item-title">{{ $detail['title']}}</div>
-                        <div id="f_merchant_name" class="item-after">${{$detail['total_price']}}</div>
+                        <div class="item-title"> </div>
+                        <div id="f_merchant_name" class="item-after"> </div>
                     </div>
                 </div>
             </li>
             <li>
                 <div class="item-content">
                     <div class="item-inner">
-                        <div class="item-title label">活动时间</div>
+                        <div class="item-title label"> </div>
                         <div class="item-input">
-                            <p>{{$detail['time_within']}}</p>
+                            <p> </p>
                         </div>
                     </div>
                 </div>
