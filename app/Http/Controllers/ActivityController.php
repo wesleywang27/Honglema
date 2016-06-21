@@ -51,6 +51,20 @@ class ActivityController extends Controller{
 
         return Redirect::intended("/didi/CommodityCreate/$activity->activity_id");
     }
+    //删除活动信息
+    public function activityDelete($id){
+        session_start();
+        if(isset($_SESSION['name'])) {
+            Activity::where('activity_id',$id)->delete();
+            Task::where('activity_id',$id)->delete();
+            ActivityCommodityList::where('activity_id',$id)->delete();
+
+            return Redirect::intended('/didi/ActivityList');
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
     //活动列表页
     public function activityList(){
         session_start();
