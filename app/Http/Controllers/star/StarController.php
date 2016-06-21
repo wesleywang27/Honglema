@@ -124,7 +124,8 @@ class StarController extends RootController
              $star->height=$request->input('height'); 
               $star->age=$request->input('age');
         $star->save();
-       $star = Star::where('openid',$oepnid)->first();
+
+       $star = Star::where('openid',$openid)->first();
 
         for($x=0;$x<6;$x++){
           if(isset($input['imgurl'.$x])){
