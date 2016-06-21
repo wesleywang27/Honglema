@@ -103,17 +103,21 @@
           </div>
       </div>
     </div>
+    <?php
+      $task_id = App\Models\Task::where('activity_id',$detail['activity_id'])->first()['task_id'];
+    ?>
+
     <?php 
-      $star_id = 1;
-      // $star_id = $_SESSION['star_id'];
-      $order = App\Models\Order::where('star_id',$star_id)->where('task_id',$detail['activity_id'])->first();
+      //$star_id = 1;
+      $star_id = $_SESSION['star_id'];
+      $order = App\Models\Order::where('star_id',$star_id)->where('task_id',$task_id)->first();
       if($order){
     ?>
     <p><a href="#" class="button button-fill" style="background-color:gray;border-radius:0">已抢单</a></p>
     <?php
       }else{
     ?> 
-     <p><a href="#" class="button button-fill button-warning" style="border-radius:0" onclick="setOrder({{$detail['activity_id']}})">抢单</a></p>
+     <p><a href="#" class="button button-fill button-warning" style="border-radius:0" onclick="setOrder({{$task_id}})">抢单</a></p>
     <?php
       }
     ?>
