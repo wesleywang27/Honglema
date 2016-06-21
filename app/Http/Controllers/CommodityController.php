@@ -10,7 +10,6 @@ namespace App\Http\Controllers;
 use App\Models\Activity;
 use App\Models\ActivityCommodityList;
 use App\Models\Commodity;
-use App\Models\CommodityPicture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 

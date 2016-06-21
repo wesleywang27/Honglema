@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Models/CommodityPicture.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CommodityController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CommodityController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/didi/activity_create.blade.php" afterPath="$PROJECT_DIR$/resources/views/didi/activity_create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/didi/commodity_create.blade.php" afterPath="$PROJECT_DIR$/resources/views/didi/commodity_create.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,7 +31,7 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
+            <state relative-caret-position="228">
               <caret line="299" column="90" selection-start-line="299" selection-start-column="90" selection-end-line="299" selection-end-column="90" />
               <folding>
                 <element signature="e#950#1176#1#PHP" expanded="false" />
@@ -46,11 +43,10 @@
       <file leaf-file-name="CommodityController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CommodityController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="950">
-              <caret line="50" column="86" selection-start-line="50" selection-start-column="86" selection-end-line="50" selection-end-column="86" />
+            <state relative-caret-position="60">
+              <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
               <folding>
                 <element signature="e#6#89#0#PHP" expanded="true" />
-                <element signature="e#123#147#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -969,14 +965,7 @@
       <workItem from="1466146646945" duration="3422000" />
       <workItem from="1466154289441" duration="4447000" />
       <workItem from="1466390529662" duration="21928000" />
-      <workItem from="1466477626014" duration="9743000" />
-    </task>
-    <task id="LOCAL-00175" summary="修改工厂">
-      <created>1465185816589</created>
-      <option name="number" value="00175" />
-      <option name="presentableId" value="LOCAL-00175" />
-      <option name="project" value="LOCAL" />
-      <updated>1465185816589</updated>
+      <workItem from="1466477626014" duration="9836000" />
     </task>
     <task id="LOCAL-00176" summary="修改品牌商">
       <created>1465186581969</created>
@@ -1314,11 +1303,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466486803437</updated>
     </task>
-    <option name="localTasksCounter" value="224" />
+    <task id="LOCAL-00224" summary="打网红后台 解决继续添加商品的问题">
+      <created>1466489752916</created>
+      <option name="number" value="00224" />
+      <option name="presentableId" value="LOCAL-00224" />
+      <option name="project" value="LOCAL" />
+      <updated>1466489752916</updated>
+    </task>
+    <option name="localTasksCounter" value="225" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="578734000" />
+    <option name="totallyTimeSpent" value="578827000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1374,7 +1370,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="添加task" />
     <MESSAGE value="添加task_picture" />
     <MESSAGE value="添加order" />
     <MESSAGE value="添加merchant_payments" />
@@ -1399,7 +1394,8 @@
     <MESSAGE value="打网红后台 添加商品信息" />
     <MESSAGE value="打网红后台 添加活动——商品信息" />
     <MESSAGE value="打网红后台 活动信息列表" />
-    <option name="LAST_COMMIT_MESSAGE" value="打网红后台 活动信息列表" />
+    <MESSAGE value="打网红后台 解决继续添加商品的问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="打网红后台 解决继续添加商品的问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1734,16 +1730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="299" column="90" selection-start-line="299" selection-start-column="90" selection-end-line="299" selection-end-column="90" />
-          <folding>
-            <element signature="e#950#1176#1#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActivityController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="573">
@@ -1752,13 +1738,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="299" column="90" selection-start-line="299" selection-start-column="90" selection-end-line="299" selection-end-column="90" />
+          <folding>
+            <element signature="e#950#1176#1#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CommodityController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="950">
-          <caret line="50" column="86" selection-start-line="50" selection-start-column="86" selection-end-line="50" selection-end-column="86" />
+        <state relative-caret-position="60">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
           <folding>
             <element signature="e#6#89#0#PHP" expanded="true" />
-            <element signature="e#123#147#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
