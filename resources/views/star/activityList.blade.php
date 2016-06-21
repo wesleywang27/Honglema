@@ -33,8 +33,6 @@
       <?php
 
       	$merchant = App\Models\Merchant::where('merchant_id',$vo->merchant_id)->first();
-      	$commodity_id = App\Models\ActivityCommodityList::where('activity_id',$vo['activity_id'])->first()['commodity_id'];
-		    $commodity_pic = App\Models\CommodityPicture::where('commodity_id',$commodity_id)->first();
       ?>
         <div class="content-block content-block-my content-no-margin">
          	<div class="content-block content-block-my">
@@ -53,7 +51,7 @@
 				    <ul>
 				      <li>
 				        <a href="/star/activityDetail/{{$vo['activity_id']}}" class="blackfont item-content">
-				          <div class="item-media"><img src="{{$commodity_pic['url']}}" style='width: 4rem;'></div>
+				          <div class="item-media"><img src="{{$vo['picture']}}" style='width: 4rem;'></div>
 				          <div class="item-inner">
 				            <div class="item-title-row">
 				              <div class="item-subtitle">{{$vo['title']}}</div>

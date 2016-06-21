@@ -19,17 +19,12 @@
       <h1 class='title'>订单详情</h1>
       <span class="icon icon-left pull-left" onclick="window.location.href='/star/activityList'"></span>
   </header>
-  <?php
-
-        $commodity_id = App\Models\ActivityCommodityList::where('activity_id',$detail['activity_id'])->first()['commodity_id'];
-        $commodity_pic = App\Models\CommodityPicture::where('commodity_id',$commodity_id)->first();
-  ?>
   <div class="content">
     <div class="list-block content-no-margin">
         <ul>
             <li>
               <div valign="bottom" class="card-header color-white no-border no-padding" style="height:6rem">
-                <img class='card-cover' style="height:100%" src="{{$commodity_pic['url']}}" alt="">
+                <img class='card-cover' style="height:100%" src="{{$detail['picture']}}" alt="">
               </div>
             </li>
         </ul>
@@ -78,28 +73,21 @@
             </ul>
           </div>
           <div class="list-block media-list content-no-margin">
+            <ul>
           @foreach ($commodity_ids as $cid)
           <?php 
              $commodity = App\Models\Commodity::where('commodity_id',$cid['commodity_id'])->first();
-             $title_pic = App\Models\CommodityPicture::where('commodity_id',$cid['commodity_id'])->first()['url'];
+             
           ?>
-          
-            <ul>
-              <li>
-                <a href="#" class="blackfont item-content">
-                  <div class="item-media"><img src="{{$title_pic}}" style='width: 4rem;'></div>
+              <li onclick="window.location.href='<?php echo (strpos($commodity['url'],'http') === 0) ? $commodity['url'] : 'http://'.$commodity['url']; ?>'">
+                <div class="item-content">
                   <div class="item-inner">
-                    <div class="item-title-row">
-                      <div class="item-subtitle">{{$commodity['name']}}</div>
-                    </div>
-                    <div class="item-subtitle">&nbsp;</div>
-                    <div class="item-text">{{$commodity['introduction']}}</div>
+                    <div class="item-title">{{$commodity['name']}}</div>
                   </div>
-                </a>
+                </div>
               </li>
-            </ul>
-          
           @endforeach
+            </ul>
           </div>
       </div>
     </div>
@@ -108,17 +96,17 @@
     ?>
 
     <?php 
-      //$star_id = 1;
-
       $star_id = $_SESSION['star_id'];
       $order = App\Models\Order::where('star_id',$star_id)->where('task_id',$task_id)->first();
       if($order){
     ?>
-    <p><a href="#" class="button button-fill" style="background-color:gray;border-radius:0">已抢单</a></p>
+    <p><a href="#" class="button button-fill" style="background-color:gray;border-radius:0;z-index:999; position:fixed; bottom:0; left:0; width:100%; _position:absolute;
+ _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;">已抢单</a></p>
     <?php
       }else{
     ?> 
-     <p><a href="#" class="button button-fill button-warning" style="border-radius:0" onclick="setOrder({{$task_id}})">抢单</a></p>
+     <p><a href="#" class="button button-fill button-warning" style="border-radius:0;z-index:999; position:fixed; bottom:0; left:0; width:100%; _position:absolute;
+ _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;" onclick="setOrder({{$task_id}})">抢单</a></p>
     <?php
       }
     ?>
