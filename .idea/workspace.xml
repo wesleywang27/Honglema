@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/didi/activity_list.blade.php" afterPath="$PROJECT_DIR$/resources/views/didi/activity_list.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,7 +39,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActivityController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ActivityController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActivityController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="350">
@@ -49,6 +47,16 @@
               <folding>
                 <element signature="e#123#147#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="composer.lock" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/composer.lock">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="594">
+              <caret line="1234" column="62" selection-start-line="1234" selection-start-column="62" selection-end-line="1234" selection-end-column="62" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -121,7 +129,6 @@
         <option value="$PROJECT_DIR$/app/Models/ActivityCommodityList.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_16_143422_create_administrators_table.php" />
         <option value="$PROJECT_DIR$/app/Models/Administrator.php" />
-        <option value="$PROJECT_DIR$/composer.lock" />
         <option value="$PROJECT_DIR$/resources/views/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/brand.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/designer.blade.php" />
@@ -148,6 +155,7 @@
         <option value="$PROJECT_DIR$/resources/views/didi/activity_list.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" />
+        <option value="$PROJECT_DIR$/composer.lock" />
       </list>
     </option>
   </component>
@@ -987,14 +995,7 @@
       <workItem from="1466154289441" duration="4447000" />
       <workItem from="1466390529662" duration="21928000" />
       <workItem from="1466477626014" duration="16705000" />
-      <workItem from="1466500384204" duration="1683000" />
-    </task>
-    <task id="LOCAL-00177" summary="修改设计师">
-      <created>1465186912915</created>
-      <option name="number" value="00177" />
-      <option name="presentableId" value="LOCAL-00177" />
-      <option name="project" value="LOCAL" />
-      <updated>1465186912915</updated>
+      <workItem from="1466500384204" duration="1726000" />
     </task>
     <task id="LOCAL-00178" summary="修改">
       <created>1465194747393</created>
@@ -1332,11 +1333,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466489834029</updated>
     </task>
-    <option name="localTasksCounter" value="226" />
+    <task id="LOCAL-00226" summary="打网红后台 删除活动信息">
+      <created>1466502900427</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL-00226" />
+      <option name="project" value="LOCAL" />
+      <updated>1466502900427</updated>
+    </task>
+    <option name="localTasksCounter" value="227" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="587379000" />
+    <option name="totallyTimeSpent" value="587422000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1392,7 +1400,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="添加task_picture" />
     <MESSAGE value="添加order" />
     <MESSAGE value="添加merchant_payments" />
     <MESSAGE value="添加star_payments" />
@@ -1417,7 +1424,8 @@
     <MESSAGE value="打网红后台 添加活动——商品信息" />
     <MESSAGE value="打网红后台 活动信息列表" />
     <MESSAGE value="打网红后台 解决继续添加商品的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="打网红后台 解决继续添加商品的问题" />
+    <MESSAGE value="打网红后台 删除活动信息" />
+    <option name="LAST_COMMIT_MESSAGE" value="打网红后台 删除活动信息" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1550,13 +1558,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.lock">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="1223" column="62" selection-start-line="1223" selection-start-column="62" selection-end-line="1223" selection-end-column="62" />
         </state>
       </provider>
     </entry>
@@ -1770,6 +1771,14 @@
           <folding>
             <element signature="e#123#147#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.lock">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="1234" column="62" selection-start-line="1234" selection-start-column="62" selection-end-line="1234" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
