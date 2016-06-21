@@ -83,6 +83,7 @@ class StarController extends RootController
     }
 
     public function create(){
+         $user = session('wechat.oauth_user');
         return view('star/create', ["user" => $user]);
     }
 
