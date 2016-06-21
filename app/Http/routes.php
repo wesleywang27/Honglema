@@ -285,14 +285,10 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
 
 //网红入口
-<<<<<<< HEAD
-Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
-    Route::get('/star/index',"StarController@index");
-=======
+
 //Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 Route::group(['prefix' => 'star', 'namespace' => 'star'], function(){
     Route::get('/index',"StarController@index");
->>>>>>> dev
 
     Route::get('/activity',"StarController@activity");
 
@@ -330,9 +326,6 @@ Route::group(['prefix' => 'star', 'namespace' => 'star'], function(){
 
     Route::post('/update',"StarController@update");
 
-<<<<<<< HEAD
-    Route::get('/star/merchant',"StarController@merchant_info");
-=======
     Route::post('/uploadimg',"StarController@uploadimg");
 
     Route::get('/activityList',"ActivityController@index");
@@ -341,7 +334,6 @@ Route::group(['prefix' => 'star', 'namespace' => 'star'], function(){
 
     Route::post('/setOrder',"ActivityController@setOrder");
 
->>>>>>> dev
 });
 
 
