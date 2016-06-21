@@ -12,6 +12,7 @@ use App\Models\Order;
 use App\Models\Merchant;
 use App\Models\Commodity;
 use App\Models\ProductPicture;
+use App\Http\Controllers\Controller;
 use DB;
 class StarController extends RootController
 {
