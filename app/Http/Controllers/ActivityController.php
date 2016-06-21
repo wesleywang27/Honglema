@@ -11,7 +11,7 @@ use App\Models\ActivityCommodityList;
 use App\Models\Order;
 class ActivityController extends Controller{
 	public function index(){
-		$activityList = Activity::all();
+		$activityList = Activity::where('activity_status',1)->get();
 		// echo "<pre>";
 		// var_dump($activityList);die;
 		return view('star.activityList',['list'=>$activityList]);
@@ -32,10 +32,10 @@ class ActivityController extends Controller{
 		$task_id = intval($_POST['task_id']);
 
 		$order = new Order();
-        $order->task_id = $task_id;//现在其实还是activity_id
+        $order->task_id = $task_id;
         $order->status = 0;
-        $order->star_id = 1;
-       //$order->star_id = $_SESSION['star_id'];
+        //$order->star_id = 1;
+       	$order->star_id = $_SESSION['star_id'];
         $order->save();
 		//var_dump($activityDetail);die;
 	}

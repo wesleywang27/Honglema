@@ -78,7 +78,7 @@
             <span class="icon icon-home"></span>
             <span class="tab-label">热门活动</span>
         </a>
-        <a class="tab-item external active" href="/star/task">
+        <a class="tab-item external active" href="/star/activityList">
             <span class="icon icon-star"></span>
             <span class="tab-label">活动广场</span>
         </a>
