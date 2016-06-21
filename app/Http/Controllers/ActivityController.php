@@ -48,4 +48,8 @@ class ActivityController extends Controller{
 
         return Redirect::intended("/didi/CommodityCreate/$activity->activity_id");
     }
+    //活动列表页
+    public function activityList(){
+        return Redirect::intended('/didi/index');
+    }
 }

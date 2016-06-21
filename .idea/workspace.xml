@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/didi/commodity_create.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CommodityController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CommodityController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/didi/commodity_create.blade.php" afterPath="$PROJECT_DIR$/resources/views/didi/commodity_create.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +33,8 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="302" column="89" selection-start-line="302" selection-start-column="89" selection-end-line="302" selection-end-column="89" />
+            <state relative-caret-position="649">
+              <caret line="301" column="68" selection-start-line="301" selection-start-column="68" selection-end-line="301" selection-end-column="68" />
               <folding>
                 <element signature="e#950#1176#1#PHP" expanded="false" />
               </folding>
@@ -43,11 +45,24 @@
       <file leaf-file-name="CommodityController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CommodityController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="20" column="82" selection-start-line="20" selection-start-column="82" selection-end-line="20" selection-end-column="82" />
+            <state relative-caret-position="441">
+              <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
               <folding>
                 <element signature="e#6#89#0#PHP" expanded="true" />
-                <element signature="e#123#160#0#PHP" expanded="true" />
+                <element signature="e#123#147#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActivityController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActivityController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="479">
+              <caret line="52" column="46" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
+              <folding>
+                <element signature="e#6#89#0#PHP" expanded="true" />
+                <element signature="e#123#147#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -56,9 +71,12 @@
       <file leaf-file-name="commodity_create.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/didi/commodity_create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
-              <folding />
+            <state relative-caret-position="80">
+              <caret line="7" column="87" selection-start-line="7" selection-start-column="87" selection-end-line="7" selection-end-column="87" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#div#3;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#3;n#form#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -134,10 +152,10 @@
         <option value="$PROJECT_DIR$/resources/views/didi/merchant_modify.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/merchant_list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/activity_create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/didi/commodity_create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CommodityController.php" />
-        <option value="$PROJECT_DIR$/resources/views/didi/commodity_create.blade.php" />
       </list>
     </option>
   </component>
@@ -194,9 +212,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -975,14 +993,8 @@
       <workItem from="1466136844173" duration="6292000" />
       <workItem from="1466146646945" duration="3422000" />
       <workItem from="1466154289441" duration="4447000" />
-      <workItem from="1466390529662" duration="21863000" />
-    </task>
-    <task id="LOCAL-00171" summary="修改">
-      <created>1464937802219</created>
-      <option name="number" value="00171" />
-      <option name="presentableId" value="LOCAL-00171" />
-      <option name="project" value="LOCAL" />
-      <updated>1464937802235</updated>
+      <workItem from="1466390529662" duration="21928000" />
+      <workItem from="1466477626014" duration="3369000" />
     </task>
     <task id="LOCAL-00172" summary="修改">
       <created>1464938148898</created>
@@ -1320,11 +1332,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466416258069</updated>
     </task>
-    <option name="localTasksCounter" value="220" />
+    <task id="LOCAL-00220" summary="打网红后台 添加商品页">
+      <created>1466417910323</created>
+      <option name="number" value="00220" />
+      <option name="presentableId" value="LOCAL-00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1466417910323</updated>
+    </task>
+    <option name="localTasksCounter" value="221" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="568926000" />
+    <option name="totallyTimeSpent" value="572360000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1380,7 +1399,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="红人信息统计" />
     <MESSAGE value="修改工厂" />
     <MESSAGE value="修改品牌商" />
     <MESSAGE value="修改设计师" />
@@ -1405,7 +1423,8 @@
     <MESSAGE value="打网红后台 活动信息添加页" />
     <MESSAGE value="打网红后台 添加活动" />
     <MESSAGE value="打网红后台 创建活动 创建任务" />
-    <option name="LAST_COMMIT_MESSAGE" value="打网红后台 创建活动 创建任务" />
+    <MESSAGE value="打网红后台 添加商品页" />
+    <option name="LAST_COMMIT_MESSAGE" value="打网红后台 添加商品页" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1561,7 +1580,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
           <caret line="1223" column="62" selection-start-line="1223" selection-start-column="62" selection-end-line="1223" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1569,7 +1587,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
           <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1577,7 +1594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-798">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1585,10 +1601,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-152">
           <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
-          <folding>
-            <element signature="e#6#89#0#PHP" expanded="false" />
-            <element signature="e#123#132#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1596,7 +1608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="67" column="47" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1604,7 +1615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1612,12 +1622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="29" column="72" selection-start-line="29" selection-start-column="72" selection-end-line="29" selection-end-column="72" />
-          <folding>
-            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#td#2;n#tr#1;n#table#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#td#3;n#tr#1;n#table#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1625,7 +1629,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="397">
           <caret line="52" column="18" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1633,9 +1636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1178">
           <caret line="27" column="110" selection-start-line="27" selection-start-column="110" selection-end-line="27" selection-end-column="110" />
-          <folding>
-            <element signature="e#123#132#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1643,7 +1643,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1651,9 +1650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="67" column="140" selection-start-line="67" selection-start-column="140" selection-end-line="67" selection-end-column="140" />
-          <folding>
-            <marker date="1465803607973" expanded="true" signature="5194:5220" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1661,12 +1657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-817">
           <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#table#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#2;n#tr#3;n#table#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <marker date="1465803607985" expanded="true" signature="8739:8798" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1674,7 +1664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-171">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1682,7 +1671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-249">
           <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1690,9 +1678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="192" column="43" selection-start-line="192" selection-start-column="43" selection-end-line="192" selection-end-column="43" />
-          <folding>
-            <element signature="e#123#132#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1700,7 +1685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
           <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1708,7 +1692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1716,7 +1699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1724,7 +1706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="760">
           <caret line="40" column="66" selection-start-line="40" selection-start-column="66" selection-end-line="40" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1732,7 +1713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="22" column="106" selection-start-line="22" selection-start-column="106" selection-end-line="22" selection-end-column="106" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1740,17 +1720,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-836">
           <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/didi/commodity_create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="7" column="87" selection-start-line="7" selection-start-column="87" selection-end-line="7" selection-end-column="87" />
           <folding>
-            <element signature="e#6#89#0#PHP" expanded="false" />
-            <element signature="e#123#147#0#PHP" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#div#3;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#3;n#form#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="302" column="89" selection-start-line="302" selection-start-column="89" selection-end-line="302" selection-end-column="89" />
+        <state relative-caret-position="649">
+          <caret line="301" column="68" selection-start-line="301" selection-start-column="68" selection-end-line="301" selection-end-column="68" />
           <folding>
             <element signature="e#950#1176#1#PHP" expanded="false" />
           </folding>
@@ -1759,8 +1754,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActivityController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+        <state relative-caret-position="479">
+          <caret line="52" column="46" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
           <folding>
             <element signature="e#6#89#0#PHP" expanded="true" />
             <element signature="e#123#147#0#PHP" expanded="true" />
@@ -1768,29 +1763,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/didi/commodity_create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CommodityController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="82" selection-start-line="20" selection-start-column="82" selection-end-line="20" selection-end-column="82" />
+        <state relative-caret-position="441">
+          <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
           <folding>
             <element signature="e#6#89#0#PHP" expanded="true" />
-            <element signature="e#123#160#0#PHP" expanded="true" />
+            <element signature="e#123#147#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

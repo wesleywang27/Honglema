@@ -7,6 +7,7 @@
  */
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use App\Models\ActivityCommodityList;
 use App\Models\Commodity;
 use App\Models\CommodityPicture;
@@ -23,5 +24,19 @@ class CommodityController extends Controller{
         else{
             return Redirect::intended('/didi/login');
         }
+    }
+    //添加商品信息
+    public function commodityStore($activity_id ,Request $request){
+        $commodity = new Commodity();
+
+        $activity = Activity::where('activity_id',$activity_id)->first();
+        $commodity->merchant_id = $activity->merchant_id;
+        $commodity->name = $request->input('name');
+        $commodity->introduction = $request->input('introduction');
+        $commodity->url = $request->input('url');
+
+        $commodity->save();
+
+        return Redirect::intended('/didi/ActivityList');
     }
 }
