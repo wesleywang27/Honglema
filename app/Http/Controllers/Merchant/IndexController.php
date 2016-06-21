@@ -14,7 +14,10 @@ use App\Http\Controllers\Controller;
 // use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use App\Models\Merchant;
-class IndexController extends Controller{
+class IndexController extends RootController{
+    public function __construct(){
+        parent::__construct();
+    }
     public function index(){
         // var_dump(1);die;
         $user = session('wechat.oauth_user');

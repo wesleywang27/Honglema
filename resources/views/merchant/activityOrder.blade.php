@@ -16,14 +16,16 @@
 </head>
 <body>
 <header class="bar bar-nav">
-  	<h1 class='title'>红了吗网红端</h1>
-  	<span class="icon icon-search pull-right"></span>
+  <h1 class='title'>红了吗商家端</h1>
+  <button class="button pull-right" onclick="window.location.href='/Merchant/activityOrder/addOrder'">
+    新建
+  </button>
 </header>
 <div class="content">
   <div class="buttons-tab">
-    <a href="#tab1" class="tab-link active button">价格排序</a>
-    <a href="#tab2" class="tab-link button">即将开始</a>
-    <a href="#tab3" class="tab-link button">火热推荐</a>
+    <a href="#tab1" class="tab-link active button">已发布</a>
+    <a href="#tab2" class="tab-link button">已确定</a>
+    <a href="#tab3" class="tab-link button">评价并付款</a>
   </div>
  
     <div class="tabs">
@@ -36,6 +38,7 @@
 					        <div class="item-content">
 					            <div class="item-inner">
 					                <div class="item-title">韩束用品官方店 ></div>
+					                <div id="f_address" class="item-after">抢单中</div>
 					            </div>
 					        </div>
 					    </li>
@@ -53,6 +56,8 @@
 				            </div>
 				            <div class="item-subtitle">&nbsp;</div>
 				           <div class="item-subtitle">
+				            	<button class="button pull-right button-fill button-danger" style="margin-left:1rem;width:4rem">已抢单1/2</button>
+				            	<button class="button pull-right" style="margin-left:1rem;width:4rem">再来一单</button>
 				            </div>
 				          </div>
 				        </a>
@@ -61,6 +66,7 @@
 			  	</div>
 			</div>
       	</div>
+
       	<div class="content-block content-block-my content-no-margin">
          	<div class="content-block content-block-my">
 		   		<div class="list-block content-no-margin" style="margin-top: -1rem;">
@@ -69,6 +75,7 @@
 					        <div class="item-content">
 					            <div class="item-inner">
 					                <div class="item-title">韩束用品官方店 ></div>
+					                <div id="f_address" class="item-after">抢单中</div>
 					            </div>
 					        </div>
 					    </li>
@@ -77,7 +84,7 @@
 		  		<div class="list-block media-list content-no-margin">
 				    <ul>
 				      <li>
-				        <a href="/Merchant/activityOrder/activityDetail/1" class="blackfont item-content">
+				        <div class="item-content">
 				          <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
 				          <div class="item-inner">
 				            <div class="item-title-row">
@@ -86,15 +93,17 @@
 				            </div>
 				            <div class="item-subtitle">&nbsp;</div>
 				           <div class="item-subtitle">
-				            	<button class="button pull-right button-fill button-warning" style="margin-left:1rem;width:4rem">抢单</button>
+				            	<button class="button pull-right button-fill button-danger" style="margin-left:1rem;width:4rem">已抢单1/2</button>
+				            	<button class="button pull-right" style="margin-left:1rem;width:4rem">再来一单</button>
 				            </div>
 				          </div>
-				        </a>
+				        </div>
 				      </li>
 				    </ul>
 			  	</div>
 			</div>
       	</div>
+
       	<div class="content-block content-block-my content-no-margin">
          	<div class="content-block content-block-my">
 		   		<div class="list-block content-no-margin" style="margin-top: -1rem;">
@@ -103,6 +112,7 @@
 					        <div class="item-content">
 					            <div class="item-inner">
 					                <div class="item-title">韩束用品官方店 ></div>
+					                <div id="f_address" class="item-after">抢单中</div>
 					            </div>
 					        </div>
 					    </li>
@@ -111,7 +121,7 @@
 		  		<div class="list-block media-list content-no-margin">
 				    <ul>
 				      <li>
-				        <a href="/Merchant/activityOrder/activityDetail/1" class="blackfont item-content">
+				        <div class="item-content">
 				          <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
 				          <div class="item-inner">
 				            <div class="item-title-row">
@@ -120,9 +130,11 @@
 				            </div>
 				            <div class="item-subtitle">&nbsp;</div>
 				           <div class="item-subtitle">
+				            	<button class="button pull-right button-fill button-danger" style="margin-left:1rem;width:4rem">已抢单1/2</button>
+				            	<button class="button pull-right" style="margin-left:1rem;width:4rem">再来一单</button>
 				            </div>
 				          </div>
-				        </a>
+				        </div>
 				      </li>
 				    </ul>
 			  	</div>
@@ -130,7 +142,76 @@
       	</div>
       </div>
       <div id="tab2" class="tab">
-      	
+      	<div class="content-block content-block-my content-no-margin">
+         	<div class="content-block content-block-my">
+		   		<div class="list-block content-no-margin" style="margin-top: -1rem;">
+				  	<ul>
+					   	<li>
+					        <div class="item-content">
+					            <div class="item-inner">
+					                <div class="item-title">韩束用品官方店 ></div>
+					                <div id="f_address" class="item-after">录入物流</div>
+					            </div>
+					        </div>
+					    </li>
+				   	</ul>
+		   		</div>
+		  		<div class="list-block media-list content-no-margin">
+				    <ul>
+				      <li>
+				        <div class="item-content">
+				          <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
+				          <div class="item-inner">
+				            <div class="item-title-row">
+				              <div class="item-subtitle">韩束保湿乳推广活动</div>
+				              <div class="item-after">$15</div>
+				            </div>
+				            <div class="item-subtitle">&nbsp;</div>
+				           <div class="item-subtitle">
+				            	<button class="button pull-right button-fill button-danger" style="margin-left:1rem;width:5rem">录入物流信息</button>
+				            </div>
+				          </div>
+				        </div>
+				      </li>
+				    </ul>
+			  	</div>
+			</div>
+      	</div>
+        <div class="content-block content-block-my content-no-margin">
+         	<div class="content-block content-block-my">
+		   		<div class="list-block content-no-margin" style="margin-top: -1rem;">
+				  	<ul>
+					   	<li>
+					        <div class="item-content">
+					            <div class="item-inner">
+					                <div class="item-title">韩束用品官方店 ></div>
+					                <div id="f_address" class="item-after">等待直播中</div>
+					            </div>
+					        </div>
+					    </li>
+				   	</ul>
+		   		</div>
+		  		<div class="list-block media-list content-no-margin">
+				    <ul>
+				      <li>
+				        <div class="item-content">
+				          <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
+				          <div class="item-inner">
+				            <div class="item-title-row">
+				              <div class="item-subtitle">韩束保湿乳推广活动</div>
+				              <div class="item-after">$15</div>
+				            </div>
+				            <div class="item-subtitle">&nbsp;</div>
+				           <div class="item-subtitle">
+				            	<button class="button pull-right button-fill button-danger" style="margin-left:1rem;width:4rem">查看物流</button>
+				            </div>
+				          </div>
+				        </div>
+				      </li>
+				    </ul>
+			  	</div>
+			</div>
+      	</div>
       </div>
       <div id="tab3" class="tab">
         <div class="content-block content-block-my content-no-margin">
@@ -141,6 +222,7 @@
 					        <div class="item-content">
 					            <div class="item-inner">
 					                <div class="item-title">韩束用品官方店 ></div>
+					                <div id="f_address" class="item-after">待评价</div>
 					            </div>
 					        </div>
 					    </li>
@@ -149,7 +231,7 @@
 		  		<div class="list-block media-list content-no-margin">
 				    <ul>
 				      <li>
-				        <a href="/Merchant/activityOrder/activityDetail/1" class="blackfont item-content">
+				        <div class="item-content">
 				          <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
 				          <div class="item-inner">
 				            <div class="item-title-row">
@@ -158,14 +240,16 @@
 				            </div>
 				            <div class="item-subtitle">&nbsp;</div>
 				           <div class="item-subtitle">
+				            	<button class="button pull-right button-fill button-danger" style="margin-left:1rem;width:4rem">去评价</button>
 				            </div>
 				          </div>
-				        </a>
+				        </div>
 				      </li>
 				    </ul>
 			  	</div>
 			</div>
-      	</div><div class="content-block content-block-my content-no-margin">
+      	</div>
+      	<div class="content-block content-block-my content-no-margin">
          	<div class="content-block content-block-my">
 		   		<div class="list-block content-no-margin" style="margin-top: -1rem;">
 				  	<ul>
@@ -173,6 +257,7 @@
 					        <div class="item-content">
 					            <div class="item-inner">
 					                <div class="item-title">韩束用品官方店 ></div>
+					                <div id="f_address" class="item-after">已评价</div>
 					            </div>
 					        </div>
 					    </li>
@@ -181,7 +266,7 @@
 		  		<div class="list-block media-list content-no-margin">
 				    <ul>
 				      <li>
-				        <a href="/Merchant/activityOrder/activityDetail/1" class="blackfont item-content">
+				        <div class="item-content">
 				          <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
 				          <div class="item-inner">
 				            <div class="item-title-row">
@@ -190,10 +275,10 @@
 				            </div>
 				            <div class="item-subtitle">&nbsp;</div>
 				           <div class="item-subtitle">
-				            	<button class="button pull-right button-fill button-warning" style="margin-left:1rem;width:4rem">抢单</button>
+				            	<button class="button pull-right button-fill button-danger" style="margin-left:1rem;width:4rem">查看评价</button>
 				            </div>
 				          </div>
-				        </a>
+				        </div>
 				      </li>
 				    </ul>
 			  	</div>
@@ -208,10 +293,6 @@
             <span class="tab-label">热门活动</span>
         </a>
         <a class="tab-item external active" href="/Merchant/activityOrder">
-            <span class="icon icon-star"></span>
-            <span class="tab-label">活动广场</span>
-        </a>
-        <a class="tab-item external" href="/Merchant/activityOrder">
             <span class="icon icon-star"></span>
             <span class="tab-label">活动订单</span>
         </a>

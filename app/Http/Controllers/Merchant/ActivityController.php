@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\Redirect;
 use EasyWeChat\Foundation\Application;
 use App\Http\Controllers\Controller;
 
-class ActivityController extends Controller{
+class ActivityController extends RootController{
+    public function __construct(){
+        parent::__construct();
+    }
     public function index(){
         // var_dump(1);die;
         // $user = session('wechat.oauth_user');
