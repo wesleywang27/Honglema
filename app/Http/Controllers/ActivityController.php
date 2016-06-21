@@ -9,7 +9,15 @@ use App\Models\User;
 use App\Models\StarPicture;
 use App\Models\ActivityCommodityList;
 use App\Models\Order;
+use Redirect;
 class ActivityController extends Controller{
+	public function __construct(){
+		session_start();
+		if(!isset($_SESSION['star_id'])){
+			return Redirect::to('/star/index');
+		}
+	}
+
 	public function index(){
 		$activityList = Activity::where('activity_status',1)->get();
 		// echo "<pre>";
@@ -30,7 +38,6 @@ class ActivityController extends Controller{
 
 	public function setOrder(){
 		$task_id = intval($_POST['task_id']);
-
 		$order = new Order();
         $order->task_id = $task_id;
         $order->status = 0;
