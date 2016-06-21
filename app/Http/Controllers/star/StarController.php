@@ -125,14 +125,14 @@ class StarController extends RootController
        $star = Star::where('openid',$oepnid)->first();
 
         for($x=0;$x<6;$x++){
-          if(isset($input['imgurl'+$x))
-             $url =$request->input('imgurl'+$x);
+          if(isset($input['imgurl'.$x])){
+             $url =$request->input('imgurl'.$x);
              $starPicture = new StarPicture();
              $starPicture->url = $url;
              $starPicture->file_id = pathinfo($url)['filename'];
              $starPicture->uid = $star_id;   
              $starPicture->save();
-        }
+        }}
 
         return view('star/star_info',["star"=>$star]);
     }
