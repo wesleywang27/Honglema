@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/MerchantController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/MerchantController.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="301" column="86" selection-start-line="301" selection-start-column="86" selection-end-line="301" selection-end-column="86" />
+              <caret line="26" column="69" selection-start-line="26" selection-start-column="69" selection-end-line="26" selection-end-column="69" />
               <folding>
                 <element signature="e#950#1176#1#PHP" expanded="false" />
               </folding>
@@ -42,7 +42,7 @@
       <file leaf-file-name="ActivityController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActivityController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
+            <state relative-caret-position="-277">
               <caret line="59" column="70" selection-start-line="59" selection-start-column="70" selection-end-line="59" selection-end-column="70" />
               <folding>
                 <element signature="e#123#147#0#PHP" expanded="true" />
@@ -51,22 +51,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="composer.lock" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/composer.lock">
+      <file leaf-file-name="PictureController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PictureController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="1234" column="62" selection-start-line="1234" selection-start-column="62" selection-end-line="1234" selection-end-column="62" />
+            <state relative-caret-position="-114">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MerchantController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MerchantController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MerchantController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="35" column="54" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
-              <folding />
+            <state relative-caret-position="361">
+              <caret line="51" column="86" selection-start-line="51" selection-start-column="86" selection-end-line="51" selection-end-column="86" />
+              <folding>
+                <element signature="e#123#147#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,7 +96,7 @@
     <option name="FORCE_PUSH_ALLOWED" value="true" />
     <push-targets>
       <push-target-info repo="$PROJECT_DIR$" source="master" target-remote="origin" target-branch="master" />
-      <push-target-info repo="$PROJECT_DIR$" source="shangjia" target-remote="github" target-branch="shangjia" />
+      <push-target-info repo="$PROJECT_DIR$" source="shangjia" target-remote="origin" target-branch="shangjia" />
     </push-targets>
   </component>
   <component name="GradleLocalSettings">
@@ -142,7 +144,6 @@
         <option value="$PROJECT_DIR$/app/Http/MerchantController.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/merchant_create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/cms/user_create.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/MerchantController.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/merchant_info.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/merchant_modify.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/merchant_list.blade.php" />
@@ -156,6 +157,7 @@
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" />
         <option value="$PROJECT_DIR$/composer.lock" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/MerchantController.php" />
       </list>
     </option>
   </component>
@@ -995,14 +997,7 @@
       <workItem from="1466154289441" duration="4447000" />
       <workItem from="1466390529662" duration="21928000" />
       <workItem from="1466477626014" duration="16705000" />
-      <workItem from="1466500384204" duration="1726000" />
-    </task>
-    <task id="LOCAL-00178" summary="修改">
-      <created>1465194747393</created>
-      <option name="number" value="00178" />
-      <option name="presentableId" value="LOCAL-00178" />
-      <option name="project" value="LOCAL" />
-      <updated>1465194747393</updated>
+      <workItem from="1466500384204" duration="2883000" />
     </task>
     <task id="LOCAL-00179" summary="修改">
       <created>1465194836653</created>
@@ -1340,11 +1335,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466502900427</updated>
     </task>
-    <option name="localTasksCounter" value="227" />
+    <task id="LOCAL-00227" summary="修改lock">
+      <created>1466502943012</created>
+      <option name="number" value="00227" />
+      <option name="presentableId" value="LOCAL-00227" />
+      <option name="project" value="LOCAL" />
+      <updated>1466502943012</updated>
+    </task>
+    <option name="localTasksCounter" value="228" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="587422000" />
+    <option name="totallyTimeSpent" value="588579000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1404,7 +1406,6 @@
     <MESSAGE value="添加merchant_payments" />
     <MESSAGE value="添加star_payments" />
     <MESSAGE value="添加administrator" />
-    <MESSAGE value="修改lock" />
     <MESSAGE value="修改武仙" />
     <MESSAGE value="修改" />
     <MESSAGE value="添加滴滴打网红后台 route index banner" />
@@ -1425,7 +1426,8 @@
     <MESSAGE value="打网红后台 活动信息列表" />
     <MESSAGE value="打网红后台 解决继续添加商品的问题" />
     <MESSAGE value="打网红后台 删除活动信息" />
-    <option name="LAST_COMMIT_MESSAGE" value="打网红后台 删除活动信息" />
+    <MESSAGE value="修改lock" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改lock" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1438,8 +1440,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_16_123358_create_orders_table.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_06_16_142034_create_commodity_lists_table.php" />
     <entry file="file://$PROJECT_DIR$/app/Models/Activity.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -1738,6 +1738,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/composer.lock">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="1234" column="62" selection-start-line="1234" selection-start-column="62" selection-end-line="1234" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_list.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1749,24 +1757,32 @@
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="301" column="86" selection-start-line="301" selection-start-column="86" selection-end-line="301" selection-end-column="86" />
+          <caret line="26" column="69" selection-start-line="26" selection-start-column="69" selection-end-line="26" selection-end-column="69" />
           <folding>
             <element signature="e#950#1176#1#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MerchantController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PictureController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="35" column="54" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
+        <state relative-caret-position="-114">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductPictureController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActivityController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
+        <state relative-caret-position="-277">
           <caret line="59" column="70" selection-start-line="59" selection-start-column="70" selection-end-line="59" selection-end-column="70" />
           <folding>
             <element signature="e#123#147#0#PHP" expanded="true" />
@@ -1774,11 +1790,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.lock">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MerchantController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="1234" column="62" selection-start-line="1234" selection-start-column="62" selection-end-line="1234" selection-end-column="62" />
-          <folding />
+        <state relative-caret-position="361">
+          <caret line="51" column="86" selection-start-line="51" selection-start-column="86" selection-end-line="51" selection-end-column="86" />
+          <folding>
+            <element signature="e#123#147#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

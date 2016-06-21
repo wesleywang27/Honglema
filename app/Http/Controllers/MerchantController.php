@@ -7,6 +7,8 @@
  */
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
+use App\Models\Commodity;
 use App\Models\Merchant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -47,6 +49,9 @@ class MerchantController extends Controller{
         session_start();
         if(isset($_SESSION['name'])) {
             Merchant::where('merchant_id',$id)->delete();
+            //$activity_id = Activity::where('merchant_id',$id)->lists('activity_id');
+            Activity::where('merchant_id',$id)->delete();
+            Commodity::where('merchant_id',$id)->delete();
 
             return Redirect::intended('/didi/MerchantList');
         }
