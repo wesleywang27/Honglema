@@ -7,7 +7,7 @@
         <span class="icon icon-home"></span>
         <span class="tab-label">活动广场</span>
     </a>
-    <a class="tab-item external" href="#">
+    <a class="tab-item external" href="/star/order">
         <span class="icon icon-cart"></span>
         <span class="tab-label">活动订单</span>
     </a>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\star;
 use Illuminate\Http\Request;
 use App\Models\Star;
 use Illuminate\Support\Facades\Input;
@@ -13,7 +13,7 @@ use App\Models\Merchant;
 use App\Models\Commodity;
 use App\Models\ProductPicture;
 use DB;
-class StarController extends Controller
+class StarController extends RootController
 {
     /* $oauthUser->openid   = $original['openid'];
            $oauthUser->unionid  = $original['unionid'];
@@ -25,7 +25,7 @@ class StarController extends Controller
            $oauthUser->country  = $original['country'];*/
 
            public function __construct(){
-                session_start();
+              parent::__construct();
            }
 
     public function index(){
@@ -50,7 +50,8 @@ class StarController extends Controller
 
 
     public function order(){
-        $star_id="001";
+            $star_id =  1;
+    //        $_SESSION['star_id']
         $star =  Star::where('star_id',$star_id)->first();
         $orders = Order::where('star_id',$star_id)->get();
          $data = array();
@@ -74,7 +75,8 @@ class StarController extends Controller
                 'avatar'=>$merchant->avatar,
                 'total_price'=>$activity->total_price,
                 'requirement'=>$activity->claim,
-                'status'=>$task->status,
+                'task_status'=>$task->status,
+                'order_status'=>$order->status,
                 'task_id'=>$task->task_id,
                 'merchant_id'=>$merchant->merchant_id,
                 'order_id' =>$order->order_id);
@@ -90,7 +92,7 @@ class StarController extends Controller
 
 
     public function info(Request $request){
-         $star_id =  $_SESSION['star_id'];
+        $star_id =  $_SESSION['star_id'];
         $star = Star::where('star_id',$star_id)->first();
         return view('star/star_info',["star"=>$star]);
     }
@@ -133,14 +135,13 @@ class StarController extends Controller
         $starPicture = new StarPicture();
         $starPicture->url = $url;
         $starPicture->file_id = pathinfo($url)['filename'];
-        $starPicture->uid = $star_id;
+        $starPicture->uid = $star_id;   
         $starPicture->save();
     }
 
 
     public function order_detail(Request $request){
          $order_id =$request->input('order_id');
-
           $order = Order::where('order_id',$order_id)->first();
              //each order  has one task
             $task = Task::where('task_id',$order->task_id)->first();
@@ -155,11 +156,70 @@ class StarController extends Controller
             foreach($relations as $relation){
                 $commodities[] =Commodity::where('commodity_id',$relation->commodity_id)->get(); 
             }
-              $data =array('order'=>$order,'task'=>$task,'activity'=>$activity,'merchant'=>$merchant,'commodities'=>$commodities);
+              $data =array('order'=>$order,
+                'task'=>$task,
+                'activity'=>$activity,
+                'merchant'=>$merchant,
+                'commodities'=>$commodities,
+                );
               return view('star/order_detail',["order"=>$data]);
 
     }
 
+    public function cancelOrder(Request $request){
+         $order_id =$request->input('order_id');
+         $status =$request->input('status');
+        $order = Order::where('order_id',$order_id)->first();
+         $order->status =$status; 
+         $order->save();
+    }
+
+    public function  task_result(Request $request){
+        $order_id = $request->input('order_id');
+         return view('star/task_result',['order_id'=>$order_id]);
+    }
+
+    public function submitTaskResult(Request $request){
+         $order_id = $request->input('order_id');
+           $img1 = $request->input('img1');
+           $img2 = $request->input('img2');
+            $img3 = $request->input('img3');
+            $img4 = $request->input('img4');
+             $task = Task::where('task_id',$order->task_id)->first();
+              $task = Task::where('task_id',$task_id)->first();
+         $task->status =4; 
+         $task->save();
+         if(isset( $img1)){
+          $tp = new TaskPicture();
+          $tp->order_id = $order_id;
+          $tp->url =$img1;
+          $tp->file_id =pathinfo($url)['filename'];
+         $tp->save;
+      }
+      if(isset($img2)){
+          $tp = new TaskPicture();
+          $tp->order_id = $order_id;
+          $tp->url =$img2;
+          $tp->file_id =pathinfo($url)['filename'];
+          $tp->save;
+      }if(isset($img3)){
+          $tp = new TaskPicture();
+          $tp->order_id = $order_id;
+          $tp->url =$img3;
+          $tp->file_id =pathinfo($url)['filename'];
+          $tp->save;
+      }
+      if(isset($img4)){
+          $tp = new TaskPicture();
+          $tp->order_id = $order_id;
+          $tp->url =$img4;
+          $tp->file_id =pathinfo($url)['filename'];
+          $tp->save;
+      }
+
+    }
+
+    
     /*跳转到获得界面*/
     public function activity() {
         $items=array(

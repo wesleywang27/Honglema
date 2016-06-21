@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\star;
 use Illuminate\Http\Request;
 use App\Models\Star;
 use App\Models\Activity;
@@ -10,12 +10,9 @@ use App\Models\StarPicture;
 use App\Models\ActivityCommodityList;
 use App\Models\Order;
 use Redirect;
-class ActivityController extends Controller{
+class ActivityController extends RootController{
 	public function __construct(){
-		session_start();
-		if(!isset($_SESSION['star_id'])){
-			return Redirect::to('/star/index');
-		}
+		parent::__construct();
 	}
 
 	public function index(){
