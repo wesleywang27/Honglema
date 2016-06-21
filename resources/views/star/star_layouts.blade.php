@@ -142,7 +142,7 @@
                 for(var i=0; i<urls.length; i++){
                     $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
                     <input type="hidden" id="manyimg"+i value="'+urls[i]+'"></li>';
-                    $.post('star/uploadimg',{'url':urls[i]});
+                 
                 }
                 $('#imgfiles').append($htmls);
                 $.hidePreloader();
@@ -362,6 +362,13 @@
                 "miaopai_id": $('#miaopaiid').val(),
                 "meipai_id": $('#meipaiid').val(),
                 "kuaishou_id": $('#kuaishouid').val(),
+                "manyimg1":$('#manyimg1').val(),
+                "manyimg2":$('#manyimg2').val(),
+                "manyimg3":$('#manyimg3').val(),
+                "manyimg4":$('#manyimg4').val(),
+                "manyimg5":$('#manyimg5').val(),
+                "manyimg6":$('#manyimg6').val(),
+
             },success: function(data) {
                 $.toast("注册成功!",1000);
                 setTimeout(function(){

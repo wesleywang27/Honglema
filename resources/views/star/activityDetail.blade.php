@@ -96,8 +96,11 @@
     ?>
 
     <?php 
-      //$star_id = 1;
+
+    session_start();
+    
       $star_id = $_SESSION['star_id'];
+
       $order = App\Models\Order::where('star_id',$star_id)->where('task_id',$task_id)->first();
       if($order){
     ?>
@@ -106,6 +109,9 @@
     <?php
       }else{
     ?> 
+
+      <p><a href="#" class="button button-fill button-warning" style="border-radius:0;z-index:999; position:fixed; bottom:0; left:0; width:100%; _position:absolute;
+ _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;" onclick="setOrder({{$task_id}})">抢单</a></p>
 
     <?php
       }

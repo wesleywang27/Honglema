@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\star;
+namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Star;
 use Illuminate\Support\Facades\Input;
@@ -13,7 +13,7 @@ use App\Models\Merchant;
 use App\Models\Commodity;
 use App\Models\ProductPicture;
 use DB;
-class StarController extends RootController
+class StarController extends Controller
 {
     /* $oauthUser->openid   = $original['openid'];
            $oauthUser->unionid  = $original['unionid'];
@@ -25,7 +25,7 @@ class StarController extends RootController
            $oauthUser->country  = $original['country'];*/
 
            public function __construct(){
-              parent::__construct();
+                session_start();
            }
 
     public function index(){
@@ -37,24 +37,14 @@ class StarController extends RootController
             $_SESSION['star_id']=$star->star_id;
             return view('star/star_info',["star"=>$star]);
         }else{
-<<<<<<< HEAD:app/Http/Controllers/StarController.php
             return view('star/visitor', ["user" => $user]);
-=======
-          //$user=array('nickname'=>$user->nickname,'sex'=>'M','province'=>'beijing','city'=>'beijing','avatar'=>"/images/nike.jpg",'wechat'=>'wechat');
-            $star = new Star();
-            $star->name = $user->nickname;
-            $star->openid = $user->openid;
-            $star->save();
-            $star = Star::where('openid',$openid)->first();
-            $_SESSION['star_id']=$star->star_id;
-            return view('star/create', ["user" => $user]);
->>>>>>> 0cf390a9171ebb5b8a0d129f77cf1582e9e6b8fa:app/Http/Controllers/star/StarController.php
         }
     }
 
 
     public function order(){
-        $star_id = $_SESSION['star_id'];
+            $star_id =  1;
+    //        $_SESSION['star_id']
         $star =  Star::where('star_id',$star_id)->first();
         $orders = Order::where('star_id',$star_id)->get();
          $data = array();
@@ -98,7 +88,7 @@ class StarController extends RootController
     }
 
     public function info(Request $request){
-        $star_id =  $_SESSION['star_id'];
+         $star_id =  $_SESSION['star_id'];
         $star = Star::where('star_id',$star_id)->first();
         return view('star/star_info',["star"=>$star]);
     }
