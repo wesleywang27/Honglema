@@ -116,13 +116,13 @@ class StarController extends RootController
         $star = new Star();
         $star->openid =  $openid;
         $formKey = array_keys($input);
-                $star->name->$request->input('name');
-                  $star->sex->$request->input('sex');
-                   $star->location->$request->input('location');
-                    $star->cup->$request->input('cup');
-                     $star->weight->$request->input('weight');
-             $star->height->$request->input('height'); 
-              $star->age->$request->input('age');
+                $star->name=$request->input('name');
+                  $star->sex=$request->input('sex');
+                   $star->location=$request->input('location');
+                    $star->cup=$request->input('cup');
+                     $star->weight=$request->input('weight');
+             $star->height=$request->input('height'); 
+              $star->age=$request->input('age');
         $star->save();
        $star = Star::where('openid',$oepnid)->first();
 
