@@ -251,7 +251,7 @@
         else
             $('#f_sex').text('女');
     }
-    //设置地址
+//设置地址
     $.set_address = function(v1,v2){
         $('#f_dizhi').text($('#'+v1).val() +$('#'+v2).val());
     }
@@ -336,6 +336,8 @@
                 setTimeout(function(){
                     location.href="/star/info";
                 },1000);
+            },headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
     });

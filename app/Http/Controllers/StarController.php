@@ -37,7 +37,7 @@ class StarController extends Controller
             $_SESSION['star_id']=$star->star_id;
             return view('star/star_info',["star"=>$star]);
         }else{
-            $user=array('nickname'=>$user->nickname,'sex'=>'M','province'=>'beijing','city'=>'beijing','avatar'=>"/images/nike.jpg",'wechat'=>'wechat');
+          //$user=array('nickname'=>$user->nickname,'sex'=>'M','province'=>'beijing','city'=>'beijing','avatar'=>"/images/nike.jpg",'wechat'=>'wechat');
             $star = new Star();
             $star->name = $user->nickname;
             $star->openid = $user->openid;
