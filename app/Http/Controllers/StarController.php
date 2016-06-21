@@ -24,6 +24,10 @@ class StarController extends Controller
            $oauthUser->province = $original['province'];
            $oauthUser->country  = $original['country'];*/
 
+           public function __construct(){
+                session_start();
+           }
+
     public function index(){
         $user = session('wechat.oauth_user');
         $openid =$user->openid;
@@ -72,7 +76,8 @@ class StarController extends Controller
                 'requirement'=>$activity->claim,
                 'status'=>$task->status,
                 'task_id'=>$task->task_id,
-                'merchant_id'=>$merchant->merchant_id, );
+                'merchant_id'=>$merchant->merchant_id,
+                'order_id' =>$order->order_id);
         }
         return view('/star/star_order',["data"=>$data]);
     }
@@ -133,6 +138,27 @@ class StarController extends Controller
     }
 
 
+    public function order_detail(Request $request){
+         $order_id =$request->input('order_id');
+
+          $order = Order::where('order_id',$order_id)->first();
+             //each order  has one task
+            $task = Task::where('task_id',$order->task_id)->first();
+            //each task belong to one activity
+            $activity = Activity::where('activity_id',$task->activity_id)->first( );
+            //each activity belong to one  merchant
+            $merchant = Merchant::where('merchant_id',$activity->merchant_id)->first();
+            //each activity has many commodity
+            $relations = DB::table('activity_commodity_lists')->where('activity_id',$activity->activity_id)->get();
+            //commodity array initialize
+            $commodities = array();
+            foreach($relations as $relation){
+                $commodities[] =Commodity::where('commodity_id',$relation->commodity_id)->get(); 
+            }
+              $data =array('order'=>$order,'task'=>$task,'activity'=>$activity,'merchant'=>$merchant,'commodities'=>$commodities);
+              return view('star/order_detail',["order"=>$data]);
+
+    }
 
     /*跳转到获得界面*/
     public function activity() {

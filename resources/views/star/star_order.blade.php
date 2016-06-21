@@ -29,12 +29,13 @@
                                                 <div class="item-after">抢单中</div>
                                             </div>
                                         </li>
-                                        <li class="item-content">
+                                        <li class="item-content"><a href="/star/order_detail?order_id={{$order['order_id']}}" class="item-link item-content">
                                             <div class="item-media"><img src="{{$order['avatar']}}" style='width: 4rem;'></div>
                                             <div class="item-inner">
                                                 <div class="item-title">{{$order['title']}}</div>
                                                 <div class="item-after">{{$order['total_price']}}</div>
                                             </div>
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
