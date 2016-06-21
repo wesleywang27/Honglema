@@ -100,7 +100,7 @@ function submitForm(){
     }
     </script>
 @section('nav')
-    <form id="registerform" action="{{ URL::action('StarController@register') }}" method="post">
+    <form id="registerform" action="{{ URL::action('star\StarController@register') }}" method="post">
         <div id="register1">
     <div id="" class="create_profile">
         <div class="profile_cell">

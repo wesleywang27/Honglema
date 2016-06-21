@@ -30,7 +30,7 @@
         <strong>滴滴打网红后台系统</strong>
         <em>Management System</em>
     </dt>
-    <form action="/cms/login" method="post" name="loginForm">
+    <form action="/didi/login" method="post" name="loginForm">
         <dd class="user_icon">
             <input type="text" placeholder="请输入账号(花名全拼)" class="login_txtbx" name="name" required/>
         </dd>

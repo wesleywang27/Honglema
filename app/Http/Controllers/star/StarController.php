@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\star;
 use Illuminate\Http\Request;
 use App\Models\Star;
 use Illuminate\Support\Facades\Input;
@@ -12,8 +12,9 @@ use App\Models\Order;
 use App\Models\Merchant;
 use App\Models\Commodity;
 use App\Models\ProductPicture;
+use App\Http\Controllers\Controller;
 use DB;
-class StarController extends Controller
+class StarController extends RootController
 {
     /* $oauthUser->openid   = $original['openid'];
            $oauthUser->unionid  = $original['unionid'];
@@ -25,7 +26,7 @@ class StarController extends Controller
            $oauthUser->country  = $original['country'];*/
 
            public function __construct(){
-                session_start();
+              parent::__construct();
            }
 
     public function index(){
@@ -37,14 +38,20 @@ class StarController extends Controller
             $_SESSION['star_id']=$star->star_id;
             return view('star/star_info',["star"=>$star]);
         }else{
-            return view('star/visitor', ["user" => $user]);
+          //$user=array('nickname'=>$user->nickname,'sex'=>'M','province'=>'beijing','city'=>'beijing','avatar'=>"/images/nike.jpg",'wechat'=>'wechat');
+            $star = new Star();
+            $star->name = $user->nickname;
+            $star->openid = $user->openid;
+            $star->save();
+            $star = Star::where('openid',$openid)->first();
+            $_SESSION['star_id']=$star->star_id;
+            return view('star/create', ["user" => $user]);
         }
     }
 
 
     public function order(){
-            $star_id =  1;
-    //        $_SESSION['star_id']
+        $star_id = $_SESSION['star_id'];
         $star =  Star::where('star_id',$star_id)->first();
         $orders = Order::where('star_id',$star_id)->get();
          $data = array();
@@ -83,12 +90,9 @@ class StarController extends Controller
               return view('star/merchant_info',["merchant"=>$merchant]);
     }
 
-    public function create(){
-        return view('star/create', ["user" => $user]);
-    }
 
     public function info(Request $request){
-         $star_id =  $_SESSION['star_id'];
+        $star_id =  $_SESSION['star_id'];
         $star = Star::where('star_id',$star_id)->first();
         return view('star/star_info',["star"=>$star]);
     }
@@ -109,11 +113,10 @@ class StarController extends Controller
     }
 
     public function register(Request $request){
-        $user = session('wechat.oauth_user');
-        $openid =$user->openid;
+           $star_id =  $_SESSION['star_id'];
         $input =Input::all();
-        $star = new Star();
-        $star->openid =  $openid;
+       $star = Star::where('star_id',$star_id)->first();
+        $input =Input::all();
         $formKey = array_keys($input);
         foreach ($formKey as $value)
         {
@@ -123,18 +126,6 @@ class StarController extends Controller
             }
         }
         $star->save();
-       $star = Star::where('openid',$oepnid)->first();
-
-        for($x=0;$x<6,$x++){
-          if(isset($input['imgurl'+$x))
-             $url =$request->input('imgurl'+$x);
-             $starPicture = new StarPicture();
-             $starPicture->url = $url;
-             $starPicture->file_id = pathinfo($url)['filename'];
-             $starPicture->uid = $star_id;   
-             $starPicture->save();
-        }
-
         return view('star/star_info',["star"=>$star]);
     }
 

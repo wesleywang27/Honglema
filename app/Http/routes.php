@@ -266,73 +266,108 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
  * 
  */
 
-//Route::group(['domain' => 'cms.honglema.com'], function() {
-
-    Route::get('/didi',"DidiController@index");
-
-    Route::get('/didi/index',"DidiController@index");
-
+Route::group(['domain' => 'cms.honglema.com'], function() {
+    //登入登出
     Route::get('/didi/login',"DidiController@loginIndex");
 
     Route::post('/didi/login',"DidiController@login");
 
     Route::get('/didi/logout',"DidiController@logout");
 
-//});
+    //首页
+    Route::get('/didi',"DidiController@index");
+
+    Route::get('/didi/index',"DidiController@index");
+
+    //商家信息管理
+    Route::get('/didi/MerchantCreate',"MerchantController@merchantCreate");
+
+    Route::post('/didi/MerchantCreate',"MerchantController@merchantStore");
+
+    Route::get('/didi/MerchantDelete/{id?}',"MerchantController@merchantDelete");
+
+    Route::get('/didi/MerchantModify/{id?}',"MerchantController@merchantModify");
+
+    Route::post('/didi/MerchantModify/{id?}',"MerchantController@merchantUpdate");
+
+    Route::get('/didi/MerchantList',"MerchantController@merchantList");
+    
+    Route::get('/didi/MerchantInfo/{id?}',"MerchantController@merchantInfo");
+
+    //活动信息管理
+    Route::get('/didi/ActivityCreate/{merchant_id?}',"ActivityController@activityCreate");
+
+    Route::post('/didi/ActivityCreate/{merchant_id?}',"ActivityController@activityStore");
+
+    Route::get('/didi/ActivityDelete/{activity_id}',"ActivityController@activityDelete");
+
+    Route::get('/didi/ActivityList',"ActivityController@activityList");
+
+    Route::get('/didi/ActivityInfo/{activity_id?}',"ActivityController@activityInfo");
+
+    //商品信息管理
+    Route::get('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityCreate");
+
+    Route::post('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityStore");
+});
 
 
 
 
 
 //网红入口
-//Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
-    Route::get('/star/index',"StarController@index");
 
-    Route::get('/star/activity',"StarController@activity");
+// ,'middleware' => ['web', 'wechat.oauth']
+Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 'wechat.oauth']], function(){
+    Route::get('/index',"StarController@index");
 
-    Route::get('/star/order',"StarController@order");
+    Route::get('/activity',"StarController@activity");
 
-    Route::post('/star/cancelOrder',"StarController@cancelOrder");
+    Route::get('/order',"StarController@order");
 
-     Route::get('/star/task_result',"StarController@task_result");
+    Route::post('/cancelOrder',"StarController@cancelOrder");
+
+     Route::get('/task_result',"StarController@task_result");
 
      Route::post('star/submitTaskResult',"StarController@submitTaskResult");
 
-   Route::get('/star/order_detail',"StarController@order_detail");
+   Route::get('/order_detail',"StarController@order_detail");
 
-    Route::get('/star/merchant',"StarController@merchant_info");
+    Route::get('/merchant',"StarController@merchant_info");
 
-    Route::get('/star/process',"StarController@process");
+    Route::get('/process',"StarController@process");
 
-    Route::get('/star/comment',"StarController@comment");
+    Route::get('/comment',"StarController@comment");
 
-    Route::get('/star/contention',"StarController@contention");
+    Route::get('/contention',"StarController@contention");
 
-    Route::get('/star/show_process',"StarController@show_process");
+    Route::get('/show_process',"StarController@show_process");
 
-    Route::get('/star/show_comment',"StarController@show_comment");
+    Route::get('/show_comment',"StarController@show_comment");
 
-    Route::get('/star/show_contention',"StarController@show_contention");
+    Route::get('/show_contention',"StarController@show_contention");
 
-    Route::get('/star/all_order',"StarController@all_order");
+    Route::get('/all_order',"StarController@all_order");
 
-    Route::get('/star/info',"StarController@info");
+    Route::get('/info',"StarController@info");
 
-    Route::get('/star/create',"StarController@create");
+    Route::get('/create',"StarController@create");
 
-    Route::post('/star/register',"StarController@register");
+    Route::post('/register',"StarController@register");
 
-    Route::post('/star/update',"StarController@update");
+    Route::post('/update',"StarController@update");
 
-    Route::post('/star/uploadimg',"StarController@uploadimg");
+    Route::post('/uploadimg',"StarController@uploadimg");
 
-    Route::get('/star/activityList',"ActivityController@index");
+    Route::get('/activityList',"ActivityController@index");
 
-    Route::get('/star/activityDetail/{id?}',"ActivityController@detail");
+    Route::get('/activityDetail/{id?}',"ActivityController@detail");
 
-    Route::post('/star/setOrder',"ActivityController@setOrder");
+    Route::post('/setOrder',"ActivityController@setOrder");
 
-//});
+    Route::get('/visitor',"ActivityController@visitor");
+
+});
 
 
 /*

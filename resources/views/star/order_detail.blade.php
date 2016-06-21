@@ -1,5 +1,6 @@
 @extends('star.star_layouts')
 
+
 @section('title', "Task")
 
 @section('body')
@@ -17,7 +18,6 @@
         $commodity_pic = App\Models\CommodityPicture::where('commodity_id',$commodity_id)->first();
   ?>
 
-    <div class="content" style="top: 2.5rem;">
         <div class="content-block"  style="padding: 0px;margin:0">
        
           <div class="list-block" style="margin:0 auto;background-color:#FF4500;">
