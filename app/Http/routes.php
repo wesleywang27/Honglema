@@ -305,6 +305,8 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::get('/didi/ActivityChooseOrder/{activity_id?}',"ActivityController@activityChooseOrder");
 
+    Route::get('/didi/ActivityChooseStar/{task_id?}/{star_id}',"ActivityController@activityChooseStar");
+
     Route::get('/didi/ActivityList',"ActivityController@activityList");
 
     Route::get('/didi/ActivityInfo/{activity_id?}',"ActivityController@activityInfo");

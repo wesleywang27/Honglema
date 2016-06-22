@@ -105,7 +105,7 @@ class ActivityController extends Controller{
             return Redirect::intended('/didi/login');
         }
     }
-    //选择接单
+    //接单列表页
     public function activityChooseOrder($id){
         session_start();
         if(isset($_SESSION['name'])) {
@@ -113,7 +113,17 @@ class ActivityController extends Controller{
             $star_id = Order::where('task_id',$task->task_id)->where('status',1)->lists('star_id');
             $star = Star::wherein('star_id',$star_id)->paginate(10);
 
-            return view('/didi/activity_choose_order',['stars' => $star]);
+            return view('/didi/activity_choose_order',['task_id' => $task->task_id ,'stars' => $star]);
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
+    //选择网红
+    public function activityChooseStar($task_id ,$star_id){
+        session_start();
+        if(isset($_SESSION['name'])) {
+            
         }
         else{
             return Redirect::intended('/didi/login');
