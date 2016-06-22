@@ -25,7 +25,7 @@
                                 <li class="item-content">
                                     <div class="item-inner">
                                         <div class="item-title">{{$order['merchant_name']}}</div>
-                                        <div class="item-after">抢单中</div>
+                                        <div class="item-after" style="font-size:80%">抢单中</div>
                                     </div>
                                 </li>
                             </ul>
@@ -67,7 +67,7 @@
                                                     </div>
                                                 </li>
                                                 <li class="item-content" onclick="window.location.href='/star/order_detail?order_id={{$order['order_id']}}'">
-                                            <div class="item-media"><img src="{{$order['picture']}}" style='width: 4rem;'></div>
+                                            <div class="item-media"><img src="{{$order['picture']}}" style='width: 6rem;'></div>
                                                     <div class="item-inner">
                                                             <div class="item-title">{{$order['title']}}</div>
                                                 <div class="item-after">￥{{$order['total_price']}}</div>
@@ -108,7 +108,7 @@
                                                     </div>
                                                 </li>
                                                 <li class="item-content" onclick="window.location.href='/star/order_detail?order_id={{$order['order_id']}}'">
-                                            <div class="item-media"><img src="{{$order['picture']}}" style='width: 4rem;'></div>
+                                            <div class="item-media"><img src="{{$order['picture']}}" style='width: 6rem;'></div>
                                                     <div class="item-inner">
                                                            <div class="item-title">{{$order['title']}}</div>
                                                 <div class="item-after">￥{{$order['total_price']}}</div>
