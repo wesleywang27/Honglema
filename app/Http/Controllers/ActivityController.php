@@ -15,6 +15,7 @@ use App\Models\Order;
 use App\Models\PriceLevel;
 use App\Models\Star;
 use App\Models\Task;
+use App\Models\TaskPicture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
@@ -92,10 +93,11 @@ class ActivityController extends Controller{
                 return;
             }
             elseif ($activity->activity_status == 3){
-                
+                return Redirect::intended("/didi/ActivityEvaluate/$id");
             }
             elseif ($activity->activity_status == 4){
-                
+                echo "<script>history.go(-1); alert('该活动已结束，可以查看活动信息~');</script>";
+                return;
             }
             else{
                 return Redirect::intended("/didi/ActivityInfo/$id");
@@ -139,6 +141,34 @@ class ActivityController extends Controller{
         else{
             return Redirect::intended('/didi/login');
         }
+    }
+    //评价网红页
+    public function activityEvaluate($id){
+        session_start();
+        if(isset($_SESSION['name'])) {
+            $task = Task::where('activity_id',$id)->first();
+            $picture = TaskPicture::where('task_id',$task->task_id)->get();
+
+            return view('/didi/activity_evaluate',['task' => $task ,'pictures' => $picture]);
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
+    //评价网红
+    public function activityEvaluation($id ,Request $request){
+        $task = Task::where('task_id',$id)->first();
+
+        $task->evaluation = $request->input('evaluation');
+        $task->status = 4;
+
+        $activity = Activity::where('activity_id',$task->activity_id)->first();
+        $activity->activity_status = 4;
+
+        $task->save();
+        $activity->save();
+
+        return Redirect::intended('/didi/ActivityList');
     }
     //活动列表页
     public function activityList(){
