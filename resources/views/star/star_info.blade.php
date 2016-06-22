@@ -13,7 +13,7 @@
                 <li>
                     <a href="#info" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">{{$star['name']}}</div>
+                            <div class="item-title">{{$star['nickname']}}</div>
                             <div class="item-after">
                                 <img id="f_wx_headimg" src="{{$star['avatar']}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
                             </div>

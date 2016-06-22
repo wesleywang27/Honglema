@@ -23,4 +23,8 @@ class RootController extends Controller{
 
 		}
 	}
+
+	public function setSession(){
+		$_SESSION['star_id'] = 1;
+	}
 }
