@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>>红了吗网红端（试用版）</title>
+    <title>红了吗网红端（试用版）</title>
     <link rel="stylesheet" href="{{URL::asset('css/sm.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('/css/weui.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/sm-extend.min.css')}}">
