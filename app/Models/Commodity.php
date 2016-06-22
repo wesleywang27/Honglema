@@ -13,6 +13,8 @@ class Commodity extends Model{
     protected $table = 'commodities';
 
     public $timestamps = false;
+    
+    public $primaryKey = 'commodity_id';
 
     protected  $fillable = [
         'name',

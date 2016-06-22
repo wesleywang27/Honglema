@@ -13,6 +13,8 @@ class StarPayment extends Model{
     protected $table = 'star_payments';
 
     public $timestamps = false;
+    
+    public $primaryKey = 'sp_id';
 
     protected  $fillable = [
         'administrator_id',

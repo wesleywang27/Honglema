@@ -14,6 +14,8 @@ class Administrator extends Model{
 
     public $timestamps = false;
 
+    public $primaryKey = 'admin_id';
+
     protected  $fillable = [
         'name',
         'email',

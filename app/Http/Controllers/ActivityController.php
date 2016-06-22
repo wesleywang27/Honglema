@@ -123,7 +123,18 @@ class ActivityController extends Controller{
     public function activityChooseStar($task_id ,$star_id){
         session_start();
         if(isset($_SESSION['name'])) {
-            
+            $order = Order::where('task_id',$task_id)->where('star_id',$star_id)->first();
+            $order->status = 2;
+            $task = Task::where('task_id',$task_id)->first();
+            $task->status = 2;
+            $activity = Activity::where('activity_id',$task->activity_id)->first();
+            $activity->activity_status = 2;
+
+            $order->save();
+            $task->save();
+            $activity->save();
+
+            return Redirect::intended('/didi/ActivityList');
         }
         else{
             return Redirect::intended('/didi/login');

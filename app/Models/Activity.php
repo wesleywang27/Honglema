@@ -14,6 +14,8 @@ class Activity extends Model{
 
     public $timestamps = false;
 
+    public $primaryKey = 'activity_id';
+
     protected  $fillable = [
         'title',
         'claim',
