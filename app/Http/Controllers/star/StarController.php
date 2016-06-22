@@ -164,7 +164,7 @@ class StarController extends RootController
         $star->openid = $openid;
 
         $star->avatar=$user->avatar;
-        $star->nickname = $request->input('name');
+        $star->name = $request->input('name');
         $star->sex = $request->input('sex');
         $star->location = $request->input('location');
         $star->cup = $request->input('cup');
