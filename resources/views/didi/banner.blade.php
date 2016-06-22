@@ -52,7 +52,7 @@
 
 <!--aside nav-->
 <aside class="lt_aside_nav content mCustomScrollbar">
-    <h2><a href="#"><b>首页</b></a></h2>
+    <h2><a href="/didi/index"><b>首页</b></a></h2>
     <ul>
         <li>
             <dl>
