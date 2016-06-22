@@ -24,7 +24,7 @@
                                 <li class="item-content">
                                     <div class="item-inner">
                                         <div class="item-title">{{$order['merchant_name']}}</div>
-                                        <div class="item-after"><h6>抢单中</h6></div>
+                                        <div class="item-after">抢单中</div>
                                     </div>
                                 </li>
                             </ul>
