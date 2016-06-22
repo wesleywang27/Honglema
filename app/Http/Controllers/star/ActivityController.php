@@ -31,7 +31,7 @@ class ActivityController extends Controller{
       	}
 
 
-		$activityList = Activity::where('activity_status',1)->whereNotIn('activity_id',$activity_ids)->get();
+		$activityList = Activity::where('activity_status',1)->whereNotIn('activity_id',$activity_ids)->orderBy('created_at','desc')->get();
 
 		// echo "<pre>";
 		// var_dump($activityList);die;
