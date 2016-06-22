@@ -28,7 +28,7 @@
             @foreach ($stars as $star)
             <tr>
                 <td style="width:80px;text-align:center">{{ $star->star_id }}</td>
-                <td style="width:180px;text-align:center">{{ $star->nickname }}</td>
+                <td style="width:180px;text-align:center">{{ $star->name }}</td>
                 <td style="width:100px;text-align:center">
                     @if($star->sex == 0)
                     女
