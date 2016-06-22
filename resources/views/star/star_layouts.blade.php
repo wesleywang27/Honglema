@@ -344,7 +344,7 @@
     $.save_size = function(){
         $('#f_cloth').text($('#f_shirt').val()+'/'+$('#f_pants').val()+'/'+$('#f_shoe').val());
         $.ajax({
-            url: "star\StarController@update",
+            url: "/star/update",
             type: "POST",
             traditional: true,
             dataType: "JSON",
@@ -363,7 +363,7 @@
     $.save_address =function(v1,v2){
         $('#f_dizhi').text($('#'+v1).val() +$('#'+v2).val());
         $.ajax({
-            url: "star\StarController@update",
+            url: "/star/update",
             type: "POST",
             traditional: true,
             dataType: "JSON",
@@ -382,7 +382,7 @@
         var data = {};
         data[tag]=$('#'+va1).val();
         $.ajax({
-            url: "star\StarController@update",
+            url: "/star/update",
             type: "POST",
             traditional: true,
             dataType: "JSON",
@@ -453,7 +453,7 @@
 
 $.submmitTaskResult=function(id){
     $.ajax({
-        url: "star/submitTaskResult",
+        url: "/star/submitTaskResult",
         type: "POST",
         traditional: true,
         dataType: "JSON",
