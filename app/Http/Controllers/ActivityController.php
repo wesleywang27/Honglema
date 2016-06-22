@@ -96,7 +96,7 @@ class ActivityController extends Controller{
                 
             }
             else{
-                //return Redirect::intended("/didi/ActivityInfo/$id");
+                return Redirect::intended("/didi/ActivityInfo/$id");
             }
         }
         else{
