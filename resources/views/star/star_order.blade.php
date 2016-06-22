@@ -33,10 +33,10 @@
                         <div class="list-block media-list content-no-margin">
                             <ul>
                                 <li class="item-content" onclick="window.location.href='/star/order_detail?order_id={{$order['order_id']}}'">
-                                       <div class="item-media" style="margin-left:0.2rem; margin-right:0.2rem">
+                                       <div class="item-media" style="margin-left:-0.5rem; margin-right:0.2rem">
                                            <img src="{{$order['picture']}}" style='width: 6rem;'>
                                        </div>
-                                       <div class="item-inner"  style="background-color:#f0f0f0; margin: 0.2rem">
+                                       <div class="item-inner"  style="background-color:#f0f0f0; margin: 0.4rem">
                                            <div class="item-title" style="text-align:center;">{{$order['title']}}</div>
                                            <div class="item-subtitle" style="text-align:center;">￥{{$order['total_price']}}</div>
                                        </div>
