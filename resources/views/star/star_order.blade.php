@@ -24,12 +24,12 @@
                                 <li class="item-content">
                                     <div class="item-inner">
                                         <div class="item-title">{{$order['merchant_name']}}</div>
-                                        <div class="item-after">抢单中</div>
+                                        <div class="item-after"><h4>抢单中</h4></div>
                                     </div>
                                 </li>
                             </ul>
                         </div>
-                        <div class="list-block content-no-margin">
+                        <div class="list-block media-list content-no-margin">
                             <ul>
                                 <li>
                                     <a href="/star/order_detail?order_id={{$order['order_id']}}" class="item-content">
