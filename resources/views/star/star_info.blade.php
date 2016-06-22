@@ -1047,6 +1047,9 @@
                                         <li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('{{$picture->url}}')">
                                         @endforeach
                                 </ul>
+                                <div class="weui_uploader_input_wrp" style="width: 80px;height: 80px;float: left;">
+                                    <input class="weui_uploader_input" id="uploadalbum" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -48,7 +48,6 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
-  <component name="ProjectRootManager" version="2" assert-keyword="false" jdk-15="false" />
   <component name="masterDetails">
     <states>
       <state key="ProjectJDKs.UI">
