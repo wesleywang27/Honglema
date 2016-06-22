@@ -444,7 +444,7 @@
             },success: function(data) {
                 $.toast("注册成功!",1000);
                 setTimeout(function(){
-                    location.href="/star/info";
+                    window.location.href="/star/info";
                 },1000);
             },headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
