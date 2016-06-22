@@ -18,7 +18,7 @@
 <header class="bar bar-nav">
   	<h1 class='title'>活动广场</h1>
 </header>
-<div class="content" style="top: 0rem;">
+<div class="content" style="top: 2rem;">
     <div class="tabs">
       <div id="tab3" >
       <?php
@@ -32,7 +32,7 @@
       ?>
         <div class="content-block content-block-my content-no-margin">
          	<div class="content-block content-block-my">
-		   		<div class="list-block content-no-margin" style="margin-top: 0.2rem;">
+		   		<div class="list-block content-no-margin" style="margin-top: -1.3rem;">
 				  	<ul>
 					   	<li>
 					        <div class="item-content">
