@@ -14,6 +14,8 @@ class PriceLevel extends Model{
 
     public $timestamps = false;
 
+    public $primaryKey = 'pl_id';
+
     protected  $fillable = [
         'level',
         'price'

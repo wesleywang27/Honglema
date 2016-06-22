@@ -56,7 +56,7 @@
                 var i = 0;
                 $htmls += '<li><img src="'+urls[i]+'" style="width: 80px; height: 80px;"/><input type="hidden" id="itemImage" name="itemImage[]" value="'+urls[i]+'"/></li>';
                 $('#files').append($htmls);
-                $('#fileupload').hide();
+                $('#uploadImg').hide();
             }
         });
     });
