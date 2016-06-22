@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/didi/activity_modify.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/didi/activity_create.blade.php" afterPath="$PROJECT_DIR$/resources/views/didi/activity_create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/didi/activity_list.blade.php" afterPath="$PROJECT_DIR$/resources/views/didi/activity_list.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,11 +30,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ActivityController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="278">
+              <caret line="303" column="86" selection-start-line="303" selection-start-column="86" selection-end-line="303" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActivityController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActivityController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="798">
-              <caret line="47" column="42" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
+            <state relative-caret-position="190">
+              <caret line="81" column="72" selection-start-line="81" selection-start-column="72" selection-end-line="81" selection-end-column="72" />
               <folding>
                 <element signature="e#123#147#0#PHP" expanded="true" />
               </folding>
@@ -39,26 +52,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_create.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_create.blade.php">
+      <file leaf-file-name="activity_list.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_list.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="673">
-              <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
-              <folding>
-                <marker date="1466568919873" expanded="true" signature="2408:2434" ph="..." />
-              </folding>
+            <state relative-caret-position="361">
+              <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stall.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/stall.blade.php">
+      <file leaf-file-name="activity_modify.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_modify.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4066">
-              <caret line="214" column="24" selection-start-line="214" selection-start-column="24" selection-end-line="214" selection-end-column="24" />
-              <folding>
-                <marker date="1466136839083" expanded="true" signature="12693:12727" ph="..." />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -76,7 +85,7 @@
     <option name="FORCE_PUSH_ALLOWED" value="true" />
     <push-targets>
       <push-target-info repo="$PROJECT_DIR$" source="master" target-remote="origin" target-branch="master" />
-      <push-target-info repo="$PROJECT_DIR$" source="shangjia" target-remote="origin" target-branch="shangjia" />
+      <push-target-info repo="$PROJECT_DIR$" source="shangjia" target-remote="github" target-branch="shangjia" />
     </push-targets>
   </component>
   <component name="GradleLocalSettings">
@@ -128,16 +137,16 @@
         <option value="$PROJECT_DIR$/app/Models/Commodity.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/banner.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CommodityController.php" />
-        <option value="$PROJECT_DIR$/resources/views/didi/activity_list.blade.php" />
         <option value="$PROJECT_DIR$/composer.lock" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MerchantController.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/merchant_create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/commodity_create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/activity_info.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CMSController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/activity_create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/didi/activity_list.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" />
       </list>
     </option>
   </component>
@@ -983,14 +992,7 @@
       <workItem from="1466564706819" duration="76000" />
       <workItem from="1466564994755" duration="2325000" />
       <workItem from="1466567577880" duration="657000" />
-      <workItem from="1466568274862" duration="656000" />
-    </task>
-    <task id="LOCAL-00181" summary="修改">
-      <created>1465793759395</created>
-      <option name="number" value="00181" />
-      <option name="presentableId" value="LOCAL-00181" />
-      <option name="project" value="LOCAL" />
-      <updated>1465793759395</updated>
+      <workItem from="1466568274862" duration="1072000" />
     </task>
     <task id="LOCAL-00182" summary="修改">
       <created>1465797072864</created>
@@ -1328,11 +1330,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466566616521</updated>
     </task>
-    <option name="localTasksCounter" value="230" />
+    <task id="LOCAL-00230" summary="滴滴打网红后台 上传后隐藏">
+      <created>1466568946293</created>
+      <option name="number" value="00230" />
+      <option name="presentableId" value="LOCAL-00230" />
+      <option name="project" value="LOCAL" />
+      <updated>1466568946293</updated>
+    </task>
+    <option name="localTasksCounter" value="231" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="593851000" />
+    <option name="totallyTimeSpent" value="594267000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1388,7 +1397,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="添加star_payments" />
     <MESSAGE value="添加administrator" />
     <MESSAGE value="修改武仙" />
     <MESSAGE value="修改" />
@@ -1413,7 +1421,8 @@
     <MESSAGE value="修改lock" />
     <MESSAGE value="滴滴打网红后台 创建商家 创建活动 创建任务 添加商品" />
     <MESSAGE value="滴滴打网红后台 修改商品信息展示页" />
-    <option name="LAST_COMMIT_MESSAGE" value="滴滴打网红后台 修改商品信息展示页" />
+    <MESSAGE value="滴滴打网红后台 上传后隐藏" />
+    <option name="LAST_COMMIT_MESSAGE" value="滴滴打网红后台 上传后隐藏" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1426,13 +1435,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Models/Activity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/ActivityCommodityList.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -1708,14 +1710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="69" selection-start-line="26" selection-start-column="69" selection-end-line="26" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_info.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
@@ -1730,28 +1724,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4921">
-          <caret line="275" column="0" selection-start-line="275" selection-start-column="0" selection-end-line="275" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CMSController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
           <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActivityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="47" column="42" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
-          <folding>
-            <element signature="e#123#147#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1781,6 +1757,40 @@
           <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
           <folding>
             <marker date="1466568919873" expanded="true" signature="2408:2434" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="303" column="86" selection-start-line="303" selection-start-column="86" selection-end-line="303" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_modify.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActivityController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="81" column="72" selection-start-line="81" selection-start-column="72" selection-end-line="81" selection-end-column="72" />
+          <folding>
+            <element signature="e#123#147#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

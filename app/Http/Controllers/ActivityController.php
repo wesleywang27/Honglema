@@ -73,6 +73,19 @@ class ActivityController extends Controller{
             return Redirect::intended('/didi/login');
         }
     }
+    //活动信息处理页
+    public function activityModify($id){
+        session_start();
+        if(isset($_SESSION['name'])) {
+            $activity = Activity::where('activity_id',$id)->first();
+
+            return view('/didi/activity_modify',['activity' => $activity]);
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
+
     //活动列表页
     public function activityList(){
         session_start();
