@@ -1025,6 +1025,39 @@
 @include('partial/jquery_mobile_page', ["page_id" => "alipay"])
 
 
+@section('page-main')
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-left back" href="#main" >
+            <span class="icon icon-left"></span>
+            返回
+        </a>
+        <h1 class="title">相册</h1>
+    </header>
+    <div class="content" style="top: 1.2rem;">
+        <div class="list-block">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="weui_uploader" style="margin-top: .5rem;margin-right: 1.5rem;">
+                            <div class="weui_uploader_hd weui_cell">
+                            </div>
+                            <div class="weui_uploader_bd">
+                                <ul class="weui_uploader_files" id="imgfiles" style="padding-left: 0;float: left;">
+                                    @foreach($pictures as $picture)
+                                        <li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('{{$picture->url}}')">
+                                        @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+@overwrite
+@include('partial/jquery_mobile_page', ["page_id" => "album"])
+
+
 
 @endsection
 

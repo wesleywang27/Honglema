@@ -14,6 +14,8 @@ class Order extends Model{
 
     public $timestamps = false;
 
+    protected  $primaryKey = 'order_id';
+
     protected  $fillable = [
         'star_id',
         'task_id',

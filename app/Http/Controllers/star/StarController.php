@@ -127,7 +127,9 @@ class StarController extends RootController
     {
         $star_id = $_SESSION['star_id'];
         $star = Star::where('star_id', $star_id)->first();
-        return view('star/star_info', ["star" => $star]);
+        $starPictures= StarPicture::where('uid',$star->star_id)->get();
+        return view('star/star_info', ["star" => $star, "pictures"=>$starPictures]);
+
     }
 
     public function update()
@@ -237,21 +239,23 @@ class StarController extends RootController
         }
         $data = array('order' => $order,
             'task' => $task,
+            'order_status'=>$order->status,
+            'task_status'=>$task->status,
             'activity' => $activity,
             'merchant' => $merchant,
             'commodities' => $commodities,
         );
-        return view('star/order_detail', ["order" => $data]);
+        return view('star/order_detail', ["data" => $data]);
 
     }
 
     public function cancelOrder(Request $request)
     {
         $order_id = $request->input('order_id');
-        $status = $request->input('status');
         $order = Order::where('order_id', $order_id)->first();
-        $order->status = $status;
+        $order->status='0';
         $order->save();
+
     }
 
     public function  task_result(Request $request)
