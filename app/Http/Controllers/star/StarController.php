@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\star;
 
+use App\Models\OAuthUser;
 use Illuminate\Http\Request;
 use App\Models\Star;
 use Illuminate\Support\Facades\Input;
@@ -34,8 +35,16 @@ class StarController extends RootController
 
     public function index()
     {
-        //$user = session('wechat.oauth_user');
-        $user = array('nickname'=>'小喳喳','sex'=>'男','province'=>'云南','city'=>'普洱','openid'=>'0001','avatar'=>'http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg');
+        $user = session('wechat.oauth_user');
+       /* $user =new OAuthUser();
+        $user->nickname='小喳喳';
+        $user->sex=1;
+        $user->province='云南';
+        $user->city='普洱';
+        $user->openid='0001';
+        $user->avatar='http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg';
+*/
+
         $openid = $user->openid;
         $star = Star::where('openid', $openid)->first();
         if ($star) {
@@ -92,10 +101,16 @@ class StarController extends RootController
 
     public function create()
     {
-        //$user = session('wechat.oauth_user');
-        $user = array('nickname'=>'小喳喳','sex'=>'男','province'=>'云南','city'=>'普洱','openid'=>'0001','avatar'=>'http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg');
-        $openid = $user->openid;
-        $star = Star::where('openid', $openid)->first();
+        $user = session('wechat.oauth_user');
+        /*$user =new OAuthUser();
+        $user->nickname='小喳喳';
+        $user->sex=1;
+        $user->province='云南';
+        $user->city='普洱';
+        $user->openid='0001';
+        $user->avatar='http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg';
+        */
+        $star = Star::where('openid', $user->openid)->first();
         if ($star) {
             $_SESSION['star_id'] = $star->star_id;
             return view('star/star_info', ["star" => $star]);
@@ -108,6 +123,7 @@ class StarController extends RootController
     {
         $star_id = $_SESSION['star_id'];
         $star = Star::where('star_id', $star_id)->first();
+        dd($star);
         return view('star/star_info', ["star" => $star]);
     }
 
@@ -127,14 +143,24 @@ class StarController extends RootController
 
     public function register(Request $request)
     {
-        //$user = session('wechat.oauth_user');
-        $user = array('nickname'=>'小喳喳','sex'=>'男','province'=>'云南','city'=>'普洱','openid'=>'0001','avatar'=>'http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg');
+
+      /*  $user =new OAuthUser();
+        $user->nickname='小喳喳';
+        $user->sex=1;
+        $user->province='云南';
+        $user->city='普洱';
+        $user->openid='0001';
+        $user->avatar='http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg';
+        */
+
+        $user = session('wechat.oauth_user');
         $openid = $user->openid;
         $input = Input::all();
         $star = new Star();
         $star->openid = $openid;
-        $formKey = array_keys($input);
-        $star->name = $request->input('name');
+
+        $star->avatar=$user->avatar;
+        $star->nickname = $request->input('name');
         $star->sex = $request->input('sex');
         $star->location = $request->input('location');
         $star->cup = $request->input('cup');
@@ -142,9 +168,26 @@ class StarController extends RootController
         $star->height = $request->input('height');
         $star->age = $request->input('age');
 
+        $star->occupation = $request->input('occupation');
+        $star->education = $request->input('education');
+        $star->experience = $request->input('experience');
+        $star->real_name = $request->input('real_name');
+        $star->ID_number = $request->input('ID_number');
+        $star->shirt_size = $request->input('shirt_size');
+        $star->pants_size = $request->input('pants_size');
+        $star->shoes_size = $request->input('shoes_size');
+
+        $star->cellphone = $request->input('cellphone');
+        $star->address = $request->input('address');
+        $star->weibo_id = $request->input('weibo_id');
+        $star->weipai_id = $request->input('weipai_id');
+        $star->miaopai_id = $request->input('miaopai_id');
+        $star->weipai_id = $request->input('weipai_id');
+        $star->meipai_id = $request->input('meipai_id');
+        $star->kuaishou_id = $request->input('kuaishou_id');
         $star->save();
         $star = Star::where('openid', $openid)->first();
-
+        $_SESSION['star_id'] = $star->star_id;
         for ($x = 0; $x < 6; $x++) {
             if (isset($input['imgurl' . $x])) {
                 $url = $request->input('imgurl' . $x);
