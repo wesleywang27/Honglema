@@ -35,7 +35,7 @@
                                 <li>
                                     <a href="/star/order_detail?order_id={{$order['order_id']}}" class="item-content">
                                        <div class="item-media">
-                                           <img src="{{$order['picture']}}" style='width: 4rem;'>
+                                           <img src="{{$order['picture']}}" style='width: 6rem;'>
                                        </div>
                                        <div class="item-inner">
                                            <div class="item-title">{{$order['title']}}</div>
