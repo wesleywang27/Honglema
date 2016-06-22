@@ -206,7 +206,6 @@ class StarController extends RootController
                 $starPicture->save();
             }
         }
-
         return view('star/star_info', ["star" => $star]);
     }
 

@@ -418,26 +418,43 @@
     });
 
 $.submmitTaskResult=function(id){
-    $.post('star/submitTaskResult',{
-        order_id:id,
-        img1:$('#task1').val(),
-         img2:$('#task2').val(),
-          img3:$('#task3').val(),
-           img4:$('#task4').val(),
-    },function(){
-             $.toast("取消成功!",1000);
-               setTimeout(function(){
-                    location.href="/star/order";
-                },1000);});
+    $.ajax({
+        url: "star/submitTaskResult",
+        type: "POST",
+        traditional: true,
+        dataType: "JSON",
+        data: {  order_id:id,
+            img1:$('#task1').val(),
+            img2:$('#task2').val(),
+            img3:$('#task3').val(),
+            img4:$('#task4').val(),}
+        ,success: function(data) {
+            $.toast("提交成功!",1000);
+            setTimeout(function(){
+                location.href="/star/order";
+            },1000);
+        },headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 }
 
 $.cancelOrder=function(id){
-    $.post('/star/cancelOrder',{order_id:id},function(){
+    $.ajax({
+        url: "/star/cancelOrder",
+        type: "POST",
+        traditional: true,
+        dataType: "JSON",
+        data: {order_id:id}
+        ,success: function(data) {
             $.toast("取消成功!",1000);
-               setTimeout(function(){
-                    location.href="/star/order";
-                },1000);
-    })
+            setTimeout(function(){
+                location.href="/star/order";
+            },1000);
+        },headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 }
 </script>
 
