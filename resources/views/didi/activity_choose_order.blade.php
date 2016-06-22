@@ -29,7 +29,13 @@
             <tr>
                 <td style="width:80px;text-align:center">{{ $star->star_id }}</td>
                 <td style="width:180px;text-align:center">{{ $star->nickname }}</td>
-                <td style="width:100px;text-align:center">{{ $star->sex }}</td>
+                <td style="width:100px;text-align:center">
+                    @if($star->sex == 0)
+                    女
+                    @else
+                    男
+                    @endif
+                </td>
                 <td style="width:180px;text-align:center">{{ $star->location }}</td>
                 <td style="width:100px;text-align:center">{{ $star->age }}</td>
                 <td style="width:180px;text-align:center">{{ $star->occupation }}</td>

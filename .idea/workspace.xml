@@ -4,6 +4,7 @@
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/didi/activity_choose_order.blade.php" afterPath="$PROJECT_DIR$/resources/views/didi/activity_choose_order.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/didi/activity_list.blade.php" afterPath="$PROJECT_DIR$/resources/views/didi/activity_list.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,11 +53,12 @@
       <file leaf-file-name="activity_choose_order.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_choose_order.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+            <state relative-caret-position="236">
+              <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
               <folding>
                 <element signature="n#style#0;n#td#2;n#tr#1;n#table#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#3;n#tr#1;n#table#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#4;n#tr#1;n#table#0;n#div#0;n#section#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -75,7 +77,7 @@
     <option name="FORCE_PUSH_ALLOWED" value="true" />
     <push-targets>
       <push-target-info repo="$PROJECT_DIR$" source="master" target-remote="origin" target-branch="master" />
-      <push-target-info repo="$PROJECT_DIR$" source="shangjia" target-remote="origin" target-branch="shangjia" />
+      <push-target-info repo="$PROJECT_DIR$" source="shangjia" target-remote="github" target-branch="shangjia" />
     </push-targets>
   </component>
   <component name="GradleLocalSettings">
@@ -122,7 +124,6 @@
         <option value="$PROJECT_DIR$/resources/views/didi/commodity_create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CommodityController.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/activity_info.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/didi/activity_list.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" />
         <option value="$PROJECT_DIR$/composer.lock" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MerchantController.php" />
@@ -137,6 +138,7 @@
         <option value="$PROJECT_DIR$/resources/views/star/star_info.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/activity_create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/activity_choose_order.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/didi/activity_list.blade.php" />
       </list>
     </option>
   </component>
@@ -597,14 +599,7 @@
       <workItem from="1466500384204" duration="2883000" />
       <workItem from="1466504170170" duration="667000" />
       <workItem from="1466579922091" duration="117000" />
-      <workItem from="1466580391935" duration="653000" />
-    </task>
-    <task id="LOCAL-00182" summary="修改">
-      <created>1465797072864</created>
-      <option name="number" value="00182" />
-      <option name="presentableId" value="LOCAL-00182" />
-      <option name="project" value="LOCAL" />
-      <updated>1465797072864</updated>
+      <workItem from="1466580391935" duration="843000" />
     </task>
     <task id="LOCAL-00183" summary="修改">
       <created>1465802977979</created>
@@ -942,11 +937,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466580411838</updated>
     </task>
-    <option name="localTasksCounter" value="231" />
+    <task id="LOCAL-00231" summary="滴滴打网红后台 活动选择接单列表页">
+      <created>1466581070023</created>
+      <option name="number" value="00231" />
+      <option name="presentableId" value="LOCAL-00231" />
+      <option name="project" value="LOCAL" />
+      <updated>1466581070023</updated>
+    </task>
+    <option name="localTasksCounter" value="232" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="590016000" />
+    <option name="totallyTimeSpent" value="590206000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1002,7 +1004,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="添加star_payments" />
     <MESSAGE value="添加administrator" />
     <MESSAGE value="修改武仙" />
     <MESSAGE value="添加滴滴打网红后台 route index banner" />
@@ -1027,7 +1028,8 @@
     <MESSAGE value="滴滴打网红后台 创建商家 创建活动 创建任务 添加商品" />
     <MESSAGE value="滴滴打网红后台 活动上传图片后隐藏" />
     <MESSAGE value="修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改" />
+    <MESSAGE value="滴滴打网红后台 活动选择接单列表页" />
+    <option name="LAST_COMMIT_MESSAGE" value="滴滴打网红后台 活动选择接单列表页" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1400,14 +1402,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="26" column="53" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/didi/merchant_list.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -1416,6 +1410,14 @@
             <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1429,11 +1431,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_choose_order.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+        <state relative-caret-position="236">
+          <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
           <folding>
             <element signature="n#style#0;n#td#2;n#tr#1;n#table#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#3;n#tr#1;n#table#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#1;n#table#0;n#div#0;n#section#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
