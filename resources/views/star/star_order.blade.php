@@ -32,8 +32,7 @@
                         </div>
                         <div class="list-block media-list content-no-margin">
                             <ul>
-                                <li>
-                                    <a href="/star/order_detail?order_id={{$order['order_id']}}" class="item-content">
+                                <li class="item-content" onclick="window.location.href='/star/order_detail?order_id={{$order['order_id']}}'">
                                        <div class="item-media">
                                            <img src="{{$order['picture']}}" style='width: 6rem;'>
                                        </div>
@@ -41,7 +40,6 @@
                                            <div class="item-title">{{$order['title']}}</div>
                                            <div class="item-after">￥ {{$order['total_price']}}</div>
                                        </div>
-                                    </a>        
                                 </li>
                             </ul>
                         </div>
