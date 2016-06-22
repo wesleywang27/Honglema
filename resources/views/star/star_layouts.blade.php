@@ -154,13 +154,38 @@
         });
     });
 
+    //上传多图
+    $('#uploadalbum').change(function(){
+        $.showPreloader('正在上传...');
+        $j.ajaxFileUpload({
+            url:"/picture",//需要链接到服务器地址
+            secureuri:false,
+            fileElementId:"uploadalbum",//文件选择框的id属性
+            dataType: 'json',   //json
+            success: function (data, status) {
+                var urls = data.urls;
+                for(var i=0; i<urls.length; i++){
+                    $.post('/star/uploadimg',{url:urls[i]},function(){
+                        $.toast("上传成功!",1000);
+                    })
+                }
+                $('#imgfiles').append($htmls);
+                $.hidePreloader();
+                $.toast("添加成功", 1000);
+            },error:function(data, status, e){
+                $.hidePreloader();
+                $.toast("添加失败", 1000);
+            }
+        });
+    });
+
 //upload task picture
  $('#taskimgupload').change(function(){
         $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
             url:"/picture",//需要链接到服务器地址
             secureuri:false,
-            fileElementId:"imgupload",//文件选择框的id属性
+            fileElementId:"taskimgupload",//文件选择框的id属性
             dataType: 'json',   //json
             success: function (data, status) {
                 var urls = data.urls;

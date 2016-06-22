@@ -329,7 +329,7 @@ Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 
 
      Route::get('/task_result',"StarController@task_result");
 
-     Route::post('star/submitTaskResult',"StarController@submitTaskResult");
+     Route::post('/submitTaskResult',"StarController@submitTaskResult");
 
    Route::get('/order_detail',"StarController@order_detail");
 
