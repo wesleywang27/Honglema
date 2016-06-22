@@ -25,6 +25,11 @@
                 <label>直播时长：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                 <input class="textbox textbox_225" type="text"  value="{{ $task->duration}}" readonly>
             </div>
+            <ul class="gallery">
+                @foreach ($pictures as $picture)
+                <li><a href="{{ $picture->url }}"><img src="{{ $picture->url }}" style="width: 80px; height: 80px;"/></a><label><input name="img[]" type="checkbox" value="{{ $picture->url }}" style="margin-top:5px;"/></label></li>
+                @endforeach
+            </ul>
         </div>
         <form action="{{URL::action('ActivityController@activityEvaluation', ['id' => $task->task_id]) }}" method="post" style="margin-left: 30%">
             <div style="margin-top: 20px;">

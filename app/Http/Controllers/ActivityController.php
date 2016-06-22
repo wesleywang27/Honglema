@@ -96,7 +96,8 @@ class ActivityController extends Controller{
                 return Redirect::intended("/didi/ActivityEvaluate/$id");
             }
             elseif ($activity->activity_status == 4){
-                
+                echo "<script>history.go(-1); alert('该活动已结束，可以查看活动信息~');</script>";
+                return;
             }
             else{
                 return Redirect::intended("/didi/ActivityInfo/$id");
@@ -148,7 +149,7 @@ class ActivityController extends Controller{
             $task = Task::where('activity_id',$id)->first();
             $picture = TaskPicture::where('task_id',$task->task_id)->get();
 
-            return view('/didi/activity_evaluate',['task' => $task ,'picture' => $picture]);
+            return view('/didi/activity_evaluate',['task' => $task ,'pictures' => $picture]);
         }
         else{
             return Redirect::intended('/didi/login');
