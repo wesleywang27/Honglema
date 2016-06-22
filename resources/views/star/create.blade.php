@@ -32,7 +32,7 @@
                     <a href="#" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">性别</div>
-                            <div id="f_sex" class="item-after">{{$user['sex'] === Config::get("constants.SEX.MALE") ? '男':'女'}}</div>
+                            <div id="f_sex" class="item-after">{{$user['sex'] == 1 ? '男':'女'}}</div>
                         </div>
                     </a>
                 </li>
@@ -175,7 +175,7 @@
             <ul>
                 <li>
                     <label class="label-checkbox item-content">
-                        <input type="radio" name="sex-radio" value="M" >
+                        <input type="radio" name="sex-radio" value="1" >
                         <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
                         <div class="item-inner">
                             <div class="item-title-row">
@@ -186,7 +186,7 @@
                 </li>
                 <li>
                     <label class="label-checkbox item-content">
-                        <input type="radio" name="sex-radio" value="F">
+                        <input type="radio" name="sex-radio" value="0">
                         <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
                         <div class="item-inner">
                             <div class="item-title-row">

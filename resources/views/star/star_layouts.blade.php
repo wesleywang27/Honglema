@@ -186,12 +186,46 @@
                         }
                     });
                     $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
-                    <input type="hidden" id="task"+i value="'+urls[i]+'"></li>';
+                    <input type="hidden"   value="'+urls[i]+'"></li>';
 
                 }
-                $('#album').append($htmls);
+                $('#starPic').append($htmls);
                 $.hidePreloader();
                 $.toast("添加成功", 1000);
+            },error:function(data, status, e){
+                $.hidePreloader();
+                $.toast("添加失败", 1000);
+            }
+        });
+    });
+
+    //上传头像
+    $('#headPicinput').onclick(function(){
+        $.showPreloader('正在上传...');
+        $j.ajaxFileUpload({
+            url:"/picture",//需要链接到服务器地址
+            secureuri:false,
+            fileElementId:"headPicinput",//文件选择框的id属性
+            dataType: 'json',   //json
+            success: function (data, status) {
+                var urls = data.urls;
+                for(var i=0; i<urls.length; i++){
+                    $.ajax({
+                        url: "/star/uploadAvatar",
+                        type: "POST",
+                        traditional: true,
+                        dataType: "JSON",
+                        data: {url:urls[i]}
+                        ,success: function(data) {
+                            $.toast("提交成功!",1000);
+                        },headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                }
+                $.hidePreloader();
+                $.toast("添加成功", 1000);
+                location.href="/star/info"
             },error:function(data, status, e){
                 $.hidePreloader();
                 $.toast("添加失败", 1000);
