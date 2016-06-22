@@ -360,8 +360,6 @@
         });
     }
 
-    //编辑单项
-
     $.save_address =function(v1,v2){
         $('#f_dizhi').text($('#'+v1).val() +$('#'+v2).val());
         $.ajax({
@@ -375,8 +373,10 @@
             },headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
-        });
+        }
+        );
     }
+
     $.save_edit = function(va1,tag){
         $('#f_'+va1).text($('#'+va1).val());
         var data = {};
@@ -386,16 +386,9 @@
             type: "POST",
             traditional: true,
             dataType: "JSON",
-            data: {  task_ids:id,
-                img1:$('#task1').val(),
-                img2:$('#task2').val(),
-                img3:$('#task3').val(),
-                img4:$('#task4').val(),}
+            data:  data
             ,success: function(data) {
                 $.toast("修改成功!",1000);
-                setTimeout(function(){
-                    location.href="/star/order";
-                },1000);
             },headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
