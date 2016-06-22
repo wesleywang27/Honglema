@@ -44,6 +44,7 @@ class StarController extends RootController
         $user->openid='0001';
         $user->avatar='http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg';
 */
+
         $user = session('wechat.oauth_user');
         $openid = $user->openid;
         $star = Star::where('openid', $openid)->first();
@@ -80,6 +81,7 @@ class StarController extends RootController
 
             $data[] = array('title' => $activity->title,
                 'merchant_name' => $merchant->name,
+                'picture'=>$activity->picture,
                 'avatar' => $merchant->avatar,
                 'total_price' => $activity->total_price,
                 'requirement' => $activity->claim,
@@ -110,7 +112,7 @@ class StarController extends RootController
         $user->openid='0001';
         $user->avatar='http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg';
         */
-        
+
         $user = session('wechat.oauth_user');
         $star = Star::where('openid', $user->openid)->first();
         if ($star) {
@@ -146,14 +148,14 @@ class StarController extends RootController
     public function register(Request $request)
     {
 
-      /*  $user =new OAuthUser();
-        $user->nickname='小喳喳';
-        $user->sex=1;
-        $user->province='云南';
-        $user->city='普洱';
-        $user->openid='0001';
-        $user->avatar='http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg';
-        */
+//        $user =new OAuthUser();
+//        $user->nickname='小喳喳';
+//        $user->sex=1;
+//        $user->province='云南';
+//        $user->city='普洱';
+//        $user->openid='0001';
+//        $user->avatar='http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg';
+
 
         $user = session('wechat.oauth_user');
         $openid = $user->openid;
@@ -188,6 +190,7 @@ class StarController extends RootController
         $star->meipai_id = $request->input('meipai_id');
         $star->kuaishou_id = $request->input('kuaishou_id');
         $star->save();
+
         $star = Star::where('openid', $openid)->first();
         $_SESSION['star_id'] = $star->star_id;
         for ($x = 0; $x < 6; $x++) {

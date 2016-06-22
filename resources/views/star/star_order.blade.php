@@ -29,8 +29,8 @@
                                                 <div class="item-after">抢单中</div>
                                             </div>
                                         </li>
-                                        <li class="item-content"><a href="/star/order_detail?order_id={{$order['order_id']}}" class="item-link item-content">
-                                            <div class="item-media"><img src="{{$order['avatar']}}" style='width: 4rem;'></div></a>
+                                        <li onclick="window.location.href='/star/order_detail?order_id={{$order['order_id']}}'" class="item-content"><a href="" class="item-link item-content">
+                                            <div class="item-media"><img src="{{$order['picture']}}" style='width: 4rem;'></div></a>
                                             <div class="item-inner">
                                                 <div class="item-title">{{$order['title']}}</div>
                                                 <div class="item-after">${{$order['total_price']}}</div>
@@ -57,11 +57,11 @@
                                                     <div class="item-media"><i class="icon icon-f7"></i></div>
                                                     <div class="item-inner">
                                                         <div class="item-title">{{$order['merchant_name']}}</div>
-                                                        <div class="item-after">{{$order['status']==2?"进行中":"已上传图片"}}</div>
+                                                        <div class="item-after">{{$order['order_status']==2?"进行中":"已上传图片"}}</div>
                                                     </div>
                                                 </li>
                                                 <li class="item-content"><a href="/star/order_detail?order_id={{$order['order_id']}}" class="item-link item-content">
-                                            <div class="item-media"><img src="{{$order['avatar']}}" style='width: 4rem;'></div></a>
+                                            <div class="item-media"><img src="{{$order['picture']}}" style='width: 4rem;'></div></a>
                                                     <div class="item-inner">
                                                             <div class="item-title">{{$order['title']}}</div>
                                                 <div class="item-after">{{$order['total_price']}}</div>
@@ -89,17 +89,16 @@
                                                     <div class="item-media"><i class="icon icon-f7"></i></div>
                                                     <div class="item-inner">
                                                         <div class="item-title">{{$order['merchant_name']}}</div>
-                                                        <div class="item-after">@if($order['status']=="4")
+                                                        <div class="item-after">@if($order['task_status']=="4")
                                                                                 商家已评论@endif
-                                                                            @if($order['status']=="5")
+                                                                            @if($order['task_status']=="5")
                                                                                 商家已付款@endif
-                                                                            @if($order['status']=='0')
-                                                                                申请未通过@endif
+
                                                         </div>
                                                     </div>
                                                 </li>
                                                 <li class="item-content"><a href="/star/order_detail?order_id={{$order['order_id']}}" class="item-link item-content">
-                                            <div class="item-media"><img src="{{$order['avatar']}}" style='width: 4rem;'></div></a>
+                                            <div class="item-media"><img src="{{$order['picture']}}" style='width: 4rem;'></div></a>
                                                     <div class="item-inner">
                                                            <div class="item-title">{{$order['title']}}</div>
                                                 <div class="item-after">{{$order['total_price']}}</div>
@@ -108,6 +107,29 @@
                                             </ul>
                                         </div>
                                     @endif
+
+                                        @if($order['order_status']==0)
+                                            <div id="" class="item">
+                                                <ul>
+                                                    <li class="item-content">
+                                                        <div class="item-media"><i class="icon icon-f7"></i></div>
+                                                        <div class="item-inner">
+                                                            <div class="item-title">{{$order['merchant_name']}}</div>
+                                                            <div class="item-after">
+                                                                    已回绝</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-content"><a href="/star/order_detail?order_id={{$order['order_id']}}" class="item-link item-content">
+                                                            <div class="item-media"><img src="{{$order['picture']}}" style='width: 4rem;'></div></a>
+                                                        <div class="item-inner">
+                                                            <div class="item-title">{{$order['title']}}</div>
+                                                            <div class="item-after">{{$order['total_price']}}</div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        @endif
+
                                 @endforeach
                             </div>
                         </div>
