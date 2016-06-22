@@ -17,7 +17,22 @@ class ActivityController extends Controller{
 	}
 
 	public function index(){
-		$activityList = Activity::where('activity_status',1)->get();
+		$star_id = $_SESSION['star_id'];
+      	$order = \App\Models\Order::where('star_id',$star_id)->where('status',1)->get();
+      	$task_ids = array();
+      	foreach ($order as $key => $value) {
+      		array_push($task_ids, $value['task_id']);
+      	}
+
+      	$task = \App\Models\Task::whereIn('task_id',$task_ids)->get();
+      	$activity_ids = array();
+      	foreach ($task as $k => $v) {
+      		array_push($activity_ids, $v['activity_id']);
+      	}
+
+
+		$activityList = Activity::where('activity_status',1)->whereNotIn('activity_id',$activity_ids)->get();
+
 		// echo "<pre>";
 		// var_dump($activityList);die;
 		return view('star.activityList',['list'=>$activityList]);
