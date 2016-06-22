@@ -79,7 +79,25 @@ class ActivityController extends Controller{
         if(isset($_SESSION['name'])) {
             $activity = Activity::where('activity_id',$id)->first();
 
-            return view('/didi/activity_modify',['activity' => $activity]);
+            if($activity->activity_status == 0){
+                return Redirect::intended("/didi/ActivityInfo/$id");
+            }
+            elseif ($activity->activity_status == 1){
+                
+            }
+            elseif ($activity->activity_status == 2){
+                echo "<script>history.go(-1); alert('该活动正在推广中，没有信息需要处理，请耐心等候~');</script>";
+                return;
+            }
+            elseif ($activity->activity_status == 3){
+                
+            }
+            elseif ($activity->activity_status == 4){
+                
+            }
+            else{
+                //return Redirect::intended("/didi/ActivityInfo/$id");
+            }
         }
         else{
             return Redirect::intended('/didi/login');
