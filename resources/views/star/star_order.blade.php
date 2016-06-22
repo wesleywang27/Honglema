@@ -16,7 +16,10 @@
         <div class="content-block"  style="padding: 0px">
             <div class="tabs">
                 <div id="tab1" class="tab active">
+                  @foreach($data as $order)
+                    @if($order['order_status']=="1")
                     <div class="content-block content-block-my content-no-margin"  style="padding: 0px">
+
                         <div class="list-block">
                             @foreach($data as $order)
                                 @if($order['order_status']=="1")
@@ -43,6 +46,8 @@
                             @endforeach
                         </div>
                     </div>
+                    @endif
+                  @endforeach
                 </div>
                 <div id="tab2" class="tab">
                     <div class="content-block" style="padding: 0px">

@@ -19,11 +19,23 @@
         <td style="width:80px;text-align:center">{{ $activity->activity_id }}</td>
         <td style="width:180px;text-align:center">{{ $activity->title }}</td>
         <td style="width:180px;text-align:center">{{ $activity->total_price }}</td>
-        <td style="width:180px;text-align:center">{{ $activity->activity_status }}</td>
+        <td style="width:180px;text-align:center">
+            @if ($activity->activity_status == 0)
+            待审核
+            @elseif ($activity->activity_status == 1)
+            抢单中
+            @elseif ($activity->activity_status == 2)
+            推广中
+            @elseif ($activity->activity_status == 3)
+            待评价
+            @elseif ($activity->activity_status == 4)
+            已结束
+            @endif
+        </td>
         <td style="width:180px;text-align:center">{{ $activity->created_at }}</td>
         <td style="width:180px;text-align:center">
             <a href="{{URL::action('ActivityController@activityInfo', ['id' => $activity->activity_id]) }}" ><input type="button" value="查看" class="link_btn"/></a>
-            <a href="#" ><input type="button" value="处理" class="link_btn"/></a>
+            <a href="{{URL::action('ActivityController@activityModify', ['id' => $activity->activity_id]) }}" ><input type="button" value="处理" class="link_btn"/></a>
             <a href="{{URL::action('ActivityController@activityDelete', ['id' => $activity->activity_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
         </td>
     </tr>
