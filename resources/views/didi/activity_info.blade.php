@@ -43,13 +43,17 @@
     </div>
     <div class="admin_tab_cont">
         <table border="2" width="95%" style="margin: 20px;">
-            @foreach ($commodities as $commodity)
             <tr>
                 <th width="15%" height="40px;">商品名称：</th>
-                <td width="17%">{{ $commodity->name}}</td>
-                <th width="15%">商品链接：</th>
-                <td width="17%">{{ $commodity->url}}</td>
+                <th width="35%" height="40px;">商品简介：</th>
+                <th width="35%">商品链接：</th>
                 <th width="15%">创建时间：</th>
+            </tr>
+            @foreach ($commodities as $commodity)
+            <tr>
+                <td height="40px;">{{ $commodity->name}}</td>
+                <td>{{ $commodity->introduction}}</td>
+                <td><a href="{{ $commodity->url}}" target="_blank">{{ $commodity->url}}</a></td>
                 <td>{{ $commodity->created_at}}</td>
             </tr>
             @endforeach

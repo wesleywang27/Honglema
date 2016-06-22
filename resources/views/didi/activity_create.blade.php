@@ -27,9 +27,38 @@
             @endforeach
         </select>
     </div>
+    <div class="container">
+        <label style="float: left">活动图片：</label>
+        <label class="uploadImg" style="margin-top:10px; margin-left:10px;">
+            <span id="up">上传图片</span>
+            <input type="file" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple=""/>
+        </label>
+        <ul class="gallery" id="files" style="display: inline;padding-left: 0;">
+        </ul>
+        <div class="clear"></div>
+    </div>
     <div style="margin-top: 20px;">
-        <input name="commit" type="submit" value="确认" class="link_btn" style="margin-left: 12%"/>
+        <input name="commit" type="submit" value="确认" class="link_btn" style="margin-left: 14%"/>
         <a href="/didi/MerchantList"  class="link_btn" style="margin-left: 5%">取消</a>
     </div>
 </form>
+<script type="text/javascript" src="/js/ajaxfileupload.js" charset="utf-8"></script>
+<script>
+    jQuery('#fileupload').change(function(){
+        jQuery.ajaxFileUpload({
+            url:"/productPicture",//需要链接到服务器地址
+            secureuri:false,
+            fileElementId:"fileupload",//文件选择框的id属性
+            dataType: 'json',   //json
+            success: function (data, status) {
+                var urls = data.urls;
+                var $htmls = '';
+                var i = 0;
+                $htmls += '<li><img src="'+urls[i]+'" style="width: 80px; height: 80px;"/><input type="hidden" id="itemImage" name="itemImage[]" value="'+urls[i]+'"/></li>';
+
+                $('#files').append($htmls);
+            }
+        });
+    });
+</script>
 @endsection
