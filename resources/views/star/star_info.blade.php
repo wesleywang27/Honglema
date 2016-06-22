@@ -1,11 +1,11 @@
 @extends('star.star_layouts')
 
-@section('title', "个人信息")
+@section('title', "红了吗网红端（试用版）")
 
 @section('body')
 @section('page-main')
     <header class="bar bar-nav">
-        <h1 class="title">我的</h1>
+        <h1 class="title">个人信息</h1>
     </header>
     <div class="content" style="top: 1.2rem;">
         <div class="list-block">
@@ -1042,9 +1042,11 @@
                             <div class="weui_uploader_hd weui_cell">
                             </div>
                             <div class="weui_uploader_bd">
-                                <ul class="weui_uploader_files" id="imgfiles" style="padding-left: 0;float: left;">
+                                <ul class="weui_uploader_files" id="album" style="padding-left: 0;float: left;">
                                     @foreach($pictures as $picture)
                                         <li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('{{$picture->url}}')">
+                                            <input type="hidden" value="{{$picture->url}}">
+                                        </li>
                                         @endforeach
                                 </ul>
                                 <div class="weui_uploader_input_wrp" style="width: 80px;height: 80px;float: left;">

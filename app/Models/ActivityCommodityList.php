@@ -14,6 +14,8 @@ class ActivityCommodityList extends Model{
 
     public $timestamps = false;
 
+    public $primaryKey = 'acl_id';
+
     protected  $fillable = [
         'activity_id',
         'commodity_id'

@@ -13,6 +13,8 @@ class MerchantPayment extends Model{
     protected $table = 'merchant_payments';
 
     public $timestamps = false;
+    
+    public $primaryKey = 'mp_id';
 
     protected  $fillable = [
         'activity_id',

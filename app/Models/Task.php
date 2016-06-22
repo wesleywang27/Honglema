@@ -15,7 +15,6 @@ class Task extends Model{
     public $timestamps = false;
 
     protected  $primaryKey = 'task_id';
-
     
     protected  $fillable = [
         'activity_id',

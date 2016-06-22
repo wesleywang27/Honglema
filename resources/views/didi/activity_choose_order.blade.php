@@ -16,40 +16,41 @@
         <table class="table">
             <tr>
                 <th>网红ID</th>
-                <th>活动标题</th>
-                <th>推广费用</th>
-                <th>活动状态</th>
-                <th>创建时间</th>
+                <th>网红昵称</th>
+                <th>性别</th>
+                <th>地区</th>
+                <th>年龄</th>
+                <th>职业</th>
+                <th>微信账号</th>
+                <th>手机号码</th>
                 <th>操作</th>
             </tr>
             @foreach ($stars as $star)
             <tr>
                 <td style="width:80px;text-align:center">{{ $star->star_id }}</td>
-                <td style="width:180px;text-align:center">{{ $star->title }}</td>
-                <td style="width:180px;text-align:center">{{ $star->total_price }}</td>
-                <td style="width:180px;text-align:center">
-                    @if ($star->star_status == 0)
-                    待审核
-                    @elseif ($star->star_status == 1)
-                    抢单中
-                    @elseif ($star->star_status == 2)
-                    推广中
-                    @elseif ($star->star_status == 3)
-                    待评价
-                    @elseif ($star->star_status == 4)
-                    已结束
+                <td style="width:180px;text-align:center">{{ $star->name }}</td>
+                <td style="width:100px;text-align:center">
+                    @if($star->sex == 0)
+                    女
+                    @else
+                    男
                     @endif
                 </td>
-                <td style="width:180px;text-align:center">{{ $star->created_at }}</td>
+                <td style="width:180px;text-align:center">{{ $star->location }}</td>
+                <td style="width:100px;text-align:center">{{ $star->age }}</td>
+                <td style="width:180px;text-align:center">{{ $star->occupation }}</td>
+                <td style="width:180px;text-align:center">{{ $star->wechat }}</td>
+                <td style="width:180px;text-align:center">{{ $star->cellphone }}</td>
                 <td style="width:180px;text-align:center">
                     <a href="#" ><input type="button" value="查看" class="link_btn"/></a>
-                    <a href="#" ><input type="button" value="处理" class="link_btn"/></a>
-                    <a href="#" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
+                    <a href="{{URL::action('ActivityController@activityChooseStar', ['task_id' => $task_id ,'star_id' => $star->star_id]) }}" onclick="return confirm('确定选择该网红？')"><input type="button" value="选择" class="link_btn"/></a>
                 </td>
             </tr>
             @endforeach
         </table>
         <aside class="paging">
+            <a href="javascript:history.back();" style="float: left;" >返回</a>
+
             <a class="{{ ($stars->currentPage() == 1) ? ' disabled' : '' }}" href="{{ $stars->url(1) }}">首页</a>
 
             @if ($stars->currentPage() == 1)
