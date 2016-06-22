@@ -299,9 +299,11 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::post('/didi/ActivityCreate/{merchant_id?}',"ActivityController@activityStore");
 
-    Route::get('/didi/ActivityDelete/{activity_id}',"ActivityController@activityDelete");
+    Route::get('/didi/ActivityDelete/{activity_id?}',"ActivityController@activityDelete");
 
-    Route::get('/didi/ActivityModify/{activity_id}',"ActivityController@activityModify");
+    Route::get('/didi/ActivityModify/{activity_id?}',"ActivityController@activityModify");
+
+    Route::get('/didi/ActivityChooseOrder/{activity_id?}',"ActivityController@activityChooseOrder");
 
     Route::get('/didi/ActivityList',"ActivityController@activityList");
 

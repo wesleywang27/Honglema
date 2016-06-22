@@ -11,7 +11,9 @@ use App\Models\Activity;
 use App\Models\ActivityCommodityList;
 use App\Models\Commodity;
 use App\Models\Merchant;
+use App\Models\Order;
 use App\Models\PriceLevel;
+use App\Models\Star;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -83,7 +85,7 @@ class ActivityController extends Controller{
                 return Redirect::intended("/didi/ActivityInfo/$id");
             }
             elseif ($activity->activity_status == 1){
-                
+                return Redirect::intended("/didi/ActivityChooseOrder/$id");
             }
             elseif ($activity->activity_status == 2){
                 echo "<script>history.go(-1); alert('该活动正在推广中，没有信息需要处理，请耐心等候~');</script>";
@@ -103,7 +105,20 @@ class ActivityController extends Controller{
             return Redirect::intended('/didi/login');
         }
     }
+    //选择接单
+    public function activityChooseOrder($id){
+        session_start();
+        if(isset($_SESSION['name'])) {
+            $task = Task::where('activity_id',$id)->first();
+            $star_id = Order::where('task_id',$task->task_id)->where('status',1)->lists('star_id');
+            $star = Star::wherein('star_id',$star_id)->paginate(10);
 
+            return view('/didi/activity_choose_order',['stars' => $star]);
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
     //活动列表页
     public function activityList(){
         session_start();
@@ -124,13 +139,7 @@ class ActivityController extends Controller{
             $merchant = Merchant::where('merchant_id',$activity->merchant_id)->first();
 
             $commodity_id = ActivityCommodityList::where('activity_id',$id)->lists('commodity_id');
-
-            $commodity = [];
-            $count = 0;
-            foreach ($commodity_id as $cid){
-                $commodity[$count] = Commodity::where('commodity_id',$cid)->first();
-                $count++;
-            }
+            $commodity = Commodity::wherein('commodity_id',$commodity_id)->get();
             
             return view('/didi/activity_info',['activity' => $activity ,'merchant' => $merchant ,'commodities' => $commodity]);
         }
