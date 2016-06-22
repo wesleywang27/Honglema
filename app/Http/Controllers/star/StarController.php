@@ -60,6 +60,20 @@ class StarController extends RootController
     }
 
 
+    public function create()
+    {
+        $user = session('wechat.oauth_user');
+        $star = Star::where('openid', $user->openid)->first();
+        if ($star) {
+            $_SESSION['star_id'] = $star->star_id;
+            $star = Star::where('star_id', $star->star_id)->first();
+            $starPictures= StarPicture::where('uid',$star->star_id)->get();
+            return view('star/star_info', ["star" => $star, "pictures"=>$starPictures]);
+        }else{
+            return view('star/create', ["user" => $user]);
+        }
+    }
+
     public function order()
     {
         $star_id = $_SESSION['star_id'];
@@ -101,18 +115,6 @@ class StarController extends RootController
         $merchant_id = $request->input('merchant_id');
         $merchant = Merchant::where('merchant_id', $merchant_id)->first();
         return view('star/merchant_info', ["merchant" => $merchant]);
-    }
-
-    public function create()
-    {
-        $user = session('wechat.oauth_user');
-        $star = Star::where('openid', $user->openid)->first();
-        if ($star) {
-            $_SESSION['star_id'] = $star->star_id;
-            return view('star/star_info', ["star" => $star]);
-        }else{
-            return view('star/create', ["user" => $user]);
-        }
     }
 
     public function info(Request $request)
