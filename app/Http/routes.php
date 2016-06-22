@@ -266,7 +266,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
  * 
  */
 
-//Route::group(['domain' => 'cms.honglema.com'], function() {
+Route::group(['domain' => 'cms.honglema.com'], function() {
     //登入登出
     Route::get('/didi/login',"DidiController@loginIndex");
 
@@ -313,38 +313,66 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityCreate");
 
     Route::post('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityStore");
-//});
+});
 
 
 
 
 
 //网红入口
-Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
-    Route::get('/star/activity',"StarController@activity");
 
-    Route::get('/star/order',"StarController@order");
+// ,'middleware' => ['web', 'wechat.oauth']
+Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 'wechat.oauth']], function(){
+    Route::get('/index',"StarController@index");
 
-    Route::get('/star/process',"StarController@process");
+    Route::get('/activity',"StarController@activity");
 
-    Route::get('/star/comment',"StarController@comment");
+    Route::get('/order',"StarController@order");
 
-    Route::get('/star/contention',"StarController@contention");
+    Route::post('/cancelOrder',"StarController@cancelOrder");
 
-    Route::get('/star/show_process',"StarController@show_process");
+     Route::get('/task_result',"StarController@task_result");
 
-    Route::get('/star/show_comment',"StarController@show_comment");
+     Route::post('star/submitTaskResult',"StarController@submitTaskResult");
 
-    Route::get('/star/show_contention',"StarController@show_contention");
+   Route::get('/order_detail',"StarController@order_detail");
 
-    Route::get('/star/all_order',"StarController@all_order");
+    Route::get('/merchant',"StarController@merchant_info");
 
-    Route::get('/star/info',"StarController@info");
+    Route::get('/process',"StarController@process");
 
-    Route::get('/star/create',"StarController@create");
+    Route::get('/comment',"StarController@comment");
 
-    Route::post('/star/register',"StarController@register");
+    Route::get('/contention',"StarController@contention");
 
+    Route::get('/show_process',"StarController@show_process");
+
+    Route::get('/show_comment',"StarController@show_comment");
+
+    Route::get('/show_contention',"StarController@show_contention");
+
+    Route::get('/all_order',"StarController@all_order");
+
+    Route::get('/info',"StarController@info");
+
+    Route::get('/create',"StarController@create");
+
+    Route::post('/register',"StarController@register");
+
+    Route::post('/update',"StarController@update");
+
+    Route::post('/uploadimg',"StarController@uploadimg");
+
+    Route::get('/activityList',"ActivityController@index");
+
+    Route::get('/activityDetail/{id?}',"ActivityController@detail");
+
+    Route::post('/setOrder',"ActivityController@setOrder");
+
+    Route::get('/visitor',"ActivityController@visitor");
+
+    //Set Session,Delete after test
+    Route::get('/setSession',"RootController@setSession");
 });
 
 
@@ -354,12 +382,10 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 ** @author tianxugeng
 **
 */
-
+// ,'middleware' => ['web', 'wechat.oauth']
 Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
 {
 
-  Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
-    
         //首页
         Route::get('/', 'IndexController@index');
         Route::get('/login','IndexController@login');
@@ -380,6 +406,5 @@ Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
         Route::post('/register/save', 'IndexController@register');
         Route::resource('/register/uploadPicture', 'IndexController@uploadPic');
 
-    });
 });
 

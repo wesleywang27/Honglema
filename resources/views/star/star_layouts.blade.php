@@ -118,20 +118,7 @@
 <script type="text/javascript" src="{{URL::asset('js/jquery-1.8.3.min.js')}}" charset="utf-8"></script>
 <script type="text/javascript" src="{{URL::asset('js/ajaxfileupload.js')}}" charset="utf-8"></script>
 <script>
-    //    $(function() {
-    //        $('#test').click(function() {
-    //            $.ajax({
-    //                url: "/celebrity/6",
-    //                method: "PATCH",
-    //                data: {sex: 0},
-    //                success: function($data) {
-    //                    console.log($data);
-    //                }
-    //            });
-    //        });
-    //    });
     $j=jQuery.noConflict();
-
     //上传身份证
     $('#fileupload').change(function(){
         $('#idfile').append('<li class="weui_uploader_file images" style="background-image:url(http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png)">\
@@ -154,7 +141,8 @@
                 var $htmls = '';
                 for(var i=0; i<urls.length; i++){
                     $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
-                    <input type="hidden" id="manyimg" value="'+urls[i]+'"></li>';
+                    <input type="hidden" id="manyimg"+i value="'+urls[i]+'"></li>';
+                 
                 }
                 $('#imgfiles').append($htmls);
                 $.hidePreloader();
@@ -165,6 +153,37 @@
             }
         });
     });
+
+//upload task picture
+ $('#taskimgupload').change(function(){
+        $.showPreloader('正在上传...');
+        $j.ajaxFileUpload({
+            url:"/picture",//需要链接到服务器地址
+            secureuri:false,
+            fileElementId:"imgupload",//文件选择框的id属性
+            dataType: 'json',   //json
+            success: function (data, status) {
+                var urls = data.urls;
+                var $htmls = '';
+                for(var i=0; i<urls.length; i++){
+                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
+                    <input type="hidden" id="task"+i value="'+urls[i]+'"></li>';
+                }
+                $('#taskimg').append($htmls);
+                $.hidePreloader();
+                $.toast("添加成功", 1000);
+            },error:function(data, status, e){
+                $.hidePreloader();
+                $.toast("添加失败", 1000);
+            }
+        });
+    });
+//submit task result
+
+
+
+ //star album upload
+ 
 
     //验证码页面,倒计时按钮,点击确认事件
     var waittime = 60;
@@ -263,7 +282,7 @@
         else
             $('#f_sex').text('女');
     }
-    //设置地址
+//设置地址
     $.set_address = function(v1,v2){
         $('#f_dizhi').text($('#'+v1).val() +$('#'+v2).val());
     }
@@ -276,48 +295,114 @@
         $('#f_chicun').text($('#'+v1).val()+'/'+$('#'+v2).val()+'/'+$('#'+v3).val());
     }
 
+    //编辑尺寸
+    $.save_size = function(){
+
+        $('#f_cloth').text($('#f_shirt').val()+'/'+$('#f_pants').val()+'/'+$('#f_shoe').val());
+
+        $.post('{{ URL::action('star\StarController@update') }}',{
+                'shirt_size': $("#f_shirt").val(),
+                'pants_size': $("#f_pants").val(),
+                'shoes_size': $("#f_shoe").val(),}
+        );
+    }
+
+    //编辑单项
+
+    $.save_address =function(v1,v2){
+        $('#f_dizhi').text($('#'+v1).val() +$('#'+v2).val());
+        $.post('{{ URL::action('star\StarController@update') }}',{
+            'address': $('#'+v1)+val().$('#'+v2).val()}
+        );
+    }
+    $.save_edit = function(va1,tag){
+        $('#f_'+va1).text($('#'+va1).val());
+        var data = {};
+        data[tag]=$('#'+va1).val();
+        $.post('{{ URL::action('star\StarController@update') }}',
+          data
+        );
+    }
+
+
     //完成注册
-    $('#finish').click(function(){
-        var imgdata = [];
-        var i = 0;
-        $('[id=manyimg]').each(function(){
-            imgdata[i] = $(this).val();
-            i++;
+
+    $('#finish').click(function() {
+        $.ajax({
+            url: "/star/register",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data: {
+                "name": $('#f_nickname').text(),
+                "sex": $('#f_sex').text() == '男' ? 'M' : 'F',
+                "location": $('#f_city-picker').text(),
+
+                "cup": $('#f_cup').text(),
+                "weight": $('#f_tizhong').text(),
+                "height": $('#f_shengao').text(),
+                "age": $('#f_age').text(),
+                "occupation": $('#f_zhiye').text(),
+                "education": $('#f_xueli').text(),
+
+                "experience": $('#jingli').val(),
+
+                "real_name": $('#id_name').val(),
+                "ID_number": $('#id_code').val(),
+
+                "shirt_size": $('#f_shangyi').val(),
+                "pants_size": $('#f_xiayi').val(),
+                "shoes_size": $('#f_shoe').val(),
+
+                "cellphone": $('#phonenum').val(),
+                "address": $('#f_dizhi').val(),
+
+                "weibo_id": $('#weiboid').val(),
+                "weipai_id": $('#weipaiid').val(),
+                "miaopai_id": $('#miaopaiid').val(),
+                "meipai_id": $('#meipaiid').val(),
+                "kuaishou_id": $('#kuaishouid').val(),
+                "manyimg1":$('#manyimg1').val(),
+                "manyimg2":$('#manyimg2').val(),
+                "manyimg3":$('#manyimg3').val(),
+                "manyimg4":$('#manyimg4').val(),
+                "manyimg5":$('#manyimg5').val(),
+                "manyimg6":$('#manyimg6').val(),
+
+            },success: function(data) {
+                $.toast("注册成功!",1000);
+                setTimeout(function(){
+                    location.href="/star/info";
+                },1000);
+            },headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
-        $.post('{{ URL::action('StarController@register') }}', {
-            "avatar"       : $('#f_wx_headimg').text(),
-            "name"         : $('#f_nickname').text(),
-            "sex"          : $('#f_sex').text() == '男' ? 'M' : 'F',
-            "location"     : $('#f_city-picker').text(),
-            "images[]"      : imgdata,
-
-            "cup"          : $('#f_cup').text(),
-            "weight"       : $('#f_tizhong').text(),
-            "height"       : $('#f_shengao').text(),
-            "age"          : $('#f_age').text(),
-            "occupation"   : $('#f_zhiye').text(),
-            "education"   : $('#f_xueli').text(),
-
-            "experience"   : $('#jingli').val(),
-
-            "real_name"      : $('#id_name').val(),
-            "ID_number"      : $('#id_code').val(),
-
-            "shirt_size"     : $('#f_shangyi').val(),
-            "pants_size"     : $('#f_xiayi').val(),
-            "shoes_size"   : $('#f_shoe').val(),
-
-            "cellphone"     : $('#phonenum').val(),
-            "address"     : $('#f_dizhi').val(),
-
-            "weibo_id"     : $('#weiboid').val(),
-            "weipai_id"    : $('#weipaiid').val(),
-            "miaopai_id"   : $('#miaopaiid').val(),
-            "meipai_id"    : $('#meipaiid').val(),
-            "kuaishou_id"  : $('#kuaishouid').val(),
-        });
-
     });
+
+$.submmitTaskResult=function(id){
+    $.post('star/submitTaskResult',{
+        order_id:id,
+        img1:$('#task1').val(),
+         img2:$('#task2').val(),
+          img3:$('#task3').val(),
+           img4:$('#task4').val(),
+    },function(){
+             $.toast("取消成功!",1000);
+               setTimeout(function(){
+                    location.href="/star/order";
+                },1000);});
+}
+
+$.cancelOrder=function(id){
+    $.post('/star/cancelOrder',{order_id:id},function(){
+             $.toast("取消成功!",1000);
+               setTimeout(function(){
+                    location.href="/star/order";
+                },1000);
+    })
+}
 </script>
+
 </body>
 </html>

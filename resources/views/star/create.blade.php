@@ -439,7 +439,9 @@
                                 <div class="weui_cell_bd weui_cell_primary">上传6张照片</div>
                             </div>
                             <div class="weui_uploader_bd">
-                                <ul class="weui_uploader_files" id="imgfiles" style="padding-left: 0;float: left;"></ul>
+                                <ul class="weui_uploader_files" id="imgfiles" style="padding-left: 0;float: left;">
+
+                                </ul>
                                 <div class="weui_uploader_input_wrp" style="width: 80px;height: 80px;float: left;">
                                     <input class="weui_uploader_input" id="imgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                                 </div>

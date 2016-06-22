@@ -13,7 +13,11 @@ use EasyWeChat\Foundation\Application;
 use App\Http\Controllers\Controller;
 use App\Models\Merchant;
 
-class UserController extends Controller{
+class UserController extends RootController{
+    public function __construct(){
+        parent::__construct();
+    }
+    
     public function index(){
         $merchant = Merchant::where('merchant_id',2)->first();
 
