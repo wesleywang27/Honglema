@@ -20,7 +20,7 @@
                     @if($order['order_status']=="1")
                     <div class="content-block content-block-my content-no-margin"  style="padding: 0px">
          	          <div class="content-block content-block-my">
-                        <div class="list-block content-no-margin" style="margin-top: -1.2rem;">
+                        <div class="list-block content-no-margin" style="margin-top: -1.3rem;">
                             <ul>
                                 <li class="item-content">
                                     <div class="item-inner">

@@ -1,11 +1,11 @@
 @extends('star.star_layouts')
 
-@section('title', "个人信息")
+@section('title', "红了吗网红端（试用版）")
 
 @section('body')
 @section('page-main')
     <header class="bar bar-nav">
-        <h1 class="title">我的</h1>
+        <h1 class="title">个人信息</h1>
     </header>
     <div class="content" style="top: 1.2rem;">
         <div class="list-block">
