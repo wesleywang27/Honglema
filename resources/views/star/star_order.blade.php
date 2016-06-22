@@ -7,7 +7,7 @@
     <header class="bar bar-nav">
         <h1 class="title">我的任务</h1>
     </header>
-    <div class="content" style="top: 0;">
+    <div class="content" style="top: 2.5rem;">
         <div class="buttons-tab">
             <a href="#tab1" class="tab-link active button">抢单中</a>
             <a href="#tab2" class="tab-link button">进行中</a>
