@@ -14,7 +14,7 @@
     </div>
     <div style="margin-top: 20px;">
         <label>商品简介：</label>
-        <input class="textbox textbox_225" type="text" name="introduction" placeholder="请输入商品简介" value="" required>
+        <input class="textbox textbox_225" type="text" name="introduction" placeholder="请输入商品简介" value="" >
     </div>
     <div style="margin-top: 20px;">
         <label>商品链接：</label>
