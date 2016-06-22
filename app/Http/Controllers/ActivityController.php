@@ -15,6 +15,7 @@ use App\Models\PriceLevel;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Input;
 
 class ActivityController extends Controller{
     //活动添加页
@@ -41,6 +42,13 @@ class ActivityController extends Controller{
         $price_level = PriceLevel::where('pl_id',$request->input('level'))->first();
         $activity->total_price = $price_level->price;
         $activity->activity_status = 1;
+
+        if(Input::has('itemImage')){
+            foreach (Input::get('itemImage') as $img) {
+                $activity->picture = $img;
+            }
+        }
+        
         $activity->save();
 
         $activity = Activity::where('merchant_id',$merchant_id)->orderBy('created_at', 'desc')->first();
