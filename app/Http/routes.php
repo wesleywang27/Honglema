@@ -266,19 +266,50 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
  * 
  */
 
-//Route::group(['domain' => 'cms.honglema.com'], function() {
-
-    Route::get('/didi',"DidiController@index");
-
-    Route::get('/didi/index',"DidiController@index");
-
+Route::group(['domain' => 'cms.honglema.com'], function() {
+    //登入登出
     Route::get('/didi/login',"DidiController@loginIndex");
 
     Route::post('/didi/login',"DidiController@login");
 
     Route::get('/didi/logout',"DidiController@logout");
 
-//});
+    //首页
+    Route::get('/didi',"DidiController@index");
+
+    Route::get('/didi/index',"DidiController@index");
+
+    //商家信息管理
+    Route::get('/didi/MerchantCreate',"MerchantController@merchantCreate");
+
+    Route::post('/didi/MerchantCreate',"MerchantController@merchantStore");
+
+    Route::get('/didi/MerchantDelete/{id?}',"MerchantController@merchantDelete");
+
+    Route::get('/didi/MerchantModify/{id?}',"MerchantController@merchantModify");
+
+    Route::post('/didi/MerchantModify/{id?}',"MerchantController@merchantUpdate");
+
+    Route::get('/didi/MerchantList',"MerchantController@merchantList");
+    
+    Route::get('/didi/MerchantInfo/{id?}',"MerchantController@merchantInfo");
+
+    //活动信息管理
+    Route::get('/didi/ActivityCreate/{merchant_id?}',"ActivityController@activityCreate");
+
+    Route::post('/didi/ActivityCreate/{merchant_id?}',"ActivityController@activityStore");
+
+    Route::get('/didi/ActivityDelete/{activity_id}',"ActivityController@activityDelete");
+
+    Route::get('/didi/ActivityList',"ActivityController@activityList");
+
+    Route::get('/didi/ActivityInfo/{activity_id?}',"ActivityController@activityInfo");
+
+    //商品信息管理
+    Route::get('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityCreate");
+
+    Route::post('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityStore");
+});
 
 
 

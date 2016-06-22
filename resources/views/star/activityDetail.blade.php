@@ -96,9 +96,11 @@
     ?>
 
     <?php 
-      $star_id = 1;
+      //$star_id = 1;
     // session_start();
       //$star_id = $_SESSION['star_id'];
+    
+      $star_id = $_SESSION['star_id'];
       $order = App\Models\Order::where('star_id',$star_id)->where('task_id',$task_id)->first();
       if($order){
     ?>
