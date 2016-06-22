@@ -51,15 +51,11 @@
 				    <ul>
 				      <li>
 				        <a href="/star/activityDetail/{{$vo['activity_id']}}" class="blackfont item-content">
-				          <div class="item-media"><img src="{{$vo['picture']}}" style='width: 4rem;'></div>
+				          <div class="item-media"><img src="{{$vo['picture']}}" style='width: 6rem;'></div>
 				          <div class="item-inner">
-				            <div class="item-title-row">
-				              <div class="item-subtitle">{{$vo['title']}}</div>
-				              <div class="item-after">¥{{$vo['total_price']}}</div>
-				            </div>
-				            <div class="item-subtitle">&nbsp;</div>
-				           <div class="item-subtitle">
-				            </div>
+				            <div class="item-subtitle" style="text-align: center;height:50%">{{$vo['title']}}</div>
+				            <div class="item-subtitle" style="text-align: center;height:50%">¥&nbsp;{{$vo['total_price']}}</div>
+				           
 				          </div>
 				        </a>
 				      </li>
