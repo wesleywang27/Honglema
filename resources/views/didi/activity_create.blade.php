@@ -28,10 +28,10 @@
         </select>
     </div>
     <div class="container">
-        <label>活动图片：</label>
+        <label style="float: left">活动图片：</label>
         <label class="uploadImg" style="margin-top:10px; margin-left:10px;">
+            <span id="up">上传图片</span>
             <input type="file" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple=""/>
-            <span>上传图片</span>
         </label>
         <ul class="gallery" id="files" style="display: inline;padding-left: 0;">
         </ul>
@@ -53,9 +53,9 @@
             success: function (data, status) {
                 var urls = data.urls;
                 var $htmls = '';
-                for(var i=0; i<urls.length; i++){
-                    $htmls += '<li><img src="'+urls[i]+'" style="width: 80px; height: 80px;"/><input type="hidden" id="itemImage" name="itemImage[]" value="'+urls[i]+'"/></li>';
-                }
+                var i = 0;
+                $htmls += '<li><img src="'+urls[i]+'" style="width: 80px; height: 80px;"/><input type="hidden" id="itemImage" name="itemImage[]" value="'+urls[i]+'"/></li>';
+
                 $('#files').append($htmls);
             }
         });
