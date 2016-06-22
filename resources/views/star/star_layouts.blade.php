@@ -191,7 +191,6 @@
 
                 }
                 $('#album').append($htmls);
->>>>>>> master
                 $.hidePreloader();
                 $.toast("添加成功", 1000);
             },error:function(data, status, e){
