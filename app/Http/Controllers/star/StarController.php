@@ -34,9 +34,9 @@ class StarController extends RootController
 
     public function index()
     {
-        $user = session('wechat.oauth_user');
+        //$user = session('wechat.oauth_user');
+        $user = array('nickname'=>'小喳喳','sex'=>'男','province'=>'云南','city'=>'普洱','openid'=>'0001','avatar'=>'http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg');
         $openid = $user->openid;
-        // $openid="001";
         $star = Star::where('openid', $openid)->first();
         if ($star) {
             $_SESSION['star_id'] = $star->star_id;
@@ -92,8 +92,16 @@ class StarController extends RootController
 
     public function create()
     {
-        $user = session('wechat.oauth_user');
-        return view('star/create', ["user" => $user]);
+        //$user = session('wechat.oauth_user');
+        $user = array('nickname'=>'小喳喳','sex'=>'男','province'=>'云南','city'=>'普洱','openid'=>'0001','avatar'=>'http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg');
+        $openid = $user->openid;
+        $star = Star::where('openid', $openid)->first();
+        if ($star) {
+            $_SESSION['star_id'] = $star->star_id;
+            return view('star/star_info', ["star" => $star]);
+        }else{
+            return view('star/create', ["user" => $user]);
+        }
     }
 
     public function info(Request $request)
@@ -119,7 +127,8 @@ class StarController extends RootController
 
     public function register(Request $request)
     {
-        $user = session('wechat.oauth_user');
+        //$user = session('wechat.oauth_user');
+        $user = array('nickname'=>'小喳喳','sex'=>'男','province'=>'云南','city'=>'普洱','openid'=>'0001','avatar'=>'http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg');
         $openid = $user->openid;
         $input = Input::all();
         $star = new Star();
@@ -132,8 +141,8 @@ class StarController extends RootController
         $star->weight = $request->input('weight');
         $star->height = $request->input('height');
         $star->age = $request->input('age');
-        $star->save();
 
+        $star->save();
         $star = Star::where('openid', $openid)->first();
 
         for ($x = 0; $x < 6; $x++) {

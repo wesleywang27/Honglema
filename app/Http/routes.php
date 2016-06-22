@@ -318,7 +318,7 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 //网红入口
 
 // ,'middleware' => ['web', 'wechat.oauth']
-Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 'wechat.oauth']], function(){
+//Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 'wechat.oauth']], function(){
     Route::get('/index',"StarController@index");
 
     Route::get('/activity',"StarController@activity");
@@ -367,7 +367,9 @@ Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 
 
     Route::get('/visitor',"ActivityController@visitor");
 
-});
+    //Set Session,Delete after test
+    Route::get('/setSession',"RootController@setSession");
+//});
 
 
 /*
