@@ -19,12 +19,13 @@
                   @foreach($data as $order)
                     @if($order['order_status']=="1")
                     <div class="content-block content-block-my content-no-margin"  style="padding: 0px">
+         	          <div class="content-block content-block-my">
                         <div class="list-block content-no-margin" style="margin-top: -1rem;">
                             <ul>
                                 <li class="item-content">
                                     <div class="item-inner">
                                         <div class="item-title">{{$order['merchant_name']}}</div>
-                                        <div class="item-after"><h4>抢单中</h4></div>
+                                        <div class="item-after">抢单中</div>
                                     </div>
                                 </li>
                             </ul>
@@ -44,6 +45,7 @@
                                 </li>
                             </ul>
                         </div>
+                      </div>
                     </div>
                     @endif
                   @endforeach

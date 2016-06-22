@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="{{URL::asset('css/sm.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/sm-extend.min.css')}}">
     <style>
+        .content .content-block-my{
+            padding: 0;
+        }
+        .blackfont{
+	        color : #333;
+        }
+        .content-no-margin{
+	        margin: 0;
+        }
         .list-block .item-title.label{
             width:25%;
         }
