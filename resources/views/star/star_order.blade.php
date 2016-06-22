@@ -18,7 +18,8 @@
                 <div id="tab1" class="tab active">
                   @foreach($data as $order)
                     @if($order['order_status']=="1")
-                    <div class="content-block content-block-my content-no-margin"  style="padding: 0px">
+                    <div class="content-block content-block-my content-no-margin">
+                      <div class="content-block content-block-my">
                         <div class="list-block content-no-margin" style="margin-top: -1rem;">
                             <ul>
                                 <li class="item-content">
@@ -44,6 +45,7 @@
                                 </li>
                             </ul>
                         </div>
+                      </div>
                     </div>
                     @endif
                   @endforeach
