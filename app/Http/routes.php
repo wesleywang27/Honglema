@@ -367,6 +367,8 @@ Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 
 
     Route::get('/visitor',"ActivityController@visitor");
 
+    //Set Session,Delete after test
+    Route::get('/setSession',"RootController@setSession");
 });
 
 
