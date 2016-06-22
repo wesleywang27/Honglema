@@ -36,7 +36,7 @@
                                        <div class="item-media">
                                            <img src="{{$order['picture']}}" style='width: 6rem;'>
                                        </div>
-                                       <div class="item-inner"  style="background-color:#dddddd">
+                                       <div class="item-inner"  style="background-color:#f0f0f0; padding: 4px">
                                            <div class="item-title">{{$order['title']}}</div>
                                            <div class="item-after">￥{{$order['total_price']}}</div>
                                        </div>
