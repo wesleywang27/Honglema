@@ -32,7 +32,7 @@
       ?>
         <div class="content-block content-block-my content-no-margin">
          	<div class="content-block content-block-my">
-		   		<div class="list-block content-no-margin" style="margin-top: -1.3rem;">
+		   		<div class="list-block content-no-margin" style="margin-top: 0.2rem;">
 				  	<ul>
 					   	<li>
 					        <div class="item-content">
@@ -49,7 +49,7 @@
 				        <a href="/star/activityDetail/{{$vo['activity_id']}}" class="blackfont item-content">
 				          <div class="item-media" style="margin-left:-0.3rem; margin-right:0"><img src="{{$vo['picture']}}" style='width: 6rem;'></div>
 				          <div class="item-inner" style="background-color:#f0f0f0; margin: 0.4rem">
-				            <div class="item-subtitle" style="text-align: center;height:50%">{{$vo['title']}}</div>
+				            <div class="item-title" style="text-align: center;height:50%">{{$vo['title']}}</div>
 				            <div class="item-subtitle" style="text-align: center;height:50%">¥&nbsp;{{$vo['total_price']}}</div>
 				           
 				          </div>
