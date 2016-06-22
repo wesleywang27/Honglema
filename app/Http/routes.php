@@ -398,6 +398,7 @@ Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
         Route::get('/activityOrder','ActivityController@index');
         Route::get('/activityOrder/addOrder','ActivityController@addOrder');
         Route::get('/activityOrder/activityDetail/{id?}',"ActivityController@activityDetail");
+        Route::post('/activityOrder/setOrder',"ActivityController@setOrder");
 
         //注册
         Route::get('/register', 'IndexController@index');
