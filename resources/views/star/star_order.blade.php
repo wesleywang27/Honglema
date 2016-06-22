@@ -7,13 +7,13 @@
     <header class="bar bar-nav">
         <h1 class="title">我的任务</h1>
     </header>
-    <div class="content" style="top: 2.5rem;">
+    <div class="content" style="top: 0;">
         <div class="buttons-tab">
             <a href="#tab1" class="tab-link active button">抢单中</a>
             <a href="#tab2" class="tab-link button">进行中</a>
             <a href="#tab3" class="tab-link button">已完成</a>
         </div>
-        <div class="content-block"  style="margin: 0px; padding: 0px">
+        <div class="content-block"  style="padding: 0px">
             <div class="tabs">
                 <div id="tab1" class="tab active">
                   @foreach($data as $order)
