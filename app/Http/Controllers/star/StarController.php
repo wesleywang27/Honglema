@@ -240,17 +240,17 @@ class StarController extends RootController
 
     public function submitTaskResult(Request $request)
     {
-        $task_id = $request->input('task_id');
+        // 网红提交结果，修改任务状态为3（已推广） 
+        $order_id = $request->input('order_id');
+        $order = Order::where('order_id', $order_id)->first();
+        $task = Task::where('task_id', $order->task_id)->first();
+        $task->status = 3;
+        $task->save();
+
         $img1 = $request->input('img1');
         $img2 = $request->input('img2');
         $img3 = $request->input('img3');
         $img4 = $request->input('img4');
-        $task = Task::where('task_id', $task_id)->first();
-        $task->status = 3;
-        $activity = Activity::where('activity_id',$task->activity_id)->first();
-        $activity->status=3;
-        $activity->save();
-        $task->save();
         if (isset($img1)) {
             $tp = new TaskPicture();
             $tp->task_id = $task_id;
