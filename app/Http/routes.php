@@ -303,6 +303,10 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 
     Route::get('/didi/ActivityChooseStar/{task_id?}/{star_id}',"ActivityController@activityChooseStar");
 
+    Route::get('/didi/ActivityEvaluate/{activity_id?}',"ActivityController@activityEvaluate");
+
+    Route::post('/didi/ActivityEvaluate/{activity_id?}',"ActivityController@activityEvaluation");
+
     Route::get('/didi/ActivityList',"ActivityController@activityList");
 
     Route::get('/didi/ActivityInfo/{activity_id?}',"ActivityController@activityInfo");
@@ -312,15 +316,10 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 
     Route::post('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityStore");
 });
-
-
-
-
-
 //网红入口
 
 // ,'middleware' => ['web', 'wechat.oauth']
-Route::group(['prefix' => 'star', 'namespace' => 'star'], function(){
+Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 'wechat.oauth']], function(){
     Route::get('/index',"StarController@index");
 
     Route::get('/activity',"StarController@activity");
