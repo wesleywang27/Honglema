@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/star/StarController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/star/StarController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/star/star_info.blade.php" afterPath="$PROJECT_DIR$/resources/views/star/star_info.blade.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,8 +51,8 @@
       <file leaf-file-name="StarController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/star/StarController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3326923">
-              <caret line="23" column="31" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.275">
+              <caret line="129" column="18" selection-start-line="129" selection-start-column="18" selection-end-line="129" selection-end-column="18" />
               <folding>
                 <element signature="e#45#70#0#PHP" expanded="true" />
               </folding>
@@ -1308,8 +1307,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/star/StarController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3326923">
-          <caret line="23" column="31" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.275">
+          <caret line="129" column="18" selection-start-line="129" selection-start-column="18" selection-end-line="129" selection-end-column="18" />
           <folding>
             <element signature="e#45#70#0#PHP" expanded="true" />
           </folding>

@@ -127,7 +127,6 @@ class StarController extends RootController
     {
         $star_id = $_SESSION['star_id'];
         $star = Star::where('star_id', $star_id)->first();
-        dd($star);
         return view('star/star_info', ["star" => $star]);
     }
 
