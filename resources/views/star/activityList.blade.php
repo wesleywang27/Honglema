@@ -16,14 +16,10 @@
 </head>
 <body>
 <header class="bar bar-nav">
-  	<h1 class='title'>红了吗网红端</h1>
-  	<span class="icon icon-search pull-right"></span>
+  	<h1 class='title'>红了吗网红端（试用版）</h1>
 </header>
 <div class="content">
- 
- 
     <div class="tabs">
-      
       <div id="tab3" >
       <?php
   //     	echo "<pre>";
@@ -41,7 +37,7 @@
 					   	<li>
 					        <div class="item-content">
 					            <div class="item-inner">
-					                <div class="item-title">{{$merchant['name']}} ></div>
+					                <div class="item-title">{{$merchant['name']}}</div>
 					            </div>
 					        </div>
 					    </li>
