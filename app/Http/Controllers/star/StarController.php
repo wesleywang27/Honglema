@@ -255,7 +255,10 @@ class StarController extends RootController
         $img3 = $request->input('img3');
         $img4 = $request->input('img4');
         $task = Task::where('task_id', $task_id)->first();
-        $task->status = 4;
+        $task->status = 3;
+        $activity = Activity::where('activity_id',$task->activity_id)->first();
+        $activity->status=3;
+        $activity->save();
         $task->save();
         if (isset($img1)) {
             $tp = new TaskPicture();
