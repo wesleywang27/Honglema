@@ -42,7 +42,8 @@ class StarController extends RootController
         $user->province='云南';
         $user->city='普洱';
         $user->openid='0001';
-        $user->avatar='http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg';*/
+        $user->avatar='http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg';
+*/
 
         $user = session('wechat.oauth_user');
         $openid = $user->openid;
@@ -103,13 +104,14 @@ class StarController extends RootController
     public function create()
     {
 
-      /*  $user =new OAuthUser();
+        /*$user =new OAuthUser();
         $user->nickname='小喳喳';
         $user->sex=1;
         $user->province='云南';
         $user->city='普洱';
         $user->openid='0001';
-        $user->avatar='http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg';*/
+        $user->avatar='http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg';
+        */
 
         $user = session('wechat.oauth_user');
         $star = Star::where('openid', $user->openid)->first();
@@ -125,7 +127,6 @@ class StarController extends RootController
     {
         $star_id = $_SESSION['star_id'];
         $star = Star::where('star_id', $star_id)->first();
-        dd($star);
         return view('star/star_info', ["star" => $star]);
     }
 
@@ -162,7 +163,7 @@ class StarController extends RootController
         $star->openid = $openid;
 
         $star->avatar=$user->avatar;
-        $star->nickname = $request->input('name');
+        $star->name = $request->input('name');
         $star->sex = $request->input('sex');
         $star->location = $request->input('location');
         $star->cup = $request->input('cup');
