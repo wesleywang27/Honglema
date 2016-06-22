@@ -315,10 +315,6 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::post('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityStore");
 //});
 
-
-
-
-
 //网红入口
 
 // ,'middleware' => ['web', 'wechat.oauth']
