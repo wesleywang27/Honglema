@@ -15,7 +15,7 @@
                         <div class="item-inner">
                             <div class="item-title">{{$star['name']}}</div>
                             <div class="item-after">
-                                <img id="f_wx_headimg" src="{{$star['avatar']}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
+                                <img id="f_wx_headimg1" src="{{$star['avatar']}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
                             </div>
                         </div>
                     </a>
@@ -94,7 +94,7 @@
                         <div class="item-inner">
                             <div class="item-title">头像</div>
                             <div class="item-after">
-                                <img id="f_wx_headimg" src="{{$star['avatar']}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
+                                <img id="f_wx_headimg2" src="{{$star['avatar']}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
                             </div>
                         </div>
                     </a>
@@ -208,7 +208,7 @@
             取消
         </a>
         <h1 class="title">头像</h1>
-        <a class="button button-link button-nav pull-right back" href="#main" onclick="">
+        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.save_avatar()">
             保存
             <span class="save"></span>
         </a>

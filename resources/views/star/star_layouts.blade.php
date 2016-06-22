@@ -210,22 +210,12 @@
             success: function (data, status) {
                 var urls = data.urls;
                 for(var i=0; i<urls.length; i++){
-                    $.ajax({
-                        url: "/star/uploadAvatar",
-                        type: "POST",
-                        traditional: true,
-                        dataType: "JSON",
-                        data: {url:urls[i]}
-                        ,success: function(data) {
-                            $.toast("提交成功!",1000);
-                        },headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
+                    $('#f_wx_headimg1').attr('src',urls[i]);
+                    $('#f_wx_headimg2').attr('src',urls[i]);
+                    $('#wx_headimg').attr('src',urls[i]);
                 }
                 $.hidePreloader();
                 $.toast("添加成功", 1000);
-                location.href="/star/info"
             },error:function(data, status, e){
                 $.hidePreloader();
                 $.toast("添加失败", 1000);
@@ -233,6 +223,21 @@
         });
     });
 
+    $.save_avatar=function(){
+        var url = $('#wx_headimg').attr('src');
+        $.ajax({
+            url: "/star/uploadAvatar",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data: {"url":url}
+            ,success: function(data) {
+                $.toast("提交成功!",1000);
+            },headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    }
 //upload task picture
  $('#taskimgupload').change(function(){
         $.showPreloader('正在上传...');

@@ -205,8 +205,8 @@ class StarController extends RootController
     public function uploadAvatar(Request $request)
     {
         $star_id = $_SESSION['star_id'];
-        $url = $request->input('url');
         $star = Star::where('star_id', $star_id)->first();
+        $url = $request->input('url');
         $star->url = $url;
         $star->save();
     }
