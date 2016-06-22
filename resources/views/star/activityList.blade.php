@@ -27,7 +27,6 @@
       ?>
       @foreach ($list as $vo)
       <?php
-
       	$merchant = App\Models\Merchant::where('merchant_id',$vo->merchant_id)->first();
       ?>
         <div class="content-block content-block-my content-no-margin">
@@ -51,7 +50,7 @@
 				          <div class="item-inner" style="background-color:#f0f0f0; margin: 0.4rem">
 				            <div class="item-title" style="text-align: center;height:50%">{{$vo['title']}}</div>
 				            <div class="item-subtitle" style="text-align: center;height:50%">¥&nbsp;{{$vo['total_price']}}</div>
-				           
+				            <div class="button button-fill" style="background-color:#ee55555">马上抢单</div>
 				          </div>
 				        </a>
 				      </li>
