@@ -50,7 +50,9 @@ class StarController extends RootController
         $star = Star::where('openid', $openid)->first();
         if ($star) {
             $_SESSION['star_id'] = $star->star_id;
-            return view('star/star_info', ["star" => $star]);
+            $star = Star::where('star_id', $star->star_id)->first();
+            $starPictures= StarPicture::where('uid',$star->star_id)->get();
+            return view('star/star_info', ["star" => $star, "pictures"=>$starPictures]);
         } else {
             $activityList = Activity::where('activity_status', 1)->orderBy('created_at','desc')->get();
             return view('star.visitor', ['list' => $activityList]);
