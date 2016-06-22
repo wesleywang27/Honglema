@@ -38,7 +38,7 @@ class ActivityController extends Controller{
 		$task_id = intval($_POST['task_id']);
 		$order = new Order();
         $order->task_id = $task_id;
-        $order->status = 0;
+        $order->status = 1;
         //$order->star_id = 1;
        	$order->star_id = $_SESSION['star_id'];
         $order->save();

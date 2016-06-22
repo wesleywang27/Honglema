@@ -123,11 +123,6 @@
 <script type="text/javascript" charset="utf-8">
     //wx.config(<?php //echo $js->config(array('chooseImage', 'uploadImage','previewImage')) ?>);
 </script>
-<script type="text/javascript">
-    // $(function(){
-    //        $("#country option[value='{{$merchant['country']}}']").attr("selected",true);
-    // });
-    </script>
 <script>
     
     $j=jQuery.noConflict();

@@ -35,9 +35,12 @@
       ?>
       @foreach ($list as $vo)
       <?php
-
-      	$commodity_id = App\Models\ActivityCommodityList::where('activity_id',$vo['activity_id'])->first()['commodity_id'];
-		$commodity_pic = App\Models\CommodityPicture::where('commodity_id',$commodity_id)->first();
+      	if($vo['activity_status'] == 0 || $vo['activity_status'] == 1){
+      		if($vo['activity_status'] == 0){
+      			$status_string = '审核中';
+      		}else{
+      			$status_string = '抢单中';
+      		}
       ?>
         <div class="content-block content-block-my content-no-margin">
          	<div class="content-block content-block-my">
@@ -47,7 +50,7 @@
 					        <div class="item-content">
 					            <div class="item-inner">
 					                <div class="item-title">{{$merchant['name']}}></div>
-					                <div id="f_address" class="item-after">抢单中</div>
+					                <div id="f_address" class="item-after">{{$status_string}}</div>
 					            </div>
 					        </div>
 					    </li>
@@ -57,11 +60,11 @@
 				    <ul>
 				      <li>
 				        <a href="/Merchant/activityOrder/activityDetail/1" class="blackfont item-content">
-				          <div class="item-media"><img src="{{$commodity_pic['url']}}" style='width: 4rem;'></div>
+				          <div class="item-media"><img src="{{$vo['picture']}}" style='width: 4rem;'></div>
 				          <div class="item-inner">
 				            <div class="item-title-row">
 				              <div class="item-subtitle">{{$vo['title']}}</div>
-				              <div class="item-after">¥{{$vo['total_price']}}</div>
+				              <div class="item-after">¥&nbsp;{{$vo['total_price']}}</div>
 				            </div>
 				            <div class="item-subtitle">&nbsp;</div>
 				           <div class="item-subtitle">
@@ -75,9 +78,24 @@
 			  	</div>
 			</div>
       	</div>
+      <?php } ?>
       @endforeach
       </div>
       <div id="tab2" class="tab">
+      @foreach ($list as $vo)
+      <?php
+      	if($vo['activity_status'] == 2){
+      		$task = App\Models\Task::where('activity_id',$vo['activity_id'])->first();
+      		if($task['status'] == 1){
+      			$taskString = '录入物流';
+      			$buttonString = '录入物流信息';
+      			$buttonColor = '#ec9108';
+      		}else if($task['status'] == 2){
+      			$taskString = '等待直播中';
+      			$buttonString = '查看物流';
+      			$buttonColor = '#5aca21';
+      		}
+      ?>
       	<div class="content-block content-block-my content-no-margin">
          	<div class="content-block content-block-my">
 		   		<div class="list-block content-no-margin" style="margin-top: -1rem;">
@@ -85,8 +103,8 @@
 					   	<li>
 					        <div class="item-content">
 					            <div class="item-inner">
-					                <div class="item-title">韩束用品官方店 ></div>
-					                <div id="f_address" class="item-after">录入物流</div>
+					                <div class="item-title">{{$merchant['name']}}></div>
+					                <div id="f_address" class="item-after">{{$taskString}}</div>
 					            </div>
 					        </div>
 					    </li>
@@ -96,15 +114,15 @@
 				    <ul>
 				      <li>
 				        <div class="item-content">
-				          <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
+				          <div class="item-media"><img src="{{$vo['picture']}}" style='width: 4rem;'></div>
 				          <div class="item-inner">
 				            <div class="item-title-row">
-				              <div class="item-subtitle">韩束保湿乳推广活动</div>
-				              <div class="item-after">$15</div>
+				              <div class="item-subtitle">{{$vo['title']}}</div>
+				              <div class="item-after">¥&nbsp;{{$vo['total_price']}}</div>
 				            </div>
 				            <div class="item-subtitle">&nbsp;</div>
 				           <div class="item-subtitle">
-				            	<button class="button pull-right button-fill button-danger" style="margin-left:1rem;width:5rem">录入物流信息</button>
+				            	<button class="button pull-right button-fill" style="margin-left:1rem;width:5rem;background:{{$buttonColor}}">{{$buttonString}}</button>
 				            </div>
 				          </div>
 				        </div>
@@ -113,78 +131,14 @@
 			  	</div>
 			</div>
       	</div>
-        <div class="content-block content-block-my content-no-margin">
-         	<div class="content-block content-block-my">
-		   		<div class="list-block content-no-margin" style="margin-top: -1rem;">
-				  	<ul>
-					   	<li>
-					        <div class="item-content">
-					            <div class="item-inner">
-					                <div class="item-title">韩束用品官方店 ></div>
-					                <div id="f_address" class="item-after">等待直播中</div>
-					            </div>
-					        </div>
-					    </li>
-				   	</ul>
-		   		</div>
-		  		<div class="list-block media-list content-no-margin">
-				    <ul>
-				      <li>
-				        <div class="item-content">
-				          <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
-				          <div class="item-inner">
-				            <div class="item-title-row">
-				              <div class="item-subtitle">韩束保湿乳推广活动</div>
-				              <div class="item-after">$15</div>
-				            </div>
-				            <div class="item-subtitle">&nbsp;</div>
-				           <div class="item-subtitle">
-				            	<button class="button pull-right button-fill button-danger" style="margin-left:1rem;width:4rem">查看物流</button>
-				            </div>
-				          </div>
-				        </div>
-				      </li>
-				    </ul>
-			  	</div>
-			</div>
-      	</div>
+        <?php } ?>
+      @endforeach
       </div>
       <div id="tab3" class="tab">
-        <div class="content-block content-block-my content-no-margin">
-         	<div class="content-block content-block-my">
-		   		<div class="list-block content-no-margin" style="margin-top: -1rem;">
-				  	<ul>
-					   	<li>
-					        <div class="item-content">
-					            <div class="item-inner">
-					                <div class="item-title">韩束用品官方店 ></div>
-					                <div id="f_address" class="item-after">待评价</div>
-					            </div>
-					        </div>
-					    </li>
-				   	</ul>
-		   		</div>
-		  		<div class="list-block media-list content-no-margin">
-				    <ul>
-				      <li>
-				        <div class="item-content">
-				          <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
-				          <div class="item-inner">
-				            <div class="item-title-row">
-				              <div class="item-subtitle">韩束保湿乳推广活动</div>
-				              <div class="item-after">$15</div>
-				            </div>
-				            <div class="item-subtitle">&nbsp;</div>
-				           <div class="item-subtitle">
-				            	<button class="button pull-right button-fill button-danger" style="margin-left:1rem;width:4rem">去评价</button>
-				            </div>
-				          </div>
-				        </div>
-				      </li>
-				    </ul>
-			  	</div>
-			</div>
-      	</div>
+        @foreach ($list as $vo)
+      <?php
+      	if($vo['activity_status'] == 3){
+      ?>
       	<div class="content-block content-block-my content-no-margin">
          	<div class="content-block content-block-my">
 		   		<div class="list-block content-no-margin" style="margin-top: -1rem;">
@@ -192,8 +146,8 @@
 					   	<li>
 					        <div class="item-content">
 					            <div class="item-inner">
-					                <div class="item-title">韩束用品官方店 ></div>
-					                <div id="f_address" class="item-after">已评价</div>
+					                <div class="item-title">{{$merchant['name']}}></div>
+					                <div id="f_address" class="item-after">带评价</div>
 					            </div>
 					        </div>
 					    </li>
@@ -203,15 +157,15 @@
 				    <ul>
 				      <li>
 				        <div class="item-content">
-				          <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
+				          <div class="item-media"><img src="{{$vo['picture']}}" style='width: 4rem;'></div>
 				          <div class="item-inner">
 				            <div class="item-title-row">
-				              <div class="item-subtitle">韩束保湿乳推广活动</div>
-				              <div class="item-after">$15</div>
+				              <div class="item-subtitle">{{$vo['title']}}</div>
+				              <div class="item-after">¥&nbsp;{{$vo['total_price']}}</div>
 				            </div>
 				            <div class="item-subtitle">&nbsp;</div>
 				           <div class="item-subtitle">
-				            	<button class="button pull-right button-fill button-danger" style="margin-left:1rem;width:4rem">查看评价</button>
+				            	<button class="button pull-right button-fill" style="margin-left:1rem;width:5rem;background:#ec9108">去评价</button>
 				            </div>
 				          </div>
 				        </div>
@@ -220,6 +174,8 @@
 			  	</div>
 			</div>
       	</div>
+        <?php } ?>
+      @endforeach
       </div>
     </div>
   </div>

@@ -34,7 +34,7 @@
                 <div class="item-content">
                     <div class="item-inner">
                         <div class="item-title">{{ $detail['title']}}</div>
-                        <div id="f_merchant_name" class="item-after">${{$detail['total_price']}}</div>
+                        <div id="f_merchant_name" class="item-after">¥&nbsp;{{$detail['total_price']}}</div>
                     </div>
                 </div>
             </li>
