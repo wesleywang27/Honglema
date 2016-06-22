@@ -98,11 +98,72 @@
           </div>
       </div>
     </div>
-    <?php
-      $task_id = App\Models\Task::where('activity_id',$detail['activity_id'])->first()['task_id'];
-    ?>
 
+    <?php 
+      //获取该活动下task的所有已抢单网红
+      if($detail['activity_status'] != 0){
+      $task_id = \App\Models\Task::where('activity_id',$detail['activity_id'])->first()['task_id'];
+      switch ($detail['activity_status']) {
+        case '1':
+          $order = \App\Models\Order::where('task_id',$task_id)->where('status',1)->get();
+          $star_ids = array();
+          foreach ($order as $key => $value) {
+            array_push($star_ids, $value['star_id']);
+          }
+          $star = \App\Models\Star::whereIn('star_id',$star_ids);
+          $starString = '已报名&nbsp;'.count($star);;
+          break;
+        
+        default:
+          # code...
+          break;
+      }
+  ?>
+  <div class="content-block content-block-my content-no-margin">
+        <div class="content-block content-block-my">
+          <div class="list-block content-no-margin" style="margin-top: -1rem;">
+            <ul>
+              <li>
+                  <div class="item-content">
+                      <div class="item-inner">
+                          <div class="item-title">{{$starString}}</div>
+                      </div>
+                  </div>
+              </li>
+            </ul>
+          </div>
+          <div class="list-block media-list content-no-margin">
+            <ul>
+              <li>
+                <a href="/Merchant/activityOrder/activityDetail/1" class="blackfont item-content">
+                  <div class="item-media"><img src="http://img4.imgtn.bdimg.com/it/u=3609012104,1449130698&fm=11&gp=0.jpg" style='width: 4rem;'></div>
+                  <div class="item-inner">
+                    <div class="item-title-row">
+                      <div class="item-subtitle">小丸子</div>
+                      <div class="item-after">¥1234</div>
+                    </div>
+                    <div class="item-subtitle">&nbsp;</div>
+                   <div class="item-subtitle">
+                      <button class="button pull-right button-fill button-danger" style="margin-left:1rem;width:4rem">已抢单1/2</button>
+                      <button class="button pull-right" style="margin-left:1rem;width:4rem">再来一单</button>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          @foreach ($star as $svo)
+              
+          @endforeach
+            
+      </div>
+    </div>
+  <?php
+    }
+
+  ?>
   </div>
+
   <script>
   
   

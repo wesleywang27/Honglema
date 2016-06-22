@@ -13,6 +13,7 @@ use EasyWeChat\Foundation\Application;
 use App\Http\Controllers\Controller;
 use App\Models\Activity;
 use App\Models\ActivityCommodityList;
+use App\Models\Task;
 
 class ActivityController extends RootController{
     public function __construct(){
@@ -48,8 +49,6 @@ class ActivityController extends RootController{
         //获取该活动下的所有commodity_id
         $commodity_ids = ActivityCommodityList::where('activity_id',$activityDetail['activity_id'])->get();
         
-        // echo "<pre>";
-        // var_dump($activityDetail);die;
         return view('merchant.activity_detail',['detail'=>$activityDetail,'commodity_ids'=>$commodity_ids]);
     }
 }
