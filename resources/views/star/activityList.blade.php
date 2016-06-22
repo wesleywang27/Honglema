@@ -18,7 +18,7 @@
 <header class="bar bar-nav">
   	<h1 class='title'>活动广场</h1>
 </header>
-<div class="content">
+<div class="content" style="top: 0rem;">
     <div class="tabs">
       <div id="tab3" >
       <?php
@@ -47,8 +47,8 @@
 				    <ul>
 				      <li>
 				        <a href="/star/activityDetail/{{$vo['activity_id']}}" class="blackfont item-content">
-				          <div class="item-media"><img src="{{$vo['picture']}}" style='width: 6rem;'></div>
-				          <div class="item-inner">
+				          <div class="item-media" style="margin-left:-0.3rem; margin-right:0"><img src="{{$vo['picture']}}" style='width: 6rem;'></div>
+				          <div class="item-inner" style="background-color:#f0f0f0; margin: 0.4rem">
 				            <div class="item-subtitle" style="text-align: center;height:50%">{{$vo['title']}}</div>
 				            <div class="item-subtitle" style="text-align: center;height:50%">¥&nbsp;{{$vo['total_price']}}</div>
 				           
