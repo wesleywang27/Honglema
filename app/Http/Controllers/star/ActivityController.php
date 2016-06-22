@@ -9,9 +9,7 @@ use App\Models\User;
 use App\Models\StarPicture;
 use App\Models\ActivityCommodityList;
 use App\Models\Order;
-
 use App\Http\Controllers\Controller;
-use Redirect;
 class ActivityController extends Controller{
 	public function __construct(){
 		session_start();
@@ -46,11 +44,8 @@ class ActivityController extends Controller{
         $order->save();
 		//var_dump($activityDetail);die;
 	}
-
 	public function visitor(){
 		$activityList = Activity::where('activity_status',1)->get();
 		return view('star.visitor',['list'=>$activityList]);
 	}
-
-
 }

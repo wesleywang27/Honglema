@@ -10,7 +10,6 @@ use App\Models\StarPicture;
 use App\Models\ActivityCommodityList;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
-
 use Illuminate\Support\Facades\Redirect;
 
 class RootController extends Controller{
