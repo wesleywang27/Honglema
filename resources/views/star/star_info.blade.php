@@ -217,12 +217,9 @@
         <div class="list-block" style="margin:2rem auto;">
             <img id="wx_headimg" style="width: 50%;" src="{{$star['avatar']}}">
         </div>
-
         <div class="content-block" style="margin-top: -1rem;">
             <div class="row">
-                <div class="weui_uploader_input_wrp" style="width: 80px;height: 80px;float: left;">
-                    <input class="weui_uploader_input" id="headPicinput" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
-                </div>
+                <div class="col-100"><a id="changehead" href="#" class="button button-big button-fill button-success">更改头像</a></div>
             </div>
         </div>
     </div>
@@ -339,7 +336,7 @@
             <ul>
                 <li>
                     <label class="label-checkbox item-content">
-                        <input type="radio" name="sex-radio" value="0" {{$star['sex']=='1' ? 'checked="checked"':''}}>
+                        <input type="radio" name="sex-radio" value="0" {{$star['sex']=='0' ? 'checked="checked"':''}}>
                         <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
                         <div class="item-inner">
                             <div class="item-title-row">
@@ -350,7 +347,7 @@
                 </li>
                 <li>
                     <label class="label-checkbox item-content">
-                        <input type="radio" name="sex-radio" value="1" {{$star['sex']=='0' ? 'checked="checked"':''}}>
+                        <input type="radio" name="sex-radio" value="1" {{$star['sex']=='1' ? 'checked="checked"':''}}>
                         <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
                         <div class="item-inner">
                             <div class="item-title-row">
@@ -1045,7 +1042,7 @@
                             <div class="weui_uploader_hd weui_cell">
                             </div>
                             <div class="weui_uploader_bd">
-                                <ul class="weui_uploader_files" id="starPic" style="padding-left: 0;float: left;">
+                                <ul class="weui_uploader_files" id="album" style="padding-left: 0;float: left;">
                                     @foreach($pictures as $picture)
                                         <li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('{{$picture->url}}')">
                                             <input type="hidden" value="{{$picture->url}}">
