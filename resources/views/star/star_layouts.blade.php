@@ -151,7 +151,6 @@
                 for(var i=0; i<urls.length; i++){
                     $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
                     <input type="hidden" id="manyimg"+i value="'+urls[i]+'"></li>';
-                 
                 }
                 $('#imgfiles').append($htmls);
                 $.hidePreloader();
@@ -163,7 +162,7 @@
         });
     });
 
-    //上传多图
+    //上传网红照片
     $('#uploadalbum').change(function(){
         $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
@@ -174,14 +173,23 @@
             success: function (data, status) {
                 var urls = data.urls;
                 for(var i=0; i<urls.length; i++){
-                    $.post('/star/uploadimg',{url:urls[i]},function(){
-                        $.toast("上传成功!",1000);
+                    $.ajax({
+                        url: "/star/uploadimg",
+                        type: "POST",
+                        traditional: true,
+                        dataType: "JSON",
+                        data: {url:urls[i]}
+                        ,success: function(data) {
+                            $.toast("提交成功!",1000);
+                        },headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
                     });
                     $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
                     <input type="hidden" id="task"+i value="'+urls[i]+'"></li>';
 
                 }
-                $('#imgfiles').append($htmls);
+                $('#album').append($htmls);
                 $.hidePreloader();
                 $.toast("添加成功", 1000);
             },error:function(data, status, e){
@@ -334,31 +342,57 @@
 
     //编辑尺寸
     $.save_size = function(){
-
         $('#f_cloth').text($('#f_shirt').val()+'/'+$('#f_pants').val()+'/'+$('#f_shoe').val());
-
-        $.post('{{ URL::action('star\StarController@update') }}',{
+        $.ajax({
+            url: "star\StarController@update",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data: {
                 'shirt_size': $("#f_shirt").val(),
                 'pants_size': $("#f_pants").val(),
                 'shoes_size': $("#f_shoe").val(),}
-        );
+            ,success: function(data) {
+                $.toast("提交成功!",1000);
+            },headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     }
-
-    //编辑单项
 
     $.save_address =function(v1,v2){
         $('#f_dizhi').text($('#'+v1).val() +$('#'+v2).val());
-        $.post('{{ URL::action('star\StarController@update') }}',{
-            'address': $('#'+v1)+val().$('#'+v2).val()}
+        $.ajax({
+            url: "star\StarController@update",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data: {  'address': $('#'+v1)+val().$('#'+v2).val()}
+            ,success: function(data) {
+                $.toast("提交成功!",1000);
+            },headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        }
         );
     }
+
     $.save_edit = function(va1,tag){
         $('#f_'+va1).text($('#'+va1).val());
         var data = {};
         data[tag]=$('#'+va1).val();
-        $.post('{{ URL::action('star\StarController@update') }}',
-          data
-        );
+        $.ajax({
+            url: "star\StarController@update",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data:  data
+            ,success: function(data) {
+                $.toast("修改成功!",1000);
+            },headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     }
 
 
@@ -418,26 +452,40 @@
     });
 
 $.submmitTaskResult=function(id){
-    $.post('star/submitTaskResult',{
-        order_id:id,
-        img1:$('#task1').val(),
-         img2:$('#task2').val(),
-          img3:$('#task3').val(),
-           img4:$('#task4').val(),
-    },function(){
-             $.toast("取消成功!",1000);
-               setTimeout(function(){
-                    location.href="/star/order";
-                },1000);});
+    $.ajax({
+        url: "star/submitTaskResult",
+        type: "POST",
+        traditional: true,
+        dataType: "JSON",
+        data: {  task_ids:id,
+            img1:$('#task1').val(),
+            img2:$('#task2').val(),
+            img3:$('#task3').val(),
+            img4:$('#task4').val(),}
+        ,success: function(data) {
+            $.toast("提交成功!",1000);
+        },headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 }
 
 $.cancelOrder=function(id){
-    $.post('/star/cancelOrder',{order_id:id},function(){
+    $.ajax({
+        url: "/star/cancelOrder",
+        type: "POST",
+        traditional: true,
+        dataType: "JSON",
+        data: {order_id:id}
+        ,success: function(data) {
             $.toast("取消成功!",1000);
-               setTimeout(function(){
-                    location.href="/star/order";
-                },1000);
-    })
+            setTimeout(function(){
+                location.href="/star/order";
+            },1000);
+        },headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 }
 </script>
 

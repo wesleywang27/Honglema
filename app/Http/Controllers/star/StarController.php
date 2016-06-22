@@ -60,6 +60,20 @@ class StarController extends RootController
     }
 
 
+    public function create()
+    {
+        $user = session('wechat.oauth_user');
+        $star = Star::where('openid', $user->openid)->first();
+        if ($star) {
+            $_SESSION['star_id'] = $star->star_id;
+            $star = Star::where('star_id', $star->star_id)->first();
+            $starPictures= StarPicture::where('uid',$star->star_id)->get();
+            return view('star/star_info', ["star" => $star, "pictures"=>$starPictures]);
+        }else{
+            return view('star/create', ["user" => $user]);
+        }
+    }
+
     public function order()
     {
         $star_id = $_SESSION['star_id'];
@@ -103,28 +117,6 @@ class StarController extends RootController
         return view('star/merchant_info', ["merchant" => $merchant]);
     }
 
-    public function create()
-    {
-
-        /*$user =new OAuthUser();
-        $user->nickname='小喳喳';
-        $user->sex=1;
-        $user->province='云南';
-        $user->city='普洱';
-        $user->openid='0001';
-        $user->avatar='http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg';
-        */
-
-        $user = session('wechat.oauth_user');
-        $star = Star::where('openid', $user->openid)->first();
-        if ($star) {
-            $_SESSION['star_id'] = $star->star_id;
-            return view('star/star_info', ["star" => $star]);
-        }else{
-            return view('star/create', ["user" => $user]);
-        }
-    }
-
     public function info(Request $request)
     {
         $star_id = $_SESSION['star_id'];
@@ -150,16 +142,6 @@ class StarController extends RootController
 
     public function register(Request $request)
     {
-
-//        $user =new OAuthUser();
-//        $user->nickname='小喳喳';
-//        $user->sex=1;
-//        $user->province='云南';
-//        $user->city='普洱';
-//        $user->openid='0001';
-//        $user->avatar='http://ww2.sinaimg.cn/crop.0.0.1242.1242.1024/005EWUXPjw8eto7cdd42wj30yi0yiabz.jpg';
-
-
         $user = session('wechat.oauth_user');
         $openid = $user->openid;
         $input = Input::all();
@@ -206,7 +188,6 @@ class StarController extends RootController
                 $starPicture->save();
             }
         }
-
         return view('star/star_info', ["star" => $star]);
     }
 
@@ -268,39 +249,38 @@ class StarController extends RootController
 
     public function submitTaskResult(Request $request)
     {
-        $order_id = $request->input('order_id');
+        $task_id = $request->input('task_id');
         $img1 = $request->input('img1');
         $img2 = $request->input('img2');
         $img3 = $request->input('img3');
         $img4 = $request->input('img4');
-        $order = Order::where('order_id', $order_id)->first();
-        $task = Task::where('task_id', $order->task_id)->first();
+        $task = Task::where('task_id', $task_id)->first();
         $task->status = 4;
         $task->save();
         if (isset($img1)) {
             $tp = new TaskPicture();
-            $tp->order_id = $order_id;
+            $tp->task_id = $task_id;
             $tp->url = $img1;
             $tp->file_id = pathinfo($img1)['filename'];
             $tp->save;
         }
         if (isset($img2)) {
             $tp = new TaskPicture();
-            $tp->order_id = $order_id;
+            $tp->order_id = $task_id;
             $tp->url = $img2;
             $tp->file_id = pathinfo($img2)['filename'];
             $tp->save;
         }
         if (isset($img3)) {
             $tp = new TaskPicture();
-            $tp->order_id = $order_id;
+            $tp->order_id = $task_id;
             $tp->url = $img3;
             $tp->file_id = pathinfo($img3)['filename'];
             $tp->save;
         }
         if (isset($img4)) {
             $tp = new TaskPicture();
-            $tp->order_id = $order_id;
+            $tp->order_id = $task_id;
             $tp->url = $img4;
             $tp->file_id = pathinfo($img4)['filename'];
             $tp->save;

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield("title")</title>
+    <title>红了吗网红端（试用版）</title>
     <link rel="stylesheet" href="{{URL::asset('css/sm.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('/css/weui.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/sm-extend.min.css')}}">
@@ -16,7 +16,7 @@
 </head>
 <body>
 <header class="bar bar-nav">
-  	<h1 class='title'>红了吗网红端（试用版）</h1>
+  	<h1 class='title'>活动广场</h1>
 </header>
 <div class="content">
     <div class="tabs">
@@ -32,7 +32,7 @@
       ?>
         <div class="content-block content-block-my content-no-margin">
          	<div class="content-block content-block-my">
-		   		<div class="list-block content-no-margin" style="margin-top: -1rem;">
+		   		<div class="list-block content-no-margin" style="margin-top: -1.3rem;">
 				  	<ul>
 					   	<li>
 					        <div class="item-content">
