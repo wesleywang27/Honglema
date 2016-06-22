@@ -3,6 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="d4c7bd4d-096f-4254-9eac-d1aec9d85e75" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Activity.php" afterPath="$PROJECT_DIR$/app/Models/Activity.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/ActivityCommodityList.php" afterPath="$PROJECT_DIR$/app/Models/ActivityCommodityList.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Administrator.php" afterPath="$PROJECT_DIR$/app/Models/Administrator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Commodity.php" afterPath="$PROJECT_DIR$/app/Models/Commodity.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/MerchantPayment.php" afterPath="$PROJECT_DIR$/app/Models/MerchantPayment.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/PriceLevel.php" afterPath="$PROJECT_DIR$/app/Models/PriceLevel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/StarPayment.php" afterPath="$PROJECT_DIR$/app/Models/StarPayment.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Task.php" afterPath="$PROJECT_DIR$/app/Models/Task.php" />
     </list>
     <ignored path="honglema.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,8 +38,8 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="744">
-              <caret line="327" column="15" selection-start-line="327" selection-start-column="15" selection-end-line="327" selection-end-column="15" />
+            <state relative-caret-position="380">
+              <caret line="307" column="46" selection-start-line="307" selection-start-column="46" selection-end-line="307" selection-end-column="46" />
               <folding>
                 <element signature="e#950#1176#1#PHP" expanded="false" />
               </folding>
@@ -38,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActivityController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ActivityController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActivityController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="83" column="48" selection-start-line="83" selection-start-column="48" selection-end-line="83" selection-end-column="48" />
+            <state relative-caret-position="456">
+              <caret line="136" column="57" selection-start-line="136" selection-start-column="57" selection-end-line="136" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -51,20 +60,12 @@
       <file leaf-file-name="activity_choose_order.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_choose_order.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_create.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_create.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+            <state relative-caret-position="361">
+              <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
               <folding>
-                <marker date="1466580315265" expanded="true" signature="2400:2426" ph="..." />
+                <element signature="n#style#0;n#td#2;n#tr#1;n#table#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#tr#1;n#table#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#4;n#tr#1;n#table#0;n#div#0;n#section#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -77,7 +78,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="shangjia" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="FORCE_PUSH_ALLOWED" value="true" />
@@ -94,9 +95,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Models/Task.php" />
-        <option value="$PROJECT_DIR$/app/Models/StarPicture.php" />
-        <option value="$PROJECT_DIR$/app/Models/TaskPicture.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_16_114333_create_task_picture_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_12_112801_create_orders_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_16_123358_create_orders_table.php" />
@@ -104,19 +102,14 @@
         <option value="$PROJECT_DIR$/database/migrations/2016_06_16_124937_create_orders_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_16_125014_create_merchant_payments_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_16_135138_create_star_payments_table.php" />
-        <option value="$PROJECT_DIR$/app/Models/MerchantPayment.php" />
-        <option value="$PROJECT_DIR$/app/Models/StarPayment.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_16_142034_create_commodity_lists_table.php" />
-        <option value="$PROJECT_DIR$/app/Models/ActivityCommodityList.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_16_143422_create_administrators_table.php" />
-        <option value="$PROJECT_DIR$/app/Models/Administrator.php" />
         <option value="$PROJECT_DIR$/resources/views/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/brand.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/designer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/factory.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/stall.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_06_17_114859_create_price_levels_table.php" />
-        <option value="$PROJECT_DIR$/app/Models/PriceLevel.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/login.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DidiController.php" />
@@ -126,25 +119,33 @@
         <option value="$PROJECT_DIR$/resources/views/didi/merchant_info.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/merchant_modify.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/merchant_list.blade.php" />
-        <option value="$PROJECT_DIR$/app/Models/Commodity.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/banner.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/commodity_create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CommodityController.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/activity_info.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/didi/activity_list.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" />
         <option value="$PROJECT_DIR$/composer.lock" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MerchantController.php" />
         <option value="$PROJECT_DIR$/resources/views/star/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/star/RootController.php" />
         <option value="$PROJECT_DIR$/resources/views/star/order_detail.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Order.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/star/star_layouts.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/star/StarController.php" />
         <option value="$PROJECT_DIR$/resources/views/star/star_order.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/star/star_info.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/didi/activity_create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/didi/activity_list.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/resources/views/didi/activity_choose_order.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" />
+        <option value="$PROJECT_DIR$/app/Models/Activity.php" />
+        <option value="$PROJECT_DIR$/app/Models/ActivityCommodityList.php" />
+        <option value="$PROJECT_DIR$/app/Models/Administrator.php" />
+        <option value="$PROJECT_DIR$/app/Models/Commodity.php" />
+        <option value="$PROJECT_DIR$/app/Models/MerchantPayment.php" />
+        <option value="$PROJECT_DIR$/app/Models/PriceLevel.php" />
+        <option value="$PROJECT_DIR$/app/Models/StarPayment.php" />
+        <option value="$PROJECT_DIR$/app/Models/Task.php" />
       </list>
     </option>
   </component>
@@ -201,7 +202,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -302,6 +304,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="honglema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="honglema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Http" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -330,8 +350,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -605,28 +624,7 @@
       <workItem from="1466500384204" duration="2883000" />
       <workItem from="1466504170170" duration="667000" />
       <workItem from="1466579922091" duration="117000" />
-      <workItem from="1466580076277" duration="259000" />
-    </task>
-    <task id="LOCAL-00182" summary="修改">
-      <created>1465797072864</created>
-      <option name="number" value="00182" />
-      <option name="presentableId" value="LOCAL-00182" />
-      <option name="project" value="LOCAL" />
-      <updated>1465797072864</updated>
-    </task>
-    <task id="LOCAL-00183" summary="修改">
-      <created>1465802977979</created>
-      <option name="number" value="00183" />
-      <option name="presentableId" value="LOCAL-00183" />
-      <option name="project" value="LOCAL" />
-      <updated>1465802977979</updated>
-    </task>
-    <task id="LOCAL-00184" summary="修改">
-      <created>1465807395226</created>
-      <option name="number" value="00184" />
-      <option name="presentableId" value="LOCAL-00184" />
-      <option name="project" value="LOCAL" />
-      <updated>1465807395226</updated>
+      <workItem from="1466580391935" duration="2235000" />
     </task>
     <task id="LOCAL-00185" summary="修改">
       <created>1465808938282</created>
@@ -943,18 +941,39 @@
       <option name="project" value="LOCAL" />
       <updated>1466579971871</updated>
     </task>
-    <task id="LOCAL-00230" summary="滴滴打网红后台 活动上传图片后隐藏">
-      <created>1466580295554</created>
+    <task id="LOCAL-00230" summary="修改">
+      <created>1466580411838</created>
       <option name="number" value="00230" />
       <option name="presentableId" value="LOCAL-00230" />
       <option name="project" value="LOCAL" />
-      <updated>1466580295554</updated>
+      <updated>1466580411838</updated>
     </task>
-    <option name="localTasksCounter" value="231" />
+    <task id="LOCAL-00231" summary="滴滴打网红后台 活动选择接单列表页">
+      <created>1466581070023</created>
+      <option name="number" value="00231" />
+      <option name="presentableId" value="LOCAL-00231" />
+      <option name="project" value="LOCAL" />
+      <updated>1466581070023</updated>
+    </task>
+    <task id="LOCAL-00232" summary="滴滴打网红后台 活动选择接单列表页">
+      <created>1466581241202</created>
+      <option name="number" value="00232" />
+      <option name="presentableId" value="LOCAL-00232" />
+      <option name="project" value="LOCAL" />
+      <updated>1466581241202</updated>
+    </task>
+    <task id="LOCAL-00233" summary="滴滴打网红后台 商家选择网红">
+      <created>1466581986921</created>
+      <option name="number" value="00233" />
+      <option name="presentableId" value="LOCAL-00233" />
+      <option name="project" value="LOCAL" />
+      <updated>1466581986921</updated>
+    </task>
+    <option name="localTasksCounter" value="234" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="589622000" />
+    <option name="totallyTimeSpent" value="591598000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1010,10 +1029,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="添加star_payments" />
-    <MESSAGE value="添加administrator" />
     <MESSAGE value="修改武仙" />
-    <MESSAGE value="修改" />
     <MESSAGE value="添加滴滴打网红后台 route index banner" />
     <MESSAGE value="修改滴滴打网红后台 route index banner" />
     <MESSAGE value="修改滴滴打网红后台 样式 内容" />
@@ -1035,7 +1051,10 @@
     <MESSAGE value="修改lock" />
     <MESSAGE value="滴滴打网红后台 创建商家 创建活动 创建任务 添加商品" />
     <MESSAGE value="滴滴打网红后台 活动上传图片后隐藏" />
-    <option name="LAST_COMMIT_MESSAGE" value="滴滴打网红后台 活动上传图片后隐藏" />
+    <MESSAGE value="修改" />
+    <MESSAGE value="滴滴打网红后台 活动选择接单列表页" />
+    <MESSAGE value="滴滴打网红后台 商家选择网红" />
+    <option name="LAST_COMMIT_MESSAGE" value="滴滴打网红后台 商家选择网红" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1048,55 +1067,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Models/PriceLevel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/didi/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/didi/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/banner.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DidiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/user_right.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/cms/user.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1122,13 +1092,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cms/stall_modify.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -1167,21 +1130,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/didi/merchant_modify.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="40" column="66" selection-start-line="40" selection-start-column="66" selection-end-line="40" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Commodity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/didi/banner.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1200,13 +1148,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/didi/merchant_list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="22" column="106" selection-start-line="22" selection-start-column="106" selection-end-line="22" selection-end-column="106" />
         </state>
       </provider>
     </entry>
@@ -1280,33 +1221,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="26" column="69" selection-start-line="26" selection-start-column="69" selection-end-line="26" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Activity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/star/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="442" column="0" selection-start-line="442" selection-start-column="0" selection-end-line="442" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1355,9 +1273,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
+          <folding>
+            <marker date="1466580315265" expanded="true" signature="2400:2426" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/star/star_info.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19874">
+        <state relative-caret-position="121">
           <caret line="1046" column="147" selection-start-line="1046" selection-start-column="147" selection-end-line="1046" selection-end-column="147" />
           <folding />
         </state>
@@ -1366,10 +1294,138 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/star/StarController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="517">
-          <caret line="128" column="58" selection-start-line="128" selection-start-column="58" selection-end-line="128" selection-end-column="58" />
+          <caret line="128" column="5" selection-start-line="128" selection-start-column="5" selection-end-line="128" selection-end-column="5" />
           <folding>
             <element signature="e#45#70#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/star/star_layouts.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="147" column="34" selection-start-line="147" selection-start-column="34" selection-end-line="147" selection-end-column="34" />
+          <folding>
+            <marker date="1466579380313" expanded="false" signature="4068:4161" ph="..." />
+            <marker date="1466579380313" expanded="true" signature="4162:4334" ph="..." />
+            <marker date="1466579380313" expanded="false" signature="4933:4989" ph="..." />
+            <marker date="1466579380313" expanded="true" signature="4990:5073" ph="..." />
+            <marker date="1466579380313" expanded="true" signature="5919:5975" ph="..." />
+            <marker date="1466579380313" expanded="true" signature="5976:6056" ph="..." />
+            <marker date="1466579380313" expanded="true" signature="7601:7747" ph="..." />
+            <marker date="1466579380313" expanded="true" signature="7902:8048" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/didi/merchant_modify.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="40" column="66" selection-start-line="40" selection-start-column="66" selection-end-line="40" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/cms/stall_modify.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="111" column="25" selection-start-line="111" selection-start-column="25" selection-end-line="111" selection-end-column="25" />
+          <folding>
+            <marker date="1465803607985" expanded="true" signature="8739:8798" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/didi/merchant_list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="17" column="82" selection-start-line="17" selection-start-column="82" selection-end-line="17" selection-end-column="82" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="307" column="46" selection-start-line="307" selection-start-column="46" selection-end-line="307" selection-end-column="46" />
+          <folding>
+            <element signature="e#950#1176#1#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Activity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/ActivityCommodityList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Administrator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Commodity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Merchant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/MerchantPayment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/PriceLevel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1381,47 +1437,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/star/star_layouts.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Models/StarPayment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="147" column="34" selection-start-line="147" selection-start-column="34" selection-end-line="147" selection-end-column="34" />
+        <state relative-caret-position="209">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+    <entry file="file://$PROJECT_DIR$/app/Models/Task.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="744">
-          <caret line="327" column="15" selection-start-line="327" selection-start-column="15" selection-end-line="327" selection-end-column="15" />
-          <folding>
-            <element signature="e#950#1176#1#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActivityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="83" column="48" selection-start-line="83" selection-start-column="48" selection-end-line="83" selection-end-column="48" />
+        <state relative-caret-position="209">
+          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_choose_order.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="361">
+          <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#td#2;n#tr#1;n#table#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#1;n#table#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#1;n#table#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/didi/activity_create.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActivityController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
-          <folding>
-            <marker date="1466580315265" expanded="true" signature="2400:2426" ph="..." />
-          </folding>
+        <state relative-caret-position="456">
+          <caret line="136" column="57" selection-start-line="136" selection-start-column="57" selection-end-line="136" selection-end-column="57" />
+          <folding />
         </state>
       </provider>
     </entry>
