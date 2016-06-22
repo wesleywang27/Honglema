@@ -16,33 +16,37 @@
         <div class="content-block"  style="padding: 0px">
             <div class="tabs">
                 <div id="tab1" class="tab active">
+                  @foreach($data as $order)
+                    @if($order['order_status']=="1")
                     <div class="content-block content-block-my content-no-margin"  style="padding: 0px">
-                        <div class="list-block">
-                            @foreach($data as $order)
-                                @if($order['order_status']=="1")
-                                <div id="" class="item">
-                                    <ul>
-                                        <li class="item-content">
-                                            <div class="item-media"><i class="icon icon-f7"></i></div>
-                                            <div class="item-inner">
-                                                <div class="item-title">    <a href="/star/merchant?merchant_id={{$order['merchant_id']}} " class="item-link item-content">{{$order['merchant_name']}}</a></div>
-                                                <div class="item-after">抢单中</div>
-                                            </div>
-                                        </li>
-                                        <li class="item-content"><a href="/star/order_detail?order_id={{$order['order_id']}}" class="item-link item-content">
-                                            <div class="item-media"><img src="{{$order['avatar']}}" style='width: 4rem;'></div></a>
-                                            <div class="item-inner">
-                                                <div class="item-title">{{$order['title']}}</div>
-                                                <div class="item-after">${{$order['total_price']}}</div>
-                                            </div>
-                                            
-                                        </li>
-                                    </ul>
-                                </div>
-                                @endif
-                            @endforeach
+                        <div class="list-block content-no-margin" style="margin-top: -1rem;">
+                            <ul>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">{{$order['merchant_name']}}</div>
+                                        <div class="item-after">抢单中</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="list-block content-no-margin">
+                            <ul>
+                                <li>
+                                    <a href="/star/order_detail?order_id={{$order['order_id']}}" class="item-content">
+                                       <div class="item-media">
+                                           <img src="{{$order['picture']}}" style='width: 4rem;'>
+                                       </div>
+                                       <div class="item-inner">
+                                           <div class="item-title">{{$order['title']}}</div>
+                                           <div class="item-after">￥ {{$order['total_price']}}</div>
+                                       </div>
+                                    </a>        
+                                </li>
+                            </ul>
                         </div>
                     </div>
+                    @endif
+                  @endforeach
                 </div>
                 <div id="tab2" class="tab">
                     <div class="content-block" style="padding: 0px">
@@ -57,11 +61,11 @@
                                                     <div class="item-media"><i class="icon icon-f7"></i></div>
                                                     <div class="item-inner">
                                                         <div class="item-title">{{$order['merchant_name']}}</div>
-                                                        <div class="item-after">{{$order['status']==2?"进行中":"已上传图片"}}</div>
+                                                        <div class="item-after">{{$order['order_status']==2?"进行中":"已上传图片"}}</div>
                                                     </div>
                                                 </li>
                                                 <li class="item-content"><a href="/star/order_detail?order_id={{$order['order_id']}}" class="item-link item-content">
-                                            <div class="item-media"><img src="{{$order['avatar']}}" style='width: 4rem;'></div></a>
+                                            <div class="item-media"><img src="{{$order['picture']}}" style='width: 4rem;'></div></a>
                                                     <div class="item-inner">
                                                             <div class="item-title">{{$order['title']}}</div>
                                                 <div class="item-after">{{$order['total_price']}}</div>
@@ -89,17 +93,16 @@
                                                     <div class="item-media"><i class="icon icon-f7"></i></div>
                                                     <div class="item-inner">
                                                         <div class="item-title">{{$order['merchant_name']}}</div>
-                                                        <div class="item-after">@if($order['status']=="4")
+                                                        <div class="item-after">@if($order['task_status']=="4")
                                                                                 商家已评论@endif
-                                                                            @if($order['status']=="5")
+                                                                            @if($order['task_status']=="5")
                                                                                 商家已付款@endif
-                                                                            @if($order['status']=='0')
-                                                                                申请未通过@endif
+
                                                         </div>
                                                     </div>
                                                 </li>
                                                 <li class="item-content"><a href="/star/order_detail?order_id={{$order['order_id']}}" class="item-link item-content">
-                                            <div class="item-media"><img src="{{$order['avatar']}}" style='width: 4rem;'></div></a>
+                                            <div class="item-media"><img src="{{$order['picture']}}" style='width: 4rem;'></div></a>
                                                     <div class="item-inner">
                                                            <div class="item-title">{{$order['title']}}</div>
                                                 <div class="item-after">{{$order['total_price']}}</div>
@@ -108,6 +111,29 @@
                                             </ul>
                                         </div>
                                     @endif
+
+                                        @if($order['order_status']==0)
+                                            <div id="" class="item">
+                                                <ul>
+                                                    <li class="item-content">
+                                                        <div class="item-media"><i class="icon icon-f7"></i></div>
+                                                        <div class="item-inner">
+                                                            <div class="item-title">{{$order['merchant_name']}}</div>
+                                                            <div class="item-after">
+                                                                    已回绝</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-content"><a href="/star/order_detail?order_id={{$order['order_id']}}" class="item-link item-content">
+                                                            <div class="item-media"><img src="{{$order['picture']}}" style='width: 4rem;'></div></a>
+                                                        <div class="item-inner">
+                                                            <div class="item-title">{{$order['title']}}</div>
+                                                            <div class="item-after">{{$order['total_price']}}</div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        @endif
+
                                 @endforeach
                             </div>
                         </div>

@@ -44,7 +44,7 @@
             <ul>
             <li>
               <div valign="bottom" class="card-header color-white no-border no-padding" style="height:6rem">
-                <img class='card-cover' style="height:100%" src="/images/nike.jpg" alt="">
+                <img class='card-cover' style="height:100%" src="{{$order['activity']->picture}}" alt="">
               </div>
             </li>
         </ul>

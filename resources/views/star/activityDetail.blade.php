@@ -34,7 +34,7 @@
                 <div class="item-content">
                     <div class="item-inner">
                         <div class="item-title">{{ $detail['title']}}</div>
-                        <div id="f_merchant_name" class="item-after">${{$detail['total_price']}}</div>
+                        <div id="f_merchant_name" class="item-after">¥&nbsp;{{$detail['total_price']}}</div>
                     </div>
                 </div>
             </li>
@@ -79,12 +79,14 @@
              $commodity = App\Models\Commodity::where('commodity_id',$cid['commodity_id'])->first();
              
           ?>
-              <li onclick="window.location.href='<?php echo (strpos($commodity['url'],'http') === 0) ? $commodity['url'] : 'http://'.$commodity['url']; ?>'">
+              <li>
+                <a href="<?php echo (strpos($commodity['url'],'http') === 0) ? $commodity['url'] : 'http://'.$commodity['url']; ?>" style="">
                 <div class="item-content">
                   <div class="item-inner">
                     <div class="item-title">{{$commodity['name']}}</div>
                   </div>
                 </div>
+                </a>
               </li>
           @endforeach
             </ul>
