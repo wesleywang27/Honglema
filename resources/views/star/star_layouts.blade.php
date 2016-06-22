@@ -396,7 +396,7 @@ $.submmitTaskResult=function(id){
 
 $.cancelOrder=function(id){
     $.post('/star/cancelOrder',{order_id:id},function(){
-             $.toast("取消成功!",1000);
+            $.toast("取消成功!",1000);
                setTimeout(function(){
                     location.href="/star/order";
                 },1000);
