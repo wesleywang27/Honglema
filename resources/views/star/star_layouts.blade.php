@@ -506,7 +506,7 @@ $.cancelOrder=function(id){
 </script>
 <script>
     //网红修改头像
-    $.changeHeadImg=function(id){
+    $.changeHeadImg=function(){
         $('#changeheadimg').click();
     }
 
