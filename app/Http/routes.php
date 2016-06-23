@@ -344,7 +344,7 @@ Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 
 
     Route::get('/create',"VisitorController@create");
 
-    Route::get('/register',"VisitorController@register");
+    Route::resource('/register',"VisitorController@register");
 
     Route::get('/activity',"StarController@activity");
 
