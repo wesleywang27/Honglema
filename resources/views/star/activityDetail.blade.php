@@ -36,24 +36,24 @@
             <li>
                 <div class="item-content">
                     <div class="item-inner">
-                        <div class="item-title">{{ $detail['title']}}</div>
-                        <div id="f_merchant_name" class="item-after">¥&nbsp;{{$detail['total_price']}}</div>
+                        <div class="item-title" style="font-size:90%;">{{ $detail['title']}}</div>
+                        <div id="f_merchant_name" class="item-after" style="font-size:80%;">¥&nbsp;{{$detail['total_price']}}</div>
                     </div>
                 </div>
             </li>
             <li>
                 <div class="item-content">
                     <div class="item-inner">
-                        <div class="item-title label">活动时间</div>
-                        <div class="item-input">
+                        <div class="item-title label" style="font-size:80%;">活动时间</div>
+                        <div class="item-input" style="font-size:80%; color:#666666">
                             <p>{{$detail['time_within']}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="item-content">
                     <div class="item-inner">
-                        <div class="item-title label">活动要求</div>
-                        <div class="item-input">
+                        <div class="item-title label" style="font-size:80%;">活动要求</div>
+                        <div class="item-input" style="font-size:80%; color:#666666">
                             <p>{{$detail['claim']}}</p>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
               <li>
                   <div class="item-content">
                       <div class="item-inner">
-                          <div class="item-title">商品信息</div>
+                          <div class="item-title" style="font-size:80%;">商品信息</div>
                       </div>
                   </div>
               </li>
@@ -86,7 +86,7 @@
                 <a href="<?php echo (strpos($commodity['url'],'http') === 0) ? $commodity['url'] : 'http://'.$commodity['url']; ?>" style="">
                 <div class="item-content">
                   <div class="item-inner">
-                    <div class="item-title">{{$commodity['name']}}</div>
+                    <div class="item-title" style="font-size:80%;">{{$commodity['name']}}</div>
                   </div>
                 </div>
                 </a>
@@ -109,12 +109,18 @@
       $order = App\Models\Order::where('star_id',$star_id)->where('task_id',$task_id)->first();
       if($order){
     ?>
-    <p><a href="#" class="button button-fill" style="background-color:gray;border-radius:0;z-index:999; position:fixed; bottom:0; left:0; width:100%; _position:absolute;
+    <p><a href="#" class="button button-fill"
+      style="background-color:gray;border-radius:0;z-index:999;
+      position:fixed; bottom:0; left:0; width:100%; height:1.7rem; line-height:1.7rem;
+      font-size:110%; text-align:center; _position:absolute;
  _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;">已抢单</a></p>
     <?php
       }else{
     ?> 
-      <p><a href="#" class="button button-fill button-warning" style="border-radius:0;z-index:999; position:fixed; bottom:0; left:0; width:100%; _position:absolute;
+      <p><a href="#" class="button button-fill button-warning"
+      style="border-radius:0;z-index:999; position:fixed; bottom:0;
+      left:0; width:100%; height:1.7rem; line-height:1.7rem; font-size:110%;
+      text-align:center; background-color:#ee5555; _position:absolute;
  _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;" onclick="setOrder({{$task_id}})">抢单</a></p>
     <?php
       }

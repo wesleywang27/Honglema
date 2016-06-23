@@ -46,7 +46,7 @@ class VisitorController extends Controller
             return view('star.visitor', ['list' => $activityList]);
         }
     }
-
+//判断用户状态并跳转
     public function create()
     {
         $user = session('wechat.oauth_user');
@@ -60,17 +60,18 @@ class VisitorController extends Controller
             return view('star.create', ["user" => $user]);
          }
     }
-
+//网红注册
     public function register(Request $request)
     {
-
         $user = session('wechat.oauth_user');
         $openid = $user->openid;
         $input = Input::all();
         $star = Star::where('openid', $openid)->first();
         if($star){
+            //网红已注册,返回exist
             return $result='exist';
         }else{
+            //网红未注册,则保存
         $star = new Star();
         $star->openid = $openid;
         $star->province=$user->province;
@@ -102,19 +103,21 @@ class VisitorController extends Controller
         $star->weipai_id = $request->input('weipai_id');
         $star->meipai_id = $request->input('meipai_id');
         $star->kuaishou_id = $request->input('kuaishou_id');
+        $star->wechat = $request->input('wechat');
+        $star->alipay_name = $request->input('alipay_name');
+        $star->alipay_account = $request->input('alipay_account');
+        $star->region = $request->input('region');
         $star->save();
+            //保存网红照片
         $star = Star::where('openid', $openid)->first();
         $_SESSION['star_id'] = $star->star_id;
-
-        for ($x = 0; $x < 6; $x++) {
-            if (isset($input['imgurl' . $x])) {
-                $url = $request->input('imgurl' . $x);
+            foreach ($request->input('imgdata') as $url) {
                 $starPicture = new StarPicture();
                 $starPicture->url = $url;
                 $starPicture->file_id = pathinfo($url)['filename'];
                 $starPicture->uid = $star->star_id;
                 $starPicture->save();
-            }
+
         }}
    }
 }

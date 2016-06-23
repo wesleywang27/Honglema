@@ -42,11 +42,21 @@
 
     <?php
       $task = \App\Models\Task::where('activity_id',$detail['activity_id'])->first();
-      if($detail['activity_status']==2){
-        if($task['status']==1){
-          $buttonString = '录入快递单号';
-        }else{
-          $buttonString = '查看快递单号';
+
+      if($detail['activity_status']==0||$detail['activity_status']==1){
+        $commentString = "未进行";
+      }else{
+
+        if($detail['activity_status']==2){
+          $commentString = "查看并评价";
+          if($task['status']==1){
+            $buttonString = '录入快递单号';
+          }else{
+            $buttonString = '查看快递单号';
+          }
+        }else if($detail['activity_status']==3){
+           $buttonString = '查看快递单号';
+           $commentString = "已评价";
         }
       
     ?>
@@ -59,7 +69,7 @@
                       <div class="item-inner">
                           <div class="item-title label">查看物流</div>
                           <div class="item-input">
-                              <button class="button pull-right" style="margin-left:1rem;width:5rem">{{$buttonString}}</button>
+                              <button class="button pull-right" style="margin-left:1rem;width:5rem" onclick="window.location.href='/Merchant/activityOrder/logistic/{{$detail['activity_id']}}'">{{$buttonString}}</button>
                           </div>
                       </div>
                   </div>
@@ -81,6 +91,9 @@
                           <div class="item-title label">活动时间</div>
                           <div class="item-input">
                               <p>{{$detail['time_within']}}</p>
+                          </div>
+                          <div class="item-input">
+                              <button class="button pull-right" style="margin-left:1rem;width:5rem" onclick="window.location.href=''">{{$commentString}}</button>
                           </div>
                       </div>
                   </div>

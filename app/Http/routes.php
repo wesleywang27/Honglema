@@ -338,9 +338,13 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
 //网红入口
 
-// ,'middleware' => ['web', 'wechat.oauth']
+//
 Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 'wechat.oauth']], function(){
-    Route::get('/index',"StarController@index");
+    Route::get('/index',"VisitorController@index");
+
+    Route::get('/create',"VisitorController@create");
+
+    Route::resource('/register',"VisitorController@register");
 
     Route::get('/activity',"StarController@activity");
 
@@ -371,10 +375,6 @@ Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 
     Route::get('/all_order',"StarController@all_order");
 
     Route::get('/info',"StarController@info");
-
-    Route::get('/create',"StarController@create");
-
-    Route::post('/register',"StarController@register");
 
     Route::post('/update',"StarController@update");
 
@@ -417,10 +417,13 @@ Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
         Route::get('/activityOrder','ActivityController@index');
         Route::get('/activityOrder/addOrder','ActivityController@addOrder');
         Route::get('/activityOrder/activityDetail/{id?}',"ActivityController@activityDetail");
+        Route::post('/activityOrder/setOrder',"ActivityController@setOrder");
+        Route::resource('/activityOrder/logistic/{activity_id}',"ActivityController@logistic");
+        Route::post('/activityOrder/saveLogistic',"ActivityController@saveLogistic");
 
         //注册
         Route::get('/register', 'IndexController@index');
-        Route::post('/register/save', 'IndexController@register');
+        Route::resource('/register/save', 'IndexController@register');
         Route::resource('/register/uploadPicture', 'IndexController@uploadPic');
 
 });

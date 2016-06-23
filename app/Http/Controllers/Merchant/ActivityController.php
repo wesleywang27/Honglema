@@ -69,4 +69,26 @@ class ActivityController extends RootController{
             $activity->save();
         }
     }
+
+    //物流详情页
+    public function logistic($activity_id){
+        $task = Task::where('activity_id',$activity_id)->first();
+        return view('merchant.logistic',['task'=>$task]);
+    }
+
+    //保存物流信息
+    public function saveLogistic(){
+        $task_id = $_POST['task_id'];
+        $express_company = $_POST['company'];
+        $express_num = $_POST['num'];
+
+        $task = Task::where('task_id',$task_id)->first();
+
+        $task['express_company'] = $express_company;
+        $task['express_num'] = $express_num;
+        $task['status'] = 2;
+
+        $task->save();
+    }
+
 }

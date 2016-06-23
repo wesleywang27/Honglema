@@ -52,24 +52,24 @@
             <li>
                 <div class="item-content">
                     <div class="item-inner">
-                        <div class="item-title">{{ $data['activity']->title}}</div>
-                        <div id="f_merchant_name" class="item-after">${{$data['activity']->total_price}}</div>
+                        <div class="item-title" style="font-size:80%;">{{ $data['activity']->title}}</div>
+                        <div id="f_merchant_name" class="item-after"  style="font-size:80%;">￥ {{$data['activity']->total_price}}</div>
                     </div>
                 </div>
             </li>
             <li>
                 <div class="item-content">
                     <div class="item-inner">
-                        <div class="item-title label">活动时间</div>
-                        <div class="item-input">
+                        <div class="item-title label" style="font-size:80%;">活动时间</div>
+                        <div class="item-input" style="font-size:80%; color:#666666">
                             <p>{{$data['activity']->time_within}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="item-content">
                     <div class="item-inner">
-                        <div class="item-title label">活动要求</div>
-                        <div class="item-input">
+                        <div class="item-title label" style="font-size:80%;">活动要求</div>
+                        <div class="item-input" style="font-size:80%; color:#666666">
                             <p>{{$data['activity']->claim}}</p>
                         </div>
                     </div>

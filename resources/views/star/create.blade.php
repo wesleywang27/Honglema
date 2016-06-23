@@ -479,13 +479,15 @@
                     <a href="#weibo" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">微博ID</div>
+                            <div id="f_weiboid" class="item-after">未编辑</div>
                         </div>
                     </a>
                 </li>
                 <li>
                     <a href="#weipai" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">微拍昵称</div>
+                            <div class="item-title">微拍ID</div>
+                            <div id="f_weipaiid" class="item-after">未编辑</div>
                         </div>
                     </a>
                 </li>
@@ -493,6 +495,7 @@
                     <a href="#miaopai" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">秒拍ID</div>
+                            <div id="f_miaopaiid" class="item-after">未编辑</div>
                         </div>
                     </a>
                 </li>
@@ -500,13 +503,15 @@
                     <a href="#meipai" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">美拍ID</div>
+                            <div id="f_meipaiid" class="item-after">未编辑</div>
                         </div>
                     </a>
                 </li>
                 <li>
                     <a href="#kuaishou" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">快手昵称</div>
+                            <div class="item-title">快手ID</div>
+                            <div id="f_kuaishouid" class="item-after">未编辑</div>
                         </div>
                     </a>
                 </li>
@@ -645,6 +650,10 @@
             返回
         </a>
         <h1 class="title">微博信息</h1>
+        <a class="button button-link button-nav pull-right back" href="#register2"  onclick="$.set_value('weiboid');">
+            保存
+            <span class="save"></span>
+        </a>
     </header>
     <div class="content" style="top: 1.2rem;">
         <div class="list-block">
@@ -673,6 +682,10 @@
             返回
         </a>
         <h1 class="title">微拍信息</h1>
+        <a class="button button-link button-nav pull-right back" href="#register2"  onclick="$.set_value('weipaiid');">
+            保存
+            <span class="save"></span>
+        </a>
     </header>
     <div class="content" style="top: 1.2rem;">
         <div class="list-block">
@@ -681,9 +694,9 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">昵称</div>
+                            <div class="item-title label">ID</div>
                             <div class="item-input">
-                                <input id="weipaiid" type="text" placeholder="填写昵称">
+                                <input id="weipaiid" type="text" placeholder="填写ID">
                             </div>
                         </div>
                     </div>
@@ -701,6 +714,10 @@
             返回
         </a>
         <h1 class="title">秒拍信息</h1>
+        <a class="button button-link button-nav pull-right back" href="#register2"  onclick="$.set_value('miaopaiid');">
+            保存
+            <span class="save"></span>
+        </a>
     </header>
     <div class="content" style="top: 1.2rem;">
         <div class="list-block">
@@ -729,6 +746,10 @@
             返回
         </a>
         <h1 class="title">美拍信息</h1>
+        <a class="button button-link button-nav pull-right back" href="#register2"  onclick="$.set_value('meipaiid');">
+            保存
+            <span class="save"></span>
+        </a>
     </header>
     <div class="content" style="top: 1.2rem;">
         <div class="list-block">
@@ -757,6 +778,11 @@
             返回
         </a>
         <h1 class="title">快手信息</h1>
+        <a class="button button-link button-nav pull-right back" href="#register2"  onclick="$.set_value('kuaishouid');">
+            保存
+            <span class="save"></span>
+        </a>
+
     </header>
     <div class="content" style="top: 1.2rem;">
         <div class="list-block">
@@ -765,9 +791,9 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">昵称</div>
+                            <div class="item-title label">ID</div>
                             <div class="item-input">
-                                <input id="kuaishouid" type="text" placeholder="填写昵称">
+                                <input id="kuaishouid" type="text" placeholder="填写ID">
                             </div>
                         </div>
                     </div>
@@ -808,7 +834,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="item-link item-content">
+                    <a href="#wechat" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">微信号</div>
                             <div id="f_weixin" class="item-after">{{$user['wechat']}}</div>
@@ -890,11 +916,15 @@
 
 @section('page-main')
     <header class="bar bar-nav">
-        <a class="button button-link button-nav pull-left back" href="#register3" onclick="$.set_address('address-picker','address-detail');">
+        <a class="button button-link button-nav pull-left back" href="#register3" >
             <span class="icon icon-left"></span>
             返回
         </a>
         <h1 class="title">地区</h1>
+        <a class="button button-link button-nav pull-right back" href="#register3" onclick="$.set_address('address-picker','address-detail');">
+            保存
+            <span class="save"></span>
+        </a>
     </header>
     <div class="content" style="top: 1.2rem;">
         <div class="list-block">
@@ -920,11 +950,15 @@
 
 @section('page-main')
     <header class="bar bar-nav">
-        <a class="button button-link button-nav pull-left back" href="#register3" onclick="$.set_value('weixin');">
+        <a class="button button-link button-nav pull-left back" href="#register3" >
             <span class="icon icon-left"></span>
             返回
         </a>
         <h1 class="title">微信号码</h1>
+        <a class="button button-link button-nav pull-right back" href="#register3" onclick="$.set_value('weixin');">
+            保存
+            <span class="save"></span>
+        </a>
     </header>
     <div class="content" style="top: 1.2rem;">
         <div class="list-block">
@@ -954,6 +988,10 @@
             返回
         </a>
         <h1 class="title">支付宝账号</h1>
+        <a class="button button-link button-nav pull-right back" href="#register3" onclick="$.setAlipay()">
+            保存
+            <span class="save"></span>
+        </a>
     </header>
     <div class="content" style="top: 1.2rem;">
         <div class="list-block">
