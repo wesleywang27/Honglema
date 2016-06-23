@@ -111,15 +111,16 @@
     ?>
     <p><a href="#" class="button button-fill"
       style="background-color:gray;border-radius:0;z-index:999;
-      position:fixed; bottom:0; left:0; width:100%; height:2rem; _position:absolute;
- _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;"><h1>已抢单</h1></a></p>
+      position:fixed; bottom:0; left:0; width:100%; height:2rem;
+      font-size:200%; _position:absolute;
+ _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;">已抢单</a></p>
     <?php
       }else{
     ?> 
       <p><a href="#" class="button button-fill button-warning"
       style="border-radius:0;z-index:999; position:fixed; bottom:0;
-      left:0; width:100%; height:2rem; _position:absolute;
- _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;" onclick="setOrder({{$task_id}})"><h1>抢单</h1></a></p>
+      left:0; width:100%; height:2rem; font-size:200%; _position:absolute;
+ _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;" onclick="setOrder({{$task_id}})">抢单</a></p>
     <?php
       }
     ?>
