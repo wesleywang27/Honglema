@@ -242,6 +242,8 @@ class StarController extends RootController
     {
         // 网红提交结果，修改任务状态为3（已推广） 
         $order_id = $request->input('order_id');
+        Log::info('order_id is {$order_id}');
+
         $order = Order::where('order_id', $order_id)->first();
         $task = Task::where('task_id', $order->task_id)->first();
         $task->status = 3;
