@@ -16,7 +16,7 @@ class VisitorController extends Controller
 {
      public function __construct(){
         session_start();
-       /* $oauthUser = new OAuthUser();
+        /*$oauthUser = new OAuthUser();
         $oauthUser->openid   = "test0001";
         $oauthUser->nickname = "小喳喳";
         $oauthUser->sex      = "1";

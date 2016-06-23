@@ -362,7 +362,7 @@
             }
         });
     }
-
+//保存编辑地址
     $.save_address =function(v1,v2){
         $('#f_dizhi').text($('#'+v1).val() +$('#'+v2).val());
         $.ajax({
@@ -379,7 +379,7 @@
         }
         );
     }
-
+//保存编辑资料(单项)
     $.save_edit = function(va1,tag){
         $('#f_'+va1).text($('#'+va1).val());
         var data = {};
@@ -465,6 +465,7 @@
         });
     });
 
+    //网红提交任务结果
 $.submmitTaskResult=function(id){
     $.ajax({
         url: "/star/submitTaskResult",
@@ -484,6 +485,7 @@ $.submmitTaskResult=function(id){
     });
 }
 
+//网红取消抢单
 $.cancelOrder=function(id){
     $.ajax({
         url: "/star/cancelOrder",
@@ -501,6 +503,46 @@ $.cancelOrder=function(id){
         }
     });
 }
+</script>
+<script>
+    //网红修改头像
+    $.changeHeadImg=function(id){
+        $('#changeheadimg').click();
+    }
+
+    $('#changeheadimg').change(function(){
+        $.showPreloader('正在上传...');
+        $j.ajaxFileUpload({
+            url:"/picture",//需要链接到服务器地址
+            secureuri:false,
+            fileElementId:"changeheadimg",//文件选择框的id属性
+            dataType: 'json',   //json
+            success: function (data, status) {
+                var urls = data.urls;
+                for(var i=0; i<urls.length; i++){
+                    $.ajax({
+                        url: "/star/update",
+                        type: "POST",
+                        traditional: true,
+                        dataType: "JSON",
+                        data:  {"avatar":urls[i]}
+                        ,success: function(data) {
+                            $('#wx_headimg').attr("src",urls[i]);
+                            $.toast("修改成功!",1000);
+                        },headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                }
+                $('#album').append($htmls);
+                $.hidePreloader();
+                $.toast("添加成功", 1000);
+            },error:function(data, status, e){
+                $.hidePreloader();
+                $.toast("添加失败", 1000);
+            }
+        });
+    });
 </script>
 </body>
 </html>
