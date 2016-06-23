@@ -323,10 +323,12 @@
     //设置性别
     $.set_sex = function(){
         var text = $("input[name='sex-radio']:checked").val();
-        if(text == 'M')
+        if(text == '1')
             $('#f_sex').text('男');
-        else
+        else if(text =='2')
             $('#f_sex').text('女');
+        else
+            $('#f_sex').text('未知');
     }
 //设置地址
     $.set_address = function(v1,v2){
@@ -355,6 +357,29 @@
                 'shirt_size': $("#f_shirt").val(),
                 'pants_size': $("#f_pants").val(),
                 'shoes_size': $("#f_shoe").val(),}
+            ,success: function(data) {
+                $.toast("提交成功!",1000);
+            },headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    }
+//保存性别
+    $.save_sex = function(){
+        var text = $("input[name='sex-radio']:checked").val();
+        if(text == '1')
+            $('#f_dsex').text('男');
+        else if(text =='2')
+            $('#f_dsex').text('女');
+        else
+            $('#f_dsex').text('未知');
+
+        $.ajax({
+            url: "/star/update",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data: {  'sex': text}
             ,success: function(data) {
                 $.toast("提交成功!",1000);
             },headers: {
@@ -406,9 +431,9 @@
             imgdata[i] = $(this).val();
             i++;
         });
-
         var citypicks =  $('#f_dizhi').text().split(" ");
         var region = citypicks[citypicks.length-1];
+        var sex = $('#sexvalue').val();
         $.ajax({
             url: "/star/register",
             type: "POST",
@@ -416,7 +441,7 @@
             dataType: "JSON",
             data: {
                 "name": $('#f_nickname').text(),
-                "sex": $('#f_sex').text() == '男' ? 'M' : 'F',
+                "sex": sex,
                 "location": $('#f_city-picker').text(),
 
                 "cup": $('#f_zhaobei').text(),
@@ -451,13 +476,13 @@
                 "imgdata[]":imgdata
 
             },success: function(data) {
-                if(data=="exist"){
+                 if(data=="exist"){
                     $.toast("已注册",1000);
-                    window.location.href="/star/info";
+                    window.location.href="/star/activityList";
                 }else{
                 $.toast("注册成功!",1000);
                 setTimeout(function(){
-                    window.location.href="/star/info";
+                    window.location.href="/star/activityList";
                 },1000);}
             },headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

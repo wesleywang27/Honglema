@@ -130,7 +130,12 @@
                     <a href="#sex" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">性别</div>
-                            <div id="f_dsex" class="item-after">{{$star['sex']=='0' ? '男':'女'}}</div>
+                            <div id="f_dsex" class="item-after">
+                                @if($star['sex']==0)未知
+                                @elseif($star['sex']=='1')男
+                                @elseif($star['sex']=='2')女
+                                    @endif
+                            </div>
                         </div>
                     </a>
                 </li>
@@ -346,7 +351,7 @@
             返回
         </a>
         <h1 class="title">性别</h1>
-        <a class="button button-link button-nav pull-right back" href="#main" onclick="">
+        <a class="button button-link button-nav pull-right back" href="#main" onclick=" $.save_sex()">
             保存
             <span class="save"></span>
         </a>
@@ -356,7 +361,7 @@
             <ul>
                 <li>
                     <label class="label-checkbox item-content">
-                        <input type="radio" name="sex-radio" value="0" {{$star['sex']=='0' ? 'checked="checked"':''}}>
+                        <input type="radio" name="sex-radio" value="1" {{$star['sex']=='1' ? 'checked="checked"':''}}>
                         <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
                         <div class="item-inner">
                             <div class="item-title-row">
@@ -367,7 +372,7 @@
                 </li>
                 <li>
                     <label class="label-checkbox item-content">
-                        <input type="radio" name="sex-radio" value="1" {{$star['sex']=='1' ? 'checked="checked"':''}}>
+                        <input type="radio" name="sex-radio" value="2" {{$star['sex']=='2' ? 'checked="checked"':''}}>
                         <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
                         <div class="item-inner">
                             <div class="item-title-row">
