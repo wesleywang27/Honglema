@@ -297,9 +297,17 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     //红人信息管理
     Route::get('/didi/StarCreate',"StarController@starCreate");
 
+    Route::post('/didi/StarStore',"StarController@starStore");
+
     Route::get('/didi/StarDelete/{star_id?}',"StarController@starDelete");
 
+    Route::get('/didi/StarModify/{star_id}',"StarController@starModify");
+
+    Route::post('/didi/StarUpdate/{star_id}',"StarController@starUpdate");
+
     Route::get('/didi/StarList',"StarController@starList");
+
+    Route::get('/didi/StarInfo/{star_id?}',"StarController@starInfo");
 
     //活动信息管理
     Route::get('/didi/ActivityCreate/{merchant_id?}',"ActivityController@activityCreate");

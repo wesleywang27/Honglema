@@ -13,9 +13,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
 class StarController extends Controller{
-    //添加网红页
+    //网红添加页
     public function starCreate(){
+        session_start();
+        if(isset($_SESSION['name'])) {
+            
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
 
+    //添加网红信息
+    public function starStore(Request $request){
+        
     }
     //删除网红
     public function starDelete($id){
@@ -29,6 +40,29 @@ class StarController extends Controller{
             return Redirect::intended('/didi/login');
         }
     }
+
+    //网红修改页
+    public function starModify($id){
+        session_start();
+        if(isset($_SESSION['name'])) {
+
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
+
+    //修改网红信息
+    public function starUpdate($id){
+        session_start();
+        if(isset($_SESSION['name'])) {
+
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
+
     //网红列表页
     public function starList(){
         session_start();
@@ -36,6 +70,17 @@ class StarController extends Controller{
             $star = Star::paginate(10);
 
             return view('/didi/star_list',['stars' => $star]);
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
+
+    //网红详情页
+    public function starInfo($id){
+        session_start();
+        if(isset($_SESSION['name'])) {
+
         }
         else{
             return Redirect::intended('/didi/login');
