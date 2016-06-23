@@ -46,8 +46,6 @@ class IndexController extends RootController{
     }
 
     public function register(){
-        echo "<pre>";
-        var_dump($_POST);die;
         $merchant = new Merchant();
         foreach ($_POST as $key => $value) {
            $merchant->$key = trim($value); 

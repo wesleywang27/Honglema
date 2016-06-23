@@ -59,7 +59,7 @@
 		  		<div class="list-block media-list content-no-margin">
 				    <ul>
 				      <li>
-				        <a href="/Merchant/activityOrder/activityDetail/{{$vo['activity_id']}}" class="blackfont item-content">
+				      <div class="item-content" onclick="window.location.href='/Merchant/activityOrder/activityDetail/{{$vo['activity_id']}}'">
 				          <div class="item-media"><img src="{{$vo['picture']}}" style='width: 4rem;'></div>
 				          <div class="item-inner">
 				            <div class="item-title-row">
@@ -68,11 +68,11 @@
 				            </div>
 				            <div class="item-subtitle">&nbsp;</div>
 				           <div class="item-subtitle">
-				            	<button class="button pull-right button-fill button-danger" style="margin-left:1rem;width:4rem">已抢单1/2</button>
-				            	<button class="button pull-right" style="margin-left:1rem;width:4rem">再来一单</button>
+				            	<a class="button pull-right button-fill button-danger" style="margin-left:1rem;width:4rem" href="#">已抢单1/2</a>
+				            	<a class="button pull-right" style="margin-left:1rem;width:4rem" href="#">再来一单</a>
 				            </div>
 				          </div>
-				        </a>
+				        </div>
 				      </li>
 				    </ul>
 			  	</div>
@@ -113,8 +113,8 @@
 		  		<div class="list-block media-list content-no-margin">
 				    <ul>
 				      <li>
-				      	<a href="/Merchant/activityOrder/activityDetail/{{$vo['activity_id']}}" class="blackfont item-content">
-				        <div class="item-content">
+				      	<!-- <a href="/Merchant/activityOrder/activityDetail/{{$vo['activity_id']}}" class="blackfont item-content">  -->
+				        <div class="item-content" onclick="window.location.href='/Merchant/activityOrder/activityDetail/{{$vo['activity_id']}}'">
 				          <div class="item-media"><img src="{{$vo['picture']}}" style='width: 4rem;'></div>
 				          <div class="item-inner">
 				            <div class="item-title-row">
@@ -123,11 +123,11 @@
 				            </div>
 				            <div class="item-subtitle">&nbsp;</div>
 				           <div class="item-subtitle">
-				            	<button class="button pull-right button-fill" style="margin-left:1rem;width:5rem;background:{{$buttonColor}}">{{$buttonString}}</button>
+				            	<a class="button pull-right button-fill" style="margin-left:1rem;width:5rem;background:{{$buttonColor}}" href="/Merchant/activityOrder/logistic/{{$vo['activity_id']}}">{{$buttonString}}</a>
 				            </div>
 				          </div>
 				        </div>
-				        </a>
+				        <!-- </a> -->
 				      </li>
 				    </ul>
 			  	</div>
@@ -158,8 +158,7 @@
 		  		<div class="list-block media-list content-no-margin">
 				    <ul>
 				      <li>
-				      <a href="/Merchant/activityOrder/activityDetail/{{$vo['activity_id']}}" class="blackfont item-content">
-				        <div class="item-content">
+				        <div class="item-content" onclick="window.location.href='/Merchant/activityOrder/activityDetail/{{$vo['activity_id']}}'">
 				          <div class="item-media"><img src="{{$vo['picture']}}" style='width: 4rem;'></div>
 				          <div class="item-inner">
 				            <div class="item-title-row">
@@ -172,7 +171,6 @@
 				            </div>
 				          </div>
 				        </div>
-				        </a>
 				      </li>
 				    </ul>
 			  	</div>
