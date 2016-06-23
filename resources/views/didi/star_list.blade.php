@@ -34,7 +34,7 @@
         <td style="width:180px;text-align:center">{{ $star->wechat }}</td>
         <td style="width:180px;text-align:center">{{ $star->cellphone }}</td>
         <td style="width:180px;text-align:center">
-            <a href="#"><input type="button" value="查看" class="link_btn"/></a>
+            <a href="{{URL::action('StarController@starInfo', ['id' => $star->star_id]) }}"><input type="button" value="查看" class="link_btn"/></a>
             <a href="{{URL::action('StarController@starDelete', ['id' => $star->star_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
         </td>
     </tr>
