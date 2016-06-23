@@ -294,6 +294,13 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     
     Route::get('/didi/MerchantInfo/{id?}',"MerchantController@merchantInfo");
 
+    //红人信息管理
+    Route::get('/didi/StarCreate',"StarController@starCreate");
+
+    Route::get('/didi/StarDelete/{star_id?}',"StarController@starDelete");
+
+    Route::get('/didi/StarList',"StarController@starList");
+
     //活动信息管理
     Route::get('/didi/ActivityCreate/{merchant_id?}',"ActivityController@activityCreate");
 
