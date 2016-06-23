@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\star;
 
 use App\Models\OAuthUser;
+use App\Models\Log;
 use Illuminate\Http\Request;
 use App\Models\Star;
 use Illuminate\Support\Facades\Input;
