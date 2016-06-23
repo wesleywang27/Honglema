@@ -109,13 +109,17 @@
       $order = App\Models\Order::where('star_id',$star_id)->where('task_id',$task_id)->first();
       if($order){
     ?>
-    <p><a href="#" class="button button-fill" style="background-color:gray;border-radius:0;z-index:999; position:fixed; bottom:0; left:0; width:100%; _position:absolute;
- _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;">已抢单</a></p>
+    <p><a href="#" class="button button-fill"
+      style="background-color:gray;border-radius:0;z-index:999;
+      position:fixed; bottom:0; left:0; width:100%; height:150%; _position:absolute;
+ _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;"><h2>已抢单</h2></a></p>
     <?php
       }else{
     ?> 
-      <p><a href="#" class="button button-fill button-warning" style="border-radius:0;z-index:999; position:fixed; bottom:0; left:0; width:100%; _position:absolute;
- _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;" onclick="setOrder({{$task_id}})">抢单</a></p>
+      <p><a href="#" class="button button-fill button-warning"
+      style="border-radius:0;z-index:999; position:fixed; bottom:0;
+      left:0; width:100%; height:150%; _position:absolute;
+ _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;" onclick="setOrder({{$task_id}})"><h2>抢单</h2></a></p>
     <?php
       }
     ?>
