@@ -21,12 +21,36 @@
                     </a>
                 </li>
                 <li>
-                    <div class="buttons-tab">
-                        <a href="#album" class="item-link active button">相册</a>
-                        <a href="#phoneconfirm" class="item-link button">手机认证</a>
-                        <a href="#idconfirm" class="item-link button">身份认证</a>
-                        <a href="#platform" class="item-link button">平台信息</a>
-                    </div>
+                    <a href="#album" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">相册</div>
+                            <div class="item-after"></div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#phoneconfirm" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">手机认证</div>
+                            <div class="item-after"></div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#idconfirm" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">身份认证</div>
+                            <div class="item-after"></div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#platform" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">平台信息</div>
+                            <div class="item-after"></div>
+                        </div>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -57,11 +81,6 @@
                         </div>
                     </a>
                 </li>
-            </ul>
-        </div>
-
-        <div class="list-block" style="margin-top: -1rem;">
-            <ul>
                 <li>
                     <a href="#size" class="item-link item-content">
                         <div class="item-inner">
