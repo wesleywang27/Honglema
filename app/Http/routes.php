@@ -340,11 +340,11 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
 // ,'middleware' => ['web', 'wechat.oauth']
 Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 'wechat.oauth']], function(){
-    Route::get('/index',"VistorController@index");
+    Route::get('/index',"VisitorController@index");
 
-    Route::get('/create',"VistorController@create");
+    Route::get('/create',"VisitorController@create");
 
-    Route::get('/register',"VistorController@register");
+    Route::get('/register',"VisitorController@register");
 
     Route::get('/activity',"StarController@activity");
 
