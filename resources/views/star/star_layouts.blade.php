@@ -528,15 +528,16 @@ $.cancelOrder=function(id){
         }
     });
 }
+
+
 </script>
 <script>
     //网红修改头像
-    $.changeHeadImg=function(id){
-        $('#changeheadimg').click();
+    function changeHeadImg(){
+        $('#headimgInput').click();
     }
-
     $('#changeheadimg').change(function(){
-        $.showPreloader('正在上传...');
+         $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
             url:"/picture",//需要链接到服务器地址
             secureuri:false,

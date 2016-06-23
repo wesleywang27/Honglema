@@ -242,9 +242,10 @@
             <img id="wx_headimg" style="width: 50%;" src="{{$star['avatar']}}">
         </div>
         <div class="content-block" style="margin-top: -1rem;">
+
             <div class="row">
-                <div class="col-100"><a id="changehead" href="#" onclick="$.changeHeadImg()" class="button button-big button-fill button-success">更改头像</a></div>
-                <input style="visibility:hidden"  id="changeheadimg"   type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                <div class="col-100"><a id="changehead"   onclick="changeHeadImg()" class="button button-big button-fill button-success">更改头像</a></div>
+                <input style="visibility:hidden"  id="headimgInput"   type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple=""/>
             </div>
         </div>
     </div>
