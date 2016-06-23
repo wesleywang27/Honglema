@@ -152,6 +152,7 @@ class StarController extends RootController
         $order_id = $request->input('order_id');
         $order = Order::where('order_id', $order_id)->first();
         $task = Task::where('task_id', $order->task_id)->first();
+        $task_id = $task->task_id;
         $task->status = 3;
         $task->save();
         // 活动状态修改为3（红人已提交）
