@@ -248,7 +248,7 @@ class StarController extends RootController
         $task->save();
         // 活动状态修改为3（红人已提交）
         $activity = Activity::where('activity_id',$task->activity_id)->first();
-        $activity->status = 3;
+        $activity->activity_status = 3;
         $activity->save();
 
         $img1 = $request->input('img1');
