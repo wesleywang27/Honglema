@@ -93,7 +93,7 @@
                               <p>{{$detail['time_within']}}</p>
                           </div>
                           <div class="item-input">
-                              <button class="button pull-right" style="margin-left:1rem;width:5rem" onclick="window.location.href=''">{{$commentString}}</button>
+                              <button class="button pull-right" style="margin-left:1rem;width:5rem" onclick="window.location.href='/Merchant/activityOrder/comment/{{$task['task_id']}}'">{{$commentString}}</button>
                           </div>
                       </div>
                   </div>
@@ -198,7 +198,7 @@
           ?>
               <ul>
               <li>
-                <a href="#" class="blackfont item-content">
+                <a href="/Merchant/activityOrder/starDetail/{{$svo['star_id']}}" class="blackfont item-content">
                   <div class="item-media">{{$flag}}&nbsp;&nbsp;&nbsp;</div>
                   <div class="item-media"><img src="{{$svo['avatar']}}" style='width: 4rem;border-radius:50%'></div>
                   <div class="item-inner">

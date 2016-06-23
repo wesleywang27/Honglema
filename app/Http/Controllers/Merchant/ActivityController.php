@@ -14,6 +14,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Activity;
 use App\Models\ActivityCommodityList;
 use App\Models\Task;
+use App\Models\TaskPicture;
+use App\Models\Star;
 use App\Models\Order;
 
 class ActivityController extends RootController{
@@ -89,6 +91,20 @@ class ActivityController extends RootController{
         $task['status'] = 2;
 
         $task->save();
+    }
+
+    //跳转到评论页
+    public function comment($task_id){
+        $task_Pic = TaskPicture::where('task_id',$task_id)->get();
+        return view('merchant.comment',['taskPic'=>$task_Pic]);
+    }
+
+    //查看网红详情
+    public function starDetail($star_id){
+        $star = Star::where('star_id',$star_id)->first();
+
+        return view('merchant.star_detail');
+
     }
 
 }
