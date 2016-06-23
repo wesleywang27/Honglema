@@ -344,12 +344,12 @@
                 "alipay_account"     : $('#alipay_phone_hidden').val(),
                 "license"     : $('#id_image').val()
             },
-            // success: function(data) {
-            //     $.toast("注册成功!",1000);
-            //     setTimeout(function(){
-            //         location.href="Merchant/user/";
-            //     },1000);
-            // },
+            success: function(data) {
+                $.toast("注册成功!",1000);
+                setTimeout(function(){
+                    location.href="/Merchant/user/";
+                },1000);
+            },
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }

@@ -59,7 +59,7 @@
                       <div class="item-inner">
                           <div class="item-title label">查看物流</div>
                           <div class="item-input">
-                              <button class="button pull-right" style="margin-left:1rem;width:5rem">{{$buttonString}}</button>
+                              <button class="button pull-right" style="margin-left:1rem;width:5rem" onclick="window.location.href='/Merchant/activityOrder/logistic/{{$detail['activity_id']}}'">{{$buttonString}}</button>
                           </div>
                       </div>
                   </div>
