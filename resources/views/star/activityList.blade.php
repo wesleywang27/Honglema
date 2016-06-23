@@ -52,7 +52,8 @@ style="background-color:#f0f0f0; margin: 0.4rem; padding-bottom:0">
 				            <div class="item-title" style="margin-left:0.3rem; text-align: center;">{{$vo['title']}}</div>
 				            <div class="item-subtitle" style="margin-left:0.3rem; text-align: center;">¥&nbsp;{{$vo['total_price']}}</div>
 				            <div class="item-title"
-style="background-color:#ee5555; color:#ffffff; text-align:center; width=100%;">马上抢单</div>
+style="background-color:#ee5555; color:#ffffff; text-align:center;
+width=100%;  position:absolute; bottom:0; left:0; right:0;">马上抢单</div>
 				          </div>
 				        </a>
 				      </li>
