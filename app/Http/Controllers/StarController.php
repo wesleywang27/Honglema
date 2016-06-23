@@ -17,7 +17,7 @@ class StarController extends Controller{
     public function starCreate(){
         session_start();
         if(isset($_SESSION['name'])) {
-            
+            return view('/didi/star_create');
         }
         else{
             return Redirect::intended('/didi/login');
@@ -28,6 +28,7 @@ class StarController extends Controller{
     public function starStore(Request $request){
         
     }
+
     //删除网红
     public function starDelete($id){
         session_start();
@@ -45,7 +46,10 @@ class StarController extends Controller{
     public function starModify($id){
         session_start();
         if(isset($_SESSION['name'])) {
+            $star = Star::where('star_id',$id)->first();
+            $picture = StarPicture::where('uid',$id)->get();
 
+            return view('/didi/star_modify',['star' => $star ,'pictures' => $picture]);
         }
         else{
             return Redirect::intended('/didi/login');
@@ -80,7 +84,10 @@ class StarController extends Controller{
     public function starInfo($id){
         session_start();
         if(isset($_SESSION['name'])) {
+            $star = Star::where('star_id',$id)->first();
+            $picture = StarPicture::where('uid',$id)->get();
 
+            return view('/didi/star_info',['star' => $star ,'pictures' => $picture]);
         }
         else{
             return Redirect::intended('/didi/login');
