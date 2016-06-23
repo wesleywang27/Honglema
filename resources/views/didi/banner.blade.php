@@ -66,7 +66,7 @@
             <dl>
                 <dt>平台信息管理</dt>
                 <dd><a href="/didi/MerchantList">商家信息管理</a></dd>
-                <dd><a href="#">红人信息管理</a></dd>
+                <dd><a href="/didi/StarList">红人信息管理</a></dd>
                 <dd><a href="/didi/ActivityList">活动信息管理</a></dd>
                 <dd><a href="#">收费标准管理</a></dd>
                 <dd><a href="#">热门广场管理</a></dd>

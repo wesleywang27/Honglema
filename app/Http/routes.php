@@ -266,7 +266,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
  * 
  */
 
-Route::group(['domain' => 'cms.honglema.com'], function() {
+//Route::group(['domain' => 'cms.honglema.com'], function() {
     //登入登出
     Route::get('/didi/login',"DidiController@loginIndex");
 
@@ -294,17 +294,32 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
     
     Route::get('/didi/MerchantInfo/{id?}',"MerchantController@merchantInfo");
 
+    //红人信息管理
+    Route::get('/didi/StarCreate',"StarController@starCreate");
+
+    Route::post('/didi/StarStore',"StarController@starStore");
+
+    Route::get('/didi/StarDelete/{star_id?}',"StarController@starDelete");
+
+    Route::get('/didi/StarModify/{star_id}',"StarController@starModify");
+
+    Route::post('/didi/StarUpdate/{star_id}',"StarController@starUpdate");
+
+    Route::get('/didi/StarList',"StarController@starList");
+
+    Route::get('/didi/StarInfo/{star_id?}',"StarController@starInfo");
+
     //活动信息管理
     Route::get('/didi/ActivityCreate/{merchant_id?}',"ActivityController@activityCreate");
 
     Route::post('/didi/ActivityCreate/{merchant_id?}',"ActivityController@activityStore");
 
-    Route::get('/didi/ActivityDelete/{activity_id}',"ActivityController@activityDelete");
+    Route::get('/didi/ActivityDelete/{activity_id?}',"ActivityController@activityDelete");
 
     Route::get('/didi/ActivityModify/{activity_id?}',"ActivityController@activityModify");
 
     Route::get('/didi/ActivityChooseOrder/{activity_id?}',"ActivityController@activityChooseOrder");
-    
+
     Route::get('/didi/ActivityChooseStar/{task_id?}/{star_id}',"ActivityController@activityChooseStar");
 
     Route::get('/didi/ActivityEvaluate/{activity_id?}',"ActivityController@activityEvaluate");
@@ -319,7 +334,8 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
     Route::get('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityCreate");
 
     Route::post('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityStore");
-});
+//});
+
 //网红入口
 
 // ,'middleware' => ['web', 'wechat.oauth']
@@ -401,9 +417,12 @@ Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
         Route::get('/activityOrder','ActivityController@index');
         Route::get('/activityOrder/addOrder','ActivityController@addOrder');
         Route::get('/activityOrder/activityDetail/{id?}',"ActivityController@activityDetail");
+<<<<<<< HEAD
         Route::post('/activityOrder/setOrder',"ActivityController@setOrder");
         Route::resource('/activityOrder/logistic/{activity_id}',"ActivityController@logistic");
         Route::post('/activityOrder/saveLogistic',"ActivityController@saveLogistic");
+=======
+>>>>>>> af5cdf16540be23dca897db8f98b5173ea606f3c
 
         //注册
         Route::get('/register', 'IndexController@index');
