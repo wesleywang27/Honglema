@@ -19,50 +19,9 @@ use DB;
 
 class StarController extends RootController
 {
-    /* $oauthUser->openid   = $original['openid'];
-           $oauthUser->unionid  = $original['unionid'];
-           $oauthUser->nickname = $original['nickname'];
-           $oauthUser->sex      = $original['sex'] === 1? Config::get("constants.SEX.MALE") : Config::get("constants.SEX.FEMALE");
-           $oauthUser->language = $original['language'];
-           $oauthUser->city     = $original['city'];
-           $oauthUser->province = $original['province'];
-           $oauthUser->country  = $original['country'];*/
-
     public function __construct()
     {
         parent::__construct();
-    }
-
-    public function index()
-    {
-
-        $user = session('wechat.oauth_user');
-        $openid = $user->openid;
-        $star = Star::where('openid', $openid)->first();
-        if ($star) {
-            $_SESSION['star_id'] = $star->star_id;
-            $star = Star::where('star_id', $star->star_id)->first();
-            $starPictures= StarPicture::where('uid',$star->star_id)->get();
-            return view('star/star_info', ["star" => $star, "pictures"=>$starPictures]);
-        } else {
-            $activityList = Activity::where('activity_status', 1)->orderBy('created_at','desc')->get();
-            return view('star.visitor', ['list' => $activityList]);
-        }
-    }
-
-
-    public function create()
-    {
-        $user = session('wechat.oauth_user');
-        $star = Star::where('openid', $user->openid)->first();
-        if ($star) {
-            $_SESSION['star_id'] = $star->star_id;
-            $star = Star::where('star_id', $star->star_id)->first();
-            $starPictures= StarPicture::where('uid',$star->star_id)->get();
-            return view('star.star_info', ["star" => $star, "pictures"=>$starPictures]);
-        }else{
-            return view('star.create', ["user" => $user]);
-        }
     }
 
     public function order()
@@ -131,56 +90,7 @@ class StarController extends RootController
         $star->save();
     }
 
-    public function register(Request $request)
-    {
-        $user = session('wechat.oauth_user');
-        $openid = $user->openid;
-        $input = Input::all();
-        $star = new Star();
-        $star->openid = $openid;
 
-        $star->avatar=$user->avatar;
-        $star->name = $request->input('name');
-        $star->sex = $request->input('sex');
-        $star->location = $request->input('location');
-        $star->cup = $request->input('cup');
-        $star->weight = $request->input('weight');
-        $star->height = $request->input('height');
-        $star->age = $request->input('age');
-
-        $star->occupation = $request->input('occupation');
-        $star->education = $request->input('education');
-        $star->experience = $request->input('experience');
-        $star->real_name = $request->input('real_name');
-        $star->ID_number = $request->input('ID_number');
-        $star->shirt_size = $request->input('shirt_size');
-        $star->pants_size = $request->input('pants_size');
-        $star->shoes_size = $request->input('shoes_size');
-
-        $star->cellphone = $request->input('cellphone');
-        $star->address = $request->input('address');
-        $star->weibo_id = $request->input('weibo_id');
-        $star->weipai_id = $request->input('weipai_id');
-        $star->miaopai_id = $request->input('miaopai_id');
-        $star->weipai_id = $request->input('weipai_id');
-        $star->meipai_id = $request->input('meipai_id');
-        $star->kuaishou_id = $request->input('kuaishou_id');
-        $star->save();
-
-        $star = Star::where('openid', $openid)->first();
-        $_SESSION['star_id'] = $star->star_id;
-        for ($x = 0; $x < 6; $x++) {
-            if (isset($input['imgurl' . $x])) {
-                $url = $request->input('imgurl' . $x);
-                $starPicture = new StarPicture();
-                $starPicture->url = $url;
-                $starPicture->file_id = pathinfo($url)['filename'];
-                $starPicture->uid = $star->star_id;
-                $starPicture->save();
-            }
-        }
-        return view('star/star_info', ["star" => $star]);
-    }
 
     public function uploadimg(Request $request)
     {
@@ -229,7 +139,6 @@ class StarController extends RootController
         $order = Order::where('order_id', $order_id)->first();
         $order->status='0';
         $order->save();
-
     }
 
     public function  task_result(Request $request)

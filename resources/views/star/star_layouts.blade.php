@@ -410,10 +410,10 @@
                 "sex": $('#f_sex').text() == '男' ? 'M' : 'F',
                 "location": $('#f_city-picker').text(),
 
-                "cup": $('#f_cup').text(),
+                "cup": $('#f_zhaobei').text(),
                 "weight": $('#f_tizhong').text(),
                 "height": $('#f_shengao').text(),
-                "age": $('#f_age').text(),
+                "age": $('#f_nianling').text(),
                 "occupation": $('#f_zhiye').text(),
                 "education": $('#f_xueli').text(),
 
@@ -422,12 +422,12 @@
                 "real_name": $('#id_name').val(),
                 "ID_number": $('#id_code').val(),
 
-                "shirt_size": $('#f_shangyi').val(),
-                "pants_size": $('#f_xiayi').val(),
-                "shoes_size": $('#f_shoe').val(),
+                "shirt_size": $('#shangyi').val(),
+                "pants_size": $('#xiayi').val(),
+                "shoes_size": $('#shoe').val(),
 
                 "cellphone": $('#phonenum').val(),
-                "address": $('#f_dizhi').val(),
+                "address": $('#f_dizhi').text(),
 
                 "weibo_id": $('#weiboid').val(),
                 "weipai_id": $('#weipaiid').val(),
@@ -442,10 +442,14 @@
                 "manyimg6":$('#manyimg6').val(),
 
             },success: function(data) {
+                if(data=="exist"){
+                    $.toast("已注册",1000);
+                    window.location.href="/star/info";
+                }else{
                 $.toast("注册成功!",1000);
                 setTimeout(function(){
                     window.location.href="/star/info";
-                },1000);
+                },1000);}
             },headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
@@ -489,6 +493,5 @@ $.cancelOrder=function(id){
     });
 }
 </script>
-
 </body>
 </html>

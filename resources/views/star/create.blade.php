@@ -570,19 +570,6 @@
                             <div style="width: 58%;display:inline;" class="item-input">
                                 <input id="phonenum" type="text" placeholder="输入手机号">
                             </div>
-                            <div style="width: 50%;display: inline;">
-                                <a href="#" id="sendcode" class="item-link list-button" style="border-left: 1px solid gray;line-height: 1.8rem;">获取验证码</a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item-content">
-                        <div class="item-media"><i class="icon icon-form-name"></i></div>
-                        <div class="item-inner">
-                            <div class="item-input">
-                                <input type="text" placeholder="输入验证码">
-                            </div>
                         </div>
                     </div>
                 </li>
@@ -673,17 +660,6 @@
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="item-content">
-                        <div class="item-media"><i class="icon icon-form-name"></i></div>
-                        <div class="item-inner">
-                            <div class="item-title label">粉丝数</div>
-                            <div class="item-input">
-                                <input id="weibofans" style="width: 80%;display:inline;" type="text" placeholder="填写粉丝数">万(w)
-                            </div>
-                        </div>
-                    </div>
-                </li>
             </ul>
         </div>
     </div>
@@ -708,17 +684,6 @@
                             <div class="item-title label">昵称</div>
                             <div class="item-input">
                                 <input id="weipaiid" type="text" placeholder="填写昵称">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item-content">
-                        <div class="item-media"><i class="icon icon-form-name"></i></div>
-                        <div class="item-inner">
-                            <div class="item-title label">粉丝数</div>
-                            <div class="item-input">
-                                <input id="weipaifans" style="width: 80%;display:inline;" type="text" placeholder="填写粉丝数">万(w)
                             </div>
                         </div>
                     </div>
@@ -751,17 +716,6 @@
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="item-content">
-                        <div class="item-media"><i class="icon icon-form-name"></i></div>
-                        <div class="item-inner">
-                            <div class="item-title label">粉丝数</div>
-                            <div class="item-input">
-                                <input id="miaopaifans" style="width: 80%;display:inline;" type="text" placeholder="填写粉丝数">万(w)
-                            </div>
-                        </div>
-                    </div>
-                </li>
             </ul>
         </div>
     </div>
@@ -790,17 +744,6 @@
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="item-content">
-                        <div class="item-media"><i class="icon icon-form-name"></i></div>
-                        <div class="item-inner">
-                            <div class="item-title label">粉丝数</div>
-                            <div class="item-input">
-                                <input id="meipaifans" style="width: 80%;display:inline;" type="text" placeholder="填写粉丝数">万(w)
-                            </div>
-                        </div>
-                    </div>
-                </li>
             </ul>
         </div>
     </div>
@@ -825,17 +768,6 @@
                             <div class="item-title label">昵称</div>
                             <div class="item-input">
                                 <input id="kuaishouid" type="text" placeholder="填写昵称">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item-content">
-                        <div class="item-media"><i class="icon icon-form-name"></i></div>
-                        <div class="item-inner">
-                            <div class="item-title label">粉丝数</div>
-                            <div class="item-input">
-                                <input id="kuaishoufans" style="width: 80%;display:inline;" type="text" placeholder="填写粉丝数">万(w)
                             </div>
                         </div>
                     </div>
@@ -1017,7 +949,7 @@
 
 @section('page-main')
     <header class="bar bar-nav">
-        <a class="button button-link button-nav pull-left back" href="#register3" onclick="$.set_value('zhifubao');">
+        <a class="button button-link button-nav pull-left back" href="#register3" onclick="">
             <span class="icon icon-left"></span>
             返回
         </a>
@@ -1033,6 +965,17 @@
                             <div class="item-title label">支付宝账号</div>
                             <div class="item-input">
                                 <input id='zhifubao' type="text" placeholder="支付宝账号" >
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">支付宝姓名</div>
+                            <div class="item-input">
+                                <input id='zhifubaoname' type="text" placeholder="支付宝姓名" >
                             </div>
                         </div>
                     </div>
