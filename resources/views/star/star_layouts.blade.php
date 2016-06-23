@@ -458,7 +458,7 @@ $.submmitTaskResult=function(id){
         type: "POST",
         traditional: true,
         dataType: "JSON",
-        data: {  task_ids:id,
+        data: {  order_id:id,
             img1:$('#task1').val(),
             img2:$('#task2').val(),
             img3:$('#task3').val(),

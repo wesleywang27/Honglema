@@ -16,8 +16,11 @@
 </head>
 <body>
   <header class="bar bar-nav">
+      <a class="button button-link button-nav pull-left back" href="/star/activityList">
+            <span class="icon icon-left"></span>
+            返回
+      </a>
       <h1 class='title'>订单详情</h1>
-      <span class="icon icon-left pull-left" onclick="window.location.href='/star/activityList'"></span>
   </header>
   <div class="content">
     <div class="list-block content-no-margin">
