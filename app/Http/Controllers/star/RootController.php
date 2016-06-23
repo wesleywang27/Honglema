@@ -16,14 +16,8 @@ use Illuminate\Support\Facades\Redirect;
 class RootController extends Controller{
 	public function __construct(){
 		session_start();
-		// if(!isset($_SESSION['star_id'])){
-
-		// 	// var_dump(1111);die;
-		//     return Redirect::intended('/star/visitor')->send();
-		// 	//$_SESSION['star_id'] = 1;
-
-
-/*		$oauthUser = new OAuthUser();
+ /*
+ 		$oauthUser = new OAuthUser();
 		$oauthUser->openid   = "test0001";
 		$oauthUser->nickname = "小喳喳";
 		$oauthUser->sex      = "1";
@@ -33,10 +27,12 @@ class RootController extends Controller{
 		$oauthUser->country  = "中国";
 		$oauthUser->avatar   = "http://ww2.sinaimg.cn/crop.0.0.1080.1080.1024/0060HVQdjw8esl7mp9hpmj30u00u0acv.jpg";
 		session(['wechat.oauth_user' => $oauthUser]);*/
+
 		if(!isset($_SESSION['star_id'])){
 			//echo "<script>alert(1);</script>";
 			return Redirect::intended('/star/visitor')->send();
 		}
+
 	}
 
 

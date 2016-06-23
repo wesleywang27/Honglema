@@ -150,7 +150,7 @@
                 var $htmls = '';
                 for(var i=0; i<urls.length; i++){
                     $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
-                    <input type="hidden" id="manyimg"+i value="'+urls[i]+'"></li>';
+                    <input type="hidden" id="manyimg" value="'+urls[i]+'"></li>';
                 }
                 $('#imgfiles').append($htmls);
                 $.hidePreloader();
@@ -271,7 +271,7 @@
         }
     });
 
-    //地区选择器
+
     $(function () {
         $("#city-picker").cityPicker({
             toolbarTemplate: '<header class="bar bar-nav">\
@@ -332,13 +332,15 @@
     $.set_address = function(v1,v2){
         $('#f_dizhi').text($('#'+v1).val() +$('#'+v2).val());
     }
-    //设置三围
-    $.set_sanwei = function(v1,v2,v3){
-        $('#f_sanwei').text($('#'+v1).val()+'/'+$('#'+v2).val()+'/'+$('#'+v3).val());
-    }
+
     //设置尺寸
     $.set_size = function(v1,v2,v3){
         $('#f_chicun').text($('#'+v1).val()+'/'+$('#'+v2).val()+'/'+$('#'+v3).val());
+    }
+
+    //设置支付宝
+    $.setAlipay = function(){
+        $('#f_zhifubao').text($('#zhifubao').val()+'/'+$('#zhifubaoname').val());
     }
 
     //编辑尺寸
@@ -396,10 +398,17 @@
         });
     }
 
-
     //完成注册
-
     $('#finish').click(function() {
+        var imgdata = new Array();
+        var i = 0;
+        $('[id=manyimg]').each(function(){
+            imgdata[i] = $(this).val();
+            i++;
+        });
+
+        var citypicks =  $('#f_dizhi').text().split(" ");
+        var region = citypicks[citypicks.length-1];
         $.ajax({
             url: "/star/register",
             type: "POST",
@@ -429,17 +438,17 @@
                 "cellphone": $('#phonenum').val(),
                 "address": $('#f_dizhi').text(),
 
-                "weibo_id": $('#weiboid').val(),
-                "weipai_id": $('#weipaiid').val(),
-                "miaopai_id": $('#miaopaiid').val(),
-                "meipai_id": $('#meipaiid').val(),
-                "kuaishou_id": $('#kuaishouid').val(),
-                "manyimg1":$('#manyimg1').val(),
-                "manyimg2":$('#manyimg2').val(),
-                "manyimg3":$('#manyimg3').val(),
-                "manyimg4":$('#manyimg4').val(),
-                "manyimg5":$('#manyimg5').val(),
-                "manyimg6":$('#manyimg6').val(),
+                "weibo_id": $('#f_weiboid').text(),
+                "weipai_id": $('#f_weipaiid').text(),
+                "miaopai_id": $('#f_miaopaiid').text(),
+                "meipai_id": $('#f_meipaiid').text(),
+                "kuaishou_id": $('#f_kuaishouid').text(),
+
+                "region":region,
+                "wechat":$('#f_weixin').text(),
+                "alipay_name":$('#zhifubao').val(),
+                "alipay_account":$('#zhifubaoname').val(),
+                "imgdata[]":imgdata
 
             },success: function(data) {
                 if(data=="exist"){
