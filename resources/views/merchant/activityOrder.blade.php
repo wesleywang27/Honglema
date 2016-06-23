@@ -59,7 +59,7 @@
 		  		<div class="list-block media-list content-no-margin">
 				    <ul>
 				      <li>
-				        <a href="/Merchant/activityOrder/activityDetail/1" class="blackfont item-content">
+				        <a href="/Merchant/activityOrder/activityDetail/{{$vo['activity_id']}}" class="blackfont item-content">
 				          <div class="item-media"><img src="{{$vo['picture']}}" style='width: 4rem;'></div>
 				          <div class="item-inner">
 				            <div class="item-title-row">
@@ -113,6 +113,7 @@
 		  		<div class="list-block media-list content-no-margin">
 				    <ul>
 				      <li>
+				      	<a href="/Merchant/activityOrder/activityDetail/{{$vo['activity_id']}}" class="blackfont item-content">
 				        <div class="item-content">
 				          <div class="item-media"><img src="{{$vo['picture']}}" style='width: 4rem;'></div>
 				          <div class="item-inner">
@@ -126,6 +127,7 @@
 				            </div>
 				          </div>
 				        </div>
+				        </a>
 				      </li>
 				    </ul>
 			  	</div>
@@ -156,6 +158,7 @@
 		  		<div class="list-block media-list content-no-margin">
 				    <ul>
 				      <li>
+				      <a href="/Merchant/activityOrder/activityDetail/{{$vo['activity_id']}}" class="blackfont item-content">
 				        <div class="item-content">
 				          <div class="item-media"><img src="{{$vo['picture']}}" style='width: 4rem;'></div>
 				          <div class="item-inner">
@@ -169,6 +172,7 @@
 				            </div>
 				          </div>
 				        </div>
+				        </a>
 				      </li>
 				    </ul>
 			  	</div>

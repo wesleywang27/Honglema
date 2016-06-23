@@ -18,7 +18,7 @@ class ActivityController extends Controller{
 
 	public function index(){
 		$star_id = $_SESSION['star_id'];
-      	$order = \App\Models\Order::where('star_id',$star_id)->where('status',1)->get();
+      	$order = \App\Models\Order::where('star_id',$star_id)->get();
       	$task_ids = array();
       	foreach ($order as $key => $value) {
       		array_push($task_ids, $value['task_id']);

@@ -13,6 +13,8 @@ use EasyWeChat\Foundation\Application;
 use App\Http\Controllers\Controller;
 use App\Models\Activity;
 use App\Models\ActivityCommodityList;
+use App\Models\Task;
+use App\Models\Order;
 
 class ActivityController extends RootController{
     public function __construct(){
@@ -48,8 +50,23 @@ class ActivityController extends RootController{
         //获取该活动下的所有commodity_id
         $commodity_ids = ActivityCommodityList::where('activity_id',$activityDetail['activity_id'])->get();
         
-        // echo "<pre>";
-        // var_dump($activityDetail);die;
         return view('merchant.activity_detail',['detail'=>$activityDetail,'commodity_ids'=>$commodity_ids]);
+    }
+
+    public function setOrder(){
+        $star_id = intval($_POST['star_id']);
+        $task_id = intval($_POST['task_id']);
+        $status = intval($_POST['order_status']);
+        $order = Order::where('task_id',$task_id)->where('star_id',$star_id)->first();
+        $order['status'] = $status;
+        $order->save();
+        if($status == 2){
+            $task = Task::where('task_id',$task_id)->first();
+            $task['status'] = 1;
+            $task->save();
+            $activity = Activity::where('activity_id',$task['activity_id'])->first();
+            $activity['activity_status'] = 2;
+            $activity->save();
+        }
     }
 }

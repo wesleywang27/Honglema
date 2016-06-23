@@ -26,7 +26,7 @@
                         @if($data['order']->status==2&&$data['task']->status<3)
                             <div class="item-title">审核通过，任务进行中 </div>
                             <div  class="item-after">
-                                <a href="task_result?order_id={{$data['order']->order_id}}" class="button button-dark" style="background-color:white">提交结果</a></div>
+  <a href="task_result?order_id={{$data['order']->order_id}}" class="button button-dark" style="background-color:white">提交结果{{$data['order']->order_id}}</a></div>
                         @endif
                         @if($data['order']->status==2&&$data['task']->status==3)
                             <div class="item-title">任务已完成，等待商家评论 </div>
