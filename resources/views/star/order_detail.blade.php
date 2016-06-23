@@ -6,7 +6,7 @@
 @section('body')
 @section('page-main')
     <header class="bar bar-nav">
-     <a class="button button-link button-nav pull-left back" href="window.history(-1)">
+     <a class="button button-link button-nav pull-left back" href="javascript:history.go(-1)">
             <span class="icon icon-left"></span>
             返回
         </a>
@@ -76,7 +76,34 @@
                 </div>
             </li>
         </ul>
-        </div>                
+        </div>
+            <div class="list-block"  style="margin-bottom: 0px;margin-top:1rem">
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">商品信息</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="list-block" style="margin:0 auto">
+                <ul>
+                    @foreach ($commodities as $commodity)
+                        <li>
+                            <a href="<?php echo (strpos($commodity->url,'http') === 0) ? $commodity->url : 'http://'.$commodity->url; ?>" style="">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">{{$commodity->name}}</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+        </div>
+
     </div>
     @include("star.star_footer")
 @overwrite

@@ -116,20 +116,19 @@ class StarController extends RootController
         $merchant = Merchant::where('merchant_id', $activity->merchant_id)->first();
         //each activity has many commodity
         $relations = DB::table('activity_commodity_lists')->where('activity_id', $activity->activity_id)->get();
-        //commodity array initialize
+
         $commodities = array();
-        foreach ($relations as $relation) {
-            $commodities[] = Commodity::where('commodity_id', $relation->commodity_id)->get();
-        }
+       foreach ($relations as $relation) {
+          $commodities[] = Commodity::where('commodity_id', $relation->commodity_id)->first();
+       }
         $data = array('order' => $order,
             'task' => $task,
             'order_status'=>$order->status,
             'task_status'=>$task->status,
             'activity' => $activity,
             'merchant' => $merchant,
-            'commodities' => $commodities,
         );
-        return view('star/order_detail', ["data" => $data]);
+        return view('star/order_detail', ["data" => $data,'commodities' => $commodities,]);
 
     }
 
