@@ -417,12 +417,9 @@ Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
         Route::get('/activityOrder','ActivityController@index');
         Route::get('/activityOrder/addOrder','ActivityController@addOrder');
         Route::get('/activityOrder/activityDetail/{id?}',"ActivityController@activityDetail");
-<<<<<<< HEAD
         Route::post('/activityOrder/setOrder',"ActivityController@setOrder");
         Route::resource('/activityOrder/logistic/{activity_id}',"ActivityController@logistic");
         Route::post('/activityOrder/saveLogistic',"ActivityController@saveLogistic");
-=======
->>>>>>> af5cdf16540be23dca897db8f98b5173ea606f3c
 
         //注册
         Route::get('/register', 'IndexController@index');

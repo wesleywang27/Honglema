@@ -16,14 +16,12 @@ use Illuminate\Support\Facades\Redirect;
 class RootController extends Controller{
 	public function __construct(){
 		session_start();
-<<<<<<< HEAD
-		if(!isset($_SESSION['star_id'])){
+		// if(!isset($_SESSION['star_id'])){
 
-			// var_dump(1111);die;
-		    return Redirect::intended('/star/visitor')->send();
-			//$_SESSION['star_id'] = 1;
+		// 	// var_dump(1111);die;
+		//     return Redirect::intended('/star/visitor')->send();
+		// 	//$_SESSION['star_id'] = 1;
 
-=======
 
 /*		$oauthUser = new OAuthUser();
 		$oauthUser->openid   = "test0001";
@@ -38,7 +36,6 @@ class RootController extends Controller{
 		if(!isset($_SESSION['star_id'])){
 			//echo "<script>alert(1);</script>";
 			return Redirect::intended('/star/visitor')->send();
->>>>>>> af5cdf16540be23dca897db8f98b5173ea606f3c
 		}
 	}
 
