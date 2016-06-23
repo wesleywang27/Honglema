@@ -16,7 +16,7 @@
 </head>
 <body>
   <header class="bar bar-nav">
-      <a class="button button-link button-nav pull-left back" href="window.history(-1)">
+      <a class="button button-link button-nav pull-left back" href="/star/activityList">
             <span class="icon icon-left"></span>
             返回
       </a>
