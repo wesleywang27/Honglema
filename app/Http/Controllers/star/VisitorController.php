@@ -107,6 +107,7 @@ class VisitorController extends Controller
         $star->alipay_name = $request->input('alipay_name');
         $star->alipay_account = $request->input('alipay_account');
         $star->region = $request->input('region');
+        $star->region = 0;
         $star->save();
             //保存网红照片
         $star = Star::where('openid', $openid)->first();

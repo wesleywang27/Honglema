@@ -50,13 +50,18 @@ class ActivityController extends Controller{
 	}
 
 	public function setOrder(){
-		$task_id = intval($_POST['task_id']);
-		$order = new Order();
-        $order->task_id = $task_id;
-        $order->status = 1;
-        //$order->star_id = 1;
-       	$order->star_id = $_SESSION['star_id'];
-        $order->save();
+		$star = Star::where('star_id', $_SESSION['star_id'])->first();
+		if($star->status=0){
+			return "NotAuth";
+		}else {
+			$task_id = intval($_POST['task_id']);
+			$order = new Order();
+			$order->task_id = $task_id;
+			$order->status = 1;
+			//$order->star_id = 1;
+			$order->star_id = $_SESSION['star_id'];
+			$order->save();
+		}
 		//var_dump($activityDetail);die;
 	}
 	public function visitor(){
