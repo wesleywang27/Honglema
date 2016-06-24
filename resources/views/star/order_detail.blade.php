@@ -85,12 +85,12 @@
                         @if($data['order']->status==1)
                             <div class="item-title" style="font-size:80%;">正在审核抢单 </div>
                             <div  class="item-after">
-                                <a href="#" onclick="$.cancelOrder({{$data['order']->order_id}})" class="button button-dark" style="background-color:white">取消申请</a></div>
+                                <a href="#" onclick="$.cancelOrder({{$data['order']->order_id}})" class="button button-dark" style="border:0; background-color:#ee5555; color:white;">取消申请</a></div>
                         @endif
                         @if($data['order']->status==2&&$data['task']->status<3)
                             <div class="item-title" style="font-size:80%;">审核通过，任务进行中 </div>
                             <div  class="item-after">
-  <a href="task_result?order_id={{$data['order']->order_id}}" class="button button-dark" style="background-color:white">提交结果{{$data['order']->order_id}}</a></div>
+  <a href="task_result?order_id={{$data['order']->order_id}}" class="button button-dark" style="border:0; background-color:#ee5555; color:white;">提交结果{{$data['order']->order_id}}</a></div>
                         @endif
                         @if($data['order']->status==2&&$data['task']->status==3)
                             <div class="item-title" style="font-size:80%;">任务已完成，等待商家评论 </div>
