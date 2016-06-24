@@ -380,12 +380,16 @@
     //设置性别
     $.set_sex = function(){
         var text = $("input[name='sex-radio']:checked").val();
-        if(text == '1')
+        if(text == '1'){
             $('#f_sex').text('男');
-        else if(text =='2')
+            $('#sexvalue').val('1');
+        }
+        else if(text =='2'){
             $('#f_sex').text('女');
-        else
-            $('#f_sex').text('未知');
+        $('#sexvalue').val('2');
+    }else{
+        $('#sexvalue').val('0');
+            $('#f_sex').text('未知');}
     }
 //设置地址
     $.set_address = function(v1,v2){
@@ -581,13 +585,18 @@ $.submmitTaskResult=function(id){
         imgdata[i] = $(this).val();
         i++;
     });
-
+    var playback;
+    var views;
+    var duration;
     $.ajax({
         url: "/star/submitTaskResult",
         type: "POST",
         traditional: true,
         dataType: "JSON",
         data: {  order_id:id,
+            'playback':playback,
+            'views':views,
+            'duration':duration,
             'imgdata[]':imgdata,}
         ,success: function(data) {
             $.toast("提交成功!",1000);
