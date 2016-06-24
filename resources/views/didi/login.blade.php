@@ -48,7 +48,7 @@
         <dd>
             <input type="submit" value="立即登陆" class="submit_btn"/>
         </dd>
-        <a href="/cms/forget" style="color: seashell;float: right;margin-right: 15px;">忘记密码</a>
+        <!--<a href="/cms/forget" style="color: seashell;float: right;margin-right: 15px;">忘记密码</a>-->
         <br>
     </form>
     <dd>

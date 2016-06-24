@@ -10,7 +10,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Hash;
 use Validator;
-use App\Models\Administrator;
+use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -31,17 +31,19 @@ class DidiController extends Controller{
     }
 
     public function login(Request $request){
+        session_start();
         if ($request->input('check') == 'success'){
             if(Auth::attempt(array('name'=>$request->input('name'), 'password'=>$request->input('password')))){
-                session_start();
                 $_SESSION['name'] = $request->input('name');
                 return Redirect::intended('/didi/index');
             }
             else{
+                //$_SESSION['error'] = "用户名密码错误！";
                 return Redirect::intended('/didi/login');
             }
         }
         else{
+            //$_SESSION['error'] = "验证码错误！";
             return Redirect::intended('/didi/login');
         }
     }
