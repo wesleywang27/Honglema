@@ -15,16 +15,15 @@
 
         <div class="content">
        
-         <div class="list-block" style="margin-top:0; margin-bottom:5rem;">
+         <div class="list-block" style="margin-top:0; margin-bottom:0;">
             <ul>
             <li>
                 <div valign="bottom" class="card-header color-white no-border no-padding" style="height:6rem">
                     <img class='card-cover' style="height:100%" src="{{$data['activity']->picture}}" alt="">
                 </div>
             </li>
-        </ul>
-
-                <ul>
+            </ul>
+            <ul>
             <li>
                 <div class="item-content">
                     <div class="item-inner">
@@ -51,9 +50,9 @@
                     </div>
                 </div>
             </li>
-        </ul>
+            </ul>
         </div>
-            <div class="list-block"  style="margin-bottom: 0px;margin-top:1rem">
+        <div class="list-block"  style="margin-bottom: 0px;margin-top:1rem">
                 <ul>
                     <li>
                         <div class="item-content">
@@ -63,8 +62,8 @@
                         </div>
                     </li>
                 </ul>
-            </div>
-            <div class="list-block" style="margin:0 auto">
+        </div>
+        <div class="list-block" style="margin-top:0px; margin-bottom: 5rem;">
                 <ul>
                     @foreach ($commodities as $commodity)
                         <li>
