@@ -32,12 +32,8 @@
                     <a href="#sex" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">性别</div>
-                            <input style="visibility: hidden;" id="sexvalue" value="{{$user['sex']}}">
-                            <div id="f_sex" class="item-after">
-                                @if($user['sex']==0)未知
-                                @elseif($user['sex']=='1')男
-                                @elseif($user['sex']=='2')女
-                                @endif</div>
+                            <input style="visibility: hidden;" id="sexvalue" value="">
+                            <div id="f_sex" class="item-after">未编辑</div>
                         </div>
                     </a>
                 </li>
