@@ -13,33 +13,9 @@
         <h1 class="title">订单详情</h1>
     </header>
 
-        <div class="content-block"  style="padding: 0px;">
+        <div class="content">
        
-          <div class="list-block" style="margin-top:2.5rem;background-color:#FF4500;">
-              <div class="item-content">
-                    <div class="item-inner">
-                        @if($data['order']->status==1)
-                            <div class="item-title">正在审核 </div>
-                            <div  class="item-after">
-                                <a href="#" onclick="$.cancelOrder({{$data['order']->order_id}})" class="button button-dark" style="background-color:white">取消申请</a></div>
-                        @endif
-                        @if($data['order']->status==2&&$data['task']->status<3)
-                            <div class="item-title">审核通过，任务进行中 </div>
-                            <div  class="item-after">
-  <a href="task_result?order_id={{$data['order']->order_id}}" class="button button-dark" style="background-color:white">提交结果{{$data['order']->order_id}}</a></div>
-                        @endif
-                        @if($data['order']->status==2&&$data['task']->status==3)
-                            <div class="item-title">任务已完成，等待商家评论 </div>
-                        @endif
-                            @if($data['order']->status==2&&$data['task']->status==4)
-                                <div class="item-title">商家已完成评价，任务结束 </div>
-                            @endif
-                        @if($data['order']->status==0)
-                            <div class="item-title">取消申请 </div>
-                        @endif
-          </div> </div> </div>
-
-         <div class="list-block" style="margin:0 auto">
+         <div class="list-block" style="margin-top:0; margin-bottom:5rem;">
             <ul>
             <li>
                 <div valign="bottom" class="card-header color-white no-border no-padding" style="height:6rem">
@@ -103,6 +79,30 @@
                     @endforeach
                 </ul>
         </div>
+
+          <div class="list-block" style="background-color:#cccccc;position:fixed; width:100%; bottom:2.5rem; margin-bottom:0; overflow:visible;">
+              <div class="item-content">
+                    <div class="item-inner">
+                        @if($data['order']->status==1)
+                            <div class="item-title">正在审核抢单 </div>
+                            <div  class="item-after">
+                                <a href="#" onclick="$.cancelOrder({{$data['order']->order_id}})" class="button button-dark" style="background-color:white">取消申请</a></div>
+                        @endif
+                        @if($data['order']->status==2&&$data['task']->status<3)
+                            <div class="item-title">审核通过，任务进行中 </div>
+                            <div  class="item-after">
+  <a href="task_result?order_id={{$data['order']->order_id}}" class="button button-dark" style="background-color:white">提交结果{{$data['order']->order_id}}</a></div>
+                        @endif
+                        @if($data['order']->status==2&&$data['task']->status==3)
+                            <div class="item-title">任务已完成，等待商家评论 </div>
+                        @endif
+                        @if($data['order']->status==2&&$data['task']->status==4)
+                            <div class="item-title">商家已完成评价，任务结束 </div>
+                        @endif
+                        @if($data['order']->status==0)
+                            <div class="item-title">抢单已取消，任务结束 </div>
+                        @endif
+          </div> </div> </div>
 
     </div>
     @include("star.star_footer")
