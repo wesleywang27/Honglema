@@ -23,9 +23,11 @@
         <td style="width:180px;text-align:center">{{ $star->name }}</td>
         <td style="width:100px;text-align:center">
             @if($star->sex == 0)
-            女
-            @else
+            未知
+            @elseif($star->sex == 1)
             男
+            @else($star->sex == 2)
+            女
             @endif
         </td>
         <td style="width:180px;text-align:center">{{ $star->location }}</td>
