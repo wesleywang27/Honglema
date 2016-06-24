@@ -719,10 +719,22 @@
                                 <div class="weui_cell_bd weui_cell_primary">身份证照片</div>
                             </div>
                             <div class="weui_uploader_bd">
+                                @if($star['ID_card1']!=""&&$star['ID_card2']!="")
+                                <ul class="weui_uploader_files" id="idfile" style="padding-left: 0;">
+                                    <li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('{{$star['ID_card1']}}')">
+                                        <input type="hidden" id="idimgurl1" value="{{$star['ID_card1']}}"></li>
+                                    <li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('{{$star['ID_card2']}}')">
+                                        <input type="hidden" id="idimgurl2" value="{{$star['ID_card2']}}"></li>
+                                </ul>
+                                @else
                                 <ul class="weui_uploader_files" id="idfile" style="padding-left: 0;"></ul>
                                 <div class="weui_uploader_input_wrp">
-                                    <input class="weui_uploader_input" id="fileupload" name="imgFiles" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                                    <input class="weui_uploader_input" id="idimg1" name="img[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                                 </div>
+                                    <div class="weui_uploader_input_wrp">
+                                        <input class="weui_uploader_input" id="idimg2" name="img[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -731,7 +743,7 @@
         </div>
         <div class="content-block" style="margin-top: -1rem;">
             <div class="row">
-                <div class="col-100"><a id="" href="#" class="button button-big button-fill button-success">确  认</a></div>
+                <div class="col-100"><a id="" href="#" onclick="$.saveIdInfo()"class="button button-big button-fill button-success">确  认</a></div>
             </div>
         </div>
     </div>
