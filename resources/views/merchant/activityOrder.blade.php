@@ -15,9 +15,12 @@
 	<script type='text/javascript' src="{{URL::asset('js/sm-extend.min.js')}}" charset='utf-8'></script>
 </head>
 <body>
+<?php 
+	$merchant = App\Models\Merchant::where('merchant_id',$_SESSION['merchant_id'])->first();
+?>
 <header class="bar bar-nav">
   <h1 class='title'>红了吗商家端</h1>
-  <button class="button pull-right" onclick="window.location.href='/Merchant/activityOrder/addOrder'">
+  <button class="button pull-right"  <?php if($merchant['status']==1){ ?> onclick="javascript:alert('您的信息仍在审核中，不能创建活动');" <?php }else{ ?>onclick="window.location.href='/Merchant/activityOrder/addActivity'" <?php } ?>>
     新建
   </button>
 </header>
@@ -30,9 +33,6 @@
  
     <div class="tabs">
       <div id="tab1" class="tab active">
-      <?php 
-      	$merchant = App\Models\Merchant::where('merchant_id',$_SESSION['merchant_id'])->first();
-      ?>
       @foreach ($list as $vo)
       <?php
       	if($vo['activity_status'] == 0 || $vo['activity_status'] == 1){
