@@ -42,6 +42,7 @@ class PictureController extends Controller
         return $url;
     }
 
+
     public function store(Request $request) {
         $images = $request->file('imgs');
         $urls = [];

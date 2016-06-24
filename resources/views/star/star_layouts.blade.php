@@ -116,6 +116,14 @@
         .save{
             margin-right: .9rem;
         }
+        .buttons-tab .button.active {
+            color:black;
+            border-color:#bb11bb;
+        }
+        .buttons-tab .button {
+            color:black;
+        }
+
     </style>
 </head>
 <body>
@@ -163,7 +171,6 @@
     });
 
     //上传网红照片
-
     $('#uploadalbum').change(function(){
         $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
@@ -213,9 +220,9 @@
                 var $htmls = '';
                 for(var i=0; i<urls.length; i++){
                     $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
-                    <input type="hidden" id="task"+i value="'+urls[i]+'"></li>';
+                    <input type="hidden" id="taskimg" value="'+urls[i]+'"></li>';
                 }
-                $('#taskimg').append($htmls);
+                $('#taskimgs').append($htmls);
                 $.hidePreloader();
                 $.toast("添加成功", 1000);
             },error:function(data, status, e){
@@ -323,10 +330,12 @@
     //设置性别
     $.set_sex = function(){
         var text = $("input[name='sex-radio']:checked").val();
-        if(text == 'M')
+        if(text == '1')
             $('#f_sex').text('男');
-        else
+        else if(text =='2')
             $('#f_sex').text('女');
+        else
+            $('#f_sex').text('未知');
     }
 //设置地址
     $.set_address = function(v1,v2){
@@ -355,6 +364,29 @@
                 'shirt_size': $("#f_shirt").val(),
                 'pants_size': $("#f_pants").val(),
                 'shoes_size': $("#f_shoe").val(),}
+            ,success: function(data) {
+                $.toast("提交成功!",1000);
+            },headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    }
+//保存性别
+    $.save_sex = function(){
+        var text = $("input[name='sex-radio']:checked").val();
+        if(text == '1')
+            $('#f_dsex').text('男');
+        else if(text =='2')
+            $('#f_dsex').text('女');
+        else
+            $('#f_dsex').text('未知');
+
+        $.ajax({
+            url: "/star/update",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data: {  'sex': text}
             ,success: function(data) {
                 $.toast("提交成功!",1000);
             },headers: {
@@ -406,9 +438,9 @@
             imgdata[i] = $(this).val();
             i++;
         });
-
         var citypicks =  $('#f_dizhi').text().split(" ");
         var region = citypicks[citypicks.length-1];
+        var sex = $('#sexvalue').val();
         $.ajax({
             url: "/star/register",
             type: "POST",
@@ -416,7 +448,7 @@
             dataType: "JSON",
             data: {
                 "name": $('#f_nickname').text(),
-                "sex": $('#f_sex').text() == '男' ? 'M' : 'F',
+                "sex": sex,
                 "location": $('#f_city-picker').text(),
 
                 "cup": $('#f_zhaobei').text(),
@@ -451,13 +483,13 @@
                 "imgdata[]":imgdata
 
             },success: function(data) {
-                if(data=="exist"){
+                 if(data=="exist"){
                     $.toast("已注册",1000);
-                    window.location.href="/star/info";
+                    window.location.href="/star/activityList";
                 }else{
                 $.toast("注册成功!",1000);
                 setTimeout(function(){
-                    window.location.href="/star/info";
+                    window.location.href="/star/activityList";
                 },1000);}
             },headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -467,22 +499,27 @@
 
     //网红提交任务结果
 $.submmitTaskResult=function(id){
+    var imgdata = new Array();
+    var i = 0;
+    $('[id=taskimg]').each(function(){
+        imgdata[i] = $(this).val();
+        i++;
+    });
+
     $.ajax({
         url: "/star/submitTaskResult",
         type: "POST",
         traditional: true,
         dataType: "JSON",
         data: {  order_id:id,
-            img1:$('#task1').val(),
-            img2:$('#task2').val(),
-            img3:$('#task3').val(),
-            img4:$('#task4').val(),}
+            'imgdata[]':imgdata,}
         ,success: function(data) {
             $.toast("提交成功!",1000);
         },headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+
 }
 
 //网红取消抢单
@@ -503,38 +540,46 @@ $.cancelOrder=function(id){
         }
     });
 }
+
+
 </script>
 <script>
     //网红修改头像
-    $.changeHeadImg=function(){
-        $('#changeheadimg').click();
+
+    function changeHeadImg(){
+        $('#headimgInput').click();
     }
 
-    $('#changeheadimg').change(function(){
-        $.showPreloader('正在上传...');
+    $.saveHeadImg = function(){
+        $.ajax({
+                    url: "/star/update",
+                    type: "POST",
+                    traditional: true,
+                    dataType: "JSON",
+                    data: {  'avatar': $('#wx_headimg').attr("src")}
+                    ,success: function(data) {
+                        $.toast("提交成功!",1000);
+                    },headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                }
+        );
+    }
+
+    $('#headimgInput').change(function(){
+         $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
             url:"/picture",//需要链接到服务器地址
             secureuri:false,
-            fileElementId:"changeheadimg",//文件选择框的id属性
+            fileElementId:"headimgInput",//文件选择框的id属性
             dataType: 'json',   //json
             success: function (data, status) {
                 var urls = data.urls;
                 for(var i=0; i<urls.length; i++){
-                    $.ajax({
-                        url: "/star/update",
-                        type: "POST",
-                        traditional: true,
-                        dataType: "JSON",
-                        data:  {"avatar":urls[i]}
-                        ,success: function(data) {
-                            $('#wx_headimg').attr("src",urls[i]);
-                            $.toast("修改成功!",1000);
-                        },headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
+                   $('#f_wx_headimg1').attr('src',urls[i]);
+                    $('#f_wx_headimg2').attr('src',urls[i]);
+                    $('#wx_headimg').attr('src',urls[i]);
                 }
-                $('#album').append($htmls);
                 $.hidePreloader();
                 $.toast("添加成功", 1000);
             },error:function(data, status, e){

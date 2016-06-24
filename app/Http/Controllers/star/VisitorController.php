@@ -16,10 +16,10 @@ class VisitorController extends Controller
 {
      public function __construct(){
         session_start();
-        /*$oauthUser = new OAuthUser();
+/*        $oauthUser = new OAuthUser();
         $oauthUser->openid   = "test0001";
         $oauthUser->nickname = "小喳喳";
-        $oauthUser->sex      = "1";
+        $oauthUser->sex      = "2";
         $oauthUser->language = "chinese";
         $oauthUser->city     = "北京";
         $oauthUser->province = "北京";
@@ -38,7 +38,7 @@ class VisitorController extends Controller
             $_SESSION['star_id'] = $star->star_id;
             $star = Star::where('star_id', $star->star_id)->first();
             $starPictures= StarPicture::where('uid',$star->star_id)->get();
-            //注册用户跳转到个人信息界面
+            //注册用户跳转到活动界面
             return Redirect::intended('/star/activityList');
         } else {
             $activityList = Activity::where('activity_status', 1)->orderBy('created_at','desc')->get();
@@ -69,7 +69,7 @@ class VisitorController extends Controller
         $star = Star::where('openid', $openid)->first();
         if($star){
             //网红已注册,返回exist
-            return $result='exist';
+            return 'exist';
         }else{
             //网红未注册,则保存
         $star = new Star();
@@ -107,17 +107,21 @@ class VisitorController extends Controller
         $star->alipay_name = $request->input('alipay_name');
         $star->alipay_account = $request->input('alipay_account');
         $star->region = $request->input('region');
+        $star->region = 0;
         $star->save();
             //保存网红照片
         $star = Star::where('openid', $openid)->first();
         $_SESSION['star_id'] = $star->star_id;
-            foreach ($request->input('imgdata') as $url) {
+            $starpicture = $request->input('imgdata');
+            if(count($starpicture)>0){
+            foreach ($starpicture as $url) {
                 $starPicture = new StarPicture();
                 $starPicture->url = $url;
                 $starPicture->file_id = pathinfo($url)['filename'];
                 $starPicture->uid = $star->star_id;
                 $starPicture->save();
-
-        }}
+            }
+        }
+        }
    }
 }

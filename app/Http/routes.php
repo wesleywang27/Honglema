@@ -340,15 +340,14 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
 //网红入口
 
-//
+//,'middleware' => ['web', 'wechat.oauth']
 Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 'wechat.oauth']], function(){
+
     Route::get('/index',"VisitorController@index");
 
     Route::get('/create',"VisitorController@create");
 
     Route::resource('/register',"VisitorController@register");
-
-    Route::get('/activity',"StarController@activity");
 
     Route::get('/order',"StarController@order");
 
@@ -356,25 +355,11 @@ Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 
 
      Route::get('/task_result',"StarController@task_result");
 
-     Route::post('/submitTaskResult',"StarController@submitTaskResult");
+     Route::resource('/submitTaskResult',"StarController@submitTaskResult");
 
    Route::get('/order_detail',"StarController@order_detail");
 
     Route::get('/merchant',"StarController@merchant_info");
-
-    Route::get('/process',"StarController@process");
-
-    Route::get('/comment',"StarController@comment");
-
-    Route::get('/contention',"StarController@contention");
-
-    Route::get('/show_process',"StarController@show_process");
-
-    Route::get('/show_comment',"StarController@show_comment");
-
-    Route::get('/show_contention',"StarController@show_contention");
-
-    Route::get('/all_order',"StarController@all_order");
 
     Route::get('/info',"StarController@info");
 
@@ -420,8 +405,11 @@ Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
         Route::get('/activityOrder/addOrder','ActivityController@addOrder');
         Route::get('/activityOrder/activityDetail/{id?}',"ActivityController@activityDetail");
         Route::post('/activityOrder/setOrder',"ActivityController@setOrder");
-        Route::resource('/activityOrder/logistic/{activity_id}',"ActivityController@logistic");
+        Route::get('/activityOrder/logistic/{activity_id?}',"ActivityController@logistic");
         Route::post('/activityOrder/saveLogistic',"ActivityController@saveLogistic");
+        Route::get('/activityOrder/starDetail/{star_id?}',"ActivityController@starDetail");
+        Route::get('/activityOrder/comment/{task_id?}',"ActivityController@comment");
+
 
         //注册
         Route::get('/register', 'IndexController@index');

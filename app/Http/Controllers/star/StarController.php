@@ -13,7 +13,7 @@ use App\Models\StarPicture;
 use App\Models\Order;
 use App\Models\Merchant;
 use App\Models\Commodity;
-use App\Models\ProductPicture;
+use App\Models\TaskPicture;
 use App\Http\Controllers\Controller;
 use DB;
 
@@ -90,8 +90,6 @@ class StarController extends RootController
         $star->save();
     }
 
-
-
     public function uploadimg(Request $request)
     {
         $star_id = $_SESSION['star_id'];
@@ -102,7 +100,6 @@ class StarController extends RootController
         $starPicture->uid = $star_id;
         $starPicture->save();
     }
-
 
     public function order_detail(Request $request)
     {
@@ -116,21 +113,19 @@ class StarController extends RootController
         $merchant = Merchant::where('merchant_id', $activity->merchant_id)->first();
         //each activity has many commodity
         $relations = DB::table('activity_commodity_lists')->where('activity_id', $activity->activity_id)->get();
-        //commodity array initialize
+
         $commodities = array();
-        foreach ($relations as $relation) {
-            $commodities[] = Commodity::where('commodity_id', $relation->commodity_id)->get();
-        }
+       foreach ($relations as $relation) {
+          $commodities[] = Commodity::where('commodity_id', $relation->commodity_id)->first();
+       }
         $data = array('order' => $order,
             'task' => $task,
             'order_status'=>$order->status,
             'task_status'=>$task->status,
             'activity' => $activity,
             'merchant' => $merchant,
-            'commodities' => $commodities,
         );
-        return view('star/order_detail', ["data" => $data]);
-
+        return view('star/order_detail', ["data" => $data,'commodities' => $commodities,]);
     }
 
     public function cancelOrder(Request $request)
@@ -153,149 +148,24 @@ class StarController extends RootController
         $order_id = $request->input('order_id');
         $order = Order::where('order_id', $order_id)->first();
         $task = Task::where('task_id', $order->task_id)->first();
+        $task_id = $task->task_id;
         $task->status = 3;
         $task->save();
         // 活动状态修改为3（红人已提交）
         $activity = Activity::where('activity_id',$task->activity_id)->first();
         $activity->activity_status = 3;
         $activity->save();
+        $taskPictures = $request->input('imgdata');
 
-        $img1 = $request->input('img1');
-        $img2 = $request->input('img2');
-        $img3 = $request->input('img3');
-        $img4 = $request->input('img4');
-        if (isset($img1)) {
-            $tp = new TaskPicture();
-            $tp->task_id = $task_id;
-            $tp->url = $img1;
-            $tp->file_id = pathinfo($img1)['filename'];
-            $tp->save;
+          if(count($taskPictures)>0){
+           foreach($taskPictures as $url) {
+                $taskPicture = new TaskPicture();
+                $taskPicture->task_id = $task_id;
+                $taskPicture->url = $url;
+                $taskPicture->file_id = pathinfo($url)['filename'];
+                $taskPicture->save();
+            }
         }
-        if (isset($img2)) {
-            $tp = new TaskPicture();
-            $tp->order_id = $task_id;
-            $tp->url = $img2;
-            $tp->file_id = pathinfo($img2)['filename'];
-            $tp->save;
-        }
-        if (isset($img3)) {
-            $tp = new TaskPicture();
-            $tp->order_id = $task_id;
-            $tp->url = $img3;
-            $tp->file_id = pathinfo($img3)['filename'];
-            $tp->save;
-        }
-        if (isset($img4)) {
-            $tp = new TaskPicture();
-            $tp->order_id = $task_id;
-            $tp->url = $img4;
-            $tp->file_id = pathinfo($img4)['filename'];
-            $tp->save;
-        }
-
     }
-
-
-    /*跳转到获得界面*/
-    public function activity()
-    {
-        $items = array(
-            array("Adidas", "阿迪达斯推广活动", "5W", "2016-6-13 24:00", "adidas.jpg"),
-            array("Nike", "耐克推广活动", "5W", "2016-6-14 24:00", "nike.jpg"),
-            array("Nike", "耐克推广活动", "5W", "2016-6-14 24:00", "nike.jpg"),
-            array("Nike", "耐克推广活动", "5W", "2016-6-14 24:00", "nike.jpg"),
-            array("Nike", "耐克推广活动", "5W", "2016-6-14 24:00", "nike.jpg"),
-            array("Nike", "耐克推广活动", "5W", "2016-6-14 24:00", "nike.jpg"),
-            array("Nike", "耐克推广活动", "5W", "2016-6-14 24:00", "nike.jpg"),
-        );
-        return view('star/star_activity', ['items' => $items]);
-    }
-
-
-    /*订单的三种类型,1.抢单中:contention
-                   2.进行中:process
-                   3.可评论:comment  */
-    public function process()
-    {
-        $items = array(
-            array("Nike", "耐克推广活动", "5W", "2016-6-14 24:00", "nike.jpg"),
-            array("Adidas", "阿迪达斯推广活动", "5W", "2016-6-13 24:00", "adidas.jpg"),
-        );
-        return view('/star/star_order', ['items' => $items, 'type' => 'process']);
-    }
-
-    public function comment()
-    {
-        $items = array(
-            array("Nike", "耐克推广活动", "5W", "2016-6-14 24:00", "nike.jpg"),
-            array("Adidas", "阿迪达斯推广活动", "5W", "2016-6-13 24:00", "adidas.jpg"),
-        );
-        return view('/star/star_order', ['items' => $items, 'type' => 'comment']);
-    }
-
-
-    public function contention()
-    {
-        $items = array(
-            array("Nike", "耐克推广活动", "5W", "2016-6-14 24:00", "nike.jpg"),
-            array("Adidas", "阿迪达斯推广活动", "5W", "2016-6-13 24:00", "adidas.jpg"),
-        );
-        return view('/star/star_order', ['items' => $items, 'type' => 'contention']);
-    }
-
-    /*显示全部订单*/
-    public function all_order()
-    {
-        $items = array(
-            array("Nike", "耐克推广活动", "5W", "2016-6-14 24:00", "nike.jpg", 'process'),
-            array("Adidas", "阿迪达斯推广活动", "5W", "2016-6-13 24:00", "adidas.jpg", 'contention'),
-        );
-        return view('/star/star_order', ['items' => $items, 'type' => 'order']);
-    }
-
-    /*显示某一争抢订单详情*/
-    public function show_contention()
-    {
-        $act_name = "Adidas";
-        $act_price = "5w";
-        $act_date = "2016年6月5日";
-        $act_require = "活动要求按时打扫打扫打扫打扫打扫的撒大实打实的阿斯顿阿萨德阿什顿阿斯达阿斯达十大十大阿萨帝爱仕达阿斯达十大爱上大s的爱上 ";
-        $item_info = "绿色 ";
-        //$data=array($act_name,$act_price,$act_date,$act_require,$item_info);
-        return view('star/show_order', ['act_name' => $act_name, 'act_price' => $act_price,
-            'act_date' => $act_date, 'act_require' => $act_require, 'item_info' => $item_info, 'type' => 'contention', 'pic' => 'square_header.jpeg']);
-    }
-
-    /*显示某一进行中订单详情*/
-    public function show_process()
-    {
-        $act_name = "Adidas";
-        $act_price = "5w";
-        $act_date = "2016年6月5日";
-        $act_require = "活动要求按时打扫打扫打扫打扫打扫的撒大实打实的阿斯顿阿萨德阿什顿阿斯达阿斯达十大十大阿萨帝爱仕达阿斯达十大爱上大s的爱上 ";
-        $item_info = "绿色 ";
-        $act_schedule = array(
-            array("2016-06-12 10:00", "2016-06-12 15:00"),
-            array("2016-06-14 15:00", "2016-06-12 18:00"),
-        );
-        //$data=array($act_name,$act_price,$act_date,$act_require,$item_info);
-        return view('star/show_order', ['act_name' => $act_name, 'act_price' => $act_price,
-            'act_schedule' => $act_schedule, 'act_require' => $act_require, 'item_info' => $item_info, 'type' => 'process', 'pic' => 'square_header.jpeg']);
-    }
-
-    /*评论界面*/
-    public function show_comment()
-    {
-        $act_name = "Adidas";
-        $act_price = "5w";
-        $act_date = "2016年6月5日";
-        $act_require = "活动要求按时打扫打扫打扫打扫打扫的撒大实打实的阿斯顿阿萨德阿什顿阿斯达阿斯达十大十大阿萨帝爱仕达阿斯达十大爱上大s的爱上 ";
-        $item_info = "绿色 ";
-        $company_name = 'Adidas官方店';
-        //$data=array($act_name,$act_price,$act_date,$act_require,$item_info);
-        return view('star/show_order', ['act_name' => $act_name, 'act_price' => $act_price,
-            'company_name' => $company_name, 'type' => 'comment', 'pic' => 'square_header.jpeg']);
-    }
-
 
 }
