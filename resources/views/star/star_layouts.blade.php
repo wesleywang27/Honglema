@@ -116,6 +116,14 @@
         .save{
             margin-right: .9rem;
         }
+        .buttons-tab .button.active {
+            color:black;
+            border-color:#bb11bb;
+        }
+        .buttons-tab .button {
+            color:black;
+        }
+
     </style>
 </head>
 <body>
