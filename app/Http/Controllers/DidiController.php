@@ -7,6 +7,7 @@
  */
 namespace App\Http\Controllers;
 
+use Auth;
 use Hash;
 use Validator;
 use App\Models\Administrator;
@@ -30,14 +31,18 @@ class DidiController extends Controller{
     }
 
     public function login(Request $request){
-        $name = $request->input('name');
-        $password = $request->input('password');
-
-        $administrator = Administrator::where('name',$name)->where('password',$password);
-        if($administrator){
-            session_start();
-            $_SESSION['name'] = $name;
-            return Redirect::intended('/didi/index');
+        if ($request->input('check') == 'success'){
+            if(Auth::attempt(array('name'=>$request->input('name'), 'password'=>$request->input('password')))){
+                session_start();
+                $_SESSION['name'] = $request->input('name');
+                return Redirect::intended('/didi/index');
+            }
+            else{
+                return Redirect::intended('/didi/login');
+            }
+        }
+        else{
+            return Redirect::intended('/didi/login');
         }
     }
 
