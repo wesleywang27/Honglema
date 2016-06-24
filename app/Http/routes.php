@@ -267,6 +267,8 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
  */
 
 //Route::group(['domain' => 'cms.honglema.com'], function() {
+    //Route::get('/didi/createUser',"DidiController@createUser");
+
     //登入登出
     Route::get('/didi/login',"DidiController@loginIndex");
 

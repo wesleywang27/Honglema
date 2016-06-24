@@ -7,9 +7,9 @@
  */
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class Administrator extends Authenticatable{
+class Administrator extends Model{
     protected $table = 'administrators';
 
     public $timestamps = false;

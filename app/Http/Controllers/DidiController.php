@@ -10,7 +10,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Hash;
 use Validator;
-use Session;
+use App\Models\Administrator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -33,7 +33,10 @@ class DidiController extends Controller{
     public function login(Request $request){
         session_start();
         if ($request->input('check') == 'success'){
-            if(Auth::attempt(array('name'=>$request->input('name'), 'password'=>$request->input('password')))){
+            $administrator = Administrator::where('name',$request->input('name'))->first();
+            $password = $request->input('password');
+
+            if($administrator->password == md5($password)){
                 $_SESSION['name'] = $request->input('name');
                 return Redirect::intended('/didi/index');
             }
@@ -53,4 +56,13 @@ class DidiController extends Controller{
         unset($_SESSION['name']);
         return Redirect::intended('/didi/login');
     }
+/*
+    public function createUser(){
+        $administrator = new Administrator();
+        $administrator->name = 'honglema';
+        $administrator->password = md5('hong1ema');
+
+        $administrator->save();
+    }
+*/
 }
