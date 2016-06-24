@@ -58,7 +58,7 @@
                     <li>
                         <div class="item-content">
                             <div class="item-inner">
-                                <div class="item-title">商品信息</div>
+                                <div class="item-title" style="font-size:80%;">商品信息</div>
                             </div>
                         </div>
                     </li>
@@ -71,7 +71,7 @@
                             <a href="<?php echo (strpos($commodity->url,'http') === 0) ? $commodity->url : 'http://'.$commodity->url; ?>" style="">
                                 <div class="item-content">
                                     <div class="item-inner">
-                                        <div class="item-title">{{$commodity->name}}</div>
+                                        <div class="item-title" style="font-size:80%;">{{$commodity->name}}</div>
                                     </div>
                                 </div>
                             </a>
@@ -84,23 +84,23 @@
               <div class="item-content">
                     <div class="item-inner">
                         @if($data['order']->status==1)
-                            <div class="item-title">正在审核抢单 </div>
+                            <div class="item-title" style="font-size:80%;">正在审核抢单 </div>
                             <div  class="item-after">
                                 <a href="#" onclick="$.cancelOrder({{$data['order']->order_id}})" class="button button-dark" style="background-color:white">取消申请</a></div>
                         @endif
                         @if($data['order']->status==2&&$data['task']->status<3)
-                            <div class="item-title">审核通过，任务进行中 </div>
+                            <div class="item-title" style="font-size:80%;">审核通过，任务进行中 </div>
                             <div  class="item-after">
   <a href="task_result?order_id={{$data['order']->order_id}}" class="button button-dark" style="background-color:white">提交结果{{$data['order']->order_id}}</a></div>
                         @endif
                         @if($data['order']->status==2&&$data['task']->status==3)
-                            <div class="item-title">任务已完成，等待商家评论 </div>
+                            <div class="item-title" style="font-size:80%;">任务已完成，等待商家评论 </div>
                         @endif
                         @if($data['order']->status==2&&$data['task']->status==4)
-                            <div class="item-title">商家已完成评价，任务结束 </div>
+                            <div class="item-title" style="font-size:80%;">商家已完成评价，任务结束 </div>
                         @endif
                         @if($data['order']->status==0)
-                            <div class="item-title">抢单已取消，任务结束 </div>
+                            <div class="item-title" style="font-size:80%;">抢单已取消，任务结束 </div>
                         @endif
           </div> </div> </div>
 
