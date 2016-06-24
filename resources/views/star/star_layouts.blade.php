@@ -515,7 +515,6 @@ $.submmitTaskResult=function(id){
         data: {  order_id:id,
             'imgdata[]':imgdata,}
         ,success: function(data) {
-            alert(data);
             $.toast("提交成功!",1000);
         },headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
