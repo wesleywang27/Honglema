@@ -7,8 +7,6 @@
  */
 namespace App\Http\Controllers;
 
-use Hash;
-use Validator;
 use App\Models\Administrator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -30,14 +28,23 @@ class DidiController extends Controller{
     }
 
     public function login(Request $request){
-        $name = $request->input('name');
-        $password = $request->input('password');
+        session_start();
+        if ($request->input('check') == 'success'){
+            $administrator = Administrator::where('name',$request->input('name'))->first();
+            $password = $request->input('password');
 
-        $administrator = Administrator::where('name',$name)->where('password',$password);
-        if($administrator){
-            session_start();
-            $_SESSION['name'] = $name;
-            return Redirect::intended('/didi/index');
+            if($administrator->password == md5($password)){
+                $_SESSION['name'] = $request->input('name');
+                return Redirect::intended('/didi/index');
+            }
+            else{
+                //$_SESSION['error'] = "用户名密码错误！";
+                return Redirect::intended('/didi/login');
+            }
+        }
+        else{
+            //$_SESSION['error'] = "验证码错误！";
+            return Redirect::intended('/didi/login');
         }
     }
 
@@ -46,4 +53,13 @@ class DidiController extends Controller{
         unset($_SESSION['name']);
         return Redirect::intended('/didi/login');
     }
+/*
+    public function createUser(){
+        $administrator = new Administrator();
+        $administrator->name = 'honglema';
+        $administrator->password = md5('hong1ema');
+
+        $administrator->save();
+    }
+*/
 }

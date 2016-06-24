@@ -116,6 +116,14 @@
         .save{
             margin-right: .9rem;
         }
+        .buttons-tab .button.active {
+            color:black;
+            border-color:#bb11bb;
+        }
+        .buttons-tab .button {
+            color:black;
+        }
+
     </style>
 </head>
 <body>
@@ -136,6 +144,56 @@
         $(this).parent('div').hide();
         $.toast("添加成功",1000);
     });
+
+    //上传多图
+    $('#idimg1').change(function(){
+        $.showPreloader('正在上传...');
+        $j.ajaxFileUpload({
+            url:"/picture",//需要链接到服务器地址
+            secureuri:false,
+            fileElementId:"idimg1",//文件选择框的id属性
+            dataType: 'json',   //json
+            success: function (data, status) {
+                var urls = data.urls;
+                var $htmls = '';
+                for(var i=0; i<urls.length; i++){
+                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
+                    <input type="hidden" id="idimgurl1" value="'+urls[i]+'"></li>';
+                }
+                $('#idfile').append($htmls);
+                $.hidePreloader();
+                $.toast("添加成功", 1000);
+            },error:function(data, status, e){
+                $.hidePreloader();
+                $.toast("添加失败", 1000);
+            }
+        });
+    });
+
+    $('#idimg2').change(function(){
+        $.showPreloader('正在上传...');
+        $j.ajaxFileUpload({
+            url:"/picture",//需要链接到服务器地址
+            secureuri:false,
+            fileElementId:"idimg2",//文件选择框的id属性
+            dataType: 'json',   //json
+            success: function (data, status) {
+                var urls = data.urls;
+                var $htmls = '';
+                for(var i=0; i<urls.length; i++){
+                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
+                    <input type="hidden" id="idimgurl2" value="'+urls[i]+'"></li>';
+                }
+                $('#idfile').append($htmls);
+                $.hidePreloader();
+                $.toast("添加成功", 1000);
+            },error:function(data, status, e){
+                $.hidePreloader();
+                $.toast("添加失败", 1000);
+            }
+        });
+    });
+
 
     //上传多图
     $('#imgupload').change(function(){
@@ -163,7 +221,6 @@
     });
 
     //上传网红照片
-
     $('#uploadalbum').change(function(){
         $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
@@ -373,7 +430,6 @@
             $('#f_dsex').text('女');
         else
             $('#f_dsex').text('未知');
-
         $.ajax({
             url: "/star/update",
             type: "POST",
@@ -404,6 +460,33 @@
         }
         );
     }
+
+//保存身份证信息
+    $.saveIdInfo=function(){
+        var Idimg1 = $("#idimgurl1").val();
+        var Idimg2 = $("#idimgurl2").val();
+        var name = $("#id_name").val();
+        var idcode= $("#id_code").val();
+        $.ajax({
+            url: "/star/update",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data:  {
+                "ID_card1":Idimg1,
+                "ID_card2":Idimg2,
+                "real_name":name,
+                "ID_number":idcode
+            }
+            ,success: function(data) {
+                alert("aa");
+                $.toast("修改成功!",1000);
+            },headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    }
+
 //保存编辑资料(单项)
     $.save_edit = function(va1,tag){
         $('#f_'+va1).text($('#'+va1).val());
@@ -541,33 +624,38 @@ $.cancelOrder=function(id){
 
     function changeHeadImg(){
         $('#headimgInput').click();
-
     }
-    $('#changeheadimg').change(function(){
+
+    $.saveHeadImg = function(){
+        $.ajax({
+                    url: "/star/update",
+                    type: "POST",
+                    traditional: true,
+                    dataType: "JSON",
+                    data: {  'avatar': $('#wx_headimg').attr("src")}
+                    ,success: function(data) {
+                        $.toast("提交成功!",1000);
+                    },headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                }
+        );
+    }
+
+    $('#headimgInput').change(function(){
          $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
             url:"/picture",//需要链接到服务器地址
             secureuri:false,
-            fileElementId:"changeheadimg",//文件选择框的id属性
+            fileElementId:"headimgInput",//文件选择框的id属性
             dataType: 'json',   //json
             success: function (data, status) {
                 var urls = data.urls;
                 for(var i=0; i<urls.length; i++){
-                    $.ajax({
-                        url: "/star/update",
-                        type: "POST",
-                        traditional: true,
-                        dataType: "JSON",
-                        data:  {"avatar":urls[i]}
-                        ,success: function(data) {
-                            $('#wx_headimg').attr("src",urls[i]);
-                            $.toast("修改成功!",1000);
-                        },headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
+                   $('#f_wx_headimg1').attr('src',urls[i]);
+                    $('#f_wx_headimg2').attr('src',urls[i]);
+                    $('#wx_headimg').attr('src',urls[i]);
                 }
-                $('#album').append($htmls);
                 $.hidePreloader();
                 $.toast("添加成功", 1000);
             },error:function(data, status, e){
