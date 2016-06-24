@@ -106,6 +106,7 @@
       //$star_id = $_SESSION['star_id'];
     
       $star_id = $_SESSION['star_id'];
+      $star = App\Models\Star::where('star_id',$star_id)->first();
       $order = App\Models\Order::where('star_id',$star_id)->where('task_id',$task_id)->first();
       if($order){
     ?>
@@ -138,10 +139,13 @@
             "task_id"   : id
         },
         success: function(data) {
+            if(data=="NotAuth"){
+                $.toast("账号未通过授权",1000);
+            }else{
             $.toast("抢单成功，请等待回复!",1000);
             setTimeout(function(){
                 location.href="/star/activityList";
-            },1000);
+            },1000);}
         },
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
