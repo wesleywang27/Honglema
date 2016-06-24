@@ -363,7 +363,7 @@ Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 
 
     Route::get('/info',"StarController@info");
 
-    Route::post('/update',"StarController@update");
+    Route::resource('/update',"StarController@update");
 
     Route::post('/uploadimg',"StarController@uploadimg");
 

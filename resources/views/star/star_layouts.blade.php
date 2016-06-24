@@ -146,6 +146,56 @@
     });
 
     //上传多图
+    $('#idimg1').change(function(){
+        $.showPreloader('正在上传...');
+        $j.ajaxFileUpload({
+            url:"/picture",//需要链接到服务器地址
+            secureuri:false,
+            fileElementId:"idimg1",//文件选择框的id属性
+            dataType: 'json',   //json
+            success: function (data, status) {
+                var urls = data.urls;
+                var $htmls = '';
+                for(var i=0; i<urls.length; i++){
+                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
+                    <input type="hidden" id="idimgurl1" value="'+urls[i]+'"></li>';
+                }
+                $('#idfile').append($htmls);
+                $.hidePreloader();
+                $.toast("添加成功", 1000);
+            },error:function(data, status, e){
+                $.hidePreloader();
+                $.toast("添加失败", 1000);
+            }
+        });
+    });
+
+    $('#idimg2').change(function(){
+        $.showPreloader('正在上传...');
+        $j.ajaxFileUpload({
+            url:"/picture",//需要链接到服务器地址
+            secureuri:false,
+            fileElementId:"idimg2",//文件选择框的id属性
+            dataType: 'json',   //json
+            success: function (data, status) {
+                var urls = data.urls;
+                var $htmls = '';
+                for(var i=0; i<urls.length; i++){
+                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
+                    <input type="hidden" id="idimgurl2" value="'+urls[i]+'"></li>';
+                }
+                $('#idfile').append($htmls);
+                $.hidePreloader();
+                $.toast("添加成功", 1000);
+            },error:function(data, status, e){
+                $.hidePreloader();
+                $.toast("添加失败", 1000);
+            }
+        });
+    });
+
+
+    //上传多图
     $('#imgupload').change(function(){
         $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
@@ -330,12 +380,16 @@
     //设置性别
     $.set_sex = function(){
         var text = $("input[name='sex-radio']:checked").val();
-        if(text == '1')
+        if(text == '1'){
             $('#f_sex').text('男');
-        else if(text =='2')
+            $('#sexvalue').val('1');
+        }
+        else if(text =='2'){
             $('#f_sex').text('女');
-        else
-            $('#f_sex').text('未知');
+        $('#sexvalue').val('2');
+    }else{
+        $('#sexvalue').val('0');
+            $('#f_sex').text('未知');}
     }
 //设置地址
     $.set_address = function(v1,v2){
@@ -380,7 +434,6 @@
             $('#f_dsex').text('女');
         else
             $('#f_dsex').text('未知');
-
         $.ajax({
             url: "/star/update",
             type: "POST",
@@ -411,6 +464,33 @@
         }
         );
     }
+
+//保存身份证信息
+    $.saveIdInfo=function(){
+        var Idimg1 = $("#idimgurl1").val();
+        var Idimg2 = $("#idimgurl2").val();
+        var name = $("#id_name").val();
+        var idcode= $("#id_code").val();
+        $.ajax({
+            url: "/star/update",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data:  {
+                "ID_card1":Idimg1,
+                "ID_card2":Idimg2,
+                "real_name":name,
+                "ID_number":idcode
+            }
+            ,success: function(data) {
+                alert("aa");
+                $.toast("修改成功!",1000);
+            },headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    }
+
 //保存编辑资料(单项)
     $.save_edit = function(va1,tag){
         $('#f_'+va1).text($('#'+va1).val());
@@ -505,13 +585,18 @@ $.submmitTaskResult=function(id){
         imgdata[i] = $(this).val();
         i++;
     });
-
+    var playback;
+    var views;
+    var duration;
     $.ajax({
         url: "/star/submitTaskResult",
         type: "POST",
         traditional: true,
         dataType: "JSON",
         data: {  order_id:id,
+            'playback':playback,
+            'views':views,
+            'duration':duration,
             'imgdata[]':imgdata,}
         ,success: function(data) {
             $.toast("提交成功!",1000);
