@@ -549,6 +549,7 @@ $.cancelOrder=function(id){
     function changeHeadImg(){
         $('#headimgInput').click();
     }
+
     $.saveHeadImg = function(){
         $.ajax({
                     url: "/star/update",
@@ -565,12 +566,12 @@ $.cancelOrder=function(id){
         );
     }
 
-    $('#changeheadimg').change(function(){
+    $('#headimgInput').change(function(){
          $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
             url:"/picture",//需要链接到服务器地址
             secureuri:false,
-            fileElementId:"changeheadimg",//文件选择框的id属性
+            fileElementId:"headimgInput",//文件选择框的id属性
             dataType: 'json',   //json
             success: function (data, status) {
                 var urls = data.urls;
