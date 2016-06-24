@@ -10,7 +10,7 @@
             返回
         </a>
         <h1 class="title">提交结果</h1>
-        <a class="button button-link button-nav pull-right back" href="#" onclick="$.submmitTaskResult({{$order_id}})">
+        <a class="button button-link button-nav pull-right " href="#" onclick="$.submmitTaskResult({{$order_id}})">
   保存{{$order_id}}
             <span class="save"></span>
         </a>
@@ -26,7 +26,7 @@
                                 <div class="weui_cell_bd weui_cell_primary">上传4张照片</div>
                             </div>
                             <div class="weui_uploader_bd">
-                                <ul class="weui_uploader_files" id="taskimg" style="padding-left: 0;float: left;">
+                                <ul class="weui_uploader_files" id="taskimgs" style="padding-left: 0;float: left;">
 
                                 </ul>
                                 <div class="weui_uploader_input_wrp" style="width: 80px;height: 80px;float: left;">
