@@ -171,7 +171,6 @@
     });
 
     //上传网红照片
-
     $('#uploadalbum').change(function(){
         $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
@@ -549,8 +548,23 @@ $.cancelOrder=function(id){
 
     function changeHeadImg(){
         $('#headimgInput').click();
-
     }
+    $.saveHeadImg = function(){
+        $.ajax({
+                    url: "/star/update",
+                    type: "POST",
+                    traditional: true,
+                    dataType: "JSON",
+                    data: {  'avatar': $('#wx_headimg').attr("src")}
+                    ,success: function(data) {
+                        $.toast("提交成功!",1000);
+                    },headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                }
+        );
+    }
+
     $('#changeheadimg').change(function(){
          $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
@@ -561,21 +575,10 @@ $.cancelOrder=function(id){
             success: function (data, status) {
                 var urls = data.urls;
                 for(var i=0; i<urls.length; i++){
-                    $.ajax({
-                        url: "/star/update",
-                        type: "POST",
-                        traditional: true,
-                        dataType: "JSON",
-                        data:  {"avatar":urls[i]}
-                        ,success: function(data) {
-                            $('#wx_headimg').attr("src",urls[i]);
-                            $.toast("修改成功!",1000);
-                        },headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
+                   $('#f_wx_headimg1').attr('src',urls[i]);
+                    $('#f_wx_headimg2').attr('src',urls[i]);
+                    $('#wx_headimg').attr('src',urls[i]);
                 }
-                $('#album').append($htmls);
                 $.hidePreloader();
                 $.toast("添加成功", 1000);
             },error:function(data, status, e){

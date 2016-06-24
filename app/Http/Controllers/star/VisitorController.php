@@ -16,7 +16,7 @@ class VisitorController extends Controller
 {
      public function __construct(){
         session_start();
-/*        $oauthUser = new OAuthUser();
+        $oauthUser = new OAuthUser();
         $oauthUser->openid   = "test0001";
         $oauthUser->nickname = "小喳喳";
         $oauthUser->sex      = "2";
@@ -25,7 +25,7 @@ class VisitorController extends Controller
         $oauthUser->province = "北京";
         $oauthUser->country  = "中国";
         $oauthUser->avatar   = "http://ww2.sinaimg.cn/crop.0.0.1080.1080.1024/0060HVQdjw8esl7mp9hpmj30u00u0acv.jpg";
-        session(['wechat.oauth_user' => $oauthUser]);*/
+        session(['wechat.oauth_user' => $oauthUser]);
     }
 
     //网红端进入首页
