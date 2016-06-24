@@ -19,8 +19,10 @@ class CommodityController extends Controller{
         session_start();
         if(isset($_SESSION['name'])) {
             $num = ActivityCommodityList::where('activity_id',$activity_id)->count();
+            $commodity_id = ActivityCommodityList::where('activity_id',$activity_id)->lists('commodity_id');
+            $commodity = Commodity::wherein('commodity_id',$commodity_id)->get();
             
-            return view('/didi/commodity_create',['activity_id' => $activity_id ,'num' => $num]);
+            return view('/didi/commodity_create',['activity_id' => $activity_id ,'num' => $num ,'commodities' => $commodity]);
         }
         else{
             return Redirect::intended('/didi/login');
