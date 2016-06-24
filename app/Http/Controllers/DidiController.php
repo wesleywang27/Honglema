@@ -7,9 +7,6 @@
  */
 namespace App\Http\Controllers;
 
-use Auth;
-use Hash;
-use Validator;
 use App\Models\Administrator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
