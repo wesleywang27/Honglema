@@ -347,33 +347,17 @@ Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 
 
     Route::resource('/register',"VisitorController@register");
 
-    Route::get('/activity',"StarController@activity");
-
     Route::get('/order',"StarController@order");
 
     Route::post('/cancelOrder',"StarController@cancelOrder");
 
      Route::get('/task_result',"StarController@task_result");
 
-     Route::post('/submitTaskResult',"StarController@submitTaskResult");
+     Route::resource('/submitTaskResult',"StarController@submitTaskResult");
 
    Route::get('/order_detail',"StarController@order_detail");
 
     Route::get('/merchant',"StarController@merchant_info");
-
-    Route::get('/process',"StarController@process");
-
-    Route::get('/comment',"StarController@comment");
-
-    Route::get('/contention',"StarController@contention");
-
-    Route::get('/show_process',"StarController@show_process");
-
-    Route::get('/show_comment',"StarController@show_comment");
-
-    Route::get('/show_contention',"StarController@show_contention");
-
-    Route::get('/all_order',"StarController@all_order");
 
     Route::get('/info',"StarController@info");
 

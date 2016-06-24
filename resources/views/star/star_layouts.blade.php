@@ -221,9 +221,9 @@
                 var $htmls = '';
                 for(var i=0; i<urls.length; i++){
                     $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
-                    <input type="hidden" id="task"+i value="'+urls[i]+'"></li>';
+                    <input type="hidden" id="taskimg" value="'+urls[i]+'"></li>';
                 }
-                $('#taskimg').append($htmls);
+                $('#taskimgs').append($htmls);
                 $.hidePreloader();
                 $.toast("添加成功", 1000);
             },error:function(data, status, e){
@@ -500,22 +500,28 @@
 
     //网红提交任务结果
 $.submmitTaskResult=function(id){
+    var imgdata = new Array();
+    var i = 0;
+    $('[id=taskimg]').each(function(){
+        imgdata[i] = $(this).val();
+        i++;
+    });
+
     $.ajax({
         url: "/star/submitTaskResult",
         type: "POST",
         traditional: true,
         dataType: "JSON",
         data: {  order_id:id,
-            img1:$('#task1').val(),
-            img2:$('#task2').val(),
-            img3:$('#task3').val(),
-            img4:$('#task4').val(),}
+            'imgdata[]':imgdata,}
         ,success: function(data) {
+            alert(data);
             $.toast("提交成功!",1000);
         },headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+
 }
 
 //网红取消抢单
