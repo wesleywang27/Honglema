@@ -245,7 +245,7 @@
 
             <div class="row">
                 <div class="col-100"><a id="changehead"   onclick="changeHeadImg()" class="button button-big button-fill button-success">更改头像</a></div>
-                <input style="visibility:hidden"  id="headimgInput"   type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple=""/>
+                <input style="visibility:hidden"  id="headimgInput"   name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple=""/>
             </div>
         </div>
     </div>
