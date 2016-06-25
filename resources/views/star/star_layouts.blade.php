@@ -145,7 +145,7 @@
         $.toast("添加成功",1000);
     });
 
-    //上传多图
+    //上传身份证
     $('#idimg1').change(function(){
         $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
@@ -286,8 +286,6 @@
 
 
  //star album upload
- 
-
     //验证码页面,倒计时按钮,点击确认事件
     var waittime = 60;
     var countdown = waittime;
@@ -483,7 +481,6 @@
                 "ID_number":idcode
             }
             ,success: function(data) {
-                alert("aa");
                 $.toast("修改成功!",1000);
             },headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
