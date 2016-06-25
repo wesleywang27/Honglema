@@ -145,6 +145,56 @@
         $.toast("添加成功",1000);
     });
 
+    //上传身份证
+    $('#idimg1').change(function(){
+        $.showPreloader('正在上传...');
+        $j.ajaxFileUpload({
+            url:"/picture",//需要链接到服务器地址
+            secureuri:false,
+            fileElementId:"idimg1",//文件选择框的id属性
+            dataType: 'json',   //json
+            success: function (data, status) {
+                var urls = data.urls;
+                var $htmls = '';
+                for(var i=0; i<urls.length; i++){
+                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
+                    <input type="hidden" id="idimgurl1" value="'+urls[i]+'"></li>';
+                }
+                $('#idfile').append($htmls);
+                $.hidePreloader();
+                $.toast("添加成功", 1000);
+            },error:function(data, status, e){
+                $.hidePreloader();
+                $.toast("添加失败", 1000);
+            }
+        });
+    });
+
+    $('#idimg2').change(function(){
+        $.showPreloader('正在上传...');
+        $j.ajaxFileUpload({
+            url:"/picture",//需要链接到服务器地址
+            secureuri:false,
+            fileElementId:"idimg2",//文件选择框的id属性
+            dataType: 'json',   //json
+            success: function (data, status) {
+                var urls = data.urls;
+                var $htmls = '';
+                for(var i=0; i<urls.length; i++){
+                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
+                    <input type="hidden" id="idimgurl2" value="'+urls[i]+'"></li>';
+                }
+                $('#idfile').append($htmls);
+                $.hidePreloader();
+                $.toast("添加成功", 1000);
+            },error:function(data, status, e){
+                $.hidePreloader();
+                $.toast("添加失败", 1000);
+            }
+        });
+    });
+
+
     //上传多图
     $('#idimg1').change(function(){
         $.showPreloader('正在上传...');
@@ -286,8 +336,6 @@
 
 
  //star album upload
- 
-
     //验证码页面,倒计时按钮,点击确认事件
     var waittime = 60;
     var countdown = waittime;
@@ -483,7 +531,6 @@
                 "ID_number":idcode
             }
             ,success: function(data) {
-                alert("aa");
                 $.toast("修改成功!",1000);
             },headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

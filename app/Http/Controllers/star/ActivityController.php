@@ -51,7 +51,7 @@ class ActivityController extends Controller{
 
 	public function setOrder(){
 		$star = Star::where('star_id', $_SESSION['star_id'])->first();
-		if($star->status=0){
+		if($star->status==0){
 			return "NotAuth";
 		}else {
 			$task_id = intval($_POST['task_id']);
