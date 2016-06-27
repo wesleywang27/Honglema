@@ -47,9 +47,12 @@ class ActivityController extends Controller{
         $activity->activity_status = 1;
 
         if(Input::has('itemImage')){
-            foreach (Input::get('itemImage') as $img) {
-                $activity->picture = $img;
-            }
+            $image = Input::get('itemImage');
+            $activity->picture1 = $image[0];
+            $activity->picture2 = $image[1];
+            //foreach (Input::get('itemImage') as $img) {
+            //    $activity->picture = $img;
+            //}
         }
         
         $activity->save();
