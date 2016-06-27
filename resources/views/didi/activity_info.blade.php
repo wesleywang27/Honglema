@@ -40,9 +40,9 @@
             </tr>
             <tr>
                 <th>活动缩略图：</th>
-                <td><img src="{{ $activity->picture1 }}" style="width: 80px; height: 80px;"/></td>
+                <td><img src="{{ $activity->picture }}" style="width: 80px; height: 80px;"/></td>
                 <th>活动标题图：</th>
-                <td colspan="3"><img src="{{ $activity->picture2 }}" style="width: 240px; height: 80px;"/></td>
+                <td colspan="3"><img src="{{ $activity->banner_picture }}" style="width: 240px; height: 80px;"/></td>
             </tr>
         </table>
         <a href="/didi/ActivityList" style="float: right; margin-right: 50px;"><input type="button" value="返回" class="link_btn"/></a>

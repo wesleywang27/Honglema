@@ -48,8 +48,8 @@ class ActivityController extends Controller{
 
         if(Input::has('itemImage')){
             $image = Input::get('itemImage');
-            $activity->picture1 = $image[0];
-            $activity->picture2 = $image[1];
+            $activity->picture = $image[0];
+            $activity->banner_picture = $image[1];
             //foreach (Input::get('itemImage') as $img) {
             //    $activity->picture = $img;
             //}
