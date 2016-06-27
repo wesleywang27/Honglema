@@ -136,14 +136,7 @@
 <script type="text/javascript" src="{{URL::asset('js/ajaxfileupload.js')}}" charset="utf-8"></script>
 <script>
     $j=jQuery.noConflict();
-    //上传身份证
-    $('#fileupload').change(function(){
-        $('#idfile').append('<li class="weui_uploader_file images" style="background-image:url(http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png)">\
-                <input type="hidden" id="id_image" name="id_image" value="http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png">\
-                </li>');
-        $(this).parent('div').hide();
-        $.toast("添加成功",1000);
-    });
+
 
     //上传身份证
     $('#idimg1').change(function(){
@@ -635,42 +628,46 @@ $.submmitTaskResult=function(id){
     var playback;
     var views;
     var duration;
-    $.ajax({
-        url: "/star/submitTaskResult",
-        type: "POST",
-        traditional: true,
-        dataType: "JSON",
-        data: {  order_id:id,
-            'playback':playback,
-            'views':views,
-            'duration':duration,
-            'imgdata[]':imgdata,}
-        ,success: function(data) {
-            $.toast("提交成功!",1000);
-        },headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+    $.confirm('确认提交任务结果?', function () {
+        $.ajax({
+            url: "/star/submitTaskResult",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data: {  order_id:id,
+                'playback':playback,
+                'views':views,
+                'duration':duration,
+                'imgdata[]':imgdata,}
+            ,success: function(data) {
+                $.toast("提交成功!",1000);
+            },headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     });
-
 }
 
 //网红取消抢单
 $.cancelOrder=function(id){
-    $.ajax({
-        url: "/star/cancelOrder",
-        type: "POST",
-        traditional: true,
-        dataType: "JSON",
-        data: {order_id:id}
-        ,success: function(data) {
-            $.toast("取消成功!",1000);
-            setTimeout(function(){
-                location.href="/star/order";
-            },1000);
-        },headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+    $.confirm('确认取消任务?', function () {
+        $.ajax({
+            url: "/star/cancelOrder",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data: {order_id:id}
+            ,success: function(data) {
+                $.toast("取消成功!",1000);
+                setTimeout(function(){
+                    location.href="/star/order";
+                },1000);
+            },headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     });
+
 }
 
 

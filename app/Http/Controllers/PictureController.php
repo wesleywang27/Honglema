@@ -12,7 +12,7 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class PictureController extends Controller
 {
-
+/*
     public function index(Request $request){
         $media_id = $request->get('media_id');
 
@@ -40,7 +40,7 @@ class PictureController extends Controller
         $url = "http://image.weipai.cn/$baseDir/$newName";
 
         return $url;
-    }
+    }*/
 
 
     public function store(Request $request) {
