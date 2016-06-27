@@ -44,6 +44,7 @@
 </form>
 <script type="text/javascript" src="/js/ajaxfileupload.js" charset="utf-8"></script>
 <script>
+    var count = 0;
     jQuery('#fileupload').change(function(){
         jQuery.ajaxFileUpload({
             url:"/productPicture",//需要链接到服务器地址
@@ -56,7 +57,10 @@
                 var i = 0;
                 $htmls += '<li><img src="'+urls[i]+'" style="width: 80px; height: 80px;"/><input type="hidden" id="itemImage" name="itemImage[]" value="'+urls[i]+'"/></li>';
                 $('#files').append($htmls);
-                document.getElementById('up').style.display='none';
+                count++;
+                if(count == 2){
+                    document.getElementById('up').style.display='none';
+                }
             }
         });
     });

@@ -13,7 +13,7 @@
     <!--tabCont-->
     <div class="admin_tab_cont" style="display:block;">
         <!--左右分栏：左侧栏目-->
-        <table border="2" width="95%" height="150" style="margin: 20px;">
+        <table border="2" width="95%" height="300" style="margin: 20px;">
             <tr>
                 <th width="15%">商家名称：</th>
                 <td width="17%">{{ $merchant->name}}</td>
@@ -37,6 +37,12 @@
                 <td>{{ $activity->created_at}}</td>
                 <th></th>
                 <td></td>
+            </tr>
+            <tr>
+                <th>活动缩略图：</th>
+                <td><img src="{{ $activity->picture1 }}" style="width: 80px; height: 80px;"/></td>
+                <th>活动标题图：</th>
+                <td colspan="3"><img src="{{ $activity->picture2 }}" style="width: 240px; height: 80px;"/></td>
             </tr>
         </table>
         <a href="/didi/ActivityList" style="float: right; margin-right: 50px;"><input type="button" value="返回" class="link_btn"/></a>
