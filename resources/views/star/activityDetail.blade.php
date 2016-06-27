@@ -140,7 +140,7 @@
         },
         success: function(data) {
             if(data=="NotAuth"){
-                $.toast("账号未通过授权",1000);
+                $.toast("账号暂未获得授权，请等待管理员审核",1000);
             }else{
             $.toast("抢单成功，请等待回复!",1000);
             setTimeout(function(){
