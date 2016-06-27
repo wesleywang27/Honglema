@@ -70,6 +70,8 @@ class ActivityController extends Controller{
         session_start();
         if(isset($_SESSION['name'])) {
             Activity::where('activity_id',$id)->delete();
+            $task = Task::where('activity_id',$id)->first();
+            Order::where('task_id',$task->task_id)->delete();
             Task::where('activity_id',$id)->delete();
             ActivityCommodityList::where('activity_id',$id)->delete();
 
