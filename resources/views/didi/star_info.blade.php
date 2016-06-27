@@ -18,10 +18,12 @@
                 <th width="12%">红人昵称：</th>
                 <td width="13%">{{ $star->name}}</td>
                 <th width="12%">性别：</th>
-                @if ($star->sex == 1)
-                <td width="13%">女</td>
-                @else
+                @if ($star->sex == 0)
+                <td width="13%">未知</td>
+                @elseif ($star->sex == 1)
                 <td width="13%">男</td>
+                @else
+                <td width="13%">女</td>
                 @endif
                 <th width="12%">所在地区：</th>
                 <td width="13%">{{ $star->location}}</td>
