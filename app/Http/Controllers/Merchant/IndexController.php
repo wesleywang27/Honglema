@@ -99,13 +99,13 @@ class IndexController extends RootController{
         $app = new Application($options);
         $accessToken = $app->access_token; // EasyWeChat\Core\AccessToken 实例
         // var_dump($img);die;
-        //$token = $accessToken->getToken();die;
-        $token = 'QKPMqzrX22EEEjUjBqnm-mo0gTeLDjx6Cl-cty1KDeIFH1K-sZNkmWteTnO8sGPhdPhGjaYjk0a9OLB35mlURq8JYxYHes0ISAII2GutjBHGvaobIm0Ze7XgJnDqigL-JJXgAFAWWK';
+        $token = $accessToken->getToken();die;
+        // $token = 'QKPMqzrX22EEEjUjBqnm-mo0gTeLDjx6Cl-cty1KDeIFH1K-sZNkmWteTnO8sGPhdPhGjaYjk0a9OLB35mlURq8JYxYHes0ISAII2GutjBHGvaobIm0Ze7XgJnDqigL-JJXgAFAWWK';
 
         //上传到微信服务器
         $path = $img -> move(getcwd().'/uploadPic','1.jpeg');
         $post_data = array( 
-            "media"=>  curl_file_create('/Applications/XAMPP/xamppfiles/htdocs/honglema/public/uploadPic/1.jpeg'),
+            "media"=>  curl_file_create(getcwd().'/uploadPic/1.jpeg'),
         ); 
         // var_dump($post_data);die;
         $url="http://file.api.weixin.qq.com/cgi-bin/media/upload?access_token=".$token."&type=image"; 
@@ -117,7 +117,7 @@ class IndexController extends RootController{
         $img = "http://file.api.weixin.qq.com/cgi-bin/media/get?access_token=".$token."&media_id=".$media_id;
 
         //将图片下载到本地服务器
-        $filename = '/Applications/XAMPP/xamppfiles/htdocs/honglema/public/uploadPic/'.$media_id.'.jpeg';
+        $filename = getcwd().'/uploadPic/'.$media_id.'.jpeg';
         $this->getImg($img,$filename);
 
         //上传图片到阿里oss
