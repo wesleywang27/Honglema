@@ -733,10 +733,10 @@
                                 @else
                                 <ul class="weui_uploader_files" id="idfile" style="padding-left: 0;"></ul>
                                 <div class="weui_uploader_input_wrp">
-                                    <input class="weui_uploader_input" id="idimg1" name="img[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                                    <input class="weui_uploader_input" id="idimg1" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                                 </div>
                                     <div class="weui_uploader_input_wrp">
-                                        <input class="weui_uploader_input" id="idimg2" name="img[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                                        <input class="weui_uploader_input" id="idimg2" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                                     </div>
                                 @endif
                             </div>
