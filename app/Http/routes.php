@@ -293,6 +293,10 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::post('/didi/MerchantModify/{id?}',"MerchantController@merchantUpdate");
 
     Route::get('/didi/MerchantList',"MerchantController@merchantList");
+
+    Route::get('/didi/MerchantCheckList',"MerchantController@merchantCheckList");
+
+    Route::get('/didi/MerchantCheck/{id?}',"MerchantController@merchantCheck");
     
     Route::get('/didi/MerchantInfo/{id?}',"MerchantController@merchantInfo");
 
