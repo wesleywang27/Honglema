@@ -93,10 +93,10 @@
                 <td colspan="7">{{ $star->experience}}</td>
             </tr>
         </table>
-        @if($star->status == 0)
-        <a href="{{URL::action('StarController@starCheck', ['id' => $star->star_id]) }}"><input type="button" value="审核通过" class="link_btn"/></a>
-        @endif
         <a href="javascript:history.back();" style="float: right; margin-right: 40px;"><input type="button" value="返回" class="link_btn"/></a>
+        @if($star->status == 0)
+        <a href="{{URL::action('StarController@starCheck', ['id' => $star->star_id]) }}" style="float: right; margin-right: 20px;"><input type="button" value="审核通过" class="link_btn"/></a>
+        @endif
     </div>
 
     <div class="admin_tab_cont">

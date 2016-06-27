@@ -67,6 +67,21 @@ class StarController extends Controller{
         }
     }
 
+    //网红审核
+    public function starCheck($id){
+        session_start();
+        if(isset($_SESSION['name'])) {
+            $star = Star::where('star_id',$id)->first();
+            $star->status = 1;
+            $star->save();
+
+            return Redirect::intended('/didi/StarCheckList');
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
+
     //网红列表页
     public function starList(){
         session_start();
