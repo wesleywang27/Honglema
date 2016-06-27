@@ -334,6 +334,10 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::get('/didi/ActivityList',"ActivityController@activityList");
 
+    Route::get('/didi/ActivityCheckList',"ActivityController@activityCheckList");
+
+    Route::get('/didi/ActivityCheck/{activity_id?}',"ActivityController@activityCheck");
+
     Route::get('/didi/ActivityInfo/{activity_id?}',"ActivityController@activityInfo");
 
     //商品信息管理
