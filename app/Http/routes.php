@@ -266,7 +266,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
  * 
  */
 
-//Route::group(['domain' => 'cms.honglema.com'], function() {
+Route::group(['domain' => 'cms.honglema.com'], function() {
     //Route::get('/didi/createUser',"DidiController@createUser");
 
     //登入登出
@@ -340,7 +340,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityCreate");
 
     Route::post('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityStore");
-//});
+});
 
 //网红入口
 
