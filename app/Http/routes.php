@@ -393,6 +393,7 @@ Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
         //首页
         Route::get('/', 'IndexController@index');
         Route::get('/login','IndexController@login');
+        Route::post('/upLoadFile','IndexController@upLoadFile');
 
 
         //用户信息管理

@@ -24,7 +24,7 @@
         <ul>
             <li>
               <div valign="bottom" class="card-header color-white no-border no-padding" style="height:6rem">
-                <img class='card-cover' style="height:100%" src="{{$detail['picture']}}" alt="">
+                <img class='card-cover' style="height:100%" src="{{$detail['banner_picture']}}" alt="">
               </div>
             </li>
         </ul>

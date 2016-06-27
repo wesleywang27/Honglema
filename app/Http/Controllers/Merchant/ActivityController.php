@@ -16,6 +16,7 @@ use App\Models\ActivityCommodityList;
 use App\Models\Task;
 use App\Models\TaskPicture;
 use App\Models\Star;
+use App\Models\StarPicture;
 use App\Models\Order;
 use App\Models\PriceLevel;
 use App\Models\Commodity;
@@ -54,11 +55,11 @@ class ActivityController extends RootController{
         $activity['activity_status'] = 0;
         $activity->save();
         $activity_id = $activity['activity_id'];
-        //保存Task
-        $task = new Task();
-        $task['activity_id'] = $activity_id;
-        $task['status'] = 0;
-        $task->save();
+        // //保存Task
+        // $task = new Task();
+        // $task['activity_id'] = $activity_id;
+        // $task['status'] = 0;
+        // $task->save();
 
         //保存商品
         for($i = 0;$i < count($commodity_names); $i ++){
@@ -159,8 +160,9 @@ class ActivityController extends RootController{
     //查看网红详情
     public function starDetail($star_id){
         $star = Star::where('star_id',$star_id)->first();
+        $starPic = StarPicture::where('uid',$star_id)->get();
 
-        return view('merchant.star_detail');
+        return view('merchant.star_detail',['star'=>$star,'starPic'=>$starPic]);
 
     }
 
