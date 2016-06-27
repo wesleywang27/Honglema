@@ -97,7 +97,7 @@ class MerchantController extends Controller{
     public function merchantList(){
         session_start();
         if(isset($_SESSION['name'])) {
-            $merchant = Merchant::paginate(10);
+            $merchant = Merchant::orderBy('created_at','desc')->paginate(10);
 
             return view('/didi/merchant_list',['merchants' => $merchant]);
         }
