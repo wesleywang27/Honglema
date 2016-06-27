@@ -98,12 +98,17 @@ class StarController extends RootController
     public function uploadimg(Request $request)
     {
         $star_id = $_SESSION['star_id'];
-        $url = $request->input('url');
-        $starPicture = new StarPicture();
-        $starPicture->url = $url;
-        $starPicture->file_id = pathinfo($url)['filename'];
-        $starPicture->uid = $star_id;
-        $starPicture->save();
+        $starPictures = $request->input('imgdata');
+        if(count($starPictures)>0){
+            foreach($starPictures as $url) {
+                $starPicture = new StarPicture();
+                $starPicture->url = $url;
+                $starPicture->file_id = pathinfo($url)['filename'];
+                $starPicture->uid = $star_id;
+                $starPicture->save();
+            }
+        }
+
     }
 
     //订单详情
