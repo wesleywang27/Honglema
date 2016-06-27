@@ -137,6 +137,7 @@
 <script>
     $j=jQuery.noConflict();
 
+
     //上传身份证
     $('#idimg1').change(function(){
         $.showPreloader('正在上传...');
@@ -627,23 +628,24 @@ $.submmitTaskResult=function(id){
     var playback;
     var views;
     var duration;
-    $.ajax({
-        url: "/star/submitTaskResult",
-        type: "POST",
-        traditional: true,
-        dataType: "JSON",
-        data: {  order_id:id,
-            'playback':playback,
-            'views':views,
-            'duration':duration,
-            'imgdata[]':imgdata,}
-        ,success: function(data) {
-            $.toast("提交成功!",1000);
-        },headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+    $.confirm('确认提交任务结果?', function () {
+        $.ajax({
+            url: "/star/submitTaskResult",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data: {  order_id:id,
+                'playback':playback,
+                'views':views,
+                'duration':duration,
+                'imgdata[]':imgdata,}
+            ,success: function(data) {
+                $.toast("提交成功!",1000);
+            },headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     });
-
 }
 
 //网红取消抢单
