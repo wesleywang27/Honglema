@@ -309,6 +309,10 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::get('/didi/StarList',"StarController@starList");
 
+    Route::get('/didi/StarCheckList',"StarController@starCheckList");
+
+    Route::get('/didi/StarCheck/{star_id?}',"StarController@starCheck");
+
     Route::get('/didi/StarInfo/{star_id?}',"StarController@starInfo");
 
     //活动信息管理

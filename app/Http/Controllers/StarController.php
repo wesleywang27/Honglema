@@ -80,6 +80,19 @@ class StarController extends Controller{
         }
     }
 
+    //网红审核列表页
+    public function starCheckList(){
+        session_start();
+        if(isset($_SESSION['name'])) {
+            $star = Star::where('status',0)->paginate(10);
+            
+            return view ('/didi/star_list',['stars' => $star]);
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
+
     //网红详情页
     public function starInfo($id){
         session_start();
