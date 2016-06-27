@@ -28,7 +28,19 @@
                 <th>推广费用：</th>
                 <td>{{ $activity->total_price}}</td>
                 <th>活动状态：</th>
-                <td>{{ $activity->activity_status}}</td>
+                <td>
+                    @if ($activity->activity_status == 0)
+                    待审核
+                    @elseif ($activity->activity_status == 1)
+                    抢单中
+                    @elseif ($activity->activity_status == 2)
+                    推广中
+                    @elseif ($activity->activity_status == 3)
+                    待评价
+                    @elseif ($activity->activity_status == 4)
+                    已结束
+                    @endif
+                </td>
             </tr>
             <tr>
                 <th>付款状态：</th>
