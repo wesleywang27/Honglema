@@ -50,8 +50,8 @@ class Star extends Model{
         'alipay_name',
         'alipay_account',
         'ID_card1',
-        'ID_card2'
-
+        'ID_card2',
+        'status'
 
     ];
 

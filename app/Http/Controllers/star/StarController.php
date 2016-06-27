@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\star;
-
 use Illuminate\Http\Request;
 use App\Models\Star;
 use Illuminate\Support\Facades\Input;
@@ -14,7 +13,6 @@ use App\Models\Merchant;
 use App\Models\Commodity;
 use App\Models\TaskPicture;
 use DB;
-use App\Models\Administrator;
 
 class StarController extends RootController
 {
@@ -27,14 +25,11 @@ class StarController extends RootController
     public function order()
     {
         $star_id = $_SESSION['star_id'];
-        $star = Star::where('star_id', $star_id)->first();
-        $orders = Order::where('star_id', $star_id)->orderBy('created_at','desc')->get();
+        $orders = Order::where('star_id', $star_id)->orderBy('created_at', 'desc')->get();
         $data = array();
         foreach ($orders as $order) {
-            //each order  has one task
-            $task = Task::where('task_id', $order->task_id)->first();
             //each task belong to one activity
-            $activity = Activity::where('activity_id', $task->activity_id)->first();
+            $activity = Activity::where('activity_id', $order->activity_id)->first();
             //each activity belong to one  merchant
             $merchant = Merchant::where('merchant_id', $activity->merchant_id)->first();
             //each activity has many commodity
@@ -44,18 +39,29 @@ class StarController extends RootController
             foreach ($relations as $relation) {
                 $commodities[] = Commodity::where('commodity_id', $relation->commodity_id)->get();
             }
-
-            $data[] = array('title' => $activity->title,
-                'merchant_name' => $merchant->name,
-                'picture'=>$activity->picture,
-                'avatar' => $merchant->avatar,
-                'total_price' => $activity->total_price,
-                'requirement' => $activity->claim,
-                'task_status' => $task->status,
-                'order_status' => $order->status,
-                'task_id' => $task->task_id,
-                'merchant_id' => $merchant->merchant_id,
-                'order_id' => $order->order_id);
+            if ($order->status == 2) {
+                $task = Task::where('task_id', $order->task_id)->first();
+                $data[] = array('title' => $activity->title,
+                    'merchant_name' => $merchant->name,
+                    'picture' => $activity->picture,
+                    'avatar' => $merchant->avatar,
+                    'total_price' => $activity->total_price,
+                    'requirement' => $activity->claim,
+                    'order_status' => $order->status,
+                    'merchant_id' => $merchant->merchant_id,
+                    'order_id' => $order->order_id,
+                    'task_status' => $task->status);
+            } else {
+                $data[] = array('title' => $activity->title,
+                    'merchant_name' => $merchant->name,
+                    'picture' => $activity->picture,
+                    'avatar' => $merchant->avatar,
+                    'total_price' => $activity->total_price,
+                    'requirement' => $activity->claim,
+                    'order_status' => $order->status,
+                    'merchant_id' => $merchant->merchant_id,
+                    'order_id' => $order->order_id);
+            }
         }
         return view('/star/star_order', ["data" => $data]);
     }
@@ -73,9 +79,8 @@ class StarController extends RootController
     {
         $star_id = $_SESSION['star_id'];
         $star = Star::where('star_id', $star_id)->first();
-        $starPictures= StarPicture::where('uid',$star->star_id)->get();
-        return view('star/star_info', ["star" => $star, "pictures"=>$starPictures]);
-
+        $starPictures = StarPicture::where('uid', $star->star_id)->get();
+        return view('star/star_info', ["star" => $star, "pictures" => $starPictures]);
     }
 
     //更新网红信息
@@ -99,8 +104,8 @@ class StarController extends RootController
     {
         $star_id = $_SESSION['star_id'];
         $starPictures = $request->input('imgdata');
-        if(count($starPictures)>0){
-            foreach($starPictures as $url) {
+        if (count($starPictures) > 0) {
+            foreach ($starPictures as $url) {
                 $starPicture = new StarPicture();
                 $starPicture->url = $url;
                 $starPicture->file_id = pathinfo($url)['filename'];
@@ -108,7 +113,6 @@ class StarController extends RootController
                 $starPicture->save();
             }
         }
-
     }
 
     //订单详情
@@ -116,27 +120,36 @@ class StarController extends RootController
     {
         $order_id = $request->input('order_id');
         $order = Order::where('order_id', $order_id)->first();
-        //each order  has one task
-        $task = Task::where('task_id', $order->task_id)->first();
         //each task belong to one activity
-        $activity = Activity::where('activity_id', $task->activity_id)->first();
+        $activity = Activity::where('activity_id', $order->activity_id)->first();
         //each activity belong to one  merchant
         $merchant = Merchant::where('merchant_id', $activity->merchant_id)->first();
         //each activity has many commodity
         $relations = DB::table('activity_commodity_lists')->where('activity_id', $activity->activity_id)->get();
 
         $commodities = array();
-       foreach ($relations as $relation) {
-          $commodities[] = Commodity::where('commodity_id', $relation->commodity_id)->first();
-       }
-        $data = array('order' => $order,
-            'task' => $task,
-            'order_status'=>$order->status,
-            'task_status'=>$task->status,
-            'activity' => $activity,
-            'merchant' => $merchant,
-        );
-        return view('star/order_detail', ["data" => $data,'commodities' => $commodities,]);
+        foreach ($relations as $relation) {
+            $commodities[] = Commodity::where('commodity_id', $relation->commodity_id)->first();
+        }
+
+
+        if ($order->status == 2) {
+            $task = Task::where('task_id', $order->task_id)->first();
+            $data = array('order' => $order,
+                'task' => $task,
+                'order_status' => $order->status,
+                'task_status' => $task->status,
+                'activity' => $activity,
+                'merchant' => $merchant,
+            );
+        } else {
+            $data = array('order' => $order,
+                'order_status' => $order->status,
+                'activity' => $activity,
+                'merchant' => $merchant,
+            );
+        }
+        return view('star/order_detail', ["data" => $data, 'commodities' => $commodities,]);
     }
 
     //取消订单
@@ -144,7 +157,7 @@ class StarController extends RootController
     {
         $order_id = $request->input('order_id');
         $order = Order::where('order_id', $order_id)->first();
-        $order->status='0';
+        $order->status = '0';
         $order->save();
     }
 
@@ -166,13 +179,13 @@ class StarController extends RootController
         $task->status = 3;
         $task->save();
         // 活动状态修改为3（红人已提交）
-        $activity = Activity::where('activity_id',$task->activity_id)->first();
+        $activity = Activity::where('activity_id', $task->activity_id)->first();
         $activity->activity_status = 3;
         $activity->save();
         $taskPictures = $request->input('imgdata');
 
-          if(count($taskPictures)>0){
-           foreach($taskPictures as $url) {
+        if (count($taskPictures) > 0) {
+            foreach ($taskPictures as $url) {
                 $taskPicture = new TaskPicture();
                 $taskPicture->task_id = $task_id;
                 $taskPicture->url = $url;
