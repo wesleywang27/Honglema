@@ -44,19 +44,20 @@
       $task = \App\Models\Task::where('activity_id',$detail['activity_id'])->first();
 
       if($detail['activity_status']==0||$detail['activity_status']==1){
-        $commentString = "未进行";
+        $commentString = $detail['activity_status']==0 ? '待审核' : '抢单中';
       }else{
 
         if($detail['activity_status']==2){
-          $commentString = "查看并评价";
           if($task['status']==1){
             $buttonString = '录入快递单号';
+            $commentString = "待发货";
           }else{
             $buttonString = '查看快递单号';
+            $commentString = "已发货";
           }
         }else if($detail['activity_status']==3){
            $buttonString = '查看快递单号';
-           $commentString = "已评价";
+           $commentString = $task['status'] == 3 ? '待评价' : '已评价';
         }
       
     ?>
@@ -93,7 +94,7 @@
                               <p>{{$detail['time_within']}}</p>
                           </div>
                           <div class="item-input">
-                              <button class="button pull-right" style="margin-left:1rem;width:5rem" onclick="window.location.href='/Merchant/activityOrder/comment/{{$task['task_id']}}'">{{$commentString}}</button>
+                              <button class="button pull-right" style="margin-left:1rem;width:5rem" <?php if($detail['activity_status']==3){ ?>onclick="window.location.href='/Merchant/activityOrder/comment/{{$task['task_id']}}'"<?php } ?>>{{$commentString}}</button>
                           </div>
                       </div>
                   </div>
@@ -171,6 +172,12 @@
           $order = \App\Models\Order::where('task_id',$task['task_id'])->where('status',2)->first();
           $star = \App\Models\Star::where('star_id',$order['star_id'])->get();
           $starString = '合作中';
+          break;
+
+        case '3':
+          $order = \App\Models\Order::where('task_id',$task['task_id'])->where('status',2)->first();
+          $star = \App\Models\Star::where('star_id',$order['star_id'])->get();
+          $starString = '合作';
           break;
 
         default:

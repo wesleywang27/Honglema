@@ -17,6 +17,8 @@ use App\Models\Task;
 use App\Models\TaskPicture;
 use App\Models\Star;
 use App\Models\Order;
+use App\Models\PriceLevel;
+use App\Models\Commodity;
 
 class ActivityController extends RootController{
     public function __construct(){
@@ -31,9 +33,52 @@ class ActivityController extends RootController{
     }
 
     //发布活动
-    public function addOrder(){
-        return view('merchant.addOrder');
+    public function addActivity(){
+        $priceLevel = PriceLevel::all();
+        return view('merchant.add_activity',['priceLevel'=>$priceLevel]);
     }
+
+    //保存发布的活动
+    public function saveActivity(){
+       
+        $commodity_names = $_POST['commodity_name'];
+        $commodity_urls = $_POST['commodity_url'];
+        unset($_POST['commodity_name'],$_POST['commodity_url'],$_POST['img']);
+
+        //保存Activity
+        $activity = new Activity();
+        foreach ($_POST as $key => $value) {
+           $activity[$key] = $value; 
+        }
+        $activity['merchant_id'] = $_SESSION['merchant_id'];
+        $activity['activity_status'] = 0;
+        $activity->save();
+        $activity_id = $activity['activity_id'];
+        //保存Task
+        $task = new Task();
+        $task['activity_id'] = $activity_id;
+        $task['status'] = 0;
+        $task->save();
+
+        //保存商品
+        for($i = 0;$i < count($commodity_names); $i ++){
+            //保存commodity
+            $commodity = new Commodity();
+            $commodity['merchant_id'] = $_SESSION['merchant_id'];
+            $commodity['name'] = $commodity_names[$i];
+            $commodity['url'] = $commodity_urls[$i];
+            $commodity->save();
+
+            //保存commodity和activity的关联表ActivityCommodityList
+            $activityCommodityList = new ActivityCommodityList();
+            $activityCommodityList['activity_id'] = $activity_id;
+            $activityCommodityList['commodity_id'] = $commodity['commodity_id'];
+            $activityCommodityList->save();
+        }
+        Redirect::to('/Merchant/activityOrder')->send();
+
+    }
+
 
     public function modify(){
         return view('merchant.personalData');
@@ -96,7 +141,19 @@ class ActivityController extends RootController{
     //跳转到评论页
     public function comment($task_id){
         $task_Pic = TaskPicture::where('task_id',$task_id)->get();
-        return view('merchant.comment',['taskPic'=>$task_Pic]);
+        $task = Task::where('task_id',$task_id)->first();
+        return view('merchant.comment',['taskPics'=>$task_Pic,'task'=>$task]);
+    }
+
+    //保存评论
+    public function saveComment(){
+        //var_dump($_POST['task_id']);die;
+        $task_id = intval($_POST['task_id']);
+        $comment = $_POST['comment'];
+        $task = Task::where('task_id',$task_id)->first();
+        $task['evaluation'] = $comment;
+        $task['status'] = 4;
+        $task->save();
     }
 
     //查看网红详情

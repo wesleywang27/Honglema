@@ -20,7 +20,7 @@
             <span class="icon icon-left"></span>
             返回
         </a>
-        <h1 class="title">支付宝</h1>
+        <h1 class="title">物流信息</h1>
         <a class="button button-link button-nav pull-right back" onclick="saveLogistic();">
             保存
             <span class="save"></span>

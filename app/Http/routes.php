@@ -402,14 +402,15 @@ Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
 
         //活动订单管理
         Route::get('/activityOrder','ActivityController@index');
-        Route::get('/activityOrder/addOrder','ActivityController@addOrder');
+        Route::get('/activityOrder/addActivity','ActivityController@addActivity');
         Route::get('/activityOrder/activityDetail/{id?}',"ActivityController@activityDetail");
         Route::post('/activityOrder/setOrder',"ActivityController@setOrder");
         Route::get('/activityOrder/logistic/{activity_id?}',"ActivityController@logistic");
         Route::post('/activityOrder/saveLogistic',"ActivityController@saveLogistic");
         Route::get('/activityOrder/starDetail/{star_id?}',"ActivityController@starDetail");
         Route::get('/activityOrder/comment/{task_id?}',"ActivityController@comment");
-
+        Route::resource('/activityOrder/saveComment',"ActivityController@saveComment");
+        Route::post('/activityOrder/saveActivity',"ActivityController@saveActivity");
 
         //注册
         Route::get('/register', 'IndexController@index');

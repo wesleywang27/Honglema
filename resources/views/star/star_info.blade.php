@@ -686,6 +686,10 @@
             返回
         </a>
         <h1 class="title">身份认证</h1>
+        <a class="button button-link button-nav pull-right back" href="#info" onclick="$.saveIdInfo()">
+            保存
+            <span class="save"></span>
+        </a>
     </header>
     <div class="content" style="top: 1.2rem;">
         <div class="list-block">

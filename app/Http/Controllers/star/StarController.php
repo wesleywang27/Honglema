@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\star;
 
-use App\Models\OAuthUser;
 use Illuminate\Http\Request;
 use App\Models\Star;
 use Illuminate\Support\Facades\Input;
@@ -14,8 +13,8 @@ use App\Models\Order;
 use App\Models\Merchant;
 use App\Models\Commodity;
 use App\Models\TaskPicture;
-use App\Http\Controllers\Controller;
 use DB;
+use App\Models\Administrator;
 
 class StarController extends RootController
 {
@@ -24,11 +23,12 @@ class StarController extends RootController
         parent::__construct();
     }
 
+    //通过网红id网红任务(订单)列表
     public function order()
     {
         $star_id = $_SESSION['star_id'];
         $star = Star::where('star_id', $star_id)->first();
-        $orders = Order::where('star_id', $star_id)->get();
+        $orders = Order::where('star_id', $star_id)->orderBy('created_at','desc')->get();
         $data = array();
         foreach ($orders as $order) {
             //each order  has one task
@@ -60,6 +60,7 @@ class StarController extends RootController
         return view('/star/star_order', ["data" => $data]);
     }
 
+    //通过商家id查询商家信息
     public function merchant_info(Request $request)
     {
         $merchant_id = $request->input('merchant_id');
@@ -67,6 +68,7 @@ class StarController extends RootController
         return view('star/merchant_info', ["merchant" => $merchant]);
     }
 
+    //通过网红id网红信息
     public function info(Request $request)
     {
         $star_id = $_SESSION['star_id'];
@@ -76,11 +78,13 @@ class StarController extends RootController
 
     }
 
+    //更新网红信息
     public function update()
     {
         $star_id = $_SESSION['star_id'];
         $star = Star::where('star_id', $star_id)->first();
         $input = Input::all();
+        //获取表单的key
         $formKey = array_keys($input);
         foreach ($formKey as $value) {
             if (isset($input[$value])) {
@@ -90,6 +94,7 @@ class StarController extends RootController
         $star->save();
     }
 
+    //网红相册
     public function uploadimg(Request $request)
     {
         $star_id = $_SESSION['star_id'];
@@ -101,6 +106,7 @@ class StarController extends RootController
         $starPicture->save();
     }
 
+    //订单详情
     public function order_detail(Request $request)
     {
         $order_id = $request->input('order_id');
@@ -128,6 +134,7 @@ class StarController extends RootController
         return view('star/order_detail', ["data" => $data,'commodities' => $commodities,]);
     }
 
+    //取消订单
     public function cancelOrder(Request $request)
     {
         $order_id = $request->input('order_id');
@@ -136,12 +143,14 @@ class StarController extends RootController
         $order->save();
     }
 
+    //跳转到任务结果界面
     public function  task_result(Request $request)
     {
         $order_id = $request->input('order_id');
         return view('star/task_result', ['order_id' => $order_id]);
     }
 
+    //提交任务结果
     public function submitTaskResult(Request $request)
     {
         // 网红提交结果，修改任务状态为3（已推广） 
