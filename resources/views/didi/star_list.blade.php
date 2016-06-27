@@ -43,7 +43,7 @@
     @endforeach
 </table>
 <aside class="paging">
-    <a href="/didi/StarCreate" style="float: left;">添加网红</a>
+    <a href="#" style="float: left;">添加网红</a>
 
     <a class="{{ ($stars->currentPage() == 1) ? ' disabled' : '' }}" href="{{ $stars->url(1) }}">首页</a>
 
