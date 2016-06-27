@@ -10,7 +10,7 @@
             返回
         </a>
         <h1 class="title">提交结果</h1>
-        <a class="button button-link button-nav pull-right back" href="#" onclick="$.submmitTaskResult({{$order_id}})">
+        <a class="button button-link button-nav pull-right" href="#" onclick="$.submmitTaskResult({{$order_id}})">
   保存{{$order_id}}
             <span class="save"></span>
         </a>
