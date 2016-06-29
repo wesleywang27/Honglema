@@ -27,6 +27,10 @@
             @endforeach
         </select>
     </div>
+    <div style="margin-top: 20px;">
+        <label>活动场次：</label>
+        <input class="textbox textbox_225" type="number" name="task_num" placeholder="请输入活动场次" value="" required>
+    </div>
     <div class="container">
         <label style="float: left">活动图片：</label>
         <label id="up" class="uploadImg" style="margin-top:10px; margin-left:10px;">

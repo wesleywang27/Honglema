@@ -44,24 +44,17 @@ class ActivityController extends Controller{
 
         $price_level = PriceLevel::where('pl_id',$request->input('level'))->first();
         $activity->total_price = $price_level->price;
-        $activity->activity_status = 1;
+        $activity->task_num = $request->task_num;
+
+        $activity->activity_status = 0;
 
         if(Input::has('itemImage')){
             $image = Input::get('itemImage');
             $activity->picture = $image[0];
             $activity->banner_picture = $image[1];
-            //foreach (Input::get('itemImage') as $img) {
-            //    $activity->picture = $img;
-            //}
         }
         
         $activity->save();
-
-        $activity = Activity::where('merchant_id',$merchant_id)->orderBy('created_at', 'desc')->first();
-        $task = new Task();
-        $task->activity_id = $activity->activity_id;
-        $task->status = 1;
-        $task->save();
 
         return Redirect::intended("/didi/CommodityCreate/$activity->activity_id");
     }
@@ -193,7 +186,7 @@ class ActivityController extends Controller{
     public function activityList(){
         session_start();
         if(isset($_SESSION['name'])) {
-            $activity = Activity::orderBy('created_at','desc')->paginate(10);
+            $activity = Activity::where('activity_status','>',0)->orderBy('created_at','desc')->paginate(10);
 
             return view('/didi/activity_list',['activities' => $activity]);
         }
