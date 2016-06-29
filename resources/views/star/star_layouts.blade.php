@@ -201,8 +201,8 @@
                 var htmls = '';
                 var imgdata = new Array();
                 for(var i=0; i<urls.length; i++){
-                    htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
-                    <input type="hidden" id="task"+i value="'+urls[i]+'"></li>';
+                   /* htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
+                    <input type="hidden" id="task"+i value="'+urls[i]+'"></li>';*/
                     imgdata[i] = urls[i];
                 }
                 $.ajax({
@@ -212,7 +212,8 @@
                     dataType: "JSON",
                     data: {'imgdata[]':imgdata}
                     ,success: function(data) {
-                        $('#album').append(htmls);
+                       // $('#album').append(htmls);
+                        location.href="star/info#album"
                         $.toast("提交成功!",1000);
                     },headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
