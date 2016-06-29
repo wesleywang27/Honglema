@@ -44,7 +44,7 @@ class ActivityController extends Controller{
 
         $price_level = PriceLevel::where('pl_id',$request->input('level'))->first();
         $activity->total_price = $price_level->price;
-        $activity->activity_status = 1;
+        $activity->activity_status = 0;  // 添加完的活动初始状态：0未审核
 
         if(Input::has('itemImage')){
             $image = Input::get('itemImage');
