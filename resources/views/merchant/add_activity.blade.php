@@ -47,6 +47,7 @@
       <h1 class='title'>查看并评价</h1>
   </header>
   <form id="activityForm" method="post" action="/Merchant/activityOrder/saveActivity">
+   <?php echo csrf_field(); ?>
   <div class="content" style="margin-bottom: 30px;">
     <div class="list-block content-no-margin">
     	<ul>
@@ -270,6 +271,7 @@
    
 </script>
   <script>
+  $j=jQuery.noConflict();
   $(function(){
   	$('.add_model').click(function(){
 		var commodityModel = $('.commodity_model').clone(true);
@@ -305,6 +307,7 @@
   		// $.toast("添加成功!",1000);
 	   //  setTimeout(function(){
 	    $('#activityForm').submit();
+
 	    // },1000);
   	}
   } 
