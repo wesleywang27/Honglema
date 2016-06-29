@@ -21,7 +21,9 @@
         <td style="width:180px;text-align:center">{{ $merchant->cellphone }}</td>
         <td style="width:180px;text-align:center">
             <a href="{{URL::action('MerchantController@merchantInfo', ['id' => $merchant->merchant_id]) }}" ><input type="button" value="查看" class="link_btn"/></a>
+            @if($merchant->status == 1)
             <a href="{{URL::action('ActivityController@activityCreate', ['merchant_id' => $merchant->merchant_id]) }}" ><input type="button" value="发布" class="link_btn"/></a>
+            @endif
             <a href="{{URL::action('MerchantController@merchantDelete', ['id' => $merchant->merchant_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
         </td>
     </tr>

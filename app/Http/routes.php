@@ -293,6 +293,10 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
     Route::post('/didi/MerchantModify/{id?}',"MerchantController@merchantUpdate");
 
     Route::get('/didi/MerchantList',"MerchantController@merchantList");
+
+    Route::get('/didi/MerchantCheckList',"MerchantController@merchantCheckList");
+
+    Route::get('/didi/MerchantCheck/{id?}',"MerchantController@merchantCheck");
     
     Route::get('/didi/MerchantInfo/{id?}',"MerchantController@merchantInfo");
 
@@ -333,6 +337,10 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
     Route::post('/didi/ActivityEvaluate/{activity_id?}',"ActivityController@activityEvaluation");
 
     Route::get('/didi/ActivityList',"ActivityController@activityList");
+
+    Route::get('/didi/ActivityCheckList',"ActivityController@activityCheckList");
+
+    Route::get('/didi/ActivityCheck/{activity_id?}',"ActivityController@activityCheck");
 
     Route::get('/didi/ActivityInfo/{activity_id?}',"ActivityController@activityInfo");
 

@@ -36,9 +36,12 @@
                 <td colspan="3">{{ $merchant->address}}</td>
             </tr>
         </table>
-        <a href="{{URL::action('MerchantController@merchantDelete', ['id' => $merchant->merchant_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn" style="float: right; margin-right: 40px;"/></a>
+        <a href="/didi/MerchantList" style="float: right; margin-right: 50px;"><input type="button" value="返回" class="link_btn"/></a>
+        @if($merchant->status == 1)
         <a href="{{URL::action('MerchantController@merchantModify', ['id' => $merchant->merchant_id]) }}"><input type="button" value="修改" class="link_btn" style="float: right; margin-right: 5px;"/></a>
-        <a href="/didi/MerchantList" style="float: right; margin-right: 5px;"><input type="button" value="返回" class="link_btn"/></a>
+        @elseif($merchant->status == 0)
+        <a href="{{URL::action('MerchantController@merchantCheck', ['id' => $merchant->merchant_id]) }}" style="float: right; margin-right: 5px;"><input type="button" value="审核通过" class="link_btn"/></a>
+        @endif
     </div>
 </section>
 <!--tabStyle-->

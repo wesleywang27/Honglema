@@ -57,9 +57,9 @@
         <li>
             <dl>
                 <dt>平台信息审核</dt>
-                <dd><a href="#">商家注册审核</a></dd>
+                <dd><a href="/didi/MerchantCheckList">商家注册审核</a></dd>
                 <dd><a href="/didi/StarCheckList">红人注册审核</a></dd>
-                <dd><a href="#">商家活动审核</a></dd>
+                <dd><a href="/didi/ActivityCheckList">商家活动审核</a></dd>
             </dl>
         </li>
         <li>

@@ -175,11 +175,37 @@ class ActivityController extends Controller{
 
         return Redirect::intended('/didi/ActivityList');
     }
+    //活动审核
+    public function activityCheck($id){
+        session_start();
+        if(isset($_SESSION['name'])) {
+            $activity = Activity::where('activity_id',$id)->first();
+            $activity->activity_status = 1;
+            $activity->save();
+
+            return Redirect::intended('/didi/ActivityCheckList');
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
     //活动列表页
     public function activityList(){
         session_start();
         if(isset($_SESSION['name'])) {
             $activity = Activity::orderBy('created_at','desc')->paginate(10);
+
+            return view('/didi/activity_list',['activities' => $activity]);
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
+    //活动审核页
+    public function activityCheckList(){
+        session_start();
+        if(isset($_SESSION['name'])) {
+            $activity = Activity::where('activity_status',0)->orderBy('created_at','desc')->paginate(10);
 
             return view('/didi/activity_list',['activities' => $activity]);
         }

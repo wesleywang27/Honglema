@@ -58,6 +58,9 @@
             </tr>
         </table>
         <a href="/didi/ActivityList" style="float: right; margin-right: 50px;"><input type="button" value="返回" class="link_btn"/></a>
+        @if($activity->activity_status == 0)
+        <a href="{{URL::action('ActivityController@activityCheck', ['id' => $activity->activity_id]) }}" style="float: right; margin-right: 20px;"><input type="button" value="审核通过" class="link_btn"/></a>
+        @endif
     </div>
     <div class="admin_tab_cont">
         <table border="2" width="95%" style="margin: 20px;">
@@ -77,6 +80,9 @@
             @endforeach
         </table>
         <a href="/didi/ActivityList" style="float: right; margin-right: 50px;"><input type="button" value="返回" class="link_btn"/></a>
+        @if($activity->activity_status == 0)
+        <a href="{{URL::action('ActivityController@activityCheck', ['id' => $activity->activity_id]) }}" style="float: right; margin-right: 20px;"><input type="button" value="审核通过" class="link_btn"/></a>
+        @endif
     </div>
 </section>
 <!--tabStyle-->
