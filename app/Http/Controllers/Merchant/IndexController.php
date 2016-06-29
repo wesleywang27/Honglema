@@ -71,9 +71,9 @@ class IndexController extends Controller{
         $app = new Application($options);
         $accessToken = $app->access_token; // EasyWeChat\Core\AccessToken 实例
         // var_dump($accessToken);die;
-        $token = $accessToken->getToken();
-        var_dump($token);die;
-        // $token = 'oLt3BBTbwa7XsVPsr7sGblHUzbaR0cZ3Gfugz0tyPt2fowW7dWU5PaiVazEBmbGcFiY0Vk5A2TcsaRmesG2H3bjmNUQOoNlnrnDIh5RaK5hbgs8IqGeCgFMfGA64J6MMIEZiADAEAV';
+        //$token = $accessToken->getToken();
+        // var_dump($token);die;
+        $token = 'niNm1boqxle3slpbNqc2LyzgMJk2GjFytIhCptEI1zfGh9nOYDWDzWiran0xsV7-CP0OVsgE5xrY_CJYS9ZYQm9gWn3DnnvJcPEzOEPpOEF9Ve-0vQzugtemVbyD6WiqXXYfAJACCD';
 
         //上传到微信服务器
         $path = $img -> move(getcwd().'/uploadPic','1.jpeg');
