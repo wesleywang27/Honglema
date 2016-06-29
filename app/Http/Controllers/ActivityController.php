@@ -35,28 +35,34 @@ class ActivityController extends Controller{
     }
     //添加活动信息
     public function activityStore($merchant_id ,Request $request){
-        $activity = new Activity();
-        $activity->merchant_id = $merchant_id;
-        $activity->title = $request->input('title');
-        $activity->claim = $request->input('claim');
-        $activity->time_within = $request->input('time_within');
-        $activity->price_level = $request->input('level');
+        session_start();
+        if(isset($_SESSION['name'])) {
+            $activity = new Activity();
+            $activity->merchant_id = $merchant_id;
+            $activity->title = $request->input('title');
+            $activity->claim = $request->input('claim');
+            $activity->time_within = $request->input('time_within');
+            $activity->price_level = $request->input('level');
 
-        $price_level = PriceLevel::where('pl_id',$request->input('level'))->first();
-        $activity->task_num = $request->task_num;
-        $activity->total_price = $price_level->price * $request->task_num;
+            $price_level = PriceLevel::where('pl_id',$request->input('level'))->first();
+            $activity->task_num = $request->task_num;
+            $activity->total_price = $price_level->price * $request->task_num;
 
-        $activity->activity_status = 0;
+            $activity->activity_status = 0;
 
-        if(Input::has('itemImage')){
-            $image = Input::get('itemImage');
-            $activity->picture = $image[0];
-            $activity->banner_picture = $image[1];
+            if(Input::has('itemImage')){
+                $image = Input::get('itemImage');
+                $activity->picture = $image[0];
+                $activity->banner_picture = $image[1];
+            }
+
+            $activity->save();
+
+            return Redirect::intended("/didi/CommodityCreate/$activity->activity_id");
         }
-        
-        $activity->save();
-
-        return Redirect::intended("/didi/CommodityCreate/$activity->activity_id");
+        else{
+            return Redirect::intended('/didi/login');
+        }
     }
     //删除活动信息
     public function activityDelete($id){
@@ -119,11 +125,36 @@ class ActivityController extends Controller{
             return Redirect::intended('/didi/login');
         }
     }
+    //商家操作
+    public function activityOperate($activity_id ,$star_id){
+        session_start();
+        if(isset($_SESSION['name'])) {
+            $order = Order::where('activity_id',$activity_id)->where('star_id',$star_id)->first();
+            $task = Task::where('task_id',$order->task_id)->first();
+            $status = $task->status;
+
+            if ($status == 1){
+
+            }
+            elseif ($status == 2){
+
+            }
+            elseif ($status == 3){
+                return Redirect::intended("/didi/ActivityEvaluate/$task->task_id");
+            }
+            else{
+
+            }
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
     //评价网红页
     public function activityEvaluate($id){
         session_start();
         if(isset($_SESSION['name'])) {
-            $task = Task::where('activity_id',$id)->first();
+            $task = Task::where('task_id',$id)->first();
             $picture = TaskPicture::where('task_id',$task->task_id)->get();
 
             return view('/didi/activity_evaluate',['task' => $task ,'pictures' => $picture]);

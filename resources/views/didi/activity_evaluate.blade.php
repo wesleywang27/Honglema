@@ -39,7 +39,7 @@
                 <textarea name="evaluation" placeholder="请对网红进行评价" class="textarea" style="width:320px;height:100px;"></textarea>
             </div>
             <input name="commit" type="submit" value="评价" class="link_btn" style="margin-top: 20px; margin-left: 12%"/>
-            <a href="/didi/ActivityList"><input type="button" value="返回" class="link_btn" style="margin-left: 5%;"/></a>
+            <a href="javascript:history.back();"><input type="button" value="返回" class="link_btn" style="margin-left: 5%;"/></a>
         </form>
     </div>
 </section>

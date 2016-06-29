@@ -18,7 +18,7 @@
             <br>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $activity->confirm_num}} / {{ $activity->task_num}}</p>
         </div>
-        <table class="table">
+        <table class="table" style="margin-top: 40px;">
             <tr>
                 <th>网红ID</th>
                 <th>网红昵称</th>
@@ -121,7 +121,7 @@
                 <td style="width:180px;text-align:center">{{ $star->cellphone }}</td>
                 <td style="width:180px;text-align:center">
                     <a href="{{URL::action('StarController@starInfo', ['id' => $star->star_id]) }}" ><input type="button" value="查看" class="link_btn"/></a>
-                    <a href="{{URL::action('ActivityController@activityChooseStar', ['star_id' => $star->star_id]) }}"><input type="button" value="操作" class="link_btn"/></a>
+                    <a href="{{URL::action('ActivityController@activityOperate', ['activity_id' => $activity->activity_id ,'star_id' => $star->star_id]) }}"><input type="button" value="操作" class="link_btn"/></a>
                 </td>
             </tr>
             @endforeach
