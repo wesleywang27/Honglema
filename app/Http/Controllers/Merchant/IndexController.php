@@ -30,18 +30,19 @@ class IndexController extends Controller{
 
             $merchant = Merchant::where('open_id',$user->openid)->first();
 
+            $options = config('wechat');
+            $app = new Application($options);
+            $js = $app->js;
+
             if($merchant){
                     
                 //首页
                 $_SESSION['merchant_id'] = $merchant['merchant_id'];
 
-                $options = config('wechat');
-                $app = new Application($options);
-                $js = $app->js;
 
-                return view('merchant.user',['merchant' => $merchant]);
+                return view('merchant.user',['merchant' => $merchant,'js'=>$js]);
             }else{
-                return view('merchant.merchant_register',['user'=>$user]);
+                return view('merchant.merchant_register',['user'=>$user,'js'=>$js]);
             }
         }else{
             echo "<script>alert('微信未授权');</script>";
