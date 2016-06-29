@@ -341,6 +341,9 @@
                $('#'+ id + '_pic').attr('src',data);
                $('#'+ id + '_input').val(data);
                // alert(data);
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
             // error: function (data, status, e)//服务器响应失败处理函数
             // {

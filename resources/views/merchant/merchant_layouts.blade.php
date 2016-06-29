@@ -354,6 +354,9 @@
                     // $('#license_img_input').val(data);
                }
                 
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
             // error: function (data, status, e)//服务器响应失败处理函数
             // {
