@@ -152,7 +152,26 @@ class ActivityController extends Controller{
     }
     //填写物流页
     public function activityExpress($id){
+        session_start();
+        if(isset($_SESSION['name'])) {
+            $task = Task::where('task_id',$id)->first();
+            
+            return view('/didi/activity_express',['task' => $task]);
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
+    //填写物流信息
+    public function activityExpressStore($id ,Request $request){
+        $task = Task::where('task_id',$id)->first();
 
+        $task->express_company = $request->express_company;
+        $task->express_num = $request->express_num;
+        $task->status = 2;
+        $task->save();
+
+        return Redirect::intended('/didi/ActivityList');
     }
     //评价网红页
     public function activityEvaluate($id){
@@ -202,7 +221,7 @@ class ActivityController extends Controller{
     public function activityList(){
         session_start();
         if(isset($_SESSION['name'])) {
-            $activity = Activity::where('activity_status','>',0)->orderBy('created_at','desc')->paginate(10);
+            $activity = Activity::orderBy('created_at','desc')->paginate(10);
 
             return view('/didi/activity_list',['activities' => $activity]);
         }
