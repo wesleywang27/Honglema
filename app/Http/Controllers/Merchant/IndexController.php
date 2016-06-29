@@ -69,7 +69,7 @@ class IndexController extends Controller{
         $options = config('wechat');
         $app = new Application($options);
         $accessToken = $app->access_token; // EasyWeChat\Core\AccessToken 实例
-        // var_dump($img);die;
+        // var_dump($accessToken);die;
         $token = $accessToken->getToken();
         var_dump($token);die;
         // $token = 'oLt3BBTbwa7XsVPsr7sGblHUzbaR0cZ3Gfugz0tyPt2fowW7dWU5PaiVazEBmbGcFiY0Vk5A2TcsaRmesG2H3bjmNUQOoNlnrnDIh5RaK5hbgs8IqGeCgFMfGA64J6MMIEZiADAEAV';

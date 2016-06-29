@@ -35,8 +35,11 @@ class ActivityController extends RootController{
 
     //发布活动
     public function addActivity(){
+        $options = config('wechat');
+        $app = new Application($options);
+        $js = $app->js;
         $priceLevel = PriceLevel::all();
-        return view('merchant.add_activity',['priceLevel'=>$priceLevel]);
+        return view('merchant.add_activity',['priceLevel'=>$priceLevel,'js'=>$js]);
     }
 
     //保存发布的活动

@@ -266,7 +266,9 @@
 		    </div>
 		</div>
     </div>
-
+<script type="text/javascript" charset="utf-8">
+    wx.config(<?php echo $js->config(array('chooseImage', 'uploadImage','previewImage')) ?>);
+</script>
   <script>
   $(function(){
   	$('.add_model').click(function(){
