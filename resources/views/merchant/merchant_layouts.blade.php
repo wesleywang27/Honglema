@@ -279,7 +279,8 @@
                 "cellphone"     : $('#cellphone_hidden').val(),
                 "alipay_name"     : $('#alipay_name_hidden').val(),
                 "alipay_account"     : $('#alipay_account_hidden').val(),
-                "license"     : $('#license_img').attr('src')
+                "license"     : $('#license_img').attr('src'),
+                "open_id"     :  $('#openId').val()
             },
             success: function(data) {
                 $.toast("操作成功!",1000);
@@ -324,7 +325,6 @@
                 "alipay_name"     : $('#alipay_name_hidden').val(),
                 "alipay_account"     : $('#alipay_account_hidden').val(),
                 "license"     : $('#license_img').attr('src'),
-                "open_id"     :  '{{$user->openid}}'
             },
             success: function(data) {
                 $.toast("操作成功!",1000);
