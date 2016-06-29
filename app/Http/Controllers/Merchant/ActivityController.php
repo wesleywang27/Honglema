@@ -44,13 +44,14 @@ class ActivityController extends RootController{
        
         $commodity_names = $_POST['commodity_name'];
         $commodity_urls = $_POST['commodity_url'];
-        unset($_POST['commodity_name'],$_POST['commodity_url'],$_POST['img']);
-
+        $total_price = $_POST['total_price'] * $_POST['task_num'];
+        unset($_POST['commodity_name'],$_POST['commodity_url'],$_POST['img'],$_POST['total_price']);
         //保存Activity
         $activity = new Activity();
         foreach ($_POST as $key => $value) {
            $activity[$key] = $value; 
         }
+        $activity['total_price'] = $total_price;
         $activity['merchant_id'] = $_SESSION['merchant_id'];
         $activity['activity_status'] = 0;
         $activity['confirm_num'] = 0;
