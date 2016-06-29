@@ -148,7 +148,7 @@
             success: function (data, status) {
                 var urls = data.urls;
                 var $htmls = '';
-                for(var i=0; i<2; i++){
+                for(var i=0; i<urls.length; i++){
                     $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
                     <input type="hidden" id="idimgurl1" value="'+urls[i]+'"></li>';
                 }

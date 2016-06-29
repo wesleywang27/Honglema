@@ -15,9 +15,9 @@ class ActivityController extends Controller{
 		session_start();
 
 	}
-
 	public function index(){
 		$star_id = $_SESSION['star_id'];
+		$star = Star::where('star_id', $star_id)->first();
       	$order = \App\Models\Order::where('star_id',$star_id)->get();
       	$task_ids = array();
       	foreach ($order as $key => $value) {
@@ -29,12 +29,11 @@ class ActivityController extends Controller{
       	foreach ($task as $k => $v) {
       		array_push($activity_ids, $v['activity_id']);
       	}
-
-
-		$activityList = Activity::where('activity_status',1)->whereNotIn('activity_id',$activity_ids)->orderBy('created_at','desc')->get();
-
-		// echo "<pre>";
-		// var_dump($activityList);die;
+		if($star->superuser=='1') {
+			$activityList = Activity::whereNotIn('activity_id', $activity_ids)->orderBy('created_at', 'desc')->get();
+		}else{
+			$activityList = Activity::where('activity_status', 1)->whereNotIn('activity_id', $activity_ids)->orderBy('created_at', 'desc')->get();
+		}
 		return view('star.activityList',['list'=>$activityList]);
 	}
 

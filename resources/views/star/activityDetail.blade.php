@@ -32,12 +32,12 @@
             </li>
         </ul>
         <ul>
-        
             <li>
                 <div class="item-content">
                     <div class="item-inner">
                         <div class="item-title" style="font-size:90%;">{{ $detail['title']}}</div>
-                        <div id="f_merchant_name" class="item-after" style="font-size:80%;">¥&nbsp;{{$detail['total_price']}}</div>
+                        <div id="f_merchant_name" class="item-after" style="font-size:80%;">¥&nbsp;
+                            <?php echo App\Models\PriceLevel::where('pl_id', $detail['price_level'])->first()['price_star']; ?></div>
                     </div>
                 </div>
             </li>
@@ -60,7 +60,6 @@
                 </div>
             </li>
         </ul>
-  
     </div>
     <div class="content-block content-block-my content-no-margin">
         <div class="content-block content-block-my">
@@ -80,7 +79,6 @@
           @foreach ($commodity_ids as $cid)
           <?php 
              $commodity = App\Models\Commodity::where('commodity_id',$cid['commodity_id'])->first();
-             
           ?>
               <li>
                 <a href="<?php echo (strpos($commodity['url'],'http') === 0) ? $commodity['url'] : 'http://'.$commodity['url']; ?>" style="">
@@ -99,8 +97,7 @@
     <?php
       $task_id = App\Models\Task::where('activity_id',$detail['activity_id'])->first()['task_id'];
     ?>
-
-    <?php 
+    <?php
       //$star_id = 1;
     // session_start();
       //$star_id = $_SESSION['star_id'];
@@ -124,7 +121,6 @@
     <?php
       }
     ?>
-
   </div>
   <script>
   function setOrder(id){
