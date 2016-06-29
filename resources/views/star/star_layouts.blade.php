@@ -213,7 +213,7 @@
                     data: {'imgdata[]':imgdata}
                     ,success: function(data) {
                        // $('#album').append(htmls);
-                        location.href="star/info#album"
+                        location.href="/star/info#album"
                         $.toast("提交成功!",1000);
                     },headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
