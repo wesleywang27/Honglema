@@ -134,21 +134,25 @@ class ActivityController extends Controller{
             $status = $task->status;
 
             if ($status == 1){
-
+                return Redirect::intended("/didi/ActivityExpress/$task->task_id");
             }
             elseif ($status == 2){
-
+                echo "<script>history.go(-1); alert('当前没有需要进行的操作!');</script>";
             }
             elseif ($status == 3){
                 return Redirect::intended("/didi/ActivityEvaluate/$task->task_id");
             }
             else{
-
+                echo "<script>history.go(-1); alert('当前没有需要进行的操作!');</script>";
             }
         }
         else{
             return Redirect::intended('/didi/login');
         }
+    }
+    //填写物流页
+    public function activityExpress($id){
+
     }
     //评价网红页
     public function activityEvaluate($id){
