@@ -169,12 +169,14 @@ class ActivityController extends Controller{
 
         $task->evaluation = $request->input('evaluation');
         $task->status = 4;
+        $task->save();
 
         $activity = Activity::where('activity_id',$task->activity_id)->first();
-        $activity->activity_status = 4;
-
-        $task->save();
-        $activity->save();
+        $count = Task::where('activity_id',$activity->activity_id)->where('status',4)->count();
+        if($count == $activity->task_num){
+            $activity->activity_status = 2;
+            $activity->save();
+        }
 
         return Redirect::intended('/didi/ActivityList');
     }
