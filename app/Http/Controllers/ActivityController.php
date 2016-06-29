@@ -116,25 +116,25 @@ class ActivityController extends Controller{
     public function activityChooseOrder($id){
         session_start();
         if(isset($_SESSION['name'])) {
-            $task = Task::where('activity_id',$id)->first();
-            $star_id = Order::where('task_id',$task->task_id)->where('status',1)->lists('star_id');
+            $star_id = Order::where('activity_id',$id)->where('status',1)->lists('star_id');
             $star = Star::wherein('star_id',$star_id)->paginate(10);
 
-            return view('/didi/activity_choose_order',['task_id' => $task->task_id ,'stars' => $star]);
+            return view('/didi/activity_choose_order',['activity_id' => $id ,'stars' => $star]);
         }
         else{
             return Redirect::intended('/didi/login');
         }
     }
     //选择网红
-    public function activityChooseStar($task_id ,$star_id){
+    public function activityChooseStar($activity_id ,$star_id){
         session_start();
         if(isset($_SESSION['name'])) {
-            $order = Order::where('task_id',$task_id)->where('star_id',$star_id)->first();
+            $order = Order::where('activity_id',$activity_id)->where('star_id',$star_id)->first();
             $order->status = 2;
-            $task = Task::where('task_id',$task_id)->first();
+            $task = Task::where('activity_id',$activity_id)->first();
             $task->status = 2;
-            $activity = Activity::where('activity_id',$task->activity_id)->first();
+            $order->task_id = $task->task_id;
+            $activity = Activity::where('activity_id',$activity_id)->first();
             $activity->activity_status = 2;
 
             $order->save();

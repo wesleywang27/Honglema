@@ -1,12 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\star;
-use Illuminate\Http\Request;
 use App\Models\Star;
 use App\Models\Activity;
-use Illuminate\Support\Facades\Input;
 use App\Models\User;
-use App\Models\StarPicture;
 use App\Models\ActivityCommodityList;
 use App\Models\Order;
 use App\Http\Controllers\Controller;
@@ -39,12 +36,8 @@ class ActivityController extends Controller{
 
 	public function detail($id){
 		$activityDetail = Activity::where('activity_id',$id)->first();
-
 		//获取该活动下的所有commodity_id
       	$commodity_ids = ActivityCommodityList::where('activity_id',$activityDetail['activity_id'])->get();
-		
-		// echo "<pre>";
-		// var_dump($activityDetail);die;
 		return view('star.activityDetail',['detail'=>$activityDetail,'commodity_ids'=>$commodity_ids]);
 	}
 
@@ -58,9 +51,9 @@ class ActivityController extends Controller{
 			return "NotFill";
 		}else{
 			//符合抢单条件
-			$task_id = intval($_POST['task_id']);
+			$activity_id = intval($_POST['activity_id']);
 			$order = new Order();
-			$order->task_id = $task_id;
+			$order->activity_id = $activity_id;
 			$order->status = 1;
 			$order->star_id = $_SESSION['star_id'];
 			$order->save();

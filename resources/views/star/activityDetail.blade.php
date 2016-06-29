@@ -98,13 +98,9 @@
       $task_id = App\Models\Task::where('activity_id',$detail['activity_id'])->first()['task_id'];
     ?>
     <?php
-      //$star_id = 1;
-    // session_start();
-      //$star_id = $_SESSION['star_id'];
-    
       $star_id = $_SESSION['star_id'];
       $star = App\Models\Star::where('star_id',$star_id)->first();
-      $order = App\Models\Order::where('star_id',$star_id)->where('task_id',$task_id)->first();
+      $order = App\Models\Order::where('star_id',$star_id)->where('activity_id',$detail['activity_id'])->first();
       if($order){
     ?>
     <p><a href="#" class="button button-fill"
@@ -117,7 +113,7 @@
       <p><a href="#" class="button button-fill button-warning"
       style="border-radius:0;z-index:999; position:fixed; bottom:0;
       left:0; width:100%; height:1.7rem; line-height:1.7rem; font-size:110%;
-      text-align:center; background-color:#ee5555; _position:absolute; overflow:visible;" onclick="setOrder({{$task_id}})">抢单</a></p>
+      text-align:center; background-color:#ee5555; _position:absolute; overflow:visible;" onclick="setOrder({{$detail['activity_id']}})">抢单</a></p>
     <?php
       }
     ?>
@@ -130,13 +126,13 @@
         traditional: true,
         dataType: "JSON",
         data: {
-            "task_id"   : id
+            "activity_id"   : id
         },
         success: function(data) {
             if(data=="NotAuth"){
                 $.toast("账号暂未获得授权，请等待管理员审核",1000);
             }else if(data=="NotFill"){
-                $.toast("账号资料不完整,请补全资料后在进行操作",1000);
+                $.toast("用户地址不完整，请补全后再进行操作",1000);
             }
             else{
             $.toast("抢单成功，请等待回复!",1000);

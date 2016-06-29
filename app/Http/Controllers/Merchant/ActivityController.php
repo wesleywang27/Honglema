@@ -16,6 +16,7 @@ use App\Models\ActivityCommodityList;
 use App\Models\Task;
 use App\Models\TaskPicture;
 use App\Models\Star;
+use App\Models\StarPicture;
 use App\Models\Order;
 use App\Models\PriceLevel;
 use App\Models\Commodity;
@@ -43,22 +44,24 @@ class ActivityController extends RootController{
        
         $commodity_names = $_POST['commodity_name'];
         $commodity_urls = $_POST['commodity_url'];
-        unset($_POST['commodity_name'],$_POST['commodity_url'],$_POST['img']);
-
+        $total_price = $_POST['total_price'] * $_POST['task_num'];
+        unset($_POST['commodity_name'],$_POST['commodity_url'],$_POST['img'],$_POST['total_price']);
         //保存Activity
         $activity = new Activity();
         foreach ($_POST as $key => $value) {
            $activity[$key] = $value; 
         }
+        $activity['total_price'] = $total_price;
         $activity['merchant_id'] = $_SESSION['merchant_id'];
         $activity['activity_status'] = 0;
+        $activity['confirm_num'] = 0;
         $activity->save();
         $activity_id = $activity['activity_id'];
-        //保存Task
-        $task = new Task();
-        $task['activity_id'] = $activity_id;
-        $task['status'] = 0;
-        $task->save();
+        // //保存Task
+        // $task = new Task();
+        // $task['activity_id'] = $activity_id;
+        // $task['status'] = 0;
+        // $task->save();
 
         //保存商品
         for($i = 0;$i < count($commodity_names); $i ++){
@@ -94,33 +97,46 @@ class ActivityController extends RootController{
         */
         $activityDetail = Activity::where('activity_id',$id)->first();
 
+        //获取所有已经确定的task
+        $data['doing_order'] = Order::where('activity_id',$id)->where('status',2)->get();
+        //获取所有等待确定的网红
+        $data['waiting_order'] = Order::where('activity_id',$id)->where('status',1)->get();
+
         //获取该活动下的所有commodity_id
-        $commodity_ids = ActivityCommodityList::where('activity_id',$activityDetail['activity_id'])->get();
-        
-        return view('merchant.activity_detail',['detail'=>$activityDetail,'commodity_ids'=>$commodity_ids]);
+        $data['commodity_ids'] = ActivityCommodityList::where('activity_id',$activityDetail['activity_id'])->get();
+
+        return view('merchant.activity_detail',['detail'=>$activityDetail,'data'=>$data]);
     }
 
     public function setOrder(){
         $star_id = intval($_POST['star_id']);
-        $task_id = intval($_POST['task_id']);
+        $activity_id = intval($_POST['activity_id']);
         $status = intval($_POST['order_status']);
-        $order = Order::where('task_id',$task_id)->where('star_id',$star_id)->first();
+        $order = Order::where('status',1)->where('star_id',$star_id)->where('activity_id',$activity_id)->first();
         $order['status'] = $status;
-        $order->save();
+        
         if($status == 2){
-            $task = Task::where('task_id',$task_id)->first();
+            $task = new Task();
             $task['status'] = 1;
+            $task['activity_id'] = $activity_id;
             $task->save();
-            $activity = Activity::where('activity_id',$task['activity_id'])->first();
-            $activity['activity_status'] = 2;
+            $order['task_id'] = $task->task_id;
+            $activity = Activity::where('activity_id',$activity_id)->first();
+            if($activity['confirm_num'] < $activity['task_num']){
+                $activity['confirm_num'] = $activity['confirm_num'] + 1;
+            }
             $activity->save();
         }
+        $order->save();
     }
 
     //物流详情页
-    public function logistic($activity_id){
-        $task = Task::where('activity_id',$activity_id)->first();
-        return view('merchant.logistic',['task'=>$task]);
+    public function taskDetail($task_id){
+        $task = Task::where('task_id',$task_id)->first();
+        $task_Pic = TaskPicture::where('task_id',$task_id)->get();
+        $order = Order::where('task_id',$task_id)->first();
+        $star = Star::where('star_id',$order['star_id'])->first();
+        return view('merchant.task_detail',['task'=>$task,'taskPics'=>$task_Pic,'star'=>$star]);
     }
 
     //保存物流信息
@@ -154,13 +170,28 @@ class ActivityController extends RootController{
         $task['evaluation'] = $comment;
         $task['status'] = 4;
         $task->save();
+
+        //判断activity的状态是否改变
+        $activity = Activity::where('activity_id',$task['activity_id'])->first();
+        if($activity['task_num']==$activity['confirm_num']){
+            //报名人数是否已满
+            $end_task = Task::where('activity_id',$activity['activity_id'])->where('status',4)->get();
+            $num = count($end_task); //已结束的task
+            if($activity['confirm_num'] == $num){
+                //全部的task都结束，则activity结束
+                $activity['activity_status'] = 2;
+                $activity->save(); 
+            }
+
+        }
     }
 
     //查看网红详情
-    public function starDetail($star_id){
+    public function starDetail($star_id,$activity_id){
         $star = Star::where('star_id',$star_id)->first();
+        $starPic = StarPicture::where('uid',$star_id)->get();
 
-        return view('merchant.star_detail');
+        return view('merchant.star_detail',['star'=>$star,'starPic'=>$starPic,'activity_id'=>$activity_id]);
 
     }
 

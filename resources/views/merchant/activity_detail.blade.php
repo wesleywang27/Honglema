@@ -24,7 +24,7 @@
         <ul>
             <li>
               <div valign="bottom" class="card-header color-white no-border no-padding" style="height:6rem">
-                <img class='card-cover' style="height:100%" src="{{$detail['picture']}}" alt="">
+                <img class='card-cover' style="height:100%" src="{{$detail['banner_picture']}}" alt="">
               </div>
             </li>
         </ul>
@@ -40,48 +40,6 @@
         </ul>
     </div>
 
-    <?php
-      $task = \App\Models\Task::where('activity_id',$detail['activity_id'])->first();
-
-      if($detail['activity_status']==0||$detail['activity_status']==1){
-        $commentString = $detail['activity_status']==0 ? '待审核' : '抢单中';
-      }else{
-
-        if($detail['activity_status']==2){
-          if($task['status']==1){
-            $buttonString = '录入快递单号';
-            $commentString = "待发货";
-          }else{
-            $buttonString = '查看快递单号';
-            $commentString = "已发货";
-          }
-        }else if($detail['activity_status']==3){
-           $buttonString = '查看快递单号';
-           $commentString = $task['status'] == 3 ? '待评价' : '已评价';
-        }
-      
-    ?>
-    <div class="content-block content-block-my content-no-margin">
-      <div class="content-block content-block-my">
-        <div class="list-block content-no-margin">
-          <ul>
-              <li>
-                  <div class="item-content">
-                      <div class="item-inner">
-                          <div class="item-title label">查看物流</div>
-                          <div class="item-input">
-                              <button class="button pull-right" style="margin-left:1rem;width:5rem" onclick="window.location.href='/Merchant/activityOrder/logistic/{{$detail['activity_id']}}'">{{$buttonString}}</button>
-                          </div>
-                      </div>
-                  </div>
-              </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <?php
-      }
-    ?>
     <div class="content-block content-block-my content-no-margin">
       <div class="content-block content-block-my">
         <div class="list-block content-no-margin">
@@ -94,7 +52,6 @@
                               <p>{{$detail['time_within']}}</p>
                           </div>
                           <div class="item-input">
-                              <button class="button pull-right" style="margin-left:1rem;width:5rem" <?php if($detail['activity_status']==3){ ?>onclick="window.location.href='/Merchant/activityOrder/comment/{{$task['task_id']}}'"<?php } ?>>{{$commentString}}</button>
                           </div>
                       </div>
                   </div>
@@ -133,7 +90,7 @@
           </div>
           <div class="list-block media-list content-no-margin">
             <ul>
-          @foreach ($commodity_ids as $cid)
+          @foreach ($data['commodity_ids'] as $cid)
           <?php 
              $commodity = App\Models\Commodity::where('commodity_id',$cid['commodity_id'])->first();
              
@@ -151,39 +108,96 @@
       </div>
     </div>
 
+
+    <div class="content-block content-block-my content-no-margin">
+        <div class="content-block content-block-my">
+          <div class="list-block content-no-margin" style="margin-top: -1rem;">
+            <ul>
+              <li>
+                  <div class="item-content">
+                      <div class="item-inner">
+                          <div class="item-title">任务列表</div>
+                      </div>
+                  </div>
+              </li>
+            </ul>
+          </div>
+          <div class="list-block media-list content-no-margin">
+
+          <?php if(count($data['doing_order'])==0){ ?>
+            <ul>
+              <li>
+                <a href="#" class="blackfont item-content">
+                  <div class="item-media">&nbsp;&nbsp;&nbsp;</div>
+                  <div class="item-media"></div>
+                  <div class="item-inner">
+                    <div style="margin-top: 1rem;">  
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+
+          <?php  }else{ ?>
+
+          <?php $count = 0 ?>
+            @foreach ($data['doing_order'] as $doing_vo)
+          <?php 
+            $count ++;
+            $task = \App\Models\Task::where('task_id',$doing_vo['task_id'])->first();
+            switch ($task['status']) {
+              case '1':
+                $buttonString = '待发货';
+                $buttonColor = '#ec9108';
+                break;
+
+              case '2':
+                $buttonString = '推广中';
+                $buttonColor = '#5aca21';
+                break;
+
+              case '3':
+                $buttonString = '待评价';
+                $buttonColor = '#ec9108';
+                break;
+
+              case '4':
+                $buttonString = '待打款';
+                $buttonColor = '#ec9108';
+                break;
+              
+              default:
+                $buttonString = '';
+                $buttonColor = '';
+                break;
+            }
+            $star = \App\Models\Star::where('star_id',$doing_vo['star_id'])->first();
+          ?>
+              <ul>
+              <li>
+                <a onclick="window.location.href='#'" class="blackfont item-content">
+                  <div class="item-media">任务{{$count}}&nbsp;&nbsp;&nbsp;</div>
+                  <div class="item-media"><img src="{{$star['avatar']}}" style='width: 4rem;border-radius:50%'></div>
+                  <div class="item-inner">
+                    <div style="margin-top: 1rem;">  
+                      {{$star['name']}}
+                      <button class="button pull-right button-fill" style="margin-left:1rem;width:4rem;background-color:{{$buttonColor}}" onclick="taskDetail({{$task['task_id']}})">{{$buttonString}}</button>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          @endforeach
+
+          <?php } ?>
+          </div>
+      </div>
+    </div>
+
     <?php 
       //获取该活动下task的所有已抢单网红
-      if($detail['activity_status'] != 0){
-      // $star = array();
-         
-      $flag = 0;
-      switch ($detail['activity_status']) {
-        case '1':
-          $order = \App\Models\Order::where('task_id',$task['task_id'])->where('status',1)->get();
-          $star_ids = array();
-          foreach ($order as $key => $value) {
-            array_push($star_ids, $value['star_id']);
-          }
-          $star = \App\Models\Star::whereIn('star_id',$star_ids)->get();
-          $starString = '已报名&nbsp;'.count($star);
-          break;
-
-        case '2':
-          $order = \App\Models\Order::where('task_id',$task['task_id'])->where('status',2)->first();
-          $star = \App\Models\Star::where('star_id',$order['star_id'])->get();
-          $starString = '合作中';
-          break;
-
-        case '3':
-          $order = \App\Models\Order::where('task_id',$task['task_id'])->where('status',2)->first();
-          $star = \App\Models\Star::where('star_id',$order['star_id'])->get();
-          $starString = '合作';
-          break;
-
-        default:
-          # code...
-          break;
-      }
+      if($detail['confirm_num'] < $detail['task_num']){
+        $flag = 0;
   ?>
   <div class="content-block content-block-my content-no-margin">
         <div class="content-block content-block-my">
@@ -192,61 +206,59 @@
               <li>
                   <div class="item-content">
                       <div class="item-inner">
-                          <div class="item-title">{{$starString}}</div>
+                          <div class="item-title">待合作</div>
                       </div>
                   </div>
               </li>
             </ul>
           </div>
           <div class="list-block media-list content-no-margin">
-          @foreach ($star as $svo)
+          <?php if(count($data['waiting_order']) > 0){ ?>
+          @foreach ($data['waiting_order'] as $waiting_vo)
           <?php 
             $flag ++;
+            $star = \App\Models\Star::where('star_id',$waiting_vo['star_id'])->first();
           ?>
               <ul>
               <li>
-                <a href="/Merchant/activityOrder/starDetail/{{$svo['star_id']}}" class="blackfont item-content">
+                <a href="/Merchant/activityOrder/starDetail/{{$star['star_id']}}/{{$detail['activity_id']}}" class="blackfont item-content">
                   <div class="item-media">{{$flag}}&nbsp;&nbsp;&nbsp;</div>
-                  <div class="item-media"><img src="{{$svo['avatar']}}" style='width: 4rem;border-radius:50%'></div>
+                  <div class="item-media"><img src="{{$star['avatar']}}" style='width: 4rem;border-radius:50%'></div>
                   <div class="item-inner">
                     <div style="margin-top: 1rem;">  
-                      {{$svo['name']}}
-                      <?php 
-                        if($detail['activity_status'] != 2){
-                      ?>
-                      <button class="button pull-right button-fill button-danger" style="margin-left:1rem;width:4rem" onclick="setOrder({{$task['task_id']}},{{$svo['star_id']}},2)">合作</button>
-                      <?php 
-                        }
-                      ?>
+                      {{$star['name']}}
+                      <button class="button pull-right button-fill button-danger" style="margin-left:1rem;width:4rem" onclick="setOrder({{$detail['activity_id']}},{{$star['star_id']}},2);return false;">合作</button>
                     </div>
                   </div>
                 </a>
               </li>
             </ul>
           @endforeach
+          <?php
+            }
+          ?>
           </div>
       </div>
     </div>
   <?php
     }
-
   ?>
   </div>
 
   <script>
-  function setOrder(task_id,star_id,status){
+  function setOrder(activity_id,star_id,status){
     $.ajax({
         url: "/Merchant/activityOrder/setOrder",
         type: "POST",
         traditional: true,
         dataType: "JSON",
         data: {
-            "task_id"   : task_id,
+            "activity_id"   : activity_id,
             "star_id"   : star_id,
             "order_status" : status
         },
         success: function(data) {
-            $.toast("已和该网红合作!",1000);
+            $.toast("合作成功!",1000);
             setTimeout(function(){
                 location.href="/Merchant/activityOrder";
             },1000);
@@ -257,6 +269,10 @@
     });
   }
   
+  function taskDetail(task_id){
+    window.location.href = "/Merchant/activityOrder/taskDetail/"+task_id;
+  }
+
   </script>
 </body>
 </html>
