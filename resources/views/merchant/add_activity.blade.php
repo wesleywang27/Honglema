@@ -340,10 +340,10 @@
                $('#'+ id + '_input').val(data);
                // alert(data);
             }
-            error: function (data, status, e)//服务器响应失败处理函数
-            {
-                alert('上传失败');
-            }
+            // error: function (data, status, e)//服务器响应失败处理函数
+            // {
+            //     alert('上传失败');
+            // }
         });//这是ajax1结束Tags
                  return false;
     }
