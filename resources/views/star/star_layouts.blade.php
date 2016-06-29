@@ -596,7 +596,6 @@ $.cancelOrder=function(id){
             }
         });
     });
-
 }
 
 
@@ -606,7 +605,6 @@ $.cancelOrder=function(id){
     function changeHeadImg(){
         $('#headimgInput').click();
     }
-
     $.saveHeadImg = function(){
         $.ajax({
                     url: "/star/update",
@@ -622,7 +620,6 @@ $.cancelOrder=function(id){
                 }
         );
     }
-
     $('#headimgInput').change(function(){
          $.showPreloader('正在上传...');
         $j.ajaxFileUpload({

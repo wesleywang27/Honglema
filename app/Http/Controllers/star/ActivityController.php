@@ -52,18 +52,32 @@ class ActivityController extends Controller{
 	public function setOrder(){
 		$star = Star::where('star_id', $_SESSION['star_id'])->first();
 		if($star->status==0){
+			//用户未审核
 			return "NotAuth";
-		}else {
+		}else if(!self::isProfileFilled()){
+			//用户资料不完整
+			return "NotFill";
+		}else{
+			//符合抢单条件
 			$task_id = intval($_POST['task_id']);
 			$order = new Order();
 			$order->task_id = $task_id;
 			$order->status = 1;
-			//$order->star_id = 1;
 			$order->star_id = $_SESSION['star_id'];
 			$order->save();
-		}
-		//var_dump($activityDetail);die;
+			}
 	}
+
+	public function isProfileFilled(){
+		$isProfileFilled = true;
+		$star = Star::where('star_id', $_SESSION['star_id'])->first();
+		if($star->address==""||$star->address==null){
+			$isProfileFilled = false;
+		}
+		return $isProfileFilled;
+	}
+
+
 	public function visitor(){
 		$activityList = Activity::where('activity_status',1)->get();
 		return view('star.visitor',['list'=>$activityList]);
