@@ -14,9 +14,9 @@
     <div class="admin_tab_cont" style="display:block;">
         <!--左右分栏：左侧栏目-->
         <div style="float: right;">
-            <strong>确认场次/总场次</strong>
+            <strong>已确认/总场次</strong>
             <br>
-            <p>{{ $activity->confirm_num}} / {{ $activity->task_num}}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $activity->confirm_num}} / {{ $activity->task_num}}</p>
         </div>
         <table class="table">
             <tr>
@@ -48,7 +48,9 @@
                 <td style="width:180px;text-align:center">{{ $star->cellphone }}</td>
                 <td style="width:180px;text-align:center">
                     <a href="{{URL::action('StarController@starInfo', ['id' => $star->star_id]) }}" ><input type="button" value="查看" class="link_btn"/></a>
+                    @if ($activity->confirm_num < $activity->task_num)
                     <a href="{{URL::action('ActivityController@activityChooseStar', ['activity_id' => $activity->activity_id ,'star_id' => $star->star_id]) }}" onclick="return confirm('确定选择该网红？')"><input type="button" value="选择" class="link_btn"/></a>
+                    @endif
                 </td>
             </tr>
             @endforeach
