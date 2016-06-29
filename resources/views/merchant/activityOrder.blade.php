@@ -26,21 +26,16 @@
 </header>
 <div class="content">
   <div class="buttons-tab">
-    <a href="#tab1" class="tab-link active button">已发布</a>
-    <a href="#tab2" class="tab-link button">已确定</a>
-    <a href="#tab3" class="tab-link button">评价并付款</a>
+    <a href="#tab1" class="tab-link active button">未审核</a>
+    <a href="#tab2" class="tab-link button">进行中</a>
+    <a href="#tab3" class="tab-link button">已结束</a>
   </div>
  
     <div class="tabs">
       <div id="tab1" class="tab active">
       @foreach ($list as $vo)
       <?php
-      	if($vo['activity_status'] == 0 || $vo['activity_status'] == 1){
-      		if($vo['activity_status'] == 0){
-      			$status_string = '审核中';
-      		}else{
-      			$status_string = '抢单中';
-      		}
+      	if($vo['activity_status'] == 0){
       ?>
         <div class="content-block content-block-my content-no-margin">
          	<div class="content-block content-block-my">
@@ -50,7 +45,6 @@
 					        <div class="item-content">
 					            <div class="item-inner">
 					                <div class="item-title">{{$merchant['name']}}></div>
-					                <div id="f_address" class="item-after">{{$status_string}}</div>
 					            </div>
 					        </div>
 					    </li>
@@ -84,7 +78,7 @@
       <div id="tab2" class="tab">
       @foreach ($list as $vo)
       <?php
-      	if($vo['activity_status'] == 2){
+      	if($vo['activity_status'] == 1){
       		$task = App\Models\Task::where('activity_id',$vo['activity_id'])->first();
       		if($task['status'] == 1){
       			$taskString = '录入物流';
@@ -123,7 +117,6 @@
 				            </div>
 				            <div class="item-subtitle">&nbsp;</div>
 				           <div class="item-subtitle">
-				            	<a class="button pull-right button-fill" style="margin-left:1rem;width:5rem;background:{{$buttonColor}}" href="/Merchant/activityOrder/logistic/{{$vo['activity_id']}}">{{$buttonString}}</a>
 				            </div>
 				          </div>
 				        </div>
@@ -139,7 +132,7 @@
       <div id="tab3" class="tab">
         @foreach ($list as $vo)
       <?php
-      	if($vo['activity_status'] == 3){
+      	if($vo['activity_status'] == 2){
       ?>
       	<div class="content-block content-block-my content-no-margin">
          	<div class="content-block content-block-my">
@@ -149,7 +142,7 @@
 					        <div class="item-content">
 					            <div class="item-inner">
 					                <div class="item-title">{{$merchant['name']}}></div>
-					                <div id="f_address" class="item-after">带评价</div>
+					                <div id="f_address" class="item-after">已结束</div>
 					            </div>
 					        </div>
 					    </li>
@@ -167,7 +160,7 @@
 				            </div>
 				            <div class="item-subtitle">&nbsp;</div>
 				           <div class="item-subtitle">
-				            	<button class="button pull-right button-fill" style="margin-left:1rem;width:5rem;background:#ec9108">去评价</button>
+				            	<button class="button pull-right button-fill" style="margin-left:1rem;width:5rem;background:#ec9108">查看详情</button>
 				            </div>
 				          </div>
 				        </div>

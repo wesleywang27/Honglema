@@ -244,11 +244,8 @@
                     <div class="info">
                         <table>
                             <tr>
-                                <td style="width:40%;padding-left:0">
-                                    <button type="button" class="button button-fill" style="width:100%;height:2.5rem;border-radius:0" onclick="submitForm()">确认合作</button>
-                                </td>
-                                <td style="width:60%;padding-left:0">
-                                    <button type="button" class="button button-fill" style="background-color: #f60;width:100%;height:2.5rem;border-radius:0" onclick="submitForm()">取消合作</button>
+                                <td style="padding-left:0">
+                                    <button type="button" class="button button-fill" style="background-color: #f60;width:100%;height:2.5rem;border-radius:0" onclick="setOrder({{$activity_id}},{{$star['star_id']}},2)">确定合作</button>
                                 </td>
                             </tr>
                         </table>
@@ -270,6 +267,29 @@
         // autoplay:1000,
         loop: true,
     });
+$j=jQuery.noConflict();
+    function setOrder(activity_id,star_id,status){
+    $.ajax({
+        url: "/Merchant/activityOrder/setOrder",
+        type: "POST",
+        traditional: true,
+        dataType: "JSON",
+        data: {
+            "activity_id"   : activity_id,
+            "star_id"   : star_id,
+            "order_status" : status
+        },
+        success: function(data) {
+            alert('合作成功!');
+            // setTimeout(function(){
+                location.href="/Merchant/activityOrder/activityDetail/" + activity_id;
+            // },1000);
+        },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+  }
 </script>
 <script src="{{URL::asset('js/Chart.Core.js')}}"></script>
 <script src="{{URL::asset('js/Chart.Doughnut.js')}}"></script>

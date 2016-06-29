@@ -14,7 +14,7 @@
     <script type='text/javascript' src="{{URL::asset('js/zepto.min.js')}}" charset='utf-8'></script>
     <script type='text/javascript' src="{{URL::asset('js/sm.min.js')}}" charset='utf-8'></script>
     <script type='text/javascript' src="{{URL::asset('js/sm-extend.min.js')}}" charset='utf-8'></script>
-	<script type="text/javascript" src="{{URL::asset('js/ajaxfileupload.js')}}" charset="utf-8"></script>
+	  <script type="text/javascript" src="{{URL::asset('js/ajaxfileupload.js')}}" charset="utf-8"></script>
     <style>
     
 
@@ -275,7 +275,7 @@
 		$(this).before(commodityModel);
 	});
 
- 	$('#headimgupload').change(function(){
+ 	  $('#headimgupload').change(function(){
         upLoadPic('headimgupload');
     });
     $('#bannerimgupload').change(function(){
