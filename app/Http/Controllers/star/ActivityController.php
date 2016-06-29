@@ -12,22 +12,23 @@ class ActivityController extends Controller{
 		session_start();
 
 	}
-	public function index(){
+    
+    public function index(){
 		$star_id = $_SESSION['star_id'];
-		$star = Star::where('star_id', $star_id)->first();
-      	$order = \App\Models\Order::where('star_id',$star_id)->get();
-      	$task_ids = array();
-      	foreach ($order as $key => $value) {
-      		array_push($task_ids, $value['task_id']);
+
+        // 获取该用户已经抢单的活动
+      	$orders = Order::where('star_id',$star_id)->get();
+		$activity_ids = array();
+      	foreach ($orders as $order) {
+			$activity_ids[]=$order->activity_id;
       	}
 
-      	$task = \App\Models\Task::whereIn('task_id',$task_ids)->get();
-      	$activity_ids = array();
-      	foreach ($task as $k => $v) {
-      		array_push($activity_ids, $v['activity_id']);
-      	}
+        // 获取用户，判断是否为超级用户
+		$star = Star::where('star_id', $star_id)->first();
 		if($star->superuser=='1') {
-			$activityList = Activity::whereNotIn('activity_id', $activity_ids)->orderBy('created_at', 'desc')->get();
+          // 超级用户可以看到未审核通过（状态为0）的活动
+			$activityList = Activity::where('activity_status', 1)->orwhere('activity_status', 0)
+              ->whereNotIn('activity_id', $activity_ids)->orderBy('created_at', 'desc')->get();
 		}else{
 			$activityList = Activity::where('activity_status', 1)->whereNotIn('activity_id', $activity_ids)->orderBy('created_at', 'desc')->get();
 		}
