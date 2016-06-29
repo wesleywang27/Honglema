@@ -197,7 +197,7 @@ class ActivityController extends Controller{
         $activity = Activity::where('activity_id',$task->activity_id)->first();
         $count = Task::where('activity_id',$activity->activity_id)->where('status',4)->count();
         if($count == $activity->task_num){
-            $activity->activity_status = 2;
+            $activity->activity_status = 3;
             $activity->save();
         }
 
