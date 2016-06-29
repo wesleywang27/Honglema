@@ -330,7 +330,7 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 
     Route::get('/didi/ActivityChooseOrder/{activity_id?}',"ActivityController@activityChooseOrder");
 
-    Route::get('/didi/ActivityChooseStar/{task_id?}/{star_id}',"ActivityController@activityChooseStar");
+    Route::get('/didi/ActivityChooseStar/{activity_id?}/{star_id}',"ActivityController@activityChooseStar");
 
     Route::get('/didi/ActivityEvaluate/{activity_id?}',"ActivityController@activityEvaluate");
 
