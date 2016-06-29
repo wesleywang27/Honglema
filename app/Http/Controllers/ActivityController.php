@@ -88,7 +88,7 @@ class ActivityController extends Controller{
             $activity = Activity::where('activity_id',$id)->first();
 
             if($activity->activity_status == 0){
-                return Redirect::intended("/didi/ActivityInfo/$id");
+                return Redirect::intended("/didi/ActivityChooseOrder/$id");
             }
             elseif ($activity->activity_status == 1){
                 return Redirect::intended("/didi/ActivityChooseOrder/$id");
