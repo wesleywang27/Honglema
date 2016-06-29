@@ -27,7 +27,7 @@ class ActivityController extends RootController{
     }
     public function index(){
         $merchant_id = $_SESSION['merchant_id'];
-        $activity = Activity::where('merchant_id',$｀)->get();
+        $activity = Activity::where('merchant_id',$merchant_id)->get();
         return view('merchant.activityOrder',['list'=>$activity]);
         //return view('merchant.index');
        
