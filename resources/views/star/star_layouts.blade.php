@@ -212,8 +212,8 @@
                     dataType: "JSON",
                     data: {'imgdata[]':imgdata}
                     ,success: function(data) {
-                       // $('#album').append(htmls);
-                        location.href="/star/info#album"
+                     //   $('#album').append(htmls);
+                        location.reload();
                         $.toast("提交成功!",1000);
                     },headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
