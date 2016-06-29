@@ -117,7 +117,7 @@
                         <div class="item-after" style="max-height:none">
                             <img id="headimgupload_pic" src="" style="width: 3rem;height: 3rem;border-radius: 5px;margin-bottom:1rem;margin-top:1rem">
                             <input id="headimgupload_input" name="picture" type="hidden">
-                            <input class="weui_uploader_input" id="headimgupload" name="imgs" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                            <input class="weui_uploader_input" id="headimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                         </div>
                     </div>
                 </div>
@@ -131,7 +131,7 @@
                         <div class="item-after" style="max-height:none">
                             <img id="bannerimgupload_pic" src="" style="width: 3rem;height: 3rem;border-radius: 5px;margin-bottom:1rem;margin-top:1rem">
                             <input id="bannerimgupload_input" type="hidden" name="banner_picture">
-                            <input class="weui_uploader_input" id="bannerimgupload" name="imgs" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                            <input class="weui_uploader_input" id="bannerimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                         </div>
                     </div>
                 </div>
