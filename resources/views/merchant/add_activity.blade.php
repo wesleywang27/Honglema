@@ -271,8 +271,8 @@
    
 </script>
   <script>
-  $j=jQuery.noConflict();
-  $(function(){
+
+  $(function(){ 
   	$('.add_model').click(function(){
 		var commodityModel = $('.commodity_model').clone(true);
 		commodityModel.removeClass('commodity_model');
@@ -335,7 +335,7 @@
   function upLoadPic(id){
 
         $.showPreloader('正在上传...');
-        $j.ajaxFileUpload({
+        $.ajaxFileUpload({
             url:"/picture",//需要链接到服务器地址
             secureuri:false,
             fileElementId:id,//文件选择框的id属性
