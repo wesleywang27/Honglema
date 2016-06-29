@@ -32,12 +32,10 @@
                     @if ($activity->activity_status == 0)
                     待审核
                     @elseif ($activity->activity_status == 1)
-                    抢单中
+                    进行中
                     @elseif ($activity->activity_status == 2)
-                    推广中
-                    @elseif ($activity->activity_status == 3)
-                    待评价
-                    @elseif ($activity->activity_status == 4)
+                    待打款
+                    @else
                     已结束
                     @endif
                 </td>

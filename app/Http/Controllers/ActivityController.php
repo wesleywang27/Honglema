@@ -43,8 +43,8 @@ class ActivityController extends Controller{
         $activity->price_level = $request->input('level');
 
         $price_level = PriceLevel::where('pl_id',$request->input('level'))->first();
-        $activity->total_price = $price_level->price;
         $activity->task_num = $request->task_num;
+        $activity->total_price = $price_level->price * $request->task_num;
 
         $activity->activity_status = 0;
 
@@ -74,67 +74,38 @@ class ActivityController extends Controller{
             return Redirect::intended('/didi/login');
         }
     }
-    //活动信息处理页
+    //网红接单列表页
     public function activityModify($id){
         session_start();
         if(isset($_SESSION['name'])) {
+            $order_confirming = Order::where('activity_id',$id)->where('status',1)->lists('star_id');
+
+            $star_comfirming = Star::wherein('star_id',$order_confirming)->paginate(10);
+
+            $order_comfirmed = Order::where('activity_id',$id)->where('status',2)->lists('star_id');
+
+            $star_comfirmed = Star::wherein('star_id',$order_comfirmed)->paginate(10);
+            
             $activity = Activity::where('activity_id',$id)->first();
 
-            if($activity->activity_status == 0){
-                return Redirect::intended("/didi/ActivityInfo/$id");
-            }
-            elseif ($activity->activity_status == 1){
-                return Redirect::intended("/didi/ActivityChooseOrder/$id");
-            }
-            elseif ($activity->activity_status == 2){
-                echo "<script>history.go(-1); alert('该活动正在推广中，没有信息需要处理，请耐心等候~');</script>";
-                return;
-            }
-            elseif ($activity->activity_status == 3){
-                return Redirect::intended("/didi/ActivityEvaluate/$id");
-            }
-            elseif ($activity->activity_status == 4){
-                echo "<script>history.go(-1); alert('该活动已结束，可以查看活动信息~');</script>";
-                return;
-            }
-            else{
-                return Redirect::intended("/didi/ActivityInfo/$id");
-            }
-        }
-        else{
-            return Redirect::intended('/didi/login');
-        }
-    }
-    //接单列表页
-    public function activityChooseOrder($id){
-        session_start();
-        if(isset($_SESSION['name'])) {
-            $task = Task::where('activity_id',$id)->first();
-            $star_id = Order::where('task_id',$task->task_id)->where('status',1)->lists('star_id');
-            $star = Star::wherein('star_id',$star_id)->paginate(10);
-
-            return view('/didi/activity_choose_order',['task_id' => $task->task_id ,'stars' => $star]);
+            return view('/didi/activity_choose_order',['activity' => $activity ,'stars_confirming' => $star_comfirming ,'stars_confirmed' => $star_comfirmed]);
         }
         else{
             return Redirect::intended('/didi/login');
         }
     }
     //选择网红
-    public function activityChooseStar($task_id ,$star_id){
+    public function activityChooseStar($activity_id ,$star_id){
         session_start();
         if(isset($_SESSION['name'])) {
-            $order = Order::where('task_id',$task_id)->where('star_id',$star_id)->first();
-            $order->status = 2;
-            $task = Task::where('task_id',$task_id)->first();
-            $task->status = 2;
-            $activity = Activity::where('activity_id',$task->activity_id)->first();
-            $activity->activity_status = 2;
+            $activity = Activity::where('activity_id',$activity_id)->first();
 
-            $order->save();
-            $task->save();
-            $activity->save();
-
-            return Redirect::intended('/didi/ActivityList');
+            if($activity->confirm_num < $activity->task_num){
+                
+            }
+            else{
+                echo "<script>history.go(-1); alert('请点击验证码核验!');</script>";
+            }
         }
         else{
             return Redirect::intended('/didi/login');
