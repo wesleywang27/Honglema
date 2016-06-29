@@ -355,10 +355,10 @@
                }
                 
             }
-            // error: function (data, status, e)//服务器响应失败处理函数
-            // {
-            //    // alert(e);
-            // }
+            error: function (data, status, e)//服务器响应失败处理函数
+            {
+                alert('上传失败');
+            }
         });//这是ajax1结束Tags
                  return false;
     }
