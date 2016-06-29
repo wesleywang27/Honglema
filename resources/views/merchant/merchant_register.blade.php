@@ -8,6 +8,7 @@
         <h1 class="title">商家注册</h1>
     </header>
     <div class="content" style="top: 1.2rem;">
+    <input type="hidden" id="openId" value="{{$user['openid']}}">
         <div class="list-block">
             <ul>
                 <li>
@@ -16,7 +17,7 @@
                             <div class="item-title">头像</div>
                             <div class="item-after">
                                 <img id="f_avatar" src="{{$user['avatar']}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
-                                <input class="weui_uploader_input" id="headimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                                <input class="weui_uploader_input" id="headimgupload" name="img" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                             </div>
                             
                         </div>
@@ -85,7 +86,7 @@
                     <a href="#license" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">工商执照</div>
-                            <div id="f_license" class="item-after">未编辑</div>
+                            <div id="f_license" class="item-after"></div>
                         </div>
                     </a>
                 </li>
@@ -324,10 +325,8 @@
                                 <div class="weui_cell_bd weui_cell_primary">照片</div>
                             </div>
                             <div class="weui_uploader_bd">
-                                <ul class="weui_uploader_files" id="idfile" style="padding-left: 0;"></ul>
-                                <div class="weui_uploader_input_wrp">
-                                    <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
-                                </div>
+                                    <img id="license_img" src="" style="width: 100%;height: 10rem;border-radius: 5px;">
+                                    <input class="weui_uploader_input" id="licenseimgupload" name="img" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                             </div>
                         </div>
                     </div>

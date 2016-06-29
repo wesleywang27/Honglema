@@ -49,11 +49,6 @@
             </ul>
         </div>
        
-        <div class="content-block" style="margin-top: -1rem;">
-            <div class="row">
-                <div class="col-100"><a id="finish" href="#" class="button button-big button-fill button-success">退出登录</a></div>
-            </div>
-        </div>
     </div>
     <nav class="bar bar-tab">
         <a class="tab-item external" href="#">

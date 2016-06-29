@@ -127,76 +127,6 @@
     
     $j=jQuery.noConflict();
 
-    //上传执照
-    // $('#fileupload').change(function(){
-    //     $.showPreloader('正在上传...');
-    //     $j.ajaxFileUpload({
-    //         url:"/picture",//需要链接到服务器地址
-    //         secureuri:false,
-    //         fileElementId:"fileupload",//文件选择框的id属性
-    //         dataType: 'json',   //json
-    //         success: function (data, status) {
-    //             var urls = data.urls;
-    //             var $htmls = '';
-    //             $('#f_avatar').attr('src',urls[0]);
-    //             $(this).parent('div').hide();
-    //             $.toast("添加成功",1000);
-    //         },error:function(data, status, e){
-    //             $.hidePreloader();
-    //             $.toast("添加失败", 1000);
-    //         }
-    //     });
-    // });
-
-    //上传头像
-    // $('#headimgupload').change(function(){
-    //     $.showPreloader('正在上传...');
-    //     $j.ajaxFileUpload({
-    //         url:"/picture",//需要链接到服务器地址
-    //         secureuri:false,
-    //         fileElementId:"headimgupload",//文件选择框的id属性
-    //         dataType: 'json',   //json
-    //         success: function (data, status) {
-    //             var urls = data.urls;
-    //             var $htmls = '';
-    //             $('#idfile').append('<li class="weui_uploader_file images" style="background-image:url('+urls[0]+')">\
-    //             <input type="hidden" id="id_image" name="id_image" value="'+urls[0]+'">\
-    //             </li>');
-    //             $(this).parent('div').hide();
-    //             $.toast("添加成功",1000);
-    //         },error:function(data, status, e){
-    //             $.hidePreloader();
-    //             $.toast("添加失败", 1000);
-    //         }
-    //     });
-    // });
-
-
-    //上传多图
-    $('#imgupload').change(function(){
-        $.showPreloader('正在上传...');
-        $j.ajaxFileUpload({
-            url:"/picture",//需要链接到服务器地址
-            secureuri:false,
-            fileElementId:"imgupload",//文件选择框的id属性
-            dataType: 'json',   //json
-            success: function (data, status) {
-                var urls = data.urls;
-                var $htmls = '';
-                for(var i=0; i<urls.length; i++){
-                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
-                    <input type="hidden" id="manyimg" value="'+urls[i]+'"></li>';
-                }
-                $('#imgfiles').append($htmls);
-                $.hidePreloader();
-                $.toast("添加成功", 1000);
-            },error:function(data, status, e){
-                $.hidePreloader();
-                $.toast("添加失败", 1000);
-            }
-        });
-    });
-
     //验证码页面,倒计时按钮,点击确认事件
     var waittime = 60;
     var countdown = waittime;
@@ -239,6 +169,13 @@
 
     //地区选择器
     $(function () {
+        jQuery('#headimgupload').change(function(){
+            upLoadPic('headimgupload');
+        });
+        jQuery('#licenseimgupload').change(function(){
+            upLoadPic('licenseimgupload');
+        });
+
         $("#city-picker").cityPicker({
             toolbarTemplate: '<header class="bar bar-nav">\
             <button class="button button-link pull-right close-picker">确定</button>\
@@ -341,11 +278,11 @@
                 "wechat"     : $('#wechat_hidden').val(),
                 "cellphone"     : $('#cellphone_hidden').val(),
                 "alipay_name"     : $('#alipay_name_hidden').val(),
-                "alipay_account"     : $('#alipay_phone_hidden').val(),
-                "license"     : $('#id_image').val()
+                "alipay_account"     : $('#alipay_account_hidden').val(),
+                "license"     : $('#license_img').attr('src')
             },
             success: function(data) {
-                $.toast("注册成功!",1000);
+                $.toast("操作成功!",1000);
                 setTimeout(function(){
                     location.href="/Merchant/user/";
                 },1000);
@@ -355,50 +292,76 @@
             }
         });
     });
-    var count = 0;
-    wx.ready(function () {
-        jQuery('#headimgupload').click(function () {
-            var images = {
-                localId: [],
-                serverId: []
-            };
-            $html = '';
-            if(count < 1) {
-                wx.chooseImage({
-                    count: 1, // 限制每次只能选择一张
-                    success: function (res) {
-                        //$.AMUI.progress.start();
-                        images.localId = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
-                        jQuery.each(images.localId, function (i, n) {
-                            wx.uploadImage({
-                                localId: n,
-                                success: function (res) {
-                                    images.serverId[0] = res.serverId;
-                                    jQuery.each(images.serverId, function (i, m) {
-                                        jQuery.ajax({
-                                            url: "/Merchant/register/uploadPicture",
-                                            data: {"media_id": m},
-                                            success: function (data) {
-                                                count = count + 1;
-                                                $('#f_avatar').attr('src',data);
-                                                //$.AMUI.progress.done();
-                                                if(count == 1)
-                                                    jQuery("#file_upload").hide();
-                                            }
-                                        });
-                                    });
-                                },
-                                fail: function (res) {
-                                    alert(JSON.stringify(res));
-                                }
-                            });
-                        });
-                    }
-                });
 
+    //保存修改信息
+    $('#save').click(function(){
+        var contactValue = $('#f_contact').text();
+        var contactValues = contactValue.split("/");
+        if(contactValues == '未编辑'){
+            contactValues = '';
+        }
+        var alipayValue = $('#f_alipay').text();
+        var alipayValues = alipayValue.split("/");
+        if(alipayValues == '未编辑'){
+            alipayValues = '';
+        }
+
+        $.ajax({
+            url: "/Merchant/user/updateUser",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data: {
+                "avatar"      : $('#f_avatar').attr('src'),
+                "name"     : $('#merchant_name_hidden').val(),
+                "country"     : clearEmply('country'),
+                "province"     : clearEmply('province'),
+                "city"     : clearEmply('city'),
+                "region"     : clearEmply('region'),
+                "address"     : $('#addressInput').val(),
+                "wechat"     : $('#wechat_hidden').val(),
+                "cellphone"     : $('#cellphone_hidden').val(),
+                "alipay_name"     : $('#alipay_name_hidden').val(),
+                "alipay_account"     : $('#alipay_account_hidden').val(),
+                "license"     : $('#license_img').attr('src')
+            },
+            success: function(data) {
+                $.toast("操作成功!",1000);
+                setTimeout(function(){
+                    location.href="/Merchant/user/";
+                },1000);
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
     });
+
+    function upLoadPic(id){   
+        jQuery.ajaxFileUpload({
+            url: '/Merchant/upLoadFile', //用于文件上传的服务器端请求地址
+            type: 'post',
+            secureuri: false, //一般设置为false
+            fileElementId: id, //文件上传空间的id属性  <input type="file" id="file" name="file" />
+            dataType: 'content', //返回值类型 一般设置为json
+            success: function (data, status)  //服务器成功响应处理函数
+            {
+               if(id == 'headimgupload'){
+                    $('#f_avatar').attr('src',data);
+               }else{
+                    $('#license_img').attr('src',data);
+                    // $('#license_div').css('background-image','url('+data+')');
+                    // $('#license_img_input').val(data);
+               }
+                
+            }
+            // error: function (data, status, e)//服务器响应失败处理函数
+            // {
+            //    // alert(e);
+            // }
+        });//这是ajax1结束Tags
+                 return false;
+    }
 </script>
 </body>
 </html>

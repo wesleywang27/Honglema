@@ -80,7 +80,6 @@
           @foreach ($commodity_ids as $cid)
           <?php 
              $commodity = App\Models\Commodity::where('commodity_id',$cid['commodity_id'])->first();
-             
           ?>
               <li>
                 <a href="<?php echo (strpos($commodity['url'],'http') === 0) ? $commodity['url'] : 'http://'.$commodity['url']; ?>" style="">
@@ -97,17 +96,9 @@
       </div>
     </div>
     <?php
-      $task_id = App\Models\Task::where('activity_id',$detail['activity_id'])->first()['task_id'];
-    ?>
-
-    <?php 
-      //$star_id = 1;
-    // session_start();
-      //$star_id = $_SESSION['star_id'];
-    
       $star_id = $_SESSION['star_id'];
       $star = App\Models\Star::where('star_id',$star_id)->first();
-      $order = App\Models\Order::where('star_id',$star_id)->where('task_id',$task_id)->first();
+      $order = App\Models\Order::where('star_id',$star_id)->where('activity_id',$detail['activity_id'])->first();
       if($order){
     ?>
     <p><a href="#" class="button button-fill"
@@ -120,7 +111,7 @@
       <p><a href="#" class="button button-fill button-warning"
       style="border-radius:0;z-index:999; position:fixed; bottom:0;
       left:0; width:100%; height:1.7rem; line-height:1.7rem; font-size:110%;
-      text-align:center; background-color:#ee5555; _position:absolute; overflow:visible;" onclick="setOrder({{$task_id}})">抢单</a></p>
+      text-align:center; background-color:#ee5555; _position:absolute; overflow:visible;" onclick="setOrder({{$detail['activity_id']}})">抢单</a></p>
     <?php
       }
     ?>
@@ -134,7 +125,7 @@
         traditional: true,
         dataType: "JSON",
         data: {
-            "task_id"   : id
+            "activity_id"   : id
         },
         success: function(data) {
             if(data=="NotAuth"){

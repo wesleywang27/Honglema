@@ -6,7 +6,8 @@
 @section('page-main')
 	
     <header class="bar bar-nav">
-        <h1 class="title">商家注册</h1>
+        <h1 class="title">我的</h1>
+        <span class="icon icon-left pull-left" onclick="window.location.href='/Merchant/user'"></span>
     </header>
     <div class="content" style="top: 1.2rem;">
         <div class="list-block">
@@ -17,7 +18,7 @@
                             <div class="item-title">头像</div>
                             <div class="item-after">
                                 <img id="f_avatar" src="{{$merchant['avatar']}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
-                                <input class="weui_uploader_input" id="headimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                                <input class="weui_uploader_input" id="headimgupload" name="img" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                             </div>
                             
                         </div>
@@ -32,7 +33,7 @@
                         <div class="item-inner">
                             <div class="item-title">商家店铺名称</div>
                             <div id="f_merchant_name" class="item-after">{{$merchant['name']}}</div>
-                            <input type="hidden" id="merchant_name_hidden" value="">
+                            <input type="hidden" id="merchant_name_hidden" value="{{$merchant['name']}}">
                         </div>
                     </a>
                 </li>
@@ -63,8 +64,8 @@
                         <div class="item-inner">
                             <div class="item-title">联系方式</div>
                             <div id="f_contact" class="item-after">{{$merchant->wechat}}/{{$merchant->cellphone}}</div>
-                            <input type="hidden" id="wechat_hidden" >
-                            <input type="hidden" id="cellphone_hidden">
+                            <input type="hidden" id="wechat_hidden" value="{{$merchant->wechat}}">
+                            <input type="hidden" id="cellphone_hidden" value="{{$merchant->cellphone}}">
                         </div>
                     </a>
                 </li>
@@ -77,8 +78,8 @@
                         <div class="item-inner">
                             <div class="item-title">支付宝账号</div>
                             <div id="f_alipay" class="item-after">{{$merchant->alipay_name}}/{{$merchant->alipay_account}}</div>
-                            <input type="hidden" id="alipay_name_hidden" >
-                            <input type="hidden" id="alipay_account_hidden">    
+                            <input type="hidden" id="alipay_name_hidden" value="{{$merchant->alipay_name}}">
+                            <input type="hidden" id="alipay_account_hidden" value="{{$merchant->alipay_account}}">    
                         </div>
                     </a>
                 </li>
@@ -86,7 +87,7 @@
                     <a href="#license" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">工商执照</div>
-                            <div id="f_license" class="item-after">未编辑</div>
+                            <div id="f_license" class="item-after"></div>
                         </div>
                     </a>
                 </li>
@@ -94,7 +95,7 @@
         </div>
         <div class="content-block" style="margin-top: -1rem;">
             <div class="row">
-                <div class="col-100"><a id="finish" href="#" class="button button-big button-fill button-success">保存修改</a></div>
+                <div class="col-100"><a id="save" href="#" class="button button-big button-fill button-success">保存修改</a></div>
             </div>
         </div>
     </div>
@@ -122,7 +123,7 @@
                         <div class="item-title label">店铺名称</div>
                         <div class="item-inner">
                             <div class="item-input">
-                                <input id="merchant_name" type="text" >
+                                <input id="merchant_name" type="text" value="{{$merchant['name']}}">
                             </div>
                         </div>
                     </div>
@@ -154,7 +155,7 @@
                         <div class="item-inner">
                             <div class="item-title label">店铺链接</div>
                             <div class="item-input">
-                                <input id="merchant_link" type="text" >
+                                <input id="merchant_link" type="text" value="">
                             </div>
                         </div>
                     </div>
@@ -317,10 +318,8 @@
                                 <div class="weui_cell_bd weui_cell_primary">照片</div>
                             </div>
                             <div class="weui_uploader_bd">
-                                <ul class="weui_uploader_files" id="idfile" style="padding-left: 0;"></ul>
-                                <div class="weui_uploader_input_wrp">
-                                    <input class="weui_uploader_input" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
-                                </div>
+                                    <img id="license_img" src="{{$merchant['license']}}" style="width: 100%;height: 10rem;border-radius: 5px;">
+                                    <input class="weui_uploader_input" id="licenseimgupload" name="img" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                             </div>
                         </div>
                     </div>
