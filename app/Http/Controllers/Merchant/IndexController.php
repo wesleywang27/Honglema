@@ -26,6 +26,12 @@ class IndexController extends Controller{
     public function register(){
         // var_dump(1);die;
         $user = session('wechat.oauth_user');
+
+            // $options = config('wechat');
+            // $app = new Application($options);
+            // $js = $app->js;
+            // return view('merchant.merchant_register',['user'=>$user,'js'=>$js]);\
+            
         if($user){
 
             $merchant = Merchant::where('open_id',$user->openid)->first();
@@ -76,9 +82,10 @@ class IndexController extends Controller{
         $token = 'niNm1boqxle3slpbNqc2LyzgMJk2GjFytIhCptEI1zfGh9nOYDWDzWiran0xsV7-CP0OVsgE5xrY_CJYS9ZYQm9gWn3DnnvJcPEzOEPpOEF9Ve-0vQzugtemVbyD6WiqXXYfAJACCD';
 
         //上传到微信服务器
-        $path = $img -> move(getcwd().'/uploadPic','1.jpeg');
+        $originName = $img->getBasename() . '.' . $img->getClientOriginalExtension();
+        $path = $img -> move('/var/local/honglema/pics/orig/', $originName);
         $post_data = array( 
-            "media"=>  curl_file_create(getcwd().'/uploadPic/1.jpeg'),
+            "media"=>  curl_file_create('/var/local/honglema/pics/orig/'+ $originName),
         ); 
         // var_dump($post_data);die;
         $url="http://file.api.weixin.qq.com/cgi-bin/media/upload?access_token=".$token."&type=image"; 
