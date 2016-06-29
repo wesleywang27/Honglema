@@ -133,7 +133,6 @@ class StarController extends RootController
             $commodities[] = Commodity::where('commodity_id', $relation->commodity_id)->first();
         }
 
-
         if ($order->status == 2) {
             $task = Task::where('task_id', $order->task_id)->first();
             $data = array('order' => $order,
