@@ -38,12 +38,10 @@ class DidiController extends Controller{
                 return Redirect::intended('/didi/index');
             }
             else{
-                //$_SESSION['error'] = "用户名密码错误！";
                 return Redirect::intended('/didi/login');
             }
         }
         else{
-            //$_SESSION['error'] = "验证码错误！";
             return Redirect::intended('/didi/login');
         }
     }
@@ -53,13 +51,4 @@ class DidiController extends Controller{
         unset($_SESSION['name']);
         return Redirect::intended('/didi/login');
     }
-/*
-    public function createUser(){
-        $administrator = new Administrator();
-        $administrator->name = 'honglema';
-        $administrator->password = md5('hong1ema');
-
-        $administrator->save();
-    }
-*/
 }

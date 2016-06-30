@@ -122,7 +122,7 @@ class ActivityController extends Controller{
         session_start();
         if(isset($_SESSION['name'])) {
             $order = Order::where('activity_id',$activity_id)->where('star_id',$star_id)->first();
-            if($order->status != 0){
+            if($order->status == 1){
                 $task = new Task();
                 $task->activity_id = $activity_id;
                 $task->status = 1;

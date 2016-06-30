@@ -45,7 +45,7 @@
     <ul class="rt_nav">
         <li><a href="/didi/index" class="website_icon">站点首页</a></li>
         <li><a href="#" class="admin_icon">{{ $_SESSION['name'] }}</a></li>
-        <li><a href="#" class="set_icon">修改密码</a></li>
+        <li><a href="/didi/PasswordModify" class="set_icon">修改密码</a></li>
         <li><a href="/didi/logout" class="quit_icon">安全退出</a></li>
     </ul>
 </header>

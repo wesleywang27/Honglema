@@ -103,7 +103,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
  * 红了吗后台管理系统入口
  */
 
-Route::group(['domain' => 'cms.honglema.com'], function() {
+//Route::group(['domain' => 'cms.honglema.com'], function() {
 
     //登录登出模块入口
     Route::get('/cms/logout', 'CMSController@logout');
@@ -257,7 +257,7 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
     //操作日志入口
     Route::get('/cms/logList',"LogController@index");
 
-});
+//});
 
 
 /*
@@ -354,6 +354,11 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
     Route::get('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityCreate");
     
     Route::post('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityStore");
+
+    //用户管理
+    Route::get('/didi/PasswordModify',"AdministratorController@passwordModify");
+
+    Route::post('/didi/PasswordModify',"AdministratorController@passwordUpdate");
 //});
 
 //网红入口
