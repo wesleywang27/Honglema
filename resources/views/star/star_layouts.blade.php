@@ -469,8 +469,8 @@
             traditional: true,
             dataType: "JSON",
             data:  {
-                "ID_card1":imgdata[0],
-                "ID_card2":imgdata[1],
+                "ID_card1":imgdata[0].value,
+                "ID_card2":imgdata[1].value,
                 "real_name":name,
                 "ID_number":idcode
             }
