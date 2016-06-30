@@ -155,8 +155,9 @@ class StarController extends RootController
     {
         $order_id = $request->input('order_id');
         $order = Order::where('order_id', $order_id)->first();
+        if($order->status==1){
         $order->status = '0';
-        $order->save();
+        $order->save();}
     }
 
     //跳转到任务结果界面

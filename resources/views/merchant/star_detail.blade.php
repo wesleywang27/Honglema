@@ -280,9 +280,14 @@
                 "order_status" : status
             },
             success: function(data) {
-                alert('合作成功!');
-                // setTimeout(function(){
-                    location.href="/Merchant/activityOrder/activityDetail/" + activity_id;
+                var obj = $.parseJSON(data);
+                if(obj.error==0){
+                    alert('合作成功!');
+                    
+                }else{
+                    alert(obj.msg);
+                }
+                location.href="/Merchant/activityOrder/activityDetail/" + activity_id;
                 // },1000);
             },
             headers: {
