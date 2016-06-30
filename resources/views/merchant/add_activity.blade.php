@@ -309,23 +309,28 @@
   } 
 
   function saveComment(){
+    var merchant_status = '{{$merchant->merchant_status}}';
+    if(merchant_status == '0'){
+      alert('您的帐号尚在审核中，不能发布活动');
+    }else{
       $.ajax({
-        url: "/Merchant/activityOrder/saveComment",
-        type: "POST",
-        traditional: true,
-        dataType: "JSON",
-        data: {
-            "task_id"   : "$task['task_id']}}",
-            "comment"   : $('#comment').val()
-        },
-        success: function(data) {
-            alert('保存成功');
-           location.reload();
-        },
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+          url: "/Merchant/activityOrder/saveComment",
+          type: "POST",
+          traditional: true,
+          dataType: "JSON",
+          data: {
+              "task_id"   : "$task['task_id']}}",
+              "comment"   : $('#comment').val()
+          },
+          success: function(data) {
+              alert('保存成功');
+             location.reload();
+          },
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });
+    }
   }
 
   function upLoadPic(id){

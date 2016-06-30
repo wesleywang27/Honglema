@@ -39,7 +39,8 @@ class ActivityController extends RootController{
         $app = new Application($options);
         $js = $app->js;
         $priceLevel = PriceLevel::all();
-        return view('merchant.add_activity',['priceLevel'=>$priceLevel,'js'=>$js]);
+        $merchant = Merchant::where('merchant_id',$_SESSION['merchant_id'])->first();
+        return view('merchant.add_activity',['priceLevel'=>$priceLevel,'js'=>$js,'merchant'=>$merchant]);
     }
 
     //保存发布的活动
