@@ -59,7 +59,7 @@
                     <a href="#totalAudiance" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">观看人数 </div>
-                            <div id="f_number" class="item-after"> </div>
+                            <div id="f_viewnumber" class="item-after"> </div>
                         </div>
                     </a>
                 </li>
@@ -120,7 +120,7 @@
             返回
         </a>
         <h1 class="title">观看人数</h1>
-        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('number')">
+        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('viewnumber')">
             保存
             <span class="save"></span>
         </a>

@@ -78,7 +78,7 @@
                     @endforeach
                 </ul>
         </div>
-            <div class="list-block"  style="margin-top: 0px;margin-bottom: 5rem" >
+            <div class="list-block"  style="margin-top: 0px" >
                 <ul>
                     <li>
                         <div class="item-content">
@@ -97,7 +97,26 @@
                     </li>
                 </ul>
             </div>
-
+            @if($data['order']->status==2&&$data['task']->status==4)
+            <div class="list-block"  style="margin-top: 0px;margin-bottom: 5rem" >
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="font-size:80%;">商家评论</div>
+                            </div>
+                            <div class="item-after">
+                                <div class="item-title" style="font-size:80%;">
+                                    @if($data['order']->status==2&&$data['task']->status==2)
+                                        {{$data['task']->evaluation}}
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            @endif
           <div class="list-block" style="background-color:#cccccc;position:fixed; width:100%; bottom:2.5rem; margin-bottom:0; overflow:visible;">
               <div class="item-content">
                     <div class="item-inner">
