@@ -267,12 +267,8 @@
 		    </div>
 		</div>
     </div>
-<script type="text/javascript" charset="utf-8">
-   
-</script>
   <script>
-
-  $(function(){ 
+  $(function(){
   	$('.add_model').click(function(){
 		var commodityModel = $('.commodity_model').clone(true);
 		commodityModel.removeClass('commodity_model');
@@ -334,7 +330,6 @@
 
   function upLoadPic(id){
 
-        $.showPreloader('正在上传...');
         $.ajaxFileUpload({
             url:"/picture",//需要链接到服务器地址
             secureuri:false,
@@ -346,11 +341,7 @@
                 $('#'+ id + '_pic').attr('src',data);
                 $('#'+ id + '_input').val(data);
 
-                $.hidePreloader();
-                $.toast("添加成功", 1000);
             },error:function(data, status, e){
-                $.hidePreloader();
-                $.toast("添加失败", 1000);
             },
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
