@@ -231,7 +231,10 @@
     });
 
 //upload task picture(上传后可显示)
- $('#taskimgupload').change(uploadTaskImg());
+ // $('#taskimgupload').change(uploadTaskImg());
+ $('#taskimgupload').change(function(){
+    uploadTaskImg();
+});
 //submit task result
     function uploadTaskImg(){
         $.showPreloader('正在上传...');
