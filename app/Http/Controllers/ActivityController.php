@@ -93,21 +93,19 @@ class ActivityController extends Controller{
             $task_comfirmed = Task::wherein('task_id',$order_comfirmed)->paginate(10);
 
             $tasks = array();
-            $count = 0;
             foreach ($order_comfirmed as $task_id){
                 $order = Order::where('task_id',$task_id)->first();
                 $task = Task::where('task_id',$task_id)->first();
                 $star = Star::where('star_id',$order->star_id)->first();
 
                 $tasks[] = array('task_id' => $task_id ,
+                    'star_id' => $star->star_id,
                     'name' => $star->name,
                     'status' => $task->status ,
                     'express_num' => $task->express_num ,
                     'views' => $task->views ,
                     'duration' => $task->duration ,
                     'evaluation' => $task->evaluation);
-                //$tasks[$count] = $task;
-                $count++;
             }
             
             $activity = Activity::where('activity_id',$id)->first();

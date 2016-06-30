@@ -148,6 +148,7 @@
                     @endif
                 </td>
                 <td style="width:180px;text-align:center">
+                    <a href="{{URL::action('StarController@starInfo', ['id' => $task['star_id']]) }}" ><input type="button" value="查看" class="link_btn"/></a>
                     <a href="{{URL::action('ActivityController@activityOperate', ['task_id' => $task['task_id']]) }}"><input type="button" value="操作" class="link_btn"/></a>
                 </td>
             </tr>
