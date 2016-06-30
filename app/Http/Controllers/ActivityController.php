@@ -88,13 +88,13 @@ class ActivityController extends Controller{
 
             $star_comfirming = Star::wherein('star_id',$order_confirming)->paginate(10);
 
-            $order_comfirmed = Order::where('activity_id',$id)->where('status',2)->lists('star_id');
+            $order_comfirmed = Order::where('activity_id',$id)->where('status',2)->lists('task_id');
 
-            $star_comfirmed = Star::wherein('star_id',$order_comfirmed)->paginate(10);
+            $task_comfirmed = Task::wherein('task_id',$order_comfirmed)->paginate(10);
             
             $activity = Activity::where('activity_id',$id)->first();
 
-            return view('/didi/activity_choose_order',['activity' => $activity ,'stars_confirming' => $star_comfirming ,'stars_confirmed' => $star_comfirmed]);
+            return view('/didi/activity_choose_order',['activity' => $activity ,'stars_confirming' => $star_comfirming ,'tasks_confirmed' => $task_comfirmed]);
 
         }
         else{

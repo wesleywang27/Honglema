@@ -93,35 +93,61 @@
     <div class="admin_tab_cont">
         <table class="table">
             <tr>
-                <th>网红ID</th>
+                <th>任务ID</th>
                 <th>网红昵称</th>
-                <th>性别</th>
-                <th>地区</th>
-                <th>年龄</th>
-                <th>职业</th>
-                <th>微信账号</th>
-                <th>手机号码</th>
+                <th>任务状态</th>
+                <th>物流单号</th>
+                <th>观看人数</th>
+                <th>直播时长</th>
+                <th>评价</th>
                 <th>操作</th>
             </tr>
-            @foreach ($stars_confirmed as $star)
+            @foreach ($tasks_confirmed as $task)
             <tr>
-                <td style="width:80px;text-align:center">{{ $star->star_id }}</td>
-                <td style="width:180px;text-align:center">{{ $star->name }}</td>
+                <td style="width:80px;text-align:center">{{ $task->task_id }}</td>
+                <td style="width:180px;text-align:center">网红</td>
                 <td style="width:100px;text-align:center">
-                    @if($star->sex == 0)
-                    女
+                    @if($task->status == 1)
+                    待发货
+                    @elseif($task->status == 2)
+                    推广中
+                    @elseif($task->status == 3)
+                    待评价
+                    @elseif($task->status == 4)
+                    待打款
                     @else
-                    男
+                    已完成
                     @endif
                 </td>
-                <td style="width:180px;text-align:center">{{ $star->location }}</td>
-                <td style="width:100px;text-align:center">{{ $star->age }}</td>
-                <td style="width:180px;text-align:center">{{ $star->occupation }}</td>
-                <td style="width:180px;text-align:center">{{ $star->wechat }}</td>
-                <td style="width:180px;text-align:center">{{ $star->cellphone }}</td>
                 <td style="width:180px;text-align:center">
-                    <a href="{{URL::action('StarController@starInfo', ['id' => $star->star_id]) }}" ><input type="button" value="查看" class="link_btn"/></a>
-                    <a href="{{URL::action('ActivityController@activityOperate', ['activity_id' => $activity->activity_id ,'star_id' => $star->star_id]) }}"><input type="button" value="操作" class="link_btn"/></a>
+                    @if($task->express_num == null)
+                    未填写
+                    @else
+                    {{$task->express_num}}
+                    @endif
+                </td>
+                <td style="width:100px;text-align:center">
+                    @if($task->views == null)
+                    未填写
+                    @else
+                    {{$task->views}}
+                    @endif
+                </td>
+                <td style="width:180px;text-align:center">
+                    @if($task->duration == null)
+                    未填写
+                    @else
+                    {{$task->duration}}
+                    @endif
+                </td>
+                <td style="width:180px;text-align:center">
+                    @if($task->evaluation == null)
+                    未填写
+                    @else
+                    {{$task->evaluation}}
+                    @endif
+                </td>
+                <td style="width:180px;text-align:center">
                 </td>
             </tr>
             @endforeach
@@ -129,35 +155,35 @@
         <aside class="paging">
             <a href="javascript:history.back();" style="float: left;" >返回</a>
 
-            <a class="{{ ($stars_confirmed->currentPage() == 1) ? ' disabled' : '' }}" href="{{ $stars_confirmed->url(1) }}">首页</a>
+            <a class="{{ ($tasks_confirmed->currentPage() == 1) ? ' disabled' : '' }}" href="{{ $tasks_confirmed->url(1) }}">首页</a>
 
-            @if ($stars_confirmed->currentPage() == 1)
+            @if ($tasks_confirmed->currentPage() == 1)
             <a class="" href="#">前一页</a>
             @else
-            <a class="" href="{{ $stars_confirmed->url($stars_confirmed->currentPage() - 1) }}">前一页</a>
+            <a class="" href="{{ $tasks_confirmed->url($tasks_confirmed->currentPage() - 1) }}">前一页</a>
             @endif
 
-            @if ($stars_confirmed->lastPage() <= 9)
-            @for ($i = 1; $i <= $stars_confirmed->lastPage(); $i++)
-            <a class="{{ ($stars_confirmed->currentPage() == $i) ? ' active' : '' }}" href="{{ $stars_confirmed->url($i) }}">{{ $i }}</a>
+            @if ($tasks_confirmed->lastPage() <= 9)
+            @for ($i = 1; $i <= $tasks_confirmed->lastPage(); $i++)
+            <a class="{{ ($tasks_confirmed->currentPage() == $i) ? ' active' : '' }}" href="{{ $tasks_confirmed->url($i) }}">{{ $i }}</a>
             @endfor
-            @elseif ($stars_confirmed->currentPage() > 4)
-            @for ($i = $stars_confirmed->currentPage() - 4; $i <= $stars_confirmed->currentPage() + 4; $i++)
-            <a class="{{ ($stars_confirmed->currentPage() == $i) ? ' active' : '' }}" href="{{ $stars_confirmed->url($i) }}">{{ $i }}</a>
+            @elseif ($tasks_confirmed->currentPage() > 4)
+            @for ($i = $tasks_confirmed->currentPage() - 4; $i <= $tasks_confirmed->currentPage() + 4; $i++)
+            <a class="{{ ($tasks_confirmed->currentPage() == $i) ? ' active' : '' }}" href="{{ $tasks_confirmed->url($i) }}">{{ $i }}</a>
             @endfor
             @else
             @for ($i = 1; $i <= 9; $i++)
-            <a class="{{ ($stars_confirmed->currentPage() == $i) ? ' active' : '' }}" href="{{ $stars_confirmed->url($i) }}">{{ $i }}</a>
+            <a class="{{ ($tasks_confirmed->currentPage() == $i) ? ' active' : '' }}" href="{{ $tasks_confirmed->url($i) }}">{{ $i }}</a>
             @endfor
             @endif
 
-            @if ($stars_confirmed->currentPage() == $stars_confirmed->lastPage())
-            <a class="{{ ($stars_confirmed->currentPage() == $stars_confirmed->lastPage()) ? ' disabled' : '' }}" href="#" >后一页</a>
+            @if ($tasks_confirmed->currentPage() == $tasks_confirmed->lastPage())
+            <a class="{{ ($tasks_confirmed->currentPage() == $tasks_confirmed->lastPage()) ? ' disabled' : '' }}" href="#" >后一页</a>
             @else
-            <a class="{{ ($stars_confirmed->currentPage() == $stars_confirmed->lastPage()) ? ' disabled' : '' }}" href="{{ $stars_confirmed->url($stars_confirmed->currentPage()+1) }}" >后一页</a>
+            <a class="{{ ($tasks_confirmed->currentPage() == $tasks_confirmed->lastPage()) ? ' disabled' : '' }}" href="{{ $tasks_confirmed->url($tasks_confirmed->currentPage()+1) }}" >后一页</a>
             @endif
 
-            <a class="{{ ($stars_confirmed->currentPage() == $stars_confirmed->lastPage()) ? ' disabled' : '' }}" href="{{ $stars_confirmed->url($stars_confirmed->lastPage()) }}" >尾页</a>
+            <a class="{{ ($tasks_confirmed->currentPage() == $tasks_confirmed->lastPage()) ? ' disabled' : '' }}" href="{{ $tasks_confirmed->url($tasks_confirmed->lastPage()) }}" >尾页</a>
         </aside>
     </div>
 </section>
