@@ -248,7 +248,6 @@
                     <input type="hidden" id="taskimg" value="'+urls[i]+'"></li>';
                 }
                 $('#taskimgs').append($htmls);
-                $('#taskimgupload').on('change',uploadTaskImg());
                 $.hidePreloader();
                 $.toast("添加成功", 1000);
             },error:function(data, status, e){
@@ -256,6 +255,7 @@
                 $.toast("添加失败", 1000);
             }
         });
+        $('#taskimgupload').on('change',uploadTaskImg());
     }
 
 
