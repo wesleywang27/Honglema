@@ -139,6 +139,9 @@
 
     //上传身份证
     $('#idimg').change(function(){
+        uploadIdimg();
+    });
+    function uploadIdimg(){
         $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
             url:"/picture",//需要链接到服务器地址
@@ -148,12 +151,15 @@
             success: function (data, status) {
                 var urls = data.urls;
                 var $htmls = '';
-                for(var i=0; i<urls.length; i++){
-                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
-                    <input type="hidden" id="idimgurl1" value="'+urls[i]+'"></li>';
+                var length= (urls.length>2?2:urls.length);
+                for(var i=0; i<length; i++){
+                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">'
+                            +'<input type="hidden" name ="idimgurl"'+i+' id="idimgurl"'+i+' value="'+urls[i]+'"></li>';
                 }
                 $('#idfile').append($htmls);
-                $('#idimgdiv').append($htmls);
+                var imgdata = document.getElementsByName("idimgurl");
+                if(imgdata.length>=2){
+                $('#idimgdiv').hide};
                 $.hidePreloader();
                 $.toast("添加成功", 1000);
             },error:function(data, status, e){
@@ -161,8 +167,11 @@
                 $.toast("添加失败", 1000);
             }
         });
-    });
 
+        $('#idimg').bind('change', function () {
+            uploadIdimg();
+        });
+    }
     //上传多图(注册相册)
     $('#imgupload').change(function(){
         $.showPreloader('正在上传...');
@@ -201,10 +210,7 @@
                 var htmls = '';
                 var imgdata = new Array();
                 for(var i=0; i<urls.length; i++){
-                   /* htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
-                    <input type="hidden" id="task"+i value="'+urls[i]+'"></li>';*/
-
-                    imgdata[i] = urls[i];
+                       imgdata[i] = urls[i];
                 }
                 $.ajax({
                     url: "/star/uploadimg",
@@ -261,9 +267,7 @@
         $('#taskimgupload').bind('change', function () {
                                     uploadTaskImg();
                                 });
-        // $('#taskimgupload').on('change',uploadTaskImg());
     }
-
 
  //star album upload
     //验证码页面,倒计时按钮,点击确认事件
@@ -445,18 +449,22 @@
 
 //保存身份证信息
     $.saveIdInfo=function(){
-        var Idimg1 = $("#idimgurl1").val();
-        var Idimg2 = $("#idimgurl2").val();
         var name = $("#id_name").val();
         var idcode= $("#id_code").val();
+        var img1=$("#idimgurl1").val();
+        var img2=$("#idimgurl2").val();
+        if(img1==null||img2==null){
+            $.toast("需上传两张图片",1000);
+        }
+        else{
         $.ajax({
             url: "/star/update",
             type: "POST",
             traditional: true,
             dataType: "JSON",
             data:  {
-                "ID_card1":Idimg1,
-                "ID_card2":Idimg2,
+                "ID_card1":img1,
+                "ID_card2":img2,
                 "real_name":name,
                 "ID_number":idcode
             }
@@ -465,7 +473,7 @@
             },headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
-        });
+        });}
     }
 
 //保存编辑资料(单项)

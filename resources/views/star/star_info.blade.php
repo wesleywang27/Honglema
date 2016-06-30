@@ -724,9 +724,9 @@
                                 @if($star['ID_card1']!=""&&$star['ID_card2']!="")
                                 <ul class="weui_uploader_files" id="idfile" style="padding-left: 0;">
                                     <li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('{{$star['ID_card1']}}')">
-                                        <input type="hidden" id="idimgurl1" value="{{$star['ID_card1']}}"></li>
+                                        <input type="hidden" name ="idimgurl" id="idimgurl" value="{{$star['ID_card1']}}"></li>
                                     <li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('{{$star['ID_card2']}}')">
-                                        <input type="hidden" id="idimgurl2" value="{{$star['ID_card2']}}"></li>
+                                        <input type="hidden" name ="idimgurl" id="idimgurl" value="{{$star['ID_card2']}}"></li>
                                 </ul>
                                 @else
                                 <ul class="weui_uploader_files" id="idfile" style="padding-left: 0;"></ul>
