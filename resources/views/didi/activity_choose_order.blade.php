@@ -102,54 +102,53 @@
                 <th>评价</th>
                 <th>操作</th>
             </tr>
-            @foreach ($tasks_confirmed as $task)
+            @foreach ($tasks as $task)
             <tr>
-                
-                <td style="width:80px;text-align:center">{{ $task->task_id }}</td>
-                <td style="width:180px;text-align:center">网红</td>
+                <td style="width:80px;text-align:center">{{ $task['task_id']}}</td>
+                <td style="width:180px;text-align:center">{{ $task['name']}}</td>
                 <td style="width:100px;text-align:center">
-                    @if($task->status == 1)
+                    @if($task['status'] == 1)
                     待发货
-                    @elseif($task->status == 2)
+                    @elseif($task['status'] == 2)
                     推广中
-                    @elseif($task->status == 3)
+                    @elseif($task['status'] == 3)
                     待评价
-                    @elseif($task->status == 4)
+                    @elseif($task['status'] == 4)
                     待打款
                     @else
                     已完成
                     @endif
                 </td>
                 <td style="width:180px;text-align:center">
-                    @if($task->express_num == null)
+                    @if($task['express_num'] == null)
                     未填写
                     @else
-                    {{$task->express_num}}
+                    {{$task['express_num']}}
                     @endif
                 </td>
                 <td style="width:100px;text-align:center">
-                    @if($task->views == null)
+                    @if($task['views'] == null)
                     未填写
                     @else
-                    {{$task->views}}
+                    {{$task['views']}}
                     @endif
                 </td>
                 <td style="width:180px;text-align:center">
-                    @if($task->duration == null)
+                    @if($task['duration'] == null)
                     未填写
                     @else
-                    {{$task->duration}}
+                    {{$task['duration']}}
                     @endif
                 </td>
                 <td style="width:180px;text-align:center">
-                    @if($task->evaluation == null)
+                    @if($task['evaluation'] == null)
                     未填写
                     @else
-                    {{$task->evaluation}}
+                    {{$task['evaluation']}}
                     @endif
                 </td>
                 <td style="width:180px;text-align:center">
-                    <a href="{{URL::action('ActivityController@activityOperate', ['task_id' => $task->task_id]) }}"><input type="button" value="操作" class="link_btn"/></a>
+                    <a href="{{URL::action('ActivityController@activityOperate', ['task_id' => $task['task_id']]) }}"><input type="button" value="操作" class="link_btn"/></a>
                 </td>
             </tr>
             @endforeach
