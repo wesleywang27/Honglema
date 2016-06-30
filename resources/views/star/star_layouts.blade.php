@@ -157,7 +157,7 @@
                             +'<input type="hidden" name ="idimgurl" id="idimgurl" value="'+urls[0]+'"></li>';
                     $('#idimgdiv').hide();
                 }else{
-                    var limit = urls.length>2?2:1;
+                    var limit = urls.length>2?2:urls.length;
                     for(var i=0; i<limit; i++){
                         $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">'
                                 +'<input type="hidden" name ="idimgurl" id="idimgurl" value="'+urls[i]+'"></li>';
