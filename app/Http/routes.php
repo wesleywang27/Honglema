@@ -403,7 +403,7 @@ Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 
 **
 */
 // ,'middleware' => ['web', 'wechat.oauth']
-Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant','middleware' => ['web', 'wechat.oauth']], function()
+Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
 {
 
         //首页

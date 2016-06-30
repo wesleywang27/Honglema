@@ -295,43 +295,22 @@
 
   //提交表单
   function submitForm(){
-  	if($("input[name='task_num']").val()==''){
-  		alert('请输入活动场次');
-  	}else if($("input[name='title']").val()==''){
-  		alert('请输入活动标题');
-  	}else{
-  		// $.toast("添加成功!",1000);
-	   //  setTimeout(function(){
-	    $('#activityForm').submit();
-
-	    // },1000);
-  	}
-  } 
-
-  function saveComment(){
-    var merchant_status = '{{$merchant->status}}';
     if(merchant_status == '0'){
       alert('您的帐号尚在审核中，不能发布活动');
     }else{
-      $.ajax({
-          url: "/Merchant/activityOrder/saveComment",
-          type: "POST",
-          traditional: true,
-          dataType: "JSON",
-          data: {
-              "task_id"   : "$task['task_id']}}",
-              "comment"   : $('#comment').val()
-          },
-          success: function(data) {
-              alert('保存成功');
-             location.reload();
-          },
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          }
-      });
+    	if($("input[name='task_num']").val()==''){
+    		alert('请输入活动标题');
+    	}else if($("input[name='title']").val()==''){
+    		alert('请输入活动场次');
+    	}else{
+    		// $.toast("添加成功!",1000);
+  	   //  setTimeout(function(){
+  	    $('#activityForm').submit();
+
+  	    // },1000);
+    	}
     }
-  }
+  } 
 
   function upLoadPic(id){
 
