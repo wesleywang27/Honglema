@@ -357,7 +357,7 @@ Route::group(['domain' => 'cms.honglema.com'], function() {
 //网红入口
 
 //,'middleware' => ['web', 'wechat.oauth']
-Route::group(['prefix' => 'star', 'namespace' => 'star'], function(){
+Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 'wechat.oauth']], function(){
 
     Route::get('/index',"VisitorController@index");
 
