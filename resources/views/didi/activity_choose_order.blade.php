@@ -20,19 +20,18 @@
         </div>
         <table class="table" style="margin-top: 40px;">
             <tr>
-                <th>网红ID</th>
+                <th>网红头像</th>
                 <th>网红昵称</th>
                 <th>性别</th>
                 <th>地区</th>
                 <th>年龄</th>
                 <th>职业</th>
                 <th>微信账号</th>
-                <th>手机号码</th>
                 <th>操作</th>
             </tr>
             @foreach ($stars_confirming as $star)
             <tr>
-                <td style="width:80px;text-align:center">{{ $star->star_id }}</td>
+                <td style="width:80px;text-align:center"><img src="{{ $star->avatar}}" style="width: 80px; height: 80px;"/></td>
                 <td style="width:180px;text-align:center">{{ $star->name }}</td>
                 <td style="width:100px;text-align:center">
                     @if($star->sex == 0)
@@ -45,7 +44,6 @@
                 <td style="width:100px;text-align:center">{{ $star->age }}</td>
                 <td style="width:180px;text-align:center">{{ $star->occupation }}</td>
                 <td style="width:180px;text-align:center">{{ $star->wechat }}</td>
-                <td style="width:180px;text-align:center">{{ $star->cellphone }}</td>
                 <td style="width:180px;text-align:center">
                     <a href="{{URL::action('StarController@starInfo', ['id' => $star->star_id]) }}" ><input type="button" value="查看" class="link_btn"/></a>
                     @if ($activity->confirm_num < $activity->task_num)
