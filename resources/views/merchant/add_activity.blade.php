@@ -338,8 +338,8 @@
             success: function (data, status) {
                 var urls = data.urls;
                 
-                $('#'+ id + '_pic').attr('src',data);
-                $('#'+ id + '_input').val(data);
+                $('#'+ id + '_pic').attr('src',urls[0]);
+                $('#'+ id + '_input').val(urls[0]);
 
             },error:function(data, status, e){
             },
