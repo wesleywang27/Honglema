@@ -87,7 +87,7 @@
                             </div>
                             <div class="item-after">
                                 <div class="item-title" style="font-size:80%;">
-                                @if($data['order']->status==2&&$data['task']->status==2)
+                                @if($data['order']->status==2&&$data['task']->status>=2)
                                       {{$data['task']->express_company}}
                                       {{$data['task']->express_num}}
                                 @endif
@@ -97,8 +97,8 @@
                     </li>
                 </ul>
             </div>
-            @if($data['order']->status==2&&$data['task']->status==4)
-            <div class="list-block"  style="margin-top: 0px;margin-bottom: 5rem" >
+            @if($data['order']->status==2&&$data['task']->status>=4)
+            <div class="list-block"  style="margin-top: 10px;margin-bottom: 5rem" >
                 <ul>
                     <li>
                         <div class="item-content">
