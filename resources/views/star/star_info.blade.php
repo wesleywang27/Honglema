@@ -13,7 +13,7 @@
                 <li>
                     <a href="#info" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">{{$star['name']}}</div>
+                            <div class="item-title">{{$star['name']}}{{$star['status']==0?"(未审核通过)":"(已审核)"}}</div>
                             <div class="item-after">
                                 <img id="f_wx_headimg1" src="{{$star['avatar']}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
                             </div>
@@ -724,9 +724,9 @@
                                 @if($star['ID_card1']!=""&&$star['ID_card2']!="")
                                 <ul class="weui_uploader_files" id="idfile" style="padding-left: 0;">
                                     <li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('{{$star['ID_card1']}}')">
-                                        <input type="hidden" id="idimgurl1" value="{{$star['ID_card1']}}"></li>
+                                        <input type="hidden" name ="idimgurl" id="idimgurl1" value="{{$star['ID_card1']}}"></li>
                                     <li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('{{$star['ID_card2']}}')">
-                                        <input type="hidden" id="idimgurl2" value="{{$star['ID_card2']}}"></li>
+                                        <input type="hidden" name ="idimgurl" id="idimgurl2" value="{{$star['ID_card2']}}"></li>
                                 </ul>
                                 @else
                                 <ul class="weui_uploader_files" id="idfile" style="padding-left: 0;"></ul>

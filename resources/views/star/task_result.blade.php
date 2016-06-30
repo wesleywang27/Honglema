@@ -101,7 +101,7 @@
                         <div class="item-inner">
                             <div class="item-title label">直播回放链接</div>
                             <div class="item-input">
-                                <input id="url" type="text" value="">
+                                <textarea rows="3" cols="20" id="url" type="text" ></textarea>
                             </div>
                         </div>
                     </div>
