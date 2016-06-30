@@ -134,7 +134,7 @@
                         <div class="item-inner">
                             <div class="item-title label">观看人数</div>
                             <div class="item-input">
-                                <input id="number" type="text" value="">
+                                <input id="viewnumber" type="text" value="">
                             </div>
                         </div>
                     </div>

@@ -4,6 +4,7 @@
     <title>详情页</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="format-detection" content="telephone=no" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{URL::asset('css/style.css')}}" rel='stylesheet' type='text/css' />
     <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
     <link rel="stylesheet" href="{{URL::asset('css/sm.min.css')}}">
@@ -267,28 +268,27 @@
         // autoplay:1000,
         loop: true,
     });
-$j=jQuery.noConflict();
     function setOrder(activity_id,star_id,status){
-    $.ajax({
-        url: "/Merchant/activityOrder/setOrder",
-        type: "POST",
-        traditional: true,
-        dataType: "JSON",
-        data: {
-            "activity_id"   : activity_id,
-            "star_id"   : star_id,
-            "order_status" : status
-        },
-        success: function(data) {
-            alert('合作成功!');
-            // setTimeout(function(){
-                location.href="/Merchant/activityOrder/activityDetail/" + activity_id;
-            // },1000);
-        },
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+        $.ajax({
+            url: "/Merchant/activityOrder/setOrder",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data: {
+                "activity_id"   : activity_id,
+                "star_id"   : star_id,
+                "order_status" : status
+            },
+            success: function(data) {
+                alert('合作成功!');
+                // setTimeout(function(){
+                    location.href="/Merchant/activityOrder/activityDetail/" + activity_id;
+                // },1000);
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
   }
 </script>
 <script src="{{URL::asset('js/Chart.Core.js')}}"></script>

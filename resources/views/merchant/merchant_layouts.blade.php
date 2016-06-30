@@ -121,7 +121,7 @@
 <script type="text/javascript" src="{{URL::asset('/js/jquery.cxselect.min.js')}}" charset="utf-8"></script>
 <script type="text/javascript" src="{{URL::asset('/js/jweixin-1.0.0.js')}}"></script>
 <script type="text/javascript" charset="utf-8">
-    //wx.config(<?php //echo $js->config(array('chooseImage', 'uploadImage','previewImage')) ?>);
+   
 </script>
 <script>
     
@@ -279,7 +279,8 @@
                 "cellphone"     : $('#cellphone_hidden').val(),
                 "alipay_name"     : $('#alipay_name_hidden').val(),
                 "alipay_account"     : $('#alipay_account_hidden').val(),
-                "license"     : $('#license_img').attr('src')
+                "license"     : $('#license_img').attr('src'),
+                "open_id"     :  $('#openId').val()
             },
             success: function(data) {
                 $.toast("操作成功!",1000);
@@ -323,7 +324,7 @@
                 "cellphone"     : $('#cellphone_hidden').val(),
                 "alipay_name"     : $('#alipay_name_hidden').val(),
                 "alipay_account"     : $('#alipay_account_hidden').val(),
-                "license"     : $('#license_img').attr('src')
+                "license"     : $('#license_img').attr('src'),
             },
             success: function(data) {
                 $.toast("操作成功!",1000);
@@ -337,29 +338,58 @@
         });
     });
 
-    function upLoadPic(id){   
-        jQuery.ajaxFileUpload({
-            url: '/Merchant/upLoadFile', //用于文件上传的服务器端请求地址
-            type: 'post',
-            secureuri: false, //一般设置为false
-            fileElementId: id, //文件上传空间的id属性  <input type="file" id="file" name="file" />
-            dataType: 'content', //返回值类型 一般设置为json
-            success: function (data, status)  //服务器成功响应处理函数
-            {
-               if(id == 'headimgupload'){
-                    $('#f_avatar').attr('src',data);
-               }else{
-                    $('#license_img').attr('src',data);
-                    // $('#license_div').css('background-image','url('+data+')');
-                    // $('#license_img_input').val(data);
-               }
+    function upLoadPic(id){  
+
+        $.showPreloader('正在上传...');
+        $j.ajaxFileUpload({
+            url:"/picture",//需要链接到服务器地址
+            secureuri:false,
+            fileElementId:id,//文件选择框的id属性
+            dataType: 'json',   //json
+            success: function (data, status) {
+                var urls = data.urls;
                 
+                if(id == 'headimgupload'){
+                    $('#f_avatar').attr('src',urls[0]);
+                }else{
+                    $('#license_img').attr('src',urls[0]);
+                }
+                $.hidePreloader();
+                $.toast("添加成功", 1000);
+            },error:function(data, status, e){
+                $.hidePreloader();
+                $.toast("添加失败", 1000);
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
-            error: function (data, status, e)//服务器响应失败处理函数
-            {
-                alert('上传失败');
-            }
-        });//这是ajax1结束Tags
+        });
+
+        // jQuery.ajaxFileUpload({
+        //     url: '/Merchant/upLoadFile', //用于文件上传的服务器端请求地址
+        //     type: 'post',
+        //     secureuri: false, //一般设置为false
+        //     fileElementId: id, //文件上传空间的id属性  <input type="file" id="file" name="file" />
+        //     dataType: 'content', //返回值类型 一般设置为json
+        //     success: function (data, status)  //服务器成功响应处理函数
+        //     {
+        //        if(id == 'headimgupload'){
+        //             $('#f_avatar').attr('src',data);
+        //        }else{
+        //             $('#license_img').attr('src',data);
+        //             // $('#license_div').css('background-image','url('+data+')');
+        //             // $('#license_img_input').val(data);
+        //        }
+                
+        //     },
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        //     // error: function (data, status, e)//服务器响应失败处理函数
+        //     // {
+        //     //     alert('上传失败');
+        //     // }
+        // });//这是ajax1结束Tags
                  return false;
     }
 </script>

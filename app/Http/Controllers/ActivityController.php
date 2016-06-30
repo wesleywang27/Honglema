@@ -95,6 +95,7 @@ class ActivityController extends Controller{
             $activity = Activity::where('activity_id',$id)->first();
 
             return view('/didi/activity_choose_order',['activity' => $activity ,'stars_confirming' => $star_comfirming ,'stars_confirmed' => $star_comfirmed]);
+
         }
         else{
             return Redirect::intended('/didi/login');

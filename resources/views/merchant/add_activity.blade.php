@@ -47,6 +47,7 @@
       <h1 class='title'>查看并评价</h1>
   </header>
   <form id="activityForm" method="post" action="/Merchant/activityOrder/saveActivity">
+   <?php echo csrf_field(); ?>
   <div class="content" style="margin-bottom: 30px;">
     <div class="list-block content-no-margin">
     	<ul>
@@ -117,7 +118,7 @@
                         <div class="item-after" style="max-height:none">
                             <img id="headimgupload_pic" src="" style="width: 3rem;height: 3rem;border-radius: 5px;margin-bottom:1rem;margin-top:1rem">
                             <input id="headimgupload_input" name="picture" type="hidden">
-                            <input class="weui_uploader_input" id="headimgupload" name="img" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                            <input class="weui_uploader_input" id="headimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                         </div>
                     </div>
                 </div>
@@ -131,7 +132,7 @@
                         <div class="item-after" style="max-height:none">
                             <img id="bannerimgupload_pic" src="" style="width: 3rem;height: 3rem;border-radius: 5px;margin-bottom:1rem;margin-top:1rem">
                             <input id="bannerimgupload_input" type="hidden" name="banner_picture">
-                            <input class="weui_uploader_input" id="bannerimgupload" name="img" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                            <input class="weui_uploader_input" id="bannerimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                         </div>
                     </div>
                 </div>
@@ -266,7 +267,6 @@
 		    </div>
 		</div>
     </div>
-
   <script>
   $(function(){
   	$('.add_model').click(function(){
@@ -303,6 +303,7 @@
   		// $.toast("添加成功!",1000);
 	   //  setTimeout(function(){
 	    $('#activityForm').submit();
+
 	    // },1000);
   	}
   } 
@@ -327,24 +328,47 @@
     });
   }
 
-  function upLoadPic(id){   
+  function upLoadPic(id){
+
         $.ajaxFileUpload({
-            url: '/Merchant/upLoadFile', //用于文件上传的服务器端请求地址
-            type: 'post',
-            secureuri: false, //一般设置为false
-            fileElementId: id, //文件上传空间的id属性  <input type="file" id="file" name="file" />
-            dataType: 'content', //返回值类型 一般设置为json
-            success: function (data, status)  //服务器成功响应处理函数
-            {
-               $('#'+ id + '_pic').attr('src',data);
-               $('#'+ id + '_input').val(data);
-               // alert(data);
+            url:"/picture",//需要链接到服务器地址
+            secureuri:false,
+            fileElementId:id,//文件选择框的id属性
+            dataType: 'json',   //json
+            success: function (data, status) {
+                var urls = data.urls;
+                
+                $('#'+ id + '_pic').attr('src',data);
+                $('#'+ id + '_input').val(data);
+
+            },error:function(data, status, e){
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
-            error: function (data, status, e)//服务器响应失败处理函数
-            {
-                alert('上传失败');
-            }
-        });//这是ajax1结束Tags
+        });
+
+
+        // $.ajaxFileUpload({
+        //     url: '/Merchant/upLoadFile', //用于文件上传的服务器端请求地址
+        //     type: 'post',
+        //     secureuri: false, //一般设置为false
+        //     fileElementId: id, //文件上传空间的id属性  <input type="file" id="file" name="file" />
+        //     dataType: 'content', //返回值类型 一般设置为json
+        //     success: function (data, status)  //服务器成功响应处理函数
+        //     {
+        //        $('#'+ id + '_pic').attr('src',data);
+        //        $('#'+ id + '_input').val(data);
+        //        // alert(data);
+        //     },
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        //     // error: function (data, status, e)//服务器响应失败处理函数
+        //     // {
+        //     //     alert('上传失败');
+        //     // }
+        // });//这是ajax1结束Tags
                  return false;
     }
   

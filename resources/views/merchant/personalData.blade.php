@@ -18,7 +18,7 @@
                             <div class="item-title">头像</div>
                             <div class="item-after">
                                 <img id="f_avatar" src="{{$merchant['avatar']}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
-                                <input class="weui_uploader_input" id="headimgupload" name="img" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                                <input class="weui_uploader_input" id="headimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                             </div>
                             
                         </div>
@@ -319,7 +319,7 @@
                             </div>
                             <div class="weui_uploader_bd">
                                     <img id="license_img" src="{{$merchant['license']}}" style="width: 100%;height: 10rem;border-radius: 5px;">
-                                    <input class="weui_uploader_input" id="licenseimgupload" name="img" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                                    <input class="weui_uploader_input" id="licenseimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                             </div>
                         </div>
                     </div>

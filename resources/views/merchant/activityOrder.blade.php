@@ -62,8 +62,6 @@
 				            </div>
 				            <div class="item-subtitle">&nbsp;</div>
 				           <div class="item-subtitle">
-				            	<a class="button pull-right button-fill button-danger" style="margin-left:1rem;width:4rem" href="#">已抢单1/2</a>
-				            	<a class="button pull-right" style="margin-left:1rem;width:4rem" href="#">再来一单</a>
 				            </div>
 				          </div>
 				        </div>
