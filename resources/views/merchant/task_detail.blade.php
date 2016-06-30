@@ -70,7 +70,7 @@
                                         break;
 
                                     case '4':
-                                        $status = '待打款';
+                                        $status = '已结束';
                                         break;
 
                                     default:
