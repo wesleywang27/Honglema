@@ -20,6 +20,7 @@ use App\Models\StarPicture;
 use App\Models\Order;
 use App\Models\PriceLevel;
 use App\Models\Commodity;
+use App\Models\Merchant;
 
 class ActivityController extends RootController{
     public function __construct(){

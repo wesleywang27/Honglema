@@ -260,7 +260,7 @@
         success: function(data) {
             $.toast("合作成功!",1000);
             setTimeout(function(){
-                location.href="/Merchant/activityOrder";
+                location.reload();
             },1000);
         },
         headers: {

@@ -309,7 +309,7 @@
   } 
 
   function saveComment(){
-    var merchant_status = '{{$merchant->merchant_status}}';
+    var merchant_status = '{{$merchant->status}}';
     if(merchant_status == '0'){
       alert('您的帐号尚在审核中，不能发布活动');
     }else{
