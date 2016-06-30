@@ -44,11 +44,111 @@
       <a class="button button-link button-nav pull-left back" href="javascript:history.go(-1)">
             <span class="icon icon-left"></span>
       </a>
-      <h1 class='title'>查看并评价</h1>
+      <h1 class='title'>添加活动</h1>
   </header>
   <form id="activityForm" method="post" action="/Merchant/activityOrder/saveActivity">
    <?php echo csrf_field(); ?>
-  <div class="content" style="margin-bottom: 30px;">
+  <div class="content" style="bottom: 2.2rem;">
+  <div class="list-block" style="margin-top:2.2rem">
+        
+        <ul>
+            <li>
+                <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label">活动标题</div>
+                  <div class="item-input">
+                    <input type="text" placeholder="请输入活动标题" name="title">
+                  </div>
+              </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label">活动要求</div>
+                  <div class="item-input">
+                    <input type="text" placeholder="请输入活动要求" name="claim">
+                  </div>
+              </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label">活动时间</div>
+                  <div class="item-input">
+                      <select name="time_within" id="company">
+                                <option value="0">请选择...</option>
+                                <option value="三天内">三天内</option>
+                                <option value="七天内">七天内</option>
+                                <option value="十天内">十天内</option>
+                          </select>
+                  </div>
+              </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label">活动场次</div>
+                  <div class="item-input">
+                    <input type="number" placeholder="请输入活动场次" name="task_num">
+                  </div>
+              </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content">
+                    <div class="item-inner">
+                      <input type="hidden" name="price_level">
+                      <div class="item-title label">活动形式</div>
+                      @foreach ($priceLevel as $pvo)
+                  <div class="item-input">
+                              <button type="button" type="button" class="button button-warning button-level" style="width:5rem" onclick="changeData(this,{{$pvo['pl_id']}},{{$pvo['price']}})">{{$pvo['level']}}</button>
+                        </div>
+                        @endforeach
+
+              </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content" style="height:5rem">
+                    <div class="item-inner" style="min-height:5rem">
+                        <div class="item-title">活动图片1(在活动列表页展示)</div>
+                        <div class="item-after" style="max-height:none">
+                            <img id="headimgupload_pic" src="" style="width: 3rem;height: 3rem;border-radius: 5px;margin-bottom:1rem;margin-top:1rem">
+                            <input id="headimgupload_input" name="picture" type="hidden">
+                            <input class="weui_uploader_input" id="headimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content" style="height:5rem">
+                    <div class="item-inner" style="min-height:5rem">
+                        <div class="item-title">活动图片2(在活动详情页展示)</div>
+                        <div class="item-after" style="max-height:none">
+                            <img id="bannerimgupload_pic" src="" style="width: 3rem;height: 3rem;border-radius: 5px;margin-bottom:1rem;margin-top:1rem">
+                            <input id="bannerimgupload_input" type="hidden" name="banner_picture">
+                            <input class="weui_uploader_input" id="bannerimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
     <div class="list-block content-no-margin">
     	<ul>
             <li>
@@ -109,127 +209,28 @@
 		</div>
     </div>
 
-    <div class="list-block">
-        <ul>
-            <li>
-                <div class="item-content" style="height:5rem">
-                    <div class="item-inner" style="min-height:5rem">
-                        <div class="item-title">活动图片1(在活动列表页展示)</div>
-                        <div class="item-after" style="max-height:none">
-                            <img id="headimgupload_pic" src="" style="width: 3rem;height: 3rem;border-radius: 5px;margin-bottom:1rem;margin-top:1rem">
-                            <input id="headimgupload_input" name="picture" type="hidden">
-                            <input class="weui_uploader_input" id="headimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <div class="item-content" style="height:5rem">
-                    <div class="item-inner" style="min-height:5rem">
-                        <div class="item-title">活动图片2(在活动详情页展示)</div>
-                        <div class="item-after" style="max-height:none">
-                            <img id="bannerimgupload_pic" src="" style="width: 3rem;height: 3rem;border-radius: 5px;margin-bottom:1rem;margin-top:1rem">
-                            <input id="bannerimgupload_input" type="hidden" name="banner_picture">
-                            <input class="weui_uploader_input" id="bannerimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                     	<div class="item-title label">活动标题</div>
-			            <div class="item-input">
-			              <input type="text" placeholder="请输入活动标题" name="title">
-			            </div>
-			        </div>
-                </div>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                     	<div class="item-title label">活动要求</div>
-			            <div class="item-input">
-			              <input type="text" placeholder="请输入活动要求" name="claim">
-			            </div>
-			        </div>
-                </div>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                     	<div class="item-title label">活动时间</div>
-			            <div class="item-input">
-			              	<select name="time_within" id="company">
-                              	<option value="0">请选择...</option>
-                              	<option value="三天内">三天内</option>
-                              	<option value="七天内">七天内</option>
-                              	<option value="十天内">十天内</option>
-                        	</select>
-			            </div>
-			        </div>
-                </div>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                     	<div class="item-title label">活动场次</div>
-			            <div class="item-input">
-			              <input type="number" placeholder="请输入活动场次" name="task_num">
-			            </div>
-			        </div>
-                </div>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                    	<input type="hidden" name="price_level">
-                     	<div class="item-title label">活动形式</div>
-                     	@foreach ($priceLevel as $pvo)
-			            <div class="item-input">
-                              <button type="button" type="button" class="button button-warning button-level" style="width:5rem" onclick="changeData(this,{{$pvo['pl_id']}},{{$pvo['price']}})">{{$pvo['level']}}</button>
-                        </div>
-                        @endforeach
+    
 
-			        </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-    <div class="list-block content-no-margin" style="z-index:999;
+    
+</div>
+<div class="list-block content-no-margin" style="z-index:999;
       position:fixed; bottom:0; left:0; width:100%; 
       text-align:center; _position:absolute;
  _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;margin-top:999px;">
-    	<ul>
+      <ul>
             <li>
-                <div class="item-content">
-                    <div class="item-inner" style="padding-right: 0;">
-			            <div id="price" class="item-title label" style="text-align: -webkit-center;">¥&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-			            <input type="hidden" name="total_price">
-			            <div class="item-input">
-			            </div>
-			            <div class="item-input">
-                              <button type="button" class="button button-warning button-fill" style="width:9rem;height:2.5rem;border-radius:0;background-color:#9ccc65" onclick="submitForm()">确认发布</button>
+                <div class="item-content" style="padding-left:0;">
+                    <div class="item-inner" style="padding-right:0;">
+                  <div id="price" class="item-title label" style="text-align: -webkit-center;width:55%">¥&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                  <input type="hidden" name="total_price">
+                  <div class="item-input" style="width:45%">
+                              <button type="button" class="button button-warning button-fill" style="width:100%;height:2.5rem;border-radius:0;background-color:#9ccc65" onclick="submitForm()">确认发布</button>
                         </div>
-			        </div>
+              </div>
                 </div>
             </li>
         </ul>
     </div>
-</div>
 </form>
 
 
@@ -295,38 +296,25 @@
 
   //提交表单
   function submitForm(){
-  	if($("input[name='task_num']").val()==''){
-  		alert('请输入活动场次');
-  	}else if($("input[name='title']").val()==''){
-  		alert('请输入活动标题');
-  	}else{
-  		// $.toast("添加成功!",1000);
-	   //  setTimeout(function(){
-	    $('#activityForm').submit();
+    var merchant_status = '{{$merchant->status}}';
+    if(merchant_status == '0'){
+      alert('您的帐号尚在审核中，不能发布活动');
+    }else{
+    	if($("input[name='task_num']").val()==''){
+    		alert('请输入活动标题');
+    	}else if($("input[name='title']").val()==''){
+    		alert('请输入活动场次');
+    	}else if($("#price").html()==''){
+        alert('请选择活动形式');
+      }else{
+    		// $.toast("添加成功!",1000);
+  	   //  setTimeout(function(){
+  	    $('#activityForm').submit();
 
-	    // },1000);
-  	}
+  	    // },1000);
+    	}
+    }
   } 
-
-  function saveComment(){
-      $.ajax({
-        url: "/Merchant/activityOrder/saveComment",
-        type: "POST",
-        traditional: true,
-        dataType: "JSON",
-        data: {
-            "task_id"   : "$task['task_id']}}",
-            "comment"   : $('#comment').val()
-        },
-        success: function(data) {
-            alert('保存成功');
-           location.reload();
-        },
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-  }
 
   function upLoadPic(id){
 
@@ -338,8 +326,8 @@
             success: function (data, status) {
                 var urls = data.urls;
                 
-                $('#'+ id + '_pic').attr('src',data);
-                $('#'+ id + '_input').val(data);
+                $('#'+ id + '_pic').attr('src',urls[0]);
+                $('#'+ id + '_input').val(urls[0]);
 
             },error:function(data, status, e){
             },

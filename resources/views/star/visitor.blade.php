@@ -31,7 +31,6 @@
       ?>
       @foreach ($list as $vo)
       <?php
-
         $merchant = App\Models\Merchant::where('merchant_id',$vo->merchant_id)->first();
       ?>
         <div class="content-block content-block-my content-no-margin">

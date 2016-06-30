@@ -37,11 +37,10 @@ class VisitorController extends Controller
         if ($star) {
             $_SESSION['star_id'] = $star->star_id;
             $star = Star::where('star_id', $star->star_id)->first();
-            $starPictures= StarPicture::where('uid',$star->star_id)->get();
             //注册用户跳转到活动界面
             return Redirect::intended('/star/activityList');
         } else {
-            $activityList = Activity::where('activity_status', 1)->orderBy('created_at','desc')->get();
+            $activityList = Activity::where('activity_status','>=', 1)->orderBy('created_at','desc')->get();
             //游客跳转到游客首页
             return view('star.visitor', ['list' => $activityList]);
         }

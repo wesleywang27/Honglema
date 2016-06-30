@@ -231,7 +231,12 @@
     });
 
 //upload task picture(上传后可显示)
+ // $('#taskimgupload').change(uploadTaskImg());
  $('#taskimgupload').change(function(){
+    uploadTaskImg();
+});
+//submit task result
+    function uploadTaskImg(){
         $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
             url:"/picture",//需要链接到服务器地址
@@ -253,9 +258,11 @@
                 $.toast("添加失败", 1000);
             }
         });
-    });
-//submit task result
-
+        $('#taskimgupload').bind('change', function () {
+                                    uploadTaskImg();
+                                });
+        // $('#taskimgupload').on('change',uploadTaskImg());
+    }
 
 
  //star album upload

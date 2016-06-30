@@ -152,7 +152,7 @@
                   foreach ($taskPics as $key => $tp) {
                     $count++; 
               ?>
-                  <div class="task_pic_div" style="height:4rem;margin-top:1rem;margin-bottom:1rem;margin-left:9px">
+                  <div class="task_pic_div" style="height:4rem;width:25%;margin-top:1rem;margin-bottom:1rem;margin-left:4.5px;margin-right:4.5px">
                         <img style="height:100%;width:100%" src="{{$tp['url']}}" >
                   </div>
               <?php
@@ -161,7 +161,7 @@
                     for($i = 0;$i < 4 - $count;$i ++){
                       //填充空图片，div中必须有4个图片！
               ?>
-                  <div class="task_pic_div" style="height:4rem;margin-top:1rem;margin-bottom:1rem;margin-left:9px">
+                  <div class="task_pic_div" style="height:4rem;width:25%;margin-top:1rem;margin-bottom:1rem;margin-left:4.5px;margin-right:4.5px">
                   </div>
               <?php
 
@@ -169,6 +169,45 @@
                 }
               ?>
               </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content">
+                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                    <div class="item-inner">
+                        <div class="item-title label">直播回看网址</div>
+                        <div class="item-input">
+                            <input readonly style="width: 85%;display:inline;" type="text" value="<?php echo $task['playback_url'] ? $task['playback_url'] : '暂无'; ?>">
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content">
+                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                    <div class="item-inner">
+                        <div class="item-title label">直播观看人数</div>
+                        <div class="item-input">
+                            <input readonly style="width: 85%;display:inline;" type="text" value="<?php echo $task['views'] ? $task['views'] : '暂无'; ?>">
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content">
+                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                    <div class="item-inner">
+                        <div class="item-title label">直播时长</div>
+                        <div class="item-input">
+                            <input readonly style="width: 85%;display:inline;" type="text" value="<?php echo $task['duration'] ? $task['duration'] : '暂无'; ?>">
+                        </div>
+                    </div>
+                </div>
             </li>
         </ul>
         <ul>
