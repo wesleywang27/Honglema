@@ -152,15 +152,21 @@
                 var urls = data.urls;
                 var $htmls = '';
                 var imgdata = document.getElementsByName("idimgurl");
-                var length= (urls.length+imgdata.length>2?2:urls.length);
-                for(var i=0; i<length; i++){
-                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">'
-                            +'<input type="hidden" name ="idimgurl" id="idimgurl'+i+'" value="'+urls[i]+'"></li>';
+                if(imgdata.length==1){
+                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[0]+')">'
+                            +'<input type="hidden" name ="idimgurl" id="idimgurl'+i+'" value="'+urls[0]+'"></li>';
+                    $('#idimgdiv').hide();
+                }else{
+                    var limit = urls.length>2?2:1;
+                    for(var i=0; i<limit; i++){
+                        $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">'
+                                +'<input type="hidden" name ="idimgurl" id="idimgurl'+i+'" value="'+urls[i]+'"></li>';
+                    }
                 }
+                var imgdata2 = document.getElementsByName("idimgurl");
                 $('#idfile').append($htmls);
-
-                if(imgdata.length>=2){
-                $('#idimgdiv').hide};
+                if(imgdata2.length>=2){
+                $('#idimgdiv').hide()};
                 $.hidePreloader();
                 $.toast("添加成功", 1000);
             },error:function(data, status, e){
