@@ -217,14 +217,12 @@
  _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;margin-top:999px;">
       <ul>
             <li>
-                <div class="item-content">
-                    <div class="item-inner" style="padding-right: 0;">
-                  <div id="price" class="item-title label" style="text-align: -webkit-center;">¥&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <div class="item-content" style="padding-left:0;">
+                    <div class="item-inner" style="padding-right:0;">
+                  <div id="price" class="item-title label" style="text-align: -webkit-center;width:55%">¥&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
                   <input type="hidden" name="total_price">
-                  <div class="item-input">
-                  </div>
-                  <div class="item-input">
-                              <button type="button" class="button button-warning button-fill" style="width:9rem;height:2.5rem;border-radius:0;background-color:#9ccc65" onclick="submitForm()">确认发布</button>
+                  <div class="item-input" style="width:45%">
+                              <button type="button" class="button button-warning button-fill" style="width:100%;height:2.5rem;border-radius:0;background-color:#9ccc65" onclick="submitForm()">确认发布</button>
                         </div>
               </div>
                 </div>
