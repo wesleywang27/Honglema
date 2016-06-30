@@ -331,5 +331,4 @@
 @include('partial/jquery_mobile_page', ["page_id" => "license"])
 
 
-
 @endsection
