@@ -152,7 +152,7 @@
                   foreach ($taskPics as $key => $tp) {
                     $count++; 
               ?>
-                  <div class="task_pic_div" style="height:4rem;margin-top:1rem;margin-bottom:1rem;margin-left:9px">
+                  <div class="task_pic_div" style="height:4rem;width:25%;margin-top:1rem;margin-bottom:1rem;margin-left:4.5px;margin-right:4.5px">
                         <img style="height:100%;width:100%" src="{{$tp['url']}}" >
                   </div>
               <?php
@@ -161,7 +161,7 @@
                     for($i = 0;$i < 4 - $count;$i ++){
                       //填充空图片，div中必须有4个图片！
               ?>
-                  <div class="task_pic_div" style="height:4rem;margin-top:1rem;margin-bottom:1rem;margin-left:9px">
+                  <div class="task_pic_div" style="height:4rem;width:25%;margin-top:1rem;margin-bottom:1rem;margin-left:4.5px;margin-right:4.5px">
                   </div>
               <?php
 
