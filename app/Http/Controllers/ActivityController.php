@@ -127,11 +127,10 @@ class ActivityController extends Controller{
         }
     }
     //商家操作
-    public function activityOperate($activity_id ,$star_id){
+    public function activityOperate($task_id){
         session_start();
         if(isset($_SESSION['name'])) {
-            $order = Order::where('activity_id',$activity_id)->where('star_id',$star_id)->first();
-            $task = Task::where('task_id',$order->task_id)->first();
+            $task = Task::where('task_id',$task_id)->first();
             $status = $task->status;
 
             if ($status == 1){

@@ -104,6 +104,7 @@
             </tr>
             @foreach ($tasks_confirmed as $task)
             <tr>
+                
                 <td style="width:80px;text-align:center">{{ $task->task_id }}</td>
                 <td style="width:180px;text-align:center">网红</td>
                 <td style="width:100px;text-align:center">
@@ -148,6 +149,7 @@
                     @endif
                 </td>
                 <td style="width:180px;text-align:center">
+                    <a href="{{URL::action('ActivityController@activityOperate', ['task_id' => $task->task_id]) }}"><input type="button" value="操作" class="link_btn"/></a>
                 </td>
             </tr>
             @endforeach
