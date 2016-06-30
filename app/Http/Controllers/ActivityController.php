@@ -150,16 +150,19 @@ class ActivityController extends Controller{
             $status = $task->status;
 
             if ($status == 1){
-                return Redirect::intended("/didi/ActivityExpress/$task->task_id");
+                return Redirect::intended("/didi/ActivityExpress/$task_id");
             }
             elseif ($status == 2){
-                echo "<script>history.go(-1); alert('当前没有需要进行的操作!');</script>";
+                echo "<script>history.go(-1); alert('当前任务正在推广中，没有需要进行的操作!');</script>";
             }
             elseif ($status == 3){
-                return Redirect::intended("/didi/ActivityEvaluate/$task->task_id");
+                return Redirect::intended("/didi/ActivityEvaluate/$task_id");
+            }
+            elseif ($status == 4){
+                return Redirect::intended("/didi/ActivityStarPayment/$task_id");
             }
             else{
-                echo "<script>history.go(-1); alert('当前没有需要进行的操作!');</script>";
+                echo "<script>history.go(-1); alert('当前任务已结束，没有需要进行的操作!');</script>";
             }
         }
         else{
@@ -213,11 +216,32 @@ class ActivityController extends Controller{
         $activity = Activity::where('activity_id',$task->activity_id)->first();
         $count = Task::where('activity_id',$activity->activity_id)->where('status',4)->count();
         if($count == $activity->task_num){
-            $activity->activity_status = 3;
+            $activity->activity_status = 2;
             $activity->save();
         }
 
         return Redirect::intended('/didi/ActivityList');
+    }
+    //网红打款
+    public function activityStarPayment($id){
+        session_start();
+        if(isset($_SESSION['name'])) {
+            $task = Task::where('task_id',$id)->first();
+            $task->status = 5;
+            $task->save();
+
+            $activity = Activity::where('activity_id',$task->activity_id)->first();
+            $count = Task::where('activity_id',$activity->activity_id)->where('status',5)->count();
+            if($count == $activity->task_num){
+                $activity->activity_status = 3;
+                $activity->save();
+            }
+
+            return Redirect::intended('/didi/ActivityList');
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
     }
     //活动审核
     public function activityCheck($id){

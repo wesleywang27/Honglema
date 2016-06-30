@@ -147,7 +147,11 @@
                 </td>
                 <td style="width:180px;text-align:center">
                     <a href="{{URL::action('StarController@starInfo', ['id' => $task['star_id']]) }}" ><input type="button" value="查看" class="link_btn"/></a>
+                    @if($task['status'] != 4)
                     <a href="{{URL::action('ActivityController@activityOperate', ['task_id' => $task['task_id']]) }}"><input type="button" value="操作" class="link_btn"/></a>
+                    @else
+                    <a href="{{URL::action('ActivityController@activityOperate', ['task_id' => $task['task_id']]) }}" onclick="return confirm('确定要打款吗？')"><input type="button" value="打款" class="link_btn"/></a>
+                    @endif
                 </td>
             </tr>
             @endforeach
