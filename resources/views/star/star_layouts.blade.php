@@ -255,7 +255,10 @@
                 $.toast("添加失败", 1000);
             }
         });
-        $('#taskimgupload').on('change',uploadTaskImg());
+        $('#taskimgupload').bind('change', function () {
+                                    uploadTaskImg();
+                                });
+        // $('#taskimgupload').on('change',uploadTaskImg());
     }
 
 
