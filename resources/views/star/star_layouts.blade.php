@@ -154,13 +154,13 @@
                 var imgdata = document.getElementsByName("idimgurl");
                 if(imgdata.length==1){
                     $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[0]+')">'
-                            +'<input type="hidden" name ="idimgurl" id="idimgurl'+i+'" value="'+urls[0]+'"></li>';
+                            +'<input type="hidden" name ="idimgurl" id="idimgurl" value="'+urls[0]+'"></li>';
                     $('#idimgdiv').hide();
                 }else{
                     var limit = urls.length>2?2:1;
                     for(var i=0; i<limit; i++){
                         $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">'
-                                +'<input type="hidden" name ="idimgurl" id="idimgurl'+i+'" value="'+urls[i]+'"></li>';
+                                +'<input type="hidden" name ="idimgurl" id="idimgurl" value="'+urls[i]+'"></li>';
                     }
                 }
                 var imgdata2 = document.getElementsByName("idimgurl");
@@ -456,11 +456,10 @@
 
 //保存身份证信息
     $.saveIdInfo=function(){
+        var imgdata = document.getElementsByName("idimgurl");
         var name = $("#id_name").val();
         var idcode= $("#id_code").val();
-        var img1=$("#idimgurl1").val();
-        var img2=$("#idimgurl2").val();
-        if(img1==null||img2==null){
+        if(imgdata.length<2){
             $.toast("需上传两张图片",1000);
         }
         else{
@@ -470,8 +469,8 @@
             traditional: true,
             dataType: "JSON",
             data:  {
-                "ID_card1":img1,
-                "ID_card2":img2,
+                "ID_card1":imgdata[0],
+                "ID_card2":imgdata[1],
                 "real_name":name,
                 "ID_number":idcode
             }
@@ -577,7 +576,7 @@ $.submmitTaskResult=function(id){
         imgdata[i] = $(this).val();
         i++;
     });
-    var playback=$('#url').text();
+    var playback=$('#url').val();
     var views=$('#viewnumber').val();
     var duration=$('#dtime').val();
     $.confirm('确认提交任务结果?', function () {
