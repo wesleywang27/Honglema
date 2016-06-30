@@ -44,11 +44,111 @@
       <a class="button button-link button-nav pull-left back" href="javascript:history.go(-1)">
             <span class="icon icon-left"></span>
       </a>
-      <h1 class='title'>查看并评价</h1>
+      <h1 class='title'>添加活动</h1>
   </header>
   <form id="activityForm" method="post" action="/Merchant/activityOrder/saveActivity">
    <?php echo csrf_field(); ?>
   <div class="content" style="bottom: 2.2rem;">
+  <div class="list-block" style="margin-top:2.2rem">
+        
+        <ul>
+            <li>
+                <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label">活动标题</div>
+                  <div class="item-input">
+                    <input type="text" placeholder="请输入活动标题" name="title">
+                  </div>
+              </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label">活动要求</div>
+                  <div class="item-input">
+                    <input type="text" placeholder="请输入活动要求" name="claim">
+                  </div>
+              </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label">活动时间</div>
+                  <div class="item-input">
+                      <select name="time_within" id="company">
+                                <option value="0">请选择...</option>
+                                <option value="三天内">三天内</option>
+                                <option value="七天内">七天内</option>
+                                <option value="十天内">十天内</option>
+                          </select>
+                  </div>
+              </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label">活动场次</div>
+                  <div class="item-input">
+                    <input type="number" placeholder="请输入活动场次" name="task_num">
+                  </div>
+              </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content">
+                    <div class="item-inner">
+                      <input type="hidden" name="price_level">
+                      <div class="item-title label">活动形式</div>
+                      @foreach ($priceLevel as $pvo)
+                  <div class="item-input">
+                              <button type="button" type="button" class="button button-warning button-level" style="width:5rem" onclick="changeData(this,{{$pvo['pl_id']}},{{$pvo['price']}})">{{$pvo['level']}}</button>
+                        </div>
+                        @endforeach
+
+              </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content" style="height:5rem">
+                    <div class="item-inner" style="min-height:5rem">
+                        <div class="item-title">活动图片1(在活动列表页展示)</div>
+                        <div class="item-after" style="max-height:none">
+                            <img id="headimgupload_pic" src="" style="width: 3rem;height: 3rem;border-radius: 5px;margin-bottom:1rem;margin-top:1rem">
+                            <input id="headimgupload_input" name="picture" type="hidden">
+                            <input class="weui_uploader_input" id="headimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content" style="height:5rem">
+                    <div class="item-inner" style="min-height:5rem">
+                        <div class="item-title">活动图片2(在活动详情页展示)</div>
+                        <div class="item-after" style="max-height:none">
+                            <img id="bannerimgupload_pic" src="" style="width: 3rem;height: 3rem;border-radius: 5px;margin-bottom:1rem;margin-top:1rem">
+                            <input id="bannerimgupload_input" type="hidden" name="banner_picture">
+                            <input class="weui_uploader_input" id="bannerimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
     <div class="list-block content-no-margin">
     	<ul>
             <li>
@@ -109,105 +209,7 @@
 		</div>
     </div>
 
-    <div class="list-block">
-        <ul>
-            <li>
-                <div class="item-content" style="height:5rem">
-                    <div class="item-inner" style="min-height:5rem">
-                        <div class="item-title">活动图片1(在活动列表页展示)</div>
-                        <div class="item-after" style="max-height:none">
-                            <img id="headimgupload_pic" src="" style="width: 3rem;height: 3rem;border-radius: 5px;margin-bottom:1rem;margin-top:1rem">
-                            <input id="headimgupload_input" name="picture" type="hidden">
-                            <input class="weui_uploader_input" id="headimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <div class="item-content" style="height:5rem">
-                    <div class="item-inner" style="min-height:5rem">
-                        <div class="item-title">活动图片2(在活动详情页展示)</div>
-                        <div class="item-after" style="max-height:none">
-                            <img id="bannerimgupload_pic" src="" style="width: 3rem;height: 3rem;border-radius: 5px;margin-bottom:1rem;margin-top:1rem">
-                            <input id="bannerimgupload_input" type="hidden" name="banner_picture">
-                            <input class="weui_uploader_input" id="bannerimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                     	<div class="item-title label">活动标题</div>
-			            <div class="item-input">
-			              <input type="text" placeholder="请输入活动标题" name="title">
-			            </div>
-			        </div>
-                </div>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                     	<div class="item-title label">活动要求</div>
-			            <div class="item-input">
-			              <input type="text" placeholder="请输入活动要求" name="claim">
-			            </div>
-			        </div>
-                </div>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                     	<div class="item-title label">活动时间</div>
-			            <div class="item-input">
-			              	<select name="time_within" id="company">
-                              	<option value="0">请选择...</option>
-                              	<option value="三天内">三天内</option>
-                              	<option value="七天内">七天内</option>
-                              	<option value="十天内">十天内</option>
-                        	</select>
-			            </div>
-			        </div>
-                </div>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                     	<div class="item-title label">活动场次</div>
-			            <div class="item-input">
-			              <input type="number" placeholder="请输入活动场次" name="task_num">
-			            </div>
-			        </div>
-                </div>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                    	<input type="hidden" name="price_level">
-                     	<div class="item-title label">活动形式</div>
-                     	@foreach ($priceLevel as $pvo)
-			            <div class="item-input">
-                              <button type="button" type="button" class="button button-warning button-level" style="width:5rem" onclick="changeData(this,{{$pvo['pl_id']}},{{$pvo['price']}})">{{$pvo['level']}}</button>
-                        </div>
-                        @endforeach
-
-			        </div>
-                </div>
-            </li>
-        </ul>
-    </div>
+    
 
     
 </div>
