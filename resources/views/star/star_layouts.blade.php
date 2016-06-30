@@ -151,13 +151,14 @@
             success: function (data, status) {
                 var urls = data.urls;
                 var $htmls = '';
-                var length= (urls.length>2?2:urls.length);
+                var imgdata = document.getElementsByName("idimgurl");
+                var length= (urls.length+imgdata.length>2?2:urls.length);
                 for(var i=0; i<length; i++){
                     $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">'
                             +'<input type="hidden" name ="idimgurl" id="idimgurl'+i+'" value="'+urls[i]+'"></li>';
                 }
                 $('#idfile').append($htmls);
-                var imgdata = document.getElementsByName("idimgurl");
+
                 if(imgdata.length>=2){
                 $('#idimgdiv').hide};
                 $.hidePreloader();
@@ -273,7 +274,7 @@
     //验证码页面,倒计时按钮,点击确认事件
     var waittime = 60;
     var countdown = waittime;
-    function settime(me) {
+    function settime(me) {urls.length+imgdata.length
         var obj=$(me);
         if (countdown <= 0) {
             obj.css('color','#0894ec');
@@ -570,7 +571,7 @@ $.submmitTaskResult=function(id){
         imgdata[i] = $(this).val();
         i++;
     });
-    var playback=$('#url').val();
+    var playback=$('#url').text();
     var views=$('#viewnumber').val();
     var duration=$('#dtime').val();
     $.confirm('确认提交任务结果?', function () {
