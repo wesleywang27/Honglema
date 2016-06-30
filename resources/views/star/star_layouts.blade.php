@@ -154,7 +154,7 @@
                 var length= (urls.length>2?2:urls.length);
                 for(var i=0; i<length; i++){
                     $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">'
-                            +'<input type="hidden" name ="idimgurl"'+i+' id="idimgurl"'+i+' value="'+urls[i]+'"></li>';
+                            +'<input type="hidden" name ="idimgurl" id="idimgurl'+i+'" value="'+urls[i]+'"></li>';
                 }
                 $('#idfile').append($htmls);
                 var imgdata = document.getElementsByName("idimgurl");
