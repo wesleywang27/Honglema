@@ -556,7 +556,7 @@ $.submmitTaskResult=function(id){
         i++;
     });
     var playback=$('#url').val();
-    var views=$('#number').val();
+    var views=$('#viewnumber').val();
     var duration=$('#dtime').val();
     $.confirm('确认提交任务结果?', function () {
         $.ajax({

@@ -7,31 +7,34 @@ use App\Models\User;
 use App\Models\ActivityCommodityList;
 use App\Models\Order;
 use App\Http\Controllers\Controller;
+use DB;
 class ActivityController extends Controller{
 	public function __construct(){
 		session_start();
-
 	}
 	public function index(){
-		$star_id = $_SESSION['star_id'];
-		$star = Star::where('star_id', $star_id)->first();
-      	$order = \App\Models\Order::where('star_id',$star_id)->get();
-      	$task_ids = array();
-      	foreach ($order as $key => $value) {
-      		array_push($task_ids, $value['task_id']);
-      	}
-
-      	$task = \App\Models\Task::whereIn('task_id',$task_ids)->get();
-      	$activity_ids = array();
-      	foreach ($task as $k => $v) {
-      		array_push($activity_ids, $v['activity_id']);
-      	}
-		if($star->superuser=='1') {
-			$activityList = Activity::whereNotIn('activity_id', $activity_ids)->orderBy('created_at', 'desc')->get();
-		}else{
-			$activityList = Activity::where('activity_status', 1)->whereNotIn('activity_id', $activity_ids)->orderBy('created_at', 'desc')->get();
-		}
-		return view('star.activityList',['list'=>$activityList]);
+			// 获取该用户已经抢单的活动
+			$star_id = $_SESSION['star_id'];
+			$star = Star::where('star_id', $star_id)->first();
+			$orders = \App\Models\Order::where('star_id',$star_id)->get();
+			$activity_ids = array();
+			foreach ($orders as $order) {
+				array_push($activity_ids, $order['activity_id']);
+			}
+		// 获取用户，判断是否为超级用户
+			if($star->superuser=='1') {
+				// 超级用户可以看到未审核通过（状态为0）的活动
+				$activityList = Activity::where('activity_status', 0)->orWhere('activity_status', 1)->whereNotIn('activity_id', $activity_ids)->orderBy('created_at', 'desc')->get();
+			}else{
+				$activityTemp = Activity::where('activity_status',1)->whereNotIn('activity_id', $activity_ids)->get();
+				$activityList = array();
+				foreach($activityTemp as $activity){
+					if($activity->task_num >$activity->confirm_num){
+						$activityList[]=$activity;
+					}
+				}
+			}
+			return view('star.activityList',['list'=>$activityList]);
 	}
 
 	public function detail($id){

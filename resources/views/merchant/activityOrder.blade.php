@@ -62,8 +62,6 @@
 				            </div>
 				            <div class="item-subtitle">&nbsp;</div>
 				           <div class="item-subtitle">
-				            	<a class="button pull-right button-fill button-danger" style="margin-left:1rem;width:4rem" href="#">已抢单1/2</a>
-				            	<a class="button pull-right" style="margin-left:1rem;width:4rem" href="#">再来一单</a>
 				            </div>
 				          </div>
 				        </div>
@@ -79,16 +77,6 @@
       @foreach ($list as $vo)
       <?php
       	if($vo['activity_status'] == 1){
-      		$task = App\Models\Task::where('activity_id',$vo['activity_id'])->first();
-      		if($task['status'] == 1){
-      			$taskString = '录入物流';
-      			$buttonString = '录入物流信息';
-      			$buttonColor = '#ec9108';
-      		}else if($task['status'] == 2){
-      			$taskString = '等待直播中';
-      			$buttonString = '查看物流';
-      			$buttonColor = '#5aca21';
-      		}
       ?>
       	<div class="content-block content-block-my content-no-margin">
          	<div class="content-block content-block-my">
@@ -98,7 +86,7 @@
 					        <div class="item-content">
 					            <div class="item-inner">
 					                <div class="item-title">{{$merchant['name']}}></div>
-					                <div id="f_address" class="item-after">{{$taskString}}</div>
+					                <div id="f_address" class="item-after"></div>
 					            </div>
 					        </div>
 					    </li>

@@ -103,7 +103,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
  * 红了吗后台管理系统入口
  */
 
-//Route::group(['domain' => 'cms.honglema.com'], function() {
+Route::group(['domain' => 'cms.honglema.com'], function() {
 
     //登录登出模块入口
     Route::get('/cms/logout', 'CMSController@logout');
@@ -257,7 +257,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     //操作日志入口
     Route::get('/cms/logList',"LogController@index");
 
-//});
+});
 
 
 /*
@@ -271,86 +271,86 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     //登入登出
     Route::get('/didi/login',"DidiController@loginIndex");
-
+    
     Route::post('/didi/login',"DidiController@login");
-
+    
     Route::get('/didi/logout',"DidiController@logout");
-
+    
     //首页
     Route::get('/didi',"DidiController@index");
-
+    
     Route::get('/didi/index',"DidiController@index");
-
+    
     //商家信息管理
     Route::get('/didi/MerchantCreate',"MerchantController@merchantCreate");
-
+    
     Route::post('/didi/MerchantCreate',"MerchantController@merchantStore");
-
+    
     Route::get('/didi/MerchantDelete/{id?}',"MerchantController@merchantDelete");
-
+    
     Route::get('/didi/MerchantModify/{id?}',"MerchantController@merchantModify");
-
+    
     Route::post('/didi/MerchantModify/{id?}',"MerchantController@merchantUpdate");
-
+    
     Route::get('/didi/MerchantList',"MerchantController@merchantList");
-
+    
     Route::get('/didi/MerchantCheckList',"MerchantController@merchantCheckList");
-
+    
     Route::get('/didi/MerchantCheck/{id?}',"MerchantController@merchantCheck");
     
     Route::get('/didi/MerchantInfo/{id?}',"MerchantController@merchantInfo");
-
+    
     //红人信息管理
     Route::get('/didi/StarCreate',"StarController@starCreate");
-
+    
     Route::post('/didi/StarStore',"StarController@starStore");
-
+    
     Route::get('/didi/StarDelete/{star_id?}',"StarController@starDelete");
-
+    
     Route::get('/didi/StarModify/{star_id}',"StarController@starModify");
-
+    
     Route::post('/didi/StarUpdate/{star_id}',"StarController@starUpdate");
-
+    
     Route::get('/didi/StarList',"StarController@starList");
-
+    
     Route::get('/didi/StarCheckList',"StarController@starCheckList");
-
+    
     Route::get('/didi/StarCheck/{star_id?}',"StarController@starCheck");
-
+    
     Route::get('/didi/StarInfo/{star_id?}',"StarController@starInfo");
-
+    
     //活动信息管理
     Route::get('/didi/ActivityCreate/{merchant_id?}',"ActivityController@activityCreate");
-
+    
     Route::post('/didi/ActivityCreate/{merchant_id?}',"ActivityController@activityStore");
-
+    
     Route::get('/didi/ActivityDelete/{activity_id?}',"ActivityController@activityDelete");
-
+    
     Route::get('/didi/ActivityModify/{activity_id?}',"ActivityController@activityModify");
-
+    
     Route::get('/didi/ActivityChooseStar/{activity_id?}/{star_id}',"ActivityController@activityChooseStar");
-
+    
     Route::get('/didi/ActivityOperate/{activity_id?}/{star_id}',"ActivityController@activityOperate");
-
+    
     Route::get('/didi/ActivityExpress/{task_id?}',"ActivityController@activityExpress");
-
+    
     Route::post('/didi/ActivityExpress/{task_id?}',"ActivityController@activityExpressStore");
-
+    
     Route::get('/didi/ActivityEvaluate/{task_id?}',"ActivityController@activityEvaluate");
-
+    
     Route::post('/didi/ActivityEvaluate/{activity_id?}',"ActivityController@activityEvaluation");
-
+    
     Route::get('/didi/ActivityList',"ActivityController@activityList");
-
+    
     Route::get('/didi/ActivityCheckList',"ActivityController@activityCheckList");
-
+    
     Route::get('/didi/ActivityCheck/{activity_id?}',"ActivityController@activityCheck");
-
+    
     Route::get('/didi/ActivityInfo/{activity_id?}',"ActivityController@activityInfo");
-
+    
     //商品信息管理
     Route::get('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityCreate");
-
+    
     Route::post('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityStore");
 //});
 
@@ -407,8 +407,8 @@ Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
 {
 
         //首页
-        Route::get('/', 'IndexController@index');
-        Route::get('/login','IndexController@login');
+        Route::get('/', 'IndexController@register');
+        Route::post('/upLoadFile','IndexController@upLoadFile');
 
 
         //用户信息管理
@@ -421,16 +421,16 @@ Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
         Route::get('/activityOrder/addActivity','ActivityController@addActivity');
         Route::get('/activityOrder/activityDetail/{id?}',"ActivityController@activityDetail");
         Route::post('/activityOrder/setOrder',"ActivityController@setOrder");
-        Route::get('/activityOrder/logistic/{activity_id?}',"ActivityController@logistic");
+        Route::get('/activityOrder/taskDetail/{task_id?}',"ActivityController@taskDetail");
         Route::post('/activityOrder/saveLogistic',"ActivityController@saveLogistic");
-        Route::get('/activityOrder/starDetail/{star_id?}',"ActivityController@starDetail");
+        Route::get('/activityOrder/starDetail/{star_id?}/{activity_id}',"ActivityController@starDetail");
         Route::get('/activityOrder/comment/{task_id?}',"ActivityController@comment");
         Route::resource('/activityOrder/saveComment',"ActivityController@saveComment");
         Route::post('/activityOrder/saveActivity',"ActivityController@saveActivity");
 
         //注册
-        Route::get('/register', 'IndexController@index');
-        Route::resource('/register/save', 'IndexController@register');
+        Route::get('/register', 'IndexController@register');
+        Route::resource('/register/save', 'IndexController@saveRegister');
         Route::resource('/register/uploadPicture', 'IndexController@uploadPic');
 
 });
