@@ -231,7 +231,9 @@
     });
 
 //upload task picture(上传后可显示)
- $('#taskimgupload').change(function(){
+ $('#taskimgupload').change(uploadTaskImg());
+//submit task result
+    function uploadTaskImg(){
         $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
             url:"/picture",//需要链接到服务器地址
@@ -246,6 +248,7 @@
                     <input type="hidden" id="taskimg" value="'+urls[i]+'"></li>';
                 }
                 $('#taskimgs').append($htmls);
+                $('#taskimgupload').on('change',uploadTaskImg());
                 $.hidePreloader();
                 $.toast("添加成功", 1000);
             },error:function(data, status, e){
@@ -253,9 +256,7 @@
                 $.toast("添加失败", 1000);
             }
         });
-    });
-//submit task result
-
+    }
 
 
  //star album upload
