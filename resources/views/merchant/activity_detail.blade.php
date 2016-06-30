@@ -258,10 +258,16 @@
             "order_status" : status
         },
         success: function(data) {
-            $.toast("合作成功!",1000);
-            setTimeout(function(){
+            var obj = $.parseJSON(data);
+            if(obj.error==0){
+                $.toast("合作成功!",1000);
+                    setTimeout(function(){
+                    location.reload();
+                },1000);
+            }else{
+                alert(obj.msg);
                 location.reload();
-            },1000);
+            }
         },
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

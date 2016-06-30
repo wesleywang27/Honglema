@@ -118,6 +118,9 @@ class ActivityController extends RootController{
         $activity_id = intval($_POST['activity_id']);
         $status = intval($_POST['order_status']);
         $order = Order::where('status',1)->where('star_id',$star_id)->where('activity_id',$activity_id)->first();
+        if(!$order){
+            echo json_encode(array('error'=>1,'msg'=>'该网红已取消订单'));die;
+        }
         $order['status'] = $status;
         
         if($status == 2){
@@ -133,6 +136,7 @@ class ActivityController extends RootController{
             $activity->save();
         }
         $order->save();
+        echo json_encode(array('error'=>0,'msg'=>'合作成功'));die;
     }
 
     //物流详情页
