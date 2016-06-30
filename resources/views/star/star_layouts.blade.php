@@ -555,9 +555,9 @@ $.submmitTaskResult=function(id){
         imgdata[i] = $(this).val();
         i++;
     });
-    var playback;
-    var views;
-    var duration;
+    var playback=$('#url').val();
+    var views=$('#number').val();
+    var duration=$('#dtime').val();
     $.confirm('确认提交任务结果?', function () {
         $.ajax({
             url: "/star/submitTaskResult",

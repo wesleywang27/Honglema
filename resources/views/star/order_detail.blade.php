@@ -63,7 +63,7 @@
                     </li>
                 </ul>
         </div>
-        <div class="list-block" style="margin-top:0px; margin-bottom: 5rem;">
+        <div class="list-block" style="margin:0px  ">
                 <ul>
                     @foreach ($commodities as $commodity)
                         <li>
@@ -78,6 +78,25 @@
                     @endforeach
                 </ul>
         </div>
+            <div class="list-block"  style="margin-top: 0px;margin-bottom: 5rem" >
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="font-size:80%;">物流信息</div>
+                            </div>
+                            <div class="item-after">
+                                <div class="item-title" style="font-size:80%;">
+                                @if($data['order']->status==2&&$data['task']->status==2)
+                                      {{$data['task']->express_company}}
+                                      {{$data['task']->express_num}}
+                                @endif
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
 
           <div class="list-block" style="background-color:#cccccc;position:fixed; width:100%; bottom:2.5rem; margin-bottom:0; overflow:visible;">
               <div class="item-content">
@@ -86,19 +105,17 @@
                             <div class="item-title" style="font-size:80%;">正在审核抢单 </div>
                             <div  class="item-after">
                                 <a href="#" onclick="$.cancelOrder({{$data['order']->order_id}})" class="button button-dark" style="border:0; background-color:#ee5555; color:white;">取消申请</a></div>
-                        @endif
-                        @if($data['order']->status==2&&$data['task']->status<3)
-                            <div class="item-title" style="font-size:80%;">审核通过，任务进行中 </div>
+                        @elseif($data['order']->status==2&&$data['task']->status==1)
+                                <div class="item-title" style="font-size:80%;">等待商家发货 </div>
+                        @elseif($data['order']->status==2&&$data['task']->status==2)
+                            <div class="item-title" style="font-size:80%;">商家已发货，任务进行中 </div>
                             <div  class="item-after">
-  <a href="task_result?order_id={{$data['order']->order_id}}" class="button button-dark" style="border:0; background-color:#ee5555; color:white;">提交结果{{$data['order']->order_id}}</a></div>
-                        @endif
-                        @if($data['order']->status==2&&$data['task']->status==3)
+  <a href="task_result?order_id={{$data['order']->order_id}}" class="button button-dark" style="border:0; background-color:#ee5555; color:white;">提交结果</a></div>
+                        @elseif($data['order']->status==2&&$data['task']->status==3)
                             <div class="item-title" style="font-size:80%;">任务已完成，等待商家评论 </div>
-                        @endif
-                        @if($data['order']->status==2&&$data['task']->status==4)
-                            <div class="item-title" style="font-size:80%;">商家已完成评价，任务结束 </div>
-                        @endif
-                        @if($data['order']->status==0)
+                        @elseif($data['order']->status==2&&$data['task']->status==4)
+                            <div class="item-title" style="font-size:80%;">商家已完成评价，任务结束  </div>
+                        @elseif($data['order']->status==0)
                             <div class="item-title" style="font-size:80%;">抢单已取消，任务结束 </div>
                         @endif
           </div> </div> </div>

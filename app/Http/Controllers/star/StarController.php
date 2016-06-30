@@ -106,7 +106,6 @@ class StarController extends RootController
         $starPictures = $request->input('imgdata');
         if(count($starPictures)>0){
             foreach($starPictures as $url) {
-
                 $starPicture = new StarPicture();
                 $starPicture->url = $url;
                 $starPicture->file_id = pathinfo($url)['filename'];
@@ -133,13 +132,11 @@ class StarController extends RootController
             $commodities[] = Commodity::where('commodity_id', $relation->commodity_id)->first();
         }
 
-
         if ($order->status == 2) {
             $task = Task::where('task_id', $order->task_id)->first();
             $data = array('order' => $order,
                 'task' => $task,
                 'order_status' => $order->status,
-                'task_status' => $task->status,
                 'activity' => $activity,
                 'merchant' => $merchant,
             );
@@ -176,15 +173,17 @@ class StarController extends RootController
         $order_id = $request->input('order_id');
         $order = Order::where('order_id', $order_id)->first();
         $task = Task::where('task_id', $order->task_id)->first();
+        if($task->status==2){
         $task_id = $task->task_id;
         $task->status = 3;
-        $task->save();
-        // 活动状态修改为3（红人已提交）
-        $activity = Activity::where('activity_id', $task->activity_id)->first();
-        $activity->activity_status = 3;
-        $activity->save();
         $taskPictures = $request->input('imgdata');
-
+        $playback = $request->input('playback');
+        $views = $request->input('views');
+        $duration = $request->input('duration');
+            $task->playback_url=$playback;
+            $task->views=$views;
+            $task->duration=$duration;
+            $task->save();
         if (count($taskPictures) > 0) {
             foreach ($taskPictures as $url) {
                 $taskPicture = new TaskPicture();
@@ -193,7 +192,7 @@ class StarController extends RootController
                 $taskPicture->file_id = pathinfo($url)['filename'];
                 $taskPicture->save();
             }
-        }
+        }}
     }
 
 }
