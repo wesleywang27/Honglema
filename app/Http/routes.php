@@ -103,7 +103,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
  * 红了吗后台管理系统入口
  */
 
-//Route::group(['domain' => 'cms.honglema.com'], function() {
+Route::group(['domain' => 'cms.honglema.com'], function() {
 
     //登录登出模块入口
     Route::get('/cms/logout', 'CMSController@logout');
@@ -257,7 +257,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     //操作日志入口
     Route::get('/cms/logList',"LogController@index");
 
-//});
+});
 
 
 /*
@@ -266,7 +266,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
  * 
  */
 
-//Route::group(['domain' => 'cms.honglema.com'], function() {
+Route::group(['domain' => 'cms.honglema.com'], function() {
     //Route::get('/didi/createUser',"DidiController@createUser");
 
     //登入登出
@@ -328,15 +328,11 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     Route::get('/didi/ActivityModify/{activity_id?}',"ActivityController@activityModify");
 
+    Route::get('/didi/ActivityChooseOrder/{activity_id?}',"ActivityController@activityChooseOrder");
+
     Route::get('/didi/ActivityChooseStar/{activity_id?}/{star_id}',"ActivityController@activityChooseStar");
 
-    Route::get('/didi/ActivityOperate/{activity_id?}/{star_id}',"ActivityController@activityOperate");
-
-    Route::get('/didi/ActivityExpress/{task_id?}',"ActivityController@activityExpress");
-
-    Route::post('/didi/ActivityExpress/{task_id?}',"ActivityController@activityExpressStore");
-
-    Route::get('/didi/ActivityEvaluate/{task_id?}',"ActivityController@activityEvaluate");
+    Route::get('/didi/ActivityEvaluate/{activity_id?}',"ActivityController@activityEvaluate");
 
     Route::post('/didi/ActivityEvaluate/{activity_id?}',"ActivityController@activityEvaluation");
 
@@ -352,7 +348,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityCreate");
 
     Route::post('/didi/CommodityCreate/{activity_id?}',"CommodityController@commodityStore");
-//});
+});
 
 //网红入口
 
@@ -403,12 +399,12 @@ Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 
 **
 */
 // ,'middleware' => ['web', 'wechat.oauth']
-Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
+Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant','middleware' => ['web', 'wechat.oauth']], function()
 {
 
         //首页
-        Route::get('/', 'IndexController@index');
-        Route::get('/login','IndexController@login');
+        Route::get('/', 'IndexController@register');
+        Route::post('/upLoadFile','IndexController@upLoadFile');
 
 
         //用户信息管理
@@ -421,16 +417,16 @@ Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant'], function()
         Route::get('/activityOrder/addActivity','ActivityController@addActivity');
         Route::get('/activityOrder/activityDetail/{id?}',"ActivityController@activityDetail");
         Route::post('/activityOrder/setOrder',"ActivityController@setOrder");
-        Route::get('/activityOrder/logistic/{activity_id?}',"ActivityController@logistic");
+        Route::get('/activityOrder/taskDetail/{task_id?}',"ActivityController@taskDetail");
         Route::post('/activityOrder/saveLogistic',"ActivityController@saveLogistic");
-        Route::get('/activityOrder/starDetail/{star_id?}',"ActivityController@starDetail");
+        Route::get('/activityOrder/starDetail/{star_id?}/{activity_id}',"ActivityController@starDetail");
         Route::get('/activityOrder/comment/{task_id?}',"ActivityController@comment");
         Route::resource('/activityOrder/saveComment',"ActivityController@saveComment");
         Route::post('/activityOrder/saveActivity',"ActivityController@saveActivity");
 
         //注册
-        Route::get('/register', 'IndexController@index');
-        Route::resource('/register/save', 'IndexController@register');
+        Route::get('/register', 'IndexController@register');
+        Route::resource('/register/save', 'IndexController@saveRegister');
         Route::resource('/register/uploadPicture', 'IndexController@uploadPic');
 
 });
