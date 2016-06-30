@@ -136,22 +136,14 @@
 <script type="text/javascript" src="{{URL::asset('js/ajaxfileupload.js')}}" charset="utf-8"></script>
 <script>
     $j=jQuery.noConflict();
-    //上传身份证
-    $('#fileupload').change(function(){
-        $('#idfile').append('<li class="weui_uploader_file images" style="background-image:url(http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png)">\
-                <input type="hidden" id="id_image" name="id_image" value="http://oss-cn-hangzhou.aliyuncs.com/hzfx10000/1458541178099imgFiles.png">\
-                </li>');
-        $(this).parent('div').hide();
-        $.toast("添加成功",1000);
-    });
 
     //上传身份证
-    $('#idimg1').change(function(){
+    $('#idimg').change(function(){
         $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
             url:"/picture",//需要链接到服务器地址
             secureuri:false,
-            fileElementId:"idimg1",//文件选择框的id属性
+            fileElementId:"idimg",//文件选择框的id属性
             dataType: 'json',   //json
             success: function (data, status) {
                 var urls = data.urls;
@@ -161,6 +153,7 @@
                     <input type="hidden" id="idimgurl1" value="'+urls[i]+'"></li>';
                 }
                 $('#idfile').append($htmls);
+                $('#idimgdiv').append($htmls);
                 $.hidePreloader();
                 $.toast("添加成功", 1000);
             },error:function(data, status, e){
@@ -170,82 +163,7 @@
         });
     });
 
-    $('#idimg2').change(function(){
-        $.showPreloader('正在上传...');
-        $j.ajaxFileUpload({
-            url:"/picture",//需要链接到服务器地址
-            secureuri:false,
-            fileElementId:"idimg2",//文件选择框的id属性
-            dataType: 'json',   //json
-            success: function (data, status) {
-                var urls = data.urls;
-                var $htmls = '';
-                for(var i=0; i<urls.length; i++){
-                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
-                    <input type="hidden" id="idimgurl2" value="'+urls[i]+'"></li>';
-                }
-                $('#idfile').append($htmls);
-                $.hidePreloader();
-                $.toast("添加成功", 1000);
-            },error:function(data, status, e){
-                $.hidePreloader();
-                $.toast("添加失败", 1000);
-            }
-        });
-    });
-
-
-    //上传多图
-    $('#idimg1').change(function(){
-        $.showPreloader('正在上传...');
-        $j.ajaxFileUpload({
-            url:"/picture",//需要链接到服务器地址
-            secureuri:false,
-            fileElementId:"idimg1",//文件选择框的id属性
-            dataType: 'json',   //json
-            success: function (data, status) {
-                var urls = data.urls;
-                var $htmls = '';
-                for(var i=0; i<urls.length; i++){
-                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
-                    <input type="hidden" id="idimgurl1" value="'+urls[i]+'"></li>';
-                }
-                $('#idfile').append($htmls);
-                $.hidePreloader();
-                $.toast("添加成功", 1000);
-            },error:function(data, status, e){
-                $.hidePreloader();
-                $.toast("添加失败", 1000);
-            }
-        });
-    });
-
-    $('#idimg2').change(function(){
-        $.showPreloader('正在上传...');
-        $j.ajaxFileUpload({
-            url:"/picture",//需要链接到服务器地址
-            secureuri:false,
-            fileElementId:"idimg2",//文件选择框的id属性
-            dataType: 'json',   //json
-            success: function (data, status) {
-                var urls = data.urls;
-                var $htmls = '';
-                for(var i=0; i<urls.length; i++){
-                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
-                    <input type="hidden" id="idimgurl2" value="'+urls[i]+'"></li>';
-                }
-                $('#idfile').append($htmls);
-                $.hidePreloader();
-                $.toast("添加成功", 1000);
-            },error:function(data, status, e){
-                $.hidePreloader();
-                $.toast("添加失败", 1000);
-            }
-        });
-    });
-
-
-    //上传多图
+    //上传多图(注册相册)
     $('#imgupload').change(function(){
         $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
@@ -270,7 +188,7 @@
         });
     });
 
-    //上传网红照片
+    //上传网红照片()
     $('#uploadalbum').change(function(){
         $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
@@ -280,24 +198,29 @@
             dataType: 'json',   //json
             success: function (data, status) {
                 var urls = data.urls;
+                var htmls = '';
+                var imgdata = new Array();
                 for(var i=0; i<urls.length; i++){
-                    $.ajax({
-                        url: "/star/uploadimg",
-                        type: "POST",
-                        traditional: true,
-                        dataType: "JSON",
-                        data: {url:urls[i]}
-                        ,success: function(data) {
-                            $.toast("提交成功!",1000);
-                        },headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
-                    $htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
-                    <input type="hidden" id="task"+i value="'+urls[i]+'"></li>';
+                   /* htmls += '<li class="weui_uploader_file images" style="width:80px;height:80px;background-image:url('+urls[i]+')">\
+                    <input type="hidden" id="task"+i value="'+urls[i]+'"></li>';*/
 
+                    imgdata[i] = urls[i];
                 }
-                $('#album').append($htmls);
+                $.ajax({
+                    url: "/star/uploadimg",
+                    type: "POST",
+                    traditional: true,
+                    dataType: "JSON",
+                    data: {'imgdata[]':imgdata}
+                    ,success: function(data) {
+                     //   $('#album').append(htmls);
+                        location.reload();
+
+                        $.toast("提交成功!",1000);
+                    },headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
                 $.hidePreloader();
                 $.toast("添加成功", 1000);
             },error:function(data, status, e){
@@ -307,7 +230,7 @@
         });
     });
 
-//upload task picture
+//upload task picture(上传后可显示)
  $('#taskimgupload').change(function(){
         $.showPreloader('正在上传...');
         $j.ajaxFileUpload({
@@ -635,53 +558,55 @@ $.submmitTaskResult=function(id){
     var playback;
     var views;
     var duration;
-    $.ajax({
-        url: "/star/submitTaskResult",
-        type: "POST",
-        traditional: true,
-        dataType: "JSON",
-        data: {  order_id:id,
-            'playback':playback,
-            'views':views,
-            'duration':duration,
-            'imgdata[]':imgdata,}
-        ,success: function(data) {
-            $.toast("提交成功!",1000);
-        },headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+    $.confirm('确认提交任务结果?', function () {
+        $.ajax({
+            url: "/star/submitTaskResult",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data: {  order_id:id,
+                'playback':playback,
+                'views':views,
+                'duration':duration,
+                'imgdata[]':imgdata,}
+            ,success: function(data) {
+                $.toast("提交成功!",1000);
+                location.href="/star/order";
+            },headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     });
-
 }
 
 //网红取消抢单
 $.cancelOrder=function(id){
-    $.ajax({
-        url: "/star/cancelOrder",
-        type: "POST",
-        traditional: true,
-        dataType: "JSON",
-        data: {order_id:id}
-        ,success: function(data) {
-            $.toast("取消成功!",1000);
-            setTimeout(function(){
-                location.href="/star/order";
-            },1000);
-        },headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+    $.confirm('确认取消任务?', function () {
+        $.ajax({
+            url: "/star/cancelOrder",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data: {order_id:id}
+            ,success: function(data) {
+                $.toast("取消成功!",1000);
+                setTimeout(function(){
+                    location.href="/star/order";
+                },1000);
+            },headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     });
 }
 
 
 </script>
 <script>
-    //网红修改头像
-
+    //网红修改头像,已经实现提交后,个人信息首页,副页,头像编辑页都实时变更
     function changeHeadImg(){
         $('#headimgInput').click();
     }
-
     $.saveHeadImg = function(){
         $.ajax({
                     url: "/star/update",
@@ -697,7 +622,6 @@ $.cancelOrder=function(id){
                 }
         );
     }
-
     $('#headimgInput').change(function(){
          $.showPreloader('正在上传...');
         $j.ajaxFileUpload({

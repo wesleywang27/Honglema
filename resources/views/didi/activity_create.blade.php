@@ -34,13 +34,14 @@
     <div class="container">
         <label style="float: left">活动图片：</label>
         <label id="up" class="uploadImg" style="margin-top:10px; margin-left:10px;">
-            <span>上传图片</span>
+  <span>上传图片</span>
             <input type="file" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="" />
         </label>
         <ul class="gallery" id="files" style="display: inline;padding-left: 0;">
         </ul>
         <div class="clear"></div>
     </div>
+    <div style="margin-top: 5px;"><label>（请选择两张图片上传：第一张正方形，用于列表页;第二张长方形，用于详情页。）</label></div>
     <div style="margin-top: 20px;">
         <input name="commit" type="submit" value="确认" class="link_btn" style="margin-left: 14%"/>
         <a href="/didi/MerchantList"  class="link_btn" style="margin-left: 5%">取消</a>

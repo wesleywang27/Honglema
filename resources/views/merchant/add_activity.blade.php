@@ -10,9 +10,11 @@
     <link rel="stylesheet" href="{{URL::asset('/css/weui.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/sm-extend.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/merchant/myStyle.css')}}">
+    <script type="text/javascript" src="{{URL::asset('js/jquery-1.8.3.min.js')}}" charset="utf-8"></script>
     <script type='text/javascript' src="{{URL::asset('js/zepto.min.js')}}" charset='utf-8'></script>
     <script type='text/javascript' src="{{URL::asset('js/sm.min.js')}}" charset='utf-8'></script>
     <script type='text/javascript' src="{{URL::asset('js/sm-extend.min.js')}}" charset='utf-8'></script>
+	  <script type="text/javascript" src="{{URL::asset('js/ajaxfileupload.js')}}" charset="utf-8"></script>
     <style>
     
 
@@ -111,10 +113,25 @@
             <li>
                 <div class="item-content" style="height:5rem">
                     <div class="item-inner" style="min-height:5rem">
-                        <div class="item-title">活动图片</div>
+                        <div class="item-title">活动图片1(在活动列表页展示)</div>
                         <div class="item-after" style="max-height:none">
-                            <img id="f_avatar" src="" style="width: 3rem;height: 3rem;border-radius: 5px;margin-bottom:1rem;margin-top:1rem">
-                            <input class="weui_uploader_input" id="headimgupload" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                            <img id="headimgupload_pic" src="" style="width: 3rem;height: 3rem;border-radius: 5px;margin-bottom:1rem;margin-top:1rem">
+                            <input id="headimgupload_input" name="picture" type="hidden">
+                            <input class="weui_uploader_input" id="headimgupload" name="img" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content" style="height:5rem">
+                    <div class="item-inner" style="min-height:5rem">
+                        <div class="item-title">活动图片2(在活动详情页展示)</div>
+                        <div class="item-after" style="max-height:none">
+                            <img id="bannerimgupload_pic" src="" style="width: 3rem;height: 3rem;border-radius: 5px;margin-bottom:1rem;margin-top:1rem">
+                            <input id="bannerimgupload_input" type="hidden" name="banner_picture">
+                            <input class="weui_uploader_input" id="bannerimgupload" name="img" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                         </div>
                     </div>
                 </div>
@@ -156,6 +173,18 @@
                               	<option value="七天内">七天内</option>
                               	<option value="十天内">十天内</option>
                         	</select>
+			            </div>
+			        </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content">
+                    <div class="item-inner">
+                     	<div class="item-title label">活动场次</div>
+			            <div class="item-input">
+			              <input type="number" placeholder="请输入活动场次" name="task_num">
 			            </div>
 			        </div>
                 </div>
@@ -246,6 +275,13 @@
 		$(this).before(commodityModel);
 	});
 
+ 	  $('#headimgupload').change(function(){
+        upLoadPic('headimgupload');
+    });
+    $('#bannerimgupload').change(function(){
+        upLoadPic('bannerimgupload');
+    });
+
   });
   
   function changeData(obj,level_id,price){
@@ -259,10 +295,16 @@
 
   //提交表单
   function submitForm(){
-  	$.toast("添加成功!",1000);
-    setTimeout(function(){
-       $('#activityForm').submit();
-    },1000);
+  	if($("input[name='task_num']").val()==''){
+  		alert('请输入活动场次');
+  	}else if($("input[name='title']").val()==''){
+  		alert('请输入活动标题');
+  	}else{
+  		// $.toast("添加成功!",1000);
+	   //  setTimeout(function(){
+	    $('#activityForm').submit();
+	    // },1000);
+  	}
   } 
 
   function saveComment(){
@@ -284,6 +326,27 @@
         }
     });
   }
+
+  function upLoadPic(id){   
+        $.ajaxFileUpload({
+            url: '/Merchant/upLoadFile', //用于文件上传的服务器端请求地址
+            type: 'post',
+            secureuri: false, //一般设置为false
+            fileElementId: id, //文件上传空间的id属性  <input type="file" id="file" name="file" />
+            dataType: 'content', //返回值类型 一般设置为json
+            success: function (data, status)  //服务器成功响应处理函数
+            {
+               $('#'+ id + '_pic').attr('src',data);
+               $('#'+ id + '_input').val(data);
+               // alert(data);
+            }
+            error: function (data, status, e)//服务器响应失败处理函数
+            {
+                alert('上传失败');
+            }
+        });//这是ajax1结束Tags
+                 return false;
+    }
   
   </script>
 </body>

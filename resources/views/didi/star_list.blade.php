@@ -9,10 +9,10 @@
     <tr>
         <th>网红ID</th>
         <th>网红昵称</th>
+        <th>真实姓名</th>
         <th>性别</th>
         <th>地区</th>
         <th>年龄</th>
-        <th>职业</th>
         <th>微信账号</th>
         <th>手机号码</th>
         <th>操作</th>
@@ -21,6 +21,7 @@
     <tr>
         <td style="width:80px;text-align:center">{{ $star->star_id }}</td>
         <td style="width:180px;text-align:center">{{ $star->name }}</td>
+        <td style="width:180px;text-align:center">{{ $star->real_name }}</td>
         <td style="width:100px;text-align:center">
             @if($star->sex == 0)
             未知
@@ -32,7 +33,6 @@
         </td>
         <td style="width:180px;text-align:center">{{ $star->location }}</td>
         <td style="width:100px;text-align:center">{{ $star->age }}</td>
-        <td style="width:180px;text-align:center">{{ $star->occupation }}</td>
         <td style="width:180px;text-align:center">{{ $star->wechat }}</td>
         <td style="width:180px;text-align:center">{{ $star->cellphone }}</td>
         <td style="width:180px;text-align:center">

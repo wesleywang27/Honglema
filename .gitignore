@@ -6,3 +6,4 @@ Homestead.json
 .env
 honglema.iml
 .idea/*
+/public/uploadPic

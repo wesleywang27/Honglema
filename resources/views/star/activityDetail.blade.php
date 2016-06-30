@@ -32,12 +32,12 @@
             </li>
         </ul>
         <ul>
-        
             <li>
                 <div class="item-content">
                     <div class="item-inner">
                         <div class="item-title" style="font-size:90%;">{{ $detail['title']}}</div>
-                        <div id="f_merchant_name" class="item-after" style="font-size:80%;">¥&nbsp;{{$detail['total_price']}}</div>
+                        <div id="f_merchant_name" class="item-after" style="font-size:80%;">¥&nbsp;
+                            <?php echo App\Models\PriceLevel::where('pl_id', $detail['price_level'])->first()['price_star']; ?></div>
                     </div>
                 </div>
             </li>
@@ -60,7 +60,6 @@
                 </div>
             </li>
         </ul>
-  
     </div>
     <div class="content-block content-block-my content-no-margin">
         <div class="content-block content-block-my">
@@ -80,7 +79,6 @@
           @foreach ($commodity_ids as $cid)
           <?php 
              $commodity = App\Models\Commodity::where('commodity_id',$cid['commodity_id'])->first();
-             
           ?>
               <li>
                 <a href="<?php echo (strpos($commodity['url'],'http') === 0) ? $commodity['url'] : 'http://'.$commodity['url']; ?>" style="">
@@ -99,34 +97,26 @@
     <?php
       $task_id = App\Models\Task::where('activity_id',$detail['activity_id'])->first()['task_id'];
     ?>
-
-    <?php 
-      //$star_id = 1;
-    // session_start();
-      //$star_id = $_SESSION['star_id'];
-    
+    <?php
       $star_id = $_SESSION['star_id'];
       $star = App\Models\Star::where('star_id',$star_id)->first();
-      $order = App\Models\Order::where('star_id',$star_id)->where('task_id',$task_id)->first();
+      $order = App\Models\Order::where('star_id',$star_id)->where('activity_id',$detail['activity_id'])->first();
       if($order){
     ?>
     <p><a href="#" class="button button-fill"
       style="background-color:gray;border-radius:0;z-index:999;
       position:fixed; bottom:0; left:0; width:100%; height:1.7rem; line-height:1.7rem;
-      font-size:110%; text-align:center; _position:absolute;
- _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;">已抢单</a></p>
+      font-size:110%; text-align:center; _position:absolute;overflow:visible;">已抢单</a></p>
     <?php
       }else{
     ?> 
       <p><a href="#" class="button button-fill button-warning"
       style="border-radius:0;z-index:999; position:fixed; bottom:0;
       left:0; width:100%; height:1.7rem; line-height:1.7rem; font-size:110%;
-      text-align:center; background-color:#ee5555; _position:absolute;
- _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;" onclick="setOrder({{$task_id}})">抢单</a></p>
+      text-align:center; background-color:#ee5555; _position:absolute; overflow:visible;" onclick="setOrder({{$detail['activity_id']}})">抢单</a></p>
     <?php
       }
     ?>
-
   </div>
   <script>
   function setOrder(id){
@@ -136,12 +126,15 @@
         traditional: true,
         dataType: "JSON",
         data: {
-            "task_id"   : id
+            "activity_id"   : id
         },
         success: function(data) {
             if(data=="NotAuth"){
                 $.toast("账号暂未获得授权，请等待管理员审核",1000);
-            }else{
+            }else if(data=="NotFill"){
+                $.toast("用户地址不完整，请补全后再进行操作",1000);
+            }
+            else{
             $.toast("抢单成功，请等待回复!",1000);
             setTimeout(function(){
                 location.href="/star/activityList";
