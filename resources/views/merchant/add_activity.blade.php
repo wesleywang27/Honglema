@@ -48,7 +48,7 @@
   </header>
   <form id="activityForm" method="post" action="/Merchant/activityOrder/saveActivity">
    <?php echo csrf_field(); ?>
-  <div class="content" style="margin-bottom: 30px;">
+  <div class="content" style="bottom: 2.2rem;">
     <div class="list-block content-no-margin">
     	<ul>
             <li>
@@ -209,27 +209,28 @@
         </ul>
     </div>
 
-    <div class="list-block content-no-margin" style="z-index:999;
+    
+</div>
+<div class="list-block content-no-margin" style="z-index:999;
       position:fixed; bottom:0; left:0; width:100%; 
       text-align:center; _position:absolute;
  _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;margin-top:999px;">
-    	<ul>
+      <ul>
             <li>
                 <div class="item-content">
                     <div class="item-inner" style="padding-right: 0;">
-			            <div id="price" class="item-title label" style="text-align: -webkit-center;">¥&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-			            <input type="hidden" name="total_price">
-			            <div class="item-input">
-			            </div>
-			            <div class="item-input">
+                  <div id="price" class="item-title label" style="text-align: -webkit-center;">¥&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                  <input type="hidden" name="total_price">
+                  <div class="item-input">
+                  </div>
+                  <div class="item-input">
                               <button type="button" class="button button-warning button-fill" style="width:9rem;height:2.5rem;border-radius:0;background-color:#9ccc65" onclick="submitForm()">确认发布</button>
                         </div>
-			        </div>
+              </div>
                 </div>
             </li>
         </ul>
     </div>
-</div>
 </form>
 
 
@@ -303,7 +304,9 @@
     		alert('请输入活动标题');
     	}else if($("input[name='title']").val()==''){
     		alert('请输入活动场次');
-    	}else{
+    	}else if($("#price").html()==''){
+        alert('请选择活动形式');
+      }else{
     		// $.toast("添加成功!",1000);
   	   //  setTimeout(function(){
   	    $('#activityForm').submit();

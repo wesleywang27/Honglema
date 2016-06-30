@@ -173,6 +173,45 @@
         </ul>
         <ul>
             <li>
+                <div class="item-content">
+                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                    <div class="item-inner">
+                        <div class="item-title label">直播回看网址</div>
+                        <div class="item-input">
+                            <input readonly style="width: 85%;display:inline;" type="text" value="<?php echo $task['playback_url'] ? $task['playback_url'] : '暂无'; ?>">
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content">
+                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                    <div class="item-inner">
+                        <div class="item-title label">直播观看人数</div>
+                        <div class="item-input">
+                            <input readonly style="width: 85%;display:inline;" type="text" value="<?php echo $task['views'] ? $task['views'] : '暂无'; ?>">
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="item-content">
+                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                    <div class="item-inner">
+                        <div class="item-title label">直播时长</div>
+                        <div class="item-input">
+                            <input readonly style="width: 85%;display:inline;" type="text" value="<?php echo $task['duration'] ? $task['duration'] : '暂无'; ?>">
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
                 <div class="item-content" style="height:6rem">
                     <div class="item-inner">
                         <textarea style="background:#EEEEEE" <?php if($task['status']!=3){ ?> placeholder="您现在还不能发表评论 !" disabled="disabled"<?php }else{ ?>placeholder="请留下您的评价 !"<?php } ?>id="comment">{{$task['evaluation']}}</textarea>

@@ -20,11 +20,11 @@
 ?>
 <header class="bar bar-nav">
   <h1 class='title'>红了吗商家端</h1>
-  <button class="button pull-right"  <?php if($merchant['status']==1){ ?> onclick="javascript:alert('您的信息仍在审核中，不能创建活动');" <?php }else{ ?>onclick="window.location.href='/Merchant/activityOrder/addActivity'" <?php } ?>>
+  <button class="button pull-right"  <?php if($merchant['status']!=1){ ?> onclick="javascript:alert('您的信息仍在审核中，不能创建活动');" <?php }else{ ?>onclick="window.location.href='/Merchant/activityOrder/addActivity'" <?php } ?>>
     新建
   </button>
 </header>
-<div class="content">
+<div class="content" style="bottom:2.5rem">
   <div class="buttons-tab">
     <a href="#tab1" class="tab-link active button">未审核</a>
     <a href="#tab2" class="tab-link button">进行中</a>
@@ -162,7 +162,9 @@
       </div>
     </div>
   </div>
-  <nav class="bar bar-tab">
+  
+</div>
+<nav class="bar bar-tab">
         <a class="tab-item external" href="#">
             <span class="icon icon-home"></span>
             <span class="tab-label">热门活动</span>
@@ -176,6 +178,5 @@
             <span class="tab-label">我的</span>
         </a>
     </nav>
-</div>
 </body>
 </html>
