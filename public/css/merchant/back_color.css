@@ -1,0 +1,11 @@
+
+/*nav 背景颜色*/
+.backgroundNav{background-color: #f6f6f6;}
+
+/*nav中icon选中颜色*/
+.bar-tab .tab-item{color:#a0a0aa;}
+.bar-tab .tab-item.active, .bar-tab .tab-item:active{color:#DD2625}
+
+
+/*顶部section切换颜色*/
+.buttons-tab .button.active{color:#000;border-color: #EB6167}

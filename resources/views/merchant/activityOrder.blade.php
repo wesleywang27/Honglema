@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{{URL::asset('/css/weui.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/sm-extend.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/merchant/myStyle.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('css/merchant/back_color.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('css/merchant/font_size.css')}}">
     <script type='text/javascript' src="{{URL::asset('js/zepto.min.js')}}" charset='utf-8'></script>
 	<script type='text/javascript' src="{{URL::asset('js/sm.min.js')}}" charset='utf-8'></script>
 	<script type='text/javascript' src="{{URL::asset('js/sm-extend.min.js')}}" charset='utf-8'></script>
@@ -19,13 +21,13 @@
 	$merchant = App\Models\Merchant::where('merchant_id',$_SESSION['merchant_id'])->first();
 ?>
 <header class="bar bar-nav">
-  <h1 class='title'>红了吗商家端</h1>
+  <h1 class='title backgroundNav'>红了吗商家端</h1>
   <button class="button pull-right"  <?php if($merchant['status']!=1){ ?> onclick="javascript:alert('您的信息仍在审核中，不能创建活动');" <?php }else{ ?>onclick="window.location.href='/Merchant/activityOrder/addActivity'" <?php } ?>>
     新建
   </button>
 </header>
 <div class="content" style="bottom:2.5rem">
-  <div class="buttons-tab">
+  <div class="buttons-tab backgroundNav">
     <a href="#tab1" class="tab-link active button">未审核</a>
     <a href="#tab2" class="tab-link button">进行中</a>
     <a href="#tab3" class="tab-link button">已结束</a>
@@ -164,7 +166,7 @@
   </div>
   
 </div>
-<nav class="bar bar-tab">
+<nav class="bar bar-tab backgroundNav">
         <a class="tab-item external" href="#">
             <span class="icon icon-home"></span>
             <span class="tab-label">热门活动</span>

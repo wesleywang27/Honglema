@@ -181,13 +181,9 @@
                     </h3>
                     <div style="padding-top:10px;padding-bottom: 15px;">
                         <ul>
-                            <li style="font-size: 12px;">总粉丝:test</li>
+                            <li style="font-size: 12px;">总粉丝:</li>
                         </ul>
                         <ul style="margin-top: 5px;padding-left: 15px;">
-                            
-                            <li style="border: 1px solid gray;border-radius: 8px;padding-left:5px;padding-bottom:5px;padding-right:3px;margin-left:5px;">
-                                <a style="color:gray;font-size: 10px;">test</a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -200,7 +196,7 @@
                     <div class="info">
                         <table>
                             <tr>
-                                <td>三围：&nbsp;12/12/12</td>
+                                <td>三围：&nbsp;暂无数据</td>
                                 <td>身高：&nbsp;{{$star['height']}}</td>
                             </tr>
                             <tr>

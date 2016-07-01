@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{URL::asset('css/sm.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('/css/weui.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/sm-extend.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('css/merchant/back_color.css')}}">
     <script type='text/javascript' src="{{URL::asset('js/zepto.min.js')}}" charset='utf-8'></script>
     <script type='text/javascript' src="{{URL::asset('js/sm.min.js')}}" charset='utf-8'></script>
     <script type='text/javascript' src="{{URL::asset('js/sm-extend.min.js')}}" charset='utf-8'></script>

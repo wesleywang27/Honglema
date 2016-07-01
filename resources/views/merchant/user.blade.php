@@ -50,7 +50,7 @@
         </div>
        
     </div>
-    <nav class="bar bar-tab">
+    <nav class="bar bar-tab backgroundNav">
         <a class="tab-item external" href="#">
             <span class="icon icon-home"></span>
             <span class="tab-label">热门活动</span>
