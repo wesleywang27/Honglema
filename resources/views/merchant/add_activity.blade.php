@@ -57,7 +57,7 @@
                     <div class="item-inner">
                       <div class="item-title label">活动标题</div>
                   <div class="item-input">
-                    <input type="text" placeholder="请输入活动标题" name="title">
+                    <input type="text" placeholder="请输入活动标题" id="title" name="title">
                   </div>
               </div>
                 </div>
@@ -86,7 +86,7 @@
                                 <option value="三天内">三天内</option>
                                 <option value="七天内">七天内</option>
                                 <option value="十天内">十天内</option>
-                          </select>
+                      </select>
                   </div>
               </div>
                 </div>
@@ -98,7 +98,15 @@
                     <div class="item-inner">
                       <div class="item-title label">活动场次</div>
                   <div class="item-input">
-                    <input type="number" placeholder="请输入活动场次" name="task_num">
+                      <select id="task_num" name="task_num" id="company">
+                          <option value="0">请选择...</option>
+                          <?php for ($i=1; $i <= 10; $i++) { 
+                            # code...
+                          ?>
+                                <option value="{{$i}}">{{$i}}场</option>
+                          <?php } ?>
+                      </select>
+                    <!-- <input type="number" placeholder="请输入活动场次" name="task_num"> -->
                   </div>
               </div>
                 </div>
@@ -111,10 +119,10 @@
                       <input type="hidden" name="price_level">
                       <div class="item-title label">活动形式</div>
                       @foreach ($priceLevel as $pvo)
-                  <div class="item-input">
-                              <button type="button" type="button" class="button button-warning button-level" style="width:5rem" onclick="changeData(this,{{$pvo['pl_id']}},{{$pvo['price']}})">{{$pvo['level']}}</button>
-                        </div>
-                        @endforeach
+                      <div class="item-input" id="price_div">
+                          <button type="button" type="button" class="button button-warning button-level" style="width:5rem" onclick="changeData(this,{{$pvo['pl_id']}},{{$pvo['price']}})">{{$pvo['level']}}</button>
+                      </div>
+                      @endforeach
 
               </div>
                 </div>
@@ -269,6 +277,7 @@
 		</div>
     </div>
   <script>
+  var isPrice = false;
   $(function(){
   	$('.add_model').click(function(){
 		var commodityModel = $('.commodity_model').clone(true);
@@ -292,6 +301,7 @@
   	$("input[name='total_price']").val(price);
   	$(obj).addClass('button-fill');
   	$('#price').html('¥&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+price);
+    isPrice = true;
   }
 
   //提交表单
@@ -300,11 +310,11 @@
     if(merchant_status == '0'){
       alert('您的帐号尚在审核中，不能发布活动');
     }else{
-    	if($("input[name='task_num']").val()==''){
+    	if($("#title").val()==''){
     		alert('请输入活动标题');
-    	}else if($("input[name='title']").val()==''){
+    	}else if($("#task_num").val()=='0'){
     		alert('请输入活动场次');
-    	}else if($("#price").html()==''){
+    	}else if(!isPrice){
         alert('请选择活动形式');
       }else{
     		// $.toast("添加成功!",1000);

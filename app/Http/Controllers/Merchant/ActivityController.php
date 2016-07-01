@@ -46,7 +46,6 @@ class ActivityController extends RootController{
 
     //保存发布的活动
     public function saveActivity(){
-        // var_dump($_POST);die;
         $commodity_names = $_POST['commodity_name'];
         $commodity_urls = $_POST['commodity_url'];
         $total_price = $_POST['total_price'] * $_POST['task_num'];
