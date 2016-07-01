@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="{{URL::asset('css/sm.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('/css/weui.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/sm-extend.min.css')}}">
+    <script type='text/javascript' src="{{URL::asset('js/zepto.min.js')}}" charset='utf-8'></script>
+    <script type='text/javascript' src="{{URL::asset('js/sm.min.js')}}" charset='utf-8'></script>
+    <script type='text/javascript' src="{{URL::asset('js/sm-extend.min.js')}}" charset='utf-8'></script>
+    <script type="text/javascript" src="{{URL::asset('js/sm-city-picker.min.js')}}" charset="utf-8"></script>
+    <script type="text/javascript" src="{{URL::asset('js/jquery-1.8.3.min.js')}}" charset="utf-8"></script>
+    <script type="text/javascript" src="{{URL::asset('js/ajaxfileupload.js')}}" charset="utf-8"></script>
+    <script type="text/javascript" src="{{URL::asset('/js/jquery.cxselect.min.js')}}" charset="utf-8"></script>
+    <script type="text/javascript" src="{{URL::asset('/js/jweixin-1.0.0.js')}}"></script>
     <style>
         .list-block .item-title.label{
             width:25%;
@@ -112,14 +120,7 @@
 </head>
 <body>
 @yield("body")
-<script type='text/javascript' src="{{URL::asset('js/zepto.min.js')}}" charset='utf-8'></script>
-<script type='text/javascript' src="{{URL::asset('js/sm.min.js')}}" charset='utf-8'></script>
-<script type='text/javascript' src="{{URL::asset('js/sm-extend.min.js')}}" charset='utf-8'></script>
-<script type="text/javascript" src="{{URL::asset('js/sm-city-picker.min.js')}}" charset="utf-8"></script>
-<script type="text/javascript" src="{{URL::asset('js/jquery-1.8.3.min.js')}}" charset="utf-8"></script>
-<script type="text/javascript" src="{{URL::asset('js/ajaxfileupload.js')}}" charset="utf-8"></script>
-<script type="text/javascript" src="{{URL::asset('/js/jquery.cxselect.min.js')}}" charset="utf-8"></script>
-<script type="text/javascript" src="{{URL::asset('/js/jweixin-1.0.0.js')}}"></script>
+
 <script type="text/javascript" charset="utf-8">
    
 </script>

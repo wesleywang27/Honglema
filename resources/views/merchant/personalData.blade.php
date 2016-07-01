@@ -4,7 +4,15 @@
 
 @section('body')
 @section('page-main')
-	
+<script>
+    $(function(){
+        $('#country').attr('data-value','{{$merchant->country}}');
+        $('#province').attr('data-value','{{$merchant->province}}');
+        $('#city').attr('data-value','{{$merchant->city}}');
+        $('#region').attr('data-value','{{$merchant->region}}');
+        $('#addressInput').val('{{$merchant->address}}');
+    });
+</script>
     <header class="bar bar-nav">
         <h1 class="title">我的</h1>
         <span class="icon icon-left pull-left" onclick="window.location.href='/Merchant/user'"></span>
@@ -182,7 +190,11 @@
                         <div class="weui_cells" id="global_location">
                             <div class="weui_cell weui_cell_select">
                                 <div class="weui_cell_bd weui_cell_primary">
-                                    <select class="weui_select country" id="country" value="1"></select>
+                                    <select class="weui_select country" id="country">
+                                   <!--  <option value="请选择">请选择</option>
+                                    <option value="中国" selected>中国</option> -->
+                                        
+                                    </select>
                                 </div>
                             </div>
                             <div class="weui_cell weui_cell_select">
