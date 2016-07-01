@@ -13,7 +13,7 @@
                 <li>
                     <a href="#" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">头像</div>
+                            <div class="item-title"><span style="color:red">* </span>头像</div>
                             <div class="item-after">
                                 <img id="f_wx_headimg" src="{{$user['avatar']}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
                             </div>
@@ -23,7 +23,7 @@
                 <li>
                     <a href="#" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">昵称</div>
+                            <div class="item-title"><span style="color:red">* </span>昵称</div>
                             <div id="f_nickname" class="item-after">{{$user['nickname']}}</div>
                         </div>
                     </a>
@@ -31,82 +31,72 @@
                 <li>
                     <a href="#sex" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">性别</div>
+                            <div class="item-title"><span style="color:red">* </span>性别</div>
                             <input style="visibility: hidden;" id="sexvalue" value="">
-                            <div id="f_sex" class="item-after">未编辑</div>
+                            <div id="f_sex" class="item-after"></div>
                         </div>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="item-link item-content">
+                    <a href="#phoneconfirm" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">地区</div>
-                            <div class="item-after" id="f_city-picker">{{$user['province']}} {{$user['city']}}</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="list-block" style="margin-top: -1rem;">
-            <ul>
-                <li>
-                    <a href="#cup" class="item-link item-content">
-                        <div class="item-inner">
-                            <div class="item-title">罩杯</div>
-                            <div id="f_zhaobei" class="item-after">未编辑</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#weight" class="item-link item-content">
-                        <div class="item-inner">
-                            <div class="item-title">体重</div>
-                            <div id="f_tizhong" class="item-after">未编辑</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#height" class="item-link item-content">
-                        <div class="item-inner">
-                            <div class="item-title">身高</div>
-                            <div id="f_shengao" class="item-after">未编辑</div>
+                            <div class="item-title"><span style="color:red">* </span>手机号</div>
+                            <div class="item-after" id="f_phonenum"></div>
                         </div>
                     </a>
                 </li>
             </ul>
         </div>
 
-        <div class="list-block" style="margin-top: -1rem;">
+        <div class="content-block-title"  style="margin-top: -1rem;">平台信息<span>(至少填写一个)</span></div>
+        <div class="list-block">
             <ul>
                 <li>
-                    <a href="#age" class="item-link item-content">
+                    <a href="#weibo" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">年龄</div>
-                            <div id="f_nianling" class="item-after">未编辑</div>
+                            <div class="item-title">微博账号</div>
+                            <div id="f_weiboid" class="item-after"></div>
                         </div>
                     </a>
                 </li>
                 <li>
-                    <a href="#occupation" class="item-link item-content">
+                    <a href="#weipai" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">职业</div>
-                            <div id="f_zhiye" class="item-after">未编辑</div>
+                            <div class="item-title">微拍账号</div>
+                            <div id="f_weipaiid" class="item-after"></div>
                         </div>
                     </a>
                 </li>
                 <li>
-                    <a href="#education" class="item-link item-content">
+                    <a href="#miaopai" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">学历</div>
-                            <div id="f_xueli" class="item-after">未编辑</div>
+                            <div class="item-title">秒拍账号</div>
+                            <div id="f_miaopaiid" class="item-after"></div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#meipai" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">美拍账号</div>
+                            <div id="f_meipaiid" class="item-after"></div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#kuaishou" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">快手账号</div>
+                            <div id="f_kuaishouid" class="item-after"></div>
                         </div>
                     </a>
                 </li>
             </ul>
         </div>
+
         <div class="content-block" style="margin-top: -1rem;">
             <div class="row">
-                <div class="col-100"><a href="#register2" class="button button-big button-fill button-success">下一步</a></div>
+                <div class="col-100"><a href="#register2" class="button button-big button-fill button-danger">下一步</a></div>
             </div>
         </div>
     </div>
@@ -457,67 +447,67 @@
                         </div>
                     </a>
                 </li>
-                <li>
-                    <a href="#idconfirm" class="item-link item-content">
-                        <div class="item-inner">
-                            <div class="item-title">身份认证</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#phoneconfirm" class="item-link item-content">
-                        <div class="item-inner">
-                            <div class="item-title">手机认证</div>
-                        </div>
-                    </a>
-                </li>
             </ul>
         </div>
-        <div class="content-block-title"  style="margin-top: -1rem;">平台信息</div>
-        <div class="list-block">
+
+        <div class="list-block" style="margin-top: -1rem;">
             <ul>
                 <li>
-                    <a href="#weibo" class="item-link item-content">
+                    <a href="#cup" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">微博ID</div>
-                            <div id="f_weiboid" class="item-after">未编辑</div>
+                            <div class="item-title">罩杯</div>
+                            <div id="f_zhaobei" class="item-after"></div>
                         </div>
                     </a>
                 </li>
                 <li>
-                    <a href="#weipai" class="item-link item-content">
+                    <a href="#weight" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">微拍ID</div>
-                            <div id="f_weipaiid" class="item-after">未编辑</div>
+                            <div class="item-title">体重</div>
+                            <div id="f_tizhong" class="item-after"></div>
                         </div>
                     </a>
                 </li>
                 <li>
-                    <a href="#miaopai" class="item-link item-content">
+                    <a href="#height" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">秒拍ID</div>
-                            <div id="f_miaopaiid" class="item-after">未编辑</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#meipai" class="item-link item-content">
-                        <div class="item-inner">
-                            <div class="item-title">美拍ID</div>
-                            <div id="f_meipaiid" class="item-after">未编辑</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#kuaishou" class="item-link item-content">
-                        <div class="item-inner">
-                            <div class="item-title">快手ID</div>
-                            <div id="f_kuaishouid" class="item-after">未编辑</div>
+                            <div class="item-title">身高</div>
+                            <div id="f_shengao" class="item-after"></div>
                         </div>
                     </a>
                 </li>
             </ul>
         </div>
+
+        <div class="list-block" style="margin-top: -1rem;">
+            <ul>
+                <li>
+                    <a href="#age" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">年龄</div>
+                            <div id="f_nianling" class="item-after"></div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#occupation" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">职业</div>
+                            <div id="f_zhiye" class="item-after"></div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#education" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">学历</div>
+                            <div id="f_xueli" class="item-after"></div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
         <div class="content-block" style="margin-top: -1rem;">
             <div class="row">
                 <div class="col-100"><a href="#register3" class="button button-big button-fill button-success">下一步</a></div>
@@ -565,6 +555,10 @@
             返回
         </a>
         <h1 class="title">手机认证</h1>
+        <a class="button button-link button-nav pull-right back" href="#register2" onclick="$.set_value('phonenum');">
+            保存
+            <span class="save"></span>
+        </a>
     </header>
     <div class="content" style="top: 1.2rem;">
         <div class="list-block">
@@ -580,11 +574,6 @@
                     </div>
                 </li>
             </ul>
-        </div>
-        <div class="content-block" style="margin-top: -1rem;">
-            <div class="row">
-                <div class="col-100"><a id="confirmcode" href="#" class="button button-big button-fill button-success">确  认</a></div>
-            </div>
         </div>
     </div>
 @overwrite
@@ -817,12 +806,29 @@
     <div class="content" style="top: 1.2rem;">
         <div class="list-block">
             <ul>
-
+                <li>
+                    <a href="#idconfirm" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">身份认证</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#idconfirm" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">手机认证</div>
+                        </div>
+                    </a>
+                </li>
+                </ul>
+            </div>
+        <div class="list-block">
+            <ul>
                 <li>
                     <a href="#size" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">衣服尺寸</div>
-                            <div id="f_chicun" class="item-after">未编辑</div>
+                            <div id="f_chicun" class="item-after"></div>
                         </div>
                     </a>
                 </li>
@@ -830,10 +836,14 @@
                     <a href="#address" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">收货地址</div>
-                            <div id="f_dizhi" class="item-after">未编辑</div>
+                            <div id="f_dizhi" class="item-after"></div>
                         </div>
                     </a>
                 </li>
+            </ul>
+        </div>
+        <div class="list-block">
+            <ul>
                 <li>
                     <a href="#wechat" class="item-link item-content">
                         <div class="item-inner">
@@ -846,7 +856,7 @@
                     <a href="#alipay" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">支付宝账号</div>
-                            <div id="f_zhifubao" class="item-after">未编辑</div>
+                            <div id="f_zhifubao" class="item-after"></div>
                         </div>
                     </a>
                 </li>

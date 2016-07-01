@@ -120,7 +120,7 @@
           <div class="list-block" style="background-color:#cccccc;position:fixed; width:100%; bottom:2.5rem; margin-bottom:0; overflow:visible;">
               <div class="item-content">
                     <div class="item-inner">
-                        @if($data['order']->status==1)
+                        @if($data['order']->status==1&&$data['isAvailable']==true)
                             <div class="item-title" style="font-size:80%;">正在审核抢单 </div>
                             <div  class="item-after">
                                 <a href="#" onclick="$.cancelOrder({{$data['order']->order_id}})" class="button button-dark" style="border:0; background-color:#ee5555; color:white;">取消申请</a></div>
@@ -136,6 +136,8 @@
                             <div class="item-title" style="font-size:80%;">商家已完成评价，任务结束  </div>
                         @elseif($data['order']->status==0)
                             <div class="item-title" style="font-size:80%;">抢单已取消，任务结束 </div>
+                        @elseif($data['order']->status==1&&$data['isAvailable']==false)
+                            <div class="item-title" style="font-size:80%;">该活动已被抢光 </div>
                         @endif
           </div> </div> </div>
 

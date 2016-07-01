@@ -39,9 +39,11 @@ class StarController extends RootController
             foreach ($relations as $relation) {
                 $commodities[] = Commodity::where('commodity_id', $relation->commodity_id)->get();
             }
+            $isAvailable = $activity->task_num >$activity->confirm_num?true:false;
             if ($order->status == 2) {
                 $task = Task::where('task_id', $order->task_id)->first();
-                $data[] = array('title' => $activity->title,
+                $data[] = array(
+                    'title' => $activity->title,
                     'merchant_name' => $merchant->name,
                     'picture' => $activity->picture,
                     'avatar' => $merchant->avatar,
@@ -52,16 +54,20 @@ class StarController extends RootController
                     'order_id' => $order->order_id,
                     'task_status' => $task->status);
             } else {
-                $data[] = array('title' => $activity->title,
+                $data[] = array(
+                    'title' => $activity->title,
                     'merchant_name' => $merchant->name,
                     'picture' => $activity->picture,
                     'avatar' => $merchant->avatar,
                     'total_price' => $activity->total_price,
                     'requirement' => $activity->claim,
                     'order_status' => $order->status,
+                    'isAvailable' => $isAvailable,
                     'merchant_id' => $merchant->merchant_id,
                     'order_id' => $order->order_id);
             }
+
+
         }
         return view('/star/star_order', ["data" => $data]);
     }
@@ -127,6 +133,8 @@ class StarController extends RootController
         //each activity has many commodity
         $relations = DB::table('activity_commodity_lists')->where('activity_id', $activity->activity_id)->get();
 
+        $isAvailable = $activity->task_num >$activity->confirm_num?true:false;
+
         $commodities = array();
         foreach ($relations as $relation) {
             $commodities[] = Commodity::where('commodity_id', $relation->commodity_id)->first();
@@ -145,6 +153,7 @@ class StarController extends RootController
                 'order_status' => $order->status,
                 'activity' => $activity,
                 'merchant' => $merchant,
+                'isAvailable' => $isAvailable,
             );
         }
         return view('star/order_detail', ["data" => $data, 'commodities' => $commodities,]);

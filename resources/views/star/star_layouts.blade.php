@@ -679,6 +679,10 @@ $.cancelOrder=function(id){
         cols: [
             {
                 textAlign: 'center',
+                values: ['30', '32', '34', '36', '38', '40', '42', '44']
+            },
+            {
+                textAlign: 'center',
                 values: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']
             }
         ]
@@ -694,6 +698,49 @@ $.cancelOrder=function(id){
             {
                 textAlign: 'center',
                 values: ['小学', '初中', '高中', '大专', '本科', '硕士', '博士']
+            }
+        ]
+    });
+//上装选择
+    $("#f_shirt").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-left">按钮</button>\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">上装尺寸</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL']
+            }
+        ]
+    });
+    //下装选择
+    $("#f_pants").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-left">按钮</button>\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">下装尺寸</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39',
+                '40','41','42','43','44']
+            }
+        ]
+    });
+    //鞋子选择
+    $("#f_shoe").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-left">按钮</button>\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">鞋子选择</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45']
             }
         ]
     });

@@ -1,35 +1,18 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>红了吗（试用版）</title>
-    <link rel="stylesheet" href="{{URL::asset('css/sm.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('/css/weui.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('css/sm-extend.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('css/merchant/myStyle.css')}}">
-    <script type='text/javascript' src="{{URL::asset('js/zepto.min.js')}}" charset='utf-8'></script>
-	<script type='text/javascript' src="{{URL::asset('js/sm.min.js')}}" charset='utf-8'></script>
-	<script type='text/javascript' src="{{URL::asset('js/sm-extend.min.js')}}" charset='utf-8'></script>
-</head>
-<body>
-<header class="bar bar-nav">
-  	<h1 class='title'>活动广场</h1>
-</header>
-<div class="content" style="top: 2rem;">
-    <div class="tabs">
-      <div id="tab3" >
-      <?php
-  //     	echo "<pre>";
-		// var_dump(count($list));die;
-      ?>
+@extends('star.star_layouts')
+
+@section('title', "活动广场（试用版）")
+
+@section('body')
+@section('page-main')
+	<header class="bar bar-nav">
+		<h1 class="title">活动广场</h1>
+	</header>
+<div class="content infinite-scroll infinite-scroll-bottom" data-distance="50" style="top: 2rem;">
       @foreach ($list as $vo)
       <?php
       	$merchant = App\Models\Merchant::where('merchant_id',$vo->merchant_id)->first();
       ?>
-        <div class="content-block content-block-my content-no-margin">
+        <div class="content-block content-block-my content-no-margin ">
          	<div class="content-block content-block-my">
 		   		<div class="list-block content-no-margin" style="margin-top: -1.3rem;">
 				  	<ul>
@@ -59,9 +42,10 @@
 			</div>
       	</div>
       	@endforeach
-      </div>
-    </div>
+		  <div class="infinite-scroll-preloader" style="margin-top:-20px">
+			  <div class="preloader"></div>
+		  </div>
   </div>
-   @include("star.star_footer")
-</body>
-</html>
+@include("star.star_footer")
+@overwrite
+@include('partial/jquery_mobile_page', ["page_id" => "main"])
