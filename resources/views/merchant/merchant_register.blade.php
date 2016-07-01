@@ -91,7 +91,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#address" class="item-link item-content">
+                    <a href="#phoneconfirm" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">手机认证</div>
                             <div id="f_dizhi" class="item-after">未编辑</div>
@@ -336,6 +336,39 @@
     </div>
 @overwrite
 @include('partial/jquery_mobile_page', ["page_id" => "license"])
+
+@section('page-main')
+    <header class="bar bar-nav">
+        <a id="codecfm" class="button button-link button-nav pull-left back" href="#register2">
+            <span class="icon icon-left"></span>
+            返回
+        </a>
+        <h1 class="title">手机认证</h1>
+    </header>
+    <div class="content" style="top: 2.2rem;padding: 1rem;">
+        <div class="searchbar row" style="height:3.5rem;margin-left:0">
+            <div class="search-input col-80" style="display: inline-flex;width:90%">
+                <input type="search" id='search' placeholder='请输入手机号' style="border-radius:0;width:11rem;height:2rem"/>
+           
+                <a class="button button-fill" style="background-color:#EB6167;line-height: 2rem;margin-left:0;border-radius:0;width:4rem;height:2rem">发送验证</a>
+            </div>
+        </div>
+        <div class="searchbar row" style="height:3.5rem;margin-left:0">
+            <div class="search-input col-80" style="display: inline-flex;width:90%">
+                <input type="search" id='search' placeholder='请输入验证码' style="border-radius:0;width:15rem;height:2rem"/>
+            </div>
+        </div>
+        <div class="searchbar row" style="height:3.5rem;margin-left:0">
+            <div class="search-input col-80" style="display: inline-flex;width:90%">
+                <input type="search" id='search' placeholder='请输入手机登录密码' style="border-radius:0;width:15rem;height:2rem"/>
+            </div>
+        </div>
+        <div class="content-block" style="margin:1rem 0;">
+            <a id="confirmcode" href="#" class="button button-big button-fill" style="border-radius:0;background-color:#DD2625">下一步</a>
+        </div>
+    </div>
+@overwrite
+@include('partial/jquery_mobile_page', ["page_id" => "phoneconfirm"])
 
 
 
