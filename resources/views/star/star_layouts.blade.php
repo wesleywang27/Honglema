@@ -366,6 +366,7 @@
         $('#f_'+va).text($('#'+va).val());
     }
 
+
     //设置性别
     $.set_sex = function(){
         var text = $("input[name='sex-radio']:checked").val();
@@ -664,6 +665,22 @@ $.cancelOrder=function(id){
                 $.toast("添加失败", 1000);
             }
         });
+    });
+</script>
+
+<script>
+    $("#dcup").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-left">按钮</button>\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">罩杯</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']
+            }
+        ]
     });
 </script>
 </body>

@@ -87,7 +87,7 @@
             返回
         </a>
         <h1 class="title">直播回放链接</h1>
-        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('url')">
+        <a class="button button-link button-nav pull-right back" href="#main" >
             保存
             <span class="save"></span>
         </a>
@@ -99,9 +99,8 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">直播回放链接</div>
                             <div class="item-input">
-                                <input id="url" type="text" >
+                                <textarea rows="3" cols="20" id="url"  placeholder="直播回放链接"></textarea>
                             </div>
                         </div>
                     </div>
