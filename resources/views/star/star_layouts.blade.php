@@ -118,7 +118,7 @@
         }
         .buttons-tab .button.active {
             color:black;
-            border-color:#bb11bb;
+            border-color:#DD2625;
         }
         .buttons-tab .button {
             color:black;
@@ -669,6 +669,7 @@ $.cancelOrder=function(id){
 </script>
 
 <script>
+    //罩杯选择
     $("#dcup").picker({
         toolbarTemplate: '<header class="bar bar-nav">\
   <button class="button button-link pull-left">按钮</button>\
@@ -679,6 +680,20 @@ $.cancelOrder=function(id){
             {
                 textAlign: 'center',
                 values: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']
+            }
+        ]
+    });
+//学历选择
+    $("#deducation").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-left">按钮</button>\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">学历</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['小学', '初中', '高中', '大专', '本科', '硕士', '博士']
             }
         ]
     });
