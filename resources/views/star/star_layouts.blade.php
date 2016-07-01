@@ -387,8 +387,8 @@
     }
 
     //设置尺寸
-    $.set_size = function(v1,v2,v3){
-        $('#f_chicun').text($('#'+v1).val()+'/'+$('#'+v2).val()+'/'+$('#'+v3).val());
+    $.set_size = function(){
+        $('#f_cloth').text($('#f_shirt').val()+'/'+$('#f_pants').val()+'/'+$('#f_shoe').val());
     }
 
     //设置支付宝

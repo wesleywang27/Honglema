@@ -227,7 +227,7 @@
             返回
         </a>
         <h1 class="title">罩杯</h1>
-        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('zhaobei');">
+        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('dcup');">
             保存
             <span class="save"></span>
         </a>
@@ -240,7 +240,7 @@
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
                             <div class="item-input">
-                                <input id="zhaobei" type="text" >
+                                <input id="dcup" type="text" >
                             </div>
                         </div>
                     </div>
@@ -385,8 +385,8 @@
             <span class="icon icon-left"></span>
             返回
         </a>
-        <h1 class="title">教育</h1>
-        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('xueli');">
+        <h1 class="title">学历</h1>
+        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('deducation');">
             保存
             <span class="save"></span>
         </a>
@@ -398,9 +398,9 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">教育</div>
+                            <div class="item-title label">学历</div>
                             <div class="item-input">
-                                <input id="xueli" type="text" placeholder="教育">
+                                <input id="deducation" type="text" placeholder="学历">
                             </div>
                         </div>
                     </div>
@@ -456,7 +456,7 @@
                     <a href="#cup" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">罩杯</div>
-                            <div id="f_zhaobei" class="item-after"></div>
+                            <div id="f_dcup" class="item-after"></div>
                         </div>
                     </a>
                 </li>
@@ -501,7 +501,7 @@
                     <a href="#education" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">学历</div>
-                            <div id="f_xueli" class="item-after"></div>
+                            <div id="f_deducation" class="item-after"></div>
                         </div>
                     </a>
                 </li>
@@ -810,7 +810,7 @@
                     <a href="#size" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">衣服尺寸</div>
-                            <div id="f_chicun" class="item-after"></div>
+                            <div id="f_cloth" class="item-after"></div>
                         </div>
                     </a>
                 </li>
@@ -860,7 +860,7 @@
             返回
         </a>
         <h1 class="title">衣服尺寸</h1>
-        <a class="button button-link button-nav pull-right back" href="#register3" onclick="$.set_size('shangyi','xiayi','shoe');">
+        <a class="button button-link button-nav pull-right back" href="#register3" onclick="$.set_size();">
             保存
             <span class="save"></span>
         </a>
@@ -874,7 +874,7 @@
                         <div class="item-inner">
                             <div class="item-title label">上衣尺寸</div>
                             <div class="item-input">
-                                <input id="shangyi" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="上衣尺寸">&nbsp;cm
+                                <input id="f_shirt" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="上衣尺寸">&nbsp;cm
                             </div>
                         </div>
                     </div>
@@ -885,7 +885,7 @@
                         <div class="item-inner">
                             <div class="item-title label">下衣尺寸</div>
                             <div class="item-input">
-                                <input id="xiayi" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="下衣尺寸">&nbsp;cm
+                                <input id="f_pants" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="下衣尺寸">&nbsp;cm
                             </div>
                         </div>
                     </div>
@@ -896,7 +896,7 @@
                         <div class="item-inner">
                             <div class="item-title label">鞋子尺寸</div>
                             <div class="item-input">
-                                <input id="shoe" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="鞋码">&nbsp;cm
+                                <input id="f_shoe" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="鞋码">&nbsp;cm
                             </div>
                         </div>
                     </div>
