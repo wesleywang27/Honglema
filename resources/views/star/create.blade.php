@@ -510,7 +510,7 @@
 
         <div class="content-block" style="margin-top: -1rem;">
             <div class="row">
-                <div class="col-100"><a href="#register3" class="button button-big button-fill button-success">下一步</a></div>
+                <div class="col-100"><a href="#register3" class="button button-big button-fill button-danger">下一步</a></div>
             </div>
         </div>
     </div>
@@ -807,24 +807,6 @@
         <div class="list-block">
             <ul>
                 <li>
-                    <a href="#idconfirm" class="item-link item-content">
-                        <div class="item-inner">
-                            <div class="item-title">身份认证</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#idconfirm" class="item-link item-content">
-                        <div class="item-inner">
-                            <div class="item-title">手机认证</div>
-                        </div>
-                    </a>
-                </li>
-                </ul>
-            </div>
-        <div class="list-block">
-            <ul>
-                <li>
                     <a href="#size" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">衣服尺寸</div>
@@ -864,7 +846,7 @@
         </div>
         <div class="content-block" style="margin-top: -1rem;">
             <div class="row">
-                <div class="col-100"><a id="finish" href="#" class="button button-big button-fill button-success">完成注册</a></div>
+                <div class="col-100"><a id="finish" href="#" class="button button-big button-fill button-danger">完成注册</a></div>
             </div>
         </div>
     </div>

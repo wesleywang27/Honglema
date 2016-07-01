@@ -504,6 +504,11 @@
 
     //完成注册
     $('#finish').click(function() {
+
+
+        if($('#f_weiboid').text()==""&&$('#f_weipaiid').text()==""&&$('#f_miaopaiid').text()==""&&$('#f_meipaiid').text()==""&&$('#f_kuaishouid').text()==""){
+            $.toast("平台信息至少填写一个!",1000);
+        }else{
         var imgdata = new Array();
         var i = 0;
         $('[id=manyimg]').each(function(){
@@ -566,7 +571,7 @@
             },headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
-        });
+        });}
     });
 
     //网红提交任务结果
