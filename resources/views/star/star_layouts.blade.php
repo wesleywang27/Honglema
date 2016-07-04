@@ -373,6 +373,7 @@
         if(text == '男'){
             $('#f_sex').text('男');
             $('#sexvalue').val('1');
+            $('#cupli').hide();
         }
         else if(text =='2'){
             $('#f_sex').text('女');
@@ -505,10 +506,6 @@
     //完成注册
     $('#finish').click(function() {
 
-
-        if($('#f_weiboid').text()==""&&$('#f_weipaiid').text()==""&&$('#f_miaopaiid').text()==""&&$('#f_meipaiid').text()==""&&$('#f_kuaishouid').text()==""){
-            $.toast("平台信息至少填写一个!",1000);
-        }else{
         var imgdata = new Array();
         var i = 0;
         $('[id=manyimg]').each(function(){
@@ -528,6 +525,7 @@
                 "sex": sex,
                 "location": $('#f_city-picker').text(),
 
+                "avatar":$("f_wx_headimg").attr('src'),
                 "cup": $('#f_zhaobei').text(),
                 "weight": $('#f_tizhong').text(),
                 "height": $('#f_shengao').text(),
@@ -571,7 +569,7 @@
             },headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
-        });}
+        });
     });
 
     //网红提交任务结果
@@ -674,10 +672,60 @@ $.cancelOrder=function(id){
 </script>
 
 <script>
+    //注册上传头像
+    $('#headimgUpload').change(function(){
+        $.showPreloader('正在上传...');
+        $j.ajaxFileUpload({
+            url:"/picture",//需要链接到服务器地址
+            secureuri:false,
+            fileElementId:"headimgUpload",//文件选择框的id属性
+            dataType: 'json',   //json
+            success: function (data, status) {
+                var urls = data.urls;
+                for(var i=0; i<urls.length; i++){
+                    $('#f_wx_headimg').attr('src',urls[i]);
+                }
+                $.hidePreloader();
+                $.toast("添加成功", 1000);
+            },error:function(data, status, e){
+                $.hidePreloader();
+                $.toast("添加失败", 1000);
+            }
+        });
+    });
+    //注册第一页检测
+    function finishFirst(){
+        var avatar=$("f_wx_headimg").attr('src');
+        var nickname=$('#f_dnickname').text();
+        var sex=$('#f_sex').text();
+        var phone=$('#f_phonenum').text();
+        var result=true;
+        if($('#f_weiboid').text()==""&&$('#f_weipaiid').text()==""&&$('#f_miaopaiid').text()==""&&$('#f_meipaiid').text()==""&&$('#f_kuaishouid').text()==""){
+            $.toast("平台信息至少填写一个",4000);
+            result=false;
+        }
+        if(nickname==""){
+            $.toast("昵称不能为空",3000);
+            result=false;
+        }
+        if(sex==""){
+            $.toast("性别不能为空",2000);
+            result=false;
+        }
+        if(phone==""){
+            $.toast("手机号不能为空",1000);
+            result=false;
+        }
+        if(result==true){
+            $('#linkReg2').click();
+        }
+
+    }
+    </script>
+<script>
     //罩杯选择
     $("#dcup").picker({
         toolbarTemplate: '<header class="bar bar-nav">\
-  <button class="button button-link pull-left">按钮</button>\
   <button class="button button-link pull-right close-picker">确定</button>\
   <h1 class="title">罩杯</h1>\
   </header>',
@@ -695,7 +743,6 @@ $.cancelOrder=function(id){
 //学历选择
     $("#deducation").picker({
         toolbarTemplate: '<header class="bar bar-nav">\
-  <button class="button button-link pull-left">按钮</button>\
   <button class="button button-link pull-right close-picker">确定</button>\
   <h1 class="title">学历</h1>\
   </header>',
@@ -709,7 +756,6 @@ $.cancelOrder=function(id){
 //上装选择
     $("#f_shirt").picker({
         toolbarTemplate: '<header class="bar bar-nav">\
-  <button class="button button-link pull-left">按钮</button>\
   <button class="button button-link pull-right close-picker">确定</button>\
   <h1 class="title">上装尺寸</h1>\
   </header>',
@@ -723,7 +769,6 @@ $.cancelOrder=function(id){
     //下装选择
     $("#f_pants").picker({
         toolbarTemplate: '<header class="bar bar-nav">\
-  <button class="button button-link pull-left">按钮</button>\
   <button class="button button-link pull-right close-picker">确定</button>\
   <h1 class="title">下装尺寸</h1>\
   </header>',
@@ -738,7 +783,6 @@ $.cancelOrder=function(id){
     //鞋子选择
     $("#f_shoe").picker({
         toolbarTemplate: '<header class="bar bar-nav">\
-  <button class="button button-link pull-left">按钮</button>\
   <button class="button button-link pull-right close-picker">确定</button>\
   <h1 class="title">鞋子选择</h1>\
   </header>',
@@ -752,7 +796,6 @@ $.cancelOrder=function(id){
     //性别选择
     $("#sex_picker").picker({
         toolbarTemplate: '<header class="bar bar-nav">\
-  <button class="button button-link pull-left">按钮</button>\
   <button class="button button-link pull-right close-picker">确定</button>\
   <h1 class="title">性别</h1>\
   </header>',
@@ -766,7 +809,6 @@ $.cancelOrder=function(id){
     //性别选择
     $("#sex_picker").picker({
         toolbarTemplate: '<header class="bar bar-nav">\
-  <button class="button button-link pull-left">按钮</button>\
   <button class="button button-link pull-right close-picker">确定</button>\
   <h1 class="title">性别</h1>\
   </header>',
@@ -777,6 +819,50 @@ $.cancelOrder=function(id){
             }
         ]
     });
+    //体重选择
+    $("#weight_picker").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">体重</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['1', '2', '3', '4', '5', '6', '7','8','9','0']
+            },
+            {
+                textAlign: 'center',
+                values: ['1', '2', '3', '4', '5', '6', '7','8','9','0']
+            },
+            {
+                textAlign: 'center',
+                values: ['1', '2', '3', '4', '5', '6', '7','8','9','0']
+            }
+        ]
+    });
+    //身高选择
+    $("#height_picker").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">身高</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['1', '2', '3', '4', '5', '6', '7','8','9','0']
+            },
+            {
+                textAlign: 'center',
+                values: ['1', '2', '3', '4', '5', '6', '7','8','9','0']
+            },
+            {
+                textAlign: 'center',
+                values: ['1', '2', '3', '4', '5', '6', '7','8','9','0']
+            }
+        ]
+    });
 </script>
+
+
 </body>
 </html>

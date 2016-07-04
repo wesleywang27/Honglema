@@ -76,7 +76,7 @@ class VisitorController extends Controller
         $star->province=$user->province;
         $star->city=$user->city;
 
-        $star->avatar=$user->avatar;
+        $star->avatar=$request->input('avatar');
         $star->name = $request->input('name');
         $star->sex = $request->input('sex');
         $star->location = $request->input('location');
