@@ -55,7 +55,7 @@
                 <li>
                     <a href="#weibo" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">微博账号</div>
+                            <div class="item-title">微博昵称</div>
                             <div id="f_weiboid" class="item-after"></div>
                         </div>
                     </a>
@@ -63,7 +63,7 @@
                 <li>
                     <a href="#weipai" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">微拍账号</div>
+                            <div class="item-title">微拍昵称</div>
                             <div id="f_weipaiid" class="item-after"></div>
                         </div>
                     </a>
@@ -71,7 +71,7 @@
                 <li>
                     <a href="#miaopai" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">秒拍账号</div>
+                            <div class="item-title">秒拍昵称</div>
                             <div id="f_miaopaiid" class="item-after"></div>
                         </div>
                     </a>
@@ -79,7 +79,7 @@
                 <li>
                     <a href="#meipai" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">美拍账号</div>
+                            <div class="item-title">美拍昵称</div>
                             <div id="f_meipaiid" class="item-after"></div>
                         </div>
                     </a>
@@ -138,11 +138,15 @@
 
 @section('page-main')
     <header class="bar bar-nav">
-        <a class="button button-link button-nav pull-left back" href="#main" onclick="$.set_sex();">
+        <a class="button button-link button-nav pull-left back" href="#main" >
             <span class="icon icon-left"></span>
             返回
         </a>
         <h1 class="title">性别</h1>
+        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_sex();">
+            保存
+            <span class="save"></span>
+        </a>
     </header>
     <div class="content" style="top: 1.2rem;">
         <div class="list-block">
@@ -611,7 +615,7 @@
             <span class="icon icon-left"></span>
             返回
         </a>
-        <h1 class="title">微博信息</h1>
+        <h1 class="title">微博昵称</h1>
         <a class="button button-link button-nav pull-right back" href="#register2"  onclick="$.set_value('weiboid');">
             保存
             <span class="save"></span>
@@ -624,9 +628,9 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">ID</div>
+                            <div class="item-title label">微博昵称</div>
                             <div class="item-input">
-                                <input id="weiboid" type="text" placeholder="填写ID">
+                                <input id="weiboid" type="text" placeholder="填写昵称">
                             </div>
                         </div>
                     </div>
@@ -643,7 +647,7 @@
             <span class="icon icon-left"></span>
             返回
         </a>
-        <h1 class="title">微拍信息</h1>
+        <h1 class="title">微拍昵称</h1>
         <a class="button button-link button-nav pull-right back" href="#register2"  onclick="$.set_value('weipaiid');">
             保存
             <span class="save"></span>
@@ -656,9 +660,9 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">ID</div>
+                            <div class="item-title label">微拍昵称</div>
                             <div class="item-input">
-                                <input id="weipaiid" type="text" placeholder="填写ID">
+                                <input id="weipaiid" type="text" placeholder="填写昵称">
                             </div>
                         </div>
                     </div>
@@ -675,7 +679,7 @@
             <span class="icon icon-left"></span>
             返回
         </a>
-        <h1 class="title">秒拍信息</h1>
+        <h1 class="title">秒拍昵称</h1>
         <a class="button button-link button-nav pull-right back" href="#register2"  onclick="$.set_value('miaopaiid');">
             保存
             <span class="save"></span>
@@ -688,9 +692,9 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">ID</div>
+                            <div class="item-title label">秒拍昵称</div>
                             <div class="item-input">
-                                <input id="miaopaiid" type="text" placeholder="填写ID">
+                                <input id="miaopaiid" type="text" placeholder="填写昵称">
                             </div>
                         </div>
                     </div>
@@ -707,7 +711,7 @@
             <span class="icon icon-left"></span>
             返回
         </a>
-        <h1 class="title">美拍信息</h1>
+        <h1 class="title">美拍昵称</h1>
         <a class="button button-link button-nav pull-right back" href="#register2"  onclick="$.set_value('meipaiid');">
             保存
             <span class="save"></span>
@@ -720,9 +724,9 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">ID</div>
+                            <div class="item-title label">美拍昵称</div>
                             <div class="item-input">
-                                <input id="meipaiid" type="text" placeholder="填写ID">
+                                <input id="meipaiid" type="text" placeholder="填写昵称">
                             </div>
                         </div>
                     </div>
@@ -739,7 +743,7 @@
             <span class="icon icon-left"></span>
             返回
         </a>
-        <h1 class="title">快手信息</h1>
+        <h1 class="title">快手账号</h1>
         <a class="button button-link button-nav pull-right back" href="#register2"  onclick="$.set_value('kuaishouid');">
             保存
             <span class="save"></span>
@@ -753,9 +757,9 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">ID</div>
+                            <div class="item-title label">快手账号</div>
                             <div class="item-input">
-                                <input id="kuaishouid" type="text" placeholder="填写ID">
+                                <input id="kuaishouid" type="text" placeholder="填写账号">
                             </div>
                         </div>
                     </div>

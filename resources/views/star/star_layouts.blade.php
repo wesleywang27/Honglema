@@ -709,22 +709,20 @@ $.cancelOrder=function(id){
         var sex=$('#f_sex').text();
         var phone=$('#f_phonenum').text();
         var result=true;
-        if($('#f_weiboid').text()==""&&$('#f_weipaiid').text()==""&&$('#f_miaopaiid').text()==""&&$('#f_meipaiid').text()==""&&$('#f_kuaishouid').text()==""){
+       if(nickname==""){
+            $.toast("昵称不能为空",3000);
+            result=false;
+        }else if(sex==""){
+            $.toast("性别不能为空",2000);
+            result=false;
+        }else if(phone==""){
+            $.toast("手机号不能为空",1000);
+            result=false;
+        }else if($('#f_weiboid').text()==""&&$('#f_weipaiid').text()==""&&$('#f_miaopaiid').text()==""&&$('#f_meipaiid').text()==""&&$('#f_kuaishouid').text()==""){
             $.toast("平台信息至少填写一个",4000);
             result=false;
         }
-        if(nickname==""){
-            $.toast("昵称不能为空",3000);
-            result=false;
-        }
-        if(sex==""){
-            $.toast("性别不能为空",2000);
-            result=false;
-        }
-        if(phone==""){
-            $.toast("手机号不能为空",1000);
-            result=false;
-        }
+
         if(result==true){
             $('#linkReg2').click();
         }
