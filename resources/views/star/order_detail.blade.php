@@ -28,7 +28,7 @@
                 <div class="item-content">
                     <div class="item-inner">
                         <div class="item-title" style="font-size:80%;">{{ $data['activity']->title}}</div>
-                        <div id="f_merchant_name" class="item-after"  style="font-size:80%;">￥ {{$data['activity']->total_price}}</div>
+                        <div id="f_merchant_name" class="item-after"  style="font-size:80%;">￥ {{$data['price']}}</div>
                     </div>
                 </div>
             </li>

@@ -32,7 +32,7 @@
                     <a href="#sex" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title"><span style="color:red">* </span>性别</div>
-                            <input style="visibility: hidden;" id="sexvalue" value="">
+                            <input id="sexvalue" style="visibility: hidden;">
                             <div id="f_sex" class="item-after"></div>
                         </div>
                     </a>
@@ -165,26 +165,15 @@
         <div class="list-block">
             <ul>
                 <li>
-                    <label class="label-checkbox item-content">
-                        <input type="radio" name="sex-radio" value="1" >
-                        <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
-                            <div class="item-title-row">
-                                <div class="item-title">男</div>
+                            <div class="item-title label">性别</div>
+                            <div class="item-input">
+                                <input id='sex_picker' type="text" placeholder="性别">
                             </div>
                         </div>
-                    </label>
-                </li>
-                <li>
-                    <label class="label-checkbox item-content">
-                        <input type="radio" name="sex-radio" value="2">
-                        <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
-                        <div class="item-inner">
-                            <div class="item-title-row">
-                                <div class="item-title">女</div>
-                            </div>
-                        </div>
-                    </label>
+                    </div>
                 </li>
             </ul>
         </div>

@@ -11,6 +11,7 @@
       @foreach ($list as $vo)
       <?php
       	$merchant = App\Models\Merchant::where('merchant_id',$vo->merchant_id)->first();
+		$priceLevel =  App\Models\PriceLevel::where('pl_id',$vo->price_level)->first();
       ?>
         <div class="content-block content-block-my content-no-margin ">
          	<div class="content-block content-block-my">
@@ -32,7 +33,7 @@
 				          <div class="item-media" style="margin-left:-0.3rem; margin-right:0"><img src="{{$vo['picture']}}" style='width: 6rem;'></div>
 				          <div class="item-inner" style="background-color:#f0f0f0; margin: 0.4rem; padding-bottom:0">
 				            <div class="item-title" style="margin-left:0.3rem; text-align: center;">{{$vo['title']}}</div>
-				            <div class="item-subtitle" style="margin-left:0.3rem; text-align: center;">¥&nbsp;{{$vo['total_price']}}</div>
+				            <div class="item-subtitle" style="margin-left:0.3rem; text-align: center;">¥&nbsp;{{$priceLevel->price_star}}</div>
 				            <div class="item-title" style="background-color:#ee5555; color:#ffffff; text-align:center;width:100%;  position:absolute; bottom:0; left:0; right:0;">马上抢单</div>
 				          </div>
 				        </a>

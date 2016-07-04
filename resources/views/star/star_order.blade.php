@@ -38,7 +38,7 @@
                                        </div>
                                        <div class="item-inner"  style="background-color:#f0f0f0; margin: 0.4rem">
                                            <div class="item-title" style="text-align:center;">{{$order['title']}}</div>
-                                           <div class="item-subtitle" style="text-align:center;">￥{{$order['total_price']}}</div>
+                                           <div class="item-subtitle" style="text-align:center;">￥{{$order['price']}}</div>
                                        </div>
                                 </li>
                             </ul>
@@ -71,7 +71,7 @@
                                        </div>
                                        <div class="item-inner"  style="background-color:#f0f0f0; margin: 0.4rem">
                                            <div class="item-title" style="text-align:center;">{{$order['title']}}</div>
-                                           <div class="item-subtitle" style="text-align:center;">￥{{$order['total_price']}}</div>
+                                           <div class="item-subtitle" style="text-align:center;">￥{{$order['price']}}</div>
                                        </div>
                                 </li>
                             </ul>
@@ -120,7 +120,7 @@
                                        </div>
                                        <div class="item-inner"  style="background-color:#f0f0f0; margin: 0.4rem">
                                            <div class="item-title" style="text-align:center;">{{$order['title']}}</div>
-                                           <div class="item-subtitle" style="text-align:center;">￥{{$order['total_price']}}</div>
+                                           <div class="item-subtitle" style="text-align:center;">￥{{$order['price']}}</div>
                                        </div>
                                 </li>
                             </ul>
