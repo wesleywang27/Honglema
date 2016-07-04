@@ -403,7 +403,7 @@
                     <div class="item-content">
                         <div class="weui_uploader" style="margin-top: .5rem;margin-right: 1.5rem;">
                             <div class="weui_uploader_hd weui_cell">
-                                <div class="weui_cell_bd weui_cell_primary">上传6张照片</div>
+                                <div class="weui_cell_bd weui_cell_primary">上传照片</div>
                             </div>
                             <div class="weui_uploader_bd">
                                 <ul class="weui_uploader_files" id="imgfiles" style="padding-left: 0;float: left;">
