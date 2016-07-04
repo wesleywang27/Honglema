@@ -49,7 +49,7 @@
             </ul>
         </div>
 
-        <div class="content-block-title"  style="margin-top: -1rem;">平台信息<span>(至少填写一个)</span></div>
+        <div class="content-block-title"  style="margin-top: -1rem;"><span style="color:red">* </span>平台信息<span>(至少填写一个)</span></div>
         <div class="list-block">
             <ul>
                 <li>
@@ -394,7 +394,7 @@
             <span class="icon icon-left"></span>
             上一步
         </a>
-        <h1 class="title">注册2/3</h1>
+        <h1 class="title">注册2/3（选填）</h1>
     </header>
     <div class="content" style="top: 1.2rem;">
         <div class="list-block">
@@ -890,7 +890,7 @@
                         <div class="item-inner">
                             <div class="item-title label">上衣尺寸</div>
                             <div class="item-input">
-                                <input id="f_shirt" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="上衣尺寸">&nbsp;cm
+                                <input id="f_shirt" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="上衣尺寸">&nbsp;
                             </div>
                         </div>
                     </div>
@@ -901,7 +901,7 @@
                         <div class="item-inner">
                             <div class="item-title label">下衣尺寸</div>
                             <div class="item-input">
-                                <input id="f_pants" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="下衣尺寸">&nbsp;cm
+                                <input id="f_pants" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="下衣尺寸">&nbsp;
                             </div>
                         </div>
                     </div>
@@ -912,7 +912,7 @@
                         <div class="item-inner">
                             <div class="item-title label">鞋子尺寸</div>
                             <div class="item-input">
-                                <input id="f_shoe" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="鞋码">&nbsp;cm
+                                <input id="f_shoe" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="鞋码">&nbsp;
                             </div>
                         </div>
                     </div>

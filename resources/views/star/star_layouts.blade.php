@@ -709,6 +709,7 @@ $.cancelOrder=function(id){
         var sex=$('#f_sex').text();
         var phone=$('#f_phonenum').text();
         var result=true;
+        var reg = /^\d{11}$/;
        if(nickname==""){
             $.toast("昵称不能为空",3000);
             result=false;
@@ -721,8 +722,10 @@ $.cancelOrder=function(id){
         }else if($('#f_weiboid').text()==""&&$('#f_weipaiid').text()==""&&$('#f_miaopaiid').text()==""&&$('#f_meipaiid').text()==""&&$('#f_kuaishouid').text()==""){
             $.toast("平台信息至少填写一个",4000);
             result=false;
-        }
-
+        }else if(!reg.test(phone)){
+           $.toast("手机号码错误",4000);
+           result=false;
+       }
         if(result==true){
             $('#linkReg2').click();
         }
