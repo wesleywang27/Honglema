@@ -81,7 +81,7 @@
                     <div class="item-inner">
                       <div class="item-title label">活动时间</div>
                   <div class="item-input">
-                      <select name="time_within" id="company">
+                      <select name="time_within">
                                 <option value="0">请选择...</option>
                                 <option value="三天内">三天内</option>
                                 <option value="七天内">七天内</option>
@@ -98,7 +98,7 @@
                     <div class="item-inner">
                       <div class="item-title label">活动场次</div>
                   <div class="item-input">
-                      <select id="task_num" name="task_num" id="company">
+                      <select id="task_num" name="task_num">
                           <option value="0">请选择...</option>
                           <?php for ($i=1; $i <= 10; $i++) { 
                             # code...
@@ -116,13 +116,18 @@
             <li>
                 <div class="item-content">
                     <div class="item-inner">
-                      <input type="hidden" name="price_level">
+                      <input type="hidden" id="price_level_input" name="price_level">
                       <div class="item-title label">活动形式</div>
-                      @foreach ($priceLevel as $pvo)
+                      
                       <div class="item-input" id="price_div">
-                          <button type="button" type="button" class="button button-warning button-level" style="width:5rem" onclick="changeData(this,{{$pvo['pl_id']}},{{$pvo['price']}})">{{$pvo['level']}}</button>
+                          <select id="price_level">
+                              <option value="0">请选择...</option>
+                            @foreach ($priceLevel as $pvo)
+                              <option id="price_{{$pvo['price']}}" value="{{$pvo['pl_id']}}">{{$pvo['level']}}</option>
+                            @endforeach
+                        </select>
                       </div>
-                      @endforeach
+                     
 
               </div>
                 </div>
@@ -292,17 +297,22 @@
         upLoadPic('bannerimgupload');
     });
 
+    $('#price_level').change(function(){
+      var price_level = $('#price_level option:selected').val();
+      if(price_level != '0'){
+        var total_price = $('#price_level option:selected').attr('id').substring(6);
+        $('#price_level_input').val(price_level);
+        $('#price').html('¥&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+total_price);
+        isPrice = true;
+      }else{
+        $('#price').html('¥&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0');
+        isPrice = false;
+      }
+     
+      
+    });
+
   });
-  
-  function changeData(obj,level_id,price){
-  	obj = obj||this;
-  	$(".button-level").removeClass('button-fill');
-  	$("input[name='price_level']").val(level_id);
-  	$("input[name='total_price']").val(price);
-  	$(obj).addClass('button-fill');
-  	$('#price').html('¥&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+price);
-    isPrice = true;
-  }
 
   //提交表单
   function submitForm(){

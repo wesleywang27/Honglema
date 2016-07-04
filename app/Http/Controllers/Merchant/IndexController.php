@@ -6,8 +6,8 @@
  */
 namespace App\Http\Controllers\Merchant;
 
+use Illuminate\Http\Request;
 use App\Http\Requests;
-use Illuminate\Contracts\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use EasyWeChat\Foundation\Application;
 use App\Http\Controllers\Controller;
@@ -18,6 +18,7 @@ use OSS\OssClient;
 use OSS\Core\OssException;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
+use App\Models\Star;
 class IndexController extends Controller{
     public function __construct(){
         session_start();
@@ -91,6 +92,17 @@ class IndexController extends Controller{
         $url = "http://image.weipai.cn/$baseDir/$newName";
 
         return $url;
+    }
+
+    public function showStar(Request $request, $format = null) {
+        $stars = Star::with('starPictures')->paginate(10);
+        foreach ($stars as $key => $value) {
+            var_dump(count($value->starPictures));
+        }
+        die;
+        if ($format === '.json')
+            return $celebrities;
+        return view('merchant.star_list', ['stars' => $stars]);
     }
 
 

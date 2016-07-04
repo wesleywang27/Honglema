@@ -219,16 +219,32 @@
     }
     //保存单行内容按钮
     $.set_value = function(va){
-        $('#f_'+va).text($('#'+va).val());
-        $('#'+va+'_hidden').val($('#'+va).val());
+        var value = '';
+        if(va == 'category'){
+            value = document.getElementById("category").value;
+        }else{
+            value = $('#'+va).val();
+        }
+        $('#f_'+va).text(value);
+        $('#'+va+'_hidden').val(value);
     }
 
-    //多值拼接
+    //多值拼接（2值）
     $.set_values = function(v,v1,v2){
         $('#f_' + v).text($('#'+v1).val()+'/'+$('#'+v2).val());
         $('#'+v1+'_hidden').val($('#'+v1).val());
         $('#'+v2+'_hidden').val($('#'+v2).val());
     }
+
+
+    //多值拼接（3值）
+    $.set_three_values = function(v,v1,v2,v3){
+        $('#f_' + v).text($('#'+v1).val()+'/'+$('#'+v2).val()+'/'+$('#'+v3).val());
+        $('#'+v1+'_hidden').val($('#'+v1).val());
+        $('#'+v2+'_hidden').val($('#'+v2).val());
+        $('#'+v3+'_hidden').val($('#'+v3).val());
+    }
+
     //设置性别
     $.set_sex = function(){
         var text = $("input[name='sex-radio']:checked").val();
@@ -251,18 +267,98 @@
         nodata: 'none'
     });
 
+    // //完成注册
+    // $('#finish').click(function(){
+    //     var contactValue = $('#f_contact').text();
+    //     var contactValues = contactValue.split("/");
+    //     if(contactValues == '未编辑'){
+    //         contactValues = '';
+    //     }
+    //     var alipayValue = $('#f_alipay').text();
+    //     var alipayValues = alipayValue.split("/");
+    //     if(alipayValues == '未编辑'){
+    //         alipayValues = '';
+    //     }
+
+    //     $.ajax({
+    //         url: "/Merchant/register/save",
+    //         type: "POST",
+    //         traditional: true,
+    //         dataType: "JSON",
+    //         data: {
+    //             "avatar"      : $('#f_avatar').attr('src'),
+    //             "name"     : $('#merchant_name_hidden').val(),
+    //             "country"     : clearEmply('country'),
+    //             "province"     : clearEmply('province'),
+    //             "city"     : clearEmply('city'),
+    //             "region"     : clearEmply('region'),
+    //             "address"     : $('#addressInput').val(),
+    //             "wechat"     : $('#wechat_hidden').val(),
+    //             "cellphone"     : $('#cellphone_hidden').val(),
+    //             "alipay_name"     : $('#alipay_name_hidden').val(),
+    //             "alipay_account"     : $('#alipay_account_hidden').val(),
+    //             "license"     : $('#license_img').attr('src'),
+    //             "open_id"     :  $('#openId').val()
+    //         },
+    //         success: function(data) {
+    //             $.toast("操作成功!",1000);
+    //             setTimeout(function(){
+    //                 location.href="/Merchant/user/";
+    //             },1000);
+    //         },
+    //         headers: {
+    //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //         }
+    //     });
+    // });
+    
+    // //保存修改信息
+    // $('#save').click(function(){
+    //     var contactValue = $('#f_contact').text();
+    //     var contactValues = contactValue.split("/");
+    //     if(contactValues == '未编辑'){
+    //         contactValues = '';
+    //     }
+    //     var alipayValue = $('#f_alipay').text();
+    //     var alipayValues = alipayValue.split("/");
+    //     if(alipayValues == '未编辑'){
+    //         alipayValues = '';
+    //     }
+
+    //     $.ajax({
+    //         url: "/Merchant/user/updateUser",
+    //         type: "POST",
+    //         traditional: true,
+    //         dataType: "JSON",
+    //         data: {
+    //             "avatar"      : $('#f_avatar').attr('src'),
+    //             "name"     : $('#merchant_name_hidden').val(),
+    //             "country"     : clearEmply('country'),
+    //             "province"     : clearEmply('province'),
+    //             "city"     : clearEmply('city'),
+    //             "region"     : clearEmply('region'),
+    //             "address"     : $('#addressInput').val(),
+    //             "wechat"     : $('#wechat_hidden').val(),
+    //             "cellphone"     : $('#cellphone_hidden').val(),
+    //             "alipay_name"     : $('#alipay_name_hidden').val(),
+    //             "alipay_account"     : $('#alipay_account_hidden').val(),
+    //             "license"     : $('#license_img').attr('src'),
+    //         },
+    //         success: function(data) {
+    //             $.toast("操作成功!",1000);
+    //             setTimeout(function(){
+    //                 location.href="/Merchant/user/";
+    //             },1000);
+    //         },
+    //         headers: {
+    //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //         }
+    //     });
+    // });
+
     //完成注册
-    $('#finish').click(function(){
-        var contactValue = $('#f_contact').text();
-        var contactValues = contactValue.split("/");
-        if(contactValues == '未编辑'){
-            contactValues = '';
-        }
-        var alipayValue = $('#f_alipay').text();
-        var alipayValues = alipayValue.split("/");
-        if(alipayValues == '未编辑'){
-            alipayValues = '';
-        }
+    $('#finishRegister').click(function(){
+        
 
         $.ajax({
             url: "/Merchant/register/save",
@@ -277,11 +373,14 @@
                 "city"     : clearEmply('city'),
                 "region"     : clearEmply('region'),
                 "address"     : $('#addressInput').val(),
-                "wechat"     : $('#wechat_hidden').val(),
-                "cellphone"     : $('#cellphone_hidden').val(),
-                "alipay_name"     : $('#alipay_name_hidden').val(),
-                "alipay_account"     : $('#alipay_account_hidden').val(),
-                "license"     : $('#license_img').attr('src'),
+                "contact"     : $('#contact_hidden').val(),
+                "contact_phone"     : $('#contact_phone_hidden').val(),
+                "contact_email"     : $('#contact_email_hidden').val(),
+                "brand_name"     : $('#brand_name_hidden').val(),
+                "category"     : $('#category_hidden').val(),
+                "shop_id"     : $('#shop_id_hidden').val(),
+                "sales"     : $('#sale_hidden').val(),
+                "introduction"     : $('#introduction_hidden').val(),
                 "open_id"     :  $('#openId').val()
             },
             success: function(data) {
@@ -296,18 +395,9 @@
         });
     });
 
+
     //保存修改信息
     $('#save').click(function(){
-        var contactValue = $('#f_contact').text();
-        var contactValues = contactValue.split("/");
-        if(contactValues == '未编辑'){
-            contactValues = '';
-        }
-        var alipayValue = $('#f_alipay').text();
-        var alipayValues = alipayValue.split("/");
-        if(alipayValues == '未编辑'){
-            alipayValues = '';
-        }
 
         $.ajax({
             url: "/Merchant/user/updateUser",
@@ -322,11 +412,14 @@
                 "city"     : clearEmply('city'),
                 "region"     : clearEmply('region'),
                 "address"     : $('#addressInput').val(),
-                "wechat"     : $('#wechat_hidden').val(),
-                "cellphone"     : $('#cellphone_hidden').val(),
-                "alipay_name"     : $('#alipay_name_hidden').val(),
-                "alipay_account"     : $('#alipay_account_hidden').val(),
-                "license"     : $('#license_img').attr('src'),
+                "contact"     : $('#contact_hidden').val(),
+                "contact_phone"     : $('#contact_phone_hidden').val(),
+                "contact_email"     : $('#contact_email_hidden').val(),
+                "brand_name"     : $('#brand_name_hidden').val(),
+                "category"     : $('#category_hidden').val(),
+                "shop_id"     : $('#shop_id_hidden').val(),
+                "sales"     : $('#sale_hidden').val(),
+                "introduction"     : $('#introduction_hidden').val(),
             },
             success: function(data) {
                 $.toast("操作成功!",1000);

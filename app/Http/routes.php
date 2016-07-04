@@ -435,10 +435,16 @@ Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant','middleware' => 
         Route::resource('/activityOrder/saveComment',"ActivityController@saveComment");
         Route::post('/activityOrder/saveActivity',"ActivityController@saveActivity");
 
+        //网红广场
+        Route::resource('/starGround', 'IndexController@showStar');
+        Route::get('/starGround/list{format?}', 'IndexController@showStar');
+
         //注册
         Route::get('/register', 'IndexController@register');
         Route::resource('/register/save', 'IndexController@saveRegister');
         Route::resource('/register/uploadPicture', 'IndexController@uploadPic');
+
+
 
 });
 

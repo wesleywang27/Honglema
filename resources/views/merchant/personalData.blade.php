@@ -11,6 +11,7 @@
         $('#city').attr('data-value','{{$merchant->city}}');
         $('#region').attr('data-value','{{$merchant->region}}');
         $('#addressInput').val('{{$merchant->address}}');
+        $("#category option[value='{{$merchant->category}}']").attr('selected',true);
     });
 </script>
     <header class="bar bar-nav">
@@ -39,18 +40,28 @@
                 <li>
                     <a href="#merchantName" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">商家店铺名称</div>
+                            <div class="item-title">公司全称</div>
                             <div id="f_merchant_name" class="item-after">{{$merchant['name']}}</div>
                             <input type="hidden" id="merchant_name_hidden" value="{{$merchant['name']}}">
                         </div>
                     </a>
                 </li>
                 <li>
-                    <a href="#merchantLink" class="item-link item-content">
+                    <a href="#address" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">店铺链接</div>
-                            <div id="f_merchant_link" class="item-after">未编辑</div>
-                            <input type="hidden" id="merchant_link_hidden" value="">
+                            <div class="item-title">公司地址</div>
+                            <div id="f_address" class="item-after">{{$merchant->country}} {{$merchant->province}} {{$merchant->city}} {{$merchant->region}} {{$merchant->address}}</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#contactInfo" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">负责人</div>
+                            <div id="f_contact_div" class="item-after">{{$merchant->contact}}/{{$merchant->contact_phone}}/{{$merchant->contact_email}}</div>
+                            <input type="hidden" id="contact_hidden" value="{{$merchant->contact}}">
+                            <input type="hidden" id="contact_phone_hidden" value="{{$merchant->contact_phone}}">
+                            <input type="hidden" id="contact_email_hidden" value="{{$merchant->contact_email}}">
                         </div>
                     </a>
                 </li>
@@ -60,20 +71,29 @@
         <div class="list-block" style="margin-top: -1rem;">
             <ul>
                 <li>
-                    <a href="#address" class="item-link item-content">
+                    <a href="#categoryList" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">商家地址</div>
-                            <div id="f_address" class="item-after">{{$merchant->country}} {{$merchant->province}} {{$merchant->city}} {{$merchant->region}} {{$merchant->address}}</div>
+                            <div class="item-title">商品类目</div>
+                            <div id="f_category" class="item-after">{{$merchant->category}}</div>
+                            <input type="hidden" id="category_hidden" value="{{$merchant->category}}">
                         </div>
                     </a>
                 </li>
                 <li>
-                    <a href="#merchantContact" class="item-link item-content">
+                    <a href="#brandName" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">联系方式</div>
-                            <div id="f_contact" class="item-after">{{$merchant->wechat}}/{{$merchant->cellphone}}</div>
-                            <input type="hidden" id="wechat_hidden" value="{{$merchant->wechat}}">
-                            <input type="hidden" id="cellphone_hidden" value="{{$merchant->cellphone}}">
+                            <div class="item-title">品牌名</div>
+                            <div id="f_brand_name" class="item-after">{{$merchant->brand_name}}</div>
+                            <input type="hidden" id="brand_name_hidden" value="{{$merchant->brand_name}}">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#shopId" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">淘宝/天猫店铺id</div>
+                            <div id="f_shop_id" class="item-after">{{$merchant->shop_id}}</div>
+                            <input type="hidden" id="shop_id_hidden" value="{{$merchant->shop_id}}">
                         </div>
                     </a>
                 </li>
@@ -82,20 +102,20 @@
         <div class="list-block">
             <ul>
                 <li>
-                    <a href="#alipay" class="item-link item-content">
+                    <a href="#saleValue" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">支付宝账号</div>
-                            <div id="f_alipay" class="item-after">{{$merchant->alipay_name}}/{{$merchant->alipay_account}}</div>
-                            <input type="hidden" id="alipay_name_hidden" value="{{$merchant->alipay_name}}">
-                            <input type="hidden" id="alipay_account_hidden" value="{{$merchant->alipay_account}}">    
+                            <div class="item-title">年销售额</div>
+                            <div id="f_sale" class="item-after">{{$merchant->sales}}</div>
+                            <input type="hidden" id="sale_hidden" value="{{$merchant->sales}}"> 
                         </div>
                     </a>
                 </li>
                 <li>
-                    <a href="#license" class="item-link item-content">
+                    <a href="#merchantIntroduction" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">工商执照</div>
-                            <div id="f_license" class="item-after"></div>
+                            <div class="item-title">商家介绍</div>
+                            <div id="f_introduction" class="item-after"></div>
+                            <input type="hidden" id="introduction_hidden" value="{{$merchant->introduction}}"> 
                         </div>
                     </a>
                 </li>
@@ -116,7 +136,7 @@
             <span class="icon icon-left"></span>
             返回
         </a>
-        <h1 class="title">店铺名称</h1>
+        <h1 class="title">公司全称</h1>
         <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('merchant_name');">
             保存
             <span class="save"></span>
@@ -128,10 +148,10 @@
                 <li>
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
-                        <div class="item-title label">店铺名称</div>
+                        <div class="item-title label">公司全称</div>
                         <div class="item-inner">
                             <div class="item-input">
-                                <input id="merchant_name" type="text" value="{{$merchant['name']}}">
+                                <input id="merchant_name" type="text" value="{{$merchant['name']}}" >
                             </div>
                         </div>
                     </div>
@@ -142,42 +162,11 @@
 @overwrite
 @include('partial/jquery_mobile_page', ["page_id" => "merchantName"])
 
-@section('page-main')
-    <header class="bar bar-nav">
-        <a class="button button-link button-nav pull-left back" href="#main">
-            <span class="icon icon-left"></span>
-            返回
-        </a>
-        <h1 class="title">店铺链接</h1>
-        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('merchant_link');">
-            保存
-            <span class="save"></span>
-        </a>
-    </header>
-    <div class="content" style="top: 1.2rem;">
-        <div class="list-block">
-            <ul>
-                <li>
-                    <div class="item-content">
-                        <div class="item-media"><i class="icon icon-form-name"></i></div>
-                        <div class="item-inner">
-                            <div class="item-title label">店铺链接</div>
-                            <div class="item-input">
-                                <input id="merchant_link" type="text" value="">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-@overwrite
-@include('partial/jquery_mobile_page', ["page_id" => "merchantLink"])
 
 
 @section('page-main')
     <header class="bar bar-nav">
-        <a class="button button-link button-nav pull-left back" href="#register3" onclick="$.set_address('country','province','city','region','addressInput');">
+        <a class="button button-link button-nav pull-left back" href="#main" onclick="$.set_address('country','province','city','region','addressInput');">
             <span class="icon icon-left"></span>
             返回
         </a>
@@ -190,11 +179,7 @@
                         <div class="weui_cells" id="global_location">
                             <div class="weui_cell weui_cell_select">
                                 <div class="weui_cell_bd weui_cell_primary">
-                                    <select class="weui_select country" id="country">
-                                   <!--  <option value="请选择">请选择</option>
-                                    <option value="中国" selected>中国</option> -->
-                                        
-                                    </select>
+                                    <select class="weui_select country" id="country" ></select>
                                 </div>
                             </div>
                             <div class="weui_cell weui_cell_select">
@@ -226,14 +211,16 @@
 @overwrite
 @include('partial/jquery_mobile_page', ["page_id" => "address"])
 
+<!-- 以下是新增内容 -->
+<!-- 品牌名 -->
 @section('page-main')
     <header class="bar bar-nav">
         <a class="button button-link button-nav pull-left back" href="#main">
             <span class="icon icon-left"></span>
             返回
         </a>
-        <h1 class="title">联系方式</h1>
-        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_values('contact','wechat','cellphone');">
+        <h1 class="title">负责人信息</h1>
+        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_three_values('contact_div','contact','contact_phone','contact_email');">
             保存
             <span class="save"></span>
         </a>
@@ -245,9 +232,9 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">微信号</div>
+                            <div class="item-title label">负责人</div>
                             <div class="item-input">
-                                <input id="wechat" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="微信号" value="{{$merchant->wechat}}">
+                                <input id="contact" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="负责人姓名" value="{{$merchant['contact']}}">
                             </div>
                         </div>
                     </div>
@@ -258,7 +245,18 @@
                         <div class="item-inner">
                             <div class="item-title label">手机号</div>
                             <div class="item-input">
-                                <input id="cellphone" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="手机号" value="{{$merchant->cellphone}}">
+                                <input id="contact_phone" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="负责人手机号" value="{{$merchant['contact_phone']}}">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">邮箱</div>
+                            <div class="item-input">
+                                <input id="contact_email" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="负责人邮箱" value="{{$merchant['contact_email']}}">
                             </div>
                         </div>
                     </div>
@@ -267,7 +265,8 @@
         </div>
     </div>
 @overwrite
-@include('partial/jquery_mobile_page', ["page_id" => "merchantContact"])
+@include('partial/jquery_mobile_page', ["page_id" => "contactInfo"])
+
 
 @section('page-main')
     <header class="bar bar-nav">
@@ -275,8 +274,89 @@
             <span class="icon icon-left"></span>
             返回
         </a>
-        <h1 class="title">支付宝</h1>
-        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_values('alipay','alipay_name','alipay_account');">
+        <h1 class="title">商品类目</h1>
+        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('category');">
+            保存
+            <span class="save"></span>
+        </a>
+    </header>
+    <div class="content" style="top: 1.2rem;">
+        <div class="list-block">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-title label">请选择</div>
+                        <div class="item-inner">
+                            <div class="item-input">
+                                <select id="category">
+                                    <option value="0">请选择...</option>
+                                    <option value="男装">男装</option>
+                                    <option value="女装">女装</option>
+                                    <option value="内衣">内衣</option>
+                                    <option value="鞋">鞋</option>
+                                    <option value="箱包">箱包</option>
+                                    <option value="母婴">母婴</option>
+                                    <option value="数码家电">数码家电</option>
+                                    <option value="美妆护肤">美妆护肤</option>
+                                    <option value="食品">食品</option>
+                                    <option value="珠宝配饰">珠宝配饰</option>
+                                    <option value="运动户外">运动户外</option>
+                                    <option value="家具">家具</option>
+                                    <option value="百货">百货</option>
+                              </select>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+@overwrite
+@include('partial/jquery_mobile_page', ["page_id" => "categoryList"])
+
+@section('page-main')
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-left back" href="#main">
+            <span class="icon icon-left"></span>
+            返回
+        </a>
+        <h1 class="title">品牌名称</h1>
+        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('brand_name');">
+            保存
+            <span class="save"></span>
+        </a>
+    </header>
+    <div class="content" style="top: 1.2rem;">
+        <div class="list-block">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-title label">品牌名称</div>
+                        <div class="item-inner">
+                            <div class="item-input">
+                                <input id="brand_name" type="text" value="{{$merchant['brand_name']}}">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+@overwrite
+@include('partial/jquery_mobile_page', ["page_id" => "brandName"])
+
+
+<!-- 淘宝天猫店铺id -->
+@section('page-main')
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-left back" href="#main">
+            <span class="icon icon-left"></span>
+            返回
+        </a>
+        <h1 class="title">店铺信息</h1>
+        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('shop_id');">
             保存
             <span class="save"></span>
         </a>
@@ -288,20 +368,9 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">支付宝姓名</div>
+                            <div class="item-title label">淘宝／天猫店铺id</div>
                             <div class="item-input">
-                                <input id="alipay_name" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="支付宝姓名" value="{{$merchant->alipay_name}}">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item-content">
-                        <div class="item-media"><i class="icon icon-form-name"></i></div>
-                        <div class="item-inner">
-                            <div class="item-title label">支付宝账号</div>
-                            <div class="item-input">
-                                <input id="alipay_account" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="支付宝账号" value="{{$merchant->alipay_account}}">
+                                <input id="shop_id" type="text" value="{{$merchant['shop_id']}}" >
                             </div>
                         </div>
                     </div>
@@ -310,28 +379,31 @@
         </div>
     </div>
 @overwrite
-@include('partial/jquery_mobile_page', ["page_id" => "alipay"])
+@include('partial/jquery_mobile_page', ["page_id" => "shopId"])
 
+<!-- 年销售额 -->
 @section('page-main')
     <header class="bar bar-nav">
-        <a class="button button-link button-nav pull-left back" href="#register2">
+        <a class="button button-link button-nav pull-left back" href="#main">
             <span class="icon icon-left"></span>
             返回
         </a>
-        <h1 class="title">工商执照</h1>
+        <h1 class="title">年销售额</h1>
+        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('sale');">
+            保存
+            <span class="save"></span>
+        </a>
     </header>
     <div class="content" style="top: 1.2rem;">
         <div class="list-block">
             <ul>
                 <li>
                     <div class="item-content">
-                        <div class="weui_uploader" style="margin-left: .75rem;margin-top: .5rem;margin-right: 1.5rem;width:100%;">
-                            <div class="weui_uploader_hd weui_cell">
-                                <div class="weui_cell_bd weui_cell_primary">照片</div>
-                            </div>
-                            <div class="weui_uploader_bd">
-                                    <img id="license_img" src="{{$merchant['license']}}" style="width: 100%;height: 10rem;border-radius: 5px;">
-                                    <input class="weui_uploader_input" id="licenseimgupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">年销售额</div>
+                            <div class="item-input">
+                                <input id="sale" type="text" value="{{$merchant['sales']}}">
                             </div>
                         </div>
                     </div>
@@ -340,7 +412,38 @@
         </div>
     </div>
 @overwrite
-@include('partial/jquery_mobile_page', ["page_id" => "license"])
+@include('partial/jquery_mobile_page', ["page_id" => "saleValue"])
 
+<!-- 公司介绍 -->
+@section('page-main')
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-left back" href="#main">
+            <span class="icon icon-left"></span>
+            返回
+        </a>
+        <h1 class="title">商家介绍</h1>
+        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('introduction');">
+            保存
+            <span class="save"></span>
+        </a>
+    </header>
+    <div class="content" style="top: 1.2rem;">
+        <div class="list-block">
+            <ul>
+                <li>
+                        <div class="weui_cells" id="global_location">
+                            <div class="weui_cell">
+                                <div class="weui_cell_bd weui_cell_primary">
+                                    <textarea class="weui_textarea" id="introduction" placeholder="请输入商家介绍" rows="5">{{$merchant['introduction']}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                   
+                </li>
+            </ul>
+        </div>
+    </div>
+@overwrite
+@include('partial/jquery_mobile_page', ["page_id" => "merchantIntroduction"])
 
 @endsection

@@ -61,7 +61,7 @@ class Star extends Model{
     );
     public function starPictures()
     {
-        return $this->hasMany('App\Models\StarPictures', 'id');
+        return $this->hasMany('App\Models\StarPicture', 'uid', 'star_id');
     }
 
 

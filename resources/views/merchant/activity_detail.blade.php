@@ -90,6 +90,16 @@
           </div>
           <div class="list-block media-list content-no-margin">
             <ul>
+
+            <?php if(count($data['commodity_ids'])==0){ ?>
+              <li >
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">暂无商品信息</div>
+                  </div>
+                </div>
+              </li>
+            <?php }else{ ?>
           @foreach ($data['commodity_ids'] as $cid)
           <?php 
              $commodity = App\Models\Commodity::where('commodity_id',$cid['commodity_id'])->first();
@@ -103,6 +113,7 @@
                 </div>
               </li>
           @endforeach
+          <?php } ?>
             </ul>
           </div>
       </div>

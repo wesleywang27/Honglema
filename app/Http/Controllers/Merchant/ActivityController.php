@@ -69,6 +69,9 @@ class ActivityController extends RootController{
 
         //保存商品
         for($i = 0;$i < count($commodity_names); $i ++){
+            if($commodity_names[$i]==''){
+                continue;
+            }
             //保存commodity
             $commodity = new Commodity();
             $commodity['merchant_id'] = $_SESSION['merchant_id'];
