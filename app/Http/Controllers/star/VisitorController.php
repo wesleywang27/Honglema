@@ -79,7 +79,6 @@ class VisitorController extends Controller
         $star->avatar=$request->input('avatar');
         $star->name = $request->input('name');
         $star->sex = $request->input('sex');
-        $star->location = $request->input('location');
         $star->cup = $request->input('cup');
         $star->weight = $request->input('weight');
         $star->height = $request->input('height');
@@ -88,8 +87,6 @@ class VisitorController extends Controller
         $star->occupation = $request->input('occupation');
         $star->education = $request->input('education');
         $star->experience = $request->input('experience');
-        $star->real_name = $request->input('real_name');
-        $star->ID_number = $request->input('ID_number');
         $star->shirt_size = $request->input('shirt_size');
         $star->pants_size = $request->input('pants_size');
         $star->shoes_size = $request->input('shoes_size');
@@ -106,8 +103,7 @@ class VisitorController extends Controller
         $star->alipay_name = $request->input('alipay_name');
         $star->alipay_account = $request->input('alipay_account');
         $star->region = $request->input('region');
-        $star->region = 0;
-        $star->status = 0;
+        $star->tag=$request->input('tag');
         $star->save();
             //保存网红照片
         $star = Star::where('openid', $openid)->first();

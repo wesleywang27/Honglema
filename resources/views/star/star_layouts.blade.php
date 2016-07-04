@@ -388,6 +388,17 @@
         $('#f_dizhi').text($('#'+v1).val() +$('#'+v2).val());
     }
 
+    //设置身高与体重等具有三个滚动的值
+    $.set_scrollValue = function(v1,v2){
+        //取值
+        var value = $('#'+v1).val();
+        //去空格
+        value = value.replace(/\s+/g,"");
+        //删除0开头
+        value = value.replace(/^0*/g,"");
+        //显示
+        $('#'+v2).text(value);
+    }
     //设置尺寸
     $.set_size = function(){
         $('#f_cloth').text($('#f_shirt').val()+'/'+$('#f_pants').val()+'/'+$('#f_shoe').val());
@@ -522,26 +533,23 @@
             traditional: true,
             dataType: "JSON",
             data: {
-                "name": $('#f_nickname').text(),
+                "name": $('#f_dnickname').text(),
                 "sex": sex,
-                "location": $('#f_city-picker').text(),
 
-                "avatar":$("f_wx_headimg").attr('src'),
+                "avatar":$("#f_wx_headimg").attr('src'),
                 "cup": $('#f_zhaobei').text(),
-                "weight": $('#f_tizhong').text(),
-                "height": $('#f_shengao').text(),
+                "weight": $('#f_weight_picker').text(),
+                "height": $('#f_height_picker').text(),
                 "age": $('#f_nianling').text(),
                 "occupation": $('#f_zhiye').text(),
-                "education": $('#f_xueli').text(),
+                "education": $('#f_deducation').text(),
 
                 "experience": $('#jingli').val(),
+                "tag":$('#f_tag_picker').text(),
 
-                "real_name": $('#id_name').val(),
-                "ID_number": $('#id_code').val(),
-
-                "shirt_size": $('#shangyi').val(),
-                "pants_size": $('#xiayi').val(),
-                "shoes_size": $('#shoe').val(),
+                "shirt_size": $('#f_shirt').val(),
+                "pants_size": $('#f_pants').val(),
+                "shoes_size": $('#f_shoe').val(),
 
                 "cellphone": $('#phonenum').val(),
                 "address": $('#f_dizhi').text(),
@@ -860,6 +868,19 @@ $.cancelOrder=function(id){
                 textAlign: 'center',
                 values: ['1', '2', '3', '4', '5', '6', '7','8','9','0']
             }
+        ]
+    });
+    //网红标签选择
+    $("#tag_picker").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">身高</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['美妆达人', '运动健身', '时尚娱乐', '优秀主播', '母婴达人', '弹唱达人', '潮搭达人','美食达人']
+            },
         ]
     });
 </script>

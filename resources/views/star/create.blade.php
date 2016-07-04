@@ -230,7 +230,7 @@
             返回
         </a>
         <h1 class="title">体重</h1>
-        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('weight_picker');">
+        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_scrollValue('weight_picker','f_weight_picker');">
             保存
             <span class="save"></span>
         </a>
@@ -262,7 +262,7 @@
             返回
         </a>
         <h1 class="title">身高</h1>
-        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('height_picker');">
+        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_scrollValue('height_picker','f_height_picker');">
             保存
             <span class="save"></span>
         </a>
@@ -436,7 +436,7 @@
                     <a href="#weight" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">体重</div>
-                            <div id="f_tizhong" class="item-after"></div>
+                            <div id="f_weight_picker" class="item-after"></div>
                         </div>
                     </a>
                 </li>
@@ -444,7 +444,7 @@
                     <a href="#height" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">身高</div>
-                            <div id="f_shengao" class="item-after"></div>
+                            <div id="f_height_picker" class="item-after"></div>
                         </div>
                     </a>
                 </li>
@@ -779,6 +779,14 @@
         <div class="list-block">
             <ul>
                 <li>
+                    <a href="#tag" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">网红标签</div>
+                            <div id="f_tag_picker" class="item-after"></div>
+                        </div>
+                    </a>
+                </li>
+                <li>
                     <a href="#size" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">衣服尺寸</div>
@@ -824,6 +832,38 @@
     </div>
 @overwrite
 @include('partial/jquery_mobile_page', ["page_id" => "register3"])
+
+@section('page-main')
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-left back" href="#register3">
+            <span class="icon icon-left"></span>
+            返回
+        </a>
+        <h1 class="title">网红标签</h1>
+        <a class="button button-link button-nav pull-right back" href="#register3" onclick="$.set_value('tag_picker');">
+            保存
+            <span class="save"></span>
+        </a>
+    </header>
+    <div class="content" style="top: 1.2rem;">
+        <div class="list-block">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">网红标签</div>
+                            <div class="item-input">
+                                <input id="tag_picker" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="网红标签">&nbsp;
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+@overwrite
+@include('partial/jquery_mobile_page', ["page_id" => "tag"])
 
 @section('page-main')
     <header class="bar bar-nav">
