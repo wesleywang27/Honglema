@@ -375,9 +375,10 @@
             $('#sexvalue').val('1');
             $('#cupli').hide();
         }
-        else if(text =='2'){
+        else if(text =='女'){
             $('#f_sex').text('女');
         $('#sexvalue').val('2');
+            $('#cupli').show();
     }else{
         $('#sexvalue').val('0');
             $('#f_sex').text('未知');}
