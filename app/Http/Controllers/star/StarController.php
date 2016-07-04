@@ -41,6 +41,10 @@ class StarController extends RootController
                 $commodities[] = Commodity::where('commodity_id', $relation->commodity_id)->get();
             }
             $priceLevel = PriceLevel::where('pl_id',$activity->price_level)->first();
+            $price=0;
+            if($priceLevel){
+                $price = $priceLevel->price_star;
+            }
             $isAvailable = $activity->task_num >$activity->confirm_num?true:false;
             if ($order->status == 2) {
                 $task = Task::where('task_id', $order->task_id)->first();
@@ -49,7 +53,7 @@ class StarController extends RootController
                     'merchant_name' => $merchant->name,
                     'picture' => $activity->picture,
                     'avatar' => $merchant->avatar,
-                    'price' => $priceLevel->price_star,
+                    'price' => $price,
                     'requirement' => $activity->claim,
                     'order_status' => $order->status,
                     'merchant_id' => $merchant->merchant_id,
@@ -61,7 +65,7 @@ class StarController extends RootController
                     'merchant_name' => $merchant->name,
                     'picture' => $activity->picture,
                     'avatar' => $merchant->avatar,
-                    'price' => $priceLevel->price_star,
+                    'price' => $price,
                     'requirement' => $activity->claim,
                     'order_status' => $order->status,
                     'isAvailable' => $isAvailable,
@@ -135,6 +139,10 @@ class StarController extends RootController
 
         $isAvailable = $activity->task_num >$activity->confirm_num?true:false;
         $priceLevel = PriceLevel::where('pl_id',$activity->price_level)->first();
+        $price=0;
+        if($priceLevel){
+            $price = $priceLevel->price_star;
+        }
         $commodities = array();
         foreach ($relations as $relation) {
             $commodities[] = Commodity::where('commodity_id', $relation->commodity_id)->first();
@@ -147,7 +155,7 @@ class StarController extends RootController
                 'order_status' => $order->status,
                 'activity' => $activity,
                 'merchant' => $merchant,
-                'price' => $priceLevel->price_star,
+                'price' => $price,
             );
         } else {
             $data = array('order' => $order,
@@ -155,7 +163,7 @@ class StarController extends RootController
                 'activity' => $activity,
                 'merchant' => $merchant,
                 'isAvailable' => $isAvailable,
-                'price' => $priceLevel->price_star,
+                'price' => $price,
             );
         }
         return view('star/order_detail', ["data" => $data, 'commodities' => $commodities,]);

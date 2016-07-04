@@ -763,6 +763,20 @@ $.cancelOrder=function(id){
             }
         ]
     });
+    //性别选择
+    $("#sex_picker").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-left">按钮</button>\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">性别</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['男', '女']
+            }
+        ]
+    });
 </script>
 </body>
 </html>

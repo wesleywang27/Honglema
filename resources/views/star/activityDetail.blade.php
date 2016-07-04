@@ -37,7 +37,13 @@
                     <div class="item-inner">
                         <div class="item-title" style="font-size:90%;">{{ $detail['title']}}</div>
                         <div id="f_merchant_name" class="item-after" style="font-size:80%;">¥&nbsp;
-                            <?php echo App\Models\PriceLevel::where('pl_id', $detail['price_level'])->first()['price_star']; ?></div>
+                            <?php  $priceLevel = App\Models\PriceLevel::where('pl_id', $detail['price_level'])->first();
+                                $price=0;
+                             if($priceLevel){
+                                $price = $priceLevel->price_star;
+                            }
+                                echo $price;
+                            ?></div>
                     </div>
                 </div>
             </li>

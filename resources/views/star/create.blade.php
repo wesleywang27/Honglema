@@ -32,7 +32,7 @@
                     <a href="#sex" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title"><span style="color:red">* </span>性别</div>
-                            <input id="sexvalue" style="visibility: hidden;">
+                            <input id="sexvalue" style="visibility: ;">
                             <div id="f_sex" class="item-after"></div>
                         </div>
                     </a>
