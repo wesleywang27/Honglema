@@ -32,6 +32,11 @@
       @foreach ($list as $vo)
       <?php
         $merchant = App\Models\Merchant::where('merchant_id',$vo->merchant_id)->first();
+              $priceLevel =  App\Models\PriceLevel::where('pl_id',$vo->price_level)->first();
+              $price=0;
+              if($priceLevel){
+                  $price = $priceLevel->price_star;
+              }
       ?>
         <div class="content-block content-block-my content-no-margin">
           <div class="content-block content-block-my">
@@ -54,7 +59,7 @@
                   <div class="item-inner">
                     <div class="item-title-row">
                       <div class="item-subtitle">{{$vo['title']}}</div>
-                      <div class="item-after">¥{{$vo['total_price']}}</div>
+                      <div class="item-after">¥{{$price}}</div>
                     </div>
                     <div class="item-subtitle">&nbsp;</div>
                    <div class="item-subtitle">
