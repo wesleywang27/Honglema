@@ -193,13 +193,25 @@
 		                <div class="item-content">
 		                    <div class="item-inner">
 		                    	<div class="item-title label">商品链接</div>
-					            <div class="item-input">
-					              <input type="text" placeholder="请输入商品链接" name="commodity_url[]">
-					            </div>
-					        </div>
+    					            <div class="item-input">
+    					              <input type="text" placeholder="请输入商品链接" name="commodity_url[]">
+    					            </div>
+    					        </div>
 		                </div>
 		            </li>
 		        </ul>
+            <ul>
+               <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">商品介绍</div>
+                        <div class="item-input">
+                            <textarea class="weui_textarea" name="commodity_introduction[]" placeholder="请输入商品介绍" rows="5"></textarea>
+                        </div>
+                    </div>
+                  </div>
+                </li>
+            </ul>
 		        
 		    </div>
 		</div>
@@ -208,16 +220,16 @@
         <div class="content-block content-block-my">
           	<div class="list-block content-no-margin" style="margin-top: -1rem;">
           		<ul>
-			    	<li>
-			            <div class="item-content">
-			                <div class="item-inner">
-					           <div class="add_commodity">
-									<img src="/images/merchant/add-2.png" />
-								</div>
-					        </div>
-			            </div>
-			        </li>
-			    </ul>
+    			    	<li>
+    			            <div class="item-content">
+    			                <div class="item-inner">
+    					           <div class="add_commodity">
+    									<img src="/images/merchant/add-2.png" />
+    								</div>
+    					        </div>
+    			            </div>
+    			        </li>
+    			    </ul>
           	</div>
 		</div>
     </div>
@@ -270,14 +282,25 @@
 		                <div class="item-content">
 		                    <div class="item-inner">
 		                    	<div class="item-title label">商品链接</div>
-					            <div class="item-input">
-					              <input type="text" placeholder="请输入商品链接" name="commodity_url[]">
-					            </div>
-					        </div>
+    					            <div class="item-input">
+    					              <input type="text" placeholder="请输入商品链接" name="commodity_url[]">
+    					            </div>
+    					        </div>
 		                </div>
 		            </li>
 		        </ul>
-		        
+		        <ul>
+               <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">商品介绍</div>
+                        <div class="item-input">
+                            <textarea class="weui_textarea" name="commodity_introduction[]" placeholder="请输入商品介绍" rows="5"></textarea>
+                        </div>
+                    </div>
+                  </div>
+                </li>
+            </ul>
 		    </div>
 		</div>
     </div>

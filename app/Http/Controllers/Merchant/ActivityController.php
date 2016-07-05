@@ -48,8 +48,9 @@ class ActivityController extends RootController{
     public function saveActivity(){
         $commodity_names = $_POST['commodity_name'];
         $commodity_urls = $_POST['commodity_url'];
+        $commodity_introduction = $_POST['commodity_introduction'];
         $total_price = $_POST['total_price'] * $_POST['task_num'];
-        unset($_POST['_token'],$_POST['commodity_name'],$_POST['commodity_url'],$_POST['imgs'],$_POST['total_price']);
+        unset($_POST['_token'],$_POST['commodity_name'],$_POST['commodity_url'],$_POST['imgs'],$_POST['total_price'],$_POST['commodity_introduction']);
         //保存Activity
         $activity = new Activity();
         foreach ($_POST as $key => $value) {
@@ -77,6 +78,7 @@ class ActivityController extends RootController{
             $commodity['merchant_id'] = $_SESSION['merchant_id'];
             $commodity['name'] = $commodity_names[$i];
             $commodity['url'] = $commodity_urls[$i];
+            $commodity['introduction'] = $commodity_introduction[$i];
             $commodity->save();
 
             //保存commodity和activity的关联表ActivityCommodityList
