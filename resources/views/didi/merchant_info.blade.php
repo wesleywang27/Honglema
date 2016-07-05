@@ -14,26 +14,50 @@
         <!--左右分栏：左侧栏目-->
         <table border="2" width="95%" height="150" style="margin: 20px;">
             <tr>
-                <th width="15%">商家名称：</th>
-                <td width="17%">{{ $merchant->name}}</td>
-                <th width="15%">微信账号：</th>
-                <td width="17%">{{ $merchant->wechat}}</td>
-                <th width="15%">手机号码：</th>
+                <th width="8%">商家名称</th>
+                <td width="10%">{{ $merchant->name}}</td>
+                <th width="8%">图标</th>
+                <td width="10%"><img src="{{ $merchant->avatar}}" style="width: 80px; height: 80px;"/></td>
+                <th width="8%">微信账号</th>
+                <td width="10%">{{ $merchant->wechat}}</td>
+                <th width="8%">手机号码</th>
                 <td>{{ $merchant->cellphone}}</td>
             </tr>
             <tr>
-                <th>商家所在国家：</th>
+                <th>国家</th>
                 <td>{{ $merchant->country}}</td>
-                <th>商家所在省：</th>
+                <th>省</th>
                 <td>{{ $merchant->province}}</td>
-                <th>商家所在市：</th>
+                <th>市</th>
                 <td>{{ $merchant->city}}</td>
+                <th>区</th>
+                <td>{{ $merchant->region}}</td>
             </tr>
             <tr>
-                <th>商家所在区：</th>
-                <td>{{ $merchant->region}}</td>
-                <th>商家详细地址：</th>
-                <td colspan="3">{{ $merchant->address}}</td>
+                <th>详细地址</th>
+                <td colspan="7">{{ $merchant->address}}</td>
+            </tr>
+            <tr>
+                <th>联系人</th>
+                <td>{{ $merchant->contact}}</td>
+                <th>联系电话</th>
+                <td>{{ $merchant->contact_phone}}</td>
+                <th>联系邮件</th>
+                <td colspan="3">{{ $merchant->contact_email}}</td>
+            </tr>
+            <tr>
+                <th>主营类目</th>
+                <td>{{ $merchant->category}}</td>
+                <th>品牌名</th>
+                <td>{{ $merchant->brand_name}}</td>
+                <th>淘宝天猫店账号</th>
+                <td>{{ $merchant->shop_id}}</td>
+                <th>年销售额</th>
+                <td>{{ $merchant->sales}}</td>
+            </tr>
+            <tr>
+                <th>公司简介</th>
+                <td colspan="7">{{ $merchant->introduction}}</td>
             </tr>
         </table>
         <a href="/didi/MerchantList" style="float: right; margin-right: 50px;"><input type="button" value="返回" class="link_btn"/></a>
