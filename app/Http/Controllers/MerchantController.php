@@ -112,7 +112,7 @@ class MerchantController extends Controller{
     public function merchantList(){
         session_start();
         if(isset($_SESSION['name'])) {
-            $merchant = Merchant::orderBy('created_at','desc')->paginate(10);
+            $merchant = Merchant::orderBy('created_at','desc')->paginate(20);
 
             return view('/didi/merchant_list',['merchants' => $merchant]);
         }
@@ -125,7 +125,7 @@ class MerchantController extends Controller{
     public function merchantCheckList(){
         session_start();
         if(isset($_SESSION['name'])) {
-            $merchant = Merchant::where('status',0)->orderBy('created_at','desc')->paginate(10);
+            $merchant = Merchant::where('status',0)->orderBy('created_at','desc')->paginate(20);
 
             return view('/didi/merchant_list',['merchants' => $merchant]);
         }

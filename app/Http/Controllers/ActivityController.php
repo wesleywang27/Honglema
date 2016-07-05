@@ -263,7 +263,7 @@ class ActivityController extends Controller{
     public function activityList(){
         session_start();
         if(isset($_SESSION['name'])) {
-            $activity = Activity::orderBy('created_at','desc')->paginate(10);
+            $activity = Activity::orderBy('created_at','desc')->paginate(20);
 
             return view('/didi/activity_list',['activities' => $activity]);
         }
@@ -275,7 +275,7 @@ class ActivityController extends Controller{
     public function activityCheckList(){
         session_start();
         if(isset($_SESSION['name'])) {
-            $activity = Activity::where('activity_status',0)->orderBy('created_at','desc')->paginate(10);
+            $activity = Activity::where('activity_status',0)->orderBy('created_at','desc')->paginate(20);
 
             return view('/didi/activity_list',['activities' => $activity]);
         }

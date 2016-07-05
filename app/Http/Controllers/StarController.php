@@ -86,7 +86,7 @@ class StarController extends Controller{
     public function starList(){
         session_start();
         if(isset($_SESSION['name'])) {
-            $star = Star::paginate(10);
+            $star = Star::paginate(20);
 
             return view('/didi/star_list',['stars' => $star]);
         }
@@ -99,7 +99,7 @@ class StarController extends Controller{
     public function starCheckList(){
         session_start();
         if(isset($_SESSION['name'])) {
-            $star = Star::where('status',0)->orderBy('created_at','desc')->paginate(10);
+            $star = Star::where('status',0)->orderBy('created_at','desc')->paginate(20);
             
             return view ('/didi/star_list',['stars' => $star]);
         }
