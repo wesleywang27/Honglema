@@ -12,14 +12,14 @@
     <!--tabCont-->
     <div class="admin_tab_cont" style="display:block;">
         <!--左右分栏：左侧栏目-->
-        <table border="2" width="95%" height="150" style="margin: 20px;">
+        <table border="2" width="95%" height="300" style="margin: 20px;">
             <tr>
                 <th width="8%">商家名称</th>
-                <td width="10%">{{ $merchant->name}}</td>
+                <td width="15%">{{ $merchant->name}}</td>
                 <th width="8%">图标</th>
-                <td width="10%"><img src="{{ $merchant->avatar}}" style="width: 80px; height: 80px;"/></td>
-                <th width="8%">微信账号</th>
-                <td width="10%">{{ $merchant->wechat}}</td>
+                <td width="15%"><img src="{{ $merchant->avatar}}" style="width: 80px; height: 80px;"/></td>
+                <th width="10%">微信账号</th>
+                <td width="15%">{{ $merchant->wechat}}</td>
                 <th width="8%">手机号码</th>
                 <td>{{ $merchant->cellphone}}</td>
             </tr>
