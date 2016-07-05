@@ -26,7 +26,7 @@ class ActivityController extends Controller{
 				// 超级用户可以看到未审核通过（状态为0）的活动
 				$activityList = Activity::where('activity_status', 0)->orWhere('activity_status', 1)->whereNotIn('activity_id', $activity_ids)->orderBy('created_at', 'desc')->get();
 			}else{
-				$activityTemp = Activity::where('activity_status',1)->whereNotIn('activity_id', $activity_ids)->get();
+				$activityTemp = Activity::where('activity_status',1)->whereNotIn('activity_id', $activity_ids)->orderBy('created_at', 'desc')->get();
 				$activityList = array();
 				foreach($activityTemp as $activity){
 					if($activity->task_num >$activity->confirm_num){

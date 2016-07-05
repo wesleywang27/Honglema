@@ -537,7 +537,7 @@
                 "sex": sex,
 
                 "avatar":$("#f_wx_headimg").attr('src'),
-                "cup": $('#f_zhaobei').text(),
+                "cup": $('#f_dcup').text(),
                 "weight": $('#f_weight_picker').text(),
                 "height": $('#f_height_picker').text(),
                 "age": $('#f_nianling').text(),
@@ -875,7 +875,7 @@ $.cancelOrder=function(id){
     $("#tag_picker").picker({
         toolbarTemplate: '<header class="bar bar-nav">\
   <button class="button button-link pull-right close-picker">确定</button>\
-  <h1 class="title">身高</h1>\
+  <h1 class="title">网红标签</h1>\
   </header>',
         cols: [
             {

@@ -215,8 +215,9 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
+                            <div class="item-title label">罩杯</div>
                             <div class="item-input">
-                                <input id="dcup" type="text" >
+                                <input id="dcup" type="text" placeholder="罩杯">
                             </div>
                         </div>
                     </div>
@@ -310,6 +311,7 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
+                            <div class="item-title label">年龄</div>
                             <div class="item-input">
                                 <input id="nianling" type="text" placeholder="年龄">
                             </div>
@@ -777,7 +779,7 @@
             <span class="icon icon-left"></span>
             上一步
         </a>
-        <h1 class="title">注册3/3</h1>
+        <h1 class="title">注册3/3（选填）</h1>
     </header>
     <div class="content" style="top: 1.2rem;">
         <div class="list-block">
