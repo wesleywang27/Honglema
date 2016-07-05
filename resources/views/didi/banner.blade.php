@@ -13,6 +13,18 @@
 header {
 background: #EB6167;
 }
+.link_btn {
+border:1px #C51C1F solid;
+background:#DD2625;
+}
+.link_btn:hover {
+background:#C51C1F;
+border:1px #C51C1F solid;
+}
+.link_btn:active {
+background:#C51C1F;
+border:1px #C51C1F solid;
+}
 </style>
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>

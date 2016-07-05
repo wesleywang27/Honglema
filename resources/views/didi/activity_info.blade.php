@@ -28,8 +28,8 @@
                 <th>活动时间</th>
                 <td style="text-align:center"> {{ $activity->time_within}}</td>
                 <th>推广费用</th>
-                <td style="text-align:center"> {{ $activity->total_price}}</td>
-                <th>活动状态</th>
+                <td width="12%" style="text-align:center"> {{ $activity->total_price}}</td>
+                <th width="10%">活动状态</th>
                 <td style="text-align:center">
                     @if ($activity->activity_status == 0)
                     待审核
