@@ -12,26 +12,26 @@
     <!--tabCont-->
     <div class="admin_tab_cont" style="display:block;">
         <!--左右分栏：左侧栏目-->
-        <table border="2" width="95%" height="300" style="margin: 20px;">
+        <table border="2" width="95%" height="350" style="margin: 20px;">
             <tr>
                 <th width="8%">商家名称</th>
-                <td width="15%">{{ $merchant->name}}</td>
+                <td width="15%" style="text-align:center">{{ $merchant->name}}</td>
                 <th width="8%">图标</th>
-                <td width="15%"><img src="{{ $merchant->avatar}}" style="width: 80px; height: 80px;"/></td>
-                <th width="10%">微信账号</th>
-                <td width="15%">{{ $merchant->wechat}}</td>
+                <td width="15%" style="text-align:center"><img src="{{ $merchant->avatar}}" style="width: 80px; height: 80px;"/></td>
+                <th width="15%">微信账号</th>
+                <td width="15%" style="text-align:center">{{ $merchant->wechat}}</td>
                 <th width="8%">手机号码</th>
                 <td>{{ $merchant->cellphone}}</td>
             </tr>
             <tr>
                 <th>国家</th>
-                <td>{{ $merchant->country}}</td>
+                <td style="text-align:center">{{ $merchant->country}}</td>
                 <th>省</th>
-                <td>{{ $merchant->province}}</td>
+                <td style="text-align:center">{{ $merchant->province}}</td>
                 <th>市</th>
-                <td>{{ $merchant->city}}</td>
+                <td style="text-align:center">{{ $merchant->city}}</td>
                 <th>区</th>
-                <td>{{ $merchant->region}}</td>
+                <td style="text-align:center">{{ $merchant->region}}</td>
             </tr>
             <tr>
                 <th>详细地址</th>
@@ -39,21 +39,21 @@
             </tr>
             <tr>
                 <th>联系人</th>
-                <td>{{ $merchant->contact}}</td>
+                <td style="text-align:center">{{ $merchant->contact}}</td>
                 <th>联系电话</th>
-                <td>{{ $merchant->contact_phone}}</td>
+                <td style="text-align:center">{{ $merchant->contact_phone}}</td>
                 <th>联系邮件</th>
                 <td colspan="3">{{ $merchant->contact_email}}</td>
             </tr>
             <tr>
                 <th>主营类目</th>
-                <td>{{ $merchant->category}}</td>
+                <td style="text-align:center">{{ $merchant->category}}</td>
                 <th>品牌名</th>
-                <td>{{ $merchant->brand_name}}</td>
+                <td style="text-align:center">{{ $merchant->brand_name}}</td>
                 <th>淘宝天猫店账号</th>
-                <td>{{ $merchant->shop_id}}</td>
+                <td style="text-align:center">{{ $merchant->shop_id}}</td>
                 <th>年销售额</th>
-                <td>{{ $merchant->sales}}</td>
+                <td style="text-align:center">{{ $merchant->sales}}</td>
             </tr>
             <tr>
                 <th>公司简介</th>
