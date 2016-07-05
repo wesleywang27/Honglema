@@ -22,12 +22,7 @@
  
  
     <div class="tabs">
-      
       <div id="tab3" >
-      <?php
-  //      echo "<pre>";
-    // var_dump(count($list));die;
-      ?>
       @foreach ($list as $vo)
       <?php
         $merchant = App\Models\Merchant::where('merchant_id',$vo->merchant_id)->first();
@@ -50,7 +45,7 @@
               </li>
             </ul>
           </div>
-          <div class="list-block media-list content-no-margin">
+          <div class="list-block media-list content-no-margin" style="margin-top: 0.1rem">
             <ul>
               <li>
                 <a href="#" class="blackfont item-content">

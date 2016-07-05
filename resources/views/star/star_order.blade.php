@@ -30,7 +30,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="list-block media-list content-no-margin">
+                        <div class="list-block media-list content-no-margin" style="margin-top: 0.1rem">
                             <ul>
                                 <li class="item-content" onclick="window.location.href='/star/order_detail?order_id={{$order['order_id']}}'">
                                        <div class="item-media" style="margin-left:-0.3rem; margin-right:0">
@@ -63,7 +63,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="list-block media-list content-no-margin">
+                        <div class="list-block media-list content-no-margin" style="margin-top: 0.1rem">
                             <ul>
                                 <li class="item-content" onclick="window.location.href='/star/order_detail?order_id={{$order['order_id']}}'">
                                        <div class="item-media" style="margin-left:-0.3rem; margin-right:0">
@@ -112,7 +112,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="list-block media-list content-no-margin">
+                        <div class="list-block media-list content-no-margin" style="margin-top: 0.1rem">
                             <ul>
                                 <li class="item-content" onclick="window.location.href='/star/order_detail?order_id={{$order['order_id']}}'">
                                        <div class="item-media" style="margin-left:-0.3rem; margin-right:0">

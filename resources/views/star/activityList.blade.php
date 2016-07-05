@@ -30,7 +30,7 @@
 					    </li>
 				   	</ul>
 		   		</div>
-		  		<div class="list-block media-list content-no-margin">
+		  		<div class="list-block media-list content-no-margin" style="margin-top: 0.1rem">
 				    <ul>
 				      <li>
 				        <a href="/star/activityDetail/{{$vo['activity_id']}}" class="blackfont item-content">

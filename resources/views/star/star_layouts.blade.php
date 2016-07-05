@@ -571,7 +571,6 @@
         var province = citypicks[0];
         var city = citypicks[1];
         var region = citypicks[2];
-        alert(citypicks);
         var sex = $('#sexvalue').val();
         $.ajax({
             url: "/star/register",
