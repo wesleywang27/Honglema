@@ -20,6 +20,10 @@
                         </div>
                     </a>
                 </li>
+                </ul>
+            </div>
+        <div class="list-block" style="margin-top: -1rem;">
+            <ul>
                 <li>
                     <a href="#album" class="item-link item-content">
                         <div class="item-inner">
@@ -61,7 +65,6 @@
                     <a href="#address" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">收件地址</div>
-                            <div id="f_daddress" class="item-after">{{$star['address']}}</div>
                         </div>
                     </a>
                 </li>
@@ -78,14 +81,6 @@
                         <div class="item-inner">
                             <div class="item-title">支付宝账号</div>
                             <div id="f_alipay_account" class="item-after">{{$star['alipay_account']}}</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#size" class="item-link item-content">
-                        <div class="item-inner">
-                            <div class="item-title">衣服尺寸</div>
-                            <div id="f_cloth" class="item-after">{{$star['shirt_size'].'/'.$star['pants_size'].'/'.$star['shoes_size']}}</div>
                         </div>
                     </a>
                 </li>
@@ -109,14 +104,15 @@
         <div class="list-block">
             <ul>
                 <li>
-                    <a href="#headimg" class="item-link item-content">
+                    <div class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">头像</div>
                             <div class="item-after">
                                 <img id="f_wx_headimg2" src="{{$star['avatar']}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
+                                <input class="weui_uploader_input" id="headimgEdit" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </li>
                 <li>
                     <a href="#nickname" class="item-link item-content">
@@ -139,20 +135,20 @@
                         </div>
                     </a>
                 </li>
-                <li>
+                {{--<li>
                     <a href="#location" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">地区</div>
                             <div id="f_city-picker" class="item-after">{{$star['location']}}</div>
                         </div>
                     </a>
-                </li>
+                </li>--}}
             </ul>
         </div>
 
         <div class="list-block" style="margin-top: -1rem;">
-            <ul>
-                <li>
+            <ul>@if($star['sex']=='2')
+                <li id="cupli" >
                     <a href="#cup" class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">罩杯</div>
@@ -160,6 +156,16 @@
                         </div>
                     </a>
                 </li>
+                    @else
+                    <li id="cupli" style="display:none">
+                        <a href="#cup" class="item-link item-content">
+                            <div class="item-inner">
+                                <div class="item-title">罩杯</div>
+                                <div id="f_dcup" class="item-after">{{$star['cup']}}</div>
+                            </div>
+                        </a>
+                    </li>
+                @endif
                 <li>
                     <a href="#weight" class="item-link item-content">
                         <div class="item-inner">
@@ -173,6 +179,14 @@
                         <div class="item-inner">
                             <div class="item-title">身高</div>
                             <div id="f_dheight" class="item-after">{{$star['height']}} CM</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#size" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">衣服尺寸</div>
+                            <div id="f_cloth" class="item-after">{{$star['shirt_size'].'/'.$star['pants_size'].'/'.$star['shoes_size']}}</div>
                         </div>
                     </a>
                 </li>
@@ -299,7 +313,7 @@
                 <li>
                     <a href="#weibo" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title label">微博ID</div>
+                            <div class="item-title label">微博昵称</div>
                             <div id="f_weiboid" class="item-after">{{$star['weibo_id']}}</div>
                         </div>
                     </a>
@@ -307,7 +321,7 @@
                 <li>
                     <a href="#weipai" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title label">微拍ID</div>
+                            <div class="item-title label">微拍昵称</div>
                             <div id="f_weipaiid" class="item-after">{{$star['weipai_id']}}</div>
                         </div>
                     </a>
@@ -315,7 +329,7 @@
                 <li>
                     <a href="#miaopai" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title label">秒拍ID</div>
+                            <div class="item-title label">秒拍昵称</div>
                             <div id="f_miaopaiid" class="item-after">{{$star['miaopai_id']}}</div>
                         </div>
                     </a>
@@ -323,7 +337,7 @@
                 <li>
                     <a href="#meipai" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title label">美拍ID</div>
+                            <div class="item-title label">美拍昵称</div>
                             <div id="f_meipaiid" class="item-after">{{$star['meipai_id']}}</div>
                         </div>
                     </a>
@@ -331,7 +345,7 @@
                 <li>
                     <a href="#kuaishou" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title label">快手ID</div>
+                            <div class="item-title label">快手账号</div>
                             <div id="f_kuaishouid" class="item-after">{{$star['kuaishou_id']}}</div>
                         </div>
                     </a>
@@ -457,7 +471,7 @@
             返回
         </a>
         <h1 class="title">体重</h1>
-        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.save_edit('dweight','weight');">
+        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.save_scrollValue('weight_picker','weight');">
             保存
             <span class="save"></span>
         </a>
@@ -471,7 +485,7 @@
                         <div class="item-inner">
                             <div class="item-title label">体重</div>
                             <div class="item-input">
-                                <input id="dweight" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="{{$star['weight']}}">&nbsp;kg
+                                <input id="weight_picker" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="{{$star['weight']}}">&nbsp;kg
                             </div>
                         </div>
                     </div>
@@ -489,7 +503,7 @@
             返回
         </a>
         <h1 class="title">身高</h1>
-        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.save_edit('dheight','height')">
+        <a class="button button-link button-nav pull-right back" href="#main" onclick="$.save_scrollValue('height_picker','height')">
             保存
             <span class="save"></span>
         </a>
@@ -503,7 +517,7 @@
                         <div class="item-inner">
                             <div class="item-title label">身高</div>
                             <div class="item-input">
-                                <input id="dheight" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="{{$star['height']}}">&nbsp;cm
+                                <input id="height_picker" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="{{$star['height']}}">&nbsp;cm
                             </div>
                         </div>
                     </div>
@@ -535,7 +549,7 @@
                         <div class="item-inner">
                             <div class="item-title label">年龄</div>
                             <div class="item-input">
-                                <input id="dage" type="text" placeholder="{{$star['age']}}">
+                                <input id="dage" type="text" placeholder="{{$star['age']==""?"年龄":$star['age']}}">
                             </div>
                         </div>
                     </div>
@@ -567,7 +581,7 @@
                         <div class="item-inner">
                             <div class="item-title label">职业</div>
                             <div class="item-input">
-                                <input id="doccupation" type="text" placeholder="{{$star['occupation']}}">
+                                <input id="doccupation" type="text" placeholder="{{$star['occupation']==""?"职业":$star['occupation']}}">
                             </div>
                         </div>
                     </div>
@@ -585,7 +599,7 @@
             <span class="icon icon-left"></span>
             返回
         </a>
-        <h1 class="title">教育</h1>
+        <h1 class="title">学历</h1>
         <a class="button button-link button-nav pull-right back" href="#main" onclick="$.save_edit('deducation','education')">
             保存
             <span class="save"></span>
@@ -598,9 +612,9 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">教育</div>
+                            <div class="item-title label">学历</div>
                             <div class="item-input">
-                                <input id="deducation" type="text" placeholder="{{$star['education']}}">
+                                <input id="deducation" type="text" placeholder="{{$star['education']==""?"学历":$star['education']}}">
                             </div>
                         </div>
                     </div>
@@ -930,7 +944,7 @@
                         <div class="item-inner">
                             <div class="item-title label">上衣尺寸</div>
                             <div class="item-input">
-                                <input id="f_shirt" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="上衣尺寸" value="{{$star['shirt_size']}}">&nbsp;CM
+                                <input id="f_shirt" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="上衣尺寸" value="{{$star['shirt_size']}}">&nbsp;
                             </div>
                         </div>
                     </div>
@@ -941,7 +955,7 @@
                         <div class="item-inner">
                             <div class="item-title label">下衣尺寸</div>
                             <div class="item-input">
-                                <input id="f_pants" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="下衣尺寸" value="{{$star['pants_size']}}">&nbsp;CM
+                                <input id="f_pants" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="下衣尺寸" value="{{$star['pants_size']}}">&nbsp;
                             </div>
                         </div>
                     </div>
@@ -952,7 +966,7 @@
                         <div class="item-inner">
                             <div class="item-title label">鞋子尺寸</div>
                             <div class="item-input">
-                                <input id="f_shoe" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="鞋码" value="{{$star['shoes_size']}}">&nbsp;CM
+                                <input id="f_shoe" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="鞋码" value="{{$star['shoes_size']}}">&nbsp;
                             </div>
                         </div>
                     </div>
@@ -970,7 +984,7 @@
             返回
         </a>
         <h1 class="title">收件地址</h1>
-        <a class="button button-link button-nav pull-right back" onclick="$.save_edit('daddress','address')">
+        <a class="button button-link button-nav pull-right back" onclick="$.save_address()">
             保存
             <span class="save"></span>
         </a>
@@ -984,6 +998,7 @@
                         <div class="item-inner">
                             <div class="item-title label">收件地址</div>
                             <div class="item-input">
+                                <input id='address-picker' type="text" value="{{$star['province']." ".$star['city']." ".$star['region']}}"  >
                                 <input id='daddress' type="text" placeholder="详细地址"  value="{{$star['address']}}">
                             </div>
                         </div>

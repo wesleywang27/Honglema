@@ -399,6 +399,39 @@
         //显示
         $('#'+v2).text(value);
     }
+
+    //编辑身高与体重等具有三个滚动的值
+    $.save_scrollValue = function(v1,v2){
+        //取值
+        var value = $('#'+v1).val();
+        //去空格
+        value = value.replace(/\s+/g,"");
+        //删除0开头
+        value = value.replace(/^0*/g,"");
+        //显示
+        if(v2=="weight"){
+            $('#f_d'+v2).text(value+" KG");
+        }
+        if(v2=="height"){
+            $('#f_d'+v2).text(value+" CM");
+        }
+
+        var data = {};
+        data[v2]=value;
+        $.ajax({
+            url: "/star/update",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data:  data
+            ,success: function(data) {
+                $.toast("修改成功!",1000);
+            },headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    }
+
     //设置尺寸
     $.set_size = function(){
         $('#f_cloth').text($('#f_shirt').val()+'/'+$('#f_pants').val()+'/'+$('#f_shoe').val());
@@ -431,11 +464,13 @@
 //保存性别
     $.save_sex = function(){
         var text = $("input[name='sex-radio']:checked").val();
-        if(text == '1')
+        if(text == '1'){
             $('#f_dsex').text('男');
-        else if(text =='2')
+             $('#cupli').hide();}
+        else if(text =='2'){
             $('#f_dsex').text('女');
-        else
+            $('#cupli').show();
+        } else
             $('#f_dsex').text('未知');
         $.ajax({
             url: "/star/update",
@@ -449,23 +484,6 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-    }
-//保存编辑地址
-    $.save_address =function(v1,v2){
-        $('#f_dizhi').text($('#'+v1).val() +$('#'+v2).val());
-        $.ajax({
-            url: "/star/update",
-            type: "POST",
-            traditional: true,
-            dataType: "JSON",
-            data: {  'address': $('#'+v1)+val().$('#'+v2).val()}
-            ,success: function(data) {
-                $.toast("提交成功!",1000);
-            },headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        }
-        );
     }
 
 //保存身份证信息
@@ -515,6 +533,31 @@
         });
     }
 
+    //保存修改地址
+    $.save_address = function(){
+        var detail = $('#daddress').val();
+        var address_picker = $('#address-picker').val().split(" ");
+        var region = address_picker[2];
+        var city = address_picker[0];
+        var province=address_picker[0];
+        var data = {};
+        data["province"]=province;
+        data["city"]=city;
+        data["region"]=region;
+        data["address"]=detail;
+        $.ajax({
+            url: "/star/update",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data:  data
+            ,success: function(data) {
+                $.toast("修改成功!",1000);
+            },headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    }
     //完成注册
     $('#finish').click(function() {
 
@@ -524,8 +567,11 @@
             imgdata[i] = $(this).val();
             i++;
         });
-        var citypicks =  $('#f_dizhi').text().split(" ");
-        var region = citypicks[citypicks.length-1];
+        var citypicks =  $('#address-picker').val().split(" ");
+        var province = citypicks[0];
+        var city = citypicks[1];
+        var region = citypicks[2];
+        alert(citypicks);
         var sex = $('#sexvalue').val();
         $.ajax({
             url: "/star/register",
@@ -552,7 +598,7 @@
                 "shoes_size": $('#f_shoe').val(),
 
                 "cellphone": $('#phonenum').val(),
-                "address": $('#f_dizhi').text(),
+                "address": $('#address-detail').val(),
 
                 "weibo_id": $('#f_weiboid').text(),
                 "weipai_id": $('#f_weipaiid').text(),
@@ -560,6 +606,8 @@
                 "meipai_id": $('#f_meipaiid').text(),
                 "kuaishou_id": $('#f_kuaishouid').text(),
 
+                "province":province,
+                "city":city,
                 "region":region,
                 "wechat":$('#f_weixin').text(),
                 "alipay_name":$('#zhifubao').val(),
@@ -637,7 +685,45 @@ $.cancelOrder=function(id){
 
 </script>
 <script>
-    //网红修改头像,已经实现提交后,个人信息首页,副页,头像编辑页都实时变更
+//网红上传头像
+//注册上传头像
+$('#headimgEdit').change(function(){
+    $.showPreloader('正在上传...');
+    $j.ajaxFileUpload({
+        url:"/picture",//需要链接到服务器地址
+        secureuri:false,
+        fileElementId:"headimgEdit",//文件选择框的id属性
+        dataType: 'json',   //json
+        success: function (data, status) {
+            var urls = data.urls;
+            for(var i=0; i<urls.length; i++){
+                $('#f_wx_headimg1').attr('src',urls[i]);
+                $('#f_wx_headimg2').attr('src',urls[i]);
+            }
+            $.hidePreloader();
+            $.toast("添加成功", 1000);
+        },error:function(data, status, e){
+            $.hidePreloader();
+            $.toast("添加失败", 1000);
+        }
+    });
+    $.ajax({
+                url: "/star/update",
+                type: "POST",
+                traditional: true,
+                dataType: "JSON",
+                data: {  'avatar': $('#f_wx_headimg').attr("src")}
+                ,success: function(data) {
+                    $.toast("提交成功!",1000);
+                },headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            }
+    );
+
+});
+
+ /*   //网红修改头像,已经实现提交后,个人信息首页,副页,头像编辑页都实时变更
     function changeHeadImg(){
         $('#headimgInput').click();
     }
@@ -677,7 +763,7 @@ $.cancelOrder=function(id){
                 $.toast("添加失败", 1000);
             }
         });
-    });
+    });*/
 </script>
 
 <script>

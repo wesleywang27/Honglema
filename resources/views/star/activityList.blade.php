@@ -1,13 +1,13 @@
 @extends('star.star_layouts')
 
-@section('title', "活动广场（试用版）")
+@section('title', "红了吗（试用版）")
 
 @section('body')
 @section('page-main')
 	<header class="bar bar-nav">
 		<h1 class="title">活动广场</h1>
 	</header>
-<div class="content infinite-scroll infinite-scroll-bottom" data-distance="50" style="top: 2rem;">
+<div class="content " style="top: 2rem;">
       @foreach ($list as $vo)
       <?php
       	$merchant = App\Models\Merchant::where('merchant_id',$vo->merchant_id)->first();
@@ -47,9 +47,6 @@
 			</div>
       	</div>
       	@endforeach
-		  <div class="infinite-scroll-preloader" style="margin-top:-20px">
-			  <div class="preloader"></div>
-		  </div>
   </div>
 @include("star.star_footer")
 @overwrite

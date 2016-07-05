@@ -1,7 +1,7 @@
 @extends('star.star_layouts')
 
 
-@section('title', "Task")
+@section('title', "红了吗（试用版）")
 
 @section('body')
 @section('page-main')

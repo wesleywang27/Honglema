@@ -73,8 +73,8 @@ class VisitorController extends Controller
             //网红未注册,则保存
         $star = new Star();
         $star->openid = $openid;
-        $star->province=$user->province;
-        $star->city=$user->city;
+        $star->province=$request->input('province');
+        $star->city=$request->input('city');
 
         $star->avatar=$request->input('avatar');
         $star->name = $request->input('name');

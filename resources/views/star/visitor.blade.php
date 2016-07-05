@@ -16,8 +16,7 @@
 </head>
 <body>
 <header class="bar bar-nav">
-    <h1 class='title'>红了吗网红端</h1>
-    <span class="icon icon-search pull-right"></span>
+    <h1 class='title'>红了吗（试用版）</h1>
 </header>
 <div class="content">
  

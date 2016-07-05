@@ -1,6 +1,6 @@
 @extends('star.star_layouts')
 
-@section('title', "创建用户")
+@section('title', "红了吗（试用版）")
 
 @section('body')
 @section('page-main')
@@ -946,7 +946,7 @@
                         <div class="item-inner">
                             <div class="item-title label">地区</div>
                             <div class="item-input">
-                                <input id='address-picker' type="text" placeholder="所在地区" value="北京 海淀区" readonly>
+                                <input id='address-picker' type="text" placeholder="所在地区" readonly>
                                 <input id='address-detail' type="text" placeholder="详细地址" >
                             </div>
                         </div>
