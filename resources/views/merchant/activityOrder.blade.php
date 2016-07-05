@@ -46,7 +46,7 @@
 					   	<li>
 					        <div class="item-content">
 					            <div class="item-inner">
-					                <div class="item-title">{{$merchant['name']}}></div>
+					                <div class="item-title">{{$merchant['name']}}</div>
 					            </div>
 					        </div>
 					    </li>
@@ -87,7 +87,7 @@
 					   	<li>
 					        <div class="item-content">
 					            <div class="item-inner">
-					                <div class="item-title">{{$merchant['name']}}></div>
+					                <div class="item-title">{{$merchant['name']}}</div>
 					                <div id="f_address" class="item-after"></div>
 					            </div>
 					        </div>
@@ -131,7 +131,7 @@
 					   	<li>
 					        <div class="item-content">
 					            <div class="item-inner">
-					                <div class="item-title">{{$merchant['name']}}></div>
+					                <div class="item-title">{{$merchant['name']}}</div>
 					                <div id="f_address" class="item-after">已结束</div>
 					            </div>
 					        </div>
