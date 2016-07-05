@@ -112,12 +112,12 @@
     </div>
 
     <div class="admin_tab_cont">
-        <div style="margin-left: 20%">
+        <div style="margin-left: 8%">
             @foreach ($pictures as $picture)
             <a href="{{ $picture->url }}" target="_blank"><img src="{{ $picture->url }}" style="height: 200px;"/></a>
             @endforeach
         </div>
-        <a href="javascript:history.back();" style="float: right; margin-top: 20px; margin-right: 20%;"><input type="button" value="返回" class="link_btn"/></a>
+        <a href="javascript:history.back();" style="float: right; margin-top: 20px; margin-right: 10%;"><input type="button" value="返回" class="link_btn"/></a>
         @if($star->status == 0)
         <a href="{{URL::action('StarController@starCheck', ['id' => $star->star_id]) }}" style="float: right; margin-top: 20px; margin-right: 20px;"><input type="button" value="审核通过" class="link_btn"/></a>
         @endif
