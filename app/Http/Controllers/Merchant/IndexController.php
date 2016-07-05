@@ -28,10 +28,10 @@ class IndexController extends Controller{
         // var_dump(1);die;
         $user = session('wechat.oauth_user');
 
-            // $options = config('wechat');
-            // $app = new Application($options);
-            // $js = $app->js;
-            // return view('merchant.merchant_register',['user'=>$user,'js'=>$js]);
+            $options = config('wechat');
+            $app = new Application($options);
+            $js = $app->js;
+            return view('merchant.merchant_register',['user'=>$user,'js'=>$js]);
 
         if($user){
 

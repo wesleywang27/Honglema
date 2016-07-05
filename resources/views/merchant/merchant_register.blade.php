@@ -89,7 +89,7 @@
                 </li>
             </ul>
         </div>
-        <div class="list-block">
+        <div class="list-block" style="margin-top: -1rem;">
             <ul>
                 <li>
                     <a href="#saleValue" class="item-link item-content">
