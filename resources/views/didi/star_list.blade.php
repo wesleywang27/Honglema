@@ -22,8 +22,8 @@
         <td style="width:80px;text-align:center">{{ $star->star_id }}</td>
         <td style="width:80px;text-align:center"><img src="{{ $star->avatar}}" style="width: 80px; height: 80px;"/></td>
         <td style="width:180px;text-align:center">{{ $star->name }}</td>
-        <td style="width:180px;text-align:center">{{ $star->real_name }}</td>
-        <td style="width:100px;text-align:center">
+        <td style="width:120px;text-align:center">{{ $star->real_name }}</td>
+        <td style="width:80px;text-align:center">
             @if($star->sex == 0)
             未知
             @elseif($star->sex == 1)
@@ -35,7 +35,7 @@
         <td style="width:180px;text-align:center">{{ $star->location }}</td>
         <td style="width:100px;text-align:center">{{ $star->age }}</td>
         <td style="width:180px;text-align:center">{{ $star->wechat }}</td>
-        <td style="width:180px;text-align:center">
+        <td style="width:240px;text-align:center">
             <a href="{{URL::action('StarController@starInfo', ['id' => $star->star_id]) }}"><input type="button" value="查看" class="link_btn"/></a>
             <a href="{{URL::action('StarController@starDelete', ['id' => $star->star_id]) }}" onclick="return confirm('确定要删除吗？')"><input type="button" value="删除" class="link_btn"/></a>
         </td>

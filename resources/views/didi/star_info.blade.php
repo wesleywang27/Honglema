@@ -13,11 +13,11 @@
     <!--tabCont-->
     <div class="admin_tab_cont" style="display:block;">
         <!--左右分栏：左侧栏目-->
-        <table border="2" width="95%" height="360" style="margin: 20px;">
+        <table border="2" width="95%" height="400" style="margin: 20px;">
             <tr>
-                <th width="12%">红人昵称：</th>
+                <th width="10%">红人昵称</th>
                 <td width="13%">{{ $star->name}}</td>
-                <th width="12%">性别：</th>
+                <th width="12%">性别</th>
                 @if ($star->sex == 0)
                 <td width="13%">未知</td>
                 @elseif ($star->sex == 1)
@@ -29,12 +29,23 @@
                 <td width="13%">{{ $star->location}}</td>
             </tr>
             <tr>
-                <th>罩杯</th>
-                <td>{{ $star->cup}}</td>
-                <th>体重</th>
-                <td>{{ $star->weight}}</td>
+                <th>真实姓名</th>
+                <td>{{ $star->real_name}}</td>
+                <th>身份证号</th>
+                <td>{{ $star->ID_number}}</td>
+                <th>手机号码</th>
+                <td>{{ $star->cellphone}}</td>
+            </tr>
+            <tr>
+                <th colspan="6" style="height:10px;"></th>
+            </tr>
+            <tr>
                 <th>身高</th>
                 <td>{{ $star->height}}</td>
+                <th>体重</th>
+                <td>{{ $star->weight}}</td>
+                <th>罩杯</th>
+                <td>{{ $star->cup}}</td>
             </tr>
             <tr>
                 <th>年龄</th>
@@ -45,12 +56,7 @@
                 <td>{{ $star->education}}</td>
             </tr>
             <tr>
-                <th>真实姓名</th>
-                <td>{{ $star->real_name}}</td>
-                <th>身份证号</th>
-                <td>{{ $star->ID_number}}</td>
-                <th>手机号码</th>
-                <td>{{ $star->cellphone}}</td>
+                <th colspan="6" style="height:10px;"></th>
             </tr>
             <tr>
                 <th>微信账号</th>
@@ -69,12 +75,18 @@
                 <td>{{ $star->kuaishou_id}}</td>
             </tr>
             <tr>
+                <th colspan="6" style="height:10px;"></th>
+            </tr>
+            <tr>
                 <th>上衣尺寸</th>
                 <td>{{ $star->shirt_size}}</td>
                 <th>下衣尺寸</th>
                 <td>{{ $star->pants_size}}</td>
                 <th>鞋子尺寸</th>
                 <td>{{ $star->shoes_size}}</td>
+            </tr>
+            <tr>
+                <th colspan="6" style="height:10px;"></th>
             </tr>
             <tr>
                 <th>所在省</th>
