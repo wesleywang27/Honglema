@@ -26,7 +26,7 @@ class RootController extends Controller{
 		// $i = $_SESSION['merchant_id'];
 		if(!isset($_SESSION['merchant_id'])){
 			return Redirect::intended('/Merchant/register')->send();
-			// $_SESSION['merchant_id'] = 4;
+			// $_SESSION['me1rchant_id'] = 4;
 		}
 	}
 
