@@ -13,22 +13,24 @@
     <!--tabCont-->
     <div class="admin_tab_cont" style="display:block;">
         <!--左右分栏：左侧栏目-->
-        <table border="2" width="95%" height="300" style="margin: 20px;">
+        <table border="2" width="95%" height="400" style="margin: 20px;">
             <tr>
-                <th width="15%">商家名称：</th>
-                <td width="17%">{{ $merchant->name}}</td>
-                <th width="15%">活动标题：</th>
-                <td width="17%">{{ $activity->title}}</td>
-                <th width="15%">活动要求：</th>
-                <td>{{ $activity->claim}}</td>
+                <th width="10%">商家名称</th>
+                <td width="17%" style="text-align:center"> {{ $merchant->name}}</td>
+                <th width="10%">活动标题</th>
+                <td colspan="3">{{ $activity->title}}</td>
             </tr>
             <tr>
-                <th>活动时间：</th>
-                <td>{{ $activity->time_within}}</td>
-                <th>推广费用：</th>
-                <td>{{ $activity->total_price}}</td>
-                <th>活动状态：</th>
-                <td>
+                <th>活动要求</th>
+                <td colspan="5"> {{ $activity->claim}}</td>
+            </tr>
+            <tr>
+                <th>活动时间</th>
+                <td style="text-align:center"> {{ $activity->time_within}}</td>
+                <th>推广费用</th>
+                <td style="text-align:center"> {{ $activity->total_price}}</td>
+                <th>活动状态</th>
+                <td style="text-align:center">
                     @if ($activity->activity_status == 0)
                     待审核
                     @elseif ($activity->activity_status == 1)
@@ -41,18 +43,16 @@
                 </td>
             </tr>
             <tr>
-                <th>付款状态：</th>
-                <td>{{ $activity->payment_status}}</td>
-                <th>创建时间：</th>
-                <td>{{ $activity->created_at}}</td>
-                <th></th>
-                <td></td>
+                <th>付款状态</th>
+                <td style="text-align:center"> {{ $activity->payment_status}}</td>
+                <th>创建时间</th>
+                <td colspan="3" style="text-align:center"> {{ $activity->created_at}}</td>
             </tr>
             <tr>
-                <th>活动缩略图：</th>
-                <td><img src="{{ $activity->picture }}" style="width: 80px; height: 80px;"/></td>
-                <th>活动标题图：</th>
-                <td colspan="3"><img src="{{ $activity->banner_picture }}" style="width: 240px; height: 80px;"/></td>
+                <th>活动缩略图</th>
+                <td style="text-align:center"><img src="{{ $activity->picture }}" style="width: 80px; height: 80px;"/></td>
+                <th>活动标题图</th>
+                <td colspan="3" style="text-align:center"><img src="{{ $activity->banner_picture }}" style="width: 240px; height: 80px;"/></td>
             </tr>
         </table>
         <a href="/didi/ActivityList" style="float: right; margin-right: 50px;"><input type="button" value="返回" class="link_btn"/></a>
