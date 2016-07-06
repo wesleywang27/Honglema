@@ -26,7 +26,7 @@
                   </select>
                 </td>
                 <th width="12%">所在地区：</th>
-                <td width="13%" style="text-align:center">><input style="width: 98%;height: 100%;" name="location" value="{{ $star->location}}" /></td>
+                <td width="13%" style="text-align:center"><input style="width: 98%;height: 100%;" name="location" value="{{ $star->location}}" /></td>
             </tr>
             <tr>
                 <th>真实姓名</th>
@@ -79,7 +79,16 @@
             </tr>
             <tr>
                 <th>上衣尺寸</th>
-                <td style="text-align:center"><input style="width: 98%;height: 100%;" name="shirt_size" value="{{ $star->shirt_size}}" /></td>
+                <td style="text-align:center">
+                    <select style="width: 98%;height: 100%;" name="shirt_size">
+                      <option value="S" @if ($star->shirt_size == 'S') selected @endif >S</option>
+                      <option value="M" @if ($star->shirt_size == 'M') selected @endif >M</option>
+                      <option value="L" @if ($star->shirt_size == 'L') selected @endif >L</option>
+                      <option value="XL" @if ($star->shirt_size == 'XL') selected @endif >XL</option>
+                      <option value="XXL" @if ($star->shirt_size == 'XXL') selected @endif >XXL</option>
+                      <option value="XXXL" @if ($star->shirt_size == 'XXXL') selected @endif >XXXL</option>
+                  </select>
+                </td>
                 <th>下衣尺寸</th>
                 <td style="text-align:center"><input style="width: 98%;height: 100%;" name="pants_size" value="{{ $star->pants_size}}" /></td>
                 <th>鞋子尺寸</th>
