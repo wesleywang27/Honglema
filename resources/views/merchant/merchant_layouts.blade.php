@@ -355,82 +355,184 @@
     //         }
     //     });
     // });
-
+    
+    //判断手机和邮箱是否有效
+    function checkData(field,data){
+        if(field == 'phone'){
+            var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+            if(myreg.test(data)){ 
+                return true; 
+            } 
+            return false
+        }else if(field == 'email'){
+            var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (filter.test(data)){
+                return true;
+            }
+            return false
+        }
+    }
+     
     //完成注册
     $('#finishRegister').click(function(){
-        
+        var name = $('#merchant_name_hidden').val();
+        var country = clearEmply('country');
+        var province = clearEmply('province');
+        var city = clearEmply('city');
+        var region = clearEmply('region');
+        var address = $('#addressInput').val();
+        var contact = $('#contact_hidden').val();
+        var contact_phone = $('#contact_phone_hidden').val();
+        var contact_email = $('#contact_email_hidden').val();
+        var brand_name = $('#brand_name_hidden').val();
+        var category = $('#category_hidden').val();
+        var shop_id = $('#shop_id_hidden').val();
+        var sales = $('#sale_hidden').val();
+        var introduction = $('#introduction_hidden').val();
+        var addressDiv = $('#f_address').html();
 
-        $.ajax({
-            url: "/Merchant/register/save",
-            type: "POST",
-            traditional: true,
-            dataType: "JSON",
-            data: {
-                "avatar"      : $('#f_avatar').attr('src'),
-                "name"     : $('#merchant_name_hidden').val(),
-                "country"     : clearEmply('country'),
-                "province"     : clearEmply('province'),
-                "city"     : clearEmply('city'),
-                "region"     : clearEmply('region'),
-                "address"     : $('#addressInput').val(),
-                "contact"     : $('#contact_hidden').val(),
-                "contact_phone"     : $('#contact_phone_hidden').val(),
-                "contact_email"     : $('#contact_email_hidden').val(),
-                "brand_name"     : $('#brand_name_hidden').val(),
-                "category"     : $('#category_hidden').val(),
-                "shop_id"     : $('#shop_id_hidden').val(),
-                "sales"     : $('#sale_hidden').val(),
-                "introduction"     : $('#introduction_hidden').val(),
-                "open_id"     :  $('#openId').val()
-            },
-            success: function(data) {
-                $.toast("操作成功!",1000);
-                setTimeout(function(){
-                    location.href="/Merchant/user/";
-                },1000);
-            },
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+
+        if($.trim(name) == ''){
+            $.toast("请输入公司全称!",1000);
+        }else if($.trim(addressDiv) == ''|| $.trim(addressDiv)=='未编辑'){
+            $.toast("请输入公司地址!",1000);
+        }else if($.trim(contact) == ''){
+            $.toast("请输入联系人!",1000);
+        }else if($.trim(contact_phone) == ''){
+            $.toast("请输入联系人电话!",1000);
+        }else if(!checkData('phone',$.trim(contact_phone))){
+            $.toast("请输入有效的手机号码!",1000); 
+        }else if($.trim(contact_email) == ''){
+            $.toast("请输入联系人邮箱!",1000);
+        }else if(!checkData('email',$.trim(contact_email))){
+            $.toast("请输入有效的邮箱!",1000);
+        }else if($.trim(brand_name) == ''){
+            $.toast("请输入品牌名!",1000);
+        }else if($.trim(category) == ''){
+            $.toast("请输入商品类目!",1000);
+        }else if($.trim(shop_id) == ''){
+            $.toast("请输入店铺名称!",1000);
+        }else if($.trim(sales) == ''){
+            $.toast("请输入年销售额!",1000);
+        }else if($.trim(introduction) == ''){
+            $.toast("请输入公司介绍!",1000);
+        }else{
+            $.ajax({
+                url: "/Merchant/register/save",
+                type: "POST",
+                traditional: true,
+                dataType: "JSON",
+                data: {
+                    "avatar"      : $('#f_avatar').attr('src'),
+
+                    "name"     : name,
+                    "country"     : country,
+                    "province"     : province,
+                    "city"     : city,
+                    "region"     : region,
+                    "address"     : address,
+                    "contact"     : contact,
+                    "contact_phone"     : contact_phone,
+                    "contact_email"     : contact_email,
+                    "brand_name"     : brand_name,
+                    "category"     : category,
+                    "shop_id"     : shop_id,
+                    "sales"     : sales,
+                    "introduction"     : introduction,
+
+                    "open_id"     :  $('#openId').val()
+                },
+                success: function(data) {
+                    $.toast("操作成功!",1000);
+                    setTimeout(function(){
+                        location.href="/Merchant/user/";
+                    },1000);
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        }
     });
 
 
     //保存修改信息
     $('#save').click(function(){
+        var name = $('#merchant_name_hidden').val();
+        var country = clearEmply('country');
+        var province = clearEmply('province');
+        var city = clearEmply('city');
+        var region = clearEmply('region');
+        var address = $('#addressInput').val();
+        var contact = $('#contact_hidden').val();
+        var contact_phone = $('#contact_phone_hidden').val();
+        var contact_email = $('#contact_email_hidden').val();
+        var brand_name = $('#brand_name_hidden').val();
+        var category = $('#category_hidden').val();
+        var shop_id = $('#shop_id_hidden').val();
+        var sales = $('#sale_hidden').val();
+        var introduction = $('#introduction_hidden').val();
+        var addressDiv = $('#f_address').html();
 
-        $.ajax({
-            url: "/Merchant/user/updateUser",
-            type: "POST",
-            traditional: true,
-            dataType: "JSON",
-            data: {
-                "avatar"      : $('#f_avatar').attr('src'),
-                "name"     : $('#merchant_name_hidden').val(),
-                "country"     : clearEmply('country'),
-                "province"     : clearEmply('province'),
-                "city"     : clearEmply('city'),
-                "region"     : clearEmply('region'),
-                "address"     : $('#addressInput').val(),
-                "contact"     : $('#contact_hidden').val(),
-                "contact_phone"     : $('#contact_phone_hidden').val(),
-                "contact_email"     : $('#contact_email_hidden').val(),
-                "brand_name"     : $('#brand_name_hidden').val(),
-                "category"     : $('#category_hidden').val(),
-                "shop_id"     : $('#shop_id_hidden').val(),
-                "sales"     : $('#sale_hidden').val(),
-                "introduction"     : $('#introduction_hidden').val(),
-            },
-            success: function(data) {
-                $.toast("操作成功!",1000);
-                setTimeout(function(){
-                    location.href="/Merchant/user/";
-                },1000);
-            },
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+
+        if($.trim(name) == ''){
+            $.toast("请输入公司全称!",1000);
+        }else if($.trim(addressDiv) == ''|| $.trim(addressDiv)=='未编辑'){
+            $.toast("请输入公司地址!",1000);
+        }else if($.trim(contact) == ''){
+            $.toast("请输入联系人!",1000);
+        }else if($.trim(contact_phone) == ''){
+            $.toast("请输入联系人电话!",1000);
+        }else if(!checkData('phone',$.trim(contact_phone))){
+            $.toast("请输入有效的手机号码!",1000); 
+        }else if($.trim(contact_email) == ''){
+            $.toast("请输入联系人邮箱!",1000);
+        }else if(!checkData('email',$.trim(contact_email))){
+            $.toast("请输入有效的邮箱!",1000);
+        }else if($.trim(brand_name) == ''){
+            $.toast("请输入品牌名!",1000);
+        }else if($.trim(category) == ''){
+            $.toast("请输入商品类目!",1000);
+        }else if($.trim(shop_id) == ''){
+            $.toast("请输入店铺名称!",1000);
+        }else if($.trim(sales) == ''){
+            $.toast("请输入年销售额!",1000);
+        }else if($.trim(introduction) == ''){
+            $.toast("请输入公司介绍!",1000);
+        }else{
+            $.ajax({
+                url: "/Merchant/user/updateUser",
+                type: "POST",
+                traditional: true,
+                dataType: "JSON",
+                data: {
+                    "avatar"      : $('#f_avatar').attr('src'),
+                    "name"     : name,
+                    "country"     : country,
+                    "province"     : province,
+                    "city"     : city,
+                    "region"     : region,
+                    "address"     : address,
+                    "contact"     : contact,
+                    "contact_phone"     : contact_phone,
+                    "contact_email"     : contact_email,
+                    "brand_name"     : brand_name,
+                    "category"     : category,
+                    "shop_id"     : shop_id,
+                    "sales"     : sales,
+                    "introduction"     : introduction,
+                },
+                success: function(data) {
+                    $.toast("操作成功!",1000);
+                    setTimeout(function(){
+                        location.href="/Merchant/user/";
+                    },1000);
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        }
     });
 
     function upLoadPic(id){  

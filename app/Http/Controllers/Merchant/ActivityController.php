@@ -46,17 +46,17 @@ class ActivityController extends RootController{
 
     //保存发布的活动
     public function saveActivity(){
+        // echo "<pre>";
+        // var_dump($_POST);die;
         $commodity_names = $_POST['commodity_name'];
         $commodity_urls = $_POST['commodity_url'];
         $commodity_introduction = $_POST['commodity_introduction'];
-        $total_price = $_POST['total_price'] * $_POST['task_num'];
-        unset($_POST['_token'],$_POST['commodity_name'],$_POST['commodity_url'],$_POST['imgs'],$_POST['total_price'],$_POST['commodity_introduction']);
+        unset($_POST['_token'],$_POST['commodity_name'],$_POST['commodity_url'],$_POST['imgs'],$_POST['commodity_introduction']);
         //保存Activity
         $activity = new Activity();
         foreach ($_POST as $key => $value) {
            $activity[$key] = $value; 
         }
-        $activity['total_price'] = $total_price;
         $activity['merchant_id'] = $_SESSION['merchant_id'];
         $activity['activity_status'] = 0;
         $activity['confirm_num'] = 0;
@@ -179,8 +179,10 @@ class ActivityController extends RootController{
         //var_dump($_POST['task_id']);die;
         $task_id = intval($_POST['task_id']);
         $comment = $_POST['comment'];
+        $evaluation_level = intval($_POST['evaluation_level']);
         $task = Task::where('task_id',$task_id)->first();
         $task['evaluation'] = $comment;
+        $task['evaluation_level'] = $evaluation_level;
         $task['status'] = 4;
         $task->save();
 
@@ -204,7 +206,25 @@ class ActivityController extends RootController{
         $star = Star::where('star_id',$star_id)->first();
         $starPic = StarPicture::where('uid',$star_id)->get();
 
-        return view('merchant.star_detail',['star'=>$star,'starPic'=>$starPic,'activity_id'=>$activity_id]);
+        //计算网红评分
+        $orders = Order::where('star_id',$star_id)->where('status',2)->get();
+        $sum = 0;
+        $num = 0;
+        foreach ($orders as $key => $value) {
+           $task = Task::where('task_id',$value['task_id'])->where('evaluation_level', '>', 0)->first();
+           if($task){
+              $sum += $task['evaluation_level'];
+              $num ++;
+           }
+        }
+        if($num != 0){
+            $average_evaluation = round($sum / $num,1);
+            $average_evaluation = $average_evaluation / 5 * 100;
+            $average_evaluation = $average_evaluation.'分';
+        }else{
+            $average_evaluation = '暂无评价';
+        }
+        return view('merchant.star_detail',['star'=>$star,'starPic'=>$starPic,'activity_id'=>$activity_id,'average_evaluation'=>$average_evaluation]);
 
     }
 

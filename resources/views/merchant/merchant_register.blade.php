@@ -30,7 +30,7 @@
                 <li>
                     <a href="#merchantName" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">公司全称</div>
+                            <div class="item-title"><span style="color:red">* </span>公司全称</div>
                             <div id="f_merchant_name" class="item-after">未编辑</div>
                             <input type="hidden" id="merchant_name_hidden" value="">
                         </div>
@@ -39,7 +39,7 @@
                 <li>
                     <a href="#address" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">公司地址</div>
+                            <div class="item-title"><span style="color:red">* </span>公司地址</div>
                             <div id="f_address" class="item-after">未编辑</div>
                         </div>
                     </a>
@@ -47,7 +47,7 @@
                 <li>
                     <a href="#contactInfo" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">负责人</div>
+                            <div class="item-title"><span style="color:red">* </span>负责人</div>
                             <div id="f_contact_div" class="item-after">未编辑</div>
                             <input type="hidden" id="contact_hidden" value="">
                             <input type="hidden" id="contact_phone_hidden" value="">
@@ -63,7 +63,7 @@
                 <li>
                     <a href="#categoryList" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">商品类目</div>
+                            <div class="item-title"><span style="color:red">* </span>商品类目</div>
                             <div id="f_category" class="item-after">未编辑</div>
                             <input type="hidden" id="category_hidden" value="">
                         </div>
@@ -72,7 +72,7 @@
                 <li>
                     <a href="#brandName" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">品牌名</div>
+                            <div class="item-title"><span style="color:red">* </span>品牌名</div>
                             <div id="f_brand_name" class="item-after">未编辑</div>
                             <input type="hidden" id="brand_name_hidden" >
                         </div>
@@ -81,7 +81,7 @@
                 <li>
                     <a href="#shopId" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">淘宝/天猫店铺id</div>
+                            <div class="item-title"><span style="color:red">* </span>店铺名称</div>
                             <div id="f_shop_id" class="item-after">未编辑</div>
                             <input type="hidden" id="shop_id_hidden" value="">
                         </div>
@@ -94,7 +94,7 @@
                 <li>
                     <a href="#saleValue" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">年销售额</div>
+                            <div class="item-title"><span style="color:red">* </span>年销售额</div>
                             <div id="f_sale" class="item-after">未编辑</div>
                             <input type="hidden" id="sale_hidden" > 
                         </div>
@@ -103,7 +103,7 @@
                 <li>
                     <a href="#merchantIntroduction" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">商家介绍</div>
+                            <div class="item-title"><span style="color:red">* </span>商家介绍</div>
                             <div id="f_introduction" class="item-after"></div>
                             <input type="hidden" id="introduction_hidden" > 
                         </div>
@@ -235,7 +235,7 @@
                         <div class="item-inner">
                             <div class="item-title label">手机号</div>
                             <div class="item-input">
-                                <input id="contact_phone" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="负责人手机号">
+                                <input id="contact_phone" type="number" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="负责人手机号">
                             </div>
                         </div>
                     </div>
@@ -345,7 +345,7 @@
             <span class="icon icon-left"></span>
             返回
         </a>
-        <h1 class="title">店铺信息</h1>
+        <h1 class="title">店铺名称</h1>
         <a class="button button-link button-nav pull-right back" href="#main" onclick="$.set_value('shop_id');">
             保存
             <span class="save"></span>
@@ -358,9 +358,9 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">淘宝／天猫店铺id</div>
+                            <div class="item-title label">店铺名称</div>
                             <div class="item-input">
-                                <input id="shop_id" type="text" >
+                                <input id="shop_id" type="text" placeholder="店铺名称">
                             </div>
                         </div>
                     </div>
@@ -393,7 +393,7 @@
                         <div class="item-inner">
                             <div class="item-title label">年销售额</div>
                             <div class="item-input">
-                                <input id="sale" type="text" >
+                                <input id="sale" type="text" placeholder="请输入年销售额">
                             </div>
                         </div>
                     </div>

@@ -102,8 +102,19 @@
                             <div class="item-input">
                                 <select id="company" <?php if($task['status'] > 2){ ?>disabled<?php } ?>>
                                   <option value="0">请选择...</option>
+                                  <option value="圆通速递">圆通速递</option>
+                                  <option value="韵达速递">韵达速递</option>
                                   <option value="申通快递">申通快递</option>
-                                  <option value="圆通快递">圆通快递</option>
+                                  <option value="中通快递">中通快递</option>
+                                  <option value="顺丰速运">顺丰速运</option>
+                                  <option value="EMS">EMS</option>
+                                  <option value="宅急送">宅急送</option>
+                                  <option value="全峰快递">全峰快递</option>
+                                  <option value="天天快递">天天快递</option>
+                                  <option value="优速物流">优速物流</option>
+                                  <option value="如风达">如风达</option>
+                                  <option value="百世汇通">百世汇通</option>
+                                  <option value="京东快递">京东快递</option>
                                 </select>
                             </div>
                         </div>
@@ -212,11 +223,38 @@
         </ul>
         <ul>
             <li>
+                <div class="item-content">
+                    <div class="item-media"><i class="icon icon-form-name"></i></div>  
+                    <div class="item-inner">
+                        <div class="item-title label" style="width:100%"><span style="color:red">* </span>您对此次活动：</div>
+                    </div>
+                </div>
+                <div class="item-content">
+                    <div class="item-inner">
+                        <div>
+                            <input type="radio" name="evaluation_level" value="1" <?php if($task['status']!=3){ ?>disabled="disabled"<?php } ?> ><label style="font-size:0.65rem">&nbsp;不满意</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="evaluation_level" value="2" <?php if($task['status']!=3){ ?>disabled="disabled"<?php } ?>><label style="font-size:0.65rem">&nbsp;较不满意</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="evaluation_level" value="3" <?php if($task['status']!=3){ ?>disabled="disabled"<?php } ?>><label style="font-size:0.65rem">&nbsp;一般</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="evaluation_level" value="4" <?php if($task['status']!=3){ ?>disabled="disabled"<?php } ?>><label style="font-size:0.65rem">&nbsp;较满意</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="evaluation_level" value="5" <?php if($task['status']!=3){ ?>disabled="disabled"<?php } ?>><label style="font-size:0.65rem">&nbsp;非常满意</label>
+                        </div>
+                        
+                    </div>
+                </div>
                 <div class="item-content" style="height:6rem">
                     <div class="item-inner">
                         <textarea style="background:#EEEEEE" <?php if($task['status']!=3){ ?> placeholder="您现在还不能发表评论 !" disabled="disabled"<?php }else{ ?>placeholder="请留下您的评价 !"<?php } ?>id="comment">{{$task['evaluation']}}</textarea>
                     </div>
                 </div>
+
                 <div class="item-content">
                     <div class="item-inner">
                     </div>
@@ -239,6 +277,7 @@
       if(company != ''){
         $("#company option[value='"+company+"']").attr("selected",true);
       }
+       $("input[name='evaluation_level'][value='{{$task['evaluation_level']}}']").attr("checked",true);  
     });
 
     function saveLogistic(){
@@ -267,23 +306,32 @@
     </script>
     <script>
   function saveComment(){
-      $.ajax({
-        url: "/Merchant/activityOrder/saveComment",
-        type: "POST",
-        traditional: true,
-        dataType: "JSON",
-        data: {
-            "task_id"   : {{$task['task_id']}},
-            "comment"   : $('#comment').val()
-        },
-        success: function(data) {
-            alert('保存成功');
-           location.reload();
-        },
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+    var comment = $('#comment').val();
+    var level = $('input[name="evaluation_level"]:checked').val();
+    if(!level){
+        alert("请为网红打分");
+    }else if($.trim(comment)==''){
+        alert('请填写您的评价');
+    }else{
+       $.ajax({
+            url: "/Merchant/activityOrder/saveComment",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data: {
+                "task_id"   : {{$task['task_id']}},
+                "comment"   : $.trim(comment),
+                "evaluation_level" : level
+            },
+            success: function(data) {
+                alert('保存成功');
+               location.reload();
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        }); 
+    }
   }
   
   </script>

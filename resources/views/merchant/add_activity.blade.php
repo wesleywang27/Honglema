@@ -121,7 +121,7 @@
                       
                       <div class="item-input" id="price_div">
                           <select id="price_level">
-                              <option value="0">请选择...</option>
+                              <option id="price_0" value="0">请选择...</option>
                             @foreach ($priceLevel as $pvo)
                               <option id="price_{{$pvo['price']}}" value="{{$pvo['pl_id']}}">{{$pvo['level']}}</option>
                             @endforeach
@@ -320,22 +320,34 @@
         upLoadPic('bannerimgupload');
     });
 
+    $('#task_num').change(function(){
+        calculatePrice();
+    });
+
     $('#price_level').change(function(){
       var price_level = $('#price_level option:selected').val();
       if(price_level != '0'){
-        var total_price = $('#price_level option:selected').attr('id').substring(6);
         $('#price_level_input').val(price_level);
-        $('#price').html('¥&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+total_price);
         isPrice = true;
       }else{
-        $('#price').html('¥&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0');
         isPrice = false;
       }
-     
+     calculatePrice();
+
       
     });
 
   });
+
+  //计算总价钱
+  function calculatePrice(){
+    var num = $('#task_num option:selected').val();
+    var price = $('#price_level option:selected').attr('id').substring(6);
+    var total_price = num*price;
+    $('input[name="total_price"]').val(total_price);
+
+    $('#price').html('¥&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + total_price);
+  }
 
   //提交表单
   function submitForm(){

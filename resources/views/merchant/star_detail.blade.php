@@ -181,6 +181,9 @@
                     </h3>
                     <div style="padding-top:10px;padding-bottom: 15px;">
                         <ul>
+                            <li style="font-size: 12px;">综合评价:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$average_evaluation}}</li>
+                        </ul>
+                        <ul>
                             <li style="font-size: 12px;">总粉丝:</li>
                         </ul>
                         <ul style="margin-top: 5px;padding-left: 15px;">

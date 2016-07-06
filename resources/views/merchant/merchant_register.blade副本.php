@@ -30,7 +30,7 @@
                 <li>
                     <a href="#merchantName" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">商家店铺名称</div>
+                            <div class="item-title"><span style="color:red">* </span>商家店铺名称</div>
                             <div id="f_merchant_name" class="item-after">未编辑</div>
                             <input type="hidden" id="merchant_name_hidden" value="">
                         </div>

@@ -173,7 +173,7 @@
                 break;
 
               case '4':
-                $buttonString = '待打款';
+                $buttonString = '已结束';
                 $buttonColor = '#ec9108';
                 break;
               
