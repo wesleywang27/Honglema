@@ -143,10 +143,10 @@
                     location.href="/star/activityList";
                 },1000);
             } else{
-                $.toast(data,1000,'toast_msg');
+                $.toast(data,1500);
                 setTimeout(function(){
                     location.href="/star/info";
-                },1000);
+                },1500);
             }
         },
         headers: {

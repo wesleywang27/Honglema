@@ -13,7 +13,7 @@
                 <li>
                     <a href="#info" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">{{$star['name']}}{{$star['status']==0?"(未审核通过)":"(已审核)"}}</div>
+                            <div class="item-title"><span style="color:red">* </span>{{$star['name']}}{{$star['status']==0?"(未审核通过)":"(已审核)"}}</div>
                             <div class="item-after">
                                 <img id="f_wx_headimg1" src="{{$star['avatar']}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
                             </div>
@@ -27,7 +27,7 @@
                 <li>
                     <a href="#album" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">相册</div>
+                            <div class="item-title">&nbsp;&nbsp;相册</div>
                             <div class="item-after"></div>
                         </div>
                     </a>
@@ -35,7 +35,7 @@
                 <li>
                     <a href="#phoneconfirm" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">手机认证</div>
+                            <div class="item-title">&nbsp;&nbsp;手机认证</div>
                             <div class="item-after"></div>
                         </div>
                     </a>
@@ -43,7 +43,7 @@
                 <li>
                     <a href="#idconfirm" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">身份认证</div>
+                            <div class="item-title">&nbsp;&nbsp;身份认证</div>
                             <div class="item-after"></div>
                         </div>
                     </a>
@@ -51,7 +51,7 @@
                 <li>
                     <a href="#platform" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">平台信息</div>
+                            <div class="item-title">&nbsp;&nbsp;平台信息</div>
                             <div class="item-after"></div>
                         </div>
                     </a>
@@ -64,14 +64,14 @@
                 <li>
                     <a href="#address" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">收件地址</div>
+                            <div class="item-title"><span style="color:red">* </span>收件地址</div>
                         </div>
                     </a>
                 </li>
                 <li>
                     <a href="#wechat" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">微信号</div>
+                            <div class="item-title">&nbsp;&nbsp;微信号</div>
                             <div id="f_dwechat" class="item-after">{{$star['wechat']}}</div>
                         </div>
                     </a>
@@ -79,7 +79,7 @@
                 <li>
                     <a href="#alipay" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">支付宝账号</div>
+                            <div class="item-title"><span style="color:red">* </span>支付宝账号</div>
                             <div id="f_alipay_account" class="item-after">{{$star['alipay_account']}}</div>
                         </div>
                     </a>
@@ -106,7 +106,7 @@
                 <li>
                     <div class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">头像</div>
+                            <div class="item-title">&nbsp;&nbsp;头像</div>
                             <div class="item-after">
                                 <img id="f_wx_headimg2" src="{{$star['avatar']}}" style="width: 1.4rem;height: 1.4rem;border-radius: 5px;">
                                 <input class="weui_uploader_input" id="headimgEdit" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
@@ -117,7 +117,7 @@
                 <li>
                     <a href="#nickname" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">昵称</div>
+                            <div class="item-title"><span style="color:red">* </span>昵称</div>
                             <div id="f_dnickname" class="item-after">{{$star['name']}}</div>
                         </div>
                     </a>
@@ -125,7 +125,7 @@
                 <li>
                     <a href="#sex" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">性别</div>
+                            <div class="item-title">&nbsp;&nbsp;性别</div>
                             <div id="f_dsex" class="item-after">
                                 @if($star['sex']==0)未知
                                 @elseif($star['sex']=='1')男
@@ -151,7 +151,7 @@
                 <li id="cupli" >
                     <a href="#cup" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">罩杯</div>
+                            <div class="item-title"><span style="color:red">* </span>罩杯</div>
                             <div id="f_dcup" class="item-after">{{$star['cup']}}</div>
                         </div>
                     </a>
@@ -160,7 +160,7 @@
                     <li id="cupli" style="display:none">
                         <a href="#cup" class="item-link item-content">
                             <div class="item-inner">
-                                <div class="item-title">罩杯</div>
+                                <div class="item-title"><span style="color:red">* </span>罩杯</div>
                                 <div id="f_dcup" class="item-after">{{$star['cup']}}</div>
                             </div>
                         </a>
@@ -169,7 +169,7 @@
                 <li>
                     <a href="#weight" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">体重</div>
+                            <div class="item-title">&nbsp;&nbsp;体重</div>
                             <div id="f_dweight" class="item-after">{{$star['weight']}} KG</div>
                         </div>
                     </a>
@@ -177,7 +177,7 @@
                 <li>
                     <a href="#height" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">身高</div>
+                            <div class="item-title">&nbsp;&nbsp;身高</div>
                             <div id="f_dheight" class="item-after">{{$star['height']}} CM</div>
                         </div>
                     </a>
@@ -185,7 +185,7 @@
                 <li>
                     <a href="#size" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">衣服尺寸</div>
+                            <div class="item-title"><span style="color:red">* </span>衣服尺寸</div>
                             <div id="f_cloth" class="item-after">{{$star['shirt_size'].'/'.$star['pants_size'].'/'.$star['shoes_size']}}</div>
                         </div>
                     </a>
@@ -198,7 +198,7 @@
                 <li>
                     <a href="#age" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">年龄</div>
+                            <div class="item-title">&nbsp;&nbsp;年龄</div>
                             <div id="f_dage" class="item-after">{{$star['age']}} 岁</div>
                         </div>
                     </a>
@@ -206,7 +206,7 @@
                 <li>
                     <a href="#occupation" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">职业</div>
+                            <div class="item-title">&nbsp;&nbsp;职业</div>
                             <div id="f_doccupation" class="item-after">{{$star['occupation']}}</div>
                         </div>
                     </a>
@@ -214,7 +214,7 @@
                 <li>
                     <a href="#education" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">学历</div>
+                            <div class="item-title">&nbsp;&nbsp;学历</div>
                             <div id="f_deducation" class="item-after">{{$star['education']}}</div>
                         </div>
                     </a>
@@ -222,7 +222,7 @@
                 <li>
                     <a href="#experience" class="item-link item-content">
                         <div class="item-inner">
-                            <div class="item-title">经历</div>
+                            <div class="item-title">&nbsp;&nbsp;经历</div>
                             <div id="f_dexperience" class="item-after">{{$star['experience']}}</div>
                         </div>
                     </a>
@@ -296,8 +296,6 @@
     </div>
 @overwrite
 @include('partial/jquery_mobile_page', ["page_id" => "nickname"])
-
-
 
 @section('page-main')
     <header class="bar bar-nav">
@@ -942,7 +940,7 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">上衣尺寸</div>
+                            <div class="item-title label"><span style="color:red">* </span>上衣尺寸</div>
                             <div class="item-input">
                                 <input id="f_shirt" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="上衣尺寸" value="{{$star['shirt_size']}}">&nbsp;
                             </div>
@@ -953,7 +951,7 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">下衣尺寸</div>
+                            <div class="item-title label"><span style="color:red">* </span>下衣尺寸</div>
                             <div class="item-input">
                                 <input id="f_pants" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="下衣尺寸" value="{{$star['pants_size']}}">&nbsp;
                             </div>
@@ -964,7 +962,7 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">鞋子尺寸</div>
+                            <div class="item-title label"><span style="color:red">* </span>鞋子尺寸</div>
                             <div class="item-input">
                                 <input id="f_shoe" style="width: 85%;display:inline;text-align: right;" type="text" placeholder="鞋码" value="{{$star['shoes_size']}}">&nbsp;
                             </div>

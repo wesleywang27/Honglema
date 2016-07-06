@@ -52,7 +52,7 @@ class ActivityController extends Controller{
 			return "NotAuth";
 		}else if(!$isProfileFilled['result']){
 			//用户资料不完整
-			return $isProfileFilled['data'];
+			return "请完善地址，着装尺寸及支付信息";
 		}else{
 			//符合抢单条件
 			$activity_id = intval($_POST['activity_id']);
