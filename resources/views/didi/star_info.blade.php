@@ -118,7 +118,9 @@
             @endforeach
         </div>
         <a href="javascript:history.back();" style="float: right; margin-top: 20px; margin-right: 10%;"><input type="button" value="返回" class="link_btn"/></a>
-        @if($star->status == 0)
+        @if($star->status == 1)
+        <a href="{{URL::action('StarController@starModify', ['id' => $star->star_id]) }}" style="float: right; margin-top: 20px; margin-right: 20px;"><input type="button" value="修改" class="link_btn"/></a>
+        @elseif($star->status == 0)
         <a href="{{URL::action('StarController@starCheck', ['id' => $star->star_id]) }}" style="float: right; margin-top: 20px; margin-right: 20px;"><input type="button" value="审核通过" class="link_btn"/></a>
         @endif
         <script src="/js/jquery-1.9.1.min.js"></script>

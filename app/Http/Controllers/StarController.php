@@ -57,14 +57,38 @@ class StarController extends Controller{
     }
 
     //修改网红信息
-    public function starUpdate($id){
-        session_start();
-        if(isset($_SESSION['name'])) {
+    public function starUpdate($id, Request $request){
+        $star = Star::where('star_id',$id)->first();
+        $star->name = $request->input('name');
+        $star->sex = $request->input('sex');
+        $star->location = $request->input('location');
+        $star->real_name = $request->input('real_name');
+        $star->ID_number = $request->input('ID_number');
+        $star->cellphone = $request->input('cellphone');
+        $star->height = $request->input('height');
+        $star->weight = $request->input('weight');
+        $star->cup = $request->input('cup');
+        $star->age = $request->input('age');
+        $star->occupation = $request->input('occupation');
+        $star->education = $request->input('education');
+        $star->wechat = $request->input('wechat');
+        $star->weibo_id = $request->input('weibo_id');
+        $star->weipai_id = $request->input('weipai_id');
+        $star->miaopai_id = $request->input('miaopai_id');
+        $star->meipai_id = $request->input('meipai_id');
+        $star->kuaishou_id = $request->input('kuaishou_id');
+        $star->shirt_size = $request->input('shirt_size');
+        $star->pants_size = $request->input('pants_size');
+        $star->shoes_size = $request->input('shoes_size');
+        $star->province = $request->input('province');
+        $star->city = $request->input('city');
+        $star->region = $request->input('region');
+        $star->address = $request->input('address');
+        $star->experience = $request->input('experience');
 
-        }
-        else{
-            return Redirect::intended('/didi/login');
-        }
+        $star->save();
+
+        return Redirect::intended("/didi/starInfo/$id")->with(['id' => $id]);
     }
 
     //网红审核
