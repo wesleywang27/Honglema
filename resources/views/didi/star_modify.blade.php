@@ -105,8 +105,8 @@
                 <td colspan="5"><input style="width: 98%;height: 100%;" name="experience" value="{{ $star->experience}}" /></td>
             </tr>
             </table>
-            <input type="submit" value="保存" class="link_btn" style="float: right; margin-right: 40px;"/>
             <a href="/didi/StarInfo/{{ $star->star_id }}" style="float: right; margin-right: 5px;"><input type="button" value="返回" class="link_btn"/></a>
+            <input type="submit" value="保存" class="link_btn" style="float: right; margin-right: 40px;"/>
         </form>
     </div>
 </section>

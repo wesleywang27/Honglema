@@ -88,7 +88,7 @@ class StarController extends Controller{
 
         $star->save();
 
-        return Redirect::intended("/didi/starInfo/$id")->with(['id' => $id]);
+        return Redirect::intended("/didi/StarInfo/$id")->with(['id' => $id]);
     }
 
     //网红审核
