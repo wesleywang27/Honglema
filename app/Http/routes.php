@@ -394,7 +394,7 @@ Route::group(['prefix' => 'star', 'namespace' => 'star','middleware' => ['web', 
 
     Route::get('/activityDetail/{id?}',"ActivityController@detail");
 
-    Route::post('/setOrder',"ActivityController@setOrder");
+    Route::resource('/setOrder',"ActivityController@setOrder");
 
     Route::get('/visitor',"ActivityController@visitor");
 

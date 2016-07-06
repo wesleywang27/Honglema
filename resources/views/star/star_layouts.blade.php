@@ -123,7 +123,9 @@
         .buttons-tab .button {
             color:black;
         }
-
+        .toast_msg{
+            height:4rem !important;
+        }
     </style>
 </head>
 <body>

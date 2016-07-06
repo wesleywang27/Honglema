@@ -18,9 +18,7 @@
 <header class="bar bar-nav">
     <h1 class='title'>红了吗（试用版）</h1>
 </header>
-<div class="content">
- 
- 
+<div class="content" onclick="showMsg()">
     <div class="tabs">
       <div id="tab3" >
       @foreach ($list as $vo)
@@ -72,9 +70,13 @@
    <p><a href="#" class="button button-fill button-warning"
       style="border-radius:0;z-index:999; position:fixed; bottom:0;
       left:0; width:100%; height:1.7rem; line-height:1.7rem;
-      font-size:110%; text-align:center; background-color:#ee5555; _position:absolute;
- _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;" onclick="window.location.href='/star/create'">我要做网红</a></p>
+      font-size:110%; text-align:center; background-color:#ee5555; "
+         onclick="window.location.href='/star/create'">我要做网红</a></p>
 </div>
-
 </body>
+<script>
+    function showMsg(){
+        $.toast("请点击下方注册按钮!",1000);
+    }
+    </script>
 </html>

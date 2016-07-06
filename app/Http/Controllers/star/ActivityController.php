@@ -46,12 +46,13 @@ class ActivityController extends Controller{
 
 	public function setOrder(){
 		$star = Star::where('star_id', $_SESSION['star_id'])->first();
+		$isProfileFilled = self::isProfileFilled();
 		if($star->status==0){
 			//用户未审核
 			return "NotAuth";
-		}else if(!self::isProfileFilled()){
+		}else if(!$isProfileFilled['result']){
 			//用户资料不完整
-			return "NotFill";
+			return $isProfileFilled['data'];
 		}else{
 			//符合抢单条件
 			$activity_id = intval($_POST['activity_id']);
@@ -60,16 +61,47 @@ class ActivityController extends Controller{
 			$order->status = 1;
 			$order->star_id = $_SESSION['star_id'];
 			$order->save();
+			return "Success";
 			}
 	}
 
 	public function isProfileFilled(){
-		$isProfileFilled = true;
+		$isProfileFilled = "";
+		$result =true;
 		$star = Star::where('star_id', $_SESSION['star_id'])->first();
 		if($star->address==""||$star->address==null){
-			$isProfileFilled = false;
+			$isProfileFilled .= "邮寄地址，";
+			$result = false;
 		}
-		return $isProfileFilled;
+		if($star->sex==2){
+			if($star->cup==""||$star->cup==null){
+				$isProfileFilled .= "罩杯，";
+				$result = false;
+			}
+		}
+		if($star->shoes_size==""||$star->shoes_size==null){
+			$isProfileFilled .= "鞋码，";
+			$result = false;
+		}
+		if($star->shirt_size==""||$star->shirt_size==null){
+			$isProfileFilled .= "上衣尺寸，";
+			$result = false;
+		}
+		if($star->pants_size==""||$star->pants_size==null){
+			$isProfileFilled .= "下衣尺寸，";
+			$result = false;
+		}
+		if($star->name==""||$star->name==null){
+			$isProfileFilled .= "直播昵称，";
+			$result = false;
+		}
+		if($star->alipay_account==""||$star->alipay_account==null){
+			$isProfileFilled .= "支付宝账号，";
+			$result = false;
+		}
+		$isProfileFilled .= "信息不完善";
+		$data = ['result'=>$result,'data'=>$isProfileFilled];
+		return $data;
 	}
 
 

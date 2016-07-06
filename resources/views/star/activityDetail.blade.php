@@ -137,14 +137,17 @@
         success: function(data) {
             if(data=="NotAuth"){
                 $.toast("账号暂未获得授权，请等待管理员审核",1000);
-            }else if(data=="NotFill"){
-                $.toast("用户地址不完整，请补全后再进行操作",1000);
+            }else if(data=="Success"){
+                $.toast("抢单成功，请等待回复!",1000);
+                setTimeout(function(){
+                    location.href="/star/activityList";
+                },1000);
+            } else{
+                $.toast(data,1000,'toast_msg');
+                setTimeout(function(){
+                    location.href="/star/info";
+                },1000);
             }
-            else{
-            $.toast("抢单成功，请等待回复!",1000);
-            setTimeout(function(){
-                location.href="/star/activityList";
-            },1000);}
         },
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
