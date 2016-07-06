@@ -37,7 +37,7 @@
               <li>
                   <div class="item-content">
                       <div class="item-inner">
-                          <div class="item-title">{{$merchant['name']}} ></div>
+                          <div class="item-title">{{$merchant['name']}} </div>
                       </div>
                   </div>
               </li>

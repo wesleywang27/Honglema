@@ -40,8 +40,14 @@ class VisitorController extends Controller
             //注册用户跳转到活动界面
             return Redirect::intended('/star/activityList');
         } else {
-            $activityList = Activity::where('activity_status','>=', 1)->orderBy('created_at','desc')->get();
+            $activityTemp = Activity::where('activity_status','>=', 1)->orderBy('created_at','desc')->get();
             //游客跳转到游客首页
+            $activityList = array();
+            foreach($activityTemp as $activity){
+                if($activity->task_num >$activity->confirm_num){
+                    $activityList[]=$activity;
+                }
+            }
             return view('star.visitor', ['list' => $activityList]);
         }
     }
