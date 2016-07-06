@@ -37,7 +37,7 @@
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
                             <div class="item-title label">活动时间</div>
-                             <div class="item-input">2016-06-06(test)</div>
+                             <div class="item-input">收货后{{$activity['time_within']}}</div>
                         </div>
                     </div>
                 </li>

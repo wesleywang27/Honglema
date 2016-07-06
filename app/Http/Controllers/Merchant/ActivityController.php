@@ -149,7 +149,8 @@ class ActivityController extends RootController{
         $task_Pic = TaskPicture::where('task_id',$task_id)->get();
         $order = Order::where('task_id',$task_id)->first();
         $star = Star::where('star_id',$order['star_id'])->first();
-        return view('merchant.task_detail',['task'=>$task,'taskPics'=>$task_Pic,'star'=>$star]);
+        $activity = Activity::where('activity_id',$order['activity_id'])->first();
+        return view('merchant.task_detail',['task'=>$task,'taskPics'=>$task_Pic,'star'=>$star,'activity'=>$activity]);
     }
 
     //保存物流信息
