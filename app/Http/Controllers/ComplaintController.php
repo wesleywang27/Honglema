@@ -44,4 +44,7 @@ class ComplaintController extends Controller {
         }
     }
 
+    public function submitSolution() {
+    }
+
 }
