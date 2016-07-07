@@ -195,61 +195,70 @@
         </div>
 
         <div class="list-block content-no-margin">
-        <ul>
-            <li>
-                <div class="item-content">
-                        <div class="title">任务评论</div>
-                </div>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <div class="item-content">
-                    <div class="item-media"><i class="icon icon-form-name"></i></div>  
-                    <div class="item-inner">
-                        <div class="item-title label" style="width:100%"><span style="color:red">* </span>您对此次活动：</div>
+            <ul>
+                <li>
+                    <div class="item-content">
+                            <div class="title">任务评论</div>
                     </div>
-                </div>
-                <div class="item-content">
-                    <div class="item-inner">
-                        <div>
-                            <input type="radio" name="evaluation_level" value="1" <?php if($task['status']!=3){ ?>disabled="disabled"<?php } ?> ><label style="font-size:0.65rem">&nbsp;不满意</label>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>  
+                        <div class="item-inner">
+                            <div class="item-title label" style="width:100%"><span style="color:red">* </span>您对此次活动：</div>
                         </div>
-                        <div>
-                            <input type="radio" name="evaluation_level" value="2" <?php if($task['status']!=3){ ?>disabled="disabled"<?php } ?>><label style="font-size:0.65rem">&nbsp;较不满意</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="evaluation_level" value="3" <?php if($task['status']!=3){ ?>disabled="disabled"<?php } ?>><label style="font-size:0.65rem">&nbsp;一般</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="evaluation_level" value="4" <?php if($task['status']!=3){ ?>disabled="disabled"<?php } ?>><label style="font-size:0.65rem">&nbsp;较满意</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="evaluation_level" value="5" <?php if($task['status']!=3){ ?>disabled="disabled"<?php } ?>><label style="font-size:0.65rem">&nbsp;非常满意</label>
-                        </div>
-                        
                     </div>
-                </div>
-                <div class="item-content" style="height:6rem">
-                    <div class="item-inner">
-                        <textarea style="background:#EEEEEE" <?php if($task['status']!=3){ ?> placeholder="您现在还不能发表评论 !" disabled="disabled"<?php }else{ ?>placeholder="请留下您的评价 !"<?php } ?>id="comment">{{$task['evaluation']}}</textarea>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div>
+                                <input type="radio" name="evaluation_level" value="1" <?php if($task['status']!=3){ ?>disabled="disabled"<?php } ?> ><label style="font-size:0.65rem">&nbsp;不满意</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="evaluation_level" value="2" <?php if($task['status']!=3){ ?>disabled="disabled"<?php } ?>><label style="font-size:0.65rem">&nbsp;较不满意</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="evaluation_level" value="3" <?php if($task['status']!=3){ ?>disabled="disabled"<?php } ?>><label style="font-size:0.65rem">&nbsp;一般</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="evaluation_level" value="4" <?php if($task['status']!=3){ ?>disabled="disabled"<?php } ?>><label style="font-size:0.65rem">&nbsp;较满意</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="evaluation_level" value="5" <?php if($task['status']!=3){ ?>disabled="disabled"<?php } ?>><label style="font-size:0.65rem">&nbsp;非常满意</label>
+                            </div>
+                            
+                        </div>
                     </div>
-                </div>
+                    <div class="item-content" style="height:6rem">
+                        <div class="item-inner">
+                            <textarea style="background:#EEEEEE" <?php if($task['status']!=3){ ?> placeholder="您现在还不能发表评论 !" disabled="disabled"<?php }else{ ?>placeholder="请留下您的评价 !"<?php } ?>id="comment">{{$task['evaluation']}}</textarea>
+                        </div>
+                    </div>
 
-                <div class="item-content">
-                    <div class="item-inner">
+                    <div class="item-content">
+                        <div class="item-inner">
+                        </div>
+                        <div class="item-inner">
+                        </div>
+                        <div class="item-inner" style="padding-right:0">
+                          <?php if($task['status']==3){ ?>
+                          <button class="button pull-right" style="margin-right:1rem;width:5rem" onclick="saveComment()">提交</button>
+                          <?php } ?>
+                        </div>
                     </div>
-                    <div class="item-inner">
+                </li>
+            </ul>
+        </div>
+        <div class="list-block" style="margin: 1.2rem 0 1.2rem 0;">
+            <ul>
+                <li>
+                    <div class="item-content">
+                            <div class="title button-danger" onclick="window.location.href='/Merchant/activityOrder/complaint/{{$task['task_id']}}'">我要投诉</div>
                     </div>
-                    <div class="item-inner" style="padding-right:0">
-                      <?php if($task['status']==3){ ?>
-                      <button class="button pull-right" style="margin-right:1rem;width:5rem" onclick="saveComment()">提交</button>
-                      <?php } ?>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <script>

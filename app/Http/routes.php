@@ -436,6 +436,10 @@ Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant','middleware' => 
         Route::resource('/activityOrder/saveComment',"ActivityController@saveComment");
         Route::post('/activityOrder/saveActivity',"ActivityController@saveActivity");
 
+        //商家投诉
+        Route::get('/activityOrder/complaint/{task_id?}',"ActivityController@complaint");
+        Route::post('/activityOrder/saveComplaint/',"ActivityController@saveComplaint");
+
         //网红广场
         Route::resource('/starGround', 'IndexController@showStar');
         Route::get('/starGround/list{format?}', 'IndexController@showStar');
