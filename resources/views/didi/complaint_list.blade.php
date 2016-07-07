@@ -35,7 +35,9 @@
         </td>
         <td style="text-align:center">{{ $complaint->content }}</td>
         <td style="width:80px;text-align:center">{{ $complaint->status }}</td>
-        <td style="width:80px;text-align:center">操作按钮</td>  
+        <td style="width:80px;text-align:center">
+            <a href="{{URL::action('ComplaintController@complaintInfo', ['id' => $complaint->complaint_id]) }}"><input type="button" value="查看" class="link_btn"/></a>
+        </td>  
     </tr>
     @endforeach
 
