@@ -13,7 +13,7 @@
     <div class="admin_tab_cont" style="display:block;">
         <!--左右分栏：左侧栏目-->
         <form action="{{URL::action('MerchantController@merchantUpdate', ['id' => $merchant->merchant_id]) }}" method="post">
-            <table border="2" width="95%" height="150" style="margin: 20px;">
+            <table border="2" width="95%" height="350" style="margin: 20px;">
                 <tr>
                     <th width="8%">商家名称</th>
                     <td colspan="3"><input style="width: 98%;height: 100%;" name="name" value="{{ $merchant->name}}" /></td>
