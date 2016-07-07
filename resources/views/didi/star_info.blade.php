@@ -37,6 +37,14 @@
                 <td style="text-align:center">{{ $star->cellphone}}</td>
             </tr>
             <tr>
+                <th>红了吗编号</th>
+                <td style="text-align:center">{{ $star->honglema_id}}</td>
+                <th>支付宝账号</th>
+                <td style="text-align:center">{{ $star->alipay_account}}</td>
+                <th>红人标签</th>
+                <td style="text-align:center">{{ $star->tag}}</td>
+            </tr>
+            <tr>
                 <th colspan="6" style="height:10px;"></th>
             </tr>
             <tr>

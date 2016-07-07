@@ -71,6 +71,9 @@ class StarController extends Controller{
         $star->age = $request->input('age');
         $star->occupation = $request->input('occupation');
         $star->education = $request->input('education');
+        $star->honglema_id = $request->input('honglema_id');
+        $star->alipay_account = $request->input('alipay_account');
+        $star->tag = $request->input('tag');
         $star->wechat = $request->input('wechat');
         $star->weibo_id = $request->input('weibo_id');
         $star->weipai_id = $request->input('weipai_id');
