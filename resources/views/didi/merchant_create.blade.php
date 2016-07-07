@@ -5,7 +5,7 @@
 <div class="page_title">
     <h2 class="fl">添加商家信息</h2>
 </div>
-<form action="/didi/MerchantCreate" method="post" style="margin-left: 30%">
+<form action="/didi/MerchantCreate" method="post" style="margin-left: 5%">
     <?php echo csrf_field(); ?>
             <table border="2" width="95%" height="350" style="margin: 20px;">
                 <tr>
@@ -18,7 +18,7 @@
                 </tr>
                 <tr>
                     <th>国家</th>
-                    <td><input style="width: 98%;height: 100%;" name="country" value="" /></td>
+                    <td><input style="width: 98%;height: 100%;" name="country" value="中国" /></td>
                     <th>省</th>
                     <td><input style="width: 98%;height: 100%;" name="province" value="" /></td>
                     <th>市</th>
@@ -27,8 +27,8 @@
                     <td><input style="width: 98%;height: 100%;" name="region" value="" /></td>
                 </tr>
                 <tr>
-                    <th>详细地址</th>
-                    <td colspan="7"><input style="width: 98%;height: 100%;" name="address" value="" /></td>
+                    <th>详细地址<font color="red">*</font></th>
+                    <td colspan="7"><input style="width: 98%;height: 100%;" name="address" value="" required /></td>
                 </tr>
             <tr>
                 <th>联系人<font color="red">*</font></th>
@@ -50,7 +50,7 @@
             </tr>
             <tr>
                 <th>公司简介<font color="red">*</font></th>
-                <td colspan="7"><input style="width: 98%;height: 100%;" name="introduction" value="" /></td>
+                <td colspan="7"><input style="width: 98%;height: 100%;" name="introduction" value="" required /></td>
             </tr>
             </table>
 
