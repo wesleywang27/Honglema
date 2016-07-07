@@ -37,8 +37,9 @@
                                            <img src="{{$order['picture']}}" style='width: 6rem;'>
                                        </div>
                                        <div class="item-inner"  style="background-color:#f0f0f0; margin: 0.4rem">
-                                           <div class="item-title" style="text-align:center;">{{$order['title']}}</div>
-                                           <div class="item-subtitle" style="text-align:center;">￥{{$order['price']}}</div>
+                                           <div class="item-title" style="text-align:center;">活动名称：{{$order['title']}}</div>
+                                           <div class="item-subtitle" style="text-align:center;">单场价格：￥{{$order['price']}}</div>
+                                           <div class="item-subtitle" style="text-align:center;">期望场次:{{$order['expectation_num']}}场</div>
                                        </div>
                                 </li>
                             </ul>
@@ -50,7 +51,7 @@
                 </div>
                 <div id="tab2" class="tab">
                   @foreach($data as $order)
-                    @if($order['order_status']==2&&$order['task_status']<3)
+                    @if($order['order_status']==2&&($order['task_status']==1||$order['task_status']==2))
                     <div class="content-block content-block-my content-no-margin"  style="padding: 0px">
          	          <div class="content-block content-block-my">
                         <div class="list-block content-no-margin" style="margin-top: -1.3rem;">
@@ -58,7 +59,11 @@
                                 <li class="item-content">
                                     <div class="item-inner">
                                         <div class="item-title">{{$order['merchant_name']}}</div>
-                                        <div class="item-after" style="font-size:80%">进行中</div>
+                                        <div class="item-after" style="font-size:80%">@if($order['is_shipping']==0&&$order['task_status']==2) 等待提交结果
+                                                                            @elseif($order['is_shipping']==1&&$order['task_status']==2)待收货
+                                                                            @elseif($order['is_shipping']==2&&$order['task_status']==2)等待提交结果</div>
+                                                                            @elseif($order['task_status']==1)待发货
+                                        @endif
                                     </div>
                                 </li>
                             </ul>
@@ -70,8 +75,9 @@
                                            <img src="{{$order['picture']}}" style='width: 6rem;'>
                                        </div>
                                        <div class="item-inner"  style="background-color:#f0f0f0; margin: 0.4rem">
-                                           <div class="item-title" style="text-align:center;">{{$order['title']}}</div>
-                                           <div class="item-subtitle" style="text-align:center;">￥{{$order['price']}}</div>
+                                           <div class="item-title" style="text-align:center;">活动名称：{{$order['title']}}</div>
+                                           <div class="item-subtitle" style="text-align:center;">单场价格：￥{{$order['price']}}</div>
+                                           <div class="item-subtitle" style="text-align:center;">分配场次￥{{$order['show_num']}}</div>
                                        </div>
                                 </li>
                             </ul>

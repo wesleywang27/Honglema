@@ -15,7 +15,7 @@ class TaskPicture extends Model{
     public $timestamps = false;
 
     protected $fillable = [
-        'uid',
+        'task_result_id',
         'file_id',
         'url'
     ];

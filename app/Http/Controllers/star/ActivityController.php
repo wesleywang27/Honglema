@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\ActivityCommodityList;
 use App\Models\Order;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use DB;
 class ActivityController extends Controller{
 	public function __construct(){
@@ -44,8 +45,11 @@ class ActivityController extends Controller{
 		return view('star.activityDetail',['detail'=>$activityDetail,'commodity_ids'=>$commodity_ids]);
 	}
 
-	public function setOrder(){
-		$star = Star::where('star_id', $_SESSION['star_id'])->first();
+	public function setOrder(Request $request){
+		$star_id = $_SESSION['star_id'];
+		$star = Star::where('star_id',$star_id )->first();
+		$activity_id = $request->input('activity_id');
+		$order_num = $request->input('order_num');
 		$isProfileFilled = self::isProfileFilled();
 		if($star->status==0){
 			//用户未审核
@@ -55,11 +59,11 @@ class ActivityController extends Controller{
 			return "请完善地址，着装尺寸及支付信息";
 		}else{
 			//符合抢单条件
-			$activity_id = intval($_POST['activity_id']);
 			$order = new Order();
 			$order->activity_id = $activity_id;
 			$order->status = 1;
-			$order->star_id = $_SESSION['star_id'];
+			$order->star_id = $star_id;
+			$order->expectation_num = $order_num;
 			$order->save();
 			return "Success";
 			}

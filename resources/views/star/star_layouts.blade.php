@@ -249,6 +249,9 @@
  // $('#taskimgupload').change(uploadTaskImg());
  $('#taskimgupload').change(function(){
     uploadTaskImg();
+     if($('[id=taskimg]').length==4){
+         $('#taskimgInput').hide();
+     }
 });
 //submit task result
     function uploadTaskImg(){
@@ -630,8 +633,50 @@
         });
     });
 
+    //确认收货
+   function ship_confirm(task_id){
+       $.ajax({
+           url: "/star/ship_confirm",
+           type: "POST",
+           traditional: true,
+           dataType: "JSON",
+           data: {task_id:task_id}
+           ,success: function(data) {
+               $.toast("确认成功!",1000);
+               setTimeout(function(){
+                   location.reload();
+               },1000);
+           },headers: {
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+           }
+       });
+   }
+
+    //网红确定完成任务
+    function finish_task(task_id){
+        $.confirm('确认完成任务?', function () {
+            $.ajax({
+                url: "/star/finish_task",
+                type: "POST",
+                traditional: true,
+                dataType: "JSON",
+                data: {task_id:task_id}
+                ,success: function(data) {
+                    $.toast("确认成功!",1000);
+                    setTimeout(function(){
+                        location.reload();
+                    },1000);
+                },headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+        });
+
+    }
+
     //网红提交任务结果
-$.submmitTaskResult=function(id){
+$.submmitTaskResult=function(task_id){
     var imgdata = new Array();
     var i = 0;
     $('[id=taskimg]').each(function(){
@@ -647,7 +692,8 @@ $.submmitTaskResult=function(id){
             type: "POST",
             traditional: true,
             dataType: "JSON",
-            data: {  order_id:id,
+            data: {
+                'task_id':task_id,
                 'playback':playback,
                 'views':views,
                 'duration':duration,
@@ -686,7 +732,6 @@ $.cancelOrder=function(id){
 
 </script>
 <script>
-//网红上传头像
 //注册上传头像
 $('#headimgEdit').change(function(){
     $.showPreloader('正在上传...');
@@ -724,47 +769,6 @@ $('#headimgEdit').change(function(){
 
 });
 
- /*   //网红修改头像,已经实现提交后,个人信息首页,副页,头像编辑页都实时变更
-    function changeHeadImg(){
-        $('#headimgInput').click();
-    }
-    $.saveHeadImg = function(){
-        $.ajax({
-                    url: "/star/update",
-                    type: "POST",
-                    traditional: true,
-                    dataType: "JSON",
-                    data: {  'avatar': $('#wx_headimg').attr("src")}
-                    ,success: function(data) {
-                        $.toast("提交成功!",1000);
-                    },headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                }
-        );
-    }
-    $('#headimgInput').change(function(){
-         $.showPreloader('正在上传...');
-        $j.ajaxFileUpload({
-            url:"/picture",//需要链接到服务器地址
-            secureuri:false,
-            fileElementId:"headimgInput",//文件选择框的id属性
-            dataType: 'json',   //json
-            success: function (data, status) {
-                var urls = data.urls;
-                for(var i=0; i<urls.length; i++){
-                   $('#f_wx_headimg1').attr('src',urls[i]);
-                    $('#f_wx_headimg2').attr('src',urls[i]);
-                    $('#wx_headimg').attr('src',urls[i]);
-                }
-                $.hidePreloader();
-                $.toast("添加成功", 1000);
-            },error:function(data, status, e){
-                $.hidePreloader();
-                $.toast("添加失败", 1000);
-            }
-        });
-    });*/
 </script>
 
 <script>

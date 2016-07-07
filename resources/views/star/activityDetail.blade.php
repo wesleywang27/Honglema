@@ -119,10 +119,34 @@
       <p><a href="#" class="button button-fill button-warning"
       style="border-radius:0;z-index:999; position:fixed; bottom:0;
       left:0; width:100%; height:1.7rem; line-height:1.7rem; font-size:110%;
-      text-align:center; background-color:#ee5555; _position:absolute; overflow:visible;" onclick="setOrder({{$detail['activity_id']}})">抢单</a></p>
+      text-align:center; background-color:#ee5555; _position:absolute; overflow:visible;" onclick="$.popup('.order_num');">抢单</a></p>
     <?php
       }
     ?>
+  </div>
+
+  <div class="popup order_num">
+      <header class="bar bar-nav">
+          <h1 class="title">抢单数量</h1>
+      </header>
+      <div class="content" style="top: 1.2rem;">
+          <div class="list-block">
+              <ul>
+                  <li>
+                      <div class="item-content">
+                          <div class="item-inner">
+                              <div class="item-title label">抢单数量</div>
+                              <div class="item-input">
+                                  <input id="order_num" type="text" value="">
+                              </div>
+                          </div>
+                      </div>
+                      <p><a href="javascript:setOrder({{$detail['activity_id']}})" class="close-popup button button-fill button-success">确认</a></p>
+                  </li>
+              </ul>
+          </div>
+      </div>
+
   </div>
   <script>
   function setOrder(id){
@@ -132,7 +156,8 @@
         traditional: true,
         dataType: "JSON",
         data: {
-            "activity_id"   : id
+            "activity_id"   : id,
+            "order_num":$('#order_num').val()
         },
         success: function(data) {
             if(data=="NotAuth"){

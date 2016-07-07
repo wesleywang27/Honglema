@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\star;
+
 use App\Models\PriceLevel;
 use Illuminate\Http\Request;
 use App\Models\Star;
@@ -13,6 +14,7 @@ use App\Models\Order;
 use App\Models\Merchant;
 use App\Models\Commodity;
 use App\Models\TaskPicture;
+use App\Models\TaskResult;
 use DB;
 
 class StarController extends RootController
@@ -40,13 +42,15 @@ class StarController extends RootController
             foreach ($relations as $relation) {
                 $commodities[] = Commodity::where('commodity_id', $relation->commodity_id)->get();
             }
-            $priceLevel = PriceLevel::where('pl_id',$activity->price_level)->first();
-            $price=0;
-            if($priceLevel){
+            $priceLevel = PriceLevel::where('pl_id', $activity->price_level)->first();
+            $price = 0;
+            if ($priceLevel) {
                 $price = $priceLevel->price_star;
             }
-            $isAvailable = $activity->task_num >$activity->confirm_num?true:false;
+            //活动是否被指派完
+            $isAvailable = $activity->task_num > $activity->confirm_num ? true : false;
             if ($order->status == 2) {
+                //被选中的订单把task传回去
                 $task = Task::where('task_id', $order->task_id)->first();
                 $data[] = array(
                     'title' => $activity->title,
@@ -58,8 +62,12 @@ class StarController extends RootController
                     'order_status' => $order->status,
                     'merchant_id' => $merchant->merchant_id,
                     'order_id' => $order->order_id,
-                    'task_status' => $task->status);
+                    'task_status' => $task->status,
+                    'is_shipping' => $task->is_shipping,
+                    'show_num' =>$task->show_num,
+                );
             } else {
+                //未被选中的订单不传task
                 $data[] = array(
                     'title' => $activity->title,
                     'merchant_name' => $merchant->name,
@@ -70,7 +78,8 @@ class StarController extends RootController
                     'order_status' => $order->status,
                     'isAvailable' => $isAvailable,
                     'merchant_id' => $merchant->merchant_id,
-                    'order_id' => $order->order_id);
+                    'order_id' => $order->order_id,
+                    'expectation_num'=>$order->expectation_num);
             }
         }
         return view('/star/star_order', ["data" => $data]);
@@ -114,8 +123,8 @@ class StarController extends RootController
     {
         $star_id = $_SESSION['star_id'];
         $starPictures = $request->input('imgdata');
-        if(count($starPictures)>0){
-            foreach($starPictures as $url) {
+        if (count($starPictures) > 0) {
+            foreach ($starPictures as $url) {
                 $starPicture = new StarPicture();
                 $starPicture->url = $url;
                 $starPicture->file_id = pathinfo($url)['filename'];
@@ -137,10 +146,10 @@ class StarController extends RootController
         //each activity has many commodity
         $relations = DB::table('activity_commodity_lists')->where('activity_id', $activity->activity_id)->get();
 
-        $isAvailable = $activity->task_num >$activity->confirm_num?true:false;
-        $priceLevel = PriceLevel::where('pl_id',$activity->price_level)->first();
-        $price=0;
-        if($priceLevel){
+        $isAvailable = $activity->task_num > $activity->confirm_num ? true : false;
+        $priceLevel = PriceLevel::where('pl_id', $activity->price_level)->first();
+        $price = 0;
+        if ($priceLevel) {
             $price = $priceLevel->price_star;
         }
         $commodities = array();
@@ -174,45 +183,68 @@ class StarController extends RootController
     {
         $order_id = $request->input('order_id');
         $order = Order::where('order_id', $order_id)->first();
-        if($order->status==1){
-        $order->status = '0';
-        $order->save();}
+        if ($order->status == 1) {
+            $order->status = '0';
+            $order->save();
+        }
     }
 
     //跳转到任务结果界面
     public function  task_result(Request $request)
     {
-        $order_id = $request->input('order_id');
-        return view('star/task_result', ['order_id' => $order_id]);
+        $task_id = $request->input('task_id');
+        return view('star/task_result', ['task_id' => $task_id]);
+    }
+
+    //确认收货
+    public function  ship_confirm(Request $request)
+    {
+        $task_id = $request->input('task_id');
+        $task = Task::where('task_id', $task_id)->first();
+        $task->is_shipping = 2;
+        $task->save();
+
+    }
+
+    //完成任务
+    public function  finish_task(Request $request)
+    {
+        $task_id = $request->input('task_id');
+        $task = Task::where('task_id', $task_id)->first();
+        $task->status = 3;
+        $task->save();
+
     }
 
     //提交任务结果
     public function submitTaskResult(Request $request)
     {
-        // 网红提交结果，修改任务状态为3（已推广） 
-        $order_id = $request->input('order_id');
-        $order = Order::where('order_id', $order_id)->first();
-        $task = Task::where('task_id', $order->task_id)->first();
-        if($task->status==2){
-        $task_id = $task->task_id;
-        $task->status = 3;
-        $taskPictures = $request->input('imgdata');
-        $playback = $request->input('playback');
-        $views = $request->input('views');
-        $duration = $request->input('duration');
-            $task->playback_url=$playback;
-            $task->views=$views;
-            $task->duration=$duration;
-            $task->save();
-        if (count($taskPictures) > 0) {
-            foreach ($taskPictures as $url) {
-                $taskPicture = new TaskPicture();
-                $taskPicture->task_id = $task_id;
-                $taskPicture->url = $url;
-                $taskPicture->file_id = pathinfo($url)['filename'];
-                $taskPicture->save();
+        // 网红提交结果，不修改状态
+        $task_id = $request->input('task_id');
+        $task = Task::where('task_id', $task_id)->first();
+
+        if ($task->status == 2) {
+            $taskPictures = $request->input('imgdata');
+            $playback = $request->input('playback');
+            $views = $request->input('views');
+            $duration = $request->input('duration');
+            $taskResult = new TaskResult();
+            $taskResult->task_id = $task_id;
+            $taskResult->playback_url = $playback;
+            $taskResult->views = $views;
+            $taskResult->duration = $duration;
+            $taskResult->save();
+          if (count($taskPictures) > 0) {
+                foreach ($taskPictures as $url) {
+                    $taskPicture = new TaskPicture();
+                    $taskPicture->task_result_id = $taskResult->task_result_id;
+                    $taskPicture->url = $url;
+                    $taskPicture->file_id = pathinfo($url)['filename'];
+                    $taskPicture->save();
+                }
             }
-        }}
+        }
     }
+
 
 }
