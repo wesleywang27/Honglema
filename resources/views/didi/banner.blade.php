@@ -11,11 +11,11 @@
     <link rel="stylesheet" type="text/css" href="/css/horizontal-bar.css">
 <style>
 header {
-background: #F7D1D1;
+background: #EAADAD;
 }
 .link_btn {
 border:1px #C51C1F solid;
-background:#F7D1D1;
+background:#EB6167;
 }
 .link_btn:hover {
 background:#C51C1F;
@@ -25,7 +25,7 @@ border:1px #C51C1F solid;
 background:#C51C1F;
 border:1px #C51C1F solid;
 }
-.paging a{background:#F7D1D1;border:1px #C51C1F solid;}
+.paging a{background:#EB6167;border:1px #C51C1F solid;}
 .paging a:hover{background:#C51C1F;border:1px #C51C1F solid;}
 .paging a:active{background:#C51C1F;border:1px #C51C1F solid;}
 .lt_aside_nav dl dt{background:#F7D1D1;}

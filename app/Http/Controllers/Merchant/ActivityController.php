@@ -22,6 +22,7 @@ use App\Models\Order;
 use App\Models\PriceLevel;
 use App\Models\Commodity;
 use App\Models\Merchant;
+use App\Models\Complaint;
 
 class ActivityController extends RootController{
     public function __construct(){
@@ -215,6 +216,29 @@ class ActivityController extends RootController{
         return view('merchant.task_result',['taskPics'=>$task_Pics,'task_result'=>$task_result]);
     }
 
+    //跳转到投诉页
+    public function complaint($task_id){
+        $order = Order::where('task_id',$task_id)->first();
+        return view('merchant.complaint',['task_id'=>$task_id,'star_id'=>$order['star_id']]);
+    }
+
+    //保存投诉内容
+    public function saveComplaint(){
+        $complaint = new Complaint();
+        $complaint['star_id'] = intval($_POST['star_id']);
+        $complaint['task_id'] = intval($_POST['task_id']);
+        $complaint['merchant_id'] = $_SESSION['merchant_id'];
+        $complaint['content'] = $_POST['content'];
+        $complaint['status'] = 0;
+        $complaint['type'] = 0;
+        $complaint->save();
+        if($complaint['complaint_id']){
+            echo json_encode(array('error'=>0,'msg'=>'投诉成功'));die;
+        }else{
+            echo json_encode(array('error'=>1,'msg'=>'投诉失败'));die;
+        }
+
+    }
 
     //查看网红详情
     public function starDetail($star_id,$activity_id){
