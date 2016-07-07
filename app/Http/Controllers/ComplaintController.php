@@ -5,12 +5,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Complaint;
+use App\Models\Merchant;
+use App\Models\Star;
+use App\Models\Task;
+use App\Models\Activity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
 class ComplaintController extends Controller {
     // 投诉详情
-    public function compaintInfo($id) {
+    public function complaintInfo($id) {
         session_start();
         if(isset($_SESSION['name'])) {
             $complaint = Complaint::where('complaint_id',$id)->first();
