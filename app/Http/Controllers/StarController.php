@@ -99,7 +99,8 @@ class StarController extends Controller{
         session_start();
         if(isset($_SESSION['name'])) {
             $star = Star::where('star_id',$id)->first();
-            $star->status = 1;
+            $star->status = 1;  // 修改为审核通过状态
+            $star->honglema_id = "HLM".str_pad($id, 6, "0", STR_PAD_LEFT);  // 分配红了吗内部编号
             $star->save();
 
             return Redirect::intended('/didi/StarCheckList');

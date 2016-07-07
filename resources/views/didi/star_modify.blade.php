@@ -37,6 +37,14 @@
                 <td style="text-align:center"><input style="width: 98%;height: 100%;" name="cellphone" value="{{ $star->cellphone}}" /></td>
             </tr>
             <tr>
+                <th>红了吗编号</th>
+                <td style="text-align:center"><input style="width: 98%;height: 100%;" name="honglema_id" value="{{ $star->honglema_id}}" /></td>
+                <th>支付宝账号</th>
+                <td style="text-align:center"><input style="width: 98%;height: 100%;" name="alipay_account" value="{{ $star->alipay_account}}" /></td>
+                <th>红人标签</th>
+                <td style="text-align:center"><input style="width: 98%;height: 100%;" name="tag" value="{{ $star->tag}}" /></td>
+            </tr>
+            <tr>
                 <th colspan="6" style="height:10px;"></th>
             </tr>
             <tr>
@@ -54,14 +62,6 @@
                 <td style="text-align:center"><input style="width: 98%;height: 100%;" name="occupation" value="{{ $star->occupation}}" /></td>
                 <th>学历</th>
                 <td style="text-align:center"><input style="width: 98%;height: 100%;" name="education" value="{{ $star->education}}" /></td>
-            </tr>
-            <tr>
-                <th>红了吗编号</th>
-                <td style="text-align:center"><input style="width: 98%;height: 100%;" name="honglema_id" value="{{ $star->honglema_id}}" /></td>
-                <th>支付宝账号</th>
-                <td style="text-align:center"><input style="width: 98%;height: 100%;" name="alipay_account" value="{{ $star->alipay_account}}" /></td>
-                <th>红人标签</th>
-                <td style="text-align:center"><input style="width: 98%;height: 100%;" name="tag" value="{{ $star->tag}}" /></td>
             </tr>
             <tr>
                 <th colspan="6" style="height:10px;"></th>
