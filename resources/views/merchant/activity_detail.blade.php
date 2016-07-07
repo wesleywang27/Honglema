@@ -128,6 +128,7 @@
                   <div class="item-content">
                       <div class="item-inner">
                           <div class="item-title">任务列表</div>
+                          <div class="item-after">已确定{{$detail['confirm_num']}}/{{$detail['task_num']}}场直播</div>
                       </div>
                   </div>
               </li>
@@ -137,15 +138,12 @@
 
           <?php if(count($data['doing_order'])==0){ ?>
             <ul>
-              <li>
-                <a href="#" class="blackfont item-content">
-                  <div class="item-media">&nbsp;&nbsp;&nbsp;</div>
-                  <div class="item-media"></div>
+               <li >
+                <div class="item-content">
                   <div class="item-inner">
-                    <div style="margin-top: 1rem;">  
-                    </div>
+                    <div class="item-title">暂无确定网红</div>
                   </div>
-                </a>
+                </div>
               </li>
             </ul>
 
@@ -186,15 +184,19 @@
           ?>
               <ul>
               <li>
-                <a onclick="window.location.href='#'" class="blackfont item-content">
-                  <div class="item-media">任务{{$count}}&nbsp;&nbsp;&nbsp;</div>
+                <a onclick="/Merchant/activityOrder/starDetail/{{$star['star_id']}}/{{$detail['activity_id']}}" class="blackfont item-content" style="padding-right: .75rem;">
+                  <div class="item-media">{{$count}}&nbsp;&nbsp;&nbsp;</div>
                   <div class="item-media"><img src="{{$star['avatar']}}" style='width: 4rem;border-radius:50%'></div>
                   <div class="item-inner">
-                    <div style="margin-top: 1rem;">  
-                      {{$star['name']}}
-                      <button class="button pull-right button-fill" style="margin-left:1rem;width:4rem;background-color:{{$buttonColor}}" onclick="taskDetail({{$task['task_id']}})">{{$buttonString}}</button>
-                    </div>
+                    <!-- <div style="margin-top: 1rem;">  -->
+                      <div class="item-title-row"> 
+                          <div class="item-title">{{$star['name']}}</div>
+                      </div>
+                      <div class="item-subtitle">(分配{{$task['show_num']}}场)</div>
+
                   </div>
+                      <button class="button pull-right button-fill" style="margin-left:1rem;width:4rem;background-color:{{$buttonColor}}" onclick="taskDetail({{$task['task_id']}})">{{$buttonString}}</button>
+
                 </a>
               </li>
             </ul>
@@ -224,11 +226,14 @@
             </ul>
           </div>
           <div class="list-block media-list content-no-margin">
-          <?php if(count($data['waiting_order']) > 0){ ?>
+          <?php if(count($data['waiting_order']) > 0){ 
+              $rest_num = $detail['task_num'] - $detail['confirm_num'];
+          ?>
           @foreach ($data['waiting_order'] as $waiting_vo)
           <?php 
             $flag ++;
             $star = \App\Models\Star::where('star_id',$waiting_vo['star_id'])->first();
+            $expectation_num = $waiting_vo['expectation_num'];
           ?>
               <ul>
               <li>
@@ -237,8 +242,8 @@
                   <div class="item-media"><img src="{{$star['avatar']}}" style='width: 4rem;border-radius:50%'></div>
                   <div class="item-inner">
                     <div style="margin-top: 1rem;">  
-                      {{$star['name']}}
-                      <button class="button pull-right button-fill button-danger" style="margin-left:1rem;width:4rem" onclick="setOrder({{$detail['activity_id']}},{{$star['star_id']}},2);return false;">合作</button>
+                      {{$star['name']}}(申请{{$expectation_num}}场)
+                      <button class="button pull-right button-fill button-danger prompt-ok" style="margin-left:1rem;width:4rem" onclick="setOrder({{$rest_num}},{{$expectation_num}},{{$detail['activity_id']}},{{$star['star_id']}},2);return false;">合作</button>
                     </div>
                   </div>
                 </a>
@@ -255,41 +260,67 @@
     }
   ?>
   </div>
-
   <script>
-  function setOrder(activity_id,star_id,status){
-    $.ajax({
-        url: "/Merchant/activityOrder/setOrder",
-        type: "POST",
-        traditional: true,
-        dataType: "JSON",
-        data: {
-            "activity_id"   : activity_id,
-            "star_id"   : star_id,
-            "order_status" : status
-        },
-        success: function(data) {
-            var obj = $.parseJSON(data);
-            if(obj.error==0){
-                $.toast("合作成功!",1000);
-                    setTimeout(function(){
-                    location.reload();
-                },1000);
-            }else{
-                alert(obj.msg);
-                location.reload();
-            }
-        },
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+  $(document).on('click','.prompt-ok', function () {
+      // alert(1);
+
+        // $.prompt('What is your name?', function (value) {
+        //     $.alert('Your name is "' + value + '". You clicked Ok button');
+        // });
     });
+  function setOrder(rest_num,expectation_num,activity_id,star_id,status){
+      var task_num = prompt("请填写分配的直播场次",""); 
+      task_num = $.trim(task_num);
+      if(isNaN(task_num)){
+          alert('请您输入数字');
+          return false;
+      }
+
+      if(task_num > expectation_num){
+        alert('分配数量大于网红需求数量，请重新输入！');
+        return false;
+      }
+      
+      if(task_num > rest_num){
+        alert('您的剩余直播场次不足，请重新输入！');
+        return false;
+      }
+
+      if(task_num && task_num > 0){
+         $.ajax({
+            url: "/Merchant/activityOrder/setOrder",
+            type: "POST",
+            traditional: true,
+            dataType: "JSON",
+            data: {
+                "activity_id"   : activity_id,
+                "star_id"   : star_id,
+                "order_status" : status,
+                "task_num" : task_num
+            },
+            success: function(data) {
+                var obj = $.parseJSON(data);
+                if(obj.error==0){
+                    $.toast("合作成功!",1000);
+                        setTimeout(function(){
+                        location.reload();
+                    },1000);
+                }else{
+                    alert(obj.msg);
+                    location.reload();
+                }
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+      }
+   
   }
   
   function taskDetail(task_id){
     window.location.href = "/Merchant/activityOrder/taskDetail/"+task_id;
   }
-
   </script>
 </body>
 </html>

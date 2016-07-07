@@ -432,6 +432,7 @@ Route::group(['prefix' => 'Merchant', 'namespace' => 'Merchant','middleware' => 
         Route::post('/activityOrder/saveLogistic',"ActivityController@saveLogistic");
         Route::get('/activityOrder/starDetail/{star_id?}/{activity_id}',"ActivityController@starDetail");
         Route::get('/activityOrder/comment/{task_id?}',"ActivityController@comment");
+        Route::get('/activityOrder/showDetail/{task_result_id?}',"ActivityController@showDetail");
         Route::resource('/activityOrder/saveComment',"ActivityController@saveComment");
         Route::post('/activityOrder/saveActivity',"ActivityController@saveActivity");
 

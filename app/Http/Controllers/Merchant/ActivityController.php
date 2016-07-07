@@ -14,6 +14,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Activity;
 use App\Models\ActivityCommodityList;
 use App\Models\Task;
+use App\Models\TaskResult;
 use App\Models\TaskPicture;
 use App\Models\Star;
 use App\Models\StarPicture;
@@ -121,6 +122,7 @@ class ActivityController extends RootController{
         $star_id = intval($_POST['star_id']);
         $activity_id = intval($_POST['activity_id']);
         $status = intval($_POST['order_status']);
+        $add_num = intval($_POST['task_num']);
         $order = Order::where('status',1)->where('star_id',$star_id)->where('activity_id',$activity_id)->first();
         if(!$order){
             echo json_encode(array('error'=>1,'msg'=>'该网红已取消订单'));die;
@@ -131,11 +133,12 @@ class ActivityController extends RootController{
             $task = new Task();
             $task['status'] = 1;
             $task['activity_id'] = $activity_id;
+            $task['show_num'] = $add_num;
             $task->save();
             $order['task_id'] = $task->task_id;
             $activity = Activity::where('activity_id',$activity_id)->first();
             if($activity['confirm_num'] < $activity['task_num']){
-                $activity['confirm_num'] = $activity['confirm_num'] + 1;
+                $activity['confirm_num'] = $activity['confirm_num'] + $add_num;
             }
             $activity->save();
         }
@@ -146,34 +149,36 @@ class ActivityController extends RootController{
     //物流详情页
     public function taskDetail($task_id){
         $task = Task::where('task_id',$task_id)->first();
-        $task_Pic = TaskPicture::where('task_id',$task_id)->get();
+        //$task_Pic = TaskPicture::where('task_id',$task_id)->get();
+        $task_result = TaskResult::where('task_id',$task_id)->get();
+
         $order = Order::where('task_id',$task_id)->first();
         $star = Star::where('star_id',$order['star_id'])->first();
         $activity = Activity::where('activity_id',$order['activity_id'])->first();
-        return view('merchant.task_detail',['task'=>$task,'taskPics'=>$task_Pic,'star'=>$star,'activity'=>$activity]);
+        return view('merchant.task_detail',['task'=>$task,'task_result'=>$task_result,'star'=>$star,'activity'=>$activity]);
     }
 
     //保存物流信息
     public function saveLogistic(){
+        // var_dump($_POST);die;
         $task_id = $_POST['task_id'];
-        $express_company = $_POST['company'];
-        $express_num = $_POST['num'];
-
         $task = Task::where('task_id',$task_id)->first();
-
-        $task['express_company'] = $express_company;
-        $task['express_num'] = $express_num;
+        $task['is_shipping'] = intval($_POST['is_shipping']);
+        if($task['is_shipping']==1){
+            $task['express_company'] = $_POST['company'];
+            $task['express_num'] = $_POST['num'];
+        }
         $task['status'] = 2;
 
         $task->save();
     }
 
-    //跳转到评论页
-    public function comment($task_id){
-        $task_Pic = TaskPicture::where('task_id',$task_id)->get();
-        $task = Task::where('task_id',$task_id)->first();
-        return view('merchant.comment',['taskPics'=>$task_Pic,'task'=>$task]);
-    }
+    // //跳转到评论页
+    // public function comment($task_id){
+    //     $task_Pic = TaskPicture::where('task_id',$task_id)->get();
+    //     $task = Task::where('task_id',$task_id)->first();
+    //     return view('merchant.comment',['taskPics'=>$task_Pic,'task'=>$task]);
+    // }
 
     //保存评论
     public function saveComment(){
@@ -202,6 +207,15 @@ class ActivityController extends RootController{
         }
     }
 
+    //跳转到直播详情页
+    public function showDetail($task_result_id){
+        // var_dump($task_result_id);die;
+        $task_Pics = TaskPicture::where('task_result_id',$task_result_id)->get();
+        $task_result = TaskResult::where('task_result_id',$task_result_id)->first();
+        return view('merchant.task_result',['taskPics'=>$task_Pics,'task_result'=>$task_result]);
+    }
+
+
     //查看网红详情
     public function starDetail($star_id,$activity_id){
         $star = Star::where('star_id',$star_id)->first();
@@ -225,7 +239,11 @@ class ActivityController extends RootController{
         }else{
             $average_evaluation = '暂无评价';
         }
-        return view('merchant.star_detail',['star'=>$star,'starPic'=>$starPic,'activity_id'=>$activity_id,'average_evaluation'=>$average_evaluation]);
+
+        $activity = Activity::where('activity_id',$activity_id)->first();
+        $this_order = Order::where('star_id',$star_id)->where('activity_id',$activity_id)->first();
+
+        return view('merchant.star_detail',['this_order'=>$this_order,'star'=>$star,'starPic'=>$starPic,'activity'=>$activity,'average_evaluation'=>$average_evaluation]);
 
     }
 

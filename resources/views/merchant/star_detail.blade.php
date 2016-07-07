@@ -12,15 +12,12 @@
     <link rel="stylesheet" href="{{URL::asset('css/sm-extend.min.css')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{URL::asset('images/fav-icon.png')}}" />
     <link rel="stylesheet" href="{{URL::asset('css/swiper.min.css')}}">
-    <script type="text/javascript" src="{{URL::asset('js/jquery-1.8.3.min.js')}}" charset="utf-8"></script>
     <script type='text/javascript' src="{{URL::asset('js/zepto.min.js')}}" charset='utf-8'></script>
     <script type='text/javascript' src="{{URL::asset('js/sm.min.js')}}" charset='utf-8'></script>
     <script type='text/javascript' src="{{URL::asset('js/sm-extend.min.js')}}" charset='utf-8'></script>
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    </script>
-    <script src="{{URL::asset('js/jquery-1.8.3.min.js')}}"></script>
+    
     <script type="text/javascript">
-        var $ = jQuery.noConflict();
+        // var $ = jQuery.noConflict();
         $(function() {
             $('#activator').click(function(){
                 $('#box').animate({'top':'0px'},500);
@@ -235,6 +232,11 @@
         </div>
     </div>
 </div>
+<?php  
+    $rest_num = $activity['task_num'] - $activity['confirm_num'];
+    $expectation_num = $this_order['expectation_num'];
+    $able_num = $expectation_num > $rest_num ? $rest_num : $expectation_num;
+?>
 <div class="single-page" style="z-index:999;
       position:fixed; bottom:0; left:0; width:100%; 
       text-align:center; _position:absolute;
@@ -245,7 +247,7 @@
                         <table>
                             <tr>
                                 <td style="padding-left:0">
-                                    <button type="button" class="button button-fill" style="background-color: #f60;width:100%;height:2.5rem;border-radius:0" onclick="setOrder({{$activity_id}},{{$star['star_id']}},2)">确定合作</button>
+                                    <button type="button" class="button button-fill" style="background-color: #f60;width:100%;height:2.5rem;border-radius:0" onclick="setOrder({{$able_num}},{{$activity['activity_id']}},{{$star['star_id']}},2)">确定合作(最多可分配{{$able_num}}场)</button>
                                 </td>
                             </tr>
                         </table>
@@ -267,32 +269,54 @@
         // autoplay:1000,
         loop: true,
     });
-    function setOrder(activity_id,star_id,status){
-        $.ajax({
-            url: "/Merchant/activityOrder/setOrder",
-            type: "POST",
-            traditional: true,
-            dataType: "JSON",
-            data: {
-                "activity_id"   : activity_id,
-                "star_id"   : star_id,
-                "order_status" : status
-            },
-            success: function(data) {
-                var obj = $.parseJSON(data);
-                if(obj.error==0){
-                    alert('合作成功!');
+    function setOrder(able_num,activity_id,star_id,status){
+        var task_num = prompt("请填写分配的直播场次",""); 
+        task_num = $.trim(task_num);
+        if(isNaN(task_num)){
+            alert('请您输入数字');
+            return false;
+        }
+
+        if(task_num > able_num){
+            alert('您分配的场次过多，请重新输入！');
+            return false;
+        }
+
+        if(task_num && task_num > 0){
+            $.ajax({
+                url: "/Merchant/activityOrder/setOrder",
+                type: "POST",
+                traditional: true,
+                dataType: "JSON",
+                data: {
+                    "activity_id"   : activity_id,
+                    "star_id"   : star_id,
+                    "order_status" : status,
+                    "task_num" : task_num
+                },
+                success: function(data){
+                    var obj = $.parseJSON(data);
+                    if(obj.error==0){
+                        $.toast("合作成功!",1000);
+                        setTimeout(function(){
+                            location.href="/Merchant/activityOrder/activityDetail/" + activity_id;
+                        },1000);
+                        
+                    }else{
+                        $.toast("系统异常，请重新操作!",1000);
+                        setTimeout(function(){
+                            location.reload();
+                        },1000);
+                        
+                    }
                     
-                }else{
-                    alert(obj.msg);
+                    // },1000);
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
-                location.href="/Merchant/activityOrder/activityDetail/" + activity_id;
-                // },1000);
-            },
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+            });
+        }
   }
 </script>
 <script src="{{URL::asset('js/Chart.Core.js')}}"></script>

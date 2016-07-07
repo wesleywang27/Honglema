@@ -22,8 +22,8 @@
         </a>
         <h1 class="title">任务详情</h1>
     </header>
-    <div class="content" style="top: 1.2rem;">
-        <div class="list-block">
+    <div class="content">
+        <div class="list-block" style="margin: 1.2rem 0 0 0;">
             <ul>
                 <li>
                     <div class="item-content">
@@ -85,7 +85,7 @@
             </ul>
         </div>
 
-        <div class="list-block">
+        <div class="list-block" style="margin: 1.2rem 0 0 0;">
             <ul>
                 <li>
                     <div class="item-content">
@@ -126,7 +126,17 @@
                         <div class="item-inner">
                             <div class="item-title label">快递单号</div>
                             <div class="item-input">
-                                <input id="num" style="width: 85%;display:inline;" type="text" placeholder="快递单号" value="{{$task['express_num']}}"  <?php if($task['status'] > 2){ ?>disabled<?php } ?>>
+                                <input id="num" style="width: 85%;display:inline;" type="text" placeholder="快递单号" <?php if($task['status'] > 2){ ?>disabled<?php } ?>>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-input">
+                                <input id="need_express" type="checkbox" onclick="needExpress()">&nbsp;&nbsp;&nbsp;不提供样品
                             </div>
                         </div>
                     </div>
@@ -147,77 +157,48 @@
             </ul>
         </div>
 
+        <div class="list-block" style="margin: 1.2rem 0 1.2rem 0;">
+            <ul>
+                <li>
+                    <div class="item-content">
+                            <div class="title">直播信息</div>
+                    </div>
+                </li>
+            </ul>
+            <?php 
+                $count = 1;
+                if(count($task_result)==0){ 
+            ?>
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">该网红尚未提交结果</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <?php } ?>
+            @foreach ($task_result as $result)
+            <ul onclick="window.location.href='/Merchant/activityOrder/showDetail/{{$result['task_result_id']}}'">
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">直播场次{{$count++}}</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            @endforeach
+        </div>
+
         <div class="list-block content-no-margin">
         <ul>
             <li>
                 <div class="item-content">
                         <div class="title">任务评论</div>
-                </div>
-            </li>
-        </ul>
-        <ul>
-            <li>
-              <div valign="bottom" class="card-header color-white no-border no-padding" style="height:6rem">
-              <?php 
-                  $count = 0;
-                  foreach ($taskPics as $key => $tp) {
-                    $count++; 
-              ?>
-                  <div class="task_pic_div" style="height:4rem;width:25%;margin-top:1rem;margin-bottom:1rem;margin-left:4.5px;margin-right:4.5px">
-                        <img style="height:100%;width:100%" src="{{$tp['url']}}" >
-                  </div>
-              <?php
-                }
-                if($count<4){
-                    for($i = 0;$i < 4 - $count;$i ++){
-                      //填充空图片，div中必须有4个图片！
-              ?>
-                  <div class="task_pic_div" style="height:4rem;width:25%;margin-top:1rem;margin-bottom:1rem;margin-left:4.5px;margin-right:4.5px">
-                  </div>
-              <?php
-
-                    }
-                }
-              ?>
-              </div>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <div class="item-content">
-                    <div class="item-media"><i class="icon icon-form-name"></i></div>
-                    <div class="item-inner">
-                        <div class="item-title label">直播回看网址</div>
-                        <div class="item-input">
-                            <input readonly style="width: 85%;display:inline;" type="text" value="<?php echo $task['playback_url'] ? $task['playback_url'] : '暂无'; ?>">
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <div class="item-content">
-                    <div class="item-media"><i class="icon icon-form-name"></i></div>
-                    <div class="item-inner">
-                        <div class="item-title label">直播观看人数</div>
-                        <div class="item-input">
-                            <input readonly style="width: 85%;display:inline;" type="text" value="<?php echo $task['views'] ? $task['views'] : '暂无'; ?>">
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <div class="item-content">
-                    <div class="item-media"><i class="icon icon-form-name"></i></div>
-                    <div class="item-inner">
-                        <div class="item-title label">直播时长</div>
-                        <div class="item-input">
-                            <input readonly style="width: 85%;display:inline;" type="text" value="<?php echo $task['duration'] ? $task['duration'] : '暂无'; ?>">
-                        </div>
-                    </div>
                 </div>
             </li>
         </ul>
@@ -272,15 +253,50 @@
     </div>
 
     <script>
+    var need_express = 1;
     $(function(){
-      var company = "{{$task['express_company']}}";
-      if(company != ''){
-        $("#company option[value='"+company+"']").attr("selected",true);
-      }
-       $("input[name='evaluation_level'][value='{{$task['evaluation_level']}}']").attr("checked",true);  
+        
+        $("input[name='evaluation_level'][value='{{$task['evaluation_level']}}']").attr("checked",true);  
+
+        
+        
+        
+        if('{{$task->is_shipping}}'==1){
+            var company = "{{$task['express_company']}}";
+            if(company != ''){
+                $("#company option[value='"+company+"']").attr("selected",true);
+            }
+        var express_num = "{{$task['express_num']}}";
+        $('#num').val(express_num);
+        }else if('{{$task->is_shipping}}'==0){
+            $("#need_express").attr("checked",true);
+            $('#num').attr('disabled',"disabled");
+            $('#company').attr('disabled',"disabled");
+            $('#company').parent().parent().parent().css("background",'#e2e2e2');
+            $('#num').parent().parent().parent().css("background",'#e2e2e2');
+        }
     });
+   
+    function needExpress(){
+        if($("#need_express").attr("checked")==true){
+                $('#num').attr('disabled',"disabled");
+                $('#company').attr('disabled',"disabled");
+                $('#company').parent().parent().parent().css("background",'#e2e2e2');
+                $('#num').parent().parent().parent().css("background",'#e2e2e2');
+                $("#need_express").attr("checked",true);
+                need_express = 0;
+            }else{
+                $('#num').removeAttr('disabled');
+                $('#company').removeAttr('disabled');
+                $('#company').parent().parent().parent().css("background",'');
+                $('#num').parent().parent().parent().css("background",'');
+                $("#need_express").removeAttr("checked");
+                need_express = 1;
+            }
+    }
 
     function saveLogistic(){
+
       $.ajax({
             url: "/Merchant/activityOrder/saveLogistic",
             type: "POST",
@@ -289,7 +305,8 @@
             data: {
                 "task_id"      : {{$task['task_id']}},
                 "company"     : $('#company').val(),
-                "num"         : $('#num').val()
+                "num"         : $('#num').val(),
+                "is_shipping" : need_express,
             },
             success: function(data) {
                 $.toast("快递信息保存成功!",1000);
