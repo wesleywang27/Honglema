@@ -77,7 +77,7 @@ border:1px #C51C1F solid;
     <ul>
         <li>
             <dl>
-                <dt>平台信息审核</dt>
+                <dt>信息审核</dt>
                 <dd><a href="/didi/MerchantCheckList">商家注册审核</a></dd>
                 <dd><a href="/didi/StarCheckList">红人注册审核</a></dd>
                 <dd><a href="/didi/ActivityCheckList">商家活动审核</a></dd>
@@ -85,23 +85,24 @@ border:1px #C51C1F solid;
         </li>
         <li>
             <dl>
-                <dt>平台信息管理</dt>
+                <dt>平台管理</dt>
                 <dd><a href="/didi/MerchantList">商家信息管理</a></dd>
                 <dd><a href="/didi/StarList">红人信息管理</a></dd>
                 <dd><a href="/didi/ActivityList">活动信息管理</a></dd>
                 <dd><a href="#">收费标准管理</a></dd>
                 <dd><a href="#">热门广场管理</a></dd>
+                <dd><a href="/didi/ComplaintList">投诉管理</a></dd>
             </dl>
         </li>
         <li>
             <dl>
-                <dt>平台信息统计</dt>
+                <dt>信息统计</dt>
                 <dd><a href="#">推广效果统计</a></dd>
             </dl>
         </li>
         <li>
             <dl>
-                <dt>后台信息管理</dt>
+                <dt>后台管理</dt>
                 <dd><a href="#">后台用户列表</a></dd>
                 <dd><a href="#">操作日志列表</a></dd>
             </dl>

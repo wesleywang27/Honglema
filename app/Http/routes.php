@@ -359,6 +359,10 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/didi/PasswordModify',"AdministratorController@passwordModify");
 
     Route::post('/didi/PasswordModify',"AdministratorController@passwordUpdate");
+
+    //投诉管理
+    Route::get('/didi/ComplaintList', "ComplaintController@complaintList");
+
 //});
 
 //网红入口
