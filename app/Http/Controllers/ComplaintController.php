@@ -44,7 +44,7 @@ class ComplaintController extends Controller {
         }
     }
 
-    public function submitSolution() {
+    public function submitSolution($id) {
     }
 
 }
