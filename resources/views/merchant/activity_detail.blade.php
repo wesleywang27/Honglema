@@ -184,10 +184,10 @@
           ?>
               <ul>
               <li>
-                <a onclick="/Merchant/activityOrder/starDetail/{{$star['star_id']}}/{{$detail['activity_id']}}" class="blackfont item-content" style="padding-right: .75rem;">
+                <a class="blackfont item-content" style="padding-right: .75rem;">
                   <div class="item-media">{{$count}}&nbsp;&nbsp;&nbsp;</div>
                   <div class="item-media"><img src="{{$star['avatar']}}" style='width: 4rem;border-radius:50%'></div>
-                  <div class="item-inner">
+                  <div class="item-inner" onclick="window.location.href='/Merchant/activityOrder/starDetail/{{$star['star_id']}}/{{$detail['activity_id']}}'">
                     <!-- <div style="margin-top: 1rem;">  -->
                       <div class="item-title-row"> 
                           <div class="item-title">{{$star['name']}}</div>
@@ -195,7 +195,7 @@
                       <div class="item-subtitle">(分配{{$task['show_num']}}场)</div>
 
                   </div>
-                      <button class="button pull-right button-fill" style="margin-left:1rem;width:4rem;background-color:{{$buttonColor}}" onclick="taskDetail({{$task['task_id']}})">{{$buttonString}}</button>
+                      <button class="button pull-right button-fill" style="width:8rem;background-color:{{$buttonColor}}" onclick="taskDetail({{$task['task_id']}});return false;">{{$buttonString}}</button>
 
                 </a>
               </li>

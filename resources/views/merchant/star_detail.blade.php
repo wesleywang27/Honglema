@@ -148,115 +148,116 @@
     </style>
 </head>
 <body>
-<header class="bar bar-nav">
-      <a class="button button-link button-nav pull-left back" href="javascript:history.go(-1)">
-            <span class="icon icon-left"></span>
-      </a>
-      <h1 class='title'>{{$star['name']}}</h1>
-</header>
-<div class="content">
-    <div class="wrap" style="padding-bottom:3rem">
-        <div class="single-page">
-            <div class="single-page-artical">
-                <div class="artical-content">
-                    <div class="swiper-container">
-                        <div class="swiper-wrapper">
-                            @foreach ($starPic as $picture)
-                            <div class="swiper-slide" style="background-image: url('{{ $picture->url }}')"></div>
-                            @endforeach
+    <header class="bar bar-nav">
+          <a class="button button-link button-nav pull-left back" href="javascript:history.go(-1)">
+                <span class="icon icon-left"></span>
+          </a>
+          <h1 class='title'>{{$star['name']}}</h1>
+    </header>
+    <div class="content">
+        <div class="wrap" style="padding-bottom:3rem">
+            <div class="single-page">
+                <div class="single-page-artical">
+                    <div class="artical-content">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                @foreach ($starPic as $picture)
+                                <div class="swiper-slide" style="background-image: url('{{ $picture->url }}')"></div>
+                                @endforeach
+                            </div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination"></div>
                         </div>
-                        <!-- Add Pagination -->
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <h3><a style="margin-left:1em;color:black;padding-bottom: 10px;" href="#">红了吗红人&nbsp;|&nbsp;{{$star->name}}&nbsp;&nbsp;
-                            @if( $star->sex == 1)
-                            <img src="{{URL::asset('images/girl.png')}}" style="width:0.8em;">
-                            @else
-                            <img src="{{URL::asset('images/boy.png')}}" style="width:0.8em;">
-                            @endif
-                            <img src="{{URL::asset('images/vdaren.png')}}" style="width:3em;"></a>
-                    </h3>
-                    <div style="padding-top:10px;padding-bottom: 15px;">
-                        <ul>
-                            <li style="font-size: 12px;">综合评价:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$average_evaluation}}</li>
-                        </ul>
-                        <ul>
-                            <li style="font-size: 12px;">总粉丝:</li>
-                        </ul>
-                        <ul style="margin-top: 5px;padding-left: 15px;">
-                        </ul>
+                        <h3><a style="margin-left:1em;color:black;padding-bottom: 10px;" href="#">红了吗红人&nbsp;|&nbsp;{{$star->name}}&nbsp;&nbsp;
+                                @if( $star->sex == 1)
+                                <img src="{{URL::asset('images/girl.png')}}" style="width:0.8em;">
+                                @else
+                                <img src="{{URL::asset('images/boy.png')}}" style="width:0.8em;">
+                                @endif
+                                <img src="{{URL::asset('images/vdaren.png')}}" style="width:3em;"></a>
+                        </h3>
+                        <div style="padding-top:10px;padding-bottom: 15px;">
+                            <ul>
+                                <li style="font-size: 12px;">综合评价:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$average_evaluation}}</li>
+                            </ul>
+                            <ul>
+                                <li style="font-size: 12px;">总粉丝:</li>
+                            </ul>
+                            <ul style="margin-top: 5px;padding-left: 15px;">
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="single-page" style="margin-top:1em;">
-            <div class="single-page-artical">
-                <div class="artical-content">
-                    <div class="info">
-                        <table>
-                            <tr>
-                                <td>三围：&nbsp;暂无数据</td>
-                                <td>身高：&nbsp;{{$star['height']}}</td>
-                            </tr>
-                            <tr>
-                                <td>体重：&nbsp;{{$star['weight']}}</td>
-                                <td>年龄：&nbsp;{{$star['age']}}</td>
-                            </tr>
-                            <tr>
-                                <td>城市：&nbsp;{{$star['city']}}</td>
-                                <td>职业：&nbsp;{{$star['occupation']}}</td>
-                            </tr>
-                        </table>
+            
+            <div class="single-page" style="margin-top:1em;">
+                <div class="single-page-artical">
+                    <div class="artical-content">
+                        <div class="info">
+                            <table>
+                                <tr>
+                                    <td>三围：&nbsp;暂无数据</td>
+                                    <td>身高：&nbsp;{{$star['height']}}</td>
+                                </tr>
+                                <tr>
+                                    <td>体重：&nbsp;{{$star['weight']}}</td>
+                                    <td>年龄：&nbsp;{{$star['age']}}</td>
+                                </tr>
+                                <tr>
+                                    <td>城市：&nbsp;{{$star['city']}}</td>
+                                    <td>职业：&nbsp;{{$star['occupation']}}</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
+                    <div class="clear"></div>
                 </div>
-                <div class="clear"></div>
             </div>
-        </div>
-        <div class="single-page" style="margin-top:1em;">
-            <div class="single-page-artical">
-                <div class="artical-content">
-                    <div>
-                        <table class="jianjie">
-                            <tr>
-                                <td style="width:17%;">经历</td>
-                                <td style="width:83%;padding-right: 6%;padding-top: 15px;padding-bottom: 15px;"><?php echo $star['experience'] ? $star['experience'] : '无'; ?></td>
-                            </tr>
-                        </table>
+            <div class="single-page" style="margin-top:1em;">
+                <div class="single-page-artical">
+                    <div class="artical-content">
                         <div>
+                            <table class="jianjie">
+                                <tr>
+                                    <td style="width:17%;">经历</td>
+                                    <td style="width:83%;padding-right: 6%;padding-top: 15px;padding-bottom: 15px;"><?php echo $star['experience'] ? $star['experience'] : '无'; ?></td>
+                                </tr>
+                            </table>
+                            <div>
+                            </div>
+                            <div class="clear"></div>
                         </div>
-                        <div class="clear"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 <?php  
     $rest_num = $activity['task_num'] - $activity['confirm_num'];
     $expectation_num = $this_order['expectation_num'];
     $able_num = $expectation_num > $rest_num ? $rest_num : $expectation_num;
+    if($this_order['status']==1){
 ?>
-<div class="single-page" style="z-index:999;
-      position:fixed; bottom:0; left:0; width:100%; 
-      text-align:center; _position:absolute;
- _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;margin-top:999px;">
-            <div class="single-page-artical">
-                <div class="artical-content">
-                    <div class="info">
-                        <table>
-                            <tr>
-                                <td style="padding-left:0">
-                                    <button type="button" class="button button-fill" style="background-color: #f60;width:100%;height:2.5rem;border-radius:0" onclick="setOrder({{$able_num}},{{$activity['activity_id']}},{{$star['star_id']}},2)">确定合作(最多可分配{{$able_num}}场)</button>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+    <div class="single-page" style="z-index:999;
+          position:fixed; bottom:0; left:0; width:100%; 
+          text-align:center; _position:absolute;
+     _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible;margin-top:999px;">
+        <div class="single-page-artical">
+            <div class="artical-content">
+                <div class="info">
+                    <table>
+                        <tr>
+                            <td style="padding-left:0">
+                                <button type="button" class="button button-fill" style="background-color: #f60;width:100%;height:2.5rem;border-radius:0" onclick="setOrder({{$able_num}},{{$activity['activity_id']}},{{$star['star_id']}},2)">确定合作(最多可分配{{$able_num}}场)</button>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="clear"></div>
             </div>
+            <div class="clear"></div>
         </div>
     </div>
+   <?php } ?>     
 
 </body>
 <!-- Swiper JS -->

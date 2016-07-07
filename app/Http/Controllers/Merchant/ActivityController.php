@@ -161,7 +161,7 @@ class ActivityController extends RootController{
 
     //保存物流信息
     public function saveLogistic(){
-        // var_dump($_POST);die;
+         // var_dump($_POST);die;
         $task_id = $_POST['task_id'];
         $task = Task::where('task_id',$task_id)->first();
         $task['is_shipping'] = intval($_POST['is_shipping']);
