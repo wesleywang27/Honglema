@@ -50,7 +50,7 @@
                 <td style="text-align:center">{{ $merchant->category}}</td>
                 <th>品牌名</th>
                 <td style="text-align:center">{{ $merchant->brand_name}}</td>
-                <th>淘宝天猫店账号</th>
+                <th>店铺名称</th>
                 <td style="text-align:center">{{ $merchant->shop_id}}</td>
                 <th>年销售额</th>
                 <td style="text-align:center">{{ $merchant->sales}}</td>

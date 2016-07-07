@@ -87,7 +87,15 @@ class MerchantController extends Controller{
         $merchant->address = $request->input('address');
         $merchant->wechat = $request->input('wechat');
         $merchant->cellphone = $request->input('cellphone');
-
+        $merchant->contact = $request->input('contact');
+        $merchant->contact_phone = $request->input('contact_phone');
+        $merchant->contact_email = $request->input('contact_email');
+        $merchant->category = $request->input('category');
+        $merchant->brand_name = $request->input('brand_name');
+        $merchant->shop_id = $request->input('shop_id');
+        $merchant->sales = $request->input('sales');
+        $merchant->introduction = $request->input('introduction');
+        
         $merchant->save();
 
         return Redirect::intended("/didi/MerchantInfo/$id")->with(['merchant' => $merchant]);
