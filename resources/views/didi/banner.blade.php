@@ -28,6 +28,8 @@ border:1px #C51C1F solid;
 .paging a{background:#EB6167;border:1px #C51C1F solid;}
 .paging a:hover{background:#C51C1F;border:1px #C51C1F solid;}
 .paging a:active{background:#C51C1F;border:1px #C51C1F solid;}
+.lt_aside_nav dl dt{background:#EB6167;}
+.lt_aside_nav dl dt:before{background:#C51C1F;}
 </style>
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
