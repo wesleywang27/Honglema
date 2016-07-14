@@ -117,6 +117,10 @@ class ActivityController extends Controller{
             return Redirect::intended('/didi/login');
         }
     }
+    //网红选择页
+    public function activityConfirmStar($activity_id ,$star_id){
+        
+    }
     //选择网红
     public function activityChooseStar($activity_id ,$star_id){
         session_start();

@@ -47,7 +47,7 @@
                 <td style="width:180px;text-align:center">
                     <a href="{{URL::action('StarController@starInfo', ['id' => $star->star_id]) }}" ><input type="button" value="查看" class="link_btn"/></a>
                     @if ($activity->confirm_num < $activity->task_num)
-                    <a href="{{URL::action('ActivityController@activityChooseStar', ['activity_id' => $activity->activity_id ,'star_id' => $star->star_id]) }}" onclick="return confirm('确定选择该网红？')"><input type="button" value="选择" class="link_btn"/></a>
+                    <a href="{{URL::action('ActivityController@activityConfirmStar', ['activity_id' => $activity->activity_id ,'star_id' => $star->star_id]) }}" ><input type="button" value="选择" class="link_btn"/></a>
                     @endif
                 </td>
             </tr>
