@@ -95,8 +95,8 @@
                 <th>网红昵称</th>
                 <th>任务状态</th>
                 <th>物流单号</th>
-                <th>观看人数</th>
-                <th>直播时长</th>
+                <th>分配场数</th>
+                <th>评价星级</th>
                 <th>评价</th>
                 <th>操作</th>
             </tr>
@@ -108,7 +108,11 @@
                     @if($task['status'] == 1)
                     待发货
                     @elseif($task['status'] == 2)
+                    @if($task['is_shipping'] == 1)
+                    待收货
+                    @else
                     推广中
+                    @endif
                     @elseif($task['status'] == 3)
                     待评价
                     @elseif($task['status'] == 4)
@@ -124,18 +128,12 @@
                     {{$task['express_num']}}
                     @endif
                 </td>
-                <td style="width:100px;text-align:center">
-                    @if($task['views'] == null)
-                    未填写
-                    @else
-                    {{$task['views']}}
-                    @endif
-                </td>
+                <td style="width:100px;text-align:center">{{ $task['show_num'] }}</td>
                 <td style="width:180px;text-align:center">
-                    @if($task['duration'] == null)
+                    @if($task['evaluation_level'] == null)
                     未填写
                     @else
-                    {{$task['duration']}}
+                    {{$task['evaluation_level']}}
                     @endif
                 </td>
                 <td style="width:180px;text-align:center">

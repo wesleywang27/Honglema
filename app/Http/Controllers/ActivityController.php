@@ -103,8 +103,9 @@ class ActivityController extends Controller{
                     'name' => $star->name,
                     'status' => $task->status ,
                     'express_num' => $task->express_num ,
-                    'views' => $task->views ,
-                    'duration' => $task->duration ,
+                    'is_shipping' => $task->is_shipping ,
+                    'evaluation_level' => $task->evaluation_level ,
+                    'show_num' => $task->show_num,
                     'evaluation' => $task->evaluation);
             }
             
