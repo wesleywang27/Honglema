@@ -202,8 +202,10 @@ class ActivityController extends Controller{
     public function activityExpressStore($id ,Request $request){
         $task = Task::where('task_id',$id)->first();
 
+        $task->is_shipping = $request->is_shipping;
         $task->express_company = $request->express_company;
         $task->express_num = $request->express_num;
+        $task->status = 2;
         $task->save();
 
         return Redirect::intended('/didi/ActivityList');
