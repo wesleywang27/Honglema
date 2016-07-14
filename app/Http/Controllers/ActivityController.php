@@ -119,7 +119,17 @@ class ActivityController extends Controller{
     }
     //网红选择页
     public function activityConfirmStar($activity_id ,$star_id){
-        
+        session_start();
+        if(isset($_SESSION['name'])) {
+            $activity = Activity::where('activity_id',$activity_id)->first();
+            $star = Star::where('star_id',$star_id)->first();
+            $order = Order::where('activity_id',$activity_id)->where('star_id',$star_id)->first();
+
+            return view('/didi/activity_confirm_star',['activity' => $activity ,'star' => $star ,'order' => $order]);
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
     }
     //选择网红
     public function activityChooseStar($activity_id ,$star_id){
