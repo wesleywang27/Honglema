@@ -132,14 +132,21 @@ class ActivityController extends Controller{
         }
     }
     //选择网红
-    public function activityChooseStar($activity_id ,$star_id){
+    public function activityChooseStar($activity_id ,$star_id ,Request $request){
         session_start();
         if(isset($_SESSION['name'])) {
             $order = Order::where('activity_id',$activity_id)->where('star_id',$star_id)->first();
             if($order->status == 1){
                 $task = new Task();
                 $task->activity_id = $activity_id;
-                $task->status = 1;
+                $task->is_shipping = $request->is_shipping;
+                if ($task->is_shipping == 1){
+                    $task->status = 1;
+                }
+                else{
+                    $task->status = 2;
+                }
+                $task->show_num = $request->confirm_num;
                 $task->save();
 
                 $task = Task::orderBy('task_id','desc')->first();
@@ -148,7 +155,7 @@ class ActivityController extends Controller{
                 $order->save();
 
                 $activity = Activity::where('activity_id',$activity_id)->first();
-                $activity->confirm_num++;
+                $activity->confirm_num = $activity->confirm_num + $request->confirm_num;
                 $activity->save();
             }
 

@@ -3,71 +3,40 @@
 @section('content')
 
 <div class="page_title">
-    <h2 class="fl">添加推广活动</h2>
+    <h2 class="fl">确认推广网红</h2>
 </div>
-<form action="{{URL::action('ActivityController@activityStore', ['id' => $merchant_id]) }}" method="post" style="margin-left: 30%">
+<form action="{{URL::action('ActivityController@activityChooseStar', ['activity_id' => $activity->activity_id ,'star_id' => $star->star_id]) }}" method="post" style="margin-left: 30%">
     <?php echo csrf_field(); ?>
     <div style="margin-top: 20px;">
         <label>活动名称：</label>
-        <input class="textbox textbox_225" type="text" name="title" placeholder="请输入活动名称" value="" required>
+        <input class="textbox textbox_225" type="text" name="title" value="{{ $activity->title }}" readonly>
     </div>
     <div style="margin-top: 20px;">
-        <label>活动要求：</label>
-        <input class="textbox textbox_225" type="text" name="claim" placeholder="请输入活动要求" value="" required>
+        <label>网红昵称：</label>
+        <input class="textbox textbox_225" type="text" name="name" value="{{ $star->name }}" readonly>
     </div>
     <div style="margin-top: 20px;">
-        <label>活动时间：</label>
-        <input class="textbox textbox_225" type="text" name="time_within" placeholder="收货后多久直播" value="" required>
+        <label>剩余场次：</label>
+        <input class="textbox textbox_225" type="text" name="left_num" value="{{ $activity->task_num - $activity->confirm_num }}" readonly>
     </div>
     <div style="margin-top: 20px;">
-        <label>活动形式：</label>
-        <select class="select" name="level">
-            @foreach ($price_levels as $price_level)
-            <option value="{{ $price_level->pl_id }}">{{ $price_level->level }}</option>
-            @endforeach
+        <label>期望场次：</label>
+        <input class="textbox textbox_225" type="text" name="expectation_num" value="{{ $order->expectation_num }}" readonly>
+    </div>
+    <div style="margin-top: 20px;">
+        <label>分配场次：</label>
+        <input class="textbox textbox_225" type="number" name="confirm_num" placeholder="为该网红分配的场次" value="" required>
+    </div>
+    <div style="margin-top: 20px;">
+        <label>发送样品：</label>
+        <select class="select" name="is_shipping">
+            <option value="1">是</option>
+            <option value="0">否</option>
         </select>
     </div>
     <div style="margin-top: 20px;">
-        <label>活动场次：</label>
-        <input class="textbox textbox_225" type="number" name="task_num" placeholder="请输入活动场次" value="" required>
-    </div>
-    <div class="container">
-        <label style="float: left">活动图片：</label>
-        <label id="up" class="uploadImg" style="margin-top:10px; margin-left:10px;">
-            <span>上传图片</span>
-            <input type="file" id="fileupload" name="imgs[]" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="" />
-        </label>
-        <ul class="gallery" id="files" style="display: inline;padding-left: 0;">
-        </ul>
-        <div class="clear"></div>
-    </div>
-    <div style="margin-top: 5px;"><label>（请选择两张图片上传：第一张正方形，用于列表页;第二张长方形，用于详情页。）</label></div>
-    <div style="margin-top: 20px;">
         <input name="commit" type="submit" value="确认" class="link_btn" style="margin-left: 14%"/>
-        <a href="/didi/MerchantList"  class="link_btn" style="margin-left: 5%">取消</a>
+        <a href="javascript:history.back();"  class="link_btn" style="margin-left: 5%">取消</a>
     </div>
 </form>
-<script type="text/javascript" src="/js/ajaxfileupload.js" charset="utf-8"></script>
-<script>
-    var count = 0;
-    jQuery('#fileupload').change(function(){
-        jQuery.ajaxFileUpload({
-            url:"/productPicture",//需要链接到服务器地址
-            secureuri:false,
-            fileElementId:"fileupload",//文件选择框的id属性
-            dataType: 'json',   //json
-            success: function (data, status) {
-                var urls = data.urls;
-                var $htmls = '';
-                var i = 0;
-                $htmls += '<li><img src="'+urls[i]+'" style="width: 80px; height: 80px;"/><input type="hidden" id="itemImage" name="itemImage[]" value="'+urls[i]+'"/></li>';
-                $('#files').append($htmls);
-                count++;
-                if(count == 2){
-                    document.getElementById('up').style.display='none';
-                }
-            }
-        });
-    });
-</script>
 @endsection
