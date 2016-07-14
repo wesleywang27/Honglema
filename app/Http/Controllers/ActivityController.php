@@ -259,8 +259,12 @@ class ActivityController extends Controller{
         $task->save();
 
         $activity = Activity::where('activity_id',$task->activity_id)->first();
-        $count = Task::where('activity_id',$activity->activity_id)->where('status',4)->count();
-        if($count == $activity->task_num){
+        $show_nums = Task::where('activity_id',$activity->activity_id)->where('status',4)->lists('show_num');
+        $total_num = 0;
+        foreach ($show_nums as $show_num){
+            $total_num += $show_num;
+        }
+        if($total_num == $activity->task_num){
             $activity->activity_status = 2;
             $activity->save();
         }
