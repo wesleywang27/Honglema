@@ -210,7 +210,6 @@ class ActivityController extends Controller{
 
         $task->express_company = $request->express_company;
         $task->express_num = $request->express_num;
-        $task->status = 2;
         $task->save();
 
         return Redirect::intended('/didi/ActivityList');

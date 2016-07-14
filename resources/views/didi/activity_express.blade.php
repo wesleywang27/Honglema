@@ -16,11 +16,19 @@
             <div style="margin-top: 20px;">
                 <div style="margin-top: 20px;">
                     <label>快递公司：</label>
+                    @if($task->express_company == null)
                     <input type="text" class="textbox textbox_225" name="express_company" placeholder="请填写快递公司" required/>
+                    @else
+                    <input type="text" class="textbox textbox_225" name="express_company" value="{{ $task->express_company }}" required/>
+                    @endif
                 </div>
                 <div style="margin-top: 20px;">
                     <label>快递单号：</label>
+                    @if($task->express_num == null)
                     <input type="text" class="textbox textbox_225" name="express_num" placeholder="请填写快递单号" required/>
+                    @else
+                    <input type="text" class="textbox textbox_225" name="express_num" value="{{ $task->express_num }}" required/>
+                    @endif
                 </div>
             </div>
             <input name="commit" type="submit" value="提交" class="link_btn" style="margin-top: 20px; margin-left: 12%"/>
