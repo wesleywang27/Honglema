@@ -16,6 +16,7 @@ use App\Models\PriceLevel;
 use App\Models\Star;
 use App\Models\Task;
 use App\Models\TaskPicture;
+use App\Models\TaskResult;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
@@ -171,7 +172,7 @@ class ActivityController extends Controller{
                 return Redirect::intended("/didi/ActivityExpress/$task_id");
             }
             elseif ($status == 2){
-                echo "<script>history.go(-1); alert('当前任务正在推广中，没有需要进行的操作!');</script>";
+                return Redirect::intended("/didi/TaskResultList/$task_id");
             }
             elseif ($status == 3){
                 return Redirect::intended("/didi/ActivityEvaluate/$task_id");
@@ -210,6 +211,30 @@ class ActivityController extends Controller{
         $task->save();
 
         return Redirect::intended('/didi/ActivityList');
+    }
+    //任务结果列表页
+    public function taskResultList($id){
+        session_start();
+        if(isset($_SESSION['name'])) {
+            $task_result =TaskResult::where('task_id',$id)->paginate(10);
+
+            return view('/didi/task_result_list',['task_results' => $task_result]);
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
+    }
+    //任务结果详情页
+    public function taskResultInfo($id){
+        ession_start();
+        if(isset($_SESSION['name'])) {
+            $task_result = TaskResult::where('task_result_id',$id)->first();
+
+            return view('/didi/task_result_info',['task_result' => $task_result]);
+        }
+        else{
+            return Redirect::intended('/didi/login');
+        }
     }
     //评价网红页
     public function activityEvaluate($id){
