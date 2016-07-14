@@ -368,7 +368,9 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
     //投诉管理
     Route::get('/didi/ComplaintList', "ComplaintController@complaintList");
+
     Route::get('/didi/ComplaintInfo/{complaint_id?}',"ComplaintController@complaintInfo");
+
     Route::post('/didi/ComplaintUpdate/{complaint_id}',"ComplaintController@submitSolution");
 
 //});
