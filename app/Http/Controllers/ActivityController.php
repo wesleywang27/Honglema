@@ -242,9 +242,8 @@ class ActivityController extends Controller{
         session_start();
         if(isset($_SESSION['name'])) {
             $task = Task::where('task_id',$id)->first();
-            $picture = TaskPicture::where('task_id',$task->task_id)->get();
 
-            return view('/didi/activity_evaluate',['task' => $task ,'pictures' => $picture]);
+            return view('/didi/activity_evaluate',['task' => $task]);
         }
         else{
             return Redirect::intended('/didi/login');
@@ -254,6 +253,7 @@ class ActivityController extends Controller{
     public function activityEvaluation($id ,Request $request){
         $task = Task::where('task_id',$id)->first();
 
+        $task->evaluation_level = $request->input('evaluation_level');
         $task->evaluation = $request->input('evaluation');
         $task->status = 4;
         $task->save();
