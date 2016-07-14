@@ -32,7 +32,7 @@
                 </div>
             </div>
             <input name="commit" type="submit" value="提交" class="link_btn" style="margin-top: 20px; margin-left: 12%"/>
-            <a href="javascript:history.back();"><input type="button" value="返回" class="link_btn" style="margin-left: 5%;"/></a>
+            <a href="javascript:history.back();"><input type="button" value="返回" class="link_btn" style="margin-left: 8%;"/></a>
         </form>
     </div>
 </section>
