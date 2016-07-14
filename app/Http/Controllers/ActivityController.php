@@ -226,11 +226,12 @@ class ActivityController extends Controller{
     }
     //任务结果详情页
     public function taskResultInfo($id){
-        ession_start();
+        session_start();
         if(isset($_SESSION['name'])) {
             $task_result = TaskResult::where('task_result_id',$id)->first();
+            $picture = TaskPicture::where('task_id',$task_result->task_id)->get();
 
-            return view('/didi/task_result_info',['task_result' => $task_result]);
+            return view('/didi/task_result_info',['task_result' => $task_result ,'pictures' => $picture]);
         }
         else{
             return Redirect::intended('/didi/login');
